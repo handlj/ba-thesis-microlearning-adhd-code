@@ -1,0 +1,21 @@
+
+Python Crash Course A
+=====================
+
+Variablen, Datentypen, Casting von Datentypen, Kommentare, Output (print),
+"None", Boolean, Vergleichsoperatoren, Logische Operatoren, Operator Precedence
+
+
+Python Crash Course C
+=====================
+
+for-loops (+break, continure, pass), Datenstrukturen (Sets & Dicts),
+Funktionen (return values, parameters)
+
+
+Python Crash Course D
+=====================
+
+User Input, Casting (Analog PCC A), while-loops, functions (arguments, errors, verschachteln),
+Scoping (local vs. global variables)
+
