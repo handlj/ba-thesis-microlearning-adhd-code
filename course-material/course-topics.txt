@@ -6,6 +6,14 @@ Variablen, Datentypen, Casting von Datentypen, Kommentare, Output (print),
 "None", Boolean, Vergleichsoperatoren, Logische Operatoren, Operator Precedence
 
 
+Python Crash Course B
+=====================
+
+if-else statements, indentation, schachtelung, 
+lists (add, delete, index, slice, statistics etc.), tuples,
+for-loops basics (range, enumerate)
+
+
 Python Crash Course C
 =====================
 
