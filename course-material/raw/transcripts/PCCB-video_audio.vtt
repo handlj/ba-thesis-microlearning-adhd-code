@@ -1,0 +1,2879 @@
+WEBVTT
+
+00:00.000 --> 00:19.000
+Herzlich Willkommen zum Bison Crash Course B und ja, ich starte dann gleich mal was wir heute oder was wir gestern gemacht haben, zur Wiederholung nochmal, also wir haben da bisschen die Variablen durchgemacht,
+
+00:20.000 --> 00:43.000
+also zwei Datentypen, die Operatoren plus, minus, Division, Multiplikation, Strings, wie man Strings zu Integers und Floats castet und umgekehrt und nochmal Assignment 0, also heute ist Deadline, bitte alle Assignment 0 abgeben, sonst werdet ihr vom Kurs abgemeldet.
+
+00:44.000 --> 00:55.000
+Ich starte jetzt gleich den Feedbacker, dann könnt ihr mir da toll die Fragen beantworten.
+
+00:55.000 --> 01:21.000
+So, ich glaube eine Frage könnte ein bisschen schwerer sein oder zwei, aber ist egal, versucht einfach und dann diskutieren wir.
+
+01:26.000 --> 01:45.000
+Dann gehen wir mal gemeinsam eure Antworten durch, schaue ich, ob ich da meinen Mauszeiger finde oder nicht, ja.
+
+01:45.000 --> 02:14.000
+Okay, also falls ihr noch erinnern könnt, bei den Variablenamen ist so, die dürfen nicht mit einer Zahl beginnen, deshalb ist zum Beispiel das 1 unter Strich Message ungeltig, es dürfen noch keine Leerzeichen zwischen den Variablenamen vorkommen, deshalb ist auch short Leerzeichen name ungeltig.
+
+02:16.000 --> 02:34.000
+Und das letzte ist auch ungeltig, weil Sonderzeichen leider auch nicht erlaubt sind, es sind nur Anderskurs aus Sonderzeichen erlaubt und eben sonst Zahlen zwischen den, also zwischen im Variablenamen aber nicht am Anfang.
+
+02:35.000 --> 02:54.000
+Generell solltet ihr überhaupt versuchen Zahlen in Variablenamen zu vermeiden, ist natürlich praktisch und geht schnell, also vielleicht bei den Abgaben schauen, dass ihr da keine Zahlen drin habt, aber sonst, wenn ihr einfach so codet, kein Problem.
+
+02:55.000 --> 02:57.000
+Gibt es da sonst Fragen?
+
+02:59.000 --> 03:00.000
+Ja.
+
+03:00.000 --> 03:13.000
+Die Zahl muss man nicht ausschreiben, man kann auch wirklich eine 1 reinschreiben, sie darf nur nicht am Anfang sein wie bei 1 Anderskurs Message.
+
+03:14.000 --> 03:40.000
+Da hat mir eben ja hartlich richtig abgestimmt, genau also es ist so, dass praktisch H1 mit dem Wert von H2 in der letzten Zeile überschrieben wird und wir deshalb praktisch dann den Wert 5 drinstehen haben.
+
+03:41.000 --> 03:48.000
+Genau, gibt es da sonst noch Fragen drüber?
+
+03:50.000 --> 04:03.000
+Also die unter zwei Antwortmöglichkeiten sind okay, das sind hier nicht Strings, aber das sind einfach nur, kann man das interpretieren als Variable.
+
+04:04.000 --> 04:16.000
+Ja, pass H2, könnte man richtig gelten, wenn man meint okay, ja das ist der Wert von H2, 5 ist halt korrekt in diesem Fall.
+
+04:19.000 --> 04:29.000
+Ja, das ist auch eine Tricksfrage, wir haben bei Bullians Tag gar nicht durchgemacht, das werden wir heute nochmal kurz durchmachen, ich habe gestern ein bisschen erwähnt.
+
+04:30.000 --> 04:38.000
+Hier gefragt speziell ist der Datentyp und nicht der Wert der Variable, deshalb ist Bullian richtig.
+
+04:42.000 --> 04:57.000
+Dadurch, dass wir das nicht wirklich durchgemacht haben, ist es natürlich ein bisschen schwer verständlich, aber praktisch dieses H kleiner als 15 ist praktisch ein Ausdruck, der eben wahr oder falsch ergibt.
+
+04:59.000 --> 05:05.000
+Aber der Datentyp von diesem Konstrukt ist praktisch ein Bullian.
+
+05:07.000 --> 05:09.000
+Gibt es da zu fragen?
+
+05:10.000 --> 05:12.000
+Okay, sonst machen wir hier dann gleich durch.
+
+05:13.000 --> 05:20.000
+Ja, das Titel haben wir glaube ich auch nur kurz drüber geskippt gestern.
+
+05:21.000 --> 05:31.000
+Titel ist eben eine Funktion, die immer den Großbuchstaben von einem Wort, den ersten Buchstaben eines Wortes groß macht.
+
+05:32.000 --> 05:35.000
+Hier seht ihr den ersten Antwort, die auch richtig ist.
+
+05:37.000 --> 05:41.000
+Zum Beispiel Informatik-BW, ganz groß geschrieben, das wäre zum Beispiel Appa.
+
+05:49.000 --> 05:53.000
+Dann gibt es natürlich auch das ungekehrte Lower.
+
+05:53.000 --> 06:05.000
+Zyntax error gibt es in diesem Fall nicht, weil ja praktisch den Code korrekt geschrieben haben.
+
+06:14.000 --> 06:16.000
+Gibt es da zu fragen?
+
+06:16.000 --> 06:24.000
+Die ganzen Stringfunktionen oder halt Großstelle Stringfunktionen, das sind jetzt auch in der Vorlesungsfolie von gestern enthalten.
+
+06:24.000 --> 06:32.000
+Die sollten jetzt online im D-Center, tut greifbar sein, hoffentlich, sonst meldet ihr euch bitte.
+
+06:40.000 --> 06:42.000
+Genau, da gibt es jetzt auch mehrere Antworten.
+
+06:43.000 --> 06:52.000
+Hier diese Antwort ist falsch, weil wir keinen String mit einem Integer kombinieren können, was leider ein Fehler wirft.
+
+06:53.000 --> 06:57.000
+Wir können natürlich zwei Strings kombinieren, das ist kein Problem.
+
+06:59.000 --> 07:08.000
+Hier können wir ein Format-String verwenden, das heißt praktisch hier haben wir dieses F davor und dann in den geschwungenen Klammern haben wir den variablen Namen stehen
+
+07:09.000 --> 07:18.000
+und dann wird praktisch der Wert dieser Variable hier reingeschrieben und die geschwungenen Klammern sind einfach praktisch irgendwann ignoriert.
+
+07:22.000 --> 07:32.000
+Genau, das ist einfach eine andere Anwendung von Format-Strings und hier auch nochmal eine andere Anwendung von Format-Strings.
+
+07:32.000 --> 07:34.000
+Gibt es da zu fragen?
+
+07:39.000 --> 07:59.000
+Okay, ja, das haben wir eh gestern durchgemacht, diese Antwort hier würde praktisch das hier liefern, also wenn wir uns das nochmal vorstellen,
+
+08:00.000 --> 08:12.000
+dann haben wir die Indizierung 0, 1, 2, 3, 4, 5 und 6.
+
+08:15.000 --> 08:24.000
+Dann ist die Zahl vor dem Doppelpunkt der Start, das heißt der ist inklusive, also von hier.
+
+08:25.000 --> 08:32.000
+Und nach dem Doppelpunkt haben wir gar keine Zahl, das heißt es geht bis ans Ende, das heißt wir würden Unterstrich-Gradz kriegen.
+
+08:33.000 --> 08:44.000
+Und das letzte wäre praktisch von 0 bis 1, das wäre praktisch 1 ist also das Ende sehr immer explosiver, das heißt wir haben nur 0 bis 0 und das wäre in diesem Fall ein T.
+
+08:46.000 --> 08:48.000
+Gibt es da zu fragen?
+
+08:49.000 --> 08:50.000
+Okay.
+
+08:54.000 --> 09:15.000
+Hier wieder ein großer Richtig, hier sind auch wieder zwei einfach nur Strings, Trickfragen oder Antworten drin, wie immer praktisch man kann nicht Strings mit Integer kombinieren,
+
+09:15.000 --> 09:17.000
+dann müsste man davor kasten.
+
+09:17.000 --> 09:25.000
+So, dann noch so von der Frage.
+
+09:26.000 --> 09:38.000
+Dabel gibt es, wenn ich mir richtig erinnere, nicht, also nicht, es gibt Bibotheken, die das ermöglichen, die praktisch mehr Datentypen zur Verfügung stellen,
+
+09:39.000 --> 09:48.000
+die praktisch eine Schnittstelle zwischen zum Beispiel C und Pfeifen liefern, zum Beispiel eine der bekanntesten ist NumPy.
+
+09:55.000 --> 10:00.000
+Die einem praktisch eine schnellere Berechnung ermöglicht.
+
+10:04.000 --> 10:05.000
+Genau.
+
+10:06.000 --> 10:08.000
+Wie läuft die Vorprogrammierung ab?
+
+10:08.000 --> 10:13.000
+Ist es schwierig, was passiert, wenn der Code nicht funktioniert, aber der Code fast richtig programmiert wurde, danke.
+
+10:13.000 --> 10:20.000
+Ja, es ist so, ihr habt ja ja wenig Zeit und deshalb auch wenig Zeit zum Testen.
+
+10:20.000 --> 10:34.000
+Es ist da kein Problem, falls der Code nicht funktioniert, also die Totoren gehen da wirklich alle Abgaben manuell durch und schauen, ob praktisch das Großteil richtig verstanden wurde.
+
+10:35.000 --> 10:48.000
+Also, wenn man da jetzt mal Karnung kurz einen irgendeinen Fehler übersehen hat, dann ist das jetzt nicht so problematisch.
+
+10:50.000 --> 10:58.000
+Schwierig ist es, wenn man jetzt nicht übt, also das ist praktisch waschologisch,
+
+10:58.000 --> 11:07.000
+aber also ich würde wirklich raten, dass ihr bei den Tutorien ein bisschen mitmacht und da die Übungen praktisch ausarbeitet.
+
+11:08.000 --> 11:16.000
+Ich glaube, heute sollte das erste Video online gestellt werden, da wird es eh sicher noch eine E-Mail kriegen dazu.
+
+11:17.000 --> 11:35.000
+Ihr habt da praktisch, das läuft dann so ab, dass ihr eine Aufgabenstellung kriegt, die könnt ihr dann für 10 Minuten mal durchlesen und euch auf ein Zettel Papier normalerweise niederschreiben und Gedanken euch darüber über das Programm machen, was ihr da programmieren müsst.
+
+11:36.000 --> 11:53.000
+Ihr dürft da in diesen ersten 10 Minuten, wo ihr les praktisch nicht selber was schreiben, direkt auf im JupyterLab, sondern nur vom Papier, also nicht auf dem Computer, damit ihr das nicht einfach dann kopieren könnt, damit ihr euch nicht dann vorteilfach schafft gegenüber anderen.
+
+11:54.000 --> 12:00.000
+Und dann habt ihr glaube ich nochmal eine halbe Stunde Zeit, um das zu programmieren.
+
+12:01.000 --> 12:03.000
+Gibt es dazu Fragen?
+
+12:07.000 --> 12:10.000
+Ihr braucht kein GitHub für WS Code.
+
+12:16.000 --> 12:18.000
+Genau, ich sende noch drei Fragen. Perfekt.
+
+12:22.000 --> 12:24.000
+Dann starte ich weiter.
+
+12:24.000 --> 12:31.000
+Genau, was machen wir heute? Also die Besprechung von Feedback haben wir schon eh schon gemacht.
+
+12:32.000 --> 12:37.000
+Ich werde nochmal kurz das Nankie-Wert wiederholen, falls das bisher nicht ganz klar war.
+
+12:38.000 --> 12:40.000
+Booleans gehen wir kurz durch.
+
+12:41.000 --> 12:50.000
+Und dann gehen wir eh schon in eigentlich die komplizierten Dinge im Beifen, das sind die Bedingungen, also if, if else, if, if else.
+
+12:51.000 --> 12:57.000
+Lists, Duples und die Vorschleifen, die wir hoffentlich heute noch schaffen.
+
+12:59.000 --> 13:05.000
+Passt nochmal kurz zum Nankie-Wert, also hat das jeder verstanden oder soll ich das nochmal wiederholen?
+
+13:07.000 --> 13:13.000
+Also das Nankie-Wert braucht man vor allem dann jetzt, wenn wir dann ifs verwenden und vor loops,
+
+13:14.000 --> 13:19.000
+damit wir dann praktisch davor schon die, den variablen Namen definiert haben.
+
+13:20.000 --> 13:23.000
+Wie hier zum Beispiel x ist gleich nann.
+
+13:24.000 --> 13:29.000
+Das wird dann gleich klar, warum wir das eben brauchen.
+
+13:31.000 --> 13:33.000
+Vielleicht kann ich das eh kurz herzeigen.
+
+13:34.000 --> 13:39.000
+Und zwar muss man sich das so vorstellen, dass im Beifen hat man alles so in Blöcke unterteilt.
+
+13:39.000 --> 13:43.000
+Das heißt, wenn ich hier meine Variable hab
+
+13:49.000 --> 13:52.000
+und dann habe ich meinen if Statement, dazu kommen wir dann eben gleich,
+
+13:57.000 --> 13:59.000
+dann wird hier eingerückt
+
+13:59.000 --> 14:10.000
+und das ist jetzt ein innerer Block, der praktisch nur Teil dieses if Statements ist.
+
+14:12.000 --> 14:20.000
+Das heißt, wenn wir zum Beispiel hier dann print ausführen würden,
+
+14:20.000 --> 14:35.000
+in diesem Fall würde es 5 ausgeben, weil if war, also wenn war, dann schrei mal x ist gleich 5, also ist das 5.
+
+14:36.000 --> 14:39.000
+Aber wenn das jetzt zum Beispiel false wäre
+
+14:43.000 --> 14:49.000
+und wir zum Beispiel hier x nicht definiert hätten, dann würde uns Beifen hier einen Fehler werfen.
+
+14:50.000 --> 14:59.000
+Aber dadurch, dass wir x hier definiert haben, kommt da einfach dann nann als Antwort raus.
+
+15:00.000 --> 15:06.000
+Also der Unterschied ist, ob wir nann als ausgegeben kriegen oder ob wir einen Fehler ausgegeben kriegen,
+
+15:07.000 --> 15:13.000
+der praktisch unser Programm abrupt verenden würde, was wir natürlich verhindern wollen.
+
+15:13.000 --> 15:18.000
+Dann kommen wir jetzt eh gleich mal zu diesen Bullschen ausdrücken.
+
+15:19.000 --> 15:24.000
+Den Namen haben wir eben, diesen George Bull, da zu verrankten.
+
+15:25.000 --> 15:37.000
+Und Bullians sind praktisch sehr simple Datentypen, die entweder nur 0 oder 1 sein können, also war oder falsch.
+
+15:38.000 --> 15:42.000
+Und im Beifen definieren wir die eben als true oder false.
+
+15:45.000 --> 15:49.000
+Und das kann eben sowas sein.
+
+15:50.000 --> 15:56.000
+Und zwar ist das hier in diesem Fall 2 plus 2 ist 4, ist kleiner als 4.
+
+15:58.000 --> 16:03.000
+Und das ist natürlich falsch, weil 4 ist gleich 4.
+
+16:04.000 --> 16:17.000
+Das heißt, wir haben diese Vergleichsoperatoren, die uns eben Bullians ermöglichen oder praktisch ausgeben.
+
+16:18.000 --> 16:22.000
+Und da gibt es ganz verschiedene Vergleichsoperatoren, da haben wir einmal dieses ist gleich,
+
+16:23.000 --> 16:27.000
+dann haben wir das ist nicht gleich, das größer als, das kleiner als,
+
+16:27.000 --> 16:31.000
+dann auch kleiner gleich als, größer gleich als.
+
+16:32.000 --> 16:36.000
+Und dann haben wir noch 2 spezielle, das ist das ist und das ist nicht.
+
+16:37.000 --> 16:39.000
+Das sollte ich vielleicht auch noch kurz erklären.
+
+16:45.000 --> 16:48.000
+Ich habe das gestern kurz erwähnt, dass eine Variable,
+
+16:49.000 --> 16:55.000
+die ist praktisch eigentlich nur so eine Art Label für eine Adresse irgendwo.
+
+16:56.000 --> 17:03.000
+Also die, der Computer sieht die eigentlich eher so, F, A, 0, B.
+
+17:04.000 --> 17:14.000
+Einfach ein Hexatezimaladresse und da steht dann der Wert 5 drin, wenn wir da zum Beispiel 5.
+
+17:15.000 --> 17:20.000
+Also das hier benennen wir einfach X.
+
+17:22.000 --> 17:28.000
+Und jetzt können wir eben, das war auch bei einer der Antworten oder einer der Fragen,
+
+17:29.000 --> 17:35.000
+bei dem Feedback gerade davor, was wenn wir jetzt sagen Y ist gleich X.
+
+17:35.000 --> 17:45.000
+Dann ist einerseits der Wert gleich, aber Y hat auch die gleiche Adresse hier.
+
+17:46.000 --> 17:54.000
+Und das ist eigentlich der große Unterschied für zwischen dem hier und ist,
+
+17:55.000 --> 18:04.000
+der hier vergleicht nur die Werte und der vergleicht die Adresse.
+
+18:05.000 --> 18:22.000
+Das heißt, wir können daraus finden, ob die Variable auf die selbe Adresse zeigt, wie die andere Variable.
+
+18:23.000 --> 18:28.000
+Gibt es dazu Fragen oder ist es, ja, okay.
+
+18:30.000 --> 18:32.000
+Das Gleiche geht natürlich auch mit IsNot.
+
+18:33.000 --> 18:36.000
+Speziell ist da auch das Nann Keyword.
+
+18:37.000 --> 18:47.000
+Und zwar machen wir beim Nann, also wenn wir Nann schauen wollen, ist X, da machen wir immer IsNann.
+
+18:50.000 --> 18:58.000
+Und nicht, ist gleich, ist gleich.
+
+19:02.000 --> 19:04.000
+Das liegt darin, dass Nann ein bisschen speziell ist.
+
+19:05.000 --> 19:12.000
+Das ist ein eigener Datentyp, der immer wirklich eine eigene spezielle Adresse hat und wirklich unfreinderbar ist.
+
+19:13.000 --> 19:14.000
+Das ist eben sowas wie eine Konstante.
+
+19:17.000 --> 19:22.000
+Genau, und wir bekommen da immer ein True oder False raus, also ein Wow oder Falsch.
+
+19:24.000 --> 19:28.000
+Und da gibt es dann in Python verschiedene Operatoren.
+
+19:28.000 --> 19:31.000
+Da haben wir zum Beispiel das Ohr, das End und das Not.
+
+19:32.000 --> 19:33.000
+Das sind eigentlich eh die wichtigsten.
+
+19:34.000 --> 19:43.000
+Das heißt praktisch, ich kann dann hier in meinem If rein, if X ist Nann, direkt Ohr schreiben.
+
+19:52.000 --> 19:53.000
+Und dann werden die verodert.
+
+19:54.000 --> 19:58.000
+Und wie das praktisch, was der Unterschied zwischen Ohr, End und Not ist, kommen wir gleich.
+
+19:59.000 --> 20:06.000
+Wichtig zu wissen ist, dass zuerst ist immer die Verneinung, dann das End und dann das Ohr.
+
+20:08.000 --> 20:10.000
+Also von der Ausführung.
+
+20:23.000 --> 20:46.000
+So was hab, dann wird zuerst das hier ausgeführt, dann das hier und dann ganz am Schluss noch das Ohr.
+
+20:46.000 --> 21:04.000
+Genau, also End haben wir, also wenn wir zwei Sachen verunden, dann ist das Ergebnis nur true, falls beide Sachen wahr sind.
+
+21:05.000 --> 21:10.000
+Bei Ohr muss nur eines der beiden Sachen wahr sein und Not ist einfach eine Verneinung praktisch.
+
+21:10.000 --> 21:16.000
+Wenn unser Bullenwert wahr war, dann mit Not ist es jetzt falsch.
+
+21:21.000 --> 21:24.000
+Und das schaut dann eben so aus, da gibt es eine tolle Wahrheitstabelle.
+
+21:25.000 --> 21:31.000
+Das heißt einfach, wir haben hier true, true ergibt bei und true und der Rest eigentlich immer false.
+
+21:32.000 --> 21:36.000
+Bei Ohr ergibt praktisch eigentlich nur false, false, false.
+
+21:37.000 --> 21:45.000
+Weil wir hier immer einen Wahrheitswert haben und das ist einfach die Regierung.
+
+21:46.000 --> 21:47.000
+Gibt es da zu fragen?
+
+21:52.000 --> 21:57.000
+Dann noch kurz vielleicht zu den anderen Operatoren, also wir sehen hier eh schon Ohr, End und Not,
+
+21:58.000 --> 22:00.000
+aber das sind eigentlich die, die ganz zum Schluss ausgeführt werden.
+
+22:01.000 --> 22:09.000
+Also wenn man praktisch, sagen wir mal, wir machen wirklich eine ultra lange, einen Einzeiler, wie man das so schön nennt.
+
+22:10.000 --> 22:27.000
+Zum Beispiel machen wir 2 hoch 2, dann multiplizieren wir das mit 2, dann noch plus 2 und so weiter und so fort.
+
+22:27.000 --> 22:33.000
+Dann wird praktisch zuerst das hier ausgeführt, dann das hier, dann das hier und so weiter und so fort.
+
+22:34.000 --> 22:39.000
+Praktisch ganz unten ist das, was zuerst ausgeführt wird und dann geht es nach oben, was zuletzt ausgeführt wird.
+
+22:41.000 --> 22:46.000
+Hier gibt es eben noch so spezielle Operatoren wie ADD, das ist zum Beispiel eine Matriz-Multiplikation,
+
+22:47.000 --> 22:51.000
+aber das glaube ich, würde ich in dieser Folie schon ja nicht brauchen.
+
+22:52.000 --> 22:58.000
+Genau, Division, Ganzzahldivision und Modulo oder halt Rest.
+
+22:59.000 --> 23:09.000
+Plus Minus, dann gibt es noch so Bit-Operatoren, damit kann man Bits verschieben.
+
+23:10.000 --> 23:16.000
+Das kann man sich so vorstellen, dass in Wirklichkeit, wenn praktisch alle Daten,
+
+23:16.000 --> 23:21.000
+nehmen wir jetzt mal zum Beispiel eine Ganzzahl, einen Integer her,
+
+23:22.000 --> 23:27.000
+dann wird der eigentlich intern vom Computer in Benärzahl repräsentiert.
+
+23:28.000 --> 23:40.000
+Das heißt, wir haben 1, 2, 4, das heißt, wir haben 1, 0, 1, das ist unsere Benärzahl.
+
+23:40.000 --> 23:52.000
+Und mit dieser Schiftooperation, zum Beispiel 2, kann man das Ganze eben nach vorne schiften.
+
+23:53.000 --> 23:56.000
+Das heißt, wir haben dann 1, 0, 1, 0, 0 stehen.
+
+23:58.000 --> 24:05.000
+Und das ist dann für die ganz schlauen, die machen dann ganz schnelle Berechnungen damit.
+
+24:05.000 --> 24:10.000
+Aber ja, das ist auch nicht so etwas, was ihr wahrscheinlich in der Vorlösung hier brauchen wird.
+
+24:12.000 --> 24:15.000
+Aber ja, falls man wirklich tiefer in die Materie einsteigen will,
+
+24:16.000 --> 24:22.000
+dann muss man sich vertraut sein, dass also mit diesen Bits, mit diesen Benäherzahlen,
+
+24:23.000 --> 24:29.000
+praktisch sollte man sich auskennen, aber ja, gibt es dazu Fragen sonst?
+
+24:30.000 --> 24:34.000
+Stimmt, ich glaube, Benärzahlen wird sogar gemacht in der Vorlösung,
+
+24:35.000 --> 24:36.000
+da später.
+
+24:38.000 --> 24:43.000
+Passt, dann kommen wir jetzt zu den If-Statements, ich habe sie schon kurz da gezeigt.
+
+24:44.000 --> 24:52.000
+Und zwar ist das einfach, wenn Bedingung erfüllt ist, dann mach das.
+
+24:53.000 --> 25:00.000
+Also wir haben hier, if die Bedingung hier, hier habe ich jetzt zum Beispiel X ist Nann,
+
+25:01.000 --> 25:03.000
+dann print mir das.
+
+25:06.000 --> 25:08.000
+Sonst wird es einfach übersprungen.
+
+25:11.000 --> 25:17.000
+Und hier wichtig für euch ist, dass ihr schaunst sollst, dass ihr immer 4 Leerzeichen eingerückt seid.
+
+25:18.000 --> 25:22.000
+Wenn ihr wischlst, du dir kurz zum Beispiel verwendet fürs Programmieren, dann könnt ihr glaube ich auch einfach Tab drücken
+
+25:23.000 --> 25:25.000
+und dann macht er automatisch 4 Leerzeichen.
+
+25:27.000 --> 25:32.000
+Ich sollte da auf jeden Fall schauen, dass das eben 4 sind und nicht 2 und eben auch kein Tab.
+
+25:35.000 --> 25:37.000
+Genau, gehen wir da kurz noch weiter.
+
+25:39.000 --> 25:46.000
+Genau, hier zum Beispiel sieht man das, hier haben wir die Bedingung, wenn die erfüllt ist, dann wird das ausgeführt.
+
+25:47.000 --> 25:54.000
+Falls wir aber nicht diese Bedingung erfüllen, dann wird das übersprungen, weil das praktisch hier eingerückt ist in einem Block.
+
+25:55.000 --> 26:04.000
+Und wir gehen zu der nächsten Anweisung, die praktisch hier auf derselben Block-Intentation ist, also Einrückung ist.
+
+26:06.000 --> 26:14.000
+Genau, und dann gibt es natürlich auch, wenn dann und dann sonst, also das Elf.
+
+26:17.000 --> 26:25.000
+Hier im diesen Fall wird das hier immer ausgeführt, aber wir können das natürlich auch anders machen.
+
+26:26.000 --> 26:31.000
+Wir können das sagen, okay, wir wollen das nur ausführen, falls die Kondition nicht erfüllt ist.
+
+26:31.000 --> 26:36.000
+Das heißt, wir machen, wenn die Kondition erfüllt ist, dann bringt mir das.
+
+26:37.000 --> 26:39.000
+Falls ihr aber nicht erfüllt ist, machen wir was anderes.
+
+26:41.000 --> 26:47.000
+Und das kann man natürlich noch erweitern und also hier nochmal kurz wiederholen.
+
+26:49.000 --> 26:58.000
+Dann gibt es nämlich noch das Elf dazwischen und das ist praktisch dann, wenn dann, sonst wenn dann.
+
+26:59.000 --> 27:01.000
+Und dann ganz zum Schluss sonst.
+
+27:02.000 --> 27:07.000
+Das heißt praktisch, wir haben hier, da kann man da ja, ein Kotbeispiel hier.
+
+27:08.000 --> 27:16.000
+Das heißt, wir haben hier, falls unsere Kondition erfüllt ist, machen wir das, falls sie nicht erfüllt ist, schauen wir die nächste Kondition an.
+
+27:17.000 --> 27:20.000
+Okay, die ist auch nicht erfüllt, dann schauen wir die nächste Kondition an.
+
+27:21.000 --> 27:25.000
+Okay, die scheint auch nicht zu erfüllt sein, dann bleibt nur noch das übrig, dann wird das ausgeführt.
+
+27:26.000 --> 27:32.000
+Falls wir irgendwo dazwischen landen, falls diese Kondition erfüllt ist, dann wird das ausgeführt, das hier wird aber nicht mehr ausgeführt.
+
+27:34.000 --> 27:38.000
+Ist das bis jetzt so verständlich oder gibt es Fragen?
+
+27:40.000 --> 27:49.000
+Okay. Wichtig ist, so was ist nicht gleich wie das her.
+
+27:50.000 --> 27:59.000
+Hier im diesem Fall ist es halt wirklich so, dass wir zuerst diese Kondition schauen und wenn die nicht erfüllt ist, dann gehen wir die nächste rein.
+
+28:00.000 --> 28:02.000
+Das ist praktisch alles ein zusammenhängender Block.
+
+28:03.000 --> 28:08.000
+Hier im diesem Fall, das sind alles getrennte Statements.
+
+28:09.000 --> 28:17.000
+Das heißt praktisch, wenn diese Kondition erfüllt ist, dann wird das hier gemacht, dann wird aber auch gleich diese Kondition angeschaut.
+
+28:17.000 --> 28:20.000
+Und falls die auch erfüllt ist, dann wird das ja auch ausgebrintet.
+
+28:21.000 --> 28:22.000
+Also hier in diesem Fall ist das nicht der Fall.
+
+28:23.000 --> 28:27.000
+Also wenn wir hier diese Kondition erreicht haben, dann wird der Rest hier nicht mehr ausgeführt, hier aber schon.
+
+28:35.000 --> 28:37.000
+Genau, dann nochmal zu den Intendation Rules.
+
+28:38.000 --> 28:44.000
+Also ich sollte da beachten, dass ihr immer vier Leerzeichen zur Einrückung verwendet, keine Daps.
+
+28:44.000 --> 28:49.000
+Also ich glaube, wir wischen, dass du dir kurz halt das eher automatisch auf vier Leerzeichen gehen.
+
+28:50.000 --> 28:52.000
+Falls nicht, kann man das umstellen.
+
+28:53.000 --> 28:57.000
+Genau, es ist eigentlich sehr ähnlich wie bei PowerPoint hier.
+
+28:58.000 --> 29:00.000
+Also wir haben hier der Block.
+
+29:01.000 --> 29:06.000
+Also hier haben wir eine List Entry und dann haben wir hier eine Einrückung.
+
+29:06.000 --> 29:15.000
+Und praktisch der ganze Teil hier gehört zu diesem Statement hier.
+
+29:16.000 --> 29:18.000
+Und dann gehen wir hier wieder raus.
+
+29:20.000 --> 29:22.000
+Gibt es dazu Fragen?
+
+29:23.000 --> 29:24.000
+Okay.
+
+29:26.000 --> 29:31.000
+Wichtig ist da, dass ihr auch immer schauen soll, dass also wenn ihr Code schreibt
+
+29:31.000 --> 29:37.000
+und ihr da zum Beispiel ein Leerzeichen macht,
+
+29:43.000 --> 29:48.000
+dann wird es euch also hier in diesem Fall noch, glaube ich, keinen, ah doch, hier wird es ja schon einen Fehler werfen,
+
+29:49.000 --> 29:53.000
+weil ihr hier die Einrückung nicht beachtet habt.
+
+29:54.000 --> 29:59.000
+Das heißt, hier müsst ihr immer schauen, dass die Sachen an der gleichen Einrückung starten.
+
+30:02.000 --> 30:04.000
+Sonst kommt es zu diesen Intentation Errors.
+
+30:05.000 --> 30:09.000
+Also wenn ihr das hier seht, dann wisst ihr, okay, irgendwo habe ich ein Leerzeichen bei meiner Einrückung vergessen.
+
+30:10.000 --> 30:14.000
+Meistens wird es eh schon rot markiert, also nur, dass ihr es wisst.
+
+30:15.000 --> 30:20.000
+Falls dieser Fehler kommt, dann ist es wahrscheinlich irgendein Problem mit einem Leerzeichen hier.
+
+30:20.000 --> 30:23.000
+Und diese Codeblöcke sind beliebig schachtelbar.
+
+30:24.000 --> 30:28.000
+Also ich weiß nicht, manche von euch haben eh schon bisschen Programmieren gehabt in der Schule.
+
+30:29.000 --> 30:32.000
+Es ist bei anderen Programmiersprachen ein bisschen anders.
+
+30:33.000 --> 30:38.000
+Da kann man zum Beispiel Klammern verwenden, die eben diese Blöcke für euch definieren.
+
+30:39.000 --> 30:41.000
+Im Beifen ist aber wirklich alles einfach so mit Leerzeichen gemacht.
+
+30:41.000 --> 30:47.000
+Das heißt, eine Vor- und Nachteile, also Nachteile ist, dass man halt sehr viele Leerzeichen schreiben muss.
+
+30:48.000 --> 30:54.000
+Also normalerweise werden die je automatisch gemacht, aber halt der Code hat dann insgesamt dann sehr viele Leerzeichen.
+
+30:55.000 --> 30:58.000
+Wenn man das natürlich jetzt mit Java oder C vergleicht, wenn man dann praktisch,
+
+30:59.000 --> 31:02.000
+wir sagen noch auch noch einen Strich, dann ist es einfach so.
+
+31:02.000 --> 31:06.000
+Aber ja, wie gesagt, einfach immer diese Leerzeichen verwenden.
+
+31:07.000 --> 31:12.000
+Und da kann man eben ifs in ifs schreiben, ifs, if else in ifs schreiben.
+
+31:13.000 --> 31:15.000
+Also es ist da beliebig machbar.
+
+31:16.000 --> 31:19.000
+Und ja, wenn man das natürlich jetzt mit Java oder C vergleicht,
+
+31:20.000 --> 31:23.000
+wenn man dann praktisch noch noch einen Strichpunkt Diamente hat,
+
+31:24.000 --> 31:26.000
+dann kann man alles in einer Zeile schreiben.
+
+31:27.000 --> 31:29.000
+Das ist ein bisschen anders.
+
+31:29.000 --> 31:36.000
+Und ja, wichtig da zu wissen, ist eben, dass der Teil wird da nur ausgeführt,
+
+31:37.000 --> 31:39.000
+falls der Teil ausgeführt wird.
+
+31:40.000 --> 31:42.000
+Das heißt praktisch, dass dieses Print wird nur ausgeführt,
+
+31:43.000 --> 31:48.000
+falls die Berter jünger ist als dieses maximale Age hier
+
+31:49.000 --> 31:53.000
+und das maximale Age kleiner ist als das Alter vom Beta.
+
+31:53.000 --> 31:59.000
+Das heißt, wenn hier gar keine Konditionen richtig wären,
+
+32:00.000 --> 32:05.000
+dann hätte man dieses Printstatement hier am Ende.
+
+32:06.000 --> 32:08.000
+Gibt es da so Fragen?
+
+32:10.000 --> 32:11.000
+Okay.
+
+32:12.000 --> 32:15.000
+Ich glaube, ich würde da mal kurz das überspringen.
+
+32:17.000 --> 32:19.000
+Dann kommen wir eigentlich eh schon zu den Listen.
+
+32:23.000 --> 32:28.000
+Und Listen sind auch eigentlich, also das haben wir, glaube ich,
+
+32:29.000 --> 32:31.000
+eh gestern schon ein bisschen durchgemacht mit den Strings.
+
+32:32.000 --> 32:34.000
+Also es ist sehr ähnlich zu den Strings.
+
+32:35.000 --> 32:40.000
+Listen sind nur noch praktisch noch viel stärker.
+
+32:41.000 --> 32:43.000
+Praktisch, wir können da nicht nur einzelne Characters speichern,
+
+32:44.000 --> 32:47.000
+wie wir hier haben, sondern wir können da wirklich ganze Elemente speichern.
+
+32:47.000 --> 32:51.000
+Und wir können diese auf diese Elemente zugreifen und verändern.
+
+32:54.000 --> 32:57.000
+Und genau, also das Wichtigste mal zuerst,
+
+32:58.000 --> 33:02.000
+wir haben praktisch am Anfang diese eckigen Klammern.
+
+33:03.000 --> 33:04.000
+Also das definiert ein Listen-Typ.
+
+33:05.000 --> 33:07.000
+Das könnt ihr auch mal kurz probieren, also das ist einfach...
+
+33:10.000 --> 33:15.000
+Es sollte da auch bei den variablen Benennungen praktisch vermeiden,
+
+33:15.000 --> 33:18.000
+dass ihr List, das Keyword List zum Beispiel verwendet.
+
+33:19.000 --> 33:24.000
+Also List ist nämlich schon eigentlich vergeben als Keyword,
+
+33:25.000 --> 33:29.000
+weil ihr praktisch damit zum Beispiel auch eine Liste definieren könnt.
+
+33:31.000 --> 33:35.000
+Aber ihr könnt ruhig das deutsche Wort verwenden, zum Beispiel Liste.
+
+33:37.000 --> 33:40.000
+Und das hier wird zum Beispiel eine leere Liste.
+
+33:45.000 --> 33:47.000
+Diese speziellen Keywords werden euch normalerweise auch bewischt,
+
+33:48.000 --> 33:51.000
+das Studio Code und so eigentlich auch schon markiert, andersfarbig.
+
+33:52.000 --> 33:54.000
+Also da kommt ihr dann eigentlich sehr schnell drauf,
+
+33:55.000 --> 33:57.000
+dass okay, dieses Keyword scheint benutzt zu sein.
+
+33:58.000 --> 34:00.000
+So viel ergibt es da eigentlich eh nicht.
+
+34:01.000 --> 34:06.000
+Die wichtigsten sind eh List, Set und Doppel.
+
+34:12.000 --> 34:13.000
+Die sind schon vordefiniert.
+
+34:13.000 --> 34:15.000
+Weil ihr praktisch nicht nur mit diesen eckigen Klammern,
+
+34:16.000 --> 34:21.000
+sondern auch eben immer mit diesen Keyword und Klammer auf Klammer zu,
+
+34:23.000 --> 34:24.000
+das Gleiche machen könnt.
+
+34:25.000 --> 34:28.000
+Also das hier sind keine Listen, das sind andere Sachen,
+
+34:29.000 --> 34:30.000
+da kommen wir auch dazu.
+
+34:31.000 --> 34:33.000
+Sie sind sehr ähnlich zu Listen, aber keine Listen.
+
+34:36.000 --> 34:40.000
+Genau, steht eigentlich hier schon oben, das ist ja wie mit einer leeren Liste definiert.
+
+34:40.000 --> 34:43.000
+Und es ist eigentlich ziemlich ähnlich über Strings,
+
+34:44.000 --> 34:46.000
+praktisch wie greift man auf diese Elemente in einer Liste dann zu.
+
+34:47.000 --> 34:50.000
+Ganz einfach, wir verwenden wieder diesen Index.
+
+34:51.000 --> 34:54.000
+Das heißt praktisch, ich habe hier meine Liste definiert,
+
+34:55.000 --> 34:56.000
+schrabe ich noch eine Eins rein.
+
+34:57.000 --> 35:02.000
+Wenn ich da jetzt auf diese Eins zugreifen will, also auf das erste Element unserer Liste.
+
+35:02.000 --> 35:10.000
+Was schrabe ich da rein?
+
+35:11.000 --> 35:20.000
+Null, genau, weil die komischen Informatik kann mit Null beginnen mit Zählen.
+
+35:21.000 --> 35:24.000
+Das Gleiche auch, wie bei den Strings wieder,
+
+35:25.000 --> 35:27.000
+praktisch ein negativer Index fängt von hinten an zu zählen,
+
+35:28.000 --> 35:30.000
+das heißt minus 1 gibt uns das letzte Element.
+
+35:30.000 --> 35:40.000
+Speziell für Listen ist jetzt, dass wir die Sachen bearbeiten können,
+
+35:41.000 --> 35:45.000
+also eigentlich auch wie bei Strings, aber man kann dann praktisch einfach sagen,
+
+35:46.000 --> 35:49.000
+okay, ich will das erste Element hier verändern, also mal hier einfach,
+
+35:50.000 --> 35:53.000
+hier in diesem Fall Colors an der Stelle Null, also an der ersten Stelle,
+
+35:54.000 --> 35:57.000
+habe ich jetzt mal zugewiesen auf Gray.
+
+35:57.000 --> 36:01.000
+Ich kann das aber auch dann später im Code dann einfach sagen,
+
+36:02.000 --> 36:06.000
+ja, ich will da gar nicht Gray mit E schreiben, sondern anders.
+
+36:07.000 --> 36:16.000
+Und kann ich einfach später sagen, ja, ich will das mit A schreiben
+
+36:17.000 --> 36:19.000
+und dann wird dieses Element überschrieben.
+
+36:20.000 --> 36:24.000
+Das heißt, da steht da nicht mal Gray drin, mit E, sondern Gray mit A
+
+36:24.000 --> 36:30.000
+und das wird dann auch so gespeichert, also im Fortlaufen des Programms.
+
+36:31.000 --> 36:34.000
+Ihr könnt dann natürlich auch neue Elemente hinzufügen,
+
+36:35.000 --> 36:40.000
+das ist eben mit Append, wenn ihr an einer sehr speziellen Stelle der Liste
+
+36:41.000 --> 36:44.000
+irgendwo ein Element hinzufügen wollt, dann müsst ihr das mit Insert machen
+
+36:45.000 --> 36:51.000
+und mit dem Index, wo ihr an welcher Stelle das Element in der Liste haben wollt,
+
+36:51.000 --> 36:57.000
+das ist auch wieder praktisch genau wie hier auch, fängt wieder mit Null an.
+
+36:58.000 --> 37:00.000
+Gibt es da so Fragen?
+
+37:01.000 --> 37:05.000
+Okay, jetzt kann man natürlich diese hinzugefügten Elemente auch wieder löschen,
+
+37:06.000 --> 37:10.000
+man kann auch natürlich Elemente löschen, die schon vordefiniert waren,
+
+37:11.000 --> 37:15.000
+also es ist nicht so, dass man nur Elemente löschen kann, die nur hinzugefügt worden sind.
+
+37:15.000 --> 37:26.000
+Genau, man kann das mit Dell machen, das sollte man aber eher bisschen vermeiden,
+
+37:27.000 --> 37:33.000
+besser ist das Pop, weil das dann wirklich das Element dann einfach rauslöscht
+
+37:34.000 --> 37:36.000
+und weiß gar nicht, wie das ist, muss ich kurz nachschauen.
+
+37:45.000 --> 37:58.000
+Machen wir da mal eine Liste.
+
+37:59.000 --> 38:11.000
+Die einzelnen Elemente sind kommergetrennt, zur besseren Lesbarkeit könnt ihr da auch einfach Leerzeichen immer dazu machen,
+
+38:11.000 --> 38:15.000
+die sind aber nicht verpflichtend.
+
+38:16.000 --> 38:19.000
+Ich glaube für den Coding-Standard schon, also besser Leerzeichen verwenden.
+
+38:20.000 --> 38:25.000
+Das heißt, wenn ich jetzt diese Liste hier auch brinden würde, dann haben wir das so.
+
+38:26.000 --> 38:34.000
+Und jetzt lösch ich da ein Element, machen wir gleich das erste,
+
+38:34.000 --> 38:38.000
+schauen wir mal, was rauskommt.
+
+38:39.000 --> 38:43.000
+Okay, dann wird es auch wirklich gelöscht.
+
+38:44.000 --> 38:51.000
+Sag mal, Pop ist in dem Fall hilfreich, wenn ihr das Element noch verwenden wollt,
+
+38:51.000 --> 39:02.000
+das heißt, wenn ich da Liste.pop...
+
+39:03.000 --> 39:17.000
+Normalerweise, wenn man nur Pop aufruft, dann wird da nämlich, ich mach das so, das letzte Element gelöscht.
+
+39:22.000 --> 39:28.000
+Und ihr könnt das praktisch dann noch verwenden, das heißt ihr könnt dieses Pop hier,
+
+39:29.000 --> 39:34.000
+da bekommt ihr auch wirklich, also das ist wie, ich drücke die Liste und dann popt das letzte Element raus
+
+39:35.000 --> 39:37.000
+und jetzt habe ich das Element und kann damit noch was anfangen.
+
+39:38.000 --> 39:44.000
+Der Lied ist es einfach weg, also bei, mit dem Dell Keyword ist es futsch und weg ist die Post.
+
+39:44.000 --> 39:50.000
+Da ist er wirklich, also da kann ich noch machen, X ist gleich Pop.
+
+39:52.000 --> 39:55.000
+Da kann ich das einfach hier daneben noch rausbrinden.
+
+39:58.000 --> 40:04.000
+Das heißt praktisch, ich habe jetzt so mal Pop aufgerufen, das heißt, die zwei Elemente sind da rausgepoppt.
+
+40:05.000 --> 40:15.000
+Ich habe bei X das erste mal Pop aufgerufen, da wird praktisch dann das Dreier herausgedrückt
+
+40:16.000 --> 40:18.000
+und das wird dann hier in diese Variable X gespeichert.
+
+40:19.000 --> 40:23.000
+Dann rufe ich nochmal Pop auf, hier verwende ich es nicht weiter, außer für das Print.
+
+40:24.000 --> 40:29.000
+Das heißt, die Liste ist nur noch mit einem Element übrig, weil wir jetzt zwei mal Pop aufgerufen haben
+
+40:30.000 --> 40:32.000
+und in X steht drei drin.
+
+40:33.000 --> 40:36.000
+Ist das soweit verständlich oder gibt es dazu Fragen?
+
+40:48.000 --> 40:53.000
+Pop und dann gibt es auch noch Remove und Remove ist deshalb hilfreich.
+
+40:54.000 --> 40:58.000
+Also Delete, wenn wir das anschauen, dann gehen wir den speziellen Index an,
+
+40:58.000 --> 41:05.000
+aber sagen wir mal, wir wissen jetzt nicht den Index, wir wollen aber einfach einen Kanon hier in diesem Fall Gray löschen,
+
+41:06.000 --> 41:10.000
+weil wir uns die Gefahr über auf die Nerven geht, dann können wir das mit Remove machen.
+
+41:11.000 --> 41:15.000
+Das heißt, Colors hat danach kein Element mit Gray mehr drin.
+
+41:19.000 --> 41:24.000
+Und wie bei Strings können wir auch wieder die Länge von Listen erfahren, indem wir dieses Land Keyword hier verwenden.
+
+41:25.000 --> 41:32.000
+Praktisch, das kommt von Länge und damit können wir praktisch herausfinden, wie lang unser Liste ist,
+
+41:33.000 --> 41:35.000
+also wie viele Elemente wir wirklich drin haben.
+
+41:38.000 --> 41:46.000
+Und da gibt es natürlich auch wieder Index Errors, praktisch, wenn wir da wieder auf einen ungültigen Index zugreifen in Analyster,
+
+41:47.000 --> 41:54.000
+dann wird Beifen sehr unhappy sein und uns sagen, na, da kannst du nicht zugreifen, das existiert gar nicht,
+
+41:55.000 --> 42:02.000
+dann kommt so ein Index Error raus. Also falls ihr so ein Index Error sieht, also nicht indent Error, sondern ein Index Error,
+
+42:03.000 --> 42:10.000
+dann wisst ihr, okay, ich habe auf ein Element in der Liste zugegriffen, das ist nicht existierab,
+
+42:10.000 --> 42:15.000
+praktisch auf eine Index zugegriffen, der außerhalb der Länge unserer Liste ist.
+
+42:18.000 --> 42:19.000
+Genau.
+
+42:20.000 --> 42:23.000
+Und sonst eben, wenn ihr das letzte Element haben wollt, wieder mit Minus 1.
+
+42:24.000 --> 42:29.000
+Und da gibt es auch wieder das gleiche wie bei Stringslicing, das haben wir durchgemacht.
+
+42:30.000 --> 42:36.000
+Also man kann bei den Listen auch wieder das gleiche Slicing Verfahren verwenden, das heißt, man kann ja auch wieder hergehen.
+
+42:37.000 --> 42:38.000
+Und
+
+42:49.000 --> 42:55.000
+kann ich machen, L von 0 bis 2,
+
+42:56.000 --> 42:58.000
+dann bekomme ich raus, also
+
+42:58.000 --> 43:10.000
+1, 2. Also das funktioniert natürlich auch wieder.
+
+43:10.000 --> 43:21.000
+Genau, das sieht so.
+
+43:24.000 --> 43:26.000
+Genau, das habe ich jetzt gerade erinnert.
+
+43:28.000 --> 43:31.000
+Es sollte eh identisch sein wie bei Stringslicing.
+
+43:32.000 --> 43:42.000
+Genau, und wie gesagt, ein Stringslicing ist eh eigentlich nichts anderes als eine Liste mit einzelnen Buchstaben drin.
+
+43:45.000 --> 43:48.000
+Genau, dann haben wir nochmal dieses in und not in.
+
+43:49.000 --> 43:53.000
+Nein, das haben wir gar nicht gehabt, nein, wir haben das is gehabt, sorry, selber verwirrt.
+
+43:54.000 --> 44:01.000
+Und das in ermöglicht uns rauszufinden, ob ein Element in der Liste ist oder nicht.
+
+44:02.000 --> 44:06.000
+Und das ist natürlich sehr praktisch, wenn wir das Ganze mit einem if kombinieren.
+
+44:07.000 --> 44:19.000
+Das heißt, wir haben hier unser Liste L,
+
+44:20.000 --> 44:31.000
+wenn ich das sage if 1 in L,
+
+44:31.000 --> 44:36.000
+L, dann mache ich da was.
+
+44:42.000 --> 44:46.000
+Das heißt, ich kann sehr schnell rausfinden, ob ein Element in meiner Liste ist oder nicht.
+
+44:47.000 --> 44:51.000
+Ich kann das natürlich das umgekehrt auch machen mit not in, das ist praktisch einfach die Verneinung davon.
+
+44:52.000 --> 44:57.000
+Ein sehr starkes Instrument.
+
+45:06.000 --> 45:11.000
+Gestern habe ich auch kurz erwähnt bei den Strings zum Beispiel das Feind.
+
+45:12.000 --> 45:16.000
+Das gibt es natürlich auch bei Listen, wenn man wirklich den Index haben will.
+
+45:17.000 --> 45:20.000
+Da gibt es also sehr ähnliche Operatoren.
+
+45:21.000 --> 45:23.000
+Gibt es dazu Fragen?
+
+45:34.000 --> 45:41.000
+Was der Befehllist hier bringt, größtenteils einfach nur für die Lesbarkeit des Codes.
+
+45:42.000 --> 45:51.000
+Es gibt dann nämlich noch speziellere Arten, wie man mit Listen eigentlich nicht,
+
+45:52.000 --> 45:54.000
+aber es ist einfach für die Lesbarkeit.
+
+45:55.000 --> 45:57.000
+Also dann weiß ich, okay, das ist ein List.
+
+45:58.000 --> 46:01.000
+Aber es ist eigentlich identisch wie zu den Eckigen Klammern.
+
+46:02.000 --> 46:06.000
+Und ihr könnt auch einfach direkt eckige Klammer verwenden, also ihr müsst ja nicht List, Klammer aufwenden.
+
+46:12.000 --> 46:13.000
+Ja.
+
+46:17.000 --> 46:20.000
+Na ja, du kannst glaube mit List nur Lehrer-Listen definieren.
+
+46:22.000 --> 46:27.000
+Das ist eben, ja, das ist nur, sagen wir zum Beispiel am Anfang des Programms habe ich
+
+46:28.000 --> 46:36.000
+eine Variable-Liste 3, die ich unbedingt schon davor definieren will als Lehrer-Liste.
+
+46:37.000 --> 46:40.000
+Dann kann ich das eben dieses Keyword hier verwenden, dieses List Keyword.
+
+46:41.000 --> 46:43.000
+Dann kann ich natürlich auch einfach den Klammer nehmen.
+
+46:44.000 --> 46:49.000
+Also dieses Keyword ist eher relativ wenig im Gebrauch, normalerweise.
+
+46:53.000 --> 46:57.000
+Was ganz cool ist, ist auch, man kann die Listen auch sortieren.
+
+46:58.000 --> 47:02.000
+Das heißt, wir haben da zwei Möglichkeiten, wir haben einmal das Punkt Sort.
+
+47:03.000 --> 47:05.000
+Das kann ich auch kurz mal kurz zeigen.
+
+47:07.000 --> 47:08.000
+Warte, bevor ich das mache.
+
+47:08.000 --> 47:10.000
+Praktisch, wir haben hier einmal das Punkt Sort.
+
+47:11.000 --> 47:13.000
+Das heißt, das hier ist eine Liste.
+
+47:14.000 --> 47:16.000
+Und dann kann ich da Punkt Sort aufrufen.
+
+47:17.000 --> 47:20.000
+Und dann wird mir, dann sortiert mir bei diese Liste.
+
+47:21.000 --> 47:22.000
+Das heißt praktisch alle Elemente.
+
+47:23.000 --> 47:28.000
+Zum Beispiel, wenn ich hier 3, 2, 1 geschrieben hätte, dann würde die sortiert nach 1, 2, 3.
+
+47:30.000 --> 47:35.000
+Das Gleiche ist auch, wenn ich zum Beispiel das Drinks drin habe, dann werde die eben nach Anfangsbuchstaben sortiert.
+
+47:35.000 --> 47:37.000
+Das heißt ABC.
+
+47:39.000 --> 47:41.000
+Man kann das natürlich auch reversen.
+
+47:42.000 --> 47:46.000
+Also man kann da auch einfach dann noch angeben, ich will hier reverse das Ganze machen.
+
+47:47.000 --> 47:49.000
+Oder eben auch so machen.
+
+47:51.000 --> 47:56.000
+Aber das hier ist ein bisschen spezielleres Keyword, das ist jetzt, das kommen wir auch gleich dazu.
+
+47:57.000 --> 48:01.000
+Das hier ist ein eigenständiges Statement.
+
+48:01.000 --> 48:05.000
+Das heißt, ich schreibe da nicht nochmal Colors, ist gleich Colors.sort,
+
+48:06.000 --> 48:09.000
+sondern ich schreibe nur Colors.sort und dann ist meine Colors Liste sortiert.
+
+48:10.000 --> 48:19.000
+Wenn ich aber Colors unsortiert haben möchte, also weil ich die später noch so unsortiert praktisch brauche,
+
+48:20.000 --> 48:23.000
+dann kann ich mir eine neue Liste machen mit diesem sorted Keyword.
+
+48:24.000 --> 48:29.000
+Das heißt, praktisch schreibe sorted, klamm auf, halte meine unsortierte Liste rein
+
+48:29.000 --> 48:35.000
+und dann gibt mir dieses sorted Keyword eine sortierte Liste, aber das ist eine neue Liste zurück.
+
+48:39.000 --> 48:42.000
+Das Ganze kann man natürlich auch mit Strings machen, weil das natürlich auch eine Liste ist.
+
+48:46.000 --> 48:48.000
+Und eben auch eine Liste von Strings.
+
+48:50.000 --> 48:57.000
+Wichtig ist da die Großschreibung, also ein großes A ist nicht das gleiche wie ein kleines A.
+
+48:58.000 --> 49:01.000
+Das kann man auch kurz herzeigen.
+
+49:23.000 --> 49:26.000
+Ich glaube, das hat da kein sort Keyword.
+
+49:27.000 --> 49:29.000
+Da können wir nur sorted verwenden.
+
+49:44.000 --> 49:50.000
+Und die hier seht, werden alle Großbuchstaben von den Kleinbuchstaben sortiert.
+
+49:50.000 --> 50:05.000
+Also es ist ein bisschen eine Eigenheit, das hat damit zu tun, dass man dieses A zum Beispiel in ein Integer-Wert umwandeln kann auf zwei Umwege.
+
+50:05.000 --> 50:17.000
+Das heißt, man kann da z.B. Klapp C, H, R, S, oder auch nicht.
+
+50:18.000 --> 50:23.000
+Ich weiß gar nicht mehr, was das ist.
+
+50:32.000 --> 50:34.000
+Okay, das ist praktisch das Umgekehrte.
+
+50:34.000 --> 50:38.000
+Das heißt, wenn ich hier 9.7 rein schreibe, dann bekomme ich das.
+
+50:38.000 --> 50:40.000
+Genau, also die haben intern alle einen Wert.
+
+50:42.000 --> 50:46.000
+Hier im diesem Fall das kleine A hat den Wert 97.
+
+51:02.000 --> 51:05.000
+Ich weiß gar nicht mehr, was das große A für einen Wert hat.
+
+51:09.000 --> 51:11.000
+Okay, 65 hat das.
+
+51:12.000 --> 51:18.000
+Also das große A hat den Wert 65 und das kleine A hat den Wert 97.
+
+51:19.000 --> 51:21.000
+Und deshalb werden die auch so sortiert.
+
+51:26.000 --> 51:32.000
+Das kann man in einer, zum Beispiel in einer ASCII Tabelle nachschauen.
+
+51:32.000 --> 51:34.000
+Ich kann das auch kurz zeigen.
+
+51:39.000 --> 51:41.000
+Das schaut dann so aus.
+
+51:51.000 --> 51:58.000
+Praktisch hier, in diesem Fall haben wir praktisch unseren Dezimalwert hier
+
+51:58.000 --> 52:04.000
+und dann unseren Charakter, also unseren einzelnen Charakter,
+
+52:04.000 --> 52:06.000
+unser einzelnen Schriftzeichen hier.
+
+52:06.000 --> 52:11.000
+Und wie ihr hier seht, ist hier das große A mit 65
+
+52:11.000 --> 52:13.000
+und dann geht das darunter.
+
+52:13.000 --> 52:16.000
+Und dann kommen wir noch ein paar Sonderzeichen
+
+52:16.000 --> 52:19.000
+und dann bei 97 startet das kleine Alphabet,
+
+52:19.000 --> 52:23.000
+bis Z was bei 122 endet.
+
+52:25.000 --> 52:28.000
+Und das ist intern, was Beifen verwendet,
+
+52:28.000 --> 52:31.000
+um praktisch den Buchstammel einen Wert zu geben.
+
+52:34.000 --> 52:43.000
+Genau, da vielleicht noch kurz hier zum Sorten.
+
+52:46.000 --> 52:51.000
+Da gibt es den Reverse-Parameter, den ihr auf True setzen könnt.
+
+52:54.000 --> 52:58.000
+Das ist dann praktisch eine spezielle Option für diese Funktion hier
+
+52:58.000 --> 53:02.000
+und ich sage dann, okay, wir wollen das Ganze eigentlich umgekehrt sortiert haben.
+
+53:02.000 --> 53:05.000
+Dann sortiert ihr das uns umgekehrt.
+
+53:07.000 --> 53:10.000
+Genau so werden die einfach dann reversed.
+
+53:10.000 --> 53:12.000
+Das ist nicht das gleiche wie sort.
+
+53:20.000 --> 53:23.000
+In diesem Fall natürlich ist es das gleiche wie sort reversed,
+
+53:23.000 --> 53:26.000
+aber wenn wir dann noch hat dritt, das sind Zufügen.
+
+53:28.000 --> 53:30.000
+B, starten wir es mit B.
+
+53:32.000 --> 53:37.000
+Also in diesem Fall hat man hier A, B, J am Anfang des Strings
+
+53:37.000 --> 53:42.000
+und natürlich wenn wir da noch einen drin haben, der zum Beispiel mit zwei As beginnt,
+
+53:46.000 --> 53:52.000
+dann wird der noch vor dem anderen String mit einem A geschrieben,
+
+53:52.000 --> 53:55.000
+weil der praktisch hier dann an zweiter Stelle ein B hat.
+
+53:56.000 --> 53:58.000
+Jetzt, wenn wir das reversen,
+
+54:03.000 --> 54:06.000
+dann haben wir praktisch hier umgekehrt sortiert.
+
+54:07.000 --> 54:12.000
+Also hier haben wir dann das AA ganz zum Schluss und das J hier am Anfang,
+
+54:12.000 --> 54:16.000
+aber wenn wir hier einfach nur reverse reinschreiben,
+
+54:17.000 --> 54:20.000
+dann dreht er uns einfach die Liste um.
+
+54:20.000 --> 54:25.000
+Das heißt, wir haben hier zwar das AA an der Anfang,
+
+54:25.000 --> 54:28.000
+aber das AB ist hier noch immer ganz zum Schluss.
+
+54:29.000 --> 54:32.000
+Aber ich habe euch da nicht zu viel verwirrt, ist das verständlich?
+
+54:34.000 --> 54:36.000
+Gibt es da Fragen?
+
+54:38.000 --> 54:39.000
+Was?
+
+54:39.000 --> 54:40.000
+Dann haben wir das auch.
+
+54:44.000 --> 54:47.000
+Genau, dann gibt es ja noch spezielle Art von Listen.
+
+54:49.000 --> 54:51.000
+Na stimmt, das ist eigentlich keine Liste,
+
+54:51.000 --> 54:53.000
+das ist eigentlich eine Zahlensequenz
+
+54:54.000 --> 54:56.000
+und das nennt sich eigentlich einen Generator.
+
+54:58.000 --> 55:02.000
+Und das können wir mit Range machen, also mit diesem Range Keyword
+
+55:03.000 --> 55:07.000
+und das ist sehr praktisch, wenn wir jetzt einfach eine schnelle
+
+55:09.000 --> 55:12.000
+Zahlensequenz brauchen, von 0 bis 100,
+
+55:12.000 --> 55:16.000
+dann können wir einfach Range 101 reinschreiben,
+
+55:17.000 --> 55:20.000
+weil praktisch das letzte,
+
+55:20.000 --> 55:22.000
+also diese Zahl ist exklusiv,
+
+55:22.000 --> 55:25.000
+das heißt, wir haben hier nur 0 bis 3,
+
+55:26.000 --> 55:29.000
+aber wie ihr seht, sind das ja vier Elemente.
+
+55:31.000 --> 55:34.000
+Da kann man natürlich auch noch vieles anderes machen,
+
+55:34.000 --> 55:37.000
+zum Beispiel eben den Start-Abpunkt definieren,
+
+55:37.000 --> 55:39.000
+also wenn ich nicht bei 0 starten will,
+
+55:39.000 --> 55:43.000
+sondern bei 1, dann kann ich da eben noch 1 davor schreiben,
+
+55:43.000 --> 55:45.000
+beistrigt und dann das Ende.
+
+55:45.000 --> 55:47.000
+Und ich kann auch,
+
+55:47.000 --> 55:49.000
+die Schrittweise angeben,
+
+55:49.000 --> 55:51.000
+das heißt praktisch,
+
+55:51.000 --> 55:53.000
+hier in diesem Fall
+
+55:53.000 --> 55:55.000
+gehen wir mal in drei Schritten weiter.
+
+55:56.000 --> 55:58.000
+Wir starten bei 1,
+
+55:58.000 --> 56:00.000
+dann 3 weiter, 4,
+
+56:00.000 --> 56:02.000
+dann nochmal 3 weiter, 7
+
+56:02.000 --> 56:04.000
+und dann haben wir,
+
+56:04.000 --> 56:06.000
+wenn wir da nochmal 3 weiter gehen,
+
+56:06.000 --> 56:08.000
+dann wäre das ja 10,
+
+56:08.000 --> 56:10.000
+aber 10 ist exklusiv,
+
+56:10.000 --> 56:12.000
+weil es ist nicht mehr enthalten.
+
+56:12.000 --> 56:15.000
+Und man kann diese Zahlensequenzen einfach umwandeln
+
+56:15.000 --> 56:17.000
+mit diesem List keyword,
+
+56:17.000 --> 56:19.000
+also für das ist es eigentlich
+
+56:19.000 --> 56:21.000
+größtenteils eben,
+
+56:21.000 --> 56:23.000
+fürs Casting wird es verwendet.
+
+56:28.000 --> 56:31.000
+Und das coole mit den Listen ist auch,
+
+56:31.000 --> 56:33.000
+sagen wir mal, wir definieren es,
+
+56:33.000 --> 56:35.000
+da haben wir eine Liste von 10,
+
+56:35.000 --> 56:37.000
+das ist die Liste,
+
+56:37.000 --> 56:39.000
+das ist die Liste,
+
+56:39.000 --> 56:41.000
+das ist die Liste,
+
+56:41.000 --> 56:44.000
+die Liste von 0 bis 2,
+
+56:44.000 --> 56:46.000
+also 0, 1, 2,
+
+56:46.000 --> 56:48.000
+dann können wir da eben
+
+56:48.000 --> 56:50.000
+das Minimum herausfinden
+
+56:50.000 --> 56:52.000
+mit diesem Min keyword,
+
+56:52.000 --> 56:54.000
+das heißt,
+
+56:54.000 --> 56:56.000
+da kriegen wir dann 0 raus,
+
+56:56.000 --> 56:58.000
+wenn wir da Max reingeben,
+
+56:58.000 --> 57:00.000
+also Max und die Liste,
+
+57:00.000 --> 57:02.000
+dann kriegen wir 2 raus.
+
+57:03.000 --> 57:05.000
+Wir können auch die Summe machen,
+
+57:05.000 --> 57:07.000
+das heißt,
+
+57:07.000 --> 57:09.000
+alle Elemente werden aufsummiert,
+
+57:09.000 --> 57:11.000
+das geht dann natürlich
+
+57:11.000 --> 57:13.000
+nur gescheit mit integer oder float,
+
+57:16.000 --> 57:18.000
+mit string,
+
+57:18.000 --> 57:20.000
+das ist eine gute Frage,
+
+57:20.000 --> 57:22.000
+ob man strings aufsummieren kann,
+
+57:22.000 --> 57:24.000
+müssen wir gleich mal ausprobieren.
+
+57:24.000 --> 57:26.000
+Man sagt ja,
+
+57:26.000 --> 57:28.000
+weil er hier
+
+57:28.000 --> 57:30.000
+Summe startet
+
+57:30.000 --> 57:32.000
+mit einem 0 integer,
+
+57:32.000 --> 57:34.000
+also definiert sich
+
+57:34.000 --> 57:36.000
+intern einfach einen Counter
+
+57:36.000 --> 57:38.000
+mit 0,
+
+57:38.000 --> 57:40.000
+oder halt
+
+57:40.000 --> 57:42.000
+einen Summen-Counter,
+
+57:42.000 --> 57:44.000
+das heißt,
+
+57:44.000 --> 57:46.000
+wenn man die Summen-Counter
+
+57:46.000 --> 57:48.000
+aufsummiert,
+
+57:48.000 --> 57:50.000
+dann kann man die Summen-Counter
+
+57:50.000 --> 57:52.000
+aufsummieren,
+
+57:52.000 --> 57:54.000
+um die Summen-Counter
+
+57:54.000 --> 57:56.000
+und dann versucht er hier
+
+57:56.000 --> 57:58.000
+das erste Objekt zu addieren,
+
+57:58.000 --> 58:00.000
+aber das ist hier in diesem Fall
+
+58:00.000 --> 58:02.000
+ein string,
+
+58:02.000 --> 58:04.000
+und wie wir ja wissen,
+
+58:04.000 --> 58:06.000
+kann man strings mit integers nicht addieren,
+
+58:06.000 --> 58:08.000
+außer sie werden gecastet,
+
+58:08.000 --> 58:10.000
+das heißt,
+
+58:10.000 --> 58:12.000
+hier gibt es ein Fehler.
+
+58:16.000 --> 58:18.000
+Und da kann man zum Beispiel auch ganz simpel
+
+58:18.000 --> 58:20.000
+dann den Durchschnittwert
+
+58:20.000 --> 58:22.000
+ausrechnen und zum Beispiel
+
+58:22.000 --> 58:24.000
+wenn wir 0, 1, 2 haben,
+
+58:24.000 --> 58:26.000
+dann addiert es praktisch Summe und das auf,
+
+58:26.000 --> 58:28.000
+das wäre dann praktisch 0 plus 1 plus 2,
+
+58:28.000 --> 58:30.000
+in diesem Fall 3,
+
+58:30.000 --> 58:32.000
+durch die Länge,
+
+58:32.000 --> 58:34.000
+die Länge der Liste ist auch 3,
+
+58:34.000 --> 58:36.000
+3 dividiert auch 3,
+
+58:36.000 --> 58:38.000
+der Durchschnitt ist 1.
+
+58:40.000 --> 58:42.000
+Was, dann kommen wir noch
+
+58:42.000 --> 58:44.000
+zu einem speziellen Art, also Tupel.
+
+58:44.000 --> 58:46.000
+Tupels sind sehr ähnlich zu Listen,
+
+58:46.000 --> 58:48.000
+nur können wir sie nicht verändern.
+
+58:50.000 --> 58:52.000
+Das heißt,
+
+58:52.000 --> 58:54.000
+das hat man davor auch schon kurz gesehen,
+
+58:54.000 --> 58:56.000
+wenn ich dann nochmal
+
+58:56.000 --> 58:58.000
+zum Coating gehe,
+
+59:00.000 --> 59:02.000
+hier das hier,
+
+59:02.000 --> 59:04.000
+ist ein Tupel,
+
+59:04.000 --> 59:06.000
+das kann ich nicht mehr verändern,
+
+59:06.000 --> 59:08.000
+und das hat halt
+
+59:08.000 --> 59:10.000
+ein paar Vorteile,
+
+59:10.000 --> 59:12.000
+also es ist einerseits,
+
+59:12.000 --> 59:14.000
+hat es praktisch das ganze
+
+59:14.000 --> 59:16.000
+drum herum bei den Listen nicht,
+
+59:16.000 --> 59:18.000
+das heißt,
+
+59:18.000 --> 59:20.000
+wenn ich dieses Tupel mal definiert habe,
+
+59:20.000 --> 59:22.000
+dann ist es konstant,
+
+59:22.000 --> 59:24.000
+das braucht viel weniger Speicher,
+
+59:26.000 --> 59:28.000
+und das hat eben
+
+59:28.000 --> 59:30.000
+verschiedene Verwendungsartwecke,
+
+59:30.000 --> 59:32.000
+zum einen
+
+59:32.000 --> 59:34.000
+habe ich zum Beispiel eben,
+
+59:34.000 --> 59:36.000
+wenn wir später dann
+
+59:36.000 --> 59:38.000
+Funktionen definieren,
+
+59:42.000 --> 59:44.000
+ich mach das mal ganz kurz,
+
+59:48.000 --> 59:50.000
+dann kann ich da
+
+59:50.000 --> 59:52.000
+eben ein Tupel
+
+59:52.000 --> 59:54.000
+zurückgeben,
+
+59:54.000 --> 59:56.000
+und das kann ich eben so machen,
+
+59:58.000 --> 01:00:00.000
+und generell ist ein Tupel,
+
+01:00:00.000 --> 01:00:02.000
+also wenn ich ein Tupel definiere
+
+01:00:02.000 --> 01:00:04.000
+als Variable,
+
+01:00:04.000 --> 01:00:06.000
+ist das mit den runden Klammern.
+
+01:00:08.000 --> 01:00:10.000
+Ich kann natürlich auf diese Werte zugreifen,
+
+01:00:10.000 --> 01:00:12.000
+zum Beispiel, wenn ich hier
+
+01:00:12.000 --> 01:00:14.000
+ein 1 reinschreib,
+
+01:00:14.000 --> 01:00:16.000
+dann kann ich da wie
+
+01:00:16.000 --> 01:00:18.000
+genauso wie bei Listen
+
+01:00:18.000 --> 01:00:20.000
+mit der Indizierung
+
+01:00:20.000 --> 01:00:22.000
+praktisch darauf zugreifen,
+
+01:00:24.000 --> 01:00:26.000
+und ja,
+
+01:00:26.000 --> 01:00:28.000
+es gibt da auch natürlich
+
+01:00:28.000 --> 01:00:30.000
+wieder, kann wieder die Länge
+
+01:00:30.000 --> 01:00:32.000
+herausfinden, mit dem Längenparameter,
+
+01:00:34.000 --> 01:00:36.000
+generell sind den Tupel
+
+01:00:36.000 --> 01:00:38.000
+praktisch werden verwendet,
+
+01:00:38.000 --> 01:00:40.000
+um fixer
+
+01:00:40.000 --> 01:00:42.000
+Sequenzen, fixer Rückgabewerte
+
+01:00:42.000 --> 01:00:44.000
+zu definieren,
+
+01:00:48.000 --> 01:00:50.000
+hat seine Vor- und Nachteile
+
+01:00:50.000 --> 01:00:52.000
+zu den Listen, also da ist
+
+01:00:52.000 --> 01:00:54.000
+nichts mehr veränderbar,
+
+01:00:56.000 --> 01:00:58.000
+und das ist halt
+
+01:00:58.000 --> 01:01:00.000
+ein Vergleich zu Tupel,
+
+01:01:00.000 --> 01:01:02.000
+also zu Listen
+
+01:01:02.000 --> 01:01:04.000
+sein Nachteil.
+
+01:01:04.000 --> 01:01:06.000
+Genau, zum Beispiel
+
+01:01:06.000 --> 01:01:08.000
+definiert man das eben so,
+
+01:01:08.000 --> 01:01:10.000
+und das ist
+
+01:01:10.000 --> 01:01:12.000
+dann so fast schon so eine Art
+
+01:01:12.000 --> 01:01:14.000
+Konstant, das heißt praktisch
+
+01:01:14.000 --> 01:01:16.000
+ich kann immer wieder auf dieses
+
+01:01:16.000 --> 01:01:18.000
+Base-Color-Tupel da
+
+01:01:18.000 --> 01:01:20.000
+hingehen und weiß,
+
+01:01:20.000 --> 01:01:22.000
+okay, diese Werte hier sind nicht
+
+01:01:22.000 --> 01:01:24.000
+verändert,
+
+01:01:24.000 --> 01:01:26.000
+und
+
+01:01:26.000 --> 01:01:28.000
+das sind praktisch so Fixpunkte
+
+01:01:28.000 --> 01:01:30.000
+in meinem Code.
+
+01:01:30.000 --> 01:01:32.000
+Genau,
+
+01:01:32.000 --> 01:01:34.000
+dann kann man noch zum letzten
+
+01:01:34.000 --> 01:01:36.000
+Teil, das sind die Vorloops,
+
+01:01:36.000 --> 01:01:38.000
+und
+
+01:01:38.000 --> 01:01:40.000
+Vorloops ist
+
+01:01:40.000 --> 01:01:42.000
+auch wieder ein sehr
+
+01:01:42.000 --> 01:01:44.000
+starkes
+
+01:01:44.000 --> 01:01:46.000
+Dual beim Programmieren,
+
+01:01:48.000 --> 01:01:50.000
+und damit
+
+01:01:50.000 --> 01:01:52.000
+kann man eben
+
+01:01:52.000 --> 01:01:54.000
+zum Beispiel durch Listen iterieren,
+
+01:01:54.000 --> 01:01:56.000
+das schaut dann so aus,
+
+01:01:56.000 --> 01:01:58.000
+also wenn man sich das dann
+
+01:01:58.000 --> 01:02:00.000
+vorstellt im Pseudocode, also einfach
+
+01:02:00.000 --> 01:02:02.000
+in normaler Sprache,
+
+01:02:02.000 --> 01:02:04.000
+für jedes Element
+
+01:02:04.000 --> 01:02:06.000
+in meiner Sequence
+
+01:02:06.000 --> 01:02:08.000
+oder in meiner Liste
+
+01:02:08.000 --> 01:02:10.000
+führe ich eine Art und Weise aus.
+
+01:02:10.000 --> 01:02:12.000
+Das sieht man, das ist auch wieder ein Block,
+
+01:02:12.000 --> 01:02:14.000
+das schaut dann so aus,
+
+01:02:14.000 --> 01:02:16.000
+vor Item,
+
+01:02:16.000 --> 01:02:18.000
+praktisch Item in diesem Fall
+
+01:02:18.000 --> 01:02:20.000
+ist eine neue Variable-Namen,
+
+01:02:20.000 --> 01:02:22.000
+den ich hier definiere,
+
+01:02:22.000 --> 01:02:24.000
+in List of Items,
+
+01:02:24.000 --> 01:02:26.000
+also diese List of Items habe ich
+
+01:02:26.000 --> 01:02:28.000
+schon davor definiert,
+
+01:02:28.000 --> 01:02:30.000
+und dann
+
+01:02:30.000 --> 01:02:32.000
+prönt ich das einfach hier aus.
+
+01:02:32.000 --> 01:02:34.000
+Ich kann natürlich in diesem Block
+
+01:02:34.000 --> 01:02:36.000
+auf dieses Item hier zugreifen,
+
+01:02:36.000 --> 01:02:38.000
+ich kann natürlich auch auf diese Liste direkt zugreifen,
+
+01:02:40.000 --> 01:02:42.000
+aber
+
+01:02:42.000 --> 01:02:44.000
+diese Variable nennt man auch Laufvariable,
+
+01:02:44.000 --> 01:02:46.000
+weil die mit der
+
+01:02:46.000 --> 01:02:48.000
+Schleife mitläuft, praktisch die verändert sich
+
+01:02:48.000 --> 01:02:50.000
+mit jeder Iteration,
+
+01:02:50.000 --> 01:02:52.000
+bis praktisch alle Elemente
+
+01:02:52.000 --> 01:02:54.000
+in dieser Liste durchgegangen worden sind,
+
+01:02:56.000 --> 01:02:58.000
+und die könnt ihr eben einen beliebigen Namen geben,
+
+01:02:58.000 --> 01:03:00.000
+da wird auch wieder
+
+01:03:00.000 --> 01:03:02.000
+Variable namens
+
+01:03:04.000 --> 01:03:06.000
+Regeln beachten,
+
+01:03:06.000 --> 01:03:08.000
+und innerhalb dieser Schleife
+
+01:03:08.000 --> 01:03:10.000
+wird das eben so wiederholt,
+
+01:03:10.000 --> 01:03:12.000
+bis diese Liste abgearbeitet wurde.
+
+01:03:12.000 --> 01:03:14.000
+Das heißt, wenn wir hier
+
+01:03:14.000 --> 01:03:16.000
+1, 2, 3 haben,
+
+01:03:16.000 --> 01:03:18.000
+dann wird diese Liste, also wird
+
+01:03:18.000 --> 01:03:20.000
+dieser Sprint-Statement hier
+
+01:03:20.000 --> 01:03:22.000
+dreimal ausgeführt, für jedes Element einzeln.
+
+01:03:24.000 --> 01:03:26.000
+Das schaut dann eben so zum Beispiel aus,
+
+01:03:26.000 --> 01:03:28.000
+hier in diesem Fall zum Beispiel
+
+01:03:28.000 --> 01:03:30.000
+habe ich eine Liste
+
+01:03:30.000 --> 01:03:32.000
+Lectures definiert,
+
+01:03:32.000 --> 01:03:34.000
+die praktisch da Mathe,
+
+01:03:34.000 --> 01:03:36.000
+Englisch, Computer Science
+
+01:03:36.000 --> 01:03:38.000
+drin,
+
+01:03:38.000 --> 01:03:40.000
+und dann iteriere ich darüber,
+
+01:03:40.000 --> 01:03:42.000
+das heißt, ich mache hier meine
+
+01:03:42.000 --> 01:03:44.000
+Für neue Variable,
+
+01:03:44.000 --> 01:03:46.000
+also in diesem Fall Lecture,
+
+01:03:46.000 --> 01:03:48.000
+wie ihr seht, fehlt das S, also
+
+01:03:48.000 --> 01:03:50.000
+das macht man normalerweise so,
+
+01:03:50.000 --> 01:03:52.000
+dass man die Liste
+
+01:03:52.000 --> 01:03:54.000
+im Mehrzahl definiert,
+
+01:03:54.000 --> 01:03:56.000
+und die Laufvariable
+
+01:03:56.000 --> 01:03:58.000
+singular
+
+01:03:58.000 --> 01:04:00.000
+in Lectures
+
+01:04:00.000 --> 01:04:02.000
+und dann Print, dann hier mit
+
+01:04:02.000 --> 01:04:04.000
+einem Format-String, I Love Lecture,
+
+01:04:04.000 --> 01:04:06.000
+das heißt, hier bekommen wir dann
+
+01:04:06.000 --> 01:04:08.000
+die Ausgabe Math,
+
+01:04:08.000 --> 01:04:10.000
+Englisch, Computer Science, also
+
+01:04:10.000 --> 01:04:12.000
+I Love Math, I Love Englisch,
+
+01:04:12.000 --> 01:04:14.000
+I Love Computer Science.
+
+01:04:18.000 --> 01:04:20.000
+Genau, also
+
+01:04:20.000 --> 01:04:22.000
+das ist die Definition
+
+01:04:22.000 --> 01:04:24.000
+der Initialisierung der Liste,
+
+01:04:24.000 --> 01:04:26.000
+also unsere
+
+01:04:26.000 --> 01:04:28.000
+Vorschleife,
+
+01:04:28.000 --> 01:04:30.000
+und das ist dann der innere Block,
+
+01:04:30.000 --> 01:04:32.000
+der dann immer in der Vorschleife ausgeführt wird.
+
+01:04:32.000 --> 01:04:34.000
+Das kann man sich dann so vorstellen.
+
+01:04:42.000 --> 01:04:44.000
+Genau, es gibt dann
+
+01:04:44.000 --> 01:04:46.000
+natürlich
+
+01:04:46.000 --> 01:04:48.000
+man kann natürlich auch
+
+01:04:48.000 --> 01:04:50.000
+zum Beispiel über jedes
+
+01:04:50.000 --> 01:04:52.000
+einzelne Zeichen
+
+01:04:52.000 --> 01:04:54.000
+in einem String drüber iterieren.
+
+01:04:58.000 --> 01:05:00.000
+Das heißt,
+
+01:05:00.000 --> 01:05:02.000
+kann ich mal kurz herzeigen.
+
+01:05:02.000 --> 01:05:04.000
+Vor
+
+01:05:04.000 --> 01:05:06.000
+Zeit
+
+01:05:06.000 --> 01:05:08.000
+den
+
+01:05:08.000 --> 01:05:10.000
+genannten
+
+01:05:10.000 --> 01:05:12.000
+Warte.
+
+01:05:12.000 --> 01:05:14.000
+Okay.
+
+01:05:14.000 --> 01:05:16.000
+Ich kann da
+
+01:05:16.000 --> 01:05:18.000
+auch das String hier direkt
+
+01:05:18.000 --> 01:05:20.000
+definieren,
+
+01:05:20.000 --> 01:05:22.000
+wenn ich das so möchte.
+
+01:05:22.000 --> 01:05:24.000
+Ich kann ja auch zum Beispiel hier
+
+01:05:24.000 --> 01:05:26.000
+eine Liste direkt definieren.
+
+01:05:26.000 --> 01:05:28.000
+Das geht auch.
+
+01:05:28.000 --> 01:05:30.000
+Also die muss nicht davor definiert werden,
+
+01:05:30.000 --> 01:05:32.000
+die kann auch hier so definiert werden.
+
+01:05:32.000 --> 01:05:34.000
+Hallo,
+
+01:05:34.000 --> 01:05:36.000
+dann hier wichtig,
+
+01:05:36.000 --> 01:05:38.000
+auch beim IF Statement
+
+01:05:38.000 --> 01:05:40.000
+ist dieser Doppelpunkt
+
+01:05:40.000 --> 01:05:42.000
+und
+
+01:05:42.000 --> 01:05:44.000
+dann kann ich machen
+
+01:05:44.000 --> 01:05:46.000
+Print
+
+01:05:46.000 --> 01:05:48.000
+Ciao.
+
+01:05:48.000 --> 01:05:50.000
+Und dann macht er mir da
+
+01:05:50.000 --> 01:05:52.000
+das Einzelnen.
+
+01:05:52.000 --> 01:05:54.000
+Ich kann da zum Beispiel dann
+
+01:05:54.000 --> 01:05:56.000
+Einzeln sagen, okay,
+
+01:05:56.000 --> 01:05:58.000
+das soll dann mal
+
+01:05:58.000 --> 01:06:00.000
+nünftig multipliziert werden.
+
+01:06:00.000 --> 01:06:02.000
+Also
+
+01:06:02.000 --> 01:06:04.000
+solche Sachen sind auch möglich.
+
+01:06:06.000 --> 01:06:08.000
+Gibt es dazu Fragen?
+
+01:06:10.000 --> 01:06:12.000
+Okay.
+
+01:06:18.000 --> 01:06:20.000
+Was für Werte müsste ich hier reinschreiben,
+
+01:06:20.000 --> 01:06:22.000
+wenn ich von 1 bis 10 zählen möchte
+
+01:06:22.000 --> 01:06:24.000
+in dieser Range?
+
+01:06:24.000 --> 01:06:26.000
+Das erste Fragezeichen.
+
+01:06:38.000 --> 01:06:40.000
+1 und 11,
+
+01:06:40.000 --> 01:06:42.000
+genau, ja.
+
+01:06:42.000 --> 01:06:44.000
+Weil hier praktisch
+
+01:06:44.000 --> 01:06:46.000
+mit 1 starten
+
+01:06:46.000 --> 01:06:48.000
+und 11 ist dann exklusiv,
+
+01:06:48.000 --> 01:06:50.000
+das heißt
+
+01:06:50.000 --> 01:06:52.000
+11 wird nicht mehr
+
+01:06:52.000 --> 01:06:54.000
+in dieser Zahlsequenz vorkommen.
+
+01:06:56.000 --> 01:06:58.000
+Und praktisch
+
+01:06:58.000 --> 01:07:00.000
+wie ihr seht, kann man da nämlich auch
+
+01:07:00.000 --> 01:07:02.000
+diese Zahlsequenzen, also diese Range
+
+01:07:02.000 --> 01:07:04.000
+verwenden, um dann sehr schnell
+
+01:07:04.000 --> 01:07:06.000
+über Nummern zu iterieren.
+
+01:07:10.000 --> 01:07:12.000
+Wenn ihr zum Beispiel
+
+01:07:12.000 --> 01:07:14.000
+hier eine Liste habt
+
+01:07:14.000 --> 01:07:16.000
+und ihr wollt aber auch wissen
+
+01:07:16.000 --> 01:07:18.000
+welches Element der Liste ich gerade,
+
+01:07:18.000 --> 01:07:20.000
+also der Index
+
+01:07:20.000 --> 01:07:22.000
+von meinem Element in der Liste,
+
+01:07:22.000 --> 01:07:24.000
+wo ich gerade bin,
+
+01:07:24.000 --> 01:07:26.000
+dann kann man dieses Enumerate verwenden.
+
+01:07:26.000 --> 01:07:28.000
+Das heißt, ich haue mal eine Liste
+
+01:07:28.000 --> 01:07:30.000
+hier in dieses Enumerate Statement rein
+
+01:07:30.000 --> 01:07:32.000
+und dann bekomme ich hier
+
+01:07:32.000 --> 01:07:34.000
+immer ein Tuple raus.
+
+01:07:36.000 --> 01:07:38.000
+Das heißt, hier habe ich den Index
+
+01:07:38.000 --> 01:07:40.000
+und hier die Lecture.
+
+01:07:40.000 --> 01:07:42.000
+Die Lecture, praktisch sind diese Werte
+
+01:07:42.000 --> 01:07:44.000
+und der Index
+
+01:07:44.000 --> 01:07:46.000
+stellt mir ein Enumerate zur Verfügung
+
+01:07:46.000 --> 01:07:48.000
+und der wird dann von Enumerate
+
+01:07:48.000 --> 01:07:50.000
+ausgeführt.
+
+01:07:50.000 --> 01:07:52.000
+Das kann man sich dann so vorstellen.
+
+01:08:02.000 --> 01:08:04.000
+Fortest
+
+01:08:04.000 --> 01:08:06.000
+in Enumerate
+
+01:08:06.000 --> 01:08:08.000
+ist man auch den Index.
+
+01:08:08.000 --> 01:08:10.000
+Dann haben wir da
+
+01:08:10.000 --> 01:08:12.000
+eins
+
+01:08:28.000 --> 01:08:30.000
+Doppelpunkt
+
+01:08:34.000 --> 01:08:36.000
+und dann kann ich da einfach sagen
+
+01:08:36.000 --> 01:08:38.000
+Index
+
+01:08:38.000 --> 01:08:40.000
+und Test.
+
+01:08:44.000 --> 01:08:46.000
+Ups, was habe ich gemacht?
+
+01:08:48.000 --> 01:08:50.000
+Ich habe das Enumerate vergessen.
+
+01:08:56.000 --> 01:08:58.000
+Das ist vielleicht auch interessant hier,
+
+01:08:58.000 --> 01:09:00.000
+also ich habe hier
+
+01:09:00.000 --> 01:09:02.000
+zwei Variablen angegeben
+
+01:09:02.000 --> 01:09:04.000
+aber davor hatte ich praktisch nur
+
+01:09:04.000 --> 01:09:06.000
+zwei Werte funktioniert
+
+01:09:06.000 --> 01:09:08.000
+und dann sagt er mir da einen
+
+01:09:08.000 --> 01:09:10.000
+Value Error,
+
+01:09:10.000 --> 01:09:12.000
+dass er praktisch zu viele
+
+01:09:12.000 --> 01:09:14.000
+Values hat, die er da
+
+01:09:14.000 --> 01:09:16.000
+immer aus einem Element
+
+01:09:16.000 --> 01:09:18.000
+rausholen kann.
+
+01:09:18.000 --> 01:09:20.000
+Wenn ich hier zum Beispiel
+
+01:09:20.000 --> 01:09:22.000
+Tuple verwenden hätte,
+
+01:09:28.000 --> 01:09:30.000
+dann hätte das funktioniert,
+
+01:09:30.000 --> 01:09:32.000
+weil das hier immer zwei Werte sind.
+
+01:09:34.000 --> 01:09:36.000
+Da könnt ihr dann selber
+
+01:09:36.000 --> 01:09:38.000
+auch bis sie testen.
+
+01:09:38.000 --> 01:09:40.000
+Das heißt, wir haben dann hier einfach
+
+01:09:40.000 --> 01:09:42.000
+immer unseren Index ausgeprintet,
+
+01:09:42.000 --> 01:09:44.000
+der eben auch wieder bei 0 startet,
+
+01:09:44.000 --> 01:09:46.000
+0, 1, 2
+
+01:09:46.000 --> 01:09:48.000
+und hier
+
+01:09:48.000 --> 01:09:50.000
+dann dann eben einfach das Element,
+
+01:09:50.000 --> 01:09:52.000
+das eben in diese Testvariable
+
+01:09:52.000 --> 01:09:54.000
+geschrieben wird.
+
+01:09:54.000 --> 01:09:56.000
+Gibt es da so Fragen?
+
+01:10:00.000 --> 01:10:02.000
+Ja, Komma isch
+
+01:10:02.000 --> 01:10:04.000
+zum ZIP.
+
+01:10:04.000 --> 01:10:06.000
+Das ist dann eben
+
+01:10:06.000 --> 01:10:08.000
+genau das, was ich eben gesagt habe
+
+01:10:08.000 --> 01:10:10.000
+mit dem Duple.
+
+01:10:10.000 --> 01:10:12.000
+Ihr habt da praktisch Lectures
+
+01:10:12.000 --> 01:10:14.000
+und Teachers.
+
+01:10:14.000 --> 01:10:16.000
+Wir sind ganz wichtig,
+
+01:10:16.000 --> 01:10:18.000
+diese Listen sind beide gleich lang.
+
+01:10:18.000 --> 01:10:20.000
+Das ist sehr wichtig, weil sonst wird
+
+01:10:20.000 --> 01:10:22.000
+euch ZIP ein Fehler werfen,
+
+01:10:22.000 --> 01:10:24.000
+wenn die Listen nicht gleich lang sind.
+
+01:10:24.000 --> 01:10:26.000
+Und was ZIP macht,
+
+01:10:26.000 --> 01:10:28.000
+es nimmt immer die ersten,
+
+01:10:28.000 --> 01:10:30.000
+es nimmt immer an der selben Index
+
+01:10:30.000 --> 01:10:32.000
+der beiden Listen hier
+
+01:10:32.000 --> 01:10:34.000
+das gleiche Element her,
+
+01:10:34.000 --> 01:10:36.000
+also hier Maths und Brown an der Stelle 0
+
+01:10:36.000 --> 01:10:38.000
+und kombiniert die
+
+01:10:38.000 --> 01:10:40.000
+zu einem Duple.
+
+01:10:40.000 --> 01:10:42.000
+Praktisch haben wir dann einen Duple stehen,
+
+01:10:42.000 --> 01:10:44.000
+der schaut dann eben so aus.
+
+01:11:00.000 --> 01:11:02.000
+Ja.
+
+01:11:12.000 --> 01:11:16.000
+Ich glaube, ich weiß gar nicht, ob ich das so machen kann.
+
+01:11:20.000 --> 01:11:22.000
+Genau.
+
+01:11:22.000 --> 01:11:24.000
+Das schaut dann eigentlich intern so aus,
+
+01:11:24.000 --> 01:11:26.000
+dass ihr dann immer praktisch hier,
+
+01:11:26.000 --> 01:11:28.000
+ihr seht immer 1
+
+01:11:28.000 --> 01:11:30.000
+und 4 als Duple,
+
+01:11:30.000 --> 01:11:32.000
+Speicherts 2 und 5 als Duple und 3 und 6.
+
+01:11:46.000 --> 01:11:48.000
+Das kann man dann natürlich so machen.
+
+01:11:50.000 --> 01:11:52.000
+Element 1,
+
+01:11:52.000 --> 01:11:54.000
+Element 2 in
+
+01:11:54.000 --> 01:11:56.000
+dann nehmen wir uns nochmal
+
+01:11:56.000 --> 01:11:58.000
+das ZIP her, dann müsst ihr nicht unbedingt
+
+01:11:58.000 --> 01:12:00.000
+das Ganze nochmal in eine Liste konvertieren.
+
+01:12:00.000 --> 01:12:02.000
+Das Problem nämlich
+
+01:12:02.000 --> 01:12:04.000
+ist, wenn ich
+
+01:12:04.000 --> 01:12:06.000
+nur das ZIP ausgebe,
+
+01:12:08.000 --> 01:12:10.000
+schaut das sehr unleserlich aus.
+
+01:12:12.000 --> 01:12:14.000
+Da sind wir beim Problem wieder vor.
+
+01:12:18.000 --> 01:12:20.000
+Und da machen wir dann das ZIP rein,
+
+01:12:20.000 --> 01:12:22.000
+dann wieder den Doppelpunkt.
+
+01:12:26.000 --> 01:12:28.000
+E1, E2
+
+01:12:28.000 --> 01:12:30.000
+und dann könnt ihr das so ausbinden.
+
+01:12:40.000 --> 01:12:42.000
+Gibt es da zu fragen?
+
+01:12:42.000 --> 01:12:44.000
+Okay.
+
+01:12:48.000 --> 01:12:50.000
+Dann gibt es noch so ein paar spezielle Keywords,
+
+01:12:50.000 --> 01:12:52.000
+die ihr in Schleifen
+
+01:12:52.000 --> 01:12:54.000
+verwenden könnt.
+
+01:12:54.000 --> 01:12:56.000
+Das Pass.
+
+01:12:56.000 --> 01:12:58.000
+Pass könnt ihr sogar überall im Programm verwenden.
+
+01:12:58.000 --> 01:13:00.000
+Und das ist einfach nur ein Lehrerkommand.
+
+01:13:00.000 --> 01:13:02.000
+Das ist zum Beispiel ganz praktisch,
+
+01:13:02.000 --> 01:13:04.000
+wenn ihr beim Coden seid
+
+01:13:04.000 --> 01:13:06.000
+und ihr wisst, okay,
+
+01:13:10.000 --> 01:13:12.000
+ich will dann IF machen,
+
+01:13:12.000 --> 01:13:14.000
+aber ich bin mir noch nicht ganz sicher,
+
+01:13:14.000 --> 01:13:16.000
+was ich reinschreiben will.
+
+01:13:16.000 --> 01:13:18.000
+Schreibe einfach ein Pass rein
+
+01:13:18.000 --> 01:13:20.000
+und dann meckert's Beifen nicht,
+
+01:13:20.000 --> 01:13:22.000
+weil wenn ich das nicht mache,
+
+01:13:25.000 --> 01:13:28.000
+dann sagt er mir, oh, da fehlt was.
+
+01:13:28.000 --> 01:13:30.000
+Aber da auch, dass ich eben
+
+01:13:30.000 --> 01:13:32.000
+ein leeres Statement verwendet habe,
+
+01:13:32.000 --> 01:13:34.000
+da passiert nix.
+
+01:13:34.000 --> 01:13:36.000
+Aber ich habe eben schon dieses IF definiert,
+
+01:13:36.000 --> 01:13:38.000
+weil ich später schon weiß, okay,
+
+01:13:38.000 --> 01:13:40.000
+da kommt dann diese Erzweigung
+
+01:13:40.000 --> 01:13:42.000
+im Programm rein, also
+
+01:13:42.000 --> 01:13:44.000
+schreibe ich mal das rein
+
+01:13:44.000 --> 01:13:46.000
+und dann später programmiere ich
+
+01:13:46.000 --> 01:13:48.000
+den Rest des Codes aus,
+
+01:13:48.000 --> 01:13:50.000
+da habe ich mal ein Pass rein.
+
+01:13:50.000 --> 01:13:52.000
+Das Break und das Continue
+
+01:13:52.000 --> 01:13:54.000
+ist nur ein Schleifen vor.
+
+01:13:54.000 --> 01:13:56.000
+Das Break, das bricht die Schleife ab.
+
+01:13:56.000 --> 01:13:58.000
+Zum Beispiel, ihr habt ein IF Statement erreicht,
+
+01:13:58.000 --> 01:14:00.000
+also wo ihr sagt, okay,
+
+01:14:00.000 --> 01:14:02.000
+ich bin jetzt ganz zufrieden
+
+01:14:02.000 --> 01:14:04.000
+mit dem, was ich da gemacht habe.
+
+01:14:04.000 --> 01:14:06.000
+Ich brauche den Rest der Schleife nicht mehr.
+
+01:14:06.000 --> 01:14:08.000
+Break, also
+
+01:14:08.000 --> 01:14:10.000
+abbrechen,
+
+01:14:10.000 --> 01:14:12.000
+gehe ich aus der Schleife raus.
+
+01:14:12.000 --> 01:14:14.000
+Continue ist so,
+
+01:14:16.000 --> 01:14:18.000
+stellt ihr vor, seit ihr gerade
+
+01:14:18.000 --> 01:14:20.000
+in der Schleife drin,
+
+01:14:20.000 --> 01:14:22.000
+da wird gerade was berechnet.
+
+01:14:22.000 --> 01:14:24.000
+Und da kommt jetzt auf ein Zwischenergebnis,
+
+01:14:24.000 --> 01:14:26.000
+mit dem ihr auch wieder zufrieden seid.
+
+01:14:26.000 --> 01:14:28.000
+Aber ihr möcht noch die
+
+01:14:28.000 --> 01:14:30.000
+alle anderen Ergebnisse ausrechnen
+
+01:14:30.000 --> 01:14:32.000
+in dieser Liste, die ihr damit
+
+01:14:32.000 --> 01:14:34.000
+in der Schleife durchgeht.
+
+01:14:34.000 --> 01:14:36.000
+Dann mache ich einfach Continue.
+
+01:14:36.000 --> 01:14:38.000
+Das heißt,
+
+01:14:38.000 --> 01:14:40.000
+der restliche Code
+
+01:14:40.000 --> 01:14:42.000
+in der Schleife wird nicht mehr ausgeführt
+
+01:14:42.000 --> 01:14:44.000
+und ich springe zum nächsten Element.
+
+01:14:46.000 --> 01:14:48.000
+Also damit, das ist einfach wie ein
+
+01:14:48.000 --> 01:14:50.000
+Element
+
+01:14:50.000 --> 01:14:52.000
+und das Break ist wie
+
+01:14:52.000 --> 01:14:54.000
+ich breche die Schleife komplett ab.
+
+01:14:54.000 --> 01:14:56.000
+Die zwei kann man nicht in der IF Anweisung
+
+01:14:56.000 --> 01:14:58.000
+verwenden, weil
+
+01:14:58.000 --> 01:15:00.000
+das macht eigentlich wenig Sinn.
+
+01:15:00.000 --> 01:15:02.000
+Genau.
+
+01:15:02.000 --> 01:15:04.000
+Ja.
+
+01:15:04.000 --> 01:15:06.000
+Das wäre es eigentlich eh schon
+
+01:15:06.000 --> 01:15:08.000
+von diesem Teil der Vorlesung.
+
+01:15:08.000 --> 01:15:10.000
+Gibt es da eigentlich noch Fragen,
+
+01:15:10.000 --> 01:15:12.000
+ob es noch nicht ganz verstanden,
+
+01:15:12.000 --> 01:15:14.000
+soll ich noch mal was wiederholen?
+
+01:15:14.000 --> 01:15:16.000
+Ja.
+
+01:15:16.000 --> 01:15:18.000
+Genau.
+
+01:15:18.000 --> 01:15:20.000
+Also ich habe die Beifendertei
+
+01:15:20.000 --> 01:15:22.000
+von gestern noch nicht hochgeladen.
+
+01:15:22.000 --> 01:15:24.000
+Ich werde einfach die Beifendertei
+
+01:15:24.000 --> 01:15:26.000
+kombinieren von heute
+
+01:15:26.000 --> 01:15:28.000
+und gestern
+
+01:15:28.000 --> 01:15:30.000
+und werde das dann heute Nachmittag
+
+01:15:30.000 --> 01:15:32.000
+hochladen.
+
+01:15:32.000 --> 01:15:34.000
+Falls es sonst keine Fragen gibt,
+
+01:15:34.000 --> 01:15:36.000
+falls noch jemand noch
+
+01:15:36.000 --> 01:15:38.000
+nicht assignment0 abgegeben hat,
+
+01:15:38.000 --> 01:15:40.000
+bitte abgeben
+
+01:15:40.000 --> 01:15:42.000
+und ja, vielen Dank.
+
+01:15:46.000 --> 01:15:48.000
+Vielen Dank.
+

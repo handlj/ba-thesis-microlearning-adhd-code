@@ -1,0 +1,2316 @@
+1
+00:00:00,000 --> 00:00:09,980
+Okay, perfekt. Ja, dann herzlich willkommen zum Python Crash Course C. Ich hoffe, das
+
+2
+00:00:09,980 --> 00:00:19,320
+Tutorial gestern war bis sie informationsreich und ihr habt was Neues dazu gelernt. Ich stecke
+
+3
+00:00:19,320 --> 00:00:26,000
+ich noch kurz das ein. Ich werde dann auch gleich den Feedback danach starten und falls
+
+4
+00:00:26,000 --> 00:00:33,840
+ihr da noch Fragen habt, können wir die dann noch gemeinsam beantworten. Heute oder was wir
+
+5
+00:00:33,840 --> 00:00:53,000
+heute machen ist Feedback gefragt, nochmal Listen und Vorlubs wiederholen. Okay, ihr
+
+6
+00:00:53,160 --> 00:01:02,120
+ausschaut. Die erste ist gleich sehr Trickfrage und zwar hat das damit zu tun, dass wenn ihr
+
+7
+00:01:02,120 --> 00:01:08,320
+es zurück erinnern könnt, if und elif. Also hier im diesem Fall haben wir ja gar kein elif
+
+8
+00:01:08,320 --> 00:01:19,040
+an der zweiten, beim zweiten if hier. Das heißt, der erste if-Block wird ausgeführt, weil ja h ist
+
+9
+00:01:19,040 --> 00:01:28,200
+gleich drei, drei ist kleiner als vier, als so addieren wir fünf zum Preis hinzu. Aber hier
+
+10
+00:01:28,200 --> 00:01:34,880
+haben wir dann kein elif, das heißt hier das wird auch ausgeführt, also hier das wird auch noch
+
+11
+00:01:34,880 --> 00:01:41,880
+mal kontrolliert und natürlich drei ist immer noch kleiner als 18, wodurch wir eben nochmal zehn
+
+12
+00:01:41,880 --> 00:01:54,680
+hinzufügen. Das heißt, wir haben 13 plus 5 ist 18 plus 10 ist 28. Da kommen wir dann eh schnell
+
+13
+00:01:54,680 --> 00:02:00,240
+drauf auf der nächsten Frage. Da haben wir dann nämlich das elif und da habt ihr dann eh größtenteils
+
+14
+00:02:00,240 --> 00:02:08,400
+alle richtig beantwortet und wir hier sehen praktisch hier haben wir h15, das heißt 15 ist
+
+15
+00:02:08,440 --> 00:02:14,840
+natürlich nicht kleiner als vier, deshalb wird es auch gar nicht ausgeführt. Fünktion ist aber
+
+16
+00:02:14,840 --> 00:02:20,640
+kleiner als 18, deshalb wird der zweite block ausgeführt und der Rest des elfs wird dann ignoriert.
+
+17
+00:02:20,640 --> 00:02:28,960
+Hat jemand eine Idee, was passieren würde, wenn hier h3 wäre?
+
+18
+00:02:29,080 --> 00:02:45,680
+Lauter? Praktisch wenn hier 3 stehen würde, dann würde der ifblock hier ausgeführt werden,
+
+19
+00:02:45,680 --> 00:02:56,080
+genau. 13 plus 5 ist 18 und der Rest wird einfach ignoriert. Auch wenn hier h kleiner als 18 steht,
+
+20
+00:02:56,680 --> 00:03:03,600
+ist komplett egal. Die erste ifanweisung ist richtig, deshalb wird der Rest vom elif elfsblock
+
+21
+00:03:03,600 --> 00:03:19,200
+komplett ignoriert. Ja, das ist sehr gut. Ja, dann nochmal zur Wiederholung. Bei uns fängt,
+
+22
+00:03:19,200 --> 00:03:25,560
+bei den Informatikern fängt das eben mit 0 an zu zählen, mit dem Index und nicht mit 1 und auch
+
+23
+00:03:26,320 --> 00:03:34,240
+ganz wichtig, hi, also das funktioniert später bei den Dictionaries, das werden wir dann auch
+
+24
+00:03:34,240 --> 00:03:40,520
+durchmachen, das wird dann noch bis ins Verwirrung führen, aber hoffentlich seid ihr dann schon
+
+25
+00:03:40,520 --> 00:03:51,520
+alle Profis mit Listen. Genau, also das erste element ist mit 0 und dann gehen wir auch gleich zum
+
+26
+00:03:51,520 --> 00:04:04,840
+nächsten. Oh ja, Listen hinzufügen. Ja, da gibt es mehrere Möglichkeiten. Ihr könnt eben ganz
+
+27
+00:04:04,840 --> 00:04:10,200
+normal das Append verwenden und dann eine normale Zahl hinzufügen, aber was ganz interessant ist
+
+28
+00:04:10,200 --> 00:04:15,000
+bei Beifniss, ihr könnt in einer Liste komplett irgendwas hinzufügen, also das muss nicht,
+
+29
+00:04:15,000 --> 00:04:20,320
+wenn die Liste aus Zahlen ist, eine weitere Zahl sein, sondern das kann auch wirklich einfach ein
+
+30
+00:04:20,320 --> 00:04:28,480
+String sein oder ein Float sein oder ein Bull sein oder irgendwas. Das macht das Ganze natürlich
+
+31
+00:04:28,480 --> 00:04:40,000
+sehr vielfältig, aber kann natürlich auch dann später zu Fehlern führen, wenn man zum Beispiel
+
+32
+00:04:40,000 --> 00:04:45,840
+eine Liste gemischt aus Zahlen und Strings hat und man will alle Elemente dieser Liste
+
+33
+00:04:45,840 --> 00:04:51,280
+zusammen addieren und da ist dann ein String dabei, da wird euch dann natürlich einen Fehler
+
+34
+00:04:51,280 --> 00:04:58,760
+werfen, wenn ihr euch zurück können die letzten Vorlesungen erinnern könnt. Insert geht nur mit
+
+35
+00:04:58,760 --> 00:05:06,400
+einem der vorgesetzten Index, also dort wo ihr praktisch an der Stelle, wo ihr das Element hier
+
+36
+00:05:06,400 --> 00:05:16,160
+5 einfügen wollt in der Liste, genauso Append ohne Index, also Append ist einfach am Ende,
+
+37
+00:05:16,160 --> 00:05:23,640
+der Liste wird praktisch dieses Element dann einfach hinzugefügt. Add ist inkorrekt, also
+
+38
+00:05:23,640 --> 00:05:36,840
+das sollt ihr wirklich aufpassen, dass es immer Append ist, das kommt, also add ist nämlich eher
+
+39
+00:05:36,840 --> 00:05:45,240
+addieren und Append ist eher so hinzufügen. Ich weiß, die Wörter in Englisch sind manchmal sehr ähnlich,
+
+40
+00:05:45,240 --> 00:05:53,160
+also schaut einfach, dass ihr euch da das Append merkt bei Listen und nicht add. Und das plus ist
+
+41
+00:05:53,200 --> 00:06:00,240
+gleich geht auch nicht, weil das hier ist eine Liste und kein Integer oder Float und leider hat
+
+42
+00:06:00,240 --> 00:06:08,760
+diese Liste keinen plus als Operator. Ist das soweit verständlich oder gibt es da noch Fragen?
+
+43
+00:06:08,760 --> 00:06:35,800
+Also dritte Stelle bedeutet Index 2, das seid ihr euch eh schon mehr oder weniger. Das heißt wir
+
+44
+00:06:35,800 --> 00:06:41,600
+können einerseits das Dell Keyword verwenden, damit löscht ihr einfach das Element komplett.
+
+45
+00:06:41,600 --> 00:06:50,240
+Pop ohne nix reinzuschreiben löscht einfach das letzte Element der Liste und da das praktisch
+
+46
+00:06:50,240 --> 00:06:57,000
+die dritte Stelle in der Liste das letzte Element ist, wäre in diesem Fall diese Aussage auch
+
+47
+00:06:57,000 --> 00:07:02,520
+korrekt. Hätten wir hier natürlich vier Elemente drin, dann wäre pop ohne nix drin zu schreiben,
+
+48
+00:07:02,520 --> 00:07:11,160
+auch falsch. Da könnt ihr dann natürlich eben auch wieder den Index angeben, welches Element
+
+49
+00:07:11,160 --> 00:07:20,160
+ihr raus poppen wollt. Ganz wichtig im Gegensatz zu dem Dell Keyword bei pop, könnte dieses Element
+
+50
+00:07:20,160 --> 00:07:28,080
+dann in eine Variable speichern. Praktisch da könnt ihr dann schreiben x oder zweites Element ist
+
+51
+00:07:28,080 --> 00:07:35,560
+gleich stringless.pop und dann speichert es eben praktisch den Wert vom, also dieses Howdy in
+
+52
+00:07:35,560 --> 00:07:45,160
+dieser neuen Variable. Stringless.remove funktioniert nicht, muss ich selber kurz nachschauen.
+
+53
+00:07:45,160 --> 00:07:47,800
+Wollen wir mal kurz aus.
+
+54
+00:08:15,160 --> 00:08:36,720
+By remove da gibt ihr nämlich den Wert, also eben wie hier richtig angegeben, also Howdy, ihr
+
+55
+00:08:36,720 --> 00:08:43,720
+wollt Howdy löschen. Zwei existiert in dieser Liste nicht, da würde praktisch so ein Value Error
+
+56
+00:08:43,720 --> 00:08:50,560
+bekommen. Also hier bei remove da gehen wir nicht den Index an, sondern wirklich den Wert,
+
+57
+00:08:50,560 --> 00:09:00,520
+den wir aus der Liste rauslöschen wollen. Mit dem hier löschen wir die gesamte Liste und genau
+
+58
+00:09:00,520 --> 00:09:05,800
+wie hier gesagt kann man direkt den Wert angeben und dann löscht es eben auch. In diesem Fall ist
+
+59
+00:09:05,800 --> 00:09:11,800
+Howdy eben auch das dritte Element in der Liste, deshalb ist auch diese Aussage korrekt. Gibt es da
+
+60
+00:09:11,800 --> 00:09:27,320
+so Fragen? Ja, da gehen wir jetzt schon ein bisschen mehr in die Theorie rein. Genau, als
+
+61
+00:09:27,320 --> 00:09:34,760
+sie müsste ich das so vorstellen. Ihr habt eure Variable lecture hier, die hier und die wird
+
+62
+00:09:34,760 --> 00:09:43,720
+hier in diesem vorschleifen Argument als in dieser Line erst erzeugt. Also die gibt es davor gar
+
+63
+00:09:43,720 --> 00:09:52,000
+nicht, die ist erst hier erstellt worden und die heißt Laufvariable, weil die einfach mitläuft. Also
+
+64
+00:09:52,000 --> 00:09:59,480
+die läuft einfach mit, solange die Schleife läuft, läuft sie mit, das heißt die wird da immer und
+
+65
+00:09:59,480 --> 00:10:10,920
+immer wieder ersetzt, solange die Schleife läuft. Noch kurz davor die Selectures, das wäre
+
+66
+00:10:10,920 --> 00:10:21,200
+praktisch diese Variable hier, das wäre praktisch eure Liste, eure Zahlen range und dann habt ihr
+
+67
+00:10:21,200 --> 00:10:26,800
+euch noch dieses Print Statement hier, was praktisch immer wiederholt wird, also praktisch in der
+
+68
+00:10:26,800 --> 00:10:37,480
+Schleife drin für jedes Element in dieser Liste hier. Können wir uns kurz herzeigen? Sagen wir,
+
+69
+00:10:37,480 --> 00:10:46,920
+wir haben hier unsere Liste Test, die hat drei Elemente, 1, 2, 3 und jetzt machen wir da ein
+
+70
+00:10:46,920 --> 00:10:54,240
+Vorstatement und dann wollen wir unsere Laufvariable definieren, die praktisch den Wert 1, 2 und 3
+
+71
+00:10:54,240 --> 00:11:07,560
+annehmen wird nacheinander, die nehmen wir jetzt einfach zahl, dann in Test, Doppelpunkt und jetzt
+
+72
+00:11:07,560 --> 00:11:11,880
+können wir da irgendwas machen mit dieser Test Variable, jetzt printen wir die einfach aus.
+
+73
+00:11:11,880 --> 00:11:29,680
+Ups, da habe ich 1 geprintet und ich zahle. Und mache ich da ganz kurz das mit einer bisher Zeit,
+
+74
+00:11:30,440 --> 00:11:45,720
+dann seht ihr das ein bisschen slow motion, machen wir eine Sekunde, praktisch das heißt einfach das
+
+75
+00:11:45,720 --> 00:11:54,400
+Programm schläf für eine Sekunde, wenn ich jetzt mache, dann werden die alle nacheinander ausgeführt,
+
+76
+00:11:54,400 --> 00:12:03,760
+praktisch zahl wird innerhalb dieser Schleife immer durch das nächste Element ersetzt,
+
+77
+00:12:03,760 --> 00:12:08,480
+das heißt wir starten mit 1, dann gehen wir zu 2 weiter, dann gehen wir zu 3 weiter und dann ist die
+
+78
+00:12:08,480 --> 00:12:17,120
+Schleife fertig oder die Liste fertig und dann praktisch bricht die Schleife ab und hat abgearbeitet.
+
+79
+00:12:17,120 --> 00:12:27,760
+Gibt es da zu fragen? Einfach wichtig zu merken ist Lauf oder Schleifenvariable,
+
+80
+00:12:27,760 --> 00:12:32,000
+das praktisch die die immer mitläuft, das wäre in diesem Fall die Zahl gewesen,
+
+81
+00:12:32,000 --> 00:12:39,360
+die Durchlaufen der Sequence, also unsere Liste, die wir abarbeiten wollen.
+
+82
+00:12:39,360 --> 00:12:49,880
+Und dann haben wir eben unseren Codeblock innerhalb der Schleife, der einfach immer wiederholt wird.
+
+83
+00:12:49,880 --> 00:13:01,040
+Genau da habt ihr die meisten Images richtig abgestimmt, genau also die Laufvariable wird
+
+84
+00:13:01,040 --> 00:13:06,280
+praktisch am Anfang jedes Schlaufendurchgang durch einen neuen Wert ersetzt in der Liste
+
+85
+00:13:06,280 --> 00:13:12,840
+und das wird dann so lange abgearbeitet bis wir entweder mit Break abbrechen,
+
+86
+00:13:12,840 --> 00:13:18,280
+falls ihr noch erinnern könnt oder eben die Liste abgearbeitet ist.
+
+87
+00:13:18,280 --> 00:13:31,320
+Okay Adam, haben wir da ein paar größere Codezeilen, es gibt eben immer bei Bif noch
+
+88
+00:13:31,360 --> 00:13:37,240
+mehrere Varianten, wie er praktisch zu einer gewissen Ausgabe kommt, also Möglichkeiten,
+
+89
+00:13:37,240 --> 00:13:46,160
+wie er zur Lösung kommt. Und hier zum Beispiel bei diesen zwei, da nehmen wir einfach das hier her,
+
+90
+00:13:46,160 --> 00:13:59,200
+stecken es direkt hier stattnehmen rein. Also wir sparen uns einfach hier diese variable nehmen,
+
+91
+00:14:00,040 --> 00:14:06,400
+das hat natürlich Vorteile so eine Variable auch zu definieren manchmal, weil zum Beispiel wir
+
+92
+00:14:06,400 --> 00:14:13,480
+wollen nicht nur Titel aufrufen, sondern wir wollen auch noch die Alice durch Baupersetzen,
+
+93
+00:14:13,480 --> 00:14:20,440
+dann können wir das nämlich auch noch machen, dass wir zum Beispiel nicht so einfach möglich,
+
+94
+00:14:20,440 --> 00:14:26,640
+wenn wir das einfach in einer Line haben. Aber natürlich, wenn man alles kurz und knapp haben will,
+
+95
+00:14:26,640 --> 00:14:32,840
+dann kann man das Magician.title auch direkt hier so in die geschwungenen Klammern im Format-String
+
+96
+00:14:32,840 --> 00:14:40,920
+rein hauen. Hier diese Antwort ist nicht richtig, weil dieser Teil, also dieser Codeblock,
+
+97
+00:14:40,920 --> 00:14:46,000
+dieses Print Statement ganz zum Schluss, das sollte ja eigentlich nur einmal ausgeführt werden,
+
+98
+00:14:46,000 --> 00:14:51,840
+aber dadurch, dass das hier im Vorschleifenblock ist, auch enthalten ist, wird das auch immer
+
+99
+00:14:51,880 --> 00:15:00,280
+wieder aufgerufen, das heißt, da kommen nicht zu unserer gewünschten Ausgabe. Das hier ist nicht
+
+100
+00:15:00,280 --> 00:15:09,640
+richtig, warum könnte das nicht richtig sein? Hat da jemand eine Idee? Was fehlt da? Ja, wie bitte?
+
+101
+00:15:09,640 --> 00:15:15,760
+Genau, praktisch hier fehlt die Einrückung, also wenn ihr hier seht, hier haben wir immer vier
+
+102
+00:15:15,760 --> 00:15:21,800
+Leerzeichen eingerückt, hier fehlt das, wir können das ja mal ausprobieren, wenn man das ausführt,
+
+103
+00:15:21,800 --> 00:15:35,280
+wenn man das ausprobieren will. Da kommt hier dann so ein tollen Inventation-Error, weil hier einfach
+
+104
+00:15:35,280 --> 00:15:42,240
+nach dem Doppelpunkt muss eine Einrückung kommen. Ist auch immer wichtig, beim IF ist es auch so,
+
+105
+00:15:42,240 --> 00:15:48,280
+oder beim ELS, wenn hier ein Doppelpunkt kommt, kommt immer eine Einrückung, weil hier da praktisch
+
+106
+00:15:49,280 --> 00:15:59,200
+ein Quadblock erstellt, der praktisch nur für das Vorstatement gilt. Das heißt, hier könnt ihr
+
+107
+00:15:59,200 --> 00:16:07,320
+dann einfach mit Dab, das sind hier 1, 2, 3, 4 Leerzeichen, dann könnt ihr das ausführen und
+
+108
+00:16:07,320 --> 00:16:11,600
+im nächsten Fall geht das natürlich überhaupt nicht, weil da auch noch der Format-String fehlt,
+
+109
+00:16:11,600 --> 00:16:17,400
+das heißt, hier fehlt das F, ganz wichtig, also wenn hier das F fehlt, dann wird das einfach
+
+110
+00:16:17,400 --> 00:16:23,480
+ignoriert, dann ist es nicht wie so ein praktisch Inline-Code, sondern wird da einfach der ganze
+
+111
+00:16:23,480 --> 00:16:31,800
+Zeichensatz innen drin als normale Zeichenkette interpretiert und so natürlich haben wir
+
+112
+00:16:31,800 --> 00:16:41,160
+den gewünschten Effekt. Und hier, was könnte hier das Problem sein?
+
+113
+00:16:41,160 --> 00:16:53,680
+Ist auch ganz interessant, hier definieren wir ja Name nicht, sollte alles klappen, das Problem ist,
+
+114
+00:16:53,680 --> 00:16:58,280
+dieses Printstatement danach, gleich danach, das ist dann nicht mehr im selben Quadblock,
+
+115
+00:16:59,200 --> 00:17:03,440
+das heißt, es wird nicht für jede Vorschleife ausgeführt, sondern nur ganz zum Schluss einmal,
+
+116
+00:17:03,440 --> 00:17:21,360
+kann ich das auch zeigen. Das heißt, wir haben hier eine Vorschleife, das wird hier 3 mal ausgeführt
+
+117
+00:17:21,360 --> 00:17:29,720
+für Alice, David und Karolina, nehmen wir 3 mal überschrieben und natürlich beim letzten Mal
+
+118
+00:17:29,720 --> 00:17:36,440
+steht der Karolina drin, das heißt, hier Name ist praktisch mit Karolina.titel überschrieben
+
+119
+00:17:36,440 --> 00:17:46,600
+worden und dann weiß Beif nur noch, okay, jetzt steht da Karolina drin, aber hat keine Ahnung
+
+120
+00:17:46,600 --> 00:17:54,000
+von den Sachen davor, weil das ja außerhalb der Schleife ist. Das heißt, wenn man das dann
+
+121
+00:17:54,000 --> 00:18:00,720
+natürlich wieder reinschiebt in die Schleife, dass das zusammengehörig ist,
+
+122
+00:18:00,720 --> 00:18:06,880
+damit das wieder 3 mal ausgeführt. Ich weiß, das ist ein bisschen kompliziert,
+
+123
+00:18:06,880 --> 00:18:11,440
+aber am Anfang zu verstehen, gibt es da zu fragen, ist da was nicht ganz klar?
+
+124
+00:18:18,960 --> 00:18:27,520
+Passt. Passt, was ist nochmal, Alice? Machen wir das auch nochmal durch. Schauen wir mal,
+
+125
+00:18:27,520 --> 00:18:36,360
+ob ich eine Greide finde. Also, wenn ihr euch kurz an das erste Beispiel zurück erinnern könnt,
+
+126
+00:18:36,360 --> 00:18:59,800
+wenn wir da if h kleiner 4 haben, dann machen wir da einfach. Wenn ich hier ein normales if reinhauen
+
+127
+00:18:59,800 --> 00:19:20,920
+würde und h ist jetzt Summer 3, dann wird, schauen wir mal, 3 ist klein als 4, das heißt,
+
+128
+00:19:20,920 --> 00:19:28,520
+das Ganze ist true, das heißt, das hier wird ausgeführt, aber jetzt haben wir hier kein
+
+129
+00:19:28,520 --> 00:19:36,680
+elif, sondern ein normales if. Das heißt, man kann sich das so vorstellen, als wer das hier beendet
+
+130
+00:19:36,680 --> 00:19:43,320
+und das hier ist komplett ein neues Programm. Das heißt, das hier wird auch wieder ganz normal
+
+131
+00:19:43,320 --> 00:19:50,320
+ausgeführt und natürlich 3 ist auch wieder klein als 18, deshalb haben wir wieder dasselbe und das
+
+132
+00:19:50,320 --> 00:19:59,200
+hier wird auch wieder ausgeführt. Aber wenn wir hier ein elif haben, dann sagen wir den Code,
+
+133
+00:19:59,200 --> 00:20:10,800
+das hier gehört zusammen. Das kann man sich dann so vorstellen, dass man hier so hergeht, das heißt,
+
+134
+00:20:10,800 --> 00:20:22,480
+hier hat man am Anfang das if, dann falls das nicht vorkommt, dann haben wir den elif und dann
+
+135
+00:20:22,480 --> 00:20:31,760
+haben wir das else. Das heißt, das kann man sich so, so nach Stufen vorstellen und hier haben wir
+
+136
+00:20:31,760 --> 00:20:39,400
+immer ein check, das heißt, praktisch ist es wahr oder falsch, falls es wahr ist, dann machen wir das
+
+137
+00:20:40,400 --> 00:20:51,040
+falls nicht, gehen wir zum nächsten rüber und so weiter und so fort. Das heißt, wir kreieren
+
+138
+00:20:51,040 --> 00:20:57,400
+praktisch einen größeren Block, der zusammenhängt, statt dass wir hier zwei unterschiedliche Programme haben.
+
+139
+00:20:57,400 --> 00:21:09,160
+Assignment 1 ist, werde ich heute vorstellen, ganz am Ende der Vorlesung. Was machen Sachen?
+
+140
+00:21:09,160 --> 00:21:18,360
+Vieles hoffentlich. Wo es Helmut, Helmut wird, glaube ich, die nächsten paar Vorlesungen abhalten,
+
+141
+00:21:19,320 --> 00:21:25,840
+die sind dann über Binärrechnen und Zahlentheorie, kann auch sein, dass das Asynchron ist.
+
+142
+00:21:25,840 --> 00:21:33,400
+Ihr werdet dann schon nochmal Helmut sehen. Genau, mit den neuen Gruppen. Ja, ich weiß,
+
+143
+00:21:33,400 --> 00:21:40,320
+das ist ein bisschen verwirrend. Das liegt daran, wir haben nur zwei Totoren und das heißt,
+
+144
+00:21:40,360 --> 00:21:48,680
+wir können nur wirklich zwei Gruppen haben. Natürlich war es jetzt so, dass am Anfang wir
+
+145
+00:21:48,680 --> 00:21:53,680
+nicht genau wussten, wie viele Leute sich anmelden, deshalb hatten wir noch eine Reservegruppe, das war
+
+146
+00:21:53,680 --> 00:22:00,360
+die Gruppe 3, wo man sich natürlich auch noch anmelden konnte, aber wir haben praktisch eigentlich
+
+147
+00:22:00,360 --> 00:22:08,640
+dann nur zwei Hörsäle zur Verfügung, wo wir mit zwei Totoren arbeiten können und deshalb haben wir
+
+148
+00:22:08,640 --> 00:22:16,240
+euch da jetzt mal in neue Gruppen einteilt. Wir werden dann wahrscheinlich die Gruppenanmeldung
+
+149
+00:22:16,240 --> 00:22:23,120
+nochmal freischalten, damit ihr euch da eventuell noch ummelden könnt. Da schickt man nochmal eine
+
+150
+00:22:23,120 --> 00:22:30,000
+Mail raus. Aber falls ihr sagt, es geht mir an einem Termin überhaupt nicht und ihr wollt lieber zum
+
+151
+00:22:30,000 --> 00:22:37,640
+anderen Termin kommen, ist das auch kein Problem. Wir gehen eh davon aus, dass normalerweise immer
+
+152
+00:22:37,640 --> 00:22:45,240
+weniger Leute zu den Tutorien kommen, weil sie alle Experten werden und das heißt, es sollte
+
+153
+00:22:45,240 --> 00:22:58,640
+eigentlich immer Platz sein. Genau, Assignment 1, weil ich heute noch kurz besprechen. Passt.
+
+154
+00:23:08,640 --> 00:23:14,800
+Genau, nochmal zur Wiederholung. Heute machen wir nochmal Loops und Datenstrukturen durch. Heute
+
+155
+00:23:14,800 --> 00:23:24,440
+werden wir zu den Listen noch die Sets und die Dictionaries dazunehmen und dann werde ich noch
+
+156
+00:23:24,440 --> 00:23:33,120
+vielleicht kurz über Functions reden und dann reden wir über Assignment 1. Passt. Also nochmal zu
+
+157
+00:23:33,120 --> 00:23:47,000
+Vorloops. Ich habe das jetzt eh schon ein paar Mal über erwähnt, aber praktisch, wenn man das jetzt
+
+158
+00:23:47,000 --> 00:23:52,600
+in normaler Sprache ausschreiben würde, würde es einfach so heißen für jedes Element in der
+
+159
+00:23:52,600 --> 00:24:02,160
+Sequence oder in der Liste für Revolgen der Anweisungen aus. Und im Beißen ist es halt in
+
+160
+00:24:02,160 --> 00:24:08,160
+Englisch geschrieben, das heißt vor Item in List of Items, aber das ist praktisch vor
+
+161
+00:24:08,160 --> 00:24:18,200
+Laufvariablen in Liste oder Range oder irgendwas. Machen wir irgendwas. Und diese Laufvariablen,
+
+162
+00:24:18,200 --> 00:24:23,000
+den könnt ihr wirklich jeglichen Namen zuweisen. Ihr müsst nur schauen, dass ihr wieder die Variablen
+
+163
+00:24:23,000 --> 00:24:29,400
+Namen regel einhaltet. Praktisch am Anfang darf kein, also der erste Buchstauert darf
+
+164
+00:24:29,400 --> 00:24:40,120
+keine Zahl sein und Zonderzeichen sind praktisch nur anders groß erlaubt. Meine arme Stimme.
+
+165
+00:24:40,120 --> 00:24:55,080
+Genau, das ist praktisch einfach ein wiederholender Codeblock. Das heißt, wenn wir uns davor an
+
+166
+00:24:55,080 --> 00:25:01,400
+das Beispiel erinnern, wo wir unsere Magicians ausprinten wollen, kann man das natürlich
+
+167
+00:25:01,400 --> 00:25:21,640
+auch so machen. Print und dann machen wir Carolina, Print Alice, und so weiter und so fort. Das heißt,
+
+168
+00:25:21,960 --> 00:25:32,040
+wir haben hier 10, 20 Print Statements hintereinander. Das schaut natürlich dann nicht so schön aus und
+
+169
+00:25:32,040 --> 00:25:36,200
+deshalb verwenden wir hier zum Beispiel eine Vorschleife, wo wir dann einfach die Namen hier
+
+170
+00:25:36,200 --> 00:25:42,520
+alle in einer Liste speichern und dann in einer Vorschleife das ganze in der Laufvariable zuweisen
+
+171
+00:25:42,520 --> 00:25:48,200
+und dann brauchen wir nur noch einen Print Statement. Das ganze ist praktisch statt 10 Zeilencode,
+
+172
+00:25:49,000 --> 00:25:59,240
+dann zwei oder drei Zeilencode. Das geht dann natürlich komplexer auch, also es ist ja nicht
+
+173
+00:25:59,240 --> 00:26:02,840
+nur Print Statement, die man natürlich machen kann, da kann man natürlich auch sehr viel komplexere
+
+174
+00:26:02,840 --> 00:26:13,240
+Sachen machen und stellt euch vor, ihr habt allein hier in der Vorschleife 100 Zeilencode drin und
+
+175
+00:26:13,320 --> 00:26:19,400
+ihr müsst das tausendmal ausführen. Also könnt ihr euch vorstellen, dass ihr da nicht tausendmal
+
+176
+00:26:19,400 --> 00:26:25,960
+diese 100 Zeilencode hintereinander hinschreiben wollt und dann jedes Mal da vielleicht nur den
+
+177
+00:26:25,960 --> 00:26:31,960
+Namen austauschen wollt. Das kann natürlich dann sehr viel Arbeit kosten, statt dass ihr vielleicht nur
+
+178
+00:26:31,960 --> 00:26:40,440
+die Liste ausbessern müsst in der Vorschleife. Genau, das schaut dann eben so aus.
+
+179
+00:26:43,240 --> 00:26:54,120
+Schauen wir das nochmal so an. Das heißt praktisch hier haben wir unsere Initialisierung der Liste,
+
+180
+00:26:54,120 --> 00:26:59,080
+das machen wir außerhalb der Schleife. Natürlich ihr habt es eh schon gesehen, man kann auch hier
+
+181
+00:26:59,080 --> 00:27:05,800
+einfach hergehen und sagen okay will ich will kein Lectures haben, ich definiere hier direkt die Liste,
+
+182
+00:27:05,800 --> 00:27:11,640
+das geht natürlich auch, ist nicht so übersichtlich und ist auch eigentlich glaube ich laut Coding
+
+183
+00:27:11,880 --> 00:27:18,200
+Standard. Muss ich selber nachschauen, ob das erlaubt ist oder nicht. Also bis sie macht so mit
+
+184
+00:27:18,200 --> 00:27:27,800
+eine eigene Variable. Genau und da holen wir uns dann einfach mal die einzelnen Elemente aus der
+
+185
+00:27:27,800 --> 00:27:32,760
+Liste raus, Math, Englisch, Computer Science, nacheinander, also besser gesagt wie starten wir
+
+186
+00:27:32,760 --> 00:27:39,720
+mit Maths, dann wird das ausgeführt, all of Maths, dann wird diese Lecture variabel überschrieben
+
+187
+00:27:39,720 --> 00:27:47,800
+mit Englisch, dann wird wieder das Print Statement aufgerufen und so weiter und so fort.
+
+188
+00:27:51,000 --> 00:27:56,040
+Genau, hier nochmal die Legende, falls sie jemand braucht. Richtig ist hier haben wir einfach die
+
+189
+00:27:56,040 --> 00:28:01,720
+Definition der Sequence, dann haben wir hier diese Definition der Followup und dann haben wir uns
+
+190
+00:28:01,800 --> 00:28:10,280
+an die wiederholbaren Block. Ich sehe, ich hatte die Formatierung nicht hingeklappt,
+
+191
+00:28:10,280 --> 00:28:16,120
+dann kann sich da noch jemanden daran erinnern, welche Zahlen wir da drin haben wollten.
+
+192
+00:28:16,120 --> 00:28:33,880
+Bei Range war es so, das ist ja dann praktisch eine Zahlen Range,
+
+193
+00:28:33,880 --> 00:28:43,320
+fällt das deutsche Wort nicht rein und da können wir praktisch einmal den Start angeben und einmal
+
+194
+00:28:44,040 --> 00:28:49,160
+den Stopp angeben, falls ihr euch erinnern könnt, der Start ist inklusive und der Stopp ist
+
+195
+00:28:49,160 --> 00:28:55,640
+exklusiv anzugeben, das heißt der Stoppwert wird nicht mehr in dieser Range vorkommen,
+
+196
+00:28:56,600 --> 00:29:02,440
+nur der vorletzte Wert und wenn wir von 1 bis 10 zählen wollen,
+
+197
+00:29:04,760 --> 00:29:11,720
+dann ist das hier leider mit einer tollen Formatierungsfehler hier 1 bis 11. Ihr könnt
+
+198
+00:29:11,720 --> 00:29:16,200
+dann auch noch weitergehen und eine Schrittanzahl angeben, das heißt ihr wollt nur jedes
+
+199
+00:29:19,080 --> 00:29:25,320
+zweite Element zählen, dann kann man hier noch ein Beistrich hinzufügen und noch ein Zweier
+
+200
+00:29:25,320 --> 00:29:32,120
+hinzufügen. Ist das soweit klar mit den Ranges? Ja.
+
+201
+00:29:41,800 --> 00:29:49,000
+Das f, genau das ist das der Format, also
+
+202
+00:29:52,040 --> 00:29:54,120
+ich zeig das einmal ein kurd Beispiel, ist besser.
+
+203
+00:29:54,440 --> 00:30:13,000
+Also ein normaler String,
+
+204
+00:30:13,320 --> 00:30:25,480
+also das nennt man normal String, also das ist ein String.
+
+205
+00:30:30,120 --> 00:30:32,440
+Also so definiert man normalerweise einen normalen String,
+
+206
+00:30:33,800 --> 00:30:37,640
+das ist praktisch eine normalen Zeichenkette, da gibt es natürlich auch wieder mehrere
+
+207
+00:30:37,640 --> 00:30:39,480
+Möglichkeiten, ihr könnt das nämlich auch so machen,
+
+208
+00:30:48,280 --> 00:30:50,280
+also geht auch mal den Doppelabus drauf,
+
+209
+00:30:52,520 --> 00:30:57,400
+genau das ist ein String und jetzt gibt es noch zwei Varianten, es gibt das f,
+
+210
+00:30:58,600 --> 00:31:05,080
+das ist praktisch f steht für Formatierung und was da cool ist,
+
+211
+00:31:05,080 --> 00:31:12,920
+ist ihr könnt da mit geschwungenen Klammern dann Berechnungen praktisch Kot einfügen
+
+212
+00:31:14,280 --> 00:31:21,320
+und normalerweise fügt man jetzt nicht allzu viel Kot ein, weil man hat da limitierten Zeitraum
+
+213
+00:31:24,120 --> 00:31:31,000
+und normalerweise wird dann einfach eine Variable hinzugefügt, so praktisch wenn ich jetzt das
+
+214
+00:31:31,000 --> 00:31:40,280
+ausfüge, dann fügt es mir hier diese erste String Variable hier nochmal ein, wenn ich das f weglasse,
+
+215
+00:31:44,840 --> 00:31:51,240
+dann wird das hier nicht als Kot interpretiert, also das ist der Unterschied, es gibt dann auch noch
+
+216
+00:31:51,240 --> 00:31:58,120
+noch eine spezielle Art und das wäre das r und das r steht für raw und das könnt ihr
+
+217
+00:31:58,200 --> 00:32:03,560
+ich so vorstellen, dass wenn ihr hier zum Beispiel einen Backslash einfügt,
+
+218
+00:32:05,240 --> 00:32:10,120
+das ist normalerweise ein spezieller Charakter, der praktisch für Escape verwendet wird, also
+
+219
+00:32:11,160 --> 00:32:14,200
+für spezielle Zeichen verwendet wird, das zeige ich euch auch ganz kurz nochmal,
+
+220
+00:32:15,000 --> 00:32:20,840
+wenn ich das jetzt ausführen würde, okay hier das scheint zu funktionieren,
+
+221
+00:32:28,520 --> 00:32:33,640
+interessant, wahrscheinlich wird das intern als Ding umgewandelt,
+
+222
+00:32:37,800 --> 00:32:39,400
+aber ja zum Beispiel sowas,
+
+223
+00:32:42,520 --> 00:32:47,960
+praktisch hier können wir nämlich diesen Backslash verwenden, um
+
+224
+00:32:48,600 --> 00:32:52,840
+dieses Single-Apostroph auch im String selber zu verwenden, weil das ist ja hier sonst nicht
+
+225
+00:32:52,840 --> 00:32:58,200
+möglich, wenn ich hier sowas mache, dann ist hier ja das String beendet,
+
+226
+00:32:59,400 --> 00:33:09,560
+deshalb kann ich damit Backslash hergehen und das so machen, hier natürlich mag er das überhaupt nicht,
+
+227
+00:33:09,560 --> 00:33:22,840
+genau also hier kann ich das Escape verwenden und der Raw String ist eben dazu da, dass ich eben
+
+228
+00:33:24,360 --> 00:33:25,800
+warte, wenn ich das jetzt zum Beispiel,
+
+229
+00:33:27,560 --> 00:33:29,160
+wie interessant, dass das funktioniert,
+
+230
+00:33:30,920 --> 00:33:34,840
+der Raw String ist halt dazu da, dass man halt dieses Backslash einfach so verwenden kann,
+
+231
+00:33:34,840 --> 00:33:41,480
+aber ja das ist glaube ich für euch jetzt eh nicht so relevant,
+
+232
+00:33:41,480 --> 00:33:45,400
+ihr sollt vor allem wissen, dass es den normalen String gibt und den F String,
+
+233
+00:33:45,960 --> 00:33:50,600
+also der Formatierung String, der wird auch im Live-Programming vorkommen, also ihr solltet
+
+234
+00:33:50,600 --> 00:33:57,480
+euch auf jeden Fall damit vertraut machen, selber mal versuchen da Variablen in diesen String
+
+235
+00:33:57,480 --> 00:34:03,400
+reinzufügen, mit den geschwungenen Klammern wie hier, also natürlich mit einem F,
+
+236
+00:34:05,400 --> 00:34:06,200
+ja so,
+
+237
+00:34:11,000 --> 00:34:15,000
+sonst so weit klar mit dem Format String, ist das jetzt verständlicher, okay,
+
+238
+00:34:15,000 --> 00:34:35,320
+genau dann nochmal zur Wiederholung, es gibt ja auch noch das Enumer Rate,
+
+239
+00:34:37,480 --> 00:34:43,160
+und zwar ihr habt hier hier eure Liste definiert und das könnt ihr das ganze nochmal mit Enumer,
+
+240
+00:34:43,160 --> 00:34:47,240
+also nochmal in dieses Enumer Rate reinhauen, praktisch ihr macht da Klammer auf,
+
+241
+00:34:48,680 --> 00:34:54,920
+haut diese Variable, also diese Listenvariable rein, Klammer zu und was Enumer Rate macht,
+
+242
+00:34:54,920 --> 00:35:02,840
+ist es generiert dann euch so genannte Duple von diesen Elementen mit immer dem Index dazu,
+
+243
+00:35:02,840 --> 00:35:05,640
+das heißt ihr könnt euch das so vorstellen, dass ihr dann einfach
+
+244
+00:35:05,960 --> 00:35:14,440
+hier Maths habt, aber auch gleichzeitig noch den Index dazu und könnt dann das praktisch dann
+
+245
+00:35:14,440 --> 00:35:20,840
+gemeinsam abarbeiten, das heißt hier habt ihr dann immer zwei Variablen statt einer und Enumer Rate
+
+246
+00:35:20,840 --> 00:35:28,440
+praktisch macht dann einerseits hier den Index, actualisiert hier den Index und dann
+
+247
+00:35:28,440 --> 00:35:34,040
+einerseits das Element in der Liste, kann man auch nochmal kurz herzeigen,
+
+248
+00:35:34,040 --> 00:36:01,640
+macht man da Liste, macht man B und Z,
+
+249
+00:36:04,200 --> 00:36:09,400
+und jetzt machen wir so, dass wir praktisch da die Vorschläufe machen, aber jetzt machen wir
+
+250
+00:36:09,400 --> 00:36:12,840
+nicht nur eine Variable, sondern zwei und das ist einerseits der Index
+
+251
+00:36:16,040 --> 00:36:20,360
+und dann der Buchstabe, dann machen wir einfach Buchstabe
+
+252
+00:36:22,440 --> 00:36:28,440
+als Variablename in und dann schreiben wir hier mal statt direkt Liste zu schreiben,
+
+253
+00:36:28,440 --> 00:36:35,960
+schreiben wir die, so erst ist es Enumer Rate und dann in diesen Klammern drin unsere Liste
+
+254
+00:36:41,160 --> 00:36:45,240
+und dann können wir das einfach printen, also wenn wir hier zum Beispiel einfach Index printen würden,
+
+255
+00:36:46,360 --> 00:36:51,480
+dann werden wir praktisch einfach nur den Index von den einzelnen Elementen kriegen,
+
+256
+00:36:52,440 --> 00:36:59,960
+können wir dann natürlich auch noch den Buchstaben dazu geben, print kann mehrere Variablen beistrich
+
+257
+00:36:59,960 --> 00:37:08,040
+getrennt aus praktisch printen, die werden dann immer mit Tabulator praktisch mit Tab voneinander
+
+258
+00:37:08,040 --> 00:37:20,200
+getrennt und wie ihr seht, da praktisch beide, also sowohl Index als auch Buchstabe in dieser
+
+259
+00:37:20,200 --> 00:37:29,160
+Schleife immer erneuert. Sollte es es Enumer Rate fehlen und ich hier trotzdem mein Index hab,
+
+260
+00:37:30,040 --> 00:37:31,080
+das glaube ich, wird passieren,
+
+261
+00:37:36,920 --> 00:37:45,560
+Fehler, weil diese Liste hat ja nur immer einzelne Elemente drin, wenn ich natürlich so was hab,
+
+262
+00:37:46,520 --> 00:37:49,560
+falls ihr zurückgerinnern könnt an die Dupel,
+
+263
+00:37:54,760 --> 00:37:57,960
+also hier machen wir dann eine Liste aus Dupel, das heißt das sind immer dann
+
+264
+00:37:59,000 --> 00:38:00,920
+das Element besteht eigentlich aus zwei Elementen,
+
+265
+00:38:05,000 --> 00:38:06,840
+das ist dann schon sehr komplexe, ja
+
+266
+00:38:07,800 --> 00:38:17,400
+Praktisch runde Klammern sind Dupel, das sind praktisch, die kann man nicht mehr verändern,
+
+267
+00:38:18,360 --> 00:38:24,360
+die praktisch bleiben so wie sie sind und eckige Klammern sind Listen, da kann man wieder Elemente
+
+268
+00:38:24,360 --> 00:38:31,880
+hinzufügen, löschen und so weiter und so fort. Dupel sind dementsprechend sinnvoll, weil man praktisch
+
+269
+00:38:32,840 --> 00:38:38,280
+eben dann so nahe Konstanten hat, praktisch die man weiß, okay, da steht er drin und das wird
+
+270
+00:38:38,280 --> 00:38:42,920
+nicht verändert, plus ist es ein bisschen mehr plattsparend, weil man natürlich diese ganzen
+
+271
+00:38:42,920 --> 00:38:45,320
+Operationen wie hinzufügen, löschen und so weiter nicht braucht.
+
+272
+00:38:48,840 --> 00:38:55,800
+Genau Enumer Rate macht eigentlich nichts anderes als das hier, also das würde unsere ABC Liste
+
+273
+00:38:56,120 --> 00:39:04,200
+in das hier umwandeln, das macht ja genau dasselbe, also wenn wir auch hier wieder einfach nur Index
+
+274
+00:39:04,200 --> 00:39:13,560
+reinschreiben, praktisch man kann sich das hier so vorstellen, das hier steht dann zum Beispiel eben
+
+275
+00:39:14,360 --> 00:39:15,800
+im ersten Schleifendurchgang
+
+276
+00:39:19,640 --> 00:39:23,640
+das hier drin, ja, ich mache einen Kommentar
+
+277
+00:39:23,640 --> 00:39:45,080
+und der Nuller hier wird dem Index zugefügt und dem A, das A wird dem Buchstabe hinzugefügt,
+
+278
+00:39:45,080 --> 00:39:49,480
+also Index wird mit diesem Nuller überschrieben und Buchstabe wird mit diesem A überschrieben.
+
+279
+00:39:50,440 --> 00:39:56,360
+Natürlich kann man natürlich noch viel wahnsinniger werden und da immer noch ein drittes
+
+280
+00:39:56,360 --> 00:40:05,560
+Element auch hinzufügen. Was glaubt ihr, was ich dann da brauche, damit das funktioniert?
+
+281
+00:40:05,800 --> 00:40:19,320
+Hier eine dritte Laufvariable, weil wir hier immer drei Elemente haben, das heißt
+
+282
+00:40:22,120 --> 00:40:27,560
+wenn ich hier nämlich dann mein Dreier hab und hier fehlt mein Test,
+
+283
+00:40:29,240 --> 00:40:34,680
+dann weiß Beifen nicht wohin mit dem Dreier und wird uns ein Fehler werfen.
+
+284
+00:40:36,280 --> 00:40:42,200
+Aber wenn wir eben hier noch unsere dritte Variable hinzufügen, die dann auch noch überschrieben
+
+285
+00:40:42,200 --> 00:40:45,800
+werden soll, dann funktioniert das wieder einfach frei.
+
+286
+00:40:53,320 --> 00:40:57,080
+Und da kann ich dann alles Mögliche damit machen, ich kann da zum Beispiel ein Plus-Test machen
+
+287
+00:40:58,680 --> 00:41:02,200
+und so weiter und so fort, also da ist dann alles Mögliche möglich.
+
+288
+00:41:02,520 --> 00:41:09,000
+All right, ist das jetzt verständlich oder gibt es da zu fragen?
+
+289
+00:41:23,000 --> 00:41:25,000
+Jemand hat eine Idee, was hier passieren würde.
+
+290
+00:41:25,960 --> 00:41:30,040
+Falls ihr euch zurückerinnern könnt, Strings sind sehr ähnlich zu Listen.
+
+291
+00:41:40,040 --> 00:41:40,920
+Probiert es mal aus.
+
+292
+00:41:41,240 --> 00:41:46,280
+Ja, das ist eine sehr interessante Eigenschaft von den Strings. Ihr könnt die Strings eigentlich
+
+293
+00:41:46,280 --> 00:41:52,360
+als nichts anderes vorstellen als eine Liste von einzelnen Buchstaben.
+
+294
+00:41:54,840 --> 00:41:56,840
+Das heißt, wenn ich das hier machen will,
+
+295
+00:41:57,040 --> 00:42:00,740
+Chora String,
+
+296
+00:42:06,560 --> 00:42:10,480
+Chora limb,
+
+297
+00:42:16,560 --> 00:42:19,240
+Chora String
+
+298
+00:42:23,040 --> 00:42:24,680
+Chora String
+
+299
+00:42:26,840 --> 00:42:37,840
+Der Streamer ist cool vor Buchstabe in Cooler-Stream.
+
+300
+00:42:50,340 --> 00:42:53,840
+Wir praktisch jeder Buchstabe einzeln in dieser Schleife behandelt.
+
+301
+00:42:56,840 --> 00:43:02,840
+Da es wichtig ist, wie ihr seht, dass hier immer eine neue Zeile beginnt.
+
+302
+00:43:02,840 --> 00:43:08,840
+Wenn ihr euch vorstellt, wenn ihr ein Dokument schreibt und eine neue Zeile macht,
+
+303
+00:43:08,840 --> 00:43:12,840
+dann macht ihr normalerweise die Enter-Taste nicht und dann kommt eine neue Zeile
+
+304
+00:43:12,840 --> 00:43:14,840
+und dann fängt praktisch eine neue Zeile an.
+
+305
+00:43:14,840 --> 00:43:16,840
+Das ist hier genauso der Fall.
+
+306
+00:43:18,840 --> 00:43:21,840
+Das macht nämlich Print automatisch.
+
+307
+00:43:21,840 --> 00:43:27,840
+Es macht nämlich sobald es hier diese Variable praktisch ausgegeben hat,
+
+308
+00:43:27,840 --> 00:43:29,840
+ganz zum Schluss noch eine neue Zeile.
+
+309
+00:43:29,840 --> 00:43:33,840
+Ihr könnt das natürlich auch wirklich verändern, wenn ihr wollt.
+
+310
+00:43:33,840 --> 00:43:36,840
+Da kann man zum Beispiel sowas machen mit diesem Endstatement.
+
+311
+00:43:36,840 --> 00:43:39,840
+Da könnt ihr das Ende praktisch selber definieren, was ihr hat.
+
+312
+00:43:39,840 --> 00:43:44,840
+Da könnt ihr ein Stream reinhauen, was ihr möchtet.
+
+313
+00:43:44,840 --> 00:43:46,840
+Zum Beispiel machen wir einen Beistrich.
+
+314
+00:43:46,840 --> 00:43:54,840
+Dann wird statt diesen neuen Zeile praktisch einfach ein Beistrich hinzugefügt.
+
+315
+00:43:54,840 --> 00:44:01,840
+Das ist vielleicht dieser bisschen komplizierteres Ding, aber ich finde es immer ganz lustig.
+
+316
+00:44:01,840 --> 00:44:09,840
+Da gibt es auch ganz spezielle Keywords, zum Beispiel das hier.
+
+317
+00:44:09,840 --> 00:44:12,840
+Das ist eigentlich ein cooler Trick.
+
+318
+00:44:12,840 --> 00:44:22,840
+Bechslisch R, das heißt Return, also geht zurück zu Start von dieser Zeile hier.
+
+319
+00:44:22,840 --> 00:44:28,840
+Man kann sich hier so vorstellen, ihr seht den hier nicht, der hier schön blinkt.
+
+320
+00:44:28,840 --> 00:44:30,840
+Das ist praktisch auch ein Cursor.
+
+321
+00:44:30,840 --> 00:44:36,840
+Der sagt euch, okay, jetzt bin ich an dieser Stelle, okay, hier füge ich dann das nächste ein.
+
+322
+00:44:36,840 --> 00:44:45,840
+Und das Return macht nichts anderes und sagt, okay, Return diesen Cursor hierher.
+
+323
+00:44:45,840 --> 00:44:52,840
+Wenn ich das ausführe, wird am Ende praktisch, also ich schreibe zum Beispiel ein D.
+
+324
+00:44:52,840 --> 00:44:55,840
+Und dann werden wir ein Cursor ja hier, der wird ja hier blinken.
+
+325
+00:44:55,840 --> 00:45:00,840
+Aber mit Bechslisch R sage ich, na, ich will den wieder vor dem D haben.
+
+326
+00:45:00,840 --> 00:45:05,840
+Und das könnt ihr vorstellen, es wird das einfach auch das D überschrieben.
+
+327
+00:45:05,840 --> 00:45:20,840
+Das heißt, wenn ich da nochmal ein Sleep einfüge,
+
+328
+00:45:20,840 --> 00:45:25,840
+dann wird der praktisch einfach der Reihe nach immer dieser Buchstabe überschrieben.
+
+329
+00:45:25,840 --> 00:45:34,840
+Was ganz witzig sein kann.
+
+330
+00:45:34,840 --> 00:45:39,840
+Genau, so, stoppe ich das.
+
+331
+00:45:39,840 --> 00:45:48,840
+Ah ja.
+
+332
+00:45:48,840 --> 00:45:51,840
+Dann haben wir auch nochmal zur Wiederholung dieses ZIP.
+
+333
+00:45:51,840 --> 00:45:55,840
+Das ist auch so ähnlich wie das Enumerate ist.
+
+334
+00:45:55,840 --> 00:46:00,840
+Wir, vielleicht jetzt nochmal zur Wiederholung, das Enumerate fügt immer den Index hinzu.
+
+335
+00:46:00,840 --> 00:46:06,840
+Das ZIP, was es macht ist, ihr gebt dem ZIP zwei gleichlange, wichtig gleichlange Listen.
+
+336
+00:46:06,840 --> 00:46:10,840
+Also die müssen wirklich gleich lang sein, sonst funktioniert das nicht.
+
+337
+00:46:10,840 --> 00:46:21,840
+Und das macht auch, genau wie wir davor gesehen haben, eine Liste aus Tuple, wo dann immer praktisch so Bärchen drin sind.
+
+338
+00:46:21,840 --> 00:46:38,840
+Dann haben wir hier immer Bärchen von Maths Brown, Englisch Orwell, Computer Science, Turing.
+
+339
+00:46:38,840 --> 00:46:41,840
+Praktisch, oh, oh, wo ist meine Maus?
+
+340
+00:46:41,840 --> 00:46:43,840
+Das macht dann euch dann sowas.
+
+341
+00:46:43,840 --> 00:46:49,840
+Halt hier nicht mit dreier Duppel, sondern mit zweier Duppel.
+
+342
+00:46:50,840 --> 00:46:52,840
+Und das kann man eben auch wieder so verwenden.
+
+343
+00:46:52,840 --> 00:46:58,840
+Also wenn man sagt, okay, ich habe zwei gleich Listen und ich will praktisch mit Beigen gleichzeitig in der Vorschleife arbeiten,
+
+344
+00:46:58,840 --> 00:47:00,840
+dann kann ich die zusammen zippen.
+
+345
+00:47:00,840 --> 00:47:18,840
+Zipp ist wie Reißverschluss, praktisch einfach sowas, wo ihr dann praktisch zwei Listen zusammen verschließt.
+
+346
+00:47:19,840 --> 00:47:28,840
+Genau, aber vielleicht, wie möchten wir leben, wenn ihr zwei nicht gleich lange Enden vom Reißverschluss habt, dann kommt dann Fehler.
+
+347
+00:47:33,840 --> 00:47:38,840
+Das solltet ihr auf jeden Fall anschauen, das ZIP kommt jetzt auch dann zum Assignment 1 gleich.
+
+348
+00:47:41,840 --> 00:47:44,840
+Genau, dann nochmal kurz zur Wiederholung.
+
+349
+00:47:44,840 --> 00:47:52,840
+Pass ist, also es gibt eben noch diese drei Keywords, Pass, es ist einfach ein leerer Kommand, der eigentlich nichts tut.
+
+350
+00:47:52,840 --> 00:47:59,840
+Das ist eben ganz, ganz nützlich, wenn ihr eben hier bei der Programmierung seid.
+
+351
+00:48:03,840 --> 00:48:07,840
+Ich habe aber noch nicht sicher seid, was ihr da in die Seiliste reinschreiben wollt.
+
+352
+00:48:08,840 --> 00:48:20,840
+Dann kann ich hier mal ein Pass machen, weil wenn ich das Pass weglasse, dann ist es hier eh schon rot und hier Fehler,
+
+353
+00:48:20,840 --> 00:48:26,840
+aber wenn ich hier Pass reinschreibe, dann macht einfach gar nichts, aber jetzt bekomme ich kein Fehler.
+
+354
+00:48:27,840 --> 00:48:29,840
+Dann gibt es das Break.
+
+355
+00:48:30,840 --> 00:48:46,840
+Das Break könnt ihr ja so vorstellen, sagen wir zum Beispiel, if index ist gleich 1 Break.
+
+356
+00:48:48,840 --> 00:48:52,840
+Das ist so die normale Art, wie man Break verwendet.
+
+357
+00:48:57,840 --> 00:49:13,840
+Was hier passiert ist, ihr praktisch, die Schleife fängt an hier mit 0, mit 1, merkt okay, der Index ist jetzt 1.
+
+358
+00:49:14,840 --> 00:49:19,840
+Okay, da muss ich abbrechen, das heißt dieses Break gehört zu dieser Vorschleife.
+
+359
+00:49:20,840 --> 00:49:27,840
+Ganz wichtig, sie gehört praktisch, wenn hier noch eine Vorschleife drin wäre, gehört es immer,
+
+360
+00:49:27,840 --> 00:49:32,840
+und da muss ich auch kurz, das kann nämlich sehr verwirrend sein.
+
+361
+00:49:33,840 --> 00:49:37,840
+Woa, X in Arrange.
+
+362
+00:49:47,840 --> 00:49:51,840
+Visual Studio Code macht das euch eh schon ein bisschen einfacher.
+
+363
+00:49:51,840 --> 00:49:59,840
+Hier sieht man ganz leicht, hier, gerade weil man da der Kürze ist, seht ihr diese Linie hier,
+
+364
+00:49:59,840 --> 00:50:02,840
+das zeige ich euch an, was alles in eurem Block ist.
+
+365
+00:50:03,840 --> 00:50:13,840
+Und dieses Break gehört hier zum if, und das gehört hier zu dieser Vorschleife, und nicht zu dieser Vorschleife, ganz wichtig.
+
+366
+00:50:15,840 --> 00:50:20,840
+Das kann am Anfang ein bisschen verwirrend sein, aber wenn man es ein bisschen austestet, dann kommt man eigentlich sehr schnell drauf.
+
+367
+00:50:21,840 --> 00:50:27,840
+Also diese Blöcke, also das hier ist ein eigenständiger Block, der hat nichts mit dem hier zu tun.
+
+368
+00:50:27,840 --> 00:50:34,840
+Und dieses Break geht immer so vor, ja, genau zur Schleife, die außerhalb ist.
+
+369
+00:50:42,840 --> 00:50:53,840
+Also, das habe ich ein bisschen blüht, machen wir da, hier wird dann immer dreimalalala aufgerufen.
+
+370
+00:50:54,840 --> 00:51:01,840
+Und wie ihr seht, nur bis eins, weil wir hier eins haben und dann soll die Liste abbrechen.
+
+371
+00:51:04,840 --> 00:51:15,840
+Ich kann auch hier ein Break reinhauen, dann wird aber nur diese innere Liste abgebrochen und nicht die äußere.
+
+372
+00:51:16,840 --> 00:51:24,840
+Also wie ihr seht, hier geht es trotzdem noch bis eins, und nicht, hört nicht bei null auf.
+
+373
+00:51:26,840 --> 00:51:38,840
+Also sobald das Break seine Schleife gefunden hat, kann man sich so vorstellen, wie eine Rakete, das schießt da diese Schleife ab und bam, die ist weg, aber die davor, die gibt es noch.
+
+374
+00:51:39,840 --> 00:51:55,840
+Und deshalb wird die auch noch weiter ausgeführt. Deshalb da auch aufpassen mit diesem Break, weil es gibt da noch eine andere Schleife, das ist die Wildschleife und die kann unendlich lang laufen.
+
+375
+00:51:56,840 --> 00:52:06,840
+Und dann müsst ihr mit Break abbrechen und wenn ihr das Break nicht richtig macht, dann habt ihr dann Programm, das endlos läuft, bis ihr das Programm andersweitig abbrecht.
+
+376
+00:52:06,840 --> 00:52:19,840
+Und dann gibt es noch das Continuum, zum Beispiel wir nehmen das Print Statement hier und fügen später ein.
+
+377
+00:52:23,840 --> 00:52:29,840
+Hier zum Beispiel auch interessant, ihr seht, dass hier das Print ausgegraut ist.
+
+378
+00:52:30,840 --> 00:52:38,840
+Das liegt daran, dass, wie schlust du dir kurz sofort, ihr seht, du hast hier ein Break drin, der hintere Teil, der wird nie mehr ausgeführt.
+
+379
+00:52:43,840 --> 00:52:53,840
+Wenn wir hier zum Beispiel dann aber ein Continuum machen, Continuum, das bricht nicht ab, sondern das überspringt den Teil hier.
+
+380
+00:52:54,840 --> 00:53:04,840
+Praktisch, wenn wir hier reingehen, Index, ok, Index ist 0, ist 0 gleich 1, nein, das ist nicht der Fall, dann können wir das ausführen.
+
+381
+00:53:06,840 --> 00:53:20,840
+Index ist 1, 1 ist gleich 1, das ist wahr, das heißt, Continuum wird ausgeführt, das heißt, wir brechen hier unseren Schleifenvorgang ab und gehen zur nächsten Schleifenvorgang.
+
+382
+00:53:21,840 --> 00:53:33,840
+Wenn ich das ausführe, dann seht ihr praktisch, dass hier wir kein Print 1 haben, sondern nur ein Print 2, weil der 1er übersprungen wird.
+
+383
+00:53:34,840 --> 00:53:38,840
+Das ist vielleicht ein bisschen besser, wieder mit dem ausgegrauten zu sehen.
+
+384
+00:53:38,840 --> 00:54:00,840
+Hier, der nächste Teil, hier wird jetzt in diesem Fall nie ausgeführt und meistens hat man da eben das Ganze, das Continuum in irgendeiner IF Anweisung drin, damit man nur in bestimmten Fällen Sachen überspringt.
+
+385
+00:54:03,840 --> 00:54:05,840
+Ist das soweit verständlich oder gibt es da noch Fragen?
+
+386
+00:54:08,840 --> 00:54:12,840
+Ok, genau, das haben wir gesehen.
+
+387
+00:54:13,840 --> 00:54:23,840
+Passt, dann kann man zu den Datenstrukturen, deswegen habe ich ein bisschen sputen, und da gibt es mehrere.
+
+388
+00:54:24,840 --> 00:54:35,840
+Lists und Doubles, die haben wir jetzt schon durchgemacht, Lists, das ist mit den eckigen Klammern, Doubles ist mit den runden Klammern, jetzt kann man noch 2 dazu, das sind die Sets und Dictionaries.
+
+389
+00:54:36,840 --> 00:54:40,840
+Fangen wir mal mit ins Set.
+
+390
+00:54:41,840 --> 00:54:58,840
+Sets sind, das kennen wir vielleicht aus der Mathematik, wo man auch Sets hat, das sind praktisch einfach eine ungehörnete Sammlung von eindeutigen, wichtig eindeutigen Elementen, das heißt praktisch, da kommt kein Wert zweimal vor.
+
+391
+00:54:59,840 --> 00:55:16,840
+Wie gesagt, das kennen wir aus der Mathematik, vielleicht wenn ihr euch zurück erinnert an die Venndiagramme und so, dann repräsentiert man manchmal die Sets, und da gibt es eben keine Doppelgänge, also jedes Element ist nur einmal vorhanden.
+
+392
+00:55:17,840 --> 00:55:39,840
+Und die Definition von einem Set ist mit diesen geschwungenen Klammern, praktisch das haben wir die eckigen Klammern, jetzt haben wir die runden Klammern, das kriegen wir auch noch die geschwungenen Klammern, oder eben durch dieses Set-Statement-Gedau, da kann man zum Beispiel einfach ein leeres Set machen.
+
+393
+00:55:40,840 --> 00:56:00,840
+Und das ist ultra, ultra notwendig, wenn man ganz schnell eben zum Beispiel, sagen wir mal, man hat eine Liste mit Doppelgängen drin und will die Doppelgänger ganz schnell rauslöschen, dann wandle ich einfach diese Liste in ein Set um, und Schwups sind alle Doppelgänger weg, und da kann ich das Set wieder in eine Liste umwandeln.
+
+394
+00:56:01,840 --> 00:56:09,840
+Und da gibt es dann auch diese ganzen Operatoren, die man auch aus der Mengenlehre kennt, also wie gesagt diese Venndiagramme auch.
+
+395
+00:56:12,840 --> 00:56:29,840
+Wichtig aber, es gibt hier keinen direkten Elementzugriff, also man hat hier keinen Index, also man kann ja nicht Set an der Stelle 1 sagen, um das zweite Element rauszukriegen, sondern dann müsste man dieses Set zuerst in eine Liste umwandeln, wenn man das machen möchte.
+
+396
+00:56:30,840 --> 00:56:37,840
+Aber man kann auch wieder Lenn verwenden, um praktisch die Länge unserer Sätze durchzuführen.
+
+397
+00:56:38,840 --> 00:56:39,840
+Das schaut dann eben so aus.
+
+398
+00:56:44,840 --> 00:56:58,840
+Praktisch hat man hier die geschwungenen Klammern auf, dann hat man hier ein Element, Beistrich, zweites Element, eigentlich identisch wie eine Liste ist, nur dass man statt den eckigen Klammern diese geschwungenen Klammern verwendet.
+
+399
+00:57:01,840 --> 00:57:11,840
+Es gibt da natürlich jetzt sehr verwirrend hinzufügen und löschen.
+
+400
+00:57:14,840 --> 00:57:26,840
+Bei Set ist so, da gibt es das Add, das kommt nämlich aus der Mathematik, und da kann man Set addieren, praktisch hat man nicht Append, sondern Add.
+
+401
+00:57:27,840 --> 00:57:32,840
+Schaut, dass ihr das Append von den Listen und das Add von den Sets auseinanderhaltet.
+
+402
+00:57:36,840 --> 00:57:45,840
+Genau, dann gibt es noch dieses Update, da kann man dann eine ganze Liste von Items hinzufügen.
+
+403
+00:57:46,840 --> 00:58:04,840
+Dann gibt es zwei, das Remove und das Discard, das hier, wenn man Remove verwendet,
+
+404
+00:58:04,840 --> 00:58:14,840
+sagen wir zum Beispiel, wir gehen jetzt her und haben in unseren Color Set Orange und Black drin und wir wollen jetzt Blue Remove, dann wird es uns ein Fehler werfen.
+
+405
+00:58:17,840 --> 00:58:24,840
+Discard versucht es einfach und wenn es nicht funktioniert, dann ist auch egal, können wir auch kurz ausprobieren.
+
+406
+00:58:24,840 --> 00:58:49,840
+Okay, dann Dual Set, dann definieren wir mal ein Set, wir haben da bei uns ein tollen Set, jetzt was Remove.
+
+407
+00:58:55,840 --> 00:58:58,840
+Dann kriegen wir dann Fehler, falls es nicht existiert.
+
+408
+00:59:06,840 --> 00:59:13,840
+Und Discard versucht es einfach und wenn es nicht existiert, dann passiert halt nichts, aber wir bekommen auch keinen Fehler.
+
+409
+00:59:14,840 --> 00:59:24,840
+Und das ist manchmal sehr hilfreich, wenn man einfach Fehler vermeiden will, sagt okay, ich will es einfach versuchen zu löschen und wenn es nicht existiert, ist auch egal.
+
+410
+00:59:27,840 --> 00:59:42,840
+Das heißt, wenn ich jetzt da das tolle Set print, dann ist das immer noch so, wenn ich da natürlich einen Fünfer drin habe, dann wird das der Fünfer ausgelöscht.
+
+411
+00:59:44,840 --> 00:59:56,840
+Und wenn ich sage, ich will alle löschen, dann kann ich das mit Clear machen und dann wird mein tolle Set leer sein.
+
+412
+00:59:57,840 --> 01:00:02,840
+Genau, das ist praktisch so hinzufügen und löschen.
+
+413
+01:00:05,840 --> 01:00:14,840
+Und dann gibt es auch so Mengenoperationen, die ja kennt ihr vielleicht eh schon jetzt, vielleicht von den Booleons oder von der Mathematik.
+
+414
+01:00:15,840 --> 01:00:40,840
+Sagen wir, ihr habt diese zwei Sets hier, da kann man verunten, das wäre praktisch in weder mit Intersection oder XY, also wenn Diagramme, normalerweise werden sie so in Kreise eingezeichnet und wäre diese Menge hier.
+
+415
+01:00:41,840 --> 01:00:50,840
+Das wäre praktisch alles, was ZX und ZY gemeinsam haben und der Rest wird weggeworfen.
+
+416
+01:00:52,840 --> 01:01:08,840
+Das Ohr wäre praktisch alles, also dass wir wirklich die komplette Menge beide kombiniert oder Junioren kann man auch nehmen.
+
+417
+01:01:08,840 --> 01:01:22,840
+Also es gibt eben dieses Und-Zeichen für Und und diesen langen Strich runter, da ist es normalerweise bei der Statur, bei den kleiner größer Zeichen und noch eins drunter.
+
+418
+01:01:23,840 --> 01:01:28,840
+Ihr könnt auch sonst eben auch Junioren verwenden.
+
+419
+01:01:29,840 --> 01:01:40,840
+Ihr könnt ihn verwenden, um rauszufinden, ob ein gewisses Element in diesem Fett vorhanden ist, es ist sehr ähnlich zu den Listen eigentlich, da habt ihr ja derselbe.
+
+420
+01:01:43,840 --> 01:01:50,840
+Und dann gibt es auch noch die Differenz und die Differenz der praktisch nur das hier.
+
+421
+01:01:53,840 --> 01:02:01,840
+Also nur das und das, wenn es mich täuscht, dass ich selber nachschauen.
+
+422
+01:02:02,840 --> 01:02:04,840
+Guck mal, kurz ausprobieren.
+
+423
+01:02:10,840 --> 01:02:21,840
+X ist gleich 1, 2, Y ist gleich 2, 3.
+
+424
+01:02:23,840 --> 01:02:35,840
+Jetzt können wir machen X und Y, da bekommt ihr praktisch nur die Elemente raus, die in beiden Sets vorhanden sind.
+
+425
+01:02:36,840 --> 01:02:38,840
+Ihr könnt das Ohr machen.
+
+426
+01:02:42,840 --> 01:02:47,840
+Das wären einfach alle Elemente und wie ihr seht, das Resultat ist auch immer wieder ein Set.
+
+427
+01:02:47,840 --> 01:02:53,840
+Das heißt, wir haben hier nicht zweimal 2 drin stehen, sondern nur einmal, weil es ja keine Doppelgänger geben soll.
+
+428
+01:02:55,840 --> 01:02:57,840
+Und dann gibt es eben auch noch das Minus.
+
+429
+01:03:01,840 --> 01:03:05,840
+Und da ist so, ah ok, das ist so.
+
+430
+01:03:09,840 --> 01:03:10,840
+Das ist nicht das hier.
+
+431
+01:03:17,840 --> 01:03:27,840
+Sondern das könnt ihr so vorstellen, dass, sagen wir mal, das hier ist X und das ist Y.
+
+432
+01:03:29,840 --> 01:03:37,840
+Und wir praktisch subtrahieren Y von X, dann bleibt praktisch nur noch dieser Teil hier übrig.
+
+433
+01:03:38,840 --> 01:03:43,840
+Und der Teil hier, der praktisch mit Y überschneidet, wird gelöscht.
+
+434
+01:03:44,840 --> 01:03:50,840
+Deshalb steht auch hier noch ein 1er drin, weil hier praktisch X ist ja 1 und 2.
+
+435
+01:03:51,840 --> 01:03:57,840
+Und dann löschen wir praktisch alle Elemente in X, die in Y vorkommen.
+
+436
+01:03:58,840 --> 01:04:02,840
+Das ist 2 und 3, aber 3 haben wir ja nichts nicht, deshalb ist das eh egal.
+
+437
+01:04:02,840 --> 01:04:04,840
+Der 2er wird dann aus X rausgelöscht.
+
+438
+01:04:06,840 --> 01:04:13,840
+Und da gibt es natürlich noch mehr Operatoren und die könnt ihr dann auch in den Beifendocs nachschauen.
+
+439
+01:04:14,840 --> 01:04:16,840
+Die werden wir euch da mal verlinken.
+
+440
+01:04:18,840 --> 01:04:24,840
+Genau, dann kommen wir noch zu den Dictionaries.
+
+441
+01:04:25,840 --> 01:04:26,840
+Zu den Dictionaries.
+
+442
+01:04:29,840 --> 01:04:32,840
+Und ihr könnt es so vorstellen wie ein Wörterbuch.
+
+443
+01:04:33,840 --> 01:04:36,840
+Also Dictionaries, das heißt ja auch schon, übersetzt Wörterbuch.
+
+444
+01:04:39,840 --> 01:04:45,840
+Und das ist so, wenn ihr jetzt euch ein Wörterbuch vorstellt, das besteht hier praktisch aus einer Liste von Wörtern.
+
+445
+01:04:46,840 --> 01:04:48,840
+Und dann zum jeden Wort ist eine Beschreibung dazu.
+
+446
+01:04:49,840 --> 01:04:53,840
+Das heißt, ihr habt praktisch einen Schlüssel, das wäre in diesem Fall eure Wort.
+
+447
+01:04:54,840 --> 01:04:58,840
+Und ein Value, das wäre dann praktisch der Wert, der zu dem Wort gehört, die Beschreibung.
+
+448
+01:05:02,840 --> 01:05:07,840
+Und das ist praktisch dann einfach so eine Sammlung von Schlüsselwertbahnen.
+
+449
+01:05:08,840 --> 01:05:11,840
+Und das ist eigentlich ein sehr, sehr wichtiges Konzept im Beifen.
+
+450
+01:05:12,840 --> 01:05:14,840
+Also das werdet ihr immer wieder verwenden, jetzt auch bei den Assignments.
+
+451
+01:05:15,840 --> 01:05:25,840
+Und die Kies, das ist ganz interessant bei Beifen, kann wirklich also ziemlich alles sein, es gibt ja schon ein paar Einschränkungen.
+
+452
+01:05:26,840 --> 01:05:31,840
+Aber zumindest von den Datentypen, die ihr bis jetzt gelernt habt, das könnt ihr, glaube ich, alles verwenden.
+
+453
+01:05:32,840 --> 01:05:39,840
+Das heißt, euer Schlüssel muss nicht ein Wort sein, das kann auch wirklich eine Zahl sein, es kann auch ein Boolean sein.
+
+454
+01:05:40,840 --> 01:05:45,840
+Also es ist sehr vielfältig.
+
+455
+01:05:46,840 --> 01:05:53,840
+Sehr wichtig im Dictionary ist aber, dass ihr praktisch immer nur zu jedem Schlüssel, also der Schlüssel kann nur einmal vorkommen.
+
+456
+01:05:54,840 --> 01:05:57,840
+Also ihr könnt nicht zweimal null, den Schlüssel null drin haben.
+
+457
+01:05:58,840 --> 01:05:59,840
+Der wird dann einfach sonst überschrieben.
+
+458
+01:06:00,840 --> 01:06:08,840
+Und wenn ihr da dann auch auf dem Schlüssel zugreift und der nicht existiert, dann bekommt ihr diesen Key.
+
+459
+01:06:09,840 --> 01:06:20,840
+Bevor ich das dann euch kurz in Code zeig, will ich dann noch kurz zwei wahre Beispiele, damit ich das besser vorstellen kann.
+
+460
+01:06:21,840 --> 01:06:23,840
+Zum einen eben, wie gesagt, dieses Wörterbuch.
+
+461
+01:06:24,840 --> 01:06:27,840
+Wie ihr seht, haben wir hier immer im Fett dieses Wortes, das wäre unser Schlüssel, nicht?
+
+462
+01:06:27,840 --> 01:06:34,840
+Und dann haben wir die Informationen zu diesem Schlüssel, das wäre unser Value, unser Wert.
+
+463
+01:06:35,840 --> 01:06:40,840
+Ein anderes gutes Beispiel wäre ein Spind.
+
+464
+01:06:41,840 --> 01:06:47,840
+Praktisch ein Spind, der hat hier euren Key nicht.
+
+465
+01:06:48,840 --> 01:06:53,840
+Praktisch er hat eine Spindnummer und einem Spind könnt ihr reinholen, was ihr wollt.
+
+466
+01:06:53,840 --> 01:06:58,840
+Natürlich bei Beifern ist es so, dass diese Spindnummer irgendwas sein kann.
+
+467
+01:06:59,840 --> 01:07:06,840
+Das muss nicht eine Zahl sein, das kann auch ein String sein, was das natürlich noch viel komplexer macht.
+
+468
+01:07:07,840 --> 01:07:09,840
+Aber auch cool.
+
+469
+01:07:11,840 --> 01:07:15,840
+Genau, und wie definiert man so ein Dictionary?
+
+470
+01:07:15,840 --> 01:07:20,840
+Es ist jetzt bisschen verwirrend, weil wir es gerade setz durchgemacht haben.
+
+471
+01:07:21,840 --> 01:07:25,840
+Und zwar ist so, die Dictionaries werden auch mit geschwungener Klammer gemacht.
+
+472
+01:07:26,840 --> 01:07:31,840
+Der große Unterschied sind diese Doppelpunkte hier.
+
+473
+01:07:32,840 --> 01:07:39,840
+Das heißt, wenn ihr geschwungene Klammer seht und ein Doppelpunkt, dann wisst ihr sofort, okay, das ist ein Dictionary, das ist kein Set.
+
+474
+01:07:40,840 --> 01:07:44,840
+Das ist komplett was anderes. Komplett nicht, aber.
+
+475
+01:07:45,840 --> 01:07:47,840
+Man verwendet halt anders.
+
+476
+01:07:48,840 --> 01:07:50,840
+Und das kann man eben so definieren.
+
+477
+01:07:51,840 --> 01:07:59,840
+Hier in diesem Fall haben wir halt die Immerzahlen als Keys, also Key, Doppelpunkt, Value, und dann können wir den Value reinholen.
+
+478
+01:08:01,840 --> 01:08:04,840
+Und das sind dann immer jetzt zusammengehörige Paare.
+
+479
+01:08:05,840 --> 01:08:07,840
+Wie ihr seht, das ist dann mal ein Beistrich dazwischen.
+
+480
+01:08:08,840 --> 01:08:14,840
+Zugreifen kann man dann einfach, hier haben wir den Dictionary definiert.
+
+481
+01:08:15,840 --> 01:08:21,840
+Man kann dann einfach mit eckigen Klammern, wie ihr das eh schon vom Index kennt,
+
+482
+01:08:22,840 --> 01:08:27,840
+statt dem Index nehmen wir jetzt aber einfach diesen Key her, praktisch das ist unser Schlüssel,
+
+483
+01:08:28,840 --> 01:08:32,840
+mit dem wir praktisch dann einen gewissen Value aus dem Dictionary herausholen.
+
+484
+01:08:33,840 --> 01:08:39,840
+Und da gibt es entweder das hier mit eckigen Klammern oder eben auch das Get, falls ihr es lieber ausschreiben möchtet.
+
+485
+01:08:42,840 --> 01:08:48,840
+Und das ist ein sehr starkes Dual, da kann man nämlich auch einfach einfügen oder verändern.
+
+486
+01:08:49,840 --> 01:08:58,840
+Das klingt am Anfang vielleicht verwirrend, das heißt, sagen wir mal, wir haben Stunes mit also an der Stelle Key 20,
+
+487
+01:08:58,840 --> 01:09:11,840
+haben und definieren da Lisa, in diesem Fall würde bei Stunes hier ein neuer Eintrag mit Key 20 und Value Lisa hinzugefügt werden.
+
+488
+01:09:12,840 --> 01:09:16,840
+Und hier in diesem Fall mit 1, 2, 3, 1, 2, 3 haben wir ja schon definiert, nicht?
+
+489
+01:09:17,840 --> 01:09:20,840
+Also das ist ja schon in unserem Dictionary drin, da steht im Moment Maria.
+
+490
+01:09:21,840 --> 01:09:27,840
+Jetzt falls das schon vorkommt, wird diese Wert Maria durch den neuen Wert einfach ersetzt.
+
+491
+01:09:29,840 --> 01:09:35,840
+Da wird euch kein Fehler geworfen und kein gar nix, das wird einfach gemacht, deshalb immer aufpassen da.
+
+492
+01:09:38,840 --> 01:09:44,840
+Also nochmal zur Wiederholung, das ist kein Index in diesem Fall, sondern einfach der Key, den ihr hier so definiert habt.
+
+493
+01:09:44,840 --> 01:09:54,840
+So, oder wenn ihr später noch mehr hinzufügen wollt, könnt ihr dann einfach da noch einen neuen Key definieren, mit der gleichen Variable hier.
+
+494
+01:09:56,840 --> 01:10:02,840
+Und wenn ihr praktisch eins löschen wollt, dann geht das da wieder mit diesem Delete Keyword hier, mit diesem Dell.
+
+495
+01:10:03,840 --> 01:10:09,840
+Zeig mal ganz kurz her, schauen wir mal, was ich da ein Beispiel habe.
+
+496
+01:10:13,840 --> 01:10:16,840
+Ja, hier in diesem Fall, weiter machen wir kurz so.
+
+497
+01:10:24,840 --> 01:10:30,840
+Also hier definieren wir unser Set einer, sag ich, Dictionary, wenn ich selber schon verwirrt.
+
+498
+01:10:33,840 --> 01:10:41,840
+Das heißt, wir haben hier dann praktisch drei Einträge drin, mit 123, Maria, 3, 1, Tim und 42 Max.
+
+499
+01:10:43,840 --> 01:10:52,840
+Und dann wollen wir aber noch mit Key 668 die Martina hinzufügen, dann ist das ohne weiteres möglich.
+
+500
+01:10:52,840 --> 01:11:05,840
+Wenn ich da jetzt zum Beispiel hier Maria reinschreib, geht das auch.
+
+501
+01:11:07,840 --> 01:11:13,840
+Also die Werte, die können natürlich doppelt vorkommen, nur die Keys, die sind einzigartig.
+
+502
+01:11:14,840 --> 01:11:24,840
+Also da, wenn der Schneim definiert worden ist, dann wird der überschrieben.
+
+503
+01:11:28,840 --> 01:11:33,840
+Also hier in diesem Fall wurde 131, Tim durch Maria ersetzt.
+
+504
+01:11:35,840 --> 01:11:37,840
+Und ich kann das natürlich auch löschen.
+
+505
+01:11:38,840 --> 01:11:52,840
+Jetzt haben wir eine von unseren 3 Marias da gelöscht, also wir hatten da 3 Marias drin und jetzt ist der Key 123 gelöscht worden.
+
+506
+01:11:52,840 --> 01:11:57,840
+Jetzt haben wir nur noch den 131, der wäre hier und den 668, der wäre hier.
+
+507
+01:11:57,840 --> 01:12:09,840
+Und natürlich, wenn man versucht, etwas zu löschen, was nicht existiert, dann bekommt er auch wieder einen Fehler geworfen.
+
+508
+01:12:22,840 --> 01:12:24,840
+Sehr viele geschwone Klammern.
+
+509
+01:12:28,840 --> 01:12:32,840
+Passt, dann werde ich da mal ein bisschen schneller sein, ja.
+
+510
+01:12:34,840 --> 01:12:42,840
+Genau, das schaut dann eben so aus, ob es da scheint, mein Code nicht zu funktionieren, meine Präsentation.
+
+511
+01:12:43,840 --> 01:12:49,840
+Genau, man kann natürlich auch alle Schlüssel von seinem Dictionary sich rausholen.
+
+512
+01:12:49,840 --> 01:12:56,840
+Das geht mit diesem Keystatement, das Gleiche geht mit dem Value auch.
+
+513
+01:12:56,840 --> 01:13:01,840
+Das heißt, das ist nicht eine Liste, das ist eine spezielle Art.
+
+514
+01:13:01,840 --> 01:13:28,840
+Und jetzt, wenn ich das students.keys mache.
+
+515
+01:13:31,840 --> 01:13:39,840
+Dann, das schaut so aus in der Liste, aber es ist nicht eine Liste, das ist ein Dickkeys-Objekt.
+
+516
+01:13:41,840 --> 01:13:47,840
+Scheint kompliziert zu sein, aber ihr könnt es ganz einfach in eine Liste umwandeln, einfach mit List.
+
+517
+01:13:49,840 --> 01:13:51,840
+Dann bekommt ihr eine Liste raus.
+
+518
+01:13:53,840 --> 01:13:58,840
+Und jetzt habt ihr praktisch alle Schlüssel, die praktisch im Dictionary gerade definiert sind.
+
+519
+01:13:58,840 --> 01:14:00,840
+Das Gleiche geht natürlich auch mit Values.
+
+520
+01:14:03,840 --> 01:14:05,840
+Da bekommt ihr die Values raus.
+
+521
+01:14:05,840 --> 01:14:10,840
+Und wenn ihr immer die Baare haben wollt, dann könnt ihr da Items nehmen.
+
+522
+01:14:12,840 --> 01:14:20,840
+Und dann habt ihr da praktisch so eine Liste aus Dupel, praktisch wo dann immer der Schlüssel drin ist und der Value.
+
+523
+01:14:20,840 --> 01:14:27,840
+Und das ist ganz cool, weil ihr da praktisch das Ganze in Vorschleifen verwenden könnt.
+
+524
+01:14:28,840 --> 01:14:32,840
+Das heißt, den Key könnt ihr dann in ein Laufvariabel reinhauen und den Value.
+
+525
+01:14:33,840 --> 01:14:37,840
+Und dann werden die innerhalb der Schleife praktisch immer wieder neu definiert.
+
+526
+01:14:38,840 --> 01:14:42,840
+Und so kann man praktisch über eine Liste iterieren und Sachen machen.
+
+527
+01:14:43,840 --> 01:14:45,840
+Genau.
+
+528
+01:14:47,840 --> 01:14:53,840
+Was dann, ich glaube, die Functions werde ich nächstes Mal morgen machen.
+
+529
+01:14:54,840 --> 01:15:00,840
+Und dann gehen wir da weiter zu Assignment 1.
+
+530
+01:15:00,840 --> 01:15:14,840
+Das heißt, morgen machen wir dann im Schnelldurchlauffunktionen durch.
+
+531
+01:15:17,840 --> 01:15:21,840
+Genau, dann werde ich kurz Assignment 1 versprechen.
+
+532
+01:15:21,840 --> 01:15:42,840
+Also Assignment 1 geht es eigentlich vor allem darum, dass ihr diese Konzepte, die jetzt praktisch in diesen 4 Byphen Crash Courses erlernt habt, also mit dem inklusive Morgen, das ihr dann mal das übt.
+
+533
+01:15:43,840 --> 01:15:53,840
+Praktisch da werden dann ziemlich alles vorkommen, also Variablen, Datentypen, Funktionen, die wir dann eben morgen durchmachen, Loops, Listen und so weiter.
+
+534
+01:15:54,840 --> 01:16:10,840
+Und ihr bekommt dann eben so mehrere Unterteilungen, kleine immer wieder so Aufgaben, die ihr dann lösten müsst und wo ihr dann praktisch das Ganze eigentlich mit Funktionen dann macht.
+
+535
+01:16:11,840 --> 01:16:14,840
+Die machen wir dann eben morgen durch, dann sollte es eben kein Problem sein.
+
+536
+01:16:16,840 --> 01:16:28,840
+Und jetzt müsst ihr dann eben so Funktionen definieren, die sind dann eigentlich eh schon relativ vorgegeben, was da praktisch welchen Namen die haben sollen und welche Parameter und so weiter.
+
+537
+01:16:29,840 --> 01:16:31,840
+Wie gesagt, das machen wir morgen.
+
+538
+01:16:32,840 --> 01:16:41,840
+Genau, und die Aufgaben werden dann immer komplizierter, das sind glaube ich so, könnten es ja 6 Aufgaben sein.
+
+539
+01:16:42,840 --> 01:16:48,840
+Insgesamt, Richtschreibfehler sehe ich gerade, sind es 24 Punkte.
+
+540
+01:16:49,840 --> 01:16:54,840
+Die einfachen Aufgaben werden euch natürlich weniger Punkte geben als die schweren Aufgaben.
+
+541
+01:16:55,840 --> 01:17:07,840
+Schauen wir mal, genau, ihr bekommt dann eigentlich eine exakte Beschreibung, was ihr zu tun habt in den einzelnen Funktionen.
+
+542
+01:17:08,840 --> 01:17:10,840
+Ihr bekommt dann auch ein Template zur Verfügung gestellt.
+
+543
+01:17:11,840 --> 01:17:20,840
+Ganz, ganz wichtig, schaut, dass der Dateinamen richtig ist, also das Assignment 1 Punkt und diese Endung hier,
+
+544
+01:17:21,840 --> 01:17:28,840
+dass hier kein Leerzeichen ist, dass hier kein Anderscore ist, dass hier kein Klammer auf null Klammer zu ist.
+
+545
+01:17:29,840 --> 01:17:36,840
+Und schaut auch, dass ihr das Template verwendet, das ihr bekommt und das ausfüllt und nicht ein neues Notebook erstellt.
+
+546
+01:17:37,840 --> 01:17:43,840
+Also nehmt einfach das hier, was wir euch schon vorgeben, weil das macht es uns dann auch einfacher.
+
+547
+01:17:44,840 --> 01:17:51,840
+Die Date-Line ist dann eh erst im November, das heißt, ihr habt jetzt 3 Wochen Zeit dafür.
+
+548
+01:17:55,840 --> 01:18:05,840
+Genau, schaut, dass die Anforderungen und der Output wirklich exakt so ist, wie es eben in diesem Assignment 1 Angabe.html drinsteht.
+
+549
+01:18:06,840 --> 01:18:09,840
+Das könnt ihr dann praktisch einfach im Browse aufmachen und dann habt ihr dann tolle Angabe.
+
+550
+01:18:09,840 --> 01:18:16,840
+Wichtig, der Kommentarhälter, also Assignment 0 war das eh relativ egal noch.
+
+551
+01:18:17,840 --> 01:18:21,840
+Assignment 1 schaut wirklich, dass ihr euren Namen ausfüllt, euren Matrikelnummer,
+
+552
+01:18:22,840 --> 01:18:28,840
+vielleicht auch eine kurze Beschreibung macht und schaut, dass der Codingstandard eingehalten wird.
+
+553
+01:18:29,840 --> 01:18:35,840
+Das Ganze ist so, wir werden das Ganze automatisch testen.
+
+554
+01:18:36,840 --> 01:18:41,840
+Das heißt, eure Programme werden dann so Ausgaben machen mit Print.
+
+555
+01:18:42,840 --> 01:18:47,840
+Und wir testen dann einfach, ob diese Printstatements richtig sind.
+
+556
+01:18:48,840 --> 01:18:53,840
+Das heißt, wenn ihr da die Printstatements nicht exakt macht, zum Beispiel,
+
+557
+01:18:53,840 --> 01:18:59,840
+da ist ja extra Leerzeichen drin oder so, kann es sein, dass unser Testprogramm da was schreit.
+
+558
+01:19:00,840 --> 01:19:06,840
+Das ist jetzt nicht allzu schlimm, aber wir werden dann eh nochmal bei denen nachschauen,
+
+559
+01:19:07,840 --> 01:19:10,840
+wo es jetzt happert, also wo wirklich Fehler drin sind.
+
+560
+01:19:11,840 --> 01:19:15,840
+Gehen wir normalerweise eh nochmal manual durch und schauen, woran es liegt.
+
+561
+01:19:16,840 --> 01:19:21,840
+Genau, wir machen dann noch immer wieder Testruns.
+
+562
+01:19:22,840 --> 01:19:26,840
+Das heißt, ihr bekommt auch, wenn ihr praktisch sagt, okay, ich werde früher fertig,
+
+563
+01:19:27,840 --> 01:19:29,840
+ich lade das Ganze mal im T-Center hoch.
+
+564
+01:19:30,840 --> 01:19:32,840
+Dann machen wir jeden Dienstag und Freitag Testruns.
+
+565
+01:19:33,840 --> 01:19:39,840
+Da wird unser Testsystem einmal durchlaufen und euch dann eventuelle Fehler anzeigen.
+
+566
+01:19:40,840 --> 01:19:44,840
+Und dann könnt ihr die eben nochmal ausbessern und einen neuen Code nochmal hochladen.
+
+567
+01:19:46,840 --> 01:19:50,840
+Da wichtig ist, dass ihr es immer bis Dienstag und Freitag 18 Uhr macht,
+
+568
+01:19:51,840 --> 01:19:54,840
+weil dann werden unsere Tutoren die Abgaben herunterladen und den Testsystem füttern.
+
+569
+01:19:56,840 --> 01:19:59,840
+Und ihr bekommt dann normalerweise eine Mail mit einem Testreport.
+
+570
+01:20:01,840 --> 01:20:05,840
+Falls ihr eben Fragen zu dem Testreport habt oder keine Ahnung was,
+
+571
+01:20:06,840 --> 01:20:10,840
+dann könnt ihr natürlich wieder zum Tutorium kommen oder im T-Center auch Fragen stellen.
+
+572
+01:20:11,840 --> 01:20:13,840
+Im T-Center bitte wichtig keinen Code reinstellen.
+
+573
+01:20:15,840 --> 01:20:20,840
+Wir haben da auch dann noch so eine Website, wo ihr dann nochmal den Testreport lesen könnt.
+
+574
+01:20:21,840 --> 01:20:24,840
+Da steht ja normalerweise zum Beispiel auch drin, falls ihr Formatierungsfehler habt,
+
+575
+01:20:25,840 --> 01:20:28,840
+also Coding-Standardfehler, wird normalerweise das auch angezeigt.
+
+576
+01:20:30,840 --> 01:20:33,840
+Ja, das wäre es eigentlich eh schon.
+
+577
+01:20:34,840 --> 01:20:38,840
+Von diesen Crash-Kurs, nächstes Mal machen wir Funktions durch.
+
+578
+01:20:39,840 --> 01:20:40,840
+Und ja, danke.
+
+579
+01:20:45,840 --> 01:20:49,840
+Falls ihr noch Fragen habt, könnt ihr auch nochmal runterkommen.
+

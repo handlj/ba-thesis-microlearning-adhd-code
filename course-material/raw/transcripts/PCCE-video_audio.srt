@@ -1,0 +1,3596 @@
+1
+00:00:00,000 --> 00:00:11,680
+Perfekt. Ja, dann willkommen zum Python Crash Course E, diesmal über Data Science und Bandas.
+
+2
+00:00:11,680 --> 00:00:20,640
+Bevor wir beginnen, habe ich euch Feedback angelegt. Da könnt ihr diesmal fragen,
+
+3
+00:00:20,640 --> 00:00:28,320
+falls ihr noch Fragen habt, ob sie live vorprogrammieren oder zum generell programmieren selbst
+
+4
+00:00:28,320 --> 00:00:54,240
+oder andere Fragen. Also, die Ergebnisse werden ein bisschen länger dauern, weil wir alle
+
+5
+00:00:54,240 --> 00:01:06,560
+manuell durchkorrigieren müssen. Das sind ca. 100 Abgaben, wahrscheinlich bei die 1, 2 Wochen.
+
+6
+00:01:24,240 --> 00:01:50,960
+Die Ergebnisse werden ihr wahrscheinlich im Deed-Center auffinden und ich weiß ja,
+
+7
+00:01:50,960 --> 00:01:53,680
+ob wir noch eine Mail, eine Info-Mail ausschicken werden.
+
+8
+00:02:20,960 --> 00:02:47,360
+Das Samen 2 werde ich heute bis die Vorstellung am Ende der Vorlesung. Ihr werdet dafür eben auch
+
+9
+00:02:47,360 --> 00:02:57,280
+das heutige Thema wissen müssen und auch das von der nächsten Vorlesung, das der Helmut dann noch
+
+10
+00:02:57,280 --> 00:03:13,760
+präsentieren wird. Das ist über Sympai. Sympai wurde von den letzten Studenten also gefragt,
+
+11
+00:03:14,160 --> 00:03:21,840
+weil das später noch mal in eurem Studium vorkommt und da haben viele gefragt, ob wir da nicht
+
+12
+00:03:21,840 --> 00:03:29,520
+ein kleines fundamentales Tutorial drüber machen können, damit ihr da nicht als Experten schon
+
+13
+00:03:29,520 --> 00:03:35,280
+einsteigen müsst in die spätere Vorlesung.
+
+14
+00:04:29,840 --> 00:04:36,240
+Ich sehe, es gibt keine Fragen zum Programmieren. Das heißt, ich habe da wahrscheinlich die einzigen
+
+15
+00:04:36,240 --> 00:04:45,280
+Guten hier im Raum. Falls ihr nach Fragen aufkommen, weil ihr euch gestern beim Vorprogrammieren
+
+16
+00:04:45,280 --> 00:04:48,720
+richtig geärgert habt, dass es nicht funktioniert hat, könnt ihr das natürlich auch fragen.
+
+17
+00:04:48,720 --> 00:04:56,720
+Also, können wir auf jeden Fall was machen und sonst steige ich direkt ins Data Science-Deme ein.
+
+18
+00:05:29,520 --> 00:05:50,720
+Die Punktaufteilung vom Vorprogrammieren weiß ich jetzt leider auch nicht ganz genau, aber wir haben
+
+19
+00:05:50,720 --> 00:05:55,840
+da eigentlich eine spezifische Punktetabelle, nachdem wir vorgehen. Es ist ja so, dass beim
+
+20
+00:05:55,840 --> 00:06:00,880
+Vorprogrammieren habt ihr erstens wenig Zeit, zweitens seid ihr unter sehr hohen Druck und
+
+21
+00:06:00,880 --> 00:06:06,720
+da könntest du mal einige Fehler passieren. Und manche Fehler wie zum Beispiel, wenn man
+
+22
+00:06:06,720 --> 00:06:11,280
+jetzt ein String falsch hat, sind jetzt nicht so problematisch wie wenn man jetzt nicht verstanden
+
+23
+00:06:11,280 --> 00:06:20,400
+hat, wie man ein Dictionary bedient. Das heißt praktisch, ihr könnt euch darunter so was vorstellen,
+
+24
+00:06:20,720 --> 00:06:31,440
+wie schwerer der Code zu programmieren war, desto mehr Punkte hat. Aber wir werden so versuchen,
+
+25
+00:06:31,440 --> 00:06:37,440
+so groß wie möglich zu sein. Und falls es dann immer noch nicht passt, das sagt okay,
+
+26
+00:06:37,440 --> 00:06:43,200
+da hätte ich mehr verdient, dann könnt ihr immer noch zum Tutorial kommen und dann noch mal nach
+
+27
+00:06:43,200 --> 00:07:02,480
+Auskunft fragen und diskutieren. Passt, dann werde ich da stoppen. Perfekt. Ja, dann
+
+28
+00:07:05,200 --> 00:07:10,320
+kurz Southland heute. Also wir werden heute ein Introduction zu Data Science machen.
+
+29
+00:07:10,480 --> 00:07:19,760
+Das beinhaltet, wie man CSV-Files oder CSV-Dateien einliest und was überhaupt CSV-Dateien sind.
+
+30
+00:07:19,760 --> 00:07:29,280
+Wir gehen auch nochmal genau auf dieses Import-Modul ein oder was es da auf sie hat.
+
+31
+00:07:29,280 --> 00:07:36,800
+Dann, der Großteil der Vorlesung wird ein Bandage Tutorial sein. Also da gehen wir ganz genau
+
+32
+00:07:36,800 --> 00:07:41,840
+ein, was Bandage ist und was man damit anfangen kann, weil ihr Bandage dann auch für das Assignment
+
+33
+00:07:41,840 --> 00:07:52,560
+2 brauchen wird. Und dann noch kurz ein organisatorisches und kurz das Assignment 2. So, was ist Data Science?
+
+34
+00:07:54,960 --> 00:08:02,560
+Ja, also Data Science meistens eigentlich ein unnötiges Passwort. Warum? Ja, weil, wie macht man
+
+35
+00:08:02,880 --> 00:08:08,960
+Wissenschaft ohne Daten? Science Englisch für Wissenschaft, weil das jemand nicht weiß.
+
+36
+00:08:11,840 --> 00:08:16,480
+Und in Wirklichkeit ist das kein eigenes Forschungsgebiet, sondern besteht aus mehreren
+
+37
+00:08:16,480 --> 00:08:24,800
+Fachübergreifenden Fähigkeiten. Die könnt ihr da sehen. Und die haben Anwendungen in
+
+38
+00:08:24,800 --> 00:08:30,960
+industriellen und akademischen Bereichen und wird immer, immer wichtiger heutzutage. Ich weiß nicht,
+
+39
+00:08:30,960 --> 00:08:39,520
+ob ihr das schon mal gehört habt. Zum Beispiel, so ein Passwort ist Building Information Modeling,
+
+40
+00:08:39,520 --> 00:08:45,920
+zum Beispiel. Da baut man mit der Software eigentlich ein ganzes Gebäude nach und simuliert
+
+41
+00:08:45,920 --> 00:08:52,080
+das Gebäude. Das heißt, man kann auch da zum Beispiel herausfinden, wie viel mir die Wartungskosten in
+
+42
+00:08:52,080 --> 00:08:58,480
+den nächsten 20 Jahren kosten wird. Und das ist ja praktisch. Und dafür braucht man natürlich
+
+43
+00:08:58,480 --> 00:09:13,440
+sehr viele Daten. Das heißt, wir haben da vereint drei verschiedene Bereiche. Unser Bereich wird
+
+44
+00:09:13,440 --> 00:09:20,560
+jetzt vor allem hier sein mit Pfeifen und Bandas und Nampaioch. Sind wir dann Hacking Skills oder
+
+45
+00:09:20,640 --> 00:09:30,880
+eigentlich ist einfach nur der informatische Teil davon. Und Data Science vereint praktisch Skills
+
+46
+00:09:30,880 --> 00:09:40,560
+von den Statistikern. Das ist hier in der Mathe Bereich, welche Datenmengen modellieren und
+
+47
+00:09:40,560 --> 00:09:47,680
+zusammenfassen können. Dann haben wir die Arbeiterinformatiker, die eben durch Algorithmen
+
+48
+00:09:48,000 --> 00:09:54,000
+das Ganze sehr effizient verarbeiten können und visualisieren können, weil wir reden hier nicht
+
+49
+00:09:54,000 --> 00:10:02,000
+nur von ein paar Hundertzeilen Daten, sondern manchmal sind das aber also Milliarden oder sogar
+
+50
+00:10:02,000 --> 00:10:10,400
+noch mehr. Also da reden wir von Gigabyte oder Terabyte an Daten. Und dann brauchen wir natürlich
+
+51
+00:10:10,400 --> 00:10:17,280
+aber auch die Expertise von den Fachexperten. Also die sind natürlich auch notwendig, weil
+
+52
+00:10:17,600 --> 00:10:24,240
+ich kann schon Daten von einem Haus sammeln, aber wenn ich da nur, keine Ahnung, schaubt, das Licht ein
+
+53
+00:10:24,240 --> 00:10:31,360
+und aus geht, jeden Tag, das wird wahrscheinlich für einen Bauingenieur nicht sehr hilfreich sein. Der
+
+54
+00:10:31,360 --> 00:10:36,480
+wird wahrscheinlich andere Daten viel wichtiger finden und deshalb kommt der Bauingenieur zu den
+
+55
+00:10:37,680 --> 00:10:44,160
+Informatikern oder Statistikern und sagt, ja diese Daten brauche ich, damit ich was anfangen kann.
+
+56
+00:10:47,920 --> 00:10:54,400
+Ja und das Ganze ist sehr interdisziplinär, also das ist natürlich nicht nur im Bauingenieurswesen,
+
+57
+00:10:54,400 --> 00:11:02,960
+sondern auch in allen möglichen, also das Recht von Psychologie zu Soziologie, zu
+
+58
+00:11:03,280 --> 00:11:12,640
+Mathematik, alles Mögliche eigentlich, Elektrotechnik, Maschinenbau
+
+59
+00:11:16,320 --> 00:11:27,600
+und ja vielleicht noch kurz zu den einzelnen Bubbles, die wir hier sehen. Wir haben hier noch
+
+60
+00:11:28,560 --> 00:11:34,640
+zum Beispiel dieses Traditional Research. Traditional Research könnt ihr so vorstellen,
+
+61
+00:11:34,640 --> 00:11:43,200
+das ist jetzt ohne Informatik, das heißt der Experte braucht eine Formel oder irgendeine
+
+62
+00:11:43,200 --> 00:11:47,840
+statistische Analyse, weil er schon Daten hat und dann gibt hier einfach der Mathematiker
+
+63
+00:11:47,840 --> 00:11:55,120
+einen Statistiker her und sagt, ja okay, diese Formeln müssen wir anwenden und das hat eigentlich
+
+64
+00:11:55,120 --> 00:12:01,280
+nichts mit den Informatik zu tun, vielleicht ein bisschen was mit Axel, aber relativ klein.
+
+65
+00:12:04,160 --> 00:12:08,320
+Dann haben wir auch das Machine Learning Teil hier, das ist eigentlich
+
+66
+00:12:10,880 --> 00:12:16,240
+Überlappung zwischen den Informatikern und Mathematikern, hier versuchen wir so Regressionen
+
+67
+00:12:16,320 --> 00:12:24,880
+zu machen oder ja einfach auch wieder praktisch mathematische Modelle aufzustellen,
+
+68
+00:12:24,880 --> 00:12:32,880
+die wir dann in der Informatik anwenden können. Und dann gibt es eigentlich noch diese Danger Zone
+
+69
+00:12:32,880 --> 00:12:42,960
+hier und die ist eigentlich, kann man fast sagen gefährliches Halbwissen, das heißt
+
+70
+00:12:45,680 --> 00:12:52,400
+wir, der Experte zum Beispiel kommt zu uns, zu den Informatikern und sagt, ja er braucht
+
+71
+00:12:52,400 --> 00:13:00,640
+den Algorithmus und bitte mach mir was, aber eine Informatik kann ich sagen,
+
+72
+00:13:00,720 --> 00:13:06,560
+nicht unbedingt der beste Mathematiker, das heißt es kann sein, dass er dann zum Beispiel
+
+73
+00:13:06,560 --> 00:13:13,760
+eine falsche Statistik verwendet oder falsche mathematische Formel anwendet und dann kommen
+
+74
+00:13:13,760 --> 00:13:21,920
+wir zu sehr plausiblen Ergebnissen, die beim Wirklichkeit nicht stimmen. Ja, das ist ungefähr
+
+75
+00:13:22,240 --> 00:13:33,920
+der Data Science zusammengefasst, also hier nochmal Expertenwissen. Genau, dann kurz zum Inboard.
+
+76
+00:13:38,640 --> 00:13:42,000
+Ihr habt es wahrscheinlich eh schon mal gesehen, jetzt sehen wir es mal mit einem zum Beispiel,
+
+77
+00:13:42,000 --> 00:13:49,200
+da importieren wir die Math Library und das Inboard-Keywort, mit dem können wir praktisch
+
+78
+00:13:49,280 --> 00:13:54,880
+Funktionalität von anderen Python-Files oder Scripts oder Modulen praktisch importieren.
+
+79
+00:13:55,520 --> 00:14:02,240
+Zum Beispiel, ich habe jetzt zwei Daten, zwei Python-Dateien und in der einen habe
+
+80
+00:14:02,240 --> 00:14:06,320
+ich eine tolle Funktion geschrieben und die möchte ich jetzt in der anderen Datei verwenden,
+
+81
+00:14:06,320 --> 00:14:11,600
+dann kann ich die einfach praktisch mit diesem Inboard-Statement importieren. Das heißt,
+
+82
+00:14:12,560 --> 00:14:19,360
+ich kann der Code Bausteine von anderen Bibotheken oder einfach Python-Files hernehmen
+
+83
+00:14:19,360 --> 00:14:26,960
+und in meinem Python-File verwenden. Und da habe ich das eh schon gesagt, Bibotheken,
+
+84
+00:14:26,960 --> 00:14:31,040
+da sind praktisch diese Libraries und das sind meistens externe Code Bibotheken
+
+85
+00:14:31,840 --> 00:14:41,600
+und die kann man eben mit diesem Python, mit diesem PIP installieren. PIP steht für PIP installs
+
+86
+00:14:43,200 --> 00:14:53,440
+Packages. Cool, cooles Akronym. Und einerseits haben wir eben dieses PIP und einerseits haben wir
+
+87
+00:14:53,440 --> 00:14:59,520
+diese Python Standard Library. Zum Beispiel, dieses Math, diese Math Library, die wir importiert haben
+
+88
+00:14:59,520 --> 00:15:05,520
+in der Cymint1, das ist eine Standard Library. Ich kann das kurz zeigen, wenn wir da draufklicken.
+
+89
+00:15:30,000 --> 00:15:36,480
+Das sehen wir praktisch eigentlich alles, was Python so an sich hat.
+
+90
+00:15:40,320 --> 00:15:48,880
+Und hier fangen wir praktisch eigentlich so, also diese, man sieht hier die Schriftart,
+
+91
+00:15:48,880 --> 00:15:54,480
+ist ein bisschen anders. Das sind praktisch alles Standard Libraries und da gibt es sehr, sehr,
+
+92
+00:15:54,560 --> 00:16:01,760
+sehr viele. Und zum Beispiel dieses Math habt ihr schon kennengelernt, aber da gibt es eben auch so,
+
+93
+00:16:01,760 --> 00:16:08,560
+weil ich, also die haben dann größere Überschriften, zum Beispiel hier, die haben alles mit Files zu tun,
+
+94
+00:16:13,920 --> 00:16:17,440
+File Format, dann hier zum Beispiel kryptografische Services,
+
+95
+00:16:18,240 --> 00:16:25,520
+die sind generische Betriebsoperationssystems, Services.
+
+96
+00:16:27,600 --> 00:16:32,160
+Ja, könnt euch ruhig mal durchschauen. Es ist auf jeden Fall interessant, weil wahrscheinlich,
+
+97
+00:16:32,160 --> 00:16:36,240
+falls ihr was praktisch programmieren wollt, gibt es wahrscheinlich schon.
+
+98
+00:16:37,520 --> 00:16:42,240
+Und das andere wäre praktisch eigentlich PIP. Da kann ich das auch kurz zum Beispiel zeigen,
+
+99
+00:16:42,320 --> 00:16:45,120
+das wäre hier PIP, zum Beispiel Pandas.
+
+100
+00:16:58,160 --> 00:17:03,280
+Da sieht man zum Beispiel immer, wie man so ein Paket installieren kann, also es ist dann einfach
+
+101
+00:17:03,280 --> 00:17:10,080
+PIP Install Pandas, in diesem Fall. Und Pandas hier zum Beispiel, hier sieht man die ganzen Informationen
+
+102
+00:17:10,080 --> 00:17:17,280
+zu diesem, zu diesem, dieser Pivotek. Und da gibt es natürlich unmenschlich viele,
+
+103
+00:17:17,280 --> 00:17:21,280
+also da kann man dann oben hier suchen. Zum Beispiel, wenn ich jetzt Karnung
+
+104
+00:17:23,360 --> 00:17:31,200
+möchte, was suchen, zum Beispiel irgendwas über Machine Learning, da kann ich zum Beispiel schauen.
+
+105
+00:17:34,240 --> 00:17:36,400
+Ein ganz bekanntes ist zum Beispiel By-Touch.
+
+106
+00:17:41,040 --> 00:17:42,560
+Also, das heißt By-Touch.
+
+107
+00:17:49,040 --> 00:17:54,480
+Und da zum Beispiel hat man dann eine ganze Pivotek, mit dem man praktisch Machine Learning
+
+108
+00:17:54,480 --> 00:18:05,120
+betreiben kann. Und die können natürlich sehr, sehr, sehr stark sein, also da kann Funktionalität
+
+109
+00:18:05,440 --> 00:18:11,040
+drin sein, wo man selber wahrscheinlich Jahre bräuchte, um das zu programmieren.
+
+110
+00:18:12,480 --> 00:18:17,280
+Meistens diese Pakete werden auch von Hunderten von Leuten gleichzeitig also programmiert, also
+
+111
+00:18:17,280 --> 00:18:24,080
+da wird dann aufgeteilt, wer was macht. Und deshalb geht das dann auch so flott.
+
+112
+00:18:25,600 --> 00:18:31,360
+Aber ja auch By-Touch ist jetzt, glaube ich, seit über zehn Jahren in Entwicklung. Also,
+
+113
+00:18:32,000 --> 00:18:36,400
+so was würde man nie selber eigentlich programmieren. Auch zum Beispiel kryptografische
+
+114
+00:18:37,120 --> 00:18:41,840
+Pivotek, die sind immer besser, wenn man sie runterlässt, statt sich selber zu programmieren,
+
+115
+00:18:41,840 --> 00:18:48,080
+weil man kann sich vorstellen, ein Back-Und schon ist ein ganzes kryptografisches Verfahren kaputt.
+
+116
+00:18:48,880 --> 00:18:51,040
+Aber ja, das ist für euch hier nicht so richtig.
+
+117
+00:18:51,440 --> 00:19:02,400
+Genau. Genau, das heißt praktisch, wir importieren hier Module und das sind dann unsere Werkzeuge,
+
+118
+00:19:02,400 --> 00:19:04,800
+die wir aus der Werkzeugkiste nehmen und die können wir dann verwenden.
+
+119
+00:19:08,240 --> 00:19:14,800
+Zum Sintax vielleicht kurz noch, wir können einfach Import und dann den Modulnamen schreiben.
+
+120
+00:19:15,520 --> 00:19:20,480
+Das wird uns eine Fehler werfen, falls der Modulnamen nicht existiert oder wir den noch nicht
+
+121
+00:19:20,480 --> 00:19:25,360
+installiert haben mit pip install. Also, falls ihr da eine Fehlermellung kriegt,
+
+122
+00:19:25,360 --> 00:19:29,520
+dann vielleicht schaut ihr, ob der dann nochmal mit pip install das installiert.
+
+123
+00:19:30,400 --> 00:19:36,240
+Ihr könnt dann auch noch hier mit ass ein Kürzel definieren. Hier zum Beispiel sieht man das
+
+124
+00:19:36,240 --> 00:19:43,120
+gut, pandasas.pd. Und dann kann man da statt den ganzen Modulnamen, der vielleicht auch sehr
+
+125
+00:19:43,440 --> 00:19:52,400
+lang sein kann, einfach dieses Kürzel verwenden. Und dann kann man da Kürzelpunkt und dann Funktionsnamen
+
+126
+00:19:52,400 --> 00:19:58,000
+zum Beispiel, wenn man da Funktionen von dieser Bibothek verwenden will. Das schaut zum Beispiel
+
+127
+00:19:58,000 --> 00:20:07,360
+so aus. Ich kann hier zum Beispiel random als rd importieren und dann hat dieses Random-Bibothek
+
+128
+00:20:08,080 --> 00:20:19,120
+zum Beispiel diese rd int Funktion, die praktisch unsere Randomzahl zwischen 1 und 13 einfach wählt
+
+129
+00:20:21,520 --> 00:20:27,040
+und die wir dann hier in diese variabel speichern können. Also, ich kann das auch kurz zeigen.
+
+130
+00:20:27,040 --> 00:20:33,600
+Zum Beispiel random, ganz wichtig ist auch eine der Standard-Bibotheken. Schau mal.
+
+131
+00:20:37,600 --> 00:20:47,120
+Ich kann da praktisch ganz oben hier, schauen, ob ich das größer machen kann.
+
+132
+00:20:56,000 --> 00:21:01,440
+Dann kann ich eben, also wenn ich hier zum Beispiel ein Wischlerstudekord bin,
+
+133
+00:21:01,520 --> 00:21:08,240
+dann sehe ich auch automatisch, welche Funktionen ich zur Verfügung habe. Und die fangen dann
+
+134
+00:21:08,240 --> 00:21:14,720
+hier alle an. Und wie ihr seht, da gibt es dann sehr, sehr viele. Wir wollen hier zum Beispiel
+
+135
+00:21:14,720 --> 00:21:21,840
+diese rd int. Und da seht ihr auch auf der Seite hier zum Beispiel eine kurze Beschreibung,
+
+136
+00:21:23,200 --> 00:21:29,600
+was die macht. Return random integer in range ab, including both endpoints. Das heißt praktisch
+
+137
+00:21:29,680 --> 00:21:39,120
+sowohl a als b kann auch noch gezogen werden. Das heißt, wenn ich hier 1 und 5 mache und das ausführe,
+
+138
+00:21:42,720 --> 00:21:46,240
+da bekomme ich diesmal 4. Wenn ich das nochmal ausführe, dann bekomme ich eine andere Zahl.
+
+139
+00:21:49,040 --> 00:21:54,320
+Also wie ihr seht, kann dem anders sein. Jetzt zum Beispiel was die selbe.
+
+140
+00:21:54,400 --> 00:22:04,000
+Genau, ja. Ich hab's ja zur Frage. Also das Kürzel hier ist nicht unbedingt notwendig.
+
+141
+00:22:06,000 --> 00:22:07,600
+Dann müsst ihr aber hier dann random schreiben.
+
+142
+00:22:11,840 --> 00:22:18,960
+Und wenn ihr das import vergisst, dann sagt es hier auch schon gleich random is not defined.
+
+143
+00:22:19,920 --> 00:22:22,400
+Random existiert praktisch nicht. Ist nicht definiert.
+
+144
+00:22:24,480 --> 00:22:26,480
+Diesmal geht's. Warum? Weil ich
+
+145
+00:22:29,760 --> 00:22:33,840
+wenn ich jupiter in jupiter arbeite und das einmal ausgeführt hab,
+
+146
+00:22:33,840 --> 00:22:38,240
+dann merkt sich das jupiter und man muss es nicht zweimal oder dreimal importieren.
+
+147
+00:22:38,240 --> 00:22:40,720
+Zum Beispiel wenn ich es jetzt ausführe, wo praktisch alles gelöscht wurde,
+
+148
+00:22:42,480 --> 00:22:44,160
+dann bekomme ich diesen name error.
+
+149
+00:22:47,920 --> 00:22:50,160
+So, was machen wir so?
+
+150
+00:22:54,560 --> 00:23:11,040
+Genau, dann kommen wir zu den csv Dateien. csv Dateien, hier ein tolles Beispiel.
+
+151
+00:23:12,000 --> 00:23:17,600
+Das heißt einfach comma separated values. Praktisch comma separiert. Wir haben hier
+
+152
+00:23:17,600 --> 00:23:23,920
+praktisch irgendwelche Werte drin stehen. Komma, dann der nächsten Wert. Komma und so weiter.
+
+153
+00:23:24,000 --> 00:23:31,280
+Und sofort. Das Wichtige dabei ist, dass hier, wenn wir hier vier Spalten definieren am Anfang,
+
+154
+00:23:31,280 --> 00:23:33,760
+hier mal Trikelnummer vorne, dann mal nachher mit Punkte,
+
+155
+00:23:34,720 --> 00:23:37,120
+da müssen die darauf folgenden auch immer vier sein.
+
+156
+00:23:39,040 --> 00:23:42,160
+Und das schaut dann in Excel zum Beispiel so aus, das kennt ihr wahrscheinlich eh alle.
+
+157
+00:23:45,360 --> 00:23:51,280
+Und genau, das ist einfach der Werte in einem Tabellenformat.
+
+158
+00:23:54,080 --> 00:23:59,520
+Und ganz wichtig, das muss nicht nur nimmer ein Comma sein, das kann auch andere Werte sein,
+
+159
+00:23:59,520 --> 00:24:06,720
+zum Beispiel, wie interessant es sind, dieses Semikolon, also Strichpunkt oder zum Beispiel auch Tabulator.
+
+160
+00:24:10,160 --> 00:24:16,880
+Genau, und wie kann man mit denen in Beifen arbeiten? Da gibt es mehrere Varianten.
+
+161
+00:24:16,880 --> 00:24:21,280
+Da gibt es zum Beispiel dieses csv Package, das ist auch wieder eine Standard Library
+
+162
+00:24:21,280 --> 00:24:25,280
+oder eben mit Banders, das werden wir jetzt dann machen.
+
+163
+00:24:28,320 --> 00:24:34,320
+Genau, zur Banders. Also wie ihr seht, Banders ist eigentlich ziemlich ähnlich wie Excel,
+
+164
+00:24:34,320 --> 00:24:39,040
+also ihr könnt euch das so vorstellen, dass ihr da auch wieder so Tabellen habt.
+
+165
+00:24:40,720 --> 00:24:47,040
+Aber das coole ist, dass ihr da nicht nur, keine Ahnung, 100 Zeilen,
+
+166
+00:24:47,040 --> 00:24:52,080
+oder wenn man mit Excel mit 100.000 Zeilen arbeitet, ist das schon sehr unübersichtlich.
+
+167
+00:24:52,080 --> 00:24:56,320
+Ihr könnt euch vorstellen, wenn man das ganze visuell machen muss, zum Beispiel da
+
+168
+00:24:56,960 --> 00:25:02,000
+eine Formel herunterziehen muss in einer Spalte, dann kann das sehr viel Zeit beanspruchen.
+
+169
+00:25:03,040 --> 00:25:07,840
+Banders, da können wir dann Beifencode verwenden und dann geht das sehr schnell,
+
+170
+00:25:07,840 --> 00:25:11,680
+da kann man in einer Zeile auf eine Milliarde Zeilen zugreifen.
+
+171
+00:25:12,640 --> 00:25:16,640
+Und das geht alles auf dem Laptop, also das ist kein Problem.
+
+172
+00:25:19,600 --> 00:25:24,800
+Und da kann man eben Excel-Dateien oder eben csv Tabellen einlesen.
+
+173
+00:25:27,840 --> 00:25:33,920
+Und das Wichtigste eigentlich für euch zu wissen ist, also so was nennt man ein Data Frame,
+
+174
+00:25:34,880 --> 00:25:35,920
+das ist praktisch
+
+175
+00:25:39,200 --> 00:25:47,360
+Netabelle, die besteht eigentlich aus mehreren Listen, also die Spalten hier sind einfach Listen.
+
+176
+00:25:48,960 --> 00:25:52,080
+Und man kann dann eigentlich sehr ziemlich ähnlich zugreifen wie Dictionaries,
+
+177
+00:25:53,440 --> 00:26:02,320
+nur sind diese Banders Data Frames noch viel stärker als eben Dictionaries.
+
+178
+00:26:03,920 --> 00:26:10,720
+Da gehen wir dann eh gleich drauf ein und generell einfach Banders verwenden wir
+
+179
+00:26:10,720 --> 00:26:16,880
+für praktisch eine effiziente Datenverwaltung, das heißt wir können da wie gesagt auf Milliarden
+
+180
+00:26:16,880 --> 00:26:25,280
+von Daten gleichzeitig zugreifen und die verändern. Und ja, da hat eben verschiedene
+
+181
+00:26:25,280 --> 00:26:32,800
+Funktionalitäten, Ladenspeichern, Zugriff, Filtern von Daten. Wir können fehlende oder
+
+182
+00:26:32,800 --> 00:26:40,320
+fehlerhafte Daten ausbessern. Wir können Ergebnisse berechnen, zum Beispiel wollen
+
+183
+00:26:40,320 --> 00:26:47,040
+wir den Mittelwert berechnen, dann ist das ganz einfach möglich. Wir können die Tabelle
+
+184
+00:26:47,040 --> 00:26:52,000
+erweitern, wenn wir möchten. Und auch ganz cool ist, wir können auch blotten, das heißt wir können
+
+185
+00:26:52,080 --> 00:26:58,080
+grafen erstellen und ja, da möchte ich euch da ein bisschen was zeigen heute.
+
+186
+00:27:01,760 --> 00:27:06,720
+Zuerst mal, wie kann man so ein Data Frame überhaupt anlegen? Und da gibt es mehrere
+
+187
+00:27:06,720 --> 00:27:10,400
+Möglichkeiten, da kann man zum Beispiel das Ganze mit einem Dictionary machen.
+
+188
+00:27:11,840 --> 00:27:17,840
+Hier seht ihr zum Beispiel haben wir Population Area hier als Spalten.
+
+189
+00:27:18,800 --> 00:27:25,120
+Das heißt wir haben hier Population und Area und dann haben wir hier für die einzelnen
+
+190
+00:27:25,120 --> 00:27:33,760
+Zeilen nochmal ein Dictionary. Und da gehen wir dann einfach her, okay für Population, also für
+
+191
+00:27:33,760 --> 00:27:39,520
+Population für diesen Bereich hier, möchten wir für Kalifornia den Wert drin stehen haben,
+
+192
+00:27:39,520 --> 00:27:46,400
+für New York den Wert stehen haben und für Florida den Wert stehen haben. Und für Area,
+
+193
+00:27:46,480 --> 00:27:51,360
+also für diese Spalter hier wollen wir diese Werte drin haben. Und dann kann man das ganze
+
+194
+00:27:51,360 --> 00:27:59,840
+Dictionary einfach in so ein Data Frame konvertieren, wenn wir einfach bd, also pandas,
+
+195
+00:27:59,840 --> 00:28:05,040
+Punkt Data Frame aufrufen und dann in den Klammern drin das Dictionary. Die andere Möglichkeit,
+
+196
+00:28:05,040 --> 00:28:10,320
+was wir machen können, ist das Ganze mit Listen machen. Und das ist einfach eine
+
+197
+00:28:10,320 --> 00:28:15,680
+zweidimensional Liste, praktisch eine Liste in Listen. Und da definieren wir einfach immer eine
+
+198
+00:28:15,680 --> 00:28:24,400
+ganze Zeile, also Kalifornia den Wert den Wert, also den Wert den Wert, New York den Wert den Wert,
+
+199
+00:28:24,400 --> 00:28:30,640
+New York den Wert den Wert und so weiter und so fort. Das ist natürlich sehr umständlich und
+
+200
+00:28:30,640 --> 00:28:35,920
+meistens wird es sehr schnell unübersichtlich und ihr könnt euch vorstellen, wenn ich davor
+
+201
+00:28:35,920 --> 00:28:40,000
+von Milliarden von Daten geredet habe, dann werde ich das Ganze hier nicht so machen.
+
+202
+00:28:40,160 --> 00:28:53,600
+In der Praxis laden wir eher Daten von CSV, CSV Tabellen oder von anderen Data ein. Da gibt es
+
+203
+00:28:53,600 --> 00:29:00,320
+natürlich auch noch viel effizientere Formate als CSV, aber die müsst ihr eigentlich für diese
+
+204
+00:29:00,320 --> 00:29:05,880
+Vorlesung nicht wissen. Die können aber daneben Binary gespeichert werden und sind dann viel
+
+205
+00:29:05,880 --> 00:29:13,640
+effizienter. Genau, wie lesen wir so eine CSV-Datei ein? Ja, das machen wir einfach mit Read CSV.
+
+206
+00:29:17,640 --> 00:29:21,720
+Das heißt, wir haben hier zum Beispiel eine CSV-Datei, also wenn wir die in Excel aufmachen,
+
+207
+00:29:21,720 --> 00:29:30,160
+dann schaut das so aus und im Bandage können wir dann einfach hier Bandage importieren und dann
+
+208
+00:29:30,160 --> 00:29:36,760
+read CSV, eben eine CSV-Datei einlesen und dann BAM, haben wir hier die Tabelle, ich kann das auch
+
+209
+00:29:36,760 --> 00:29:53,600
+kurz vorzeigen. Okay, also noch mal kurz zur Aufrichtung hier zum Beispiel, das funktioniert
+
+210
+00:29:53,600 --> 00:30:04,880
+nicht, dann können wir hier mit PIP install Bandage. Ihr seht, habe ich hier einfach ein Rufzeichen
+
+211
+00:30:04,880 --> 00:30:11,960
+davor gemacht, dann kann ich eben so Kommands einfügen, die ich normalerweise im Terminal aufrufe.
+
+212
+00:30:12,960 --> 00:30:22,040
+Jetzt hat es mir hier Bandage installiert. Jetzt, wenn ich das nochmal ausführe, funktioniert,
+
+213
+00:30:22,040 --> 00:30:33,080
+also das haben wir gerade durchgemacht und hier zum Beispiel habe ich eine CSV-Datei, die schaut so
+
+214
+00:30:33,080 --> 00:30:46,800
+aus und dann kann ich die einfach einlesen. Und da hat man auch irgendwie für das Studio Code
+
+215
+00:30:46,800 --> 00:30:53,600
+eigentlich eine tolle Übersicht, also da kann man zum Beispiel hier auch so filtern direkt schon,
+
+216
+00:30:53,600 --> 00:31:01,520
+also zum Beispiel, wenn wir die aufsteigend haben, dann kann ich die Wert aufsteigend anzeigen und wenn
+
+217
+00:31:01,520 --> 00:31:22,520
+ich da natürlich Dausende von Zeilen habe, dann kann ich die alle anschauen. Genau. Dann kommen wir
+
+218
+00:31:22,520 --> 00:31:28,760
+zum nächsten, also wie greif ich da zum Beispiel auf einzelne Spalten zu? Da gibt es mehrere Varianten,
+
+219
+00:31:28,760 --> 00:31:35,200
+da gibt es zum Beispiel, dass ich das so mache wie ein Dictionary zum Beispiel, also ich habe hier
+
+220
+00:31:35,200 --> 00:31:44,680
+diese spalte Area und dann kann ich da entweder so zugreifen mit einem Stringkey, praktisch einfach
+
+221
+00:31:44,680 --> 00:31:50,560
+schreibe ich da einfach Area rein oder ich kann auch Bandage mit dem Hintergrund direkt eine lokale
+
+222
+00:31:50,560 --> 00:31:56,440
+Variable, das heißt ich kann dann auch hier einfach Punkt Area so hinschreiben oder zum Beispiel auch
+
+223
+00:31:56,440 --> 00:32:03,160
+mit diesem Punkt Lock, das ist das Location, die Location Methode, da kann ich auch zum
+
+224
+00:32:03,160 --> 00:32:11,920
+Beispiel zugreifen. Genau und wenn ich Lock ist eigentlich ein sehr starkes Tool, dann kann ich zum
+
+225
+00:32:11,920 --> 00:32:20,160
+Beispiel einfach auch mit Index zugreifen, den Indexidema hier oder ihr könnt auch zum Beispiel
+
+226
+00:32:20,160 --> 00:32:27,000
+auf eine gewisse Range zugreifen, zum Beispiel ich möchte hier von 2 bis 4 zugreifen in Area,
+
+227
+00:32:27,000 --> 00:32:39,440
+dann ist das komplett möglich, also kann ich das kurz zeigen. Also hier haben wir noch mal mit Index,
+
+228
+00:32:39,440 --> 00:33:00,320
+aber wir können natürlich auch zum Beispiel 2 bis 5 machen und dann Area und dann seht der bekam
+
+229
+00:33:00,320 --> 00:33:29,680
+wir hier 2 bis 5 die Area Werte. Genau. Genau. Der Unterschied ist eben hier sind Spalten,
+
+230
+00:33:30,680 --> 00:33:43,840
+und hier machen wir Zeilen. Genau. Was auch cool ist mit Bandages, manchmal will man nicht alle
+
+231
+00:33:43,840 --> 00:33:50,200
+Daten haben, sondern will nur spezifisch welche haben und dann können wir das DataFrame filtern
+
+232
+00:33:51,200 --> 00:34:00,400
+und da gibt es verschiedene Filteroperationen und zum Beispiel die Vergleichsoperatoren, die
+
+233
+00:34:00,400 --> 00:34:06,560
+kennt ihr wahrscheinlich eh schon, also die haben wir ja schon mal bei einem FLs durchgemacht, da
+
+234
+00:34:06,560 --> 00:34:14,200
+gibt es zum Beispiel größer, kleiner, größer gleich, kleiner gleich, ist gleich oder ist nicht
+
+235
+00:34:14,200 --> 00:34:21,960
+gleich. Es gibt auch die Logischenoperatoren, also die normalen Beifungen kennt man die ja mit
+
+236
+00:34:21,960 --> 00:34:27,840
+End oder Not, in Bandages kann man aber nur das Unzeichen, das Oderzeichen oder die Verneinung
+
+237
+00:34:27,840 --> 00:34:37,680
+mit der Tilde verwenden und da generiert man praktisch so eine Art Boolean-Maske, das heißt
+
+238
+00:34:37,680 --> 00:34:49,160
+praktisch, das werde ich gleich dann in der nächsten zeigen, macht man da gleich so, praktisch
+
+239
+00:34:49,160 --> 00:34:56,760
+wenn ich da zum Beispiel hier ein DataFrame habe und ich will nach Population filtern und zwar dass
+
+240
+00:34:56,760 --> 00:35:03,080
+ich will nur die Zeilen haben, die praktisch eine Population über 25 Millionen haben,
+
+241
+00:35:04,080 --> 00:35:14,240
+dann mache ich das einfach so, Df, ganz wichtig noch zu Df, also Df entspricht ja eigentlich
+
+242
+00:35:14,240 --> 00:35:21,440
+normalerweise nicht dem Coding-Standard, das hat sich so eingebürgert, dass Df kurz für DataFrame
+
+243
+00:35:21,440 --> 00:35:29,880
+steht und wenn ich mir richtig erinnere, könnt ihr Df auch dann in Assignment 2 so verwenden,
+
+244
+00:35:30,880 --> 00:35:41,640
+weil das ist einfach ein eingebürgertes Wort und wenn jemand Df in Code liest,
+
+245
+00:35:41,640 --> 00:35:47,520
+dann weiß eigentlich sofort jeder, okay, damit ist eigentlich ein DataFrame gemeint. Das kann
+
+246
+00:35:47,520 --> 00:35:52,960
+dann zum Beispiel auch Df Unterstrich States heißen, also wenn es falls ihr mehrere DataFrames
+
+247
+00:35:53,960 --> 00:36:00,560
+habt, genau und wenn wir jetzt da zum Beispiel nach Population filtern wollen, dann können wir da
+
+248
+00:36:00,560 --> 00:36:09,520
+eben Df, eckige Klammer aufmachen und dann haben wir da praktisch drin Df.population und dann hier
+
+249
+00:36:09,520 --> 00:36:13,760
+eben unseren Vergleichsoperator, also wenn man da kleiner haben will, dann macht man da kleiner,
+
+250
+00:36:13,760 --> 00:36:18,880
+wenn man gleich haben will, dann machen wir gleich und sonst eben größer und da gibt es auch wieder
+
+251
+00:36:18,880 --> 00:36:23,800
+verschiedene Möglichkeiten, wie man da dieses Df.population drin machen kann. Da können wir zum
+
+252
+00:36:23,800 --> 00:36:29,440
+Beispiel das eben mit Df.population machen, wir können das aber auch wie im Dictionary machen,
+
+253
+00:36:29,440 --> 00:36:39,320
+also mit Anführungszeichen oder auch mit dem Location-Parameter oder halt Methode. Und was
+
+254
+00:36:39,320 --> 00:36:47,000
+passiert im Hintergrund? Im Hintergrund geht Bandas her und geht für jede Zeile her und sagt, okay,
+
+255
+00:36:47,000 --> 00:36:55,360
+ist dieser Wert größer als 25 Millionen? Ja, dann schreibt mir ein True da rein. Ist dieser Wert
+
+256
+00:36:55,360 --> 00:37:04,720
+größer als 25 Millionen? Ja, passt true. Falls, falls, falls, falls, also im Hintergrund macht
+
+257
+00:37:04,720 --> 00:37:12,160
+es uns dann so eine Liste, wo dann eben für jeden jede Zeile in der Spalte drin steht, ob die
+
+258
+00:37:12,160 --> 00:37:37,520
+Bedingungen war es oder nicht. Okay, dann zeige ich das kurz her. Also, genau so schaut das aus,
+
+259
+00:37:37,520 --> 00:37:52,920
+wenn ich jetzt zum Beispiel nur das Innere hier nehmen würde. Dann seht ihr, dass hier einfach True
+
+260
+00:37:52,920 --> 00:38:14,640
+oder false drin stehen wird. Gibt es da zu fragen? Okay, genau. Genau, und die kann man
+
+261
+00:38:14,640 --> 00:38:22,160
+eben kombinieren. Das macht man dann eben mit, mit diesem und oder oder Verneinung. Zum Beispiel hier
+
+262
+00:38:22,160 --> 00:38:29,960
+will ich abfragen, welche Zeilenbeinhalt starten mit weniger als 15 Millionen Einwohnern und weniger
+
+263
+00:38:29,960 --> 00:38:38,200
+als 200.000 Kilometer Fläche. Dann kann ich die einfach kombinieren. Dann sage ich, okay, der
+
+264
+00:38:38,200 --> 00:39:00,280
+Population soll kleiner sein. Und dann vergleiben wir noch die Area gleich da drin dazu und dann
+
+265
+00:39:00,280 --> 00:39:05,520
+können wir das kurz mal ausführen. Und dann sehen wir, okay, wir haben hier Hawaii, wo anscheinend
+
+266
+00:39:05,920 --> 00:39:22,040
+bei 0 sein soll und immer neu die 12 Millionen oder fast 13 Millionen Einwohner hat. Genau. Dann können wir zum
+
+267
+00:39:22,040 --> 00:39:34,200
+Beispiel auch die States rausfinden. Also hier davor hatten wir ja praktisch hier noch diese Zeile
+
+268
+00:39:34,200 --> 00:39:42,880
+State und wir haben dieses gefilterte Data Frame jetzt in einer neuen Data Frame abgespeichert und
+
+269
+00:39:42,880 --> 00:39:49,360
+dann können wir das neue Sachen abfragen, zum Beispiel eben hier die State Spalte.
+
+270
+00:39:49,360 --> 00:40:17,120
+Genau. Das schaut dann eben so aus zum Beispiel. Und das haben wir gerade durchgemacht. Genau. Was auch
+
+271
+00:40:17,120 --> 00:40:24,800
+ganz cool ist, wir können da zum Beispiel Stringen-Operationen durchführen. Zum Beispiel haben
+
+272
+00:40:24,800 --> 00:40:33,320
+wir hier unser Data Frame und da als Population und Area zum Beispiel, das sieht man sofort,
+
+273
+00:40:33,320 --> 00:40:40,240
+das sind Float Werte, weil die haben ja hier Punkt irgendwas stehen. Außer vielleicht der Wert hier,
+
+274
+00:40:40,240 --> 00:40:46,880
+in der einen da kommen wir dann später noch dazu, dass da praktisch fehlt ein Wert. Aber hier
+
+275
+00:40:46,880 --> 00:40:56,200
+diese Werte hier, das sind alle Strings. Und die können wir natürlich auch verändern. Da können
+
+276
+00:40:56,200 --> 00:41:02,920
+wir eben die normalen Stringen-Operationen ausführen, die ihr eh schon kennt, Punkt Lower, Punkt Upper,
+
+277
+00:41:02,920 --> 00:41:10,920
+Containen usw. und so fort. Und da kann ich zum Beispiel dann noch filtern. Zum Beispiel, wenn ich
+
+278
+00:41:10,920 --> 00:41:19,000
+jetzt alle Staaten haben will, die New drin haben in ihrem Namen, dann kann ich das so machen,
+
+279
+00:41:19,000 --> 00:41:29,240
+indem ich einfach sagt DF und dann schaue ich mir die States an, also diese Spalte hier und dann
+
+280
+00:41:29,240 --> 00:41:36,440
+kann ich Punkt STR machen. Praktisch dann weiß ich okay, ich will eine Stringer Funktion ausführen
+
+281
+00:41:36,440 --> 00:41:44,880
+und dann Punkt Contains und dann schaue ich einfach, ob dieses New Keyword drin vorhanden ist.
+
+282
+00:41:44,880 --> 00:42:04,200
+Also so, das kann ich auch kurz vorzeigen. Okay, schauen wir mal dann noch das originale DF.
+
+283
+00:42:04,200 --> 00:42:17,120
+Also das Wichtige ist eben, dass wir hier wieder diese Eckenklammern machen. DF, zum Beispiel State
+
+284
+00:42:17,120 --> 00:42:24,840
+kann man, dann wollen wir praktisch das ganze als String behandeln und dann können wir eben hier
+
+285
+00:42:24,840 --> 00:42:33,760
+zum Beispiel Contains machen und dann wollen wir herausfinden, zum Beispiel alle Staaten, die ein S
+
+286
+00:42:33,760 --> 00:42:42,680
+vorhanden haben. Das heißt hier DEXAS, New Jersey und Illinois haben praktisch ein S. Was kann ich da
+
+287
+00:42:42,680 --> 00:42:52,600
+noch machen? Ich kann zum Beispiel hergehen, also noch mal kurz Herzer zeigen, wenn ich die Eckenklammern
+
+288
+00:42:52,640 --> 00:43:00,160
+weglasse, dann kann man wieder nur dieses True-False. Aber was ganz cool ist, ist zum Beispiel, ich kann da nicht
+
+289
+00:43:00,160 --> 00:43:06,760
+nur Contains, also was zum Beispiel True oder False zurückgibt, ich kann da zum Beispiel eben auch
+
+290
+00:43:07,760 --> 00:43:22,400
+lower machen. Und dann verwandelt es mir praktisch alle Namen in Kleinbust haben. Oder Abba.
+
+291
+00:43:22,400 --> 00:43:46,280
+Gibt es da so Fragen? Okay. Genau, dann kann man eigentlich auch zu einem sehr starken Dual,
+
+292
+00:43:46,280 --> 00:43:54,560
+was dieses DataFrame eben auch bereitstellt und dass es eben diese Aggregierungsfunktionen
+
+293
+00:43:54,560 --> 00:44:01,560
+und da gibt es verschiedene, so gibt es zum Beispiel, man kann das ganze aufsummieren oder man kann den
+
+294
+00:44:01,560 --> 00:44:07,320
+höchsten Wert herausfinden, den kleinsten Wert herausfinden. Man kann natürlich auch herausfinden,
+
+295
+00:44:07,320 --> 00:44:15,360
+wie lang so ein DataFrame ist, also wie viele Zeilen ein DataFrame besitzt mit dem Length keyword. Das
+
+296
+00:44:15,360 --> 00:44:32,600
+ist praktisch sehr ähnlich zu dem von der Liste. Genau. Und was auch noch interessant ist, wir haben
+
+297
+00:44:32,600 --> 00:44:38,400
+da nicht nur was wir bei Listen haben, Sam, Max, Min, wir haben ja auch zum Beispiel, wir können
+
+298
+00:44:38,400 --> 00:44:48,600
+den Medien ausrechnen, den Mittelwert und zum Beispiel, wie oft ein Value vorhanden ist. Wie schaut
+
+299
+00:44:48,600 --> 00:44:59,800
+das aus, wenn ich das zum Beispiel mache? Sag mal, ich mache ein neues DataFrame.
+
+300
+00:45:08,400 --> 00:45:21,880
+Schauen wir mal, ob das geht.
+
+301
+00:45:21,880 --> 00:45:39,600
+Ich habe jetzt einfach mal ein DataFrame gestellt, dass praktisch diese Werte beinhalten. Wie ihr seht,
+
+302
+00:45:39,600 --> 00:45:44,920
+kann man da einfach auch eine einfache Liste übergeben und dann macht das einfach nur eine Spalte.
+
+303
+00:45:44,920 --> 00:45:59,480
+Und dann wollen wir da zum Beispiel herausfinden, was ist der kleinste Wert? Das anscheinend 1,
+
+304
+00:45:59,480 --> 00:46:07,160
+der größte Wert ist anscheinend 6. Dann können wir einen Min machen, dann kommen wir den Mittelwert
+
+305
+00:46:07,160 --> 00:46:17,160
+daraus und dann können wir zum Beispiel ValueCounts machen. Und das seht ihr, das ist jetzt bisschen blöd,
+
+306
+00:46:17,160 --> 00:46:26,360
+weil das in NumPy umgewandelt wird, aber schaut einfach diesen Wert in der Klammer an und dann seht
+
+307
+00:46:26,360 --> 00:46:34,400
+jetzt hier zum Beispiel, dass der Wert 2 anscheinend 2 mal vorkommt. Das heißt praktisch, wenn nicht zum
+
+308
+00:46:34,400 --> 00:46:41,040
+Beispiel im oberen DataFrame 2 mal Kalifornien drin haben würde, dann würde ValueCounts dann
+
+309
+00:46:41,040 --> 00:46:49,840
+Kalifornien hier stehen und hier 2. Damit kann sehr schnell praktisch Werte zählen. Das kann sehr praktisch sein.
+
+310
+00:47:04,720 --> 00:47:11,280
+Genau, was auch ganz interessant ist, ist, man kann eben auch so arithmetische Spaltenoperationen machen.
+
+311
+00:47:11,280 --> 00:47:18,640
+Was heißt das? Ich kann plus, minus, mal geteilt auf eine ganze Spalte anwenden.
+
+312
+00:47:18,640 --> 00:47:44,880
+Noch mal hier zum Beispiel. Also hier haben wir das. Und jetzt möchte ich aber das Ganze multiplizieren.
+
+313
+00:47:49,200 --> 00:47:55,360
+Dann kann ich das einfach machen. Null, warum steht hier Null drin? Weil unsere Spalte Null heißt.
+
+314
+00:47:58,480 --> 00:48:05,200
+Das heißt praktisch, wenn wir hier keine Spaltenamen angeben, dann tut uns Pan das einfach
+
+315
+00:48:05,200 --> 00:48:11,040
+irgendwelche Integer zuweisen. Ihr seht auch, das ist kein String. Also das ist wirklich ein Integer.
+
+316
+00:48:11,360 --> 00:48:20,320
+Also wenn ich das hier als Integer, als String schreiben würde, dann würde das nicht funktionieren.
+
+317
+00:48:20,320 --> 00:48:27,680
+Aber wenn eben zum Beispiel Area drin stehen würde, dann ist es automatisch ein String.
+
+318
+00:48:27,680 --> 00:48:37,920
+Genau, und da kann man ganz viel machen. Da kann man eben alle möglichen Operatoren anwenden.
+
+319
+00:48:41,360 --> 00:48:43,360
+So.
+
+320
+00:48:56,400 --> 00:49:08,400
+Im Hintergrund praktisch werden dann einfach, wird jedes Spalte als Serious-Objekt bearbeitet.
+
+321
+00:49:08,640 --> 00:49:16,240
+Das heißt praktisch, Serious könnt ihr euch vorstellen, ist einfach eine Pifenliste.
+
+322
+00:49:17,200 --> 00:49:23,760
+Bissich komplizierter, weil es effizient programmiert wird als eine Pifenliste.
+
+323
+00:49:23,760 --> 00:49:27,360
+Aber ihr könnt euch das wirklich so vorstellen, als wäre das einfach eine Pifenliste.
+
+324
+00:49:31,360 --> 00:49:36,000
+Und dieses Serious-Objekt eben besteht aus einem NumBuy Area, genau, und so weiter und so fort,
+
+325
+00:49:36,000 --> 00:49:41,280
+weil das Ganze ist dann nicht mehr beifenprogrammiert, sondern in C, weil das effizienter ist,
+
+326
+00:49:42,960 --> 00:49:45,280
+und dann im Hintergrund praktisch schneller arbeiten kann.
+
+327
+00:49:48,240 --> 00:49:54,720
+Ich kann hier zum Beispiel meine Area, die da vorhin squared miles war, in 1 km umrechnen,
+
+328
+00:49:54,720 --> 00:50:02,080
+wenn ich zum Beispiel den Faktor weiß, und kann das Ganze dann noch so aufsummieren,
+
+329
+00:50:02,160 --> 00:50:07,440
+dann weiß ich die Total Area, also eigentlich ein sehr starkes Tool.
+
+330
+00:50:10,080 --> 00:50:11,600
+Genau, also hier zum Beispiel,
+
+331
+00:50:14,640 --> 00:50:19,840
+natürlich wenn hier ein Nann drin steht, dann bleibt das Nann oder auch wenn das Null ist,
+
+332
+00:50:20,400 --> 00:50:22,480
+Null multipliziert mit irgendwas, ist wieder Null.
+
+333
+00:50:24,480 --> 00:50:29,760
+Und dann kommen wir auch zu diesem Nann, das sind praktisch fehlerhafte Daten,
+
+334
+00:50:29,840 --> 00:50:35,840
+das heißt praktisch die fehlen einfach in unser TSV Datei zum Beispiel,
+
+335
+00:50:39,120 --> 00:50:44,480
+und das ist eigentlich das Equivalent zu dem Nann, das wir hier schon gelernt haben.
+
+336
+00:50:47,360 --> 00:50:52,800
+Und wenn ich zum Beispiel keinen anderen drin stehen haben will, sondern zum Beispiel Null,
+
+337
+00:50:52,800 --> 00:50:55,760
+dann kann ich das mit diesem Fill Nah machen, also Fill NA,
+
+338
+00:50:55,760 --> 00:51:01,760
+und dann hier einfach einen Wert bereit geben, das heißt zum Beispiel,
+
+339
+00:51:02,640 --> 00:51:04,720
+wenn ich eben Null haben will, dann schreibe ich hier Null rein.
+
+340
+00:51:05,920 --> 00:51:06,880
+Jetzt können wir auch ausdessen,
+
+341
+00:51:15,600 --> 00:51:17,360
+gehen wir da zurück zu uns,
+
+342
+00:51:26,560 --> 00:51:27,120
+schauen wir mal.
+
+343
+00:51:31,360 --> 00:51:32,960
+Okay, dann müssen wir noch was hinzufügen.
+
+344
+00:51:34,800 --> 00:51:38,240
+Ich habe davor gesagt, dass TSV Dateien immer,
+
+345
+00:51:39,360 --> 00:51:40,480
+dann machen wir da einfach
+
+346
+00:51:43,920 --> 00:51:46,000
+die man dann nicht solle Idee für ein Start,
+
+347
+00:51:48,080 --> 00:51:51,200
+dann machen wir einfach, ah können, so,
+
+348
+00:51:51,280 --> 00:51:58,800
+da schreibe man Plation 1 rein, und hier fehlt dann ein Wert.
+
+349
+00:52:00,320 --> 00:52:03,200
+Bandas handelt das für uns, ohne Probleme.
+
+350
+00:52:12,080 --> 00:52:17,120
+Da steht hier einfach Missing Value drin, also Visual Studio Code zeigt es uns als
+
+351
+00:52:17,120 --> 00:52:20,560
+Missing Value an, im Hintergrund ist da dann einen anderen.
+
+352
+00:52:21,760 --> 00:52:25,440
+Kannst vergessen, dass wir das schon drin gehabt haben, bei den New Jersey,
+
+353
+00:52:25,440 --> 00:52:28,560
+das war schon tatsächlich, das fehlt hier auch.
+
+354
+00:52:31,360 --> 00:52:33,520
+Und dann können wir hergehen und sagen,
+
+355
+00:52:33,520 --> 00:52:35,200
+dann machen wir das ein bisschen kleiner hier,
+
+356
+00:52:35,200 --> 00:52:40,640
+Punktvillner,
+
+357
+00:52:44,720 --> 00:52:46,000
+da zum Beispiel minus 1.
+
+358
+00:52:51,520 --> 00:52:54,720
+Und dann haben wir hier statt Missing Value minus 1 drin.
+
+359
+00:52:59,360 --> 00:52:59,600
+Ja.
+
+360
+00:53:05,920 --> 00:53:08,560
+Dann muss das filtern,
+
+361
+00:53:10,000 --> 00:53:11,680
+da muss sagen, okay, ich
+
+362
+00:53:12,880 --> 00:53:15,600
+praktisch, sagen wir mal, du willst jetzt nur,
+
+363
+00:53:20,160 --> 00:53:26,800
+ich will jetzt nur von New Jersey den Wert, den Nahwert verändern,
+
+364
+00:53:27,360 --> 00:53:30,640
+da muss ich zuerst hergehen und mit df.loc,
+
+365
+00:53:35,920 --> 00:53:44,560
+dann zum Beispiel df.state ist gleich New Jersey machen,
+
+366
+00:53:46,080 --> 00:53:48,080
+jetzt bekommen wir New Jersey raus,
+
+367
+00:53:49,920 --> 00:53:53,520
+da geht man schon eher, also da braucht man dann nicht mal viel Nahverwenden,
+
+368
+00:53:53,520 --> 00:53:57,280
+da kann man dann einfach direkt zum Beispiel die Area verändern,
+
+369
+00:53:58,080 --> 00:54:01,840
+indem man einfach sagt, ich weiß gar nicht, ob ich das so machen kann.
+
+370
+00:54:02,080 --> 00:54:04,080
+Ja.
+
+371
+00:54:13,840 --> 00:54:17,360
+Und dann kann ich eben so praktisch zum Beispiel den Nahwert verändern.
+
+372
+00:54:17,360 --> 00:54:20,880
+Also da, wenn du wirklich ganz spezifisch nur einen Wert verändern willst,
+
+373
+00:54:21,520 --> 00:54:25,600
+dann bist du einfach filtern und den Wert direkt auf was setzen.
+
+374
+00:54:26,400 --> 00:54:27,360
+Viel Nah ist eher so,
+
+375
+00:54:27,840 --> 00:54:31,840
+ich will jetzt einfach keine Missing Values drin haben,
+
+376
+00:54:31,840 --> 00:54:38,320
+weil ich, keine Ahnung, eine Funktion auf alle Spaltenwerte ausführen will
+
+377
+00:54:38,320 --> 00:54:42,080
+und die nicht miteinander arbeiten kann zum Beispiel.
+
+378
+00:54:42,080 --> 00:54:44,480
+Weil ich kann dann natürlich auch wirklich hergehen und sagen, okay,
+
+379
+00:54:45,600 --> 00:54:47,040
+ich habe hier mal ein Data Frame, ja,
+
+380
+00:54:49,520 --> 00:54:55,280
+und dann mache ich df., hol mir eine Spalte raus, zum Beispiel Area,
+
+381
+00:54:57,440 --> 00:55:03,760
+Punkt Ablei und da kann ich jetzt eine wirklich von mir definierte Funktion zum Beispiel ausführen,
+
+382
+00:55:03,760 --> 00:55:06,080
+also zum Beispiel Def,
+
+383
+00:55:11,840 --> 00:55:20,320
+Print Area, die bekommt dann den Wert natürlich, Area,
+
+384
+00:55:28,320 --> 00:55:30,320
+und dann,
+
+385
+00:55:35,440 --> 00:55:38,320
+machen wir so,
+
+386
+00:55:51,680 --> 00:55:54,320
+und dann gehe ich das nochmal zurück,
+
+387
+00:55:57,680 --> 00:56:09,360
+und jetzt hat es mir da einfach diese Funktion auf alle Spalten ausgeführt,
+
+388
+00:56:09,360 --> 00:56:10,800
+zum Beispiel mit diesem Ablei.
+
+389
+00:56:12,720 --> 00:56:15,840
+Was passiert, wenn ich hier kein Return Area mache,
+
+390
+00:56:19,520 --> 00:56:22,480
+dann geht bei FNaF unaus, dass du Return None machst,
+
+391
+00:56:23,440 --> 00:56:26,960
+das heißt, alle Area-Werte werden mit None überschrieben,
+
+392
+00:56:26,960 --> 00:56:29,120
+das heißt, jetzt hast du überall Missing Values drin stehen.
+
+393
+00:56:31,360 --> 00:56:35,360
+Aber cooler ist dann natürlich, wenn man da wirklich hergeht und okay,
+
+394
+00:56:35,360 --> 00:56:38,080
+was eine Berechnung machen will, zum Beispiel,
+
+395
+00:56:38,480 --> 00:56:42,000
+hoch 2, zum Beispiel,
+
+396
+00:56:44,880 --> 00:56:56,000
+da kann man natürlich sehr komplizierte Berechnungen auch machen.
+
+397
+00:57:05,600 --> 00:57:07,600
+Genau.
+
+398
+00:57:08,400 --> 00:57:12,720
+Man kann auf bestimmte Spalten hergehen,
+
+399
+00:57:12,720 --> 00:57:17,200
+man kann auf das gesamte DataFrame die Werte ändern,
+
+400
+00:57:17,200 --> 00:57:20,720
+also das würde ich nicht empfehlen,
+
+401
+00:57:20,720 --> 00:57:26,160
+weil, sagen wir zum Beispiel, man hat jetzt eine Spalte,
+
+402
+00:57:26,160 --> 00:57:31,120
+wo zum Beispiel die Namen der Staaten drin stehen hat,
+
+403
+00:57:31,120 --> 00:57:33,600
+und dann eine, wo die Area drin stehen hat,
+
+404
+00:57:33,600 --> 00:57:35,600
+und zusammen mit dem fehlt ein,
+
+405
+00:57:36,560 --> 00:57:40,240
+und zusammen mit dem fehlt ein Value bei den Staatennamen
+
+406
+00:57:40,240 --> 00:57:44,320
+und einer bei den Areas, und wir sagen einfach viel Namen mit minus 1,
+
+407
+00:57:44,320 --> 00:57:46,160
+dann haben wir jetzt auch bei den Staatennamen
+
+408
+00:57:46,160 --> 00:57:49,200
+an minus 1 drin stehen, und das ist vielleicht nicht unbedingt das,
+
+409
+00:57:49,200 --> 00:57:50,000
+was wir wollen.
+
+410
+00:57:51,280 --> 00:57:54,240
+Das Bessere, wir gehen wirklich nur her und machen für jede Spalte
+
+411
+00:57:54,240 --> 00:57:59,200
+einzelne was, und kann natürlich auch hierhergehen,
+
+412
+00:57:59,200 --> 00:58:02,320
+und für jede Spalte einen bestimmten Wert definieren,
+
+413
+00:58:02,320 --> 00:58:03,200
+also das geht auch.
+
+414
+00:58:04,080 --> 00:58:07,920
+Das ist wahrscheinlich, ja, wenn man mehrere Spalten gleichzeitig machen will.
+
+415
+00:58:12,560 --> 00:58:14,480
+Genau, damit ist ein bisschen was durchgemacht.
+
+416
+00:58:21,600 --> 00:58:24,080
+Ja, das heißt, ich kann hier einfach ein Missing Value
+
+417
+00:58:24,080 --> 00:58:25,840
+dann einfügen mit diesem Filter.
+
+418
+00:58:26,080 --> 00:58:36,960
+Ja, und wie gesagt, ich kann das Ganze dann eben auch mit diesem Filter machen,
+
+419
+00:58:40,480 --> 00:58:43,920
+und das, ja, wenn man ganz spezifisch was ändern will.
+
+420
+00:58:48,320 --> 00:58:51,840
+Nun kommen natürlich auch zu einem sehr anderen wichtigen Thema ist,
+
+421
+00:58:51,840 --> 00:58:54,160
+wie lege ich überhaupt Spalten an.
+
+422
+00:58:56,800 --> 00:58:58,720
+Und das geht eigentlich ganz easy.
+
+423
+00:58:59,840 --> 00:59:03,200
+Wenn ich eine Spalte machen will, dann mache ich einfach,
+
+424
+00:59:03,200 --> 00:59:10,080
+wie beim Liktion Arrow zum Beispiel, einfach einen neuen Wert für diese Spalte,
+
+425
+00:59:10,080 --> 00:59:11,760
+und dann einen Standard Wert.
+
+426
+00:59:14,480 --> 00:59:16,960
+Das kann ich so machen, das kann ich aber auch mit Location,
+
+427
+00:59:16,960 --> 00:59:18,880
+mit diesem Location Methode machen,
+
+428
+00:59:19,840 --> 00:59:29,760
+die ja ist sicherer, weil ich hier ganz spezifisch die Zeilen definieren kann.
+
+429
+00:59:35,440 --> 00:59:38,560
+Ich kann natürlich auch eine neue Spalte machen,
+
+430
+00:59:38,560 --> 00:59:40,400
+indem ich eine andere Spalte hernehme,
+
+431
+00:59:40,400 --> 00:59:47,920
+und da zum Beispiel sage, okay, ich möchte hier die Population in Millionen haben,
+
+432
+00:59:48,560 --> 00:59:50,480
+dann nehme ich einfach die normale Population,
+
+433
+00:59:50,480 --> 00:59:52,800
+spalte her und dividiere die durch eine Million.
+
+434
+00:59:57,200 --> 01:00:00,960
+Oder das Ganze geht natürlich auch mit mehr Spalten,
+
+435
+01:00:00,960 --> 01:00:04,560
+das heißt, ich kann hergehen und sage, okay, ich will die Density,
+
+436
+01:00:04,560 --> 01:00:07,600
+also die Bevölkerungstichte berechnen,
+
+437
+01:00:07,600 --> 01:00:12,400
+dass man mit Population als Bevölkerung durch die Fläche,
+
+438
+01:00:13,360 --> 01:00:18,800
+und dann wird praktisch wirklich für jede Zeile die Population,
+
+439
+01:00:19,360 --> 01:00:21,920
+der Population Wert hergenommen und der Area Wert hergenommen,
+
+440
+01:00:21,920 --> 01:00:24,080
+und die zwei werden dann kombiniert,
+
+441
+01:00:24,080 --> 01:00:28,240
+um dann einen neuen Wert in dieser Zeile in der neuen Spalte zu machen.
+
+442
+01:00:30,400 --> 01:00:31,200
+Wie schaut das aus?
+
+443
+01:00:31,440 --> 01:00:39,920
+Das haben wir hier unser DataFrame,
+
+444
+01:00:42,640 --> 01:00:46,320
+wir wollen da jetzt eine neue Spalte hinzufügen,
+
+445
+01:00:47,200 --> 01:00:48,480
+dann können wir das einfach so machen,
+
+446
+01:00:48,800 --> 01:01:02,880
+dann haben wir hier eine neue Spalte mit dem Wert 1 drin stehen,
+
+447
+01:01:04,560 --> 01:01:07,280
+sagen wir mal, wir wollen hier was anderes haben, zum Beispiel,
+
+448
+01:01:19,440 --> 01:01:27,760
+Population, also ich kann zum Beispiel die Spalte kopieren einfach,
+
+449
+01:01:27,760 --> 01:01:28,400
+das geht auch,
+
+450
+01:01:28,960 --> 01:01:31,040
+jetzt habe ich hier einfach das gleiche drin stehen,
+
+451
+01:01:31,040 --> 01:01:32,560
+was ich hier drin stehen gehabt habe,
+
+452
+01:01:33,360 --> 01:01:38,720
+ich kann sagen, okay, ich will da das Ganze durch 1.000 machen,
+
+453
+01:01:40,960 --> 01:01:44,800
+dann schreibt es mir hier die Werte durch 1.000 rein,
+
+454
+01:01:44,800 --> 01:01:52,560
+also das ist jemals, wie ihr seht zum Beispiel 38 Millionen und hier steht dann 38.000 drin
+
+455
+01:01:53,360 --> 01:01:57,360
+und hier steht 26 Millionen drin und hier steht dann 26.000 drin,
+
+456
+01:01:58,400 --> 01:02:03,440
+ich kann aber hier dann auch wirklich zwei Spalten hernehmen,
+
+457
+01:02:04,880 --> 01:02:09,600
+und dann wird hier zum Beispiel Population durch Area dividiert für jede Spalte einzeln,
+
+458
+01:02:09,840 --> 01:02:14,080
+natürlich, wenn wir hier ein Missing Value haben,
+
+459
+01:02:14,640 --> 01:02:16,640
+dann kommt hier auch ein Missing Value raus,
+
+460
+01:02:16,640 --> 01:02:22,320
+oder wenn zum Beispiel der zweite, also hier Area Null ist,
+
+461
+01:02:23,200 --> 01:02:25,440
+wir können nicht durch Null dividieren, das heißt,
+
+462
+01:02:25,440 --> 01:02:27,120
+hier kommt auch ein Missing Value raus,
+
+463
+01:02:27,120 --> 01:02:45,200
+genau, und da kann man natürlich auch wieder hergehen und irgendwelche Beifunktionen verwenden,
+
+464
+01:02:45,200 --> 01:02:52,480
+zum Beispiel wollen wir die Population in Millionen hier runden,
+
+465
+01:02:52,560 --> 01:02:57,600
+dann können wir einfach Round und die gleiche Spalte nochmal reinhauen,
+
+466
+01:02:58,960 --> 01:03:00,160
+dann wird die eben gerundet,
+
+467
+01:03:06,800 --> 01:03:10,800
+hier zum Beispiel die zweite wird auf 2 Kommastellen gerundet,
+
+468
+01:03:12,240 --> 01:03:16,480
+und die erste wird auf keine Kommastelle gerundet,
+
+469
+01:03:16,800 --> 01:03:22,400
+dann kommen wir noch zum Plotting,
+
+470
+01:03:24,080 --> 01:03:25,920
+und Plotting ist auch richtig cool,
+
+471
+01:03:28,320 --> 01:03:31,440
+so haben wir hier zum Beispiel unser DataFrame,
+
+472
+01:03:33,280 --> 01:03:36,080
+dann können wir einfach sagen DataFrame.plot,
+
+473
+01:03:37,920 --> 01:03:39,920
+da gibt es natürlich verschiedene Plots,
+
+474
+01:03:39,920 --> 01:03:41,760
+also die kennt ihr wahrscheinlich eh alle,
+
+475
+01:03:42,080 --> 01:03:47,200
+da gibt es die Barplot, also die Säulendiagramme,
+
+476
+01:03:47,200 --> 01:03:51,040
+die Skatterplots und so weiter und so fort,
+
+477
+01:03:55,040 --> 01:03:57,200
+hier zum Beispiel machen wir ein Barplot,
+
+478
+01:03:58,080 --> 01:04:02,160
+also wir sagen unsere x-Axis ist der State,
+
+479
+01:04:02,800 --> 01:04:06,240
+unsere y-Axis ist die Population Density,
+
+480
+01:04:07,680 --> 01:04:09,360
+dann können wir da noch ein Titel definieren,
+
+481
+01:04:10,320 --> 01:04:15,600
+dann sagen wir okay, welche Art von Plot zu sein,
+
+482
+01:04:15,600 --> 01:04:17,280
+in diesem Fall soll es ein Barplot sein,
+
+483
+01:04:17,840 --> 01:04:22,720
+dann können wir auch die x-Achsen und die y-Achsen praktisch erlabeln,
+
+484
+01:04:23,360 --> 01:04:24,560
+und dann kriegen wir dann Plot raus,
+
+485
+01:04:28,400 --> 01:04:32,160
+und ihr kennt das wahrscheinlich eh von Excel,
+
+486
+01:04:33,120 --> 01:04:34,880
+da markiert man einfach die Spalten,
+
+487
+01:04:34,880 --> 01:04:38,080
+und sonst hat man einfügen neuer Plot,
+
+488
+01:04:40,160 --> 01:04:42,000
+ziemlich ähnlich hier nur, dass wir es praktisch
+
+489
+01:04:44,080 --> 01:04:47,280
+hier ganz schnell zum Beispiel die Art des Plots austauschen können,
+
+490
+01:04:47,280 --> 01:04:50,560
+oder die x- oder y-Achse austauschen können,
+
+491
+01:04:53,200 --> 01:04:57,200
+und man kann halt mit sehr sehr vielen Daten arbeiten,
+
+492
+01:04:58,880 --> 01:05:03,200
+obwohl das Plotding bei sehr sehr vielen Daten auch sehr langsam sein kann manchmal, leider.
+
+493
+01:05:03,200 --> 01:05:10,880
+Genau, am Anfang haben wir gehabt,
+
+494
+01:05:10,880 --> 01:05:15,920
+dass man aus CSV DataFrames erstellen kann,
+
+495
+01:05:15,920 --> 01:05:18,080
+man kann das Ganze natürlich umgekehrt auch machen,
+
+496
+01:05:18,080 --> 01:05:21,760
+man kann aus CSV DataFrames auch wieder CSV DataFrames machen,
+
+497
+01:05:22,480 --> 01:05:24,720
+man kann auch andere DataFrames rausmachen,
+
+498
+01:05:24,720 --> 01:05:26,560
+also man muss nicht nur CSV DataFrames machen,
+
+499
+01:05:26,560 --> 01:05:28,400
+man kann auch Excel DataFrames machen,
+
+500
+01:05:28,400 --> 01:05:29,440
+die sind ein bisschen anders,
+
+501
+01:05:29,440 --> 01:05:38,400
+aber ja im Großen und Ganzen schreibt man einfach df.2csv,
+
+502
+01:05:38,400 --> 01:05:40,000
+dann den Namen, den man haben möchte,
+
+503
+01:05:41,840 --> 01:05:43,920
+und hier zum Beispiel kann man dann angeben,
+
+504
+01:05:44,560 --> 01:05:47,280
+ob man den Index noch dazu haben will oder nicht,
+
+505
+01:05:47,280 --> 01:05:48,800
+also der Index, der wäre hier,
+
+506
+01:05:48,800 --> 01:05:50,720
+nicht 01234,
+
+507
+01:05:51,440 --> 01:05:52,640
+hier in diesem Fall haben wir gesagt,
+
+508
+01:05:52,640 --> 01:05:53,760
+nein wir wollen nicht,
+
+509
+01:05:53,760 --> 01:05:56,480
+wenn wir das hier vergessen,
+
+510
+01:05:56,480 --> 01:06:00,160
+dann haben wir hier automatisch 0123456 drin stehen.
+
+511
+01:06:06,560 --> 01:06:09,040
+Genau, und dann kriegen wir praktisch einfach,
+
+512
+01:06:09,040 --> 01:06:10,960
+also das schaut dann so aus,
+
+513
+01:06:10,960 --> 01:06:12,880
+wenn wir es mit Excel zum Beispiel aufmachen,
+
+514
+01:06:12,880 --> 01:06:14,000
+dann kriegen wir eben wieder das.
+
+515
+01:06:17,280 --> 01:06:19,920
+Genau, warte ich zeig das eventuell nochmal kurz.
+
+516
+01:06:27,280 --> 01:06:37,200
+Okay, zusammen wir wollen dieses DataFrame,
+
+517
+01:06:37,200 --> 01:06:38,960
+das wir jetzt haben, speichern,
+
+518
+01:06:40,800 --> 01:06:43,040
+dann können wir eben df.2csv,
+
+519
+01:06:43,680 --> 01:06:44,960
+und das sieht ja schon,
+
+520
+01:06:44,960 --> 01:06:47,600
+was alles möglich ist an DataEin,
+
+521
+01:06:48,640 --> 01:06:53,040
+also ich kann es zum Beispiel einfach ins Clipboard speichern,
+
+522
+01:06:53,040 --> 01:06:55,840
+das ist das Gleiche wie wenn ihr zum Beispiel kopieren,
+
+523
+01:06:56,480 --> 01:06:59,120
+also irgendwas Rechtsklick und Kopieren macht,
+
+524
+01:06:59,120 --> 01:07:00,640
+oder Steuerung C macht,
+
+525
+01:07:00,640 --> 01:07:04,480
+das wird dann praktisch einfach in der Ram gespeichert,
+
+526
+01:07:05,040 --> 01:07:06,400
+im Arbeitsspeicher,
+
+527
+01:07:06,400 --> 01:07:10,000
+ihr könnt zum Beispiel eben das Ganze in ein csv umwandeln,
+
+528
+01:07:10,000 --> 01:07:13,600
+ihr könnt aber auch einfach ein Beifendiktionell draus produzieren,
+
+529
+01:07:15,120 --> 01:07:18,240
+dann gibt es eben noch Excel und so weiter und so fort,
+
+530
+01:07:21,440 --> 01:07:23,600
+nehmen wir einfach mal csv her,
+
+531
+01:07:23,680 --> 01:07:24,480
+und wie ihr seht,
+
+532
+01:07:24,480 --> 01:07:26,640
+da gibt es Unmengen an Parametern,
+
+533
+01:07:26,640 --> 01:07:28,880
+die ihr da verwenden könnt.
+
+534
+01:07:31,040 --> 01:07:34,960
+Wir wollen jetzt mal zum ersten Mal den FileBuff haben,
+
+535
+01:07:35,760 --> 01:07:37,360
+ah, hier sieht man es besser,
+
+536
+01:07:37,360 --> 01:07:39,920
+also vielleicht kurz ein paar Parameter,
+
+537
+01:07:39,920 --> 01:07:40,800
+die ihr anwenden könnt,
+
+538
+01:07:40,800 --> 01:07:42,240
+also Puff oder Buff,
+
+539
+01:07:42,240 --> 01:07:45,040
+das ist praktisch dort der Filename,
+
+540
+01:07:45,760 --> 01:07:47,520
+wo ihr das csv speichern wollt,
+
+541
+01:07:48,080 --> 01:07:49,920
+haben zum Beispiel neues,
+
+542
+01:07:51,280 --> 01:07:54,080
+NewStates oder StatesProcess.csv,
+
+543
+01:07:55,520 --> 01:07:57,920
+dann könnt ihr den Separator auswählen,
+
+544
+01:07:57,920 --> 01:08:00,240
+der ist normalerweise einfach ein Komma,
+
+545
+01:08:00,240 --> 01:08:01,200
+aber wenn ihr sagt,
+
+546
+01:08:01,200 --> 01:08:03,120
+na, ich will alles Strichpunkt getrennt haben,
+
+547
+01:08:03,120 --> 01:08:08,000
+dann könnt ihr hier Separator Strichpunkt angeben,
+
+548
+01:08:08,880 --> 01:08:12,480
+oder Kanon kann man natürlich jeglichen String angeben,
+
+549
+01:08:12,480 --> 01:08:13,360
+den ihr haben wollt,
+
+550
+01:08:13,360 --> 01:08:16,800
+also das kann auch zum Beispiel Kanon Hallo sein,
+
+551
+01:08:16,880 --> 01:08:20,960
+und dann wird praktisch euer csv mit dem String Hallo getrennt,
+
+552
+01:08:20,960 --> 01:08:22,160
+das kann man auch kurz austesten.
+
+553
+01:08:24,800 --> 01:08:25,760
+Dann zum Beispiel,
+
+554
+01:08:25,760 --> 01:08:28,240
+wie MissingValues,
+
+555
+01:08:28,240 --> 01:08:31,520
+also fehlende Werte repräsentiert werden sollen,
+
+556
+01:08:32,080 --> 01:08:38,320
+die werden hier im nächsten Fall einfach in QuotationMarks gespeichert,
+
+557
+01:08:41,840 --> 01:08:43,280
+man kann natürlich auch auswählen,
+
+558
+01:08:43,280 --> 01:08:44,160
+welche Columns,
+
+559
+01:08:44,160 --> 01:08:46,480
+also wenn man zum Beispiel nicht alle Columns haben will,
+
+560
+01:08:47,760 --> 01:08:49,520
+kann man das auch auswählen,
+
+561
+01:08:50,320 --> 01:08:53,520
+ob man den Header speichern will,
+
+562
+01:08:53,520 --> 01:08:55,440
+also ob man zum Beispiel,
+
+563
+01:08:59,600 --> 01:09:00,720
+das ist unser Header hier,
+
+564
+01:09:00,720 --> 01:09:02,080
+also diese Fett markierten,
+
+565
+01:09:03,120 --> 01:09:05,040
+ob wir die auch speichern wollen oder nicht.
+
+566
+01:09:11,040 --> 01:09:12,000
+Den Index,
+
+567
+01:09:12,000 --> 01:09:13,360
+genau das haben wir erst schon gemacht,
+
+568
+01:09:13,680 --> 01:09:16,880
+ein Label für das Index,
+
+569
+01:09:18,320 --> 01:09:20,080
+den Mode zum Beispiel,
+
+570
+01:09:20,880 --> 01:09:22,320
+das ist eigentlich,
+
+571
+01:09:22,320 --> 01:09:23,520
+falls ihr erinnern könnt,
+
+572
+01:09:23,520 --> 01:09:24,560
+von den Files,
+
+573
+01:09:25,360 --> 01:09:26,560
+da kann man zum Beispiel,
+
+574
+01:09:26,560 --> 01:09:27,920
+also W ist für write,
+
+575
+01:09:27,920 --> 01:09:29,360
+also für schreiben,
+
+576
+01:09:29,360 --> 01:09:31,600
+aber man kann zum Beispiel auch A hernehmen,
+
+577
+01:09:31,600 --> 01:09:33,040
+zum Beispiel für appenden,
+
+578
+01:09:33,040 --> 01:09:33,520
+das heißt,
+
+579
+01:09:34,960 --> 01:09:37,280
+wenn das File schon existiert,
+
+580
+01:09:37,280 --> 01:09:39,120
+dann wird das nicht überschrieben,
+
+581
+01:09:39,120 --> 01:09:40,560
+sondern es wird einfach,
+
+582
+01:09:41,040 --> 01:09:43,120
+die neuen Daten einfach
+
+583
+01:09:43,120 --> 01:09:44,320
+ganz am Ende hinzugeflügt.
+
+584
+01:09:50,320 --> 01:09:52,720
+Die anderen sind jetzt nicht so wichtig,
+
+585
+01:09:52,720 --> 01:09:53,520
+aber ja,
+
+586
+01:09:53,520 --> 01:09:54,880
+die könnt ihr ja alle durchlesen.
+
+587
+01:09:56,720 --> 01:09:59,680
+Jetzt machen wir da einfach states new,
+
+588
+01:10:00,240 --> 01:10:00,640
+also was,
+
+589
+01:10:00,640 --> 01:10:02,720
+wenn ich da jetzt das Punkt CSV nicht mache,
+
+590
+01:10:05,760 --> 01:10:07,600
+dann macht es mir hier ein File,
+
+591
+01:10:07,600 --> 01:10:08,720
+das keine Endung hat.
+
+592
+01:10:11,520 --> 01:10:12,960
+Also die Werte drinnen
+
+593
+01:10:12,960 --> 01:10:14,480
+sind natürlich immer noch
+
+594
+01:10:15,360 --> 01:10:18,640
+gleich wie bei einem CSV-File,
+
+595
+01:10:18,640 --> 01:10:20,080
+aber euer Betriebssystem weiß nicht,
+
+596
+01:10:20,080 --> 01:10:21,520
+dass es ein CSV-File ist,
+
+597
+01:10:23,440 --> 01:10:26,000
+das heißt, ich muss hier Punkt CSV schreiben,
+
+598
+01:10:30,480 --> 01:10:32,800
+dann weiß das Betrieb ist dem AOK,
+
+599
+01:10:32,800 --> 01:10:34,320
+du meinst, ein Komma separiert das,
+
+600
+01:10:35,440 --> 01:10:36,240
+der Wellenformat.
+
+601
+01:10:36,240 --> 01:10:40,160
+Genau,
+
+602
+01:10:44,800 --> 01:10:45,520
+hier irgendwas gedrückt.
+
+603
+01:10:52,160 --> 01:10:53,120
+Die Lecture ist weg.
+
+604
+01:10:57,920 --> 01:11:00,080
+Dann kann man kurz zum separator vielleicht,
+
+605
+01:11:01,520 --> 01:11:02,240
+also wie gesagt,
+
+606
+01:11:02,240 --> 01:11:03,600
+der ist normalerweise Komma,
+
+607
+01:11:04,400 --> 01:11:06,160
+also wenn ihr den separator nicht angeht,
+
+608
+01:11:06,160 --> 01:11:07,760
+dann wird der Automatisch auf Komma gesetzt,
+
+609
+01:11:07,760 --> 01:11:09,280
+aber ihr könnt da eben Strichpunkt verwenden,
+
+610
+01:11:09,280 --> 01:11:11,200
+ihr könnt da eine Oderzei verwenden,
+
+611
+01:11:11,200 --> 01:11:11,760
+ihr könnt da,
+
+612
+01:11:12,960 --> 01:11:13,360
+keine Ahnung,
+
+613
+01:11:16,160 --> 01:11:20,960
+separator schreiben,
+
+614
+01:11:20,960 --> 01:11:22,160
+wenn ihr unbedingt haben wollt,
+
+615
+01:11:22,720 --> 01:11:23,600
+so was passiert da,
+
+616
+01:11:25,520 --> 01:11:26,400
+habe ich was vergessen.
+
+617
+01:11:31,840 --> 01:11:33,440
+Okay, geht tatsächlich nicht,
+
+618
+01:11:34,000 --> 01:11:36,080
+also der separator muss anscheinend
+
+619
+01:11:36,480 --> 01:11:37,440
+ein Zeichen lang sein,
+
+620
+01:11:38,320 --> 01:11:39,680
+dann habe ich ja Bullshit erzählt.
+
+621
+01:11:41,200 --> 01:11:41,920
+Okay, aber das geht.
+
+622
+01:11:46,240 --> 01:11:46,800
+Wie ihr seht,
+
+623
+01:11:46,800 --> 01:11:48,240
+haben wir dann eben hier
+
+624
+01:11:48,240 --> 01:11:49,440
+eine Oderzei hindern stehen.
+
+625
+01:11:52,560 --> 01:11:52,880
+Genau,
+
+626
+01:11:56,080 --> 01:11:57,600
+wenn ich da jetzt noch Heter dazu mache,
+
+627
+01:11:57,600 --> 01:11:58,160
+oh,
+
+628
+01:12:03,760 --> 01:12:04,800
+ist das hier Automatisch,
+
+629
+01:12:05,520 --> 01:12:06,080
+was kann ich nicht,
+
+630
+01:12:06,080 --> 01:12:06,400
+ob das,
+
+631
+01:12:06,960 --> 01:12:07,360
+okay ich glaube,
+
+632
+01:12:07,360 --> 01:12:09,520
+Heter ist automatisch auf True,
+
+633
+01:12:09,520 --> 01:12:10,160
+maybe.
+
+634
+01:12:18,080 --> 01:12:18,400
+Ja,
+
+635
+01:12:19,280 --> 01:12:19,520
+sagen wir mal,
+
+636
+01:12:19,520 --> 01:12:20,560
+ihr wollt die Heter nicht haben,
+
+637
+01:12:28,560 --> 01:12:30,400
+da sind die jetzt da oben weg,
+
+638
+01:12:31,280 --> 01:12:33,520
+also da fehlt jetzt die erste Zeile,
+
+639
+01:12:35,520 --> 01:12:36,400
+gibt es da zu fragen.
+
+640
+01:12:39,040 --> 01:12:39,360
+Okay,
+
+641
+01:12:44,640 --> 01:12:45,920
+schau, ob ich da noch irgendwo
+
+642
+01:12:45,920 --> 01:12:46,960
+das Apfel blotten.
+
+643
+01:12:54,000 --> 01:12:54,560
+Ja, genau,
+
+644
+01:12:56,080 --> 01:12:57,440
+also da gibt es alles Mögliche,
+
+645
+01:12:57,440 --> 01:13:02,320
+in diesem Fall zum Beispiel
+
+646
+01:13:02,320 --> 01:13:03,760
+verwenden wir einen By-Chart,
+
+647
+01:13:09,280 --> 01:13:10,400
+hier einen By-Chart,
+
+648
+01:13:11,920 --> 01:13:13,840
+ich werde euch dann noch dieses Notebook
+
+649
+01:13:14,400 --> 01:13:15,520
+hochladen ins Citycenter,
+
+650
+01:13:15,520 --> 01:13:16,400
+dann könnt ihr da eventuell
+
+651
+01:13:16,400 --> 01:13:17,280
+auch nochmal nachschauen.
+
+652
+01:13:22,960 --> 01:13:23,280
+Genau,
+
+653
+01:13:25,360 --> 01:13:26,160
+ja das glaube ich,
+
+654
+01:13:26,160 --> 01:13:27,840
+war es dann eh schon von der Banders.
+
+655
+01:13:31,360 --> 01:13:32,400
+Vorlesung,
+
+656
+01:13:32,400 --> 01:13:33,680
+gibt es dazu noch Fragen?
+
+657
+01:13:36,480 --> 01:13:36,880
+Okay,
+
+658
+01:13:37,520 --> 01:13:38,480
+dann vielleicht dann kurz
+
+659
+01:13:38,480 --> 01:13:39,600
+was Organisatorisches,
+
+660
+01:13:39,600 --> 01:13:41,200
+was jetzt noch auf euch zukommt.
+
+661
+01:13:44,720 --> 01:13:45,680
+Wir sind,
+
+662
+01:13:45,680 --> 01:13:46,400
+das heißt,
+
+663
+01:13:46,400 --> 01:13:48,800
+sollte eigentlich Assignment 2 sein,
+
+664
+01:13:48,800 --> 01:13:50,560
+also die Ausgabe wird jetzt
+
+665
+01:13:50,560 --> 01:13:51,840
+in den nächsten paar Tagen kommen,
+
+666
+01:13:52,560 --> 01:13:54,400
+es hat sich bis sich verzögert,
+
+667
+01:13:54,400 --> 01:13:55,840
+weil wir jetzt eben mal
+
+668
+01:13:55,920 --> 01:13:58,560
+kurze SimPy-Aufgabe einbauen werden,
+
+669
+01:14:01,120 --> 01:14:02,320
+aber ihr bekommt dann eine E-Mail.
+
+670
+01:14:04,480 --> 01:14:06,640
+Nächste Woche machten der Helmut noch
+
+671
+01:14:06,640 --> 01:14:08,480
+über SimPy einen Crash Course,
+
+672
+01:14:11,440 --> 01:14:15,280
+dann am 4. Feb,
+
+673
+01:14:15,280 --> 01:14:16,720
+praktisch ist keine Vorlesung,
+
+674
+01:14:17,360 --> 01:14:18,560
+und dann am 11.
+
+675
+01:14:18,560 --> 01:14:20,240
+haben wir dann die Classeur-Vorbereitung,
+
+676
+01:14:20,240 --> 01:14:21,680
+da wiederholen wir noch mal alles,
+
+677
+01:14:22,320 --> 01:14:24,160
+was ihr für die Classeur braucht.
+
+678
+01:14:26,480 --> 01:14:28,640
+Am 4. Feb ist dann eh schon,
+
+679
+01:14:28,640 --> 01:14:30,480
+dass die Deadline für Assignment 2,
+
+680
+01:14:30,480 --> 01:14:31,920
+ist seit eh schon alle in Gruppen
+
+681
+01:14:32,560 --> 01:14:33,200
+angemeldet,
+
+682
+01:14:33,200 --> 01:14:34,400
+nämlich an im Dietz-Center,
+
+683
+01:14:37,120 --> 01:14:39,360
+und dann,
+
+684
+01:14:39,920 --> 01:14:41,040
+ja, falls die Classeur
+
+685
+01:14:41,040 --> 01:14:42,000
+im Nicht-Hin-Haus holt,
+
+686
+01:14:42,000 --> 01:14:43,280
+dann gibt es eben noch eine Nachclasseur.
+
+687
+01:14:44,960 --> 01:14:46,560
+Zu den Tutorien habe ich da auch noch,
+
+688
+01:14:47,840 --> 01:14:49,600
+da wird dann nächste Woche
+
+689
+01:14:50,960 --> 01:14:52,480
+noch mal das Ganze durchgemacht,
+
+690
+01:14:52,480 --> 01:14:53,840
+was wir jetzt in den letzten
+
+691
+01:14:53,840 --> 01:14:55,600
+zwei Crash Crosses durchgemacht haben,
+
+692
+01:14:56,800 --> 01:14:59,760
+dann am 3.
+
+693
+01:14:59,760 --> 01:15:02,800
+wahrscheinlich haben wir SimPy-Tutorium,
+
+694
+01:15:03,760 --> 01:15:06,400
+und am 10. Dezember gibt es
+
+695
+01:15:06,400 --> 01:15:08,080
+noch mal eine Fragestunde zu Assignment 2,
+
+696
+01:15:08,080 --> 01:15:10,080
+falls es noch Unklarheiten gibt, ja.
+
+697
+01:15:14,160 --> 01:15:15,600
+Man muss sich für die Classeur
+
+698
+01:15:15,600 --> 01:15:16,320
+nicht anwenden, nein.
+
+699
+01:15:17,840 --> 01:15:19,120
+Die ist dann ein,
+
+700
+01:15:19,120 --> 01:15:20,480
+eigentlich ein Dietz-Center-Quiz,
+
+701
+01:15:22,880 --> 01:15:23,600
+das könnt ihr dann
+
+702
+01:15:24,240 --> 01:15:25,840
+zu Hause online machen.
+
+703
+01:15:33,040 --> 01:15:33,920
+Wenn ich mich richtig erinnere,
+
+704
+01:15:33,920 --> 01:15:35,200
+braucht ihr dafür
+
+705
+01:15:36,000 --> 01:15:37,280
+für die Classeur auch noch mal
+
+706
+01:15:37,280 --> 01:15:38,640
+50 Prozent der Punkte.
+
+707
+01:15:41,520 --> 01:15:42,560
+Genau, ja,
+
+708
+01:15:43,120 --> 01:15:44,320
+da haben wir jetzt alles durchgemacht,
+
+709
+01:15:45,520 --> 01:15:46,080
+hoffentlich.
+
+710
+01:15:49,840 --> 01:15:50,560
+Dann gehe ich kurz
+
+711
+01:15:50,560 --> 01:15:52,000
+zu Assignment 2 über
+
+712
+01:15:52,000 --> 01:15:52,800
+und erkläre kurz
+
+713
+01:15:53,840 --> 01:15:54,320
+was wir
+
+714
+01:15:55,920 --> 01:15:58,320
+Assignment 2 ablaufen wird.
+
+715
+01:15:59,600 --> 01:16:01,120
+Es hat sich eigentlich
+
+716
+01:16:01,120 --> 01:16:03,440
+seit letzten Jahren nicht viel geändert.
+
+717
+01:16:03,440 --> 01:16:04,880
+Es ist immer noch Data Science
+
+718
+01:16:04,880 --> 01:16:06,160
+für Civil Engineers.
+
+719
+01:16:06,160 --> 01:16:07,360
+Was heißt das?
+
+720
+01:16:07,360 --> 01:16:08,640
+Ja, ihr müsst damit banden,
+
+721
+01:16:08,640 --> 01:16:09,760
+bis ihr was arbeitet,
+
+722
+01:16:11,280 --> 01:16:12,800
+und das soll so ein bisschen simulieren,
+
+723
+01:16:12,800 --> 01:16:14,720
+wie das wirklich in der Realität
+
+724
+01:16:15,440 --> 01:16:17,360
+vielleicht auch aussehen könnte.
+
+725
+01:16:18,240 --> 01:16:18,800
+Das heißt,
+
+726
+01:16:19,760 --> 01:16:21,520
+ihr betreibt da Data Science
+
+727
+01:16:21,520 --> 01:16:23,040
+in eurem Anwendungsfeld,
+
+728
+01:16:24,560 --> 01:16:25,840
+und wir haben da Daten
+
+729
+01:16:25,840 --> 01:16:27,760
+von Vorarlberger Ski-Liften
+
+730
+01:16:28,320 --> 01:16:29,120
+und Seilbahnen,
+
+731
+01:16:29,120 --> 01:16:30,640
+mit denen ihr dann arbeiten könnt.
+
+732
+01:16:33,520 --> 01:16:34,880
+Und Ziel ist es da
+
+733
+01:16:34,880 --> 01:16:36,240
+praktisch, bis die Bahnen das
+
+734
+01:16:36,240 --> 01:16:37,040
+können zu lernen
+
+735
+01:16:37,040 --> 01:16:40,480
+und damit was zu programmieren.
+
+736
+01:16:42,080 --> 01:16:44,000
+Und dieses Assignment
+
+737
+01:16:44,000 --> 01:16:46,480
+ist im Jahr in Teilen aufgedeilt.
+
+738
+01:16:47,760 --> 01:16:48,960
+Ein Punkt bekommt ihr schon
+
+739
+01:16:48,960 --> 01:16:50,160
+allein aus Daten laden.
+
+740
+01:16:50,720 --> 01:16:52,320
+Das sollte jetzt kein Problem sein
+
+741
+01:16:52,320 --> 01:16:54,560
+mit ReadCSV.
+
+742
+01:16:56,400 --> 01:16:57,600
+Dann nochmal Pre-Processing.
+
+743
+01:16:58,720 --> 01:17:00,000
+Pre-Processing, was heißt das?
+
+744
+01:17:00,000 --> 01:17:01,680
+Ja, bevor wir mit den Daten
+
+745
+01:17:01,680 --> 01:17:02,960
+überhaupt was anfangen wollen,
+
+746
+01:17:02,960 --> 01:17:03,760
+müssen wir überhaupt schauen,
+
+747
+01:17:03,760 --> 01:17:06,960
+dass die Daten gut aussehen.
+
+748
+01:17:06,960 --> 01:17:08,240
+Das heißt, ob wir müssen
+
+749
+01:17:08,240 --> 01:17:10,480
+die missing values zum Beispiel entfernen
+
+750
+01:17:12,320 --> 01:17:14,640
+oder falls irgendwelche values
+
+751
+01:17:14,640 --> 01:17:15,440
+nicht stimmen sollen,
+
+752
+01:17:15,440 --> 01:17:16,960
+zum Beispiel wenn ein 0 drin steht,
+
+753
+01:17:16,960 --> 01:17:18,880
+dann müssen wir das nachschauen
+
+754
+01:17:18,880 --> 01:17:20,000
+und eventuell ausbessern.
+
+755
+01:17:20,960 --> 01:17:22,800
+Und das machen wir dann alles mit Code.
+
+756
+01:17:25,760 --> 01:17:26,640
+Und dann eigentlich
+
+757
+01:17:27,840 --> 01:17:29,840
+gibt es noch die Exploration und Visualisierung.
+
+758
+01:17:29,840 --> 01:17:30,640
+Das heißt praktisch,
+
+759
+01:17:30,640 --> 01:17:31,600
+ich schaute euch die Daten an
+
+760
+01:17:31,600 --> 01:17:33,840
+und plaudert es dann mal
+
+761
+01:17:33,840 --> 01:17:35,520
+auf bestimmte Spalten oder so
+
+762
+01:17:35,520 --> 01:17:36,560
+und seht es okay.
+
+763
+01:17:38,080 --> 01:17:41,040
+Keine Ahnung, es gibt 20 Ski-Lifte
+
+764
+01:17:41,040 --> 01:17:43,760
+oder die insgesamt,
+
+765
+01:17:44,480 --> 01:17:46,320
+die gesamte Länge aller Ski-Lifte
+
+766
+01:17:46,320 --> 01:17:48,240
+ist 50 Kilometer oder so.
+
+767
+01:17:50,400 --> 01:17:51,920
+Also da kann man wie sie schauen,
+
+768
+01:17:51,920 --> 01:17:53,600
+wie schauen die Daten überhaupt aus,
+
+769
+01:17:54,800 --> 01:17:56,240
+statt dass man immer nur ne Tabelle hat.
+
+770
+01:17:58,880 --> 01:18:00,560
+Und dann das ganze Schluss.
+
+771
+01:18:01,520 --> 01:18:03,120
+Also das ist praktisch der erste Teil
+
+772
+01:18:04,160 --> 01:18:05,280
+und dann gibt es den zweiten Teil,
+
+773
+01:18:05,280 --> 01:18:06,560
+das ist praktisch eine Analyse
+
+774
+01:18:06,560 --> 01:18:07,120
+und Berechnung,
+
+775
+01:18:08,720 --> 01:18:11,040
+wo ihr noch mal 12,5 Punkte bekommt
+
+776
+01:18:11,840 --> 01:18:13,040
+und da werden wir dieses Mal
+
+777
+01:18:14,080 --> 01:18:15,520
+noch ein bisschen SimPy inkludieren.
+
+778
+01:18:17,600 --> 01:18:18,800
+Und ja, das ist dann auch einfach
+
+779
+01:18:18,800 --> 01:18:19,520
+noch mal,
+
+780
+01:18:20,400 --> 01:18:22,400
+da gibt man dann noch mal tiefer rein,
+
+781
+01:18:22,400 --> 01:18:24,400
+sucht sich bald durch einen bestimmten Punkt aus,
+
+782
+01:18:25,840 --> 01:18:26,480
+wo man sagt okay,
+
+783
+01:18:26,480 --> 01:18:28,000
+das möchte ich mir genauer anschauen,
+
+784
+01:18:28,000 --> 01:18:29,520
+also möchte ich mir genauer analysieren,
+
+785
+01:18:29,520 --> 01:18:30,080
+zum Beispiel,
+
+786
+01:18:36,640 --> 01:18:37,920
+das Beispiel selber nicht ganz genau.
+
+787
+01:18:40,640 --> 01:18:41,680
+Aber hier nehmen wir jetzt einfach mal
+
+788
+01:18:41,680 --> 01:18:43,040
+ein grobes Beispiel her und sag,
+
+789
+01:18:43,040 --> 01:18:45,680
+ich nehme jetzt die Länge
+
+790
+01:18:45,680 --> 01:18:48,400
+aller Ski-Liftes 50 Kilometer
+
+791
+01:18:49,520 --> 01:18:51,040
+und ich nehme jetzt die Länge,
+
+792
+01:18:53,040 --> 01:18:54,160
+was kann ich mit dem anfangen.
+
+793
+01:18:55,440 --> 01:18:55,920
+Das Beispiel,
+
+794
+01:18:58,000 --> 01:18:59,760
+wie hoch ist zum Beispiel der Preis
+
+795
+01:18:59,760 --> 01:19:00,720
+pro Kilometer,
+
+796
+01:19:00,720 --> 01:19:01,920
+den ich dafür gezahlt habe
+
+797
+01:19:02,640 --> 01:19:04,960
+oder wie viel Gewinn kann ich
+
+798
+01:19:04,960 --> 01:19:08,320
+pro Kilometer Ski-Lift einnehmen.
+
+799
+01:19:10,080 --> 01:19:11,360
+Das ist nur ein Beispiel,
+
+800
+01:19:11,360 --> 01:19:12,000
+ich glaube,
+
+801
+01:19:12,000 --> 01:19:13,920
+das ist dann ein bisschen anders,
+
+802
+01:19:13,920 --> 01:19:14,960
+immer sei man zwei, aber
+
+803
+01:19:16,320 --> 01:19:18,160
+aber ja, so was könnte ich darunter vorstellen.
+
+804
+01:19:19,280 --> 01:19:22,160
+Für die Abgabe,
+
+805
+01:19:22,160 --> 01:19:24,560
+also die Abgabe ist dann einfach
+
+806
+01:19:26,640 --> 01:19:27,680
+das ist die Beschreibung,
+
+807
+01:19:27,680 --> 01:19:28,800
+die ihr dann bekommen werdet,
+
+808
+01:19:29,360 --> 01:19:30,960
+das ist dann eigentlich so ziemlich
+
+809
+01:19:30,960 --> 01:19:32,320
+gleich wie Simon 1.
+
+810
+01:19:33,760 --> 01:19:36,640
+Die Deadline ist dann Mitternacht am 14.
+
+811
+01:19:38,080 --> 01:19:39,600
+Und da gibt ihr dann einfach
+
+812
+01:19:39,600 --> 01:19:41,840
+dieses Simon 2 Punkt Notebook ab,
+
+813
+01:19:41,840 --> 01:19:44,160
+also dieses IPNB.
+
+814
+01:19:44,160 --> 01:19:49,520
+Ja, die Anforderungen und Output
+
+815
+01:19:49,520 --> 01:19:51,280
+sind da exakt wiederzugeben,
+
+816
+01:19:51,280 --> 01:19:51,760
+warum?
+
+817
+01:19:51,760 --> 01:19:52,720
+Ja, weil wir da wieder
+
+818
+01:19:52,720 --> 01:19:53,840
+das Testsystem verwenden.
+
+819
+01:19:57,120 --> 01:19:59,600
+Also wir werden da auch wieder
+
+820
+01:19:59,600 --> 01:20:00,240
+beim Testsystem,
+
+821
+01:20:00,240 --> 01:20:01,360
+also dieses Testsystem
+
+822
+01:20:01,360 --> 01:20:02,720
+mehrmals durchlaufen lassen,
+
+823
+01:20:02,720 --> 01:20:04,480
+also jeweils Dienstag und Freitag.
+
+824
+01:20:06,000 --> 01:20:07,520
+Ich rate euch da wirklich sehr,
+
+825
+01:20:07,520 --> 01:20:08,640
+das auszunutzen,
+
+826
+01:20:09,840 --> 01:20:11,120
+weil ihr da auch wirklich
+
+827
+01:20:11,120 --> 01:20:12,720
+blöde Fehler draufkommt,
+
+828
+01:20:12,720 --> 01:20:15,600
+könnt ihr die vielleicht durch Punkte abziehen.
+
+829
+01:20:19,120 --> 01:20:22,960
+Ja, dieses Mal muss der Kommentarheader,
+
+830
+01:20:24,640 --> 01:20:26,480
+ah, wo sind da beide Dateien?
+
+831
+01:20:29,040 --> 01:20:30,640
+Also einfach in allen Dateien,
+
+832
+01:20:30,640 --> 01:20:32,160
+die ihr dann abgeben solltet,
+
+833
+01:20:32,160 --> 01:20:34,880
+sollte dieser Kommentarheader ausgefüllt werden.
+
+834
+01:20:36,080 --> 01:20:38,800
+Und Codingstander soll auch wieder eingehalten werden.
+
+835
+01:20:39,600 --> 01:20:43,760
+Ja, genau, zum Automatisieren Test nehmen,
+
+836
+01:20:46,160 --> 01:20:47,360
+VIPAS 1 mit 1.
+
+837
+01:20:47,360 --> 01:20:51,600
+Also wenn ihr alle Tests erfolgreich bestanden habt,
+
+838
+01:20:51,600 --> 01:20:52,400
+muss das nicht heißen,
+
+839
+01:20:52,400 --> 01:20:53,600
+dass ihr alle Punkte bekommt,
+
+840
+01:20:55,360 --> 01:20:56,640
+weil wir natürlich auch noch
+
+841
+01:20:56,640 --> 01:20:58,240
+im Hintergrund Tests haben,
+
+842
+01:20:59,120 --> 01:21:02,560
+also am Ende mit anderen Werten,
+
+843
+01:21:02,560 --> 01:21:04,240
+die wir nochmal austesten werden.
+
+844
+01:21:05,840 --> 01:21:07,200
+Deshalb seid gefasst,
+
+845
+01:21:07,200 --> 01:21:12,240
+dass ihr da wirklich alle Kleinigkeiten durchgedacht habt
+
+846
+01:21:14,560 --> 01:21:15,520
+und dann sollte es eigentlich
+
+847
+01:21:15,520 --> 01:21:16,720
+hier trotzdem kein Problem sein.
+
+848
+01:21:21,520 --> 01:21:24,000
+Genau, Testruns, Dienstags und Freitags,
+
+849
+01:21:24,000 --> 01:21:25,600
+wir werden dann wieder einfach die Abgaben
+
+850
+01:21:25,600 --> 01:21:28,640
+ab 18 Uhr downloaden und testen
+
+851
+01:21:28,640 --> 01:21:30,080
+und dann bekommt ihr wieder per Mail
+
+852
+01:21:31,600 --> 01:21:32,720
+praktisch ein Feedback.
+
+853
+01:21:33,840 --> 01:21:35,520
+Und falls ihr wirklich da Fragen habt
+
+854
+01:21:35,520 --> 01:21:36,560
+zum Testreport,
+
+855
+01:21:36,560 --> 01:21:38,720
+dann kommt ihr eben ins Tutorium
+
+856
+01:21:38,720 --> 01:21:40,240
+oder schreibt es einfach in die Center,
+
+857
+01:21:40,240 --> 01:21:42,240
+sagt okay, ich habe diesen Fehler bekommen
+
+858
+01:21:42,800 --> 01:21:43,840
+im Feedback Report.
+
+859
+01:21:44,800 --> 01:21:46,000
+Ich verstehe nicht,
+
+860
+01:21:46,000 --> 01:21:48,560
+könnt ihr bitte uns da weiterhelfen.
+
+861
+01:21:50,000 --> 01:21:51,360
+Und da werden wir versuchen,
+
+862
+01:21:51,360 --> 01:21:54,880
+das so schnell wie möglich zu beantworten.
+
+863
+01:21:56,880 --> 01:21:59,840
+Ja, das ist es eigentlich eh schon
+
+864
+01:21:59,840 --> 01:22:02,080
+von diesem Crash Course.
+
+865
+01:22:02,080 --> 01:22:03,360
+Gibt es sonst noch Fragen?
+
+866
+01:22:04,320 --> 01:22:06,080
+Sonst würde ich mich bedanken.
+
+867
+01:22:12,960 --> 01:22:13,680
+Das ist eine gute Frage.
+
+868
+01:22:19,360 --> 01:22:20,960
+Da doch hier steht,
+
+869
+01:22:20,960 --> 01:22:22,400
+im beiden Dateien,
+
+870
+01:22:23,440 --> 01:22:24,640
+ja also ich denke schon,
+
+871
+01:22:24,640 --> 01:22:26,240
+dass ihr praktisch da zusammen
+
+872
+01:22:26,240 --> 01:22:27,680
+in einer Datei arbeiten könnt.
+
+873
+01:22:28,240 --> 01:22:29,280
+Also ihr könnt es,
+
+874
+01:22:29,600 --> 01:22:32,000
+ich will jetzt nichts Blödes sagen,
+
+875
+01:22:32,000 --> 01:22:33,600
+weil ich das selber jetzt nicht weiß,
+
+876
+01:22:33,600 --> 01:22:35,200
+aber ich kann mir halt gut vorstellen,
+
+877
+01:22:35,200 --> 01:22:36,560
+dass ihr wahrscheinlich
+
+878
+01:22:36,560 --> 01:22:38,720
+einfach entweder zu zweit euch zusammensetzt
+
+879
+01:22:38,720 --> 01:22:40,560
+und das Gemeinsam programmiert
+
+880
+01:22:40,560 --> 01:22:41,760
+und dann einfach
+
+881
+01:22:41,760 --> 01:22:43,200
+für jeweils pro Person
+
+882
+01:22:43,200 --> 01:22:45,680
+das gleiche File auf Teach Center hochlett.
+
+883
+01:22:45,680 --> 01:22:46,880
+Da bekommt ihr jetzt kein Plagiat.
+
+884
+01:22:46,880 --> 01:22:48,160
+Ich meine, das macht ihr zusammen.
+
+885
+01:22:48,160 --> 01:22:49,440
+Das ist ja eigentlich die...
+
+886
+01:22:53,200 --> 01:22:54,480
+Ihr sollt natürlich das nicht
+
+887
+01:22:54,480 --> 01:22:56,480
+mit zwei verschiedenen Gruppen machen,
+
+888
+01:22:56,480 --> 01:22:58,320
+aber ja, es ist einfach so,
+
+889
+01:22:59,120 --> 01:23:01,040
+also es ist eine Gruppenarbeit.
+
+890
+01:23:01,040 --> 01:23:02,960
+Das heißt, ihr könnt das ruhig zu zweit
+
+891
+01:23:02,960 --> 01:23:04,480
+gemeinsam auf einem Computer machen.
+
+892
+01:23:05,360 --> 01:23:06,560
+Wenn ihr das nicht möglich ist,
+
+893
+01:23:06,560 --> 01:23:08,000
+dann könnt ihr das auch über Karnung,
+
+894
+01:23:08,720 --> 01:23:10,640
+Discord machen oder Karnung.
+
+895
+01:23:10,640 --> 01:23:11,840
+Also das ist alles möglich.
+
+896
+01:23:17,280 --> 01:23:18,080
+Okay, was?
+
+897
+01:23:18,800 --> 01:23:20,480
+Falls ihr sonst keine Fragen gibt,
+
+898
+01:23:20,480 --> 01:23:21,520
+dann vielen Dank.
+
+899
+01:23:22,480 --> 01:23:23,040
+Dann lasse ich euch...
+

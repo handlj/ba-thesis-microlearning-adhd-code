@@ -1,8 +1,3 @@
-Du könntest dir ja schonmal überlegen, wie man die Inhalte zu 3-4 Themen gruppieren kann
-um eine 20-30 min Mikrolearning Session inkl. Quizzes zu füllen. 
-Muss auch nicht der ganze Kurs sein, 
-je nachdem, wie es Sinn macht und zeitlich in die Session passt
-
 
 20min Microlearning Session
 ===========================
@@ -10,7 +5,7 @@ je nachdem, wie es Sinn macht und zeitlich in die Session passt
 Topic A
 -------
 
-Booleans
+Simple Datatypes and Operators (Booleans, comparison operators)
 
 Topic B
 -------
@@ -20,10 +15,10 @@ If-Statements
 Topic C
 -------
 
-Loops
+Loops (for and while)
 
 Topic D
 -------
 
-Functions
+Functions (Basics)
 

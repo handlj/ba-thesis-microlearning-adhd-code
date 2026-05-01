@@ -12,3 +12,4 @@ It will be updated in the course of the thesis, with changes being documented in
 ## Changelog
 - **2026-03-01**: Initialization
 - **2026-04-29**: Add raw course presentation .odp files
+- **2026-05-01**: Add full video audios and transcripts, add session proposal for microlearning

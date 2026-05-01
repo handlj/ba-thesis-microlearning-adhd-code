@@ -1,0 +1,580 @@
+start	end	text
+0	9980	Okay, perfekt. Ja, dann herzlich willkommen zum Python Crash Course C. Ich hoffe, das
+9980	19320	Tutorial gestern war bis sie informationsreich und ihr habt was Neues dazu gelernt. Ich stecke
+19320	26000	ich noch kurz das ein. Ich werde dann auch gleich den Feedback danach starten und falls
+26000	33840	ihr da noch Fragen habt, können wir die dann noch gemeinsam beantworten. Heute oder was wir
+33840	53000	heute machen ist Feedback gefragt, nochmal Listen und Vorlubs wiederholen. Okay, ihr
+53160	62120	ausschaut. Die erste ist gleich sehr Trickfrage und zwar hat das damit zu tun, dass wenn ihr
+62120	68320	es zurück erinnern könnt, if und elif. Also hier im diesem Fall haben wir ja gar kein elif
+68320	79040	an der zweiten, beim zweiten if hier. Das heißt, der erste if-Block wird ausgeführt, weil ja h ist
+79040	88200	gleich drei, drei ist kleiner als vier, als so addieren wir fünf zum Preis hinzu. Aber hier
+88200	94880	haben wir dann kein elif, das heißt hier das wird auch ausgeführt, also hier das wird auch noch
+94880	101880	mal kontrolliert und natürlich drei ist immer noch kleiner als 18, wodurch wir eben nochmal zehn
+101880	114680	hinzufügen. Das heißt, wir haben 13 plus 5 ist 18 plus 10 ist 28. Da kommen wir dann eh schnell
+114680	120240	drauf auf der nächsten Frage. Da haben wir dann nämlich das elif und da habt ihr dann eh größtenteils
+120240	128400	alle richtig beantwortet und wir hier sehen praktisch hier haben wir h15, das heißt 15 ist
+128440	134840	natürlich nicht kleiner als vier, deshalb wird es auch gar nicht ausgeführt. Fünktion ist aber
+134840	140640	kleiner als 18, deshalb wird der zweite block ausgeführt und der Rest des elfs wird dann ignoriert.
+140640	148960	Hat jemand eine Idee, was passieren würde, wenn hier h3 wäre?
+149080	165680	Lauter? Praktisch wenn hier 3 stehen würde, dann würde der ifblock hier ausgeführt werden,
+165680	176080	genau. 13 plus 5 ist 18 und der Rest wird einfach ignoriert. Auch wenn hier h kleiner als 18 steht,
+176680	183600	ist komplett egal. Die erste ifanweisung ist richtig, deshalb wird der Rest vom elif elfsblock
+183600	199200	komplett ignoriert. Ja, das ist sehr gut. Ja, dann nochmal zur Wiederholung. Bei uns fängt,
+199200	205560	bei den Informatikern fängt das eben mit 0 an zu zählen, mit dem Index und nicht mit 1 und auch
+206320	214240	ganz wichtig, hi, also das funktioniert später bei den Dictionaries, das werden wir dann auch
+214240	220520	durchmachen, das wird dann noch bis ins Verwirrung führen, aber hoffentlich seid ihr dann schon
+220520	231520	alle Profis mit Listen. Genau, also das erste element ist mit 0 und dann gehen wir auch gleich zum
+231520	244840	nächsten. Oh ja, Listen hinzufügen. Ja, da gibt es mehrere Möglichkeiten. Ihr könnt eben ganz
+244840	250200	normal das Append verwenden und dann eine normale Zahl hinzufügen, aber was ganz interessant ist
+250200	255000	bei Beifniss, ihr könnt in einer Liste komplett irgendwas hinzufügen, also das muss nicht,
+255000	260320	wenn die Liste aus Zahlen ist, eine weitere Zahl sein, sondern das kann auch wirklich einfach ein
+260320	268480	String sein oder ein Float sein oder ein Bull sein oder irgendwas. Das macht das Ganze natürlich
+268480	280000	sehr vielfältig, aber kann natürlich auch dann später zu Fehlern führen, wenn man zum Beispiel
+280000	285840	eine Liste gemischt aus Zahlen und Strings hat und man will alle Elemente dieser Liste
+285840	291280	zusammen addieren und da ist dann ein String dabei, da wird euch dann natürlich einen Fehler
+291280	298760	werfen, wenn ihr euch zurück können die letzten Vorlesungen erinnern könnt. Insert geht nur mit
+298760	306400	einem der vorgesetzten Index, also dort wo ihr praktisch an der Stelle, wo ihr das Element hier
+306400	316160	5 einfügen wollt in der Liste, genauso Append ohne Index, also Append ist einfach am Ende,
+316160	323640	der Liste wird praktisch dieses Element dann einfach hinzugefügt. Add ist inkorrekt, also
+323640	336840	das sollt ihr wirklich aufpassen, dass es immer Append ist, das kommt, also add ist nämlich eher
+336840	345240	addieren und Append ist eher so hinzufügen. Ich weiß, die Wörter in Englisch sind manchmal sehr ähnlich,
+345240	353160	also schaut einfach, dass ihr euch da das Append merkt bei Listen und nicht add. Und das plus ist
+353200	360240	gleich geht auch nicht, weil das hier ist eine Liste und kein Integer oder Float und leider hat
+360240	368760	diese Liste keinen plus als Operator. Ist das soweit verständlich oder gibt es da noch Fragen?
+368760	395800	Also dritte Stelle bedeutet Index 2, das seid ihr euch eh schon mehr oder weniger. Das heißt wir
+395800	401600	können einerseits das Dell Keyword verwenden, damit löscht ihr einfach das Element komplett.
+401600	410240	Pop ohne nix reinzuschreiben löscht einfach das letzte Element der Liste und da das praktisch
+410240	417000	die dritte Stelle in der Liste das letzte Element ist, wäre in diesem Fall diese Aussage auch
+417000	422520	korrekt. Hätten wir hier natürlich vier Elemente drin, dann wäre pop ohne nix drin zu schreiben,
+422520	431160	auch falsch. Da könnt ihr dann natürlich eben auch wieder den Index angeben, welches Element
+431160	440160	ihr raus poppen wollt. Ganz wichtig im Gegensatz zu dem Dell Keyword bei pop, könnte dieses Element
+440160	448080	dann in eine Variable speichern. Praktisch da könnt ihr dann schreiben x oder zweites Element ist
+448080	455560	gleich stringless.pop und dann speichert es eben praktisch den Wert vom, also dieses Howdy in
+455560	465160	dieser neuen Variable. Stringless.remove funktioniert nicht, muss ich selber kurz nachschauen.
+465160	467800	Wollen wir mal kurz aus.
+495160	516720	By remove da gibt ihr nämlich den Wert, also eben wie hier richtig angegeben, also Howdy, ihr
+516720	523720	wollt Howdy löschen. Zwei existiert in dieser Liste nicht, da würde praktisch so ein Value Error
+523720	530560	bekommen. Also hier bei remove da gehen wir nicht den Index an, sondern wirklich den Wert,
+530560	540520	den wir aus der Liste rauslöschen wollen. Mit dem hier löschen wir die gesamte Liste und genau
+540520	545800	wie hier gesagt kann man direkt den Wert angeben und dann löscht es eben auch. In diesem Fall ist
+545800	551800	Howdy eben auch das dritte Element in der Liste, deshalb ist auch diese Aussage korrekt. Gibt es da
+551800	567320	so Fragen? Ja, da gehen wir jetzt schon ein bisschen mehr in die Theorie rein. Genau, als
+567320	574760	sie müsste ich das so vorstellen. Ihr habt eure Variable lecture hier, die hier und die wird
+574760	583720	hier in diesem vorschleifen Argument als in dieser Line erst erzeugt. Also die gibt es davor gar
+583720	592000	nicht, die ist erst hier erstellt worden und die heißt Laufvariable, weil die einfach mitläuft. Also
+592000	599480	die läuft einfach mit, solange die Schleife läuft, läuft sie mit, das heißt die wird da immer und
+599480	610920	immer wieder ersetzt, solange die Schleife läuft. Noch kurz davor die Selectures, das wäre
+610920	621200	praktisch diese Variable hier, das wäre praktisch eure Liste, eure Zahlen range und dann habt ihr
+621200	626800	euch noch dieses Print Statement hier, was praktisch immer wiederholt wird, also praktisch in der
+626800	637480	Schleife drin für jedes Element in dieser Liste hier. Können wir uns kurz herzeigen? Sagen wir,
+637480	646920	wir haben hier unsere Liste Test, die hat drei Elemente, 1, 2, 3 und jetzt machen wir da ein
+646920	654240	Vorstatement und dann wollen wir unsere Laufvariable definieren, die praktisch den Wert 1, 2 und 3
+654240	667560	annehmen wird nacheinander, die nehmen wir jetzt einfach zahl, dann in Test, Doppelpunkt und jetzt
+667560	671880	können wir da irgendwas machen mit dieser Test Variable, jetzt printen wir die einfach aus.
+671880	689680	Ups, da habe ich 1 geprintet und ich zahle. Und mache ich da ganz kurz das mit einer bisher Zeit,
+690440	705720	dann seht ihr das ein bisschen slow motion, machen wir eine Sekunde, praktisch das heißt einfach das
+705720	714400	Programm schläf für eine Sekunde, wenn ich jetzt mache, dann werden die alle nacheinander ausgeführt,
+714400	723760	praktisch zahl wird innerhalb dieser Schleife immer durch das nächste Element ersetzt,
+723760	728480	das heißt wir starten mit 1, dann gehen wir zu 2 weiter, dann gehen wir zu 3 weiter und dann ist die
+728480	737120	Schleife fertig oder die Liste fertig und dann praktisch bricht die Schleife ab und hat abgearbeitet.
+737120	747760	Gibt es da zu fragen? Einfach wichtig zu merken ist Lauf oder Schleifenvariable,
+747760	752000	das praktisch die die immer mitläuft, das wäre in diesem Fall die Zahl gewesen,
+752000	759360	die Durchlaufen der Sequence, also unsere Liste, die wir abarbeiten wollen.
+759360	769880	Und dann haben wir eben unseren Codeblock innerhalb der Schleife, der einfach immer wiederholt wird.
+769880	781040	Genau da habt ihr die meisten Images richtig abgestimmt, genau also die Laufvariable wird
+781040	786280	praktisch am Anfang jedes Schlaufendurchgang durch einen neuen Wert ersetzt in der Liste
+786280	792840	und das wird dann so lange abgearbeitet bis wir entweder mit Break abbrechen,
+792840	798280	falls ihr noch erinnern könnt oder eben die Liste abgearbeitet ist.
+798280	811320	Okay Adam, haben wir da ein paar größere Codezeilen, es gibt eben immer bei Bif noch
+811360	817240	mehrere Varianten, wie er praktisch zu einer gewissen Ausgabe kommt, also Möglichkeiten,
+817240	826160	wie er zur Lösung kommt. Und hier zum Beispiel bei diesen zwei, da nehmen wir einfach das hier her,
+826160	839200	stecken es direkt hier stattnehmen rein. Also wir sparen uns einfach hier diese variable nehmen,
+840040	846400	das hat natürlich Vorteile so eine Variable auch zu definieren manchmal, weil zum Beispiel wir
+846400	853480	wollen nicht nur Titel aufrufen, sondern wir wollen auch noch die Alice durch Baupersetzen,
+853480	860440	dann können wir das nämlich auch noch machen, dass wir zum Beispiel nicht so einfach möglich,
+860440	866640	wenn wir das einfach in einer Line haben. Aber natürlich, wenn man alles kurz und knapp haben will,
+866640	872840	dann kann man das Magician.title auch direkt hier so in die geschwungenen Klammern im Format-String
+872840	880920	rein hauen. Hier diese Antwort ist nicht richtig, weil dieser Teil, also dieser Codeblock,
+880920	886000	dieses Print Statement ganz zum Schluss, das sollte ja eigentlich nur einmal ausgeführt werden,
+886000	891840	aber dadurch, dass das hier im Vorschleifenblock ist, auch enthalten ist, wird das auch immer
+891880	900280	wieder aufgerufen, das heißt, da kommen nicht zu unserer gewünschten Ausgabe. Das hier ist nicht
+900280	909640	richtig, warum könnte das nicht richtig sein? Hat da jemand eine Idee? Was fehlt da? Ja, wie bitte?
+909640	915760	Genau, praktisch hier fehlt die Einrückung, also wenn ihr hier seht, hier haben wir immer vier
+915760	921800	Leerzeichen eingerückt, hier fehlt das, wir können das ja mal ausprobieren, wenn man das ausführt,
+921800	935280	wenn man das ausprobieren will. Da kommt hier dann so ein tollen Inventation-Error, weil hier einfach
+935280	942240	nach dem Doppelpunkt muss eine Einrückung kommen. Ist auch immer wichtig, beim IF ist es auch so,
+942240	948280	oder beim ELS, wenn hier ein Doppelpunkt kommt, kommt immer eine Einrückung, weil hier da praktisch
+949280	959200	ein Quadblock erstellt, der praktisch nur für das Vorstatement gilt. Das heißt, hier könnt ihr
+959200	967320	dann einfach mit Dab, das sind hier 1, 2, 3, 4 Leerzeichen, dann könnt ihr das ausführen und
+967320	971600	im nächsten Fall geht das natürlich überhaupt nicht, weil da auch noch der Format-String fehlt,
+971600	977400	das heißt, hier fehlt das F, ganz wichtig, also wenn hier das F fehlt, dann wird das einfach
+977400	983480	ignoriert, dann ist es nicht wie so ein praktisch Inline-Code, sondern wird da einfach der ganze
+983480	991800	Zeichensatz innen drin als normale Zeichenkette interpretiert und so natürlich haben wir
+991800	1001160	den gewünschten Effekt. Und hier, was könnte hier das Problem sein?
+1001160	1013680	Ist auch ganz interessant, hier definieren wir ja Name nicht, sollte alles klappen, das Problem ist,
+1013680	1018280	dieses Printstatement danach, gleich danach, das ist dann nicht mehr im selben Quadblock,
+1019200	1023440	das heißt, es wird nicht für jede Vorschleife ausgeführt, sondern nur ganz zum Schluss einmal,
+1023440	1041360	kann ich das auch zeigen. Das heißt, wir haben hier eine Vorschleife, das wird hier 3 mal ausgeführt
+1041360	1049720	für Alice, David und Karolina, nehmen wir 3 mal überschrieben und natürlich beim letzten Mal
+1049720	1056440	steht der Karolina drin, das heißt, hier Name ist praktisch mit Karolina.titel überschrieben
+1056440	1066600	worden und dann weiß Beif nur noch, okay, jetzt steht da Karolina drin, aber hat keine Ahnung
+1066600	1074000	von den Sachen davor, weil das ja außerhalb der Schleife ist. Das heißt, wenn man das dann
+1074000	1080720	natürlich wieder reinschiebt in die Schleife, dass das zusammengehörig ist,
+1080720	1086880	damit das wieder 3 mal ausgeführt. Ich weiß, das ist ein bisschen kompliziert,
+1086880	1091440	aber am Anfang zu verstehen, gibt es da zu fragen, ist da was nicht ganz klar?
+1098960	1107520	Passt. Passt, was ist nochmal, Alice? Machen wir das auch nochmal durch. Schauen wir mal,
+1107520	1116360	ob ich eine Greide finde. Also, wenn ihr euch kurz an das erste Beispiel zurück erinnern könnt,
+1116360	1139800	wenn wir da if h kleiner 4 haben, dann machen wir da einfach. Wenn ich hier ein normales if reinhauen
+1139800	1160920	würde und h ist jetzt Summer 3, dann wird, schauen wir mal, 3 ist klein als 4, das heißt,
+1160920	1168520	das Ganze ist true, das heißt, das hier wird ausgeführt, aber jetzt haben wir hier kein
+1168520	1176680	elif, sondern ein normales if. Das heißt, man kann sich das so vorstellen, als wer das hier beendet
+1176680	1183320	und das hier ist komplett ein neues Programm. Das heißt, das hier wird auch wieder ganz normal
+1183320	1190320	ausgeführt und natürlich 3 ist auch wieder klein als 18, deshalb haben wir wieder dasselbe und das
+1190320	1199200	hier wird auch wieder ausgeführt. Aber wenn wir hier ein elif haben, dann sagen wir den Code,
+1199200	1210800	das hier gehört zusammen. Das kann man sich dann so vorstellen, dass man hier so hergeht, das heißt,
+1210800	1222480	hier hat man am Anfang das if, dann falls das nicht vorkommt, dann haben wir den elif und dann
+1222480	1231760	haben wir das else. Das heißt, das kann man sich so, so nach Stufen vorstellen und hier haben wir
+1231760	1239400	immer ein check, das heißt, praktisch ist es wahr oder falsch, falls es wahr ist, dann machen wir das
+1240400	1251040	falls nicht, gehen wir zum nächsten rüber und so weiter und so fort. Das heißt, wir kreieren
+1251040	1257400	praktisch einen größeren Block, der zusammenhängt, statt dass wir hier zwei unterschiedliche Programme haben.
+1257400	1269160	Assignment 1 ist, werde ich heute vorstellen, ganz am Ende der Vorlesung. Was machen Sachen?
+1269160	1278360	Vieles hoffentlich. Wo es Helmut, Helmut wird, glaube ich, die nächsten paar Vorlesungen abhalten,
+1279320	1285840	die sind dann über Binärrechnen und Zahlentheorie, kann auch sein, dass das Asynchron ist.
+1285840	1293400	Ihr werdet dann schon nochmal Helmut sehen. Genau, mit den neuen Gruppen. Ja, ich weiß,
+1293400	1300320	das ist ein bisschen verwirrend. Das liegt daran, wir haben nur zwei Totoren und das heißt,
+1300360	1308680	wir können nur wirklich zwei Gruppen haben. Natürlich war es jetzt so, dass am Anfang wir
+1308680	1313680	nicht genau wussten, wie viele Leute sich anmelden, deshalb hatten wir noch eine Reservegruppe, das war
+1313680	1320360	die Gruppe 3, wo man sich natürlich auch noch anmelden konnte, aber wir haben praktisch eigentlich
+1320360	1328640	dann nur zwei Hörsäle zur Verfügung, wo wir mit zwei Totoren arbeiten können und deshalb haben wir
+1328640	1336240	euch da jetzt mal in neue Gruppen einteilt. Wir werden dann wahrscheinlich die Gruppenanmeldung
+1336240	1343120	nochmal freischalten, damit ihr euch da eventuell noch ummelden könnt. Da schickt man nochmal eine
+1343120	1350000	Mail raus. Aber falls ihr sagt, es geht mir an einem Termin überhaupt nicht und ihr wollt lieber zum
+1350000	1357640	anderen Termin kommen, ist das auch kein Problem. Wir gehen eh davon aus, dass normalerweise immer
+1357640	1365240	weniger Leute zu den Tutorien kommen, weil sie alle Experten werden und das heißt, es sollte
+1365240	1378640	eigentlich immer Platz sein. Genau, Assignment 1, weil ich heute noch kurz besprechen. Passt.
+1388640	1394800	Genau, nochmal zur Wiederholung. Heute machen wir nochmal Loops und Datenstrukturen durch. Heute
+1394800	1404440	werden wir zu den Listen noch die Sets und die Dictionaries dazunehmen und dann werde ich noch
+1404440	1413120	vielleicht kurz über Functions reden und dann reden wir über Assignment 1. Passt. Also nochmal zu
+1413120	1427000	Vorloops. Ich habe das jetzt eh schon ein paar Mal über erwähnt, aber praktisch, wenn man das jetzt
+1427000	1432600	in normaler Sprache ausschreiben würde, würde es einfach so heißen für jedes Element in der
+1432600	1442160	Sequence oder in der Liste für Revolgen der Anweisungen aus. Und im Beißen ist es halt in
+1442160	1448160	Englisch geschrieben, das heißt vor Item in List of Items, aber das ist praktisch vor
+1448160	1458200	Laufvariablen in Liste oder Range oder irgendwas. Machen wir irgendwas. Und diese Laufvariablen,
+1458200	1463000	den könnt ihr wirklich jeglichen Namen zuweisen. Ihr müsst nur schauen, dass ihr wieder die Variablen
+1463000	1469400	Namen regel einhaltet. Praktisch am Anfang darf kein, also der erste Buchstauert darf
+1469400	1480120	keine Zahl sein und Zonderzeichen sind praktisch nur anders groß erlaubt. Meine arme Stimme.
+1480120	1495080	Genau, das ist praktisch einfach ein wiederholender Codeblock. Das heißt, wenn wir uns davor an
+1495080	1501400	das Beispiel erinnern, wo wir unsere Magicians ausprinten wollen, kann man das natürlich
+1501400	1521640	auch so machen. Print und dann machen wir Carolina, Print Alice, und so weiter und so fort. Das heißt,
+1521960	1532040	wir haben hier 10, 20 Print Statements hintereinander. Das schaut natürlich dann nicht so schön aus und
+1532040	1536200	deshalb verwenden wir hier zum Beispiel eine Vorschleife, wo wir dann einfach die Namen hier
+1536200	1542520	alle in einer Liste speichern und dann in einer Vorschleife das ganze in der Laufvariable zuweisen
+1542520	1548200	und dann brauchen wir nur noch einen Print Statement. Das ganze ist praktisch statt 10 Zeilencode,
+1549000	1559240	dann zwei oder drei Zeilencode. Das geht dann natürlich komplexer auch, also es ist ja nicht
+1559240	1562840	nur Print Statement, die man natürlich machen kann, da kann man natürlich auch sehr viel komplexere
+1562840	1573240	Sachen machen und stellt euch vor, ihr habt allein hier in der Vorschleife 100 Zeilencode drin und
+1573320	1579400	ihr müsst das tausendmal ausführen. Also könnt ihr euch vorstellen, dass ihr da nicht tausendmal
+1579400	1585960	diese 100 Zeilencode hintereinander hinschreiben wollt und dann jedes Mal da vielleicht nur den
+1585960	1591960	Namen austauschen wollt. Das kann natürlich dann sehr viel Arbeit kosten, statt dass ihr vielleicht nur
+1591960	1600440	die Liste ausbessern müsst in der Vorschleife. Genau, das schaut dann eben so aus.
+1603240	1614120	Schauen wir das nochmal so an. Das heißt praktisch hier haben wir unsere Initialisierung der Liste,
+1614120	1619080	das machen wir außerhalb der Schleife. Natürlich ihr habt es eh schon gesehen, man kann auch hier
+1619080	1625800	einfach hergehen und sagen okay will ich will kein Lectures haben, ich definiere hier direkt die Liste,
+1625800	1631640	das geht natürlich auch, ist nicht so übersichtlich und ist auch eigentlich glaube ich laut Coding
+1631880	1638200	Standard. Muss ich selber nachschauen, ob das erlaubt ist oder nicht. Also bis sie macht so mit
+1638200	1647800	eine eigene Variable. Genau und da holen wir uns dann einfach mal die einzelnen Elemente aus der
+1647800	1652760	Liste raus, Math, Englisch, Computer Science, nacheinander, also besser gesagt wie starten wir
+1652760	1659720	mit Maths, dann wird das ausgeführt, all of Maths, dann wird diese Lecture variabel überschrieben
+1659720	1667800	mit Englisch, dann wird wieder das Print Statement aufgerufen und so weiter und so fort.
+1671000	1676040	Genau, hier nochmal die Legende, falls sie jemand braucht. Richtig ist hier haben wir einfach die
+1676040	1681720	Definition der Sequence, dann haben wir hier diese Definition der Followup und dann haben wir uns
+1681800	1690280	an die wiederholbaren Block. Ich sehe, ich hatte die Formatierung nicht hingeklappt,
+1690280	1696120	dann kann sich da noch jemanden daran erinnern, welche Zahlen wir da drin haben wollten.
+1696120	1713880	Bei Range war es so, das ist ja dann praktisch eine Zahlen Range,
+1713880	1723320	fällt das deutsche Wort nicht rein und da können wir praktisch einmal den Start angeben und einmal
+1724040	1729160	den Stopp angeben, falls ihr euch erinnern könnt, der Start ist inklusive und der Stopp ist
+1729160	1735640	exklusiv anzugeben, das heißt der Stoppwert wird nicht mehr in dieser Range vorkommen,
+1736600	1742440	nur der vorletzte Wert und wenn wir von 1 bis 10 zählen wollen,
+1744760	1751720	dann ist das hier leider mit einer tollen Formatierungsfehler hier 1 bis 11. Ihr könnt
+1751720	1756200	dann auch noch weitergehen und eine Schrittanzahl angeben, das heißt ihr wollt nur jedes
+1759080	1765320	zweite Element zählen, dann kann man hier noch ein Beistrich hinzufügen und noch ein Zweier
+1765320	1772120	hinzufügen. Ist das soweit klar mit den Ranges? Ja.
+1781800	1789000	Das f, genau das ist das der Format, also
+1792040	1794120	ich zeig das einmal ein kurd Beispiel, ist besser.
+1794440	1813000	Also ein normaler String,
+1813320	1825480	also das nennt man normal String, also das ist ein String.
+1830120	1832440	Also so definiert man normalerweise einen normalen String,
+1833800	1837640	das ist praktisch eine normalen Zeichenkette, da gibt es natürlich auch wieder mehrere
+1837640	1839480	Möglichkeiten, ihr könnt das nämlich auch so machen,
+1848280	1850280	also geht auch mal den Doppelabus drauf,
+1852520	1857400	genau das ist ein String und jetzt gibt es noch zwei Varianten, es gibt das f,
+1858600	1865080	das ist praktisch f steht für Formatierung und was da cool ist,
+1865080	1872920	ist ihr könnt da mit geschwungenen Klammern dann Berechnungen praktisch Kot einfügen
+1874280	1881320	und normalerweise fügt man jetzt nicht allzu viel Kot ein, weil man hat da limitierten Zeitraum
+1884120	1891000	und normalerweise wird dann einfach eine Variable hinzugefügt, so praktisch wenn ich jetzt das
+1891000	1900280	ausfüge, dann fügt es mir hier diese erste String Variable hier nochmal ein, wenn ich das f weglasse,
+1904840	1911240	dann wird das hier nicht als Kot interpretiert, also das ist der Unterschied, es gibt dann auch noch
+1911240	1918120	noch eine spezielle Art und das wäre das r und das r steht für raw und das könnt ihr
+1918200	1923560	ich so vorstellen, dass wenn ihr hier zum Beispiel einen Backslash einfügt,
+1925240	1930120	das ist normalerweise ein spezieller Charakter, der praktisch für Escape verwendet wird, also
+1931160	1934200	für spezielle Zeichen verwendet wird, das zeige ich euch auch ganz kurz nochmal,
+1935000	1940840	wenn ich das jetzt ausführen würde, okay hier das scheint zu funktionieren,
+1948520	1953640	interessant, wahrscheinlich wird das intern als Ding umgewandelt,
+1957800	1959400	aber ja zum Beispiel sowas,
+1962520	1967960	praktisch hier können wir nämlich diesen Backslash verwenden, um
+1968600	1972840	dieses Single-Apostroph auch im String selber zu verwenden, weil das ist ja hier sonst nicht
+1972840	1978200	möglich, wenn ich hier sowas mache, dann ist hier ja das String beendet,
+1979400	1989560	deshalb kann ich damit Backslash hergehen und das so machen, hier natürlich mag er das überhaupt nicht,
+1989560	2002840	genau also hier kann ich das Escape verwenden und der Raw String ist eben dazu da, dass ich eben
+2004360	2005800	warte, wenn ich das jetzt zum Beispiel,
+2007560	2009160	wie interessant, dass das funktioniert,
+2010920	2014840	der Raw String ist halt dazu da, dass man halt dieses Backslash einfach so verwenden kann,
+2014840	2021480	aber ja das ist glaube ich für euch jetzt eh nicht so relevant,
+2021480	2025400	ihr sollt vor allem wissen, dass es den normalen String gibt und den F String,
+2025960	2030600	also der Formatierung String, der wird auch im Live-Programming vorkommen, also ihr solltet
+2030600	2037480	euch auf jeden Fall damit vertraut machen, selber mal versuchen da Variablen in diesen String
+2037480	2043400	reinzufügen, mit den geschwungenen Klammern wie hier, also natürlich mit einem F,
+2045400	2046200	ja so,
+2051000	2055000	sonst so weit klar mit dem Format String, ist das jetzt verständlicher, okay,
+2055000	2075320	genau dann nochmal zur Wiederholung, es gibt ja auch noch das Enumer Rate,
+2077480	2083160	und zwar ihr habt hier hier eure Liste definiert und das könnt ihr das ganze nochmal mit Enumer,
+2083160	2087240	also nochmal in dieses Enumer Rate reinhauen, praktisch ihr macht da Klammer auf,
+2088680	2094920	haut diese Variable, also diese Listenvariable rein, Klammer zu und was Enumer Rate macht,
+2094920	2102840	ist es generiert dann euch so genannte Duple von diesen Elementen mit immer dem Index dazu,
+2102840	2105640	das heißt ihr könnt euch das so vorstellen, dass ihr dann einfach
+2105960	2114440	hier Maths habt, aber auch gleichzeitig noch den Index dazu und könnt dann das praktisch dann
+2114440	2120840	gemeinsam abarbeiten, das heißt hier habt ihr dann immer zwei Variablen statt einer und Enumer Rate
+2120840	2128440	praktisch macht dann einerseits hier den Index, actualisiert hier den Index und dann
+2128440	2134040	einerseits das Element in der Liste, kann man auch nochmal kurz herzeigen,
+2134040	2161640	macht man da Liste, macht man B und Z,
+2164200	2169400	und jetzt machen wir so, dass wir praktisch da die Vorschläufe machen, aber jetzt machen wir
+2169400	2172840	nicht nur eine Variable, sondern zwei und das ist einerseits der Index
+2176040	2180360	und dann der Buchstabe, dann machen wir einfach Buchstabe
+2182440	2188440	als Variablename in und dann schreiben wir hier mal statt direkt Liste zu schreiben,
+2188440	2195960	schreiben wir die, so erst ist es Enumer Rate und dann in diesen Klammern drin unsere Liste
+2201160	2205240	und dann können wir das einfach printen, also wenn wir hier zum Beispiel einfach Index printen würden,
+2206360	2211480	dann werden wir praktisch einfach nur den Index von den einzelnen Elementen kriegen,
+2212440	2219960	können wir dann natürlich auch noch den Buchstaben dazu geben, print kann mehrere Variablen beistrich
+2219960	2228040	getrennt aus praktisch printen, die werden dann immer mit Tabulator praktisch mit Tab voneinander
+2228040	2240200	getrennt und wie ihr seht, da praktisch beide, also sowohl Index als auch Buchstabe in dieser
+2240200	2249160	Schleife immer erneuert. Sollte es es Enumer Rate fehlen und ich hier trotzdem mein Index hab,
+2250040	2251080	das glaube ich, wird passieren,
+2256920	2265560	Fehler, weil diese Liste hat ja nur immer einzelne Elemente drin, wenn ich natürlich so was hab,
+2266520	2269560	falls ihr zurückgerinnern könnt an die Dupel,
+2274760	2277960	also hier machen wir dann eine Liste aus Dupel, das heißt das sind immer dann
+2279000	2280920	das Element besteht eigentlich aus zwei Elementen,
+2285000	2286840	das ist dann schon sehr komplexe, ja
+2287800	2297400	Praktisch runde Klammern sind Dupel, das sind praktisch, die kann man nicht mehr verändern,
+2298360	2304360	die praktisch bleiben so wie sie sind und eckige Klammern sind Listen, da kann man wieder Elemente
+2304360	2311880	hinzufügen, löschen und so weiter und so fort. Dupel sind dementsprechend sinnvoll, weil man praktisch
+2312840	2318280	eben dann so nahe Konstanten hat, praktisch die man weiß, okay, da steht er drin und das wird
+2318280	2322920	nicht verändert, plus ist es ein bisschen mehr plattsparend, weil man natürlich diese ganzen
+2322920	2325320	Operationen wie hinzufügen, löschen und so weiter nicht braucht.
+2328840	2335800	Genau Enumer Rate macht eigentlich nichts anderes als das hier, also das würde unsere ABC Liste
+2336120	2344200	in das hier umwandeln, das macht ja genau dasselbe, also wenn wir auch hier wieder einfach nur Index
+2344200	2353560	reinschreiben, praktisch man kann sich das hier so vorstellen, das hier steht dann zum Beispiel eben
+2354360	2355800	im ersten Schleifendurchgang
+2359640	2363640	das hier drin, ja, ich mache einen Kommentar
+2363640	2385080	und der Nuller hier wird dem Index zugefügt und dem A, das A wird dem Buchstabe hinzugefügt,
+2385080	2389480	also Index wird mit diesem Nuller überschrieben und Buchstabe wird mit diesem A überschrieben.
+2390440	2396360	Natürlich kann man natürlich noch viel wahnsinniger werden und da immer noch ein drittes
+2396360	2405560	Element auch hinzufügen. Was glaubt ihr, was ich dann da brauche, damit das funktioniert?
+2405800	2419320	Hier eine dritte Laufvariable, weil wir hier immer drei Elemente haben, das heißt
+2422120	2427560	wenn ich hier nämlich dann mein Dreier hab und hier fehlt mein Test,
+2429240	2434680	dann weiß Beifen nicht wohin mit dem Dreier und wird uns ein Fehler werfen.
+2436280	2442200	Aber wenn wir eben hier noch unsere dritte Variable hinzufügen, die dann auch noch überschrieben
+2442200	2445800	werden soll, dann funktioniert das wieder einfach frei.
+2453320	2457080	Und da kann ich dann alles Mögliche damit machen, ich kann da zum Beispiel ein Plus-Test machen
+2458680	2462200	und so weiter und so fort, also da ist dann alles Mögliche möglich.
+2462520	2469000	All right, ist das jetzt verständlich oder gibt es da zu fragen?
+2483000	2485000	Jemand hat eine Idee, was hier passieren würde.
+2485960	2490040	Falls ihr euch zurückerinnern könnt, Strings sind sehr ähnlich zu Listen.
+2500040	2500920	Probiert es mal aus.
+2501240	2506280	Ja, das ist eine sehr interessante Eigenschaft von den Strings. Ihr könnt die Strings eigentlich
+2506280	2512360	als nichts anderes vorstellen als eine Liste von einzelnen Buchstaben.
+2514840	2516840	Das heißt, wenn ich das hier machen will,
+2517040	2520740	Chora String,
+2526560	2530480	Chora limb,
+2536560	2539240	Chora String
+2543040	2544680	Chora String
+2546840	2557840	Der Streamer ist cool vor Buchstabe in Cooler-Stream.
+2570340	2573840	Wir praktisch jeder Buchstabe einzeln in dieser Schleife behandelt.
+2576840	2582840	Da es wichtig ist, wie ihr seht, dass hier immer eine neue Zeile beginnt.
+2582840	2588840	Wenn ihr euch vorstellt, wenn ihr ein Dokument schreibt und eine neue Zeile macht,
+2588840	2592840	dann macht ihr normalerweise die Enter-Taste nicht und dann kommt eine neue Zeile
+2592840	2594840	und dann fängt praktisch eine neue Zeile an.
+2594840	2596840	Das ist hier genauso der Fall.
+2598840	2601840	Das macht nämlich Print automatisch.
+2601840	2607840	Es macht nämlich sobald es hier diese Variable praktisch ausgegeben hat,
+2607840	2609840	ganz zum Schluss noch eine neue Zeile.
+2609840	2613840	Ihr könnt das natürlich auch wirklich verändern, wenn ihr wollt.
+2613840	2616840	Da kann man zum Beispiel sowas machen mit diesem Endstatement.
+2616840	2619840	Da könnt ihr das Ende praktisch selber definieren, was ihr hat.
+2619840	2624840	Da könnt ihr ein Stream reinhauen, was ihr möchtet.
+2624840	2626840	Zum Beispiel machen wir einen Beistrich.
+2626840	2634840	Dann wird statt diesen neuen Zeile praktisch einfach ein Beistrich hinzugefügt.
+2634840	2641840	Das ist vielleicht dieser bisschen komplizierteres Ding, aber ich finde es immer ganz lustig.
+2641840	2649840	Da gibt es auch ganz spezielle Keywords, zum Beispiel das hier.
+2649840	2652840	Das ist eigentlich ein cooler Trick.
+2652840	2662840	Bechslisch R, das heißt Return, also geht zurück zu Start von dieser Zeile hier.
+2662840	2668840	Man kann sich hier so vorstellen, ihr seht den hier nicht, der hier schön blinkt.
+2668840	2670840	Das ist praktisch auch ein Cursor.
+2670840	2676840	Der sagt euch, okay, jetzt bin ich an dieser Stelle, okay, hier füge ich dann das nächste ein.
+2676840	2685840	Und das Return macht nichts anderes und sagt, okay, Return diesen Cursor hierher.
+2685840	2692840	Wenn ich das ausführe, wird am Ende praktisch, also ich schreibe zum Beispiel ein D.
+2692840	2695840	Und dann werden wir ein Cursor ja hier, der wird ja hier blinken.
+2695840	2700840	Aber mit Bechslisch R sage ich, na, ich will den wieder vor dem D haben.
+2700840	2705840	Und das könnt ihr vorstellen, es wird das einfach auch das D überschrieben.
+2705840	2720840	Das heißt, wenn ich da nochmal ein Sleep einfüge,
+2720840	2725840	dann wird der praktisch einfach der Reihe nach immer dieser Buchstabe überschrieben.
+2725840	2734840	Was ganz witzig sein kann.
+2734840	2739840	Genau, so, stoppe ich das.
+2739840	2748840	Ah ja.
+2748840	2751840	Dann haben wir auch nochmal zur Wiederholung dieses ZIP.
+2751840	2755840	Das ist auch so ähnlich wie das Enumerate ist.
+2755840	2760840	Wir, vielleicht jetzt nochmal zur Wiederholung, das Enumerate fügt immer den Index hinzu.
+2760840	2766840	Das ZIP, was es macht ist, ihr gebt dem ZIP zwei gleichlange, wichtig gleichlange Listen.
+2766840	2770840	Also die müssen wirklich gleich lang sein, sonst funktioniert das nicht.
+2770840	2781840	Und das macht auch, genau wie wir davor gesehen haben, eine Liste aus Tuple, wo dann immer praktisch so Bärchen drin sind.
+2781840	2798840	Dann haben wir hier immer Bärchen von Maths Brown, Englisch Orwell, Computer Science, Turing.
+2798840	2801840	Praktisch, oh, oh, wo ist meine Maus?
+2801840	2803840	Das macht dann euch dann sowas.
+2803840	2809840	Halt hier nicht mit dreier Duppel, sondern mit zweier Duppel.
+2810840	2812840	Und das kann man eben auch wieder so verwenden.
+2812840	2818840	Also wenn man sagt, okay, ich habe zwei gleich Listen und ich will praktisch mit Beigen gleichzeitig in der Vorschleife arbeiten,
+2818840	2820840	dann kann ich die zusammen zippen.
+2820840	2838840	Zipp ist wie Reißverschluss, praktisch einfach sowas, wo ihr dann praktisch zwei Listen zusammen verschließt.
+2839840	2848840	Genau, aber vielleicht, wie möchten wir leben, wenn ihr zwei nicht gleich lange Enden vom Reißverschluss habt, dann kommt dann Fehler.
+2853840	2858840	Das solltet ihr auf jeden Fall anschauen, das ZIP kommt jetzt auch dann zum Assignment 1 gleich.
+2861840	2864840	Genau, dann nochmal kurz zur Wiederholung.
+2864840	2872840	Pass ist, also es gibt eben noch diese drei Keywords, Pass, es ist einfach ein leerer Kommand, der eigentlich nichts tut.
+2872840	2879840	Das ist eben ganz, ganz nützlich, wenn ihr eben hier bei der Programmierung seid.
+2883840	2887840	Ich habe aber noch nicht sicher seid, was ihr da in die Seiliste reinschreiben wollt.
+2888840	2900840	Dann kann ich hier mal ein Pass machen, weil wenn ich das Pass weglasse, dann ist es hier eh schon rot und hier Fehler,
+2900840	2906840	aber wenn ich hier Pass reinschreibe, dann macht einfach gar nichts, aber jetzt bekomme ich kein Fehler.
+2907840	2909840	Dann gibt es das Break.
+2910840	2926840	Das Break könnt ihr ja so vorstellen, sagen wir zum Beispiel, if index ist gleich 1 Break.
+2928840	2932840	Das ist so die normale Art, wie man Break verwendet.
+2937840	2953840	Was hier passiert ist, ihr praktisch, die Schleife fängt an hier mit 0, mit 1, merkt okay, der Index ist jetzt 1.
+2954840	2959840	Okay, da muss ich abbrechen, das heißt dieses Break gehört zu dieser Vorschleife.
+2960840	2967840	Ganz wichtig, sie gehört praktisch, wenn hier noch eine Vorschleife drin wäre, gehört es immer,
+2967840	2972840	und da muss ich auch kurz, das kann nämlich sehr verwirrend sein.
+2973840	2977840	Woa, X in Arrange.
+2987840	2991840	Visual Studio Code macht das euch eh schon ein bisschen einfacher.
+2991840	2999840	Hier sieht man ganz leicht, hier, gerade weil man da der Kürze ist, seht ihr diese Linie hier,
+2999840	3002840	das zeige ich euch an, was alles in eurem Block ist.
+3003840	3013840	Und dieses Break gehört hier zum if, und das gehört hier zu dieser Vorschleife, und nicht zu dieser Vorschleife, ganz wichtig.
+3015840	3020840	Das kann am Anfang ein bisschen verwirrend sein, aber wenn man es ein bisschen austestet, dann kommt man eigentlich sehr schnell drauf.
+3021840	3027840	Also diese Blöcke, also das hier ist ein eigenständiger Block, der hat nichts mit dem hier zu tun.
+3027840	3034840	Und dieses Break geht immer so vor, ja, genau zur Schleife, die außerhalb ist.
+3042840	3053840	Also, das habe ich ein bisschen blüht, machen wir da, hier wird dann immer dreimalalala aufgerufen.
+3054840	3061840	Und wie ihr seht, nur bis eins, weil wir hier eins haben und dann soll die Liste abbrechen.
+3064840	3075840	Ich kann auch hier ein Break reinhauen, dann wird aber nur diese innere Liste abgebrochen und nicht die äußere.
+3076840	3084840	Also wie ihr seht, hier geht es trotzdem noch bis eins, und nicht, hört nicht bei null auf.
+3086840	3098840	Also sobald das Break seine Schleife gefunden hat, kann man sich so vorstellen, wie eine Rakete, das schießt da diese Schleife ab und bam, die ist weg, aber die davor, die gibt es noch.
+3099840	3115840	Und deshalb wird die auch noch weiter ausgeführt. Deshalb da auch aufpassen mit diesem Break, weil es gibt da noch eine andere Schleife, das ist die Wildschleife und die kann unendlich lang laufen.
+3116840	3126840	Und dann müsst ihr mit Break abbrechen und wenn ihr das Break nicht richtig macht, dann habt ihr dann Programm, das endlos läuft, bis ihr das Programm andersweitig abbrecht.
+3126840	3139840	Und dann gibt es noch das Continuum, zum Beispiel wir nehmen das Print Statement hier und fügen später ein.
+3143840	3149840	Hier zum Beispiel auch interessant, ihr seht, dass hier das Print ausgegraut ist.
+3150840	3158840	Das liegt daran, dass, wie schlust du dir kurz sofort, ihr seht, du hast hier ein Break drin, der hintere Teil, der wird nie mehr ausgeführt.
+3163840	3173840	Wenn wir hier zum Beispiel dann aber ein Continuum machen, Continuum, das bricht nicht ab, sondern das überspringt den Teil hier.
+3174840	3184840	Praktisch, wenn wir hier reingehen, Index, ok, Index ist 0, ist 0 gleich 1, nein, das ist nicht der Fall, dann können wir das ausführen.
+3186840	3200840	Index ist 1, 1 ist gleich 1, das ist wahr, das heißt, Continuum wird ausgeführt, das heißt, wir brechen hier unseren Schleifenvorgang ab und gehen zur nächsten Schleifenvorgang.
+3201840	3213840	Wenn ich das ausführe, dann seht ihr praktisch, dass hier wir kein Print 1 haben, sondern nur ein Print 2, weil der 1er übersprungen wird.
+3214840	3218840	Das ist vielleicht ein bisschen besser, wieder mit dem ausgegrauten zu sehen.
+3218840	3240840	Hier, der nächste Teil, hier wird jetzt in diesem Fall nie ausgeführt und meistens hat man da eben das Ganze, das Continuum in irgendeiner IF Anweisung drin, damit man nur in bestimmten Fällen Sachen überspringt.
+3243840	3245840	Ist das soweit verständlich oder gibt es da noch Fragen?
+3248840	3252840	Ok, genau, das haben wir gesehen.
+3253840	3263840	Passt, dann kann man zu den Datenstrukturen, deswegen habe ich ein bisschen sputen, und da gibt es mehrere.
+3264840	3275840	Lists und Doubles, die haben wir jetzt schon durchgemacht, Lists, das ist mit den eckigen Klammern, Doubles ist mit den runden Klammern, jetzt kann man noch 2 dazu, das sind die Sets und Dictionaries.
+3276840	3280840	Fangen wir mal mit ins Set.
+3281840	3298840	Sets sind, das kennen wir vielleicht aus der Mathematik, wo man auch Sets hat, das sind praktisch einfach eine ungehörnete Sammlung von eindeutigen, wichtig eindeutigen Elementen, das heißt praktisch, da kommt kein Wert zweimal vor.
+3299840	3316840	Wie gesagt, das kennen wir aus der Mathematik, vielleicht wenn ihr euch zurück erinnert an die Venndiagramme und so, dann repräsentiert man manchmal die Sets, und da gibt es eben keine Doppelgänge, also jedes Element ist nur einmal vorhanden.
+3317840	3339840	Und die Definition von einem Set ist mit diesen geschwungenen Klammern, praktisch das haben wir die eckigen Klammern, jetzt haben wir die runden Klammern, das kriegen wir auch noch die geschwungenen Klammern, oder eben durch dieses Set-Statement-Gedau, da kann man zum Beispiel einfach ein leeres Set machen.
+3340840	3360840	Und das ist ultra, ultra notwendig, wenn man ganz schnell eben zum Beispiel, sagen wir mal, man hat eine Liste mit Doppelgängen drin und will die Doppelgänger ganz schnell rauslöschen, dann wandle ich einfach diese Liste in ein Set um, und Schwups sind alle Doppelgänger weg, und da kann ich das Set wieder in eine Liste umwandeln.
+3361840	3369840	Und da gibt es dann auch diese ganzen Operatoren, die man auch aus der Mengenlehre kennt, also wie gesagt diese Venndiagramme auch.
+3372840	3389840	Wichtig aber, es gibt hier keinen direkten Elementzugriff, also man hat hier keinen Index, also man kann ja nicht Set an der Stelle 1 sagen, um das zweite Element rauszukriegen, sondern dann müsste man dieses Set zuerst in eine Liste umwandeln, wenn man das machen möchte.
+3390840	3397840	Aber man kann auch wieder Lenn verwenden, um praktisch die Länge unserer Sätze durchzuführen.
+3398840	3399840	Das schaut dann eben so aus.
+3404840	3418840	Praktisch hat man hier die geschwungenen Klammern auf, dann hat man hier ein Element, Beistrich, zweites Element, eigentlich identisch wie eine Liste ist, nur dass man statt den eckigen Klammern diese geschwungenen Klammern verwendet.
+3421840	3431840	Es gibt da natürlich jetzt sehr verwirrend hinzufügen und löschen.
+3434840	3446840	Bei Set ist so, da gibt es das Add, das kommt nämlich aus der Mathematik, und da kann man Set addieren, praktisch hat man nicht Append, sondern Add.
+3447840	3452840	Schaut, dass ihr das Append von den Listen und das Add von den Sets auseinanderhaltet.
+3456840	3465840	Genau, dann gibt es noch dieses Update, da kann man dann eine ganze Liste von Items hinzufügen.
+3466840	3484840	Dann gibt es zwei, das Remove und das Discard, das hier, wenn man Remove verwendet,
+3484840	3494840	sagen wir zum Beispiel, wir gehen jetzt her und haben in unseren Color Set Orange und Black drin und wir wollen jetzt Blue Remove, dann wird es uns ein Fehler werfen.
+3497840	3504840	Discard versucht es einfach und wenn es nicht funktioniert, dann ist auch egal, können wir auch kurz ausprobieren.
+3504840	3529840	Okay, dann Dual Set, dann definieren wir mal ein Set, wir haben da bei uns ein tollen Set, jetzt was Remove.
+3535840	3538840	Dann kriegen wir dann Fehler, falls es nicht existiert.
+3546840	3553840	Und Discard versucht es einfach und wenn es nicht existiert, dann passiert halt nichts, aber wir bekommen auch keinen Fehler.
+3554840	3564840	Und das ist manchmal sehr hilfreich, wenn man einfach Fehler vermeiden will, sagt okay, ich will es einfach versuchen zu löschen und wenn es nicht existiert, ist auch egal.
+3567840	3582840	Das heißt, wenn ich jetzt da das tolle Set print, dann ist das immer noch so, wenn ich da natürlich einen Fünfer drin habe, dann wird das der Fünfer ausgelöscht.
+3584840	3596840	Und wenn ich sage, ich will alle löschen, dann kann ich das mit Clear machen und dann wird mein tolle Set leer sein.
+3597840	3602840	Genau, das ist praktisch so hinzufügen und löschen.
+3605840	3614840	Und dann gibt es auch so Mengenoperationen, die ja kennt ihr vielleicht eh schon jetzt, vielleicht von den Booleons oder von der Mathematik.
+3615840	3640840	Sagen wir, ihr habt diese zwei Sets hier, da kann man verunten, das wäre praktisch in weder mit Intersection oder XY, also wenn Diagramme, normalerweise werden sie so in Kreise eingezeichnet und wäre diese Menge hier.
+3641840	3650840	Das wäre praktisch alles, was ZX und ZY gemeinsam haben und der Rest wird weggeworfen.
+3652840	3668840	Das Ohr wäre praktisch alles, also dass wir wirklich die komplette Menge beide kombiniert oder Junioren kann man auch nehmen.
+3668840	3682840	Also es gibt eben dieses Und-Zeichen für Und und diesen langen Strich runter, da ist es normalerweise bei der Statur, bei den kleiner größer Zeichen und noch eins drunter.
+3683840	3688840	Ihr könnt auch sonst eben auch Junioren verwenden.
+3689840	3700840	Ihr könnt ihn verwenden, um rauszufinden, ob ein gewisses Element in diesem Fett vorhanden ist, es ist sehr ähnlich zu den Listen eigentlich, da habt ihr ja derselbe.
+3703840	3710840	Und dann gibt es auch noch die Differenz und die Differenz der praktisch nur das hier.
+3713840	3721840	Also nur das und das, wenn es mich täuscht, dass ich selber nachschauen.
+3722840	3724840	Guck mal, kurz ausprobieren.
+3730840	3741840	X ist gleich 1, 2, Y ist gleich 2, 3.
+3743840	3755840	Jetzt können wir machen X und Y, da bekommt ihr praktisch nur die Elemente raus, die in beiden Sets vorhanden sind.
+3756840	3758840	Ihr könnt das Ohr machen.
+3762840	3767840	Das wären einfach alle Elemente und wie ihr seht, das Resultat ist auch immer wieder ein Set.
+3767840	3773840	Das heißt, wir haben hier nicht zweimal 2 drin stehen, sondern nur einmal, weil es ja keine Doppelgänger geben soll.
+3775840	3777840	Und dann gibt es eben auch noch das Minus.
+3781840	3785840	Und da ist so, ah ok, das ist so.
+3789840	3790840	Das ist nicht das hier.
+3797840	3807840	Sondern das könnt ihr so vorstellen, dass, sagen wir mal, das hier ist X und das ist Y.
+3809840	3817840	Und wir praktisch subtrahieren Y von X, dann bleibt praktisch nur noch dieser Teil hier übrig.
+3818840	3823840	Und der Teil hier, der praktisch mit Y überschneidet, wird gelöscht.
+3824840	3830840	Deshalb steht auch hier noch ein 1er drin, weil hier praktisch X ist ja 1 und 2.
+3831840	3837840	Und dann löschen wir praktisch alle Elemente in X, die in Y vorkommen.
+3838840	3842840	Das ist 2 und 3, aber 3 haben wir ja nichts nicht, deshalb ist das eh egal.
+3842840	3844840	Der 2er wird dann aus X rausgelöscht.
+3846840	3853840	Und da gibt es natürlich noch mehr Operatoren und die könnt ihr dann auch in den Beifendocs nachschauen.
+3854840	3856840	Die werden wir euch da mal verlinken.
+3858840	3864840	Genau, dann kommen wir noch zu den Dictionaries.
+3865840	3866840	Zu den Dictionaries.
+3869840	3872840	Und ihr könnt es so vorstellen wie ein Wörterbuch.
+3873840	3876840	Also Dictionaries, das heißt ja auch schon, übersetzt Wörterbuch.
+3879840	3885840	Und das ist so, wenn ihr jetzt euch ein Wörterbuch vorstellt, das besteht hier praktisch aus einer Liste von Wörtern.
+3886840	3888840	Und dann zum jeden Wort ist eine Beschreibung dazu.
+3889840	3893840	Das heißt, ihr habt praktisch einen Schlüssel, das wäre in diesem Fall eure Wort.
+3894840	3898840	Und ein Value, das wäre dann praktisch der Wert, der zu dem Wort gehört, die Beschreibung.
+3902840	3907840	Und das ist praktisch dann einfach so eine Sammlung von Schlüsselwertbahnen.
+3908840	3911840	Und das ist eigentlich ein sehr, sehr wichtiges Konzept im Beifen.
+3912840	3914840	Also das werdet ihr immer wieder verwenden, jetzt auch bei den Assignments.
+3915840	3925840	Und die Kies, das ist ganz interessant bei Beifen, kann wirklich also ziemlich alles sein, es gibt ja schon ein paar Einschränkungen.
+3926840	3931840	Aber zumindest von den Datentypen, die ihr bis jetzt gelernt habt, das könnt ihr, glaube ich, alles verwenden.
+3932840	3939840	Das heißt, euer Schlüssel muss nicht ein Wort sein, das kann auch wirklich eine Zahl sein, es kann auch ein Boolean sein.
+3940840	3945840	Also es ist sehr vielfältig.
+3946840	3953840	Sehr wichtig im Dictionary ist aber, dass ihr praktisch immer nur zu jedem Schlüssel, also der Schlüssel kann nur einmal vorkommen.
+3954840	3957840	Also ihr könnt nicht zweimal null, den Schlüssel null drin haben.
+3958840	3959840	Der wird dann einfach sonst überschrieben.
+3960840	3968840	Und wenn ihr da dann auch auf dem Schlüssel zugreift und der nicht existiert, dann bekommt ihr diesen Key.
+3969840	3980840	Bevor ich das dann euch kurz in Code zeig, will ich dann noch kurz zwei wahre Beispiele, damit ich das besser vorstellen kann.
+3981840	3983840	Zum einen eben, wie gesagt, dieses Wörterbuch.
+3984840	3987840	Wie ihr seht, haben wir hier immer im Fett dieses Wortes, das wäre unser Schlüssel, nicht?
+3987840	3994840	Und dann haben wir die Informationen zu diesem Schlüssel, das wäre unser Value, unser Wert.
+3995840	4000840	Ein anderes gutes Beispiel wäre ein Spind.
+4001840	4007840	Praktisch ein Spind, der hat hier euren Key nicht.
+4008840	4013840	Praktisch er hat eine Spindnummer und einem Spind könnt ihr reinholen, was ihr wollt.
+4013840	4018840	Natürlich bei Beifern ist es so, dass diese Spindnummer irgendwas sein kann.
+4019840	4026840	Das muss nicht eine Zahl sein, das kann auch ein String sein, was das natürlich noch viel komplexer macht.
+4027840	4029840	Aber auch cool.
+4031840	4035840	Genau, und wie definiert man so ein Dictionary?
+4035840	4040840	Es ist jetzt bisschen verwirrend, weil wir es gerade setz durchgemacht haben.
+4041840	4045840	Und zwar ist so, die Dictionaries werden auch mit geschwungener Klammer gemacht.
+4046840	4051840	Der große Unterschied sind diese Doppelpunkte hier.
+4052840	4059840	Das heißt, wenn ihr geschwungene Klammer seht und ein Doppelpunkt, dann wisst ihr sofort, okay, das ist ein Dictionary, das ist kein Set.
+4060840	4064840	Das ist komplett was anderes. Komplett nicht, aber.
+4065840	4067840	Man verwendet halt anders.
+4068840	4070840	Und das kann man eben so definieren.
+4071840	4079840	Hier in diesem Fall haben wir halt die Immerzahlen als Keys, also Key, Doppelpunkt, Value, und dann können wir den Value reinholen.
+4081840	4084840	Und das sind dann immer jetzt zusammengehörige Paare.
+4085840	4087840	Wie ihr seht, das ist dann mal ein Beistrich dazwischen.
+4088840	4094840	Zugreifen kann man dann einfach, hier haben wir den Dictionary definiert.
+4095840	4101840	Man kann dann einfach mit eckigen Klammern, wie ihr das eh schon vom Index kennt,
+4102840	4107840	statt dem Index nehmen wir jetzt aber einfach diesen Key her, praktisch das ist unser Schlüssel,
+4108840	4112840	mit dem wir praktisch dann einen gewissen Value aus dem Dictionary herausholen.
+4113840	4119840	Und da gibt es entweder das hier mit eckigen Klammern oder eben auch das Get, falls ihr es lieber ausschreiben möchtet.
+4122840	4128840	Und das ist ein sehr starkes Dual, da kann man nämlich auch einfach einfügen oder verändern.
+4129840	4138840	Das klingt am Anfang vielleicht verwirrend, das heißt, sagen wir mal, wir haben Stunes mit also an der Stelle Key 20,
+4138840	4151840	haben und definieren da Lisa, in diesem Fall würde bei Stunes hier ein neuer Eintrag mit Key 20 und Value Lisa hinzugefügt werden.
+4152840	4156840	Und hier in diesem Fall mit 1, 2, 3, 1, 2, 3 haben wir ja schon definiert, nicht?
+4157840	4160840	Also das ist ja schon in unserem Dictionary drin, da steht im Moment Maria.
+4161840	4167840	Jetzt falls das schon vorkommt, wird diese Wert Maria durch den neuen Wert einfach ersetzt.
+4169840	4175840	Da wird euch kein Fehler geworfen und kein gar nix, das wird einfach gemacht, deshalb immer aufpassen da.
+4178840	4184840	Also nochmal zur Wiederholung, das ist kein Index in diesem Fall, sondern einfach der Key, den ihr hier so definiert habt.
+4184840	4194840	So, oder wenn ihr später noch mehr hinzufügen wollt, könnt ihr dann einfach da noch einen neuen Key definieren, mit der gleichen Variable hier.
+4196840	4202840	Und wenn ihr praktisch eins löschen wollt, dann geht das da wieder mit diesem Delete Keyword hier, mit diesem Dell.
+4203840	4209840	Zeig mal ganz kurz her, schauen wir mal, was ich da ein Beispiel habe.
+4213840	4216840	Ja, hier in diesem Fall, weiter machen wir kurz so.
+4224840	4230840	Also hier definieren wir unser Set einer, sag ich, Dictionary, wenn ich selber schon verwirrt.
+4233840	4241840	Das heißt, wir haben hier dann praktisch drei Einträge drin, mit 123, Maria, 3, 1, Tim und 42 Max.
+4243840	4252840	Und dann wollen wir aber noch mit Key 668 die Martina hinzufügen, dann ist das ohne weiteres möglich.
+4252840	4265840	Wenn ich da jetzt zum Beispiel hier Maria reinschreib, geht das auch.
+4267840	4273840	Also die Werte, die können natürlich doppelt vorkommen, nur die Keys, die sind einzigartig.
+4274840	4284840	Also da, wenn der Schneim definiert worden ist, dann wird der überschrieben.
+4288840	4293840	Also hier in diesem Fall wurde 131, Tim durch Maria ersetzt.
+4295840	4297840	Und ich kann das natürlich auch löschen.
+4298840	4312840	Jetzt haben wir eine von unseren 3 Marias da gelöscht, also wir hatten da 3 Marias drin und jetzt ist der Key 123 gelöscht worden.
+4312840	4317840	Jetzt haben wir nur noch den 131, der wäre hier und den 668, der wäre hier.
+4317840	4329840	Und natürlich, wenn man versucht, etwas zu löschen, was nicht existiert, dann bekommt er auch wieder einen Fehler geworfen.
+4342840	4344840	Sehr viele geschwone Klammern.
+4348840	4352840	Passt, dann werde ich da mal ein bisschen schneller sein, ja.
+4354840	4362840	Genau, das schaut dann eben so aus, ob es da scheint, mein Code nicht zu funktionieren, meine Präsentation.
+4363840	4369840	Genau, man kann natürlich auch alle Schlüssel von seinem Dictionary sich rausholen.
+4369840	4376840	Das geht mit diesem Keystatement, das Gleiche geht mit dem Value auch.
+4376840	4381840	Das heißt, das ist nicht eine Liste, das ist eine spezielle Art.
+4381840	4408840	Und jetzt, wenn ich das students.keys mache.
+4411840	4419840	Dann, das schaut so aus in der Liste, aber es ist nicht eine Liste, das ist ein Dickkeys-Objekt.
+4421840	4427840	Scheint kompliziert zu sein, aber ihr könnt es ganz einfach in eine Liste umwandeln, einfach mit List.
+4429840	4431840	Dann bekommt ihr eine Liste raus.
+4433840	4438840	Und jetzt habt ihr praktisch alle Schlüssel, die praktisch im Dictionary gerade definiert sind.
+4438840	4440840	Das Gleiche geht natürlich auch mit Values.
+4443840	4445840	Da bekommt ihr die Values raus.
+4445840	4450840	Und wenn ihr immer die Baare haben wollt, dann könnt ihr da Items nehmen.
+4452840	4460840	Und dann habt ihr da praktisch so eine Liste aus Dupel, praktisch wo dann immer der Schlüssel drin ist und der Value.
+4460840	4467840	Und das ist ganz cool, weil ihr da praktisch das Ganze in Vorschleifen verwenden könnt.
+4468840	4472840	Das heißt, den Key könnt ihr dann in ein Laufvariabel reinhauen und den Value.
+4473840	4477840	Und dann werden die innerhalb der Schleife praktisch immer wieder neu definiert.
+4478840	4482840	Und so kann man praktisch über eine Liste iterieren und Sachen machen.
+4483840	4485840	Genau.
+4487840	4493840	Was dann, ich glaube, die Functions werde ich nächstes Mal morgen machen.
+4494840	4500840	Und dann gehen wir da weiter zu Assignment 1.
+4500840	4514840	Das heißt, morgen machen wir dann im Schnelldurchlauffunktionen durch.
+4517840	4521840	Genau, dann werde ich kurz Assignment 1 versprechen.
+4521840	4542840	Also Assignment 1 geht es eigentlich vor allem darum, dass ihr diese Konzepte, die jetzt praktisch in diesen 4 Byphen Crash Courses erlernt habt, also mit dem inklusive Morgen, das ihr dann mal das übt.
+4543840	4553840	Praktisch da werden dann ziemlich alles vorkommen, also Variablen, Datentypen, Funktionen, die wir dann eben morgen durchmachen, Loops, Listen und so weiter.
+4554840	4570840	Und ihr bekommt dann eben so mehrere Unterteilungen, kleine immer wieder so Aufgaben, die ihr dann lösten müsst und wo ihr dann praktisch das Ganze eigentlich mit Funktionen dann macht.
+4571840	4574840	Die machen wir dann eben morgen durch, dann sollte es eben kein Problem sein.
+4576840	4588840	Und jetzt müsst ihr dann eben so Funktionen definieren, die sind dann eigentlich eh schon relativ vorgegeben, was da praktisch welchen Namen die haben sollen und welche Parameter und so weiter.
+4589840	4591840	Wie gesagt, das machen wir morgen.
+4592840	4601840	Genau, und die Aufgaben werden dann immer komplizierter, das sind glaube ich so, könnten es ja 6 Aufgaben sein.
+4602840	4608840	Insgesamt, Richtschreibfehler sehe ich gerade, sind es 24 Punkte.
+4609840	4614840	Die einfachen Aufgaben werden euch natürlich weniger Punkte geben als die schweren Aufgaben.
+4615840	4627840	Schauen wir mal, genau, ihr bekommt dann eigentlich eine exakte Beschreibung, was ihr zu tun habt in den einzelnen Funktionen.
+4628840	4630840	Ihr bekommt dann auch ein Template zur Verfügung gestellt.
+4631840	4640840	Ganz, ganz wichtig, schaut, dass der Dateinamen richtig ist, also das Assignment 1 Punkt und diese Endung hier,
+4641840	4648840	dass hier kein Leerzeichen ist, dass hier kein Anderscore ist, dass hier kein Klammer auf null Klammer zu ist.
+4649840	4656840	Und schaut auch, dass ihr das Template verwendet, das ihr bekommt und das ausfüllt und nicht ein neues Notebook erstellt.
+4657840	4663840	Also nehmt einfach das hier, was wir euch schon vorgeben, weil das macht es uns dann auch einfacher.
+4664840	4671840	Die Date-Line ist dann eh erst im November, das heißt, ihr habt jetzt 3 Wochen Zeit dafür.
+4675840	4685840	Genau, schaut, dass die Anforderungen und der Output wirklich exakt so ist, wie es eben in diesem Assignment 1 Angabe.html drinsteht.
+4686840	4689840	Das könnt ihr dann praktisch einfach im Browse aufmachen und dann habt ihr dann tolle Angabe.
+4689840	4696840	Wichtig, der Kommentarhälter, also Assignment 0 war das eh relativ egal noch.
+4697840	4701840	Assignment 1 schaut wirklich, dass ihr euren Namen ausfüllt, euren Matrikelnummer,
+4702840	4708840	vielleicht auch eine kurze Beschreibung macht und schaut, dass der Codingstandard eingehalten wird.
+4709840	4715840	Das Ganze ist so, wir werden das Ganze automatisch testen.
+4716840	4721840	Das heißt, eure Programme werden dann so Ausgaben machen mit Print.
+4722840	4727840	Und wir testen dann einfach, ob diese Printstatements richtig sind.
+4728840	4733840	Das heißt, wenn ihr da die Printstatements nicht exakt macht, zum Beispiel,
+4733840	4739840	da ist ja extra Leerzeichen drin oder so, kann es sein, dass unser Testprogramm da was schreit.
+4740840	4746840	Das ist jetzt nicht allzu schlimm, aber wir werden dann eh nochmal bei denen nachschauen,
+4747840	4750840	wo es jetzt happert, also wo wirklich Fehler drin sind.
+4751840	4755840	Gehen wir normalerweise eh nochmal manual durch und schauen, woran es liegt.
+4756840	4761840	Genau, wir machen dann noch immer wieder Testruns.
+4762840	4766840	Das heißt, ihr bekommt auch, wenn ihr praktisch sagt, okay, ich werde früher fertig,
+4767840	4769840	ich lade das Ganze mal im T-Center hoch.
+4770840	4772840	Dann machen wir jeden Dienstag und Freitag Testruns.
+4773840	4779840	Da wird unser Testsystem einmal durchlaufen und euch dann eventuelle Fehler anzeigen.
+4780840	4784840	Und dann könnt ihr die eben nochmal ausbessern und einen neuen Code nochmal hochladen.
+4786840	4790840	Da wichtig ist, dass ihr es immer bis Dienstag und Freitag 18 Uhr macht,
+4791840	4794840	weil dann werden unsere Tutoren die Abgaben herunterladen und den Testsystem füttern.
+4796840	4799840	Und ihr bekommt dann normalerweise eine Mail mit einem Testreport.
+4801840	4805840	Falls ihr eben Fragen zu dem Testreport habt oder keine Ahnung was,
+4806840	4810840	dann könnt ihr natürlich wieder zum Tutorium kommen oder im T-Center auch Fragen stellen.
+4811840	4813840	Im T-Center bitte wichtig keinen Code reinstellen.
+4815840	4820840	Wir haben da auch dann noch so eine Website, wo ihr dann nochmal den Testreport lesen könnt.
+4821840	4824840	Da steht ja normalerweise zum Beispiel auch drin, falls ihr Formatierungsfehler habt,
+4825840	4828840	also Coding-Standardfehler, wird normalerweise das auch angezeigt.
+4830840	4833840	Ja, das wäre es eigentlich eh schon.
+4834840	4838840	Von diesen Crash-Kurs, nächstes Mal machen wir Funktions durch.
+4839840	4840840	Und ja, danke.
+4845840	4849840	Falls ihr noch Fragen habt, könnt ihr auch nochmal runterkommen.

@@ -1,0 +1,900 @@
+start	end	text
+0	11680	Perfekt. Ja, dann willkommen zum Python Crash Course E, diesmal über Data Science und Bandas.
+11680	20640	Bevor wir beginnen, habe ich euch Feedback angelegt. Da könnt ihr diesmal fragen,
+20640	28320	falls ihr noch Fragen habt, ob sie live vorprogrammieren oder zum generell programmieren selbst
+28320	54240	oder andere Fragen. Also, die Ergebnisse werden ein bisschen länger dauern, weil wir alle
+54240	66560	manuell durchkorrigieren müssen. Das sind ca. 100 Abgaben, wahrscheinlich bei die 1, 2 Wochen.
+84240	110960	Die Ergebnisse werden ihr wahrscheinlich im Deed-Center auffinden und ich weiß ja,
+110960	113680	ob wir noch eine Mail, eine Info-Mail ausschicken werden.
+140960	167360	Das Samen 2 werde ich heute bis die Vorstellung am Ende der Vorlesung. Ihr werdet dafür eben auch
+167360	177280	das heutige Thema wissen müssen und auch das von der nächsten Vorlesung, das der Helmut dann noch
+177280	193760	präsentieren wird. Das ist über Sympai. Sympai wurde von den letzten Studenten also gefragt,
+194160	201840	weil das später noch mal in eurem Studium vorkommt und da haben viele gefragt, ob wir da nicht
+201840	209520	ein kleines fundamentales Tutorial drüber machen können, damit ihr da nicht als Experten schon
+209520	215280	einsteigen müsst in die spätere Vorlesung.
+269840	276240	Ich sehe, es gibt keine Fragen zum Programmieren. Das heißt, ich habe da wahrscheinlich die einzigen
+276240	285280	Guten hier im Raum. Falls ihr nach Fragen aufkommen, weil ihr euch gestern beim Vorprogrammieren
+285280	288720	richtig geärgert habt, dass es nicht funktioniert hat, könnt ihr das natürlich auch fragen.
+288720	296720	Also, können wir auf jeden Fall was machen und sonst steige ich direkt ins Data Science-Deme ein.
+329520	350720	Die Punktaufteilung vom Vorprogrammieren weiß ich jetzt leider auch nicht ganz genau, aber wir haben
+350720	355840	da eigentlich eine spezifische Punktetabelle, nachdem wir vorgehen. Es ist ja so, dass beim
+355840	360880	Vorprogrammieren habt ihr erstens wenig Zeit, zweitens seid ihr unter sehr hohen Druck und
+360880	366720	da könntest du mal einige Fehler passieren. Und manche Fehler wie zum Beispiel, wenn man
+366720	371280	jetzt ein String falsch hat, sind jetzt nicht so problematisch wie wenn man jetzt nicht verstanden
+371280	380400	hat, wie man ein Dictionary bedient. Das heißt praktisch, ihr könnt euch darunter so was vorstellen,
+380720	391440	wie schwerer der Code zu programmieren war, desto mehr Punkte hat. Aber wir werden so versuchen,
+391440	397440	so groß wie möglich zu sein. Und falls es dann immer noch nicht passt, das sagt okay,
+397440	403200	da hätte ich mehr verdient, dann könnt ihr immer noch zum Tutorial kommen und dann noch mal nach
+403200	422480	Auskunft fragen und diskutieren. Passt, dann werde ich da stoppen. Perfekt. Ja, dann
+425200	430320	kurz Southland heute. Also wir werden heute ein Introduction zu Data Science machen.
+430480	439760	Das beinhaltet, wie man CSV-Files oder CSV-Dateien einliest und was überhaupt CSV-Dateien sind.
+439760	449280	Wir gehen auch nochmal genau auf dieses Import-Modul ein oder was es da auf sie hat.
+449280	456800	Dann, der Großteil der Vorlesung wird ein Bandage Tutorial sein. Also da gehen wir ganz genau
+456800	461840	ein, was Bandage ist und was man damit anfangen kann, weil ihr Bandage dann auch für das Assignment
+461840	472560	2 brauchen wird. Und dann noch kurz ein organisatorisches und kurz das Assignment 2. So, was ist Data Science?
+474960	482560	Ja, also Data Science meistens eigentlich ein unnötiges Passwort. Warum? Ja, weil, wie macht man
+482880	488960	Wissenschaft ohne Daten? Science Englisch für Wissenschaft, weil das jemand nicht weiß.
+491840	496480	Und in Wirklichkeit ist das kein eigenes Forschungsgebiet, sondern besteht aus mehreren
+496480	504800	Fachübergreifenden Fähigkeiten. Die könnt ihr da sehen. Und die haben Anwendungen in
+504800	510960	industriellen und akademischen Bereichen und wird immer, immer wichtiger heutzutage. Ich weiß nicht,
+510960	519520	ob ihr das schon mal gehört habt. Zum Beispiel, so ein Passwort ist Building Information Modeling,
+519520	525920	zum Beispiel. Da baut man mit der Software eigentlich ein ganzes Gebäude nach und simuliert
+525920	532080	das Gebäude. Das heißt, man kann auch da zum Beispiel herausfinden, wie viel mir die Wartungskosten in
+532080	538480	den nächsten 20 Jahren kosten wird. Und das ist ja praktisch. Und dafür braucht man natürlich
+538480	553440	sehr viele Daten. Das heißt, wir haben da vereint drei verschiedene Bereiche. Unser Bereich wird
+553440	560560	jetzt vor allem hier sein mit Pfeifen und Bandas und Nampaioch. Sind wir dann Hacking Skills oder
+560640	570880	eigentlich ist einfach nur der informatische Teil davon. Und Data Science vereint praktisch Skills
+570880	580560	von den Statistikern. Das ist hier in der Mathe Bereich, welche Datenmengen modellieren und
+580560	587680	zusammenfassen können. Dann haben wir die Arbeiterinformatiker, die eben durch Algorithmen
+588000	594000	das Ganze sehr effizient verarbeiten können und visualisieren können, weil wir reden hier nicht
+594000	602000	nur von ein paar Hundertzeilen Daten, sondern manchmal sind das aber also Milliarden oder sogar
+602000	610400	noch mehr. Also da reden wir von Gigabyte oder Terabyte an Daten. Und dann brauchen wir natürlich
+610400	617280	aber auch die Expertise von den Fachexperten. Also die sind natürlich auch notwendig, weil
+617600	624240	ich kann schon Daten von einem Haus sammeln, aber wenn ich da nur, keine Ahnung, schaubt, das Licht ein
+624240	631360	und aus geht, jeden Tag, das wird wahrscheinlich für einen Bauingenieur nicht sehr hilfreich sein. Der
+631360	636480	wird wahrscheinlich andere Daten viel wichtiger finden und deshalb kommt der Bauingenieur zu den
+637680	644160	Informatikern oder Statistikern und sagt, ja diese Daten brauche ich, damit ich was anfangen kann.
+647920	654400	Ja und das Ganze ist sehr interdisziplinär, also das ist natürlich nicht nur im Bauingenieurswesen,
+654400	662960	sondern auch in allen möglichen, also das Recht von Psychologie zu Soziologie, zu
+663280	672640	Mathematik, alles Mögliche eigentlich, Elektrotechnik, Maschinenbau
+676320	687600	und ja vielleicht noch kurz zu den einzelnen Bubbles, die wir hier sehen. Wir haben hier noch
+688560	694640	zum Beispiel dieses Traditional Research. Traditional Research könnt ihr so vorstellen,
+694640	703200	das ist jetzt ohne Informatik, das heißt der Experte braucht eine Formel oder irgendeine
+703200	707840	statistische Analyse, weil er schon Daten hat und dann gibt hier einfach der Mathematiker
+707840	715120	einen Statistiker her und sagt, ja okay, diese Formeln müssen wir anwenden und das hat eigentlich
+715120	721280	nichts mit den Informatik zu tun, vielleicht ein bisschen was mit Axel, aber relativ klein.
+724160	728320	Dann haben wir auch das Machine Learning Teil hier, das ist eigentlich
+730880	736240	Überlappung zwischen den Informatikern und Mathematikern, hier versuchen wir so Regressionen
+736320	744880	zu machen oder ja einfach auch wieder praktisch mathematische Modelle aufzustellen,
+744880	752880	die wir dann in der Informatik anwenden können. Und dann gibt es eigentlich noch diese Danger Zone
+752880	762960	hier und die ist eigentlich, kann man fast sagen gefährliches Halbwissen, das heißt
+765680	772400	wir, der Experte zum Beispiel kommt zu uns, zu den Informatikern und sagt, ja er braucht
+772400	780640	den Algorithmus und bitte mach mir was, aber eine Informatik kann ich sagen,
+780720	786560	nicht unbedingt der beste Mathematiker, das heißt es kann sein, dass er dann zum Beispiel
+786560	793760	eine falsche Statistik verwendet oder falsche mathematische Formel anwendet und dann kommen
+793760	801920	wir zu sehr plausiblen Ergebnissen, die beim Wirklichkeit nicht stimmen. Ja, das ist ungefähr
+802240	813920	der Data Science zusammengefasst, also hier nochmal Expertenwissen. Genau, dann kurz zum Inboard.
+818640	822000	Ihr habt es wahrscheinlich eh schon mal gesehen, jetzt sehen wir es mal mit einem zum Beispiel,
+822000	829200	da importieren wir die Math Library und das Inboard-Keywort, mit dem können wir praktisch
+829280	834880	Funktionalität von anderen Python-Files oder Scripts oder Modulen praktisch importieren.
+835520	842240	Zum Beispiel, ich habe jetzt zwei Daten, zwei Python-Dateien und in der einen habe
+842240	846320	ich eine tolle Funktion geschrieben und die möchte ich jetzt in der anderen Datei verwenden,
+846320	851600	dann kann ich die einfach praktisch mit diesem Inboard-Statement importieren. Das heißt,
+852560	859360	ich kann der Code Bausteine von anderen Bibotheken oder einfach Python-Files hernehmen
+859360	866960	und in meinem Python-File verwenden. Und da habe ich das eh schon gesagt, Bibotheken,
+866960	871040	da sind praktisch diese Libraries und das sind meistens externe Code Bibotheken
+871840	881600	und die kann man eben mit diesem Python, mit diesem PIP installieren. PIP steht für PIP installs
+883200	893440	Packages. Cool, cooles Akronym. Und einerseits haben wir eben dieses PIP und einerseits haben wir
+893440	899520	diese Python Standard Library. Zum Beispiel, dieses Math, diese Math Library, die wir importiert haben
+899520	905520	in der Cymint1, das ist eine Standard Library. Ich kann das kurz zeigen, wenn wir da draufklicken.
+930000	936480	Das sehen wir praktisch eigentlich alles, was Python so an sich hat.
+940320	948880	Und hier fangen wir praktisch eigentlich so, also diese, man sieht hier die Schriftart,
+948880	954480	ist ein bisschen anders. Das sind praktisch alles Standard Libraries und da gibt es sehr, sehr,
+954560	961760	sehr viele. Und zum Beispiel dieses Math habt ihr schon kennengelernt, aber da gibt es eben auch so,
+961760	968560	weil ich, also die haben dann größere Überschriften, zum Beispiel hier, die haben alles mit Files zu tun,
+973920	977440	File Format, dann hier zum Beispiel kryptografische Services,
+978240	985520	die sind generische Betriebsoperationssystems, Services.
+987600	992160	Ja, könnt euch ruhig mal durchschauen. Es ist auf jeden Fall interessant, weil wahrscheinlich,
+992160	996240	falls ihr was praktisch programmieren wollt, gibt es wahrscheinlich schon.
+997520	1002240	Und das andere wäre praktisch eigentlich PIP. Da kann ich das auch kurz zum Beispiel zeigen,
+1002320	1005120	das wäre hier PIP, zum Beispiel Pandas.
+1018160	1023280	Da sieht man zum Beispiel immer, wie man so ein Paket installieren kann, also es ist dann einfach
+1023280	1030080	PIP Install Pandas, in diesem Fall. Und Pandas hier zum Beispiel, hier sieht man die ganzen Informationen
+1030080	1037280	zu diesem, zu diesem, dieser Pivotek. Und da gibt es natürlich unmenschlich viele,
+1037280	1041280	also da kann man dann oben hier suchen. Zum Beispiel, wenn ich jetzt Karnung
+1043360	1051200	möchte, was suchen, zum Beispiel irgendwas über Machine Learning, da kann ich zum Beispiel schauen.
+1054240	1056400	Ein ganz bekanntes ist zum Beispiel By-Touch.
+1061040	1062560	Also, das heißt By-Touch.
+1069040	1074480	Und da zum Beispiel hat man dann eine ganze Pivotek, mit dem man praktisch Machine Learning
+1074480	1085120	betreiben kann. Und die können natürlich sehr, sehr, sehr stark sein, also da kann Funktionalität
+1085440	1091040	drin sein, wo man selber wahrscheinlich Jahre bräuchte, um das zu programmieren.
+1092480	1097280	Meistens diese Pakete werden auch von Hunderten von Leuten gleichzeitig also programmiert, also
+1097280	1104080	da wird dann aufgeteilt, wer was macht. Und deshalb geht das dann auch so flott.
+1105600	1111360	Aber ja auch By-Touch ist jetzt, glaube ich, seit über zehn Jahren in Entwicklung. Also,
+1112000	1116400	so was würde man nie selber eigentlich programmieren. Auch zum Beispiel kryptografische
+1117120	1121840	Pivotek, die sind immer besser, wenn man sie runterlässt, statt sich selber zu programmieren,
+1121840	1128080	weil man kann sich vorstellen, ein Back-Und schon ist ein ganzes kryptografisches Verfahren kaputt.
+1128880	1131040	Aber ja, das ist für euch hier nicht so richtig.
+1131440	1142400	Genau. Genau, das heißt praktisch, wir importieren hier Module und das sind dann unsere Werkzeuge,
+1142400	1144800	die wir aus der Werkzeugkiste nehmen und die können wir dann verwenden.
+1148240	1154800	Zum Sintax vielleicht kurz noch, wir können einfach Import und dann den Modulnamen schreiben.
+1155520	1160480	Das wird uns eine Fehler werfen, falls der Modulnamen nicht existiert oder wir den noch nicht
+1160480	1165360	installiert haben mit pip install. Also, falls ihr da eine Fehlermellung kriegt,
+1165360	1169520	dann vielleicht schaut ihr, ob der dann nochmal mit pip install das installiert.
+1170400	1176240	Ihr könnt dann auch noch hier mit ass ein Kürzel definieren. Hier zum Beispiel sieht man das
+1176240	1183120	gut, pandasas.pd. Und dann kann man da statt den ganzen Modulnamen, der vielleicht auch sehr
+1183440	1192400	lang sein kann, einfach dieses Kürzel verwenden. Und dann kann man da Kürzelpunkt und dann Funktionsnamen
+1192400	1198000	zum Beispiel, wenn man da Funktionen von dieser Bibothek verwenden will. Das schaut zum Beispiel
+1198000	1207360	so aus. Ich kann hier zum Beispiel random als rd importieren und dann hat dieses Random-Bibothek
+1208080	1219120	zum Beispiel diese rd int Funktion, die praktisch unsere Randomzahl zwischen 1 und 13 einfach wählt
+1221520	1227040	und die wir dann hier in diese variabel speichern können. Also, ich kann das auch kurz zeigen.
+1227040	1233600	Zum Beispiel random, ganz wichtig ist auch eine der Standard-Bibotheken. Schau mal.
+1237600	1247120	Ich kann da praktisch ganz oben hier, schauen, ob ich das größer machen kann.
+1256000	1261440	Dann kann ich eben, also wenn ich hier zum Beispiel ein Wischlerstudekord bin,
+1261520	1268240	dann sehe ich auch automatisch, welche Funktionen ich zur Verfügung habe. Und die fangen dann
+1268240	1274720	hier alle an. Und wie ihr seht, da gibt es dann sehr, sehr viele. Wir wollen hier zum Beispiel
+1274720	1281840	diese rd int. Und da seht ihr auch auf der Seite hier zum Beispiel eine kurze Beschreibung,
+1283200	1289600	was die macht. Return random integer in range ab, including both endpoints. Das heißt praktisch
+1289680	1299120	sowohl a als b kann auch noch gezogen werden. Das heißt, wenn ich hier 1 und 5 mache und das ausführe,
+1302720	1306240	da bekomme ich diesmal 4. Wenn ich das nochmal ausführe, dann bekomme ich eine andere Zahl.
+1309040	1314320	Also wie ihr seht, kann dem anders sein. Jetzt zum Beispiel was die selbe.
+1314400	1324000	Genau, ja. Ich hab's ja zur Frage. Also das Kürzel hier ist nicht unbedingt notwendig.
+1326000	1327600	Dann müsst ihr aber hier dann random schreiben.
+1331840	1338960	Und wenn ihr das import vergisst, dann sagt es hier auch schon gleich random is not defined.
+1339920	1342400	Random existiert praktisch nicht. Ist nicht definiert.
+1344480	1346480	Diesmal geht's. Warum? Weil ich
+1349760	1353840	wenn ich jupiter in jupiter arbeite und das einmal ausgeführt hab,
+1353840	1358240	dann merkt sich das jupiter und man muss es nicht zweimal oder dreimal importieren.
+1358240	1360720	Zum Beispiel wenn ich es jetzt ausführe, wo praktisch alles gelöscht wurde,
+1362480	1364160	dann bekomme ich diesen name error.
+1367920	1370160	So, was machen wir so?
+1374560	1391040	Genau, dann kommen wir zu den csv Dateien. csv Dateien, hier ein tolles Beispiel.
+1392000	1397600	Das heißt einfach comma separated values. Praktisch comma separiert. Wir haben hier
+1397600	1403920	praktisch irgendwelche Werte drin stehen. Komma, dann der nächsten Wert. Komma und so weiter.
+1404000	1411280	Und sofort. Das Wichtige dabei ist, dass hier, wenn wir hier vier Spalten definieren am Anfang,
+1411280	1413760	hier mal Trikelnummer vorne, dann mal nachher mit Punkte,
+1414720	1417120	da müssen die darauf folgenden auch immer vier sein.
+1419040	1422160	Und das schaut dann in Excel zum Beispiel so aus, das kennt ihr wahrscheinlich eh alle.
+1425360	1431280	Und genau, das ist einfach der Werte in einem Tabellenformat.
+1434080	1439520	Und ganz wichtig, das muss nicht nur nimmer ein Comma sein, das kann auch andere Werte sein,
+1439520	1446720	zum Beispiel, wie interessant es sind, dieses Semikolon, also Strichpunkt oder zum Beispiel auch Tabulator.
+1450160	1456880	Genau, und wie kann man mit denen in Beifen arbeiten? Da gibt es mehrere Varianten.
+1456880	1461280	Da gibt es zum Beispiel dieses csv Package, das ist auch wieder eine Standard Library
+1461280	1465280	oder eben mit Banders, das werden wir jetzt dann machen.
+1468320	1474320	Genau, zur Banders. Also wie ihr seht, Banders ist eigentlich ziemlich ähnlich wie Excel,
+1474320	1479040	also ihr könnt euch das so vorstellen, dass ihr da auch wieder so Tabellen habt.
+1480720	1487040	Aber das coole ist, dass ihr da nicht nur, keine Ahnung, 100 Zeilen,
+1487040	1492080	oder wenn man mit Excel mit 100.000 Zeilen arbeitet, ist das schon sehr unübersichtlich.
+1492080	1496320	Ihr könnt euch vorstellen, wenn man das ganze visuell machen muss, zum Beispiel da
+1496960	1502000	eine Formel herunterziehen muss in einer Spalte, dann kann das sehr viel Zeit beanspruchen.
+1503040	1507840	Banders, da können wir dann Beifencode verwenden und dann geht das sehr schnell,
+1507840	1511680	da kann man in einer Zeile auf eine Milliarde Zeilen zugreifen.
+1512640	1516640	Und das geht alles auf dem Laptop, also das ist kein Problem.
+1519600	1524800	Und da kann man eben Excel-Dateien oder eben csv Tabellen einlesen.
+1527840	1533920	Und das Wichtigste eigentlich für euch zu wissen ist, also so was nennt man ein Data Frame,
+1534880	1535920	das ist praktisch
+1539200	1547360	Netabelle, die besteht eigentlich aus mehreren Listen, also die Spalten hier sind einfach Listen.
+1548960	1552080	Und man kann dann eigentlich sehr ziemlich ähnlich zugreifen wie Dictionaries,
+1553440	1562320	nur sind diese Banders Data Frames noch viel stärker als eben Dictionaries.
+1563920	1570720	Da gehen wir dann eh gleich drauf ein und generell einfach Banders verwenden wir
+1570720	1576880	für praktisch eine effiziente Datenverwaltung, das heißt wir können da wie gesagt auf Milliarden
+1576880	1585280	von Daten gleichzeitig zugreifen und die verändern. Und ja, da hat eben verschiedene
+1585280	1592800	Funktionalitäten, Ladenspeichern, Zugriff, Filtern von Daten. Wir können fehlende oder
+1592800	1600320	fehlerhafte Daten ausbessern. Wir können Ergebnisse berechnen, zum Beispiel wollen
+1600320	1607040	wir den Mittelwert berechnen, dann ist das ganz einfach möglich. Wir können die Tabelle
+1607040	1612000	erweitern, wenn wir möchten. Und auch ganz cool ist, wir können auch blotten, das heißt wir können
+1612080	1618080	grafen erstellen und ja, da möchte ich euch da ein bisschen was zeigen heute.
+1621760	1626720	Zuerst mal, wie kann man so ein Data Frame überhaupt anlegen? Und da gibt es mehrere
+1626720	1630400	Möglichkeiten, da kann man zum Beispiel das Ganze mit einem Dictionary machen.
+1631840	1637840	Hier seht ihr zum Beispiel haben wir Population Area hier als Spalten.
+1638800	1645120	Das heißt wir haben hier Population und Area und dann haben wir hier für die einzelnen
+1645120	1653760	Zeilen nochmal ein Dictionary. Und da gehen wir dann einfach her, okay für Population, also für
+1653760	1659520	Population für diesen Bereich hier, möchten wir für Kalifornia den Wert drin stehen haben,
+1659520	1666400	für New York den Wert stehen haben und für Florida den Wert stehen haben. Und für Area,
+1666480	1671360	also für diese Spalter hier wollen wir diese Werte drin haben. Und dann kann man das ganze
+1671360	1679840	Dictionary einfach in so ein Data Frame konvertieren, wenn wir einfach bd, also pandas,
+1679840	1685040	Punkt Data Frame aufrufen und dann in den Klammern drin das Dictionary. Die andere Möglichkeit,
+1685040	1690320	was wir machen können, ist das Ganze mit Listen machen. Und das ist einfach eine
+1690320	1695680	zweidimensional Liste, praktisch eine Liste in Listen. Und da definieren wir einfach immer eine
+1695680	1704400	ganze Zeile, also Kalifornia den Wert den Wert, also den Wert den Wert, New York den Wert den Wert,
+1704400	1710640	New York den Wert den Wert und so weiter und so fort. Das ist natürlich sehr umständlich und
+1710640	1715920	meistens wird es sehr schnell unübersichtlich und ihr könnt euch vorstellen, wenn ich davor
+1715920	1720000	von Milliarden von Daten geredet habe, dann werde ich das Ganze hier nicht so machen.
+1720160	1733600	In der Praxis laden wir eher Daten von CSV, CSV Tabellen oder von anderen Data ein. Da gibt es
+1733600	1740320	natürlich auch noch viel effizientere Formate als CSV, aber die müsst ihr eigentlich für diese
+1740320	1745880	Vorlesung nicht wissen. Die können aber daneben Binary gespeichert werden und sind dann viel
+1745880	1753640	effizienter. Genau, wie lesen wir so eine CSV-Datei ein? Ja, das machen wir einfach mit Read CSV.
+1757640	1761720	Das heißt, wir haben hier zum Beispiel eine CSV-Datei, also wenn wir die in Excel aufmachen,
+1761720	1770160	dann schaut das so aus und im Bandage können wir dann einfach hier Bandage importieren und dann
+1770160	1776760	read CSV, eben eine CSV-Datei einlesen und dann BAM, haben wir hier die Tabelle, ich kann das auch
+1776760	1793600	kurz vorzeigen. Okay, also noch mal kurz zur Aufrichtung hier zum Beispiel, das funktioniert
+1793600	1804880	nicht, dann können wir hier mit PIP install Bandage. Ihr seht, habe ich hier einfach ein Rufzeichen
+1804880	1811960	davor gemacht, dann kann ich eben so Kommands einfügen, die ich normalerweise im Terminal aufrufe.
+1812960	1822040	Jetzt hat es mir hier Bandage installiert. Jetzt, wenn ich das nochmal ausführe, funktioniert,
+1822040	1833080	also das haben wir gerade durchgemacht und hier zum Beispiel habe ich eine CSV-Datei, die schaut so
+1833080	1846800	aus und dann kann ich die einfach einlesen. Und da hat man auch irgendwie für das Studio Code
+1846800	1853600	eigentlich eine tolle Übersicht, also da kann man zum Beispiel hier auch so filtern direkt schon,
+1853600	1861520	also zum Beispiel, wenn wir die aufsteigend haben, dann kann ich die Wert aufsteigend anzeigen und wenn
+1861520	1882520	ich da natürlich Dausende von Zeilen habe, dann kann ich die alle anschauen. Genau. Dann kommen wir
+1882520	1888760	zum nächsten, also wie greif ich da zum Beispiel auf einzelne Spalten zu? Da gibt es mehrere Varianten,
+1888760	1895200	da gibt es zum Beispiel, dass ich das so mache wie ein Dictionary zum Beispiel, also ich habe hier
+1895200	1904680	diese spalte Area und dann kann ich da entweder so zugreifen mit einem Stringkey, praktisch einfach
+1904680	1910560	schreibe ich da einfach Area rein oder ich kann auch Bandage mit dem Hintergrund direkt eine lokale
+1910560	1916440	Variable, das heißt ich kann dann auch hier einfach Punkt Area so hinschreiben oder zum Beispiel auch
+1916440	1923160	mit diesem Punkt Lock, das ist das Location, die Location Methode, da kann ich auch zum
+1923160	1931920	Beispiel zugreifen. Genau und wenn ich Lock ist eigentlich ein sehr starkes Tool, dann kann ich zum
+1931920	1940160	Beispiel einfach auch mit Index zugreifen, den Indexidema hier oder ihr könnt auch zum Beispiel
+1940160	1947000	auf eine gewisse Range zugreifen, zum Beispiel ich möchte hier von 2 bis 4 zugreifen in Area,
+1947000	1959440	dann ist das komplett möglich, also kann ich das kurz zeigen. Also hier haben wir noch mal mit Index,
+1959440	1980320	aber wir können natürlich auch zum Beispiel 2 bis 5 machen und dann Area und dann seht der bekam
+1980320	2009680	wir hier 2 bis 5 die Area Werte. Genau. Genau. Der Unterschied ist eben hier sind Spalten,
+2010680	2023840	und hier machen wir Zeilen. Genau. Was auch cool ist mit Bandages, manchmal will man nicht alle
+2023840	2030200	Daten haben, sondern will nur spezifisch welche haben und dann können wir das DataFrame filtern
+2031200	2040400	und da gibt es verschiedene Filteroperationen und zum Beispiel die Vergleichsoperatoren, die
+2040400	2046560	kennt ihr wahrscheinlich eh schon, also die haben wir ja schon mal bei einem FLs durchgemacht, da
+2046560	2054200	gibt es zum Beispiel größer, kleiner, größer gleich, kleiner gleich, ist gleich oder ist nicht
+2054200	2061960	gleich. Es gibt auch die Logischenoperatoren, also die normalen Beifungen kennt man die ja mit
+2061960	2067840	End oder Not, in Bandages kann man aber nur das Unzeichen, das Oderzeichen oder die Verneinung
+2067840	2077680	mit der Tilde verwenden und da generiert man praktisch so eine Art Boolean-Maske, das heißt
+2077680	2089160	praktisch, das werde ich gleich dann in der nächsten zeigen, macht man da gleich so, praktisch
+2089160	2096760	wenn ich da zum Beispiel hier ein DataFrame habe und ich will nach Population filtern und zwar dass
+2096760	2103080	ich will nur die Zeilen haben, die praktisch eine Population über 25 Millionen haben,
+2104080	2114240	dann mache ich das einfach so, Df, ganz wichtig noch zu Df, also Df entspricht ja eigentlich
+2114240	2121440	normalerweise nicht dem Coding-Standard, das hat sich so eingebürgert, dass Df kurz für DataFrame
+2121440	2129880	steht und wenn ich mir richtig erinnere, könnt ihr Df auch dann in Assignment 2 so verwenden,
+2130880	2141640	weil das ist einfach ein eingebürgertes Wort und wenn jemand Df in Code liest,
+2141640	2147520	dann weiß eigentlich sofort jeder, okay, damit ist eigentlich ein DataFrame gemeint. Das kann
+2147520	2152960	dann zum Beispiel auch Df Unterstrich States heißen, also wenn es falls ihr mehrere DataFrames
+2153960	2160560	habt, genau und wenn wir jetzt da zum Beispiel nach Population filtern wollen, dann können wir da
+2160560	2169520	eben Df, eckige Klammer aufmachen und dann haben wir da praktisch drin Df.population und dann hier
+2169520	2173760	eben unseren Vergleichsoperator, also wenn man da kleiner haben will, dann macht man da kleiner,
+2173760	2178880	wenn man gleich haben will, dann machen wir gleich und sonst eben größer und da gibt es auch wieder
+2178880	2183800	verschiedene Möglichkeiten, wie man da dieses Df.population drin machen kann. Da können wir zum
+2183800	2189440	Beispiel das eben mit Df.population machen, wir können das aber auch wie im Dictionary machen,
+2189440	2199320	also mit Anführungszeichen oder auch mit dem Location-Parameter oder halt Methode. Und was
+2199320	2207000	passiert im Hintergrund? Im Hintergrund geht Bandas her und geht für jede Zeile her und sagt, okay,
+2207000	2215360	ist dieser Wert größer als 25 Millionen? Ja, dann schreibt mir ein True da rein. Ist dieser Wert
+2215360	2224720	größer als 25 Millionen? Ja, passt true. Falls, falls, falls, falls, also im Hintergrund macht
+2224720	2232160	es uns dann so eine Liste, wo dann eben für jeden jede Zeile in der Spalte drin steht, ob die
+2232160	2257520	Bedingungen war es oder nicht. Okay, dann zeige ich das kurz her. Also, genau so schaut das aus,
+2257520	2272920	wenn ich jetzt zum Beispiel nur das Innere hier nehmen würde. Dann seht ihr, dass hier einfach True
+2272920	2294640	oder false drin stehen wird. Gibt es da zu fragen? Okay, genau. Genau, und die kann man
+2294640	2302160	eben kombinieren. Das macht man dann eben mit, mit diesem und oder oder Verneinung. Zum Beispiel hier
+2302160	2309960	will ich abfragen, welche Zeilenbeinhalt starten mit weniger als 15 Millionen Einwohnern und weniger
+2309960	2318200	als 200.000 Kilometer Fläche. Dann kann ich die einfach kombinieren. Dann sage ich, okay, der
+2318200	2340280	Population soll kleiner sein. Und dann vergleiben wir noch die Area gleich da drin dazu und dann
+2340280	2345520	können wir das kurz mal ausführen. Und dann sehen wir, okay, wir haben hier Hawaii, wo anscheinend
+2345920	2362040	bei 0 sein soll und immer neu die 12 Millionen oder fast 13 Millionen Einwohner hat. Genau. Dann können wir zum
+2362040	2374200	Beispiel auch die States rausfinden. Also hier davor hatten wir ja praktisch hier noch diese Zeile
+2374200	2382880	State und wir haben dieses gefilterte Data Frame jetzt in einer neuen Data Frame abgespeichert und
+2382880	2389360	dann können wir das neue Sachen abfragen, zum Beispiel eben hier die State Spalte.
+2389360	2417120	Genau. Das schaut dann eben so aus zum Beispiel. Und das haben wir gerade durchgemacht. Genau. Was auch
+2417120	2424800	ganz cool ist, wir können da zum Beispiel Stringen-Operationen durchführen. Zum Beispiel haben
+2424800	2433320	wir hier unser Data Frame und da als Population und Area zum Beispiel, das sieht man sofort,
+2433320	2440240	das sind Float Werte, weil die haben ja hier Punkt irgendwas stehen. Außer vielleicht der Wert hier,
+2440240	2446880	in der einen da kommen wir dann später noch dazu, dass da praktisch fehlt ein Wert. Aber hier
+2446880	2456200	diese Werte hier, das sind alle Strings. Und die können wir natürlich auch verändern. Da können
+2456200	2462920	wir eben die normalen Stringen-Operationen ausführen, die ihr eh schon kennt, Punkt Lower, Punkt Upper,
+2462920	2470920	Containen usw. und so fort. Und da kann ich zum Beispiel dann noch filtern. Zum Beispiel, wenn ich
+2470920	2479000	jetzt alle Staaten haben will, die New drin haben in ihrem Namen, dann kann ich das so machen,
+2479000	2489240	indem ich einfach sagt DF und dann schaue ich mir die States an, also diese Spalte hier und dann
+2489240	2496440	kann ich Punkt STR machen. Praktisch dann weiß ich okay, ich will eine Stringer Funktion ausführen
+2496440	2504880	und dann Punkt Contains und dann schaue ich einfach, ob dieses New Keyword drin vorhanden ist.
+2504880	2524200	Also so, das kann ich auch kurz vorzeigen. Okay, schauen wir mal dann noch das originale DF.
+2524200	2537120	Also das Wichtige ist eben, dass wir hier wieder diese Eckenklammern machen. DF, zum Beispiel State
+2537120	2544840	kann man, dann wollen wir praktisch das ganze als String behandeln und dann können wir eben hier
+2544840	2553760	zum Beispiel Contains machen und dann wollen wir herausfinden, zum Beispiel alle Staaten, die ein S
+2553760	2562680	vorhanden haben. Das heißt hier DEXAS, New Jersey und Illinois haben praktisch ein S. Was kann ich da
+2562680	2572600	noch machen? Ich kann zum Beispiel hergehen, also noch mal kurz Herzer zeigen, wenn ich die Eckenklammern
+2572640	2580160	weglasse, dann kann man wieder nur dieses True-False. Aber was ganz cool ist, ist zum Beispiel, ich kann da nicht
+2580160	2586760	nur Contains, also was zum Beispiel True oder False zurückgibt, ich kann da zum Beispiel eben auch
+2587760	2602400	lower machen. Und dann verwandelt es mir praktisch alle Namen in Kleinbust haben. Oder Abba.
+2602400	2626280	Gibt es da so Fragen? Okay. Genau, dann kann man eigentlich auch zu einem sehr starken Dual,
+2626280	2634560	was dieses DataFrame eben auch bereitstellt und dass es eben diese Aggregierungsfunktionen
+2634560	2641560	und da gibt es verschiedene, so gibt es zum Beispiel, man kann das ganze aufsummieren oder man kann den
+2641560	2647320	höchsten Wert herausfinden, den kleinsten Wert herausfinden. Man kann natürlich auch herausfinden,
+2647320	2655360	wie lang so ein DataFrame ist, also wie viele Zeilen ein DataFrame besitzt mit dem Length keyword. Das
+2655360	2672600	ist praktisch sehr ähnlich zu dem von der Liste. Genau. Und was auch noch interessant ist, wir haben
+2672600	2678400	da nicht nur was wir bei Listen haben, Sam, Max, Min, wir haben ja auch zum Beispiel, wir können
+2678400	2688600	den Medien ausrechnen, den Mittelwert und zum Beispiel, wie oft ein Value vorhanden ist. Wie schaut
+2688600	2699800	das aus, wenn ich das zum Beispiel mache? Sag mal, ich mache ein neues DataFrame.
+2708400	2721880	Schauen wir mal, ob das geht.
+2721880	2739600	Ich habe jetzt einfach mal ein DataFrame gestellt, dass praktisch diese Werte beinhalten. Wie ihr seht,
+2739600	2744920	kann man da einfach auch eine einfache Liste übergeben und dann macht das einfach nur eine Spalte.
+2744920	2759480	Und dann wollen wir da zum Beispiel herausfinden, was ist der kleinste Wert? Das anscheinend 1,
+2759480	2767160	der größte Wert ist anscheinend 6. Dann können wir einen Min machen, dann kommen wir den Mittelwert
+2767160	2777160	daraus und dann können wir zum Beispiel ValueCounts machen. Und das seht ihr, das ist jetzt bisschen blöd,
+2777160	2786360	weil das in NumPy umgewandelt wird, aber schaut einfach diesen Wert in der Klammer an und dann seht
+2786360	2794400	jetzt hier zum Beispiel, dass der Wert 2 anscheinend 2 mal vorkommt. Das heißt praktisch, wenn nicht zum
+2794400	2801040	Beispiel im oberen DataFrame 2 mal Kalifornien drin haben würde, dann würde ValueCounts dann
+2801040	2809840	Kalifornien hier stehen und hier 2. Damit kann sehr schnell praktisch Werte zählen. Das kann sehr praktisch sein.
+2824720	2831280	Genau, was auch ganz interessant ist, ist, man kann eben auch so arithmetische Spaltenoperationen machen.
+2831280	2838640	Was heißt das? Ich kann plus, minus, mal geteilt auf eine ganze Spalte anwenden.
+2838640	2864880	Noch mal hier zum Beispiel. Also hier haben wir das. Und jetzt möchte ich aber das Ganze multiplizieren.
+2869200	2875360	Dann kann ich das einfach machen. Null, warum steht hier Null drin? Weil unsere Spalte Null heißt.
+2878480	2885200	Das heißt praktisch, wenn wir hier keine Spaltenamen angeben, dann tut uns Pan das einfach
+2885200	2891040	irgendwelche Integer zuweisen. Ihr seht auch, das ist kein String. Also das ist wirklich ein Integer.
+2891360	2900320	Also wenn ich das hier als Integer, als String schreiben würde, dann würde das nicht funktionieren.
+2900320	2907680	Aber wenn eben zum Beispiel Area drin stehen würde, dann ist es automatisch ein String.
+2907680	2917920	Genau, und da kann man ganz viel machen. Da kann man eben alle möglichen Operatoren anwenden.
+2921360	2923360	So.
+2936400	2948400	Im Hintergrund praktisch werden dann einfach, wird jedes Spalte als Serious-Objekt bearbeitet.
+2948640	2956240	Das heißt praktisch, Serious könnt ihr euch vorstellen, ist einfach eine Pifenliste.
+2957200	2963760	Bissich komplizierter, weil es effizient programmiert wird als eine Pifenliste.
+2963760	2967360	Aber ihr könnt euch das wirklich so vorstellen, als wäre das einfach eine Pifenliste.
+2971360	2976000	Und dieses Serious-Objekt eben besteht aus einem NumBuy Area, genau, und so weiter und so fort,
+2976000	2981280	weil das Ganze ist dann nicht mehr beifenprogrammiert, sondern in C, weil das effizienter ist,
+2982960	2985280	und dann im Hintergrund praktisch schneller arbeiten kann.
+2988240	2994720	Ich kann hier zum Beispiel meine Area, die da vorhin squared miles war, in 1 km umrechnen,
+2994720	3002080	wenn ich zum Beispiel den Faktor weiß, und kann das Ganze dann noch so aufsummieren,
+3002160	3007440	dann weiß ich die Total Area, also eigentlich ein sehr starkes Tool.
+3010080	3011600	Genau, also hier zum Beispiel,
+3014640	3019840	natürlich wenn hier ein Nann drin steht, dann bleibt das Nann oder auch wenn das Null ist,
+3020400	3022480	Null multipliziert mit irgendwas, ist wieder Null.
+3024480	3029760	Und dann kommen wir auch zu diesem Nann, das sind praktisch fehlerhafte Daten,
+3029840	3035840	das heißt praktisch die fehlen einfach in unser TSV Datei zum Beispiel,
+3039120	3044480	und das ist eigentlich das Equivalent zu dem Nann, das wir hier schon gelernt haben.
+3047360	3052800	Und wenn ich zum Beispiel keinen anderen drin stehen haben will, sondern zum Beispiel Null,
+3052800	3055760	dann kann ich das mit diesem Fill Nah machen, also Fill NA,
+3055760	3061760	und dann hier einfach einen Wert bereit geben, das heißt zum Beispiel,
+3062640	3064720	wenn ich eben Null haben will, dann schreibe ich hier Null rein.
+3065920	3066880	Jetzt können wir auch ausdessen,
+3075600	3077360	gehen wir da zurück zu uns,
+3086560	3087120	schauen wir mal.
+3091360	3092960	Okay, dann müssen wir noch was hinzufügen.
+3094800	3098240	Ich habe davor gesagt, dass TSV Dateien immer,
+3099360	3100480	dann machen wir da einfach
+3103920	3106000	die man dann nicht solle Idee für ein Start,
+3108080	3111200	dann machen wir einfach, ah können, so,
+3111280	3118800	da schreibe man Plation 1 rein, und hier fehlt dann ein Wert.
+3120320	3123200	Bandas handelt das für uns, ohne Probleme.
+3132080	3137120	Da steht hier einfach Missing Value drin, also Visual Studio Code zeigt es uns als
+3137120	3140560	Missing Value an, im Hintergrund ist da dann einen anderen.
+3141760	3145440	Kannst vergessen, dass wir das schon drin gehabt haben, bei den New Jersey,
+3145440	3148560	das war schon tatsächlich, das fehlt hier auch.
+3151360	3153520	Und dann können wir hergehen und sagen,
+3153520	3155200	dann machen wir das ein bisschen kleiner hier,
+3155200	3160640	Punktvillner,
+3164720	3166000	da zum Beispiel minus 1.
+3171520	3174720	Und dann haben wir hier statt Missing Value minus 1 drin.
+3179360	3179600	Ja.
+3185920	3188560	Dann muss das filtern,
+3190000	3191680	da muss sagen, okay, ich
+3192880	3195600	praktisch, sagen wir mal, du willst jetzt nur,
+3200160	3206800	ich will jetzt nur von New Jersey den Wert, den Nahwert verändern,
+3207360	3210640	da muss ich zuerst hergehen und mit df.loc,
+3215920	3224560	dann zum Beispiel df.state ist gleich New Jersey machen,
+3226080	3228080	jetzt bekommen wir New Jersey raus,
+3229920	3233520	da geht man schon eher, also da braucht man dann nicht mal viel Nahverwenden,
+3233520	3237280	da kann man dann einfach direkt zum Beispiel die Area verändern,
+3238080	3241840	indem man einfach sagt, ich weiß gar nicht, ob ich das so machen kann.
+3242080	3244080	Ja.
+3253840	3257360	Und dann kann ich eben so praktisch zum Beispiel den Nahwert verändern.
+3257360	3260880	Also da, wenn du wirklich ganz spezifisch nur einen Wert verändern willst,
+3261520	3265600	dann bist du einfach filtern und den Wert direkt auf was setzen.
+3266400	3267360	Viel Nah ist eher so,
+3267840	3271840	ich will jetzt einfach keine Missing Values drin haben,
+3271840	3278320	weil ich, keine Ahnung, eine Funktion auf alle Spaltenwerte ausführen will
+3278320	3282080	und die nicht miteinander arbeiten kann zum Beispiel.
+3282080	3284480	Weil ich kann dann natürlich auch wirklich hergehen und sagen, okay,
+3285600	3287040	ich habe hier mal ein Data Frame, ja,
+3289520	3295280	und dann mache ich df., hol mir eine Spalte raus, zum Beispiel Area,
+3297440	3303760	Punkt Ablei und da kann ich jetzt eine wirklich von mir definierte Funktion zum Beispiel ausführen,
+3303760	3306080	also zum Beispiel Def,
+3311840	3320320	Print Area, die bekommt dann den Wert natürlich, Area,
+3328320	3330320	und dann,
+3335440	3338320	machen wir so,
+3351680	3354320	und dann gehe ich das nochmal zurück,
+3357680	3369360	und jetzt hat es mir da einfach diese Funktion auf alle Spalten ausgeführt,
+3369360	3370800	zum Beispiel mit diesem Ablei.
+3372720	3375840	Was passiert, wenn ich hier kein Return Area mache,
+3379520	3382480	dann geht bei FNaF unaus, dass du Return None machst,
+3383440	3386960	das heißt, alle Area-Werte werden mit None überschrieben,
+3386960	3389120	das heißt, jetzt hast du überall Missing Values drin stehen.
+3391360	3395360	Aber cooler ist dann natürlich, wenn man da wirklich hergeht und okay,
+3395360	3398080	was eine Berechnung machen will, zum Beispiel,
+3398480	3402000	hoch 2, zum Beispiel,
+3404880	3416000	da kann man natürlich sehr komplizierte Berechnungen auch machen.
+3425600	3427600	Genau.
+3428400	3432720	Man kann auf bestimmte Spalten hergehen,
+3432720	3437200	man kann auf das gesamte DataFrame die Werte ändern,
+3437200	3440720	also das würde ich nicht empfehlen,
+3440720	3446160	weil, sagen wir zum Beispiel, man hat jetzt eine Spalte,
+3446160	3451120	wo zum Beispiel die Namen der Staaten drin stehen hat,
+3451120	3453600	und dann eine, wo die Area drin stehen hat,
+3453600	3455600	und zusammen mit dem fehlt ein,
+3456560	3460240	und zusammen mit dem fehlt ein Value bei den Staatennamen
+3460240	3464320	und einer bei den Areas, und wir sagen einfach viel Namen mit minus 1,
+3464320	3466160	dann haben wir jetzt auch bei den Staatennamen
+3466160	3469200	an minus 1 drin stehen, und das ist vielleicht nicht unbedingt das,
+3469200	3470000	was wir wollen.
+3471280	3474240	Das Bessere, wir gehen wirklich nur her und machen für jede Spalte
+3474240	3479200	einzelne was, und kann natürlich auch hierhergehen,
+3479200	3482320	und für jede Spalte einen bestimmten Wert definieren,
+3482320	3483200	also das geht auch.
+3484080	3487920	Das ist wahrscheinlich, ja, wenn man mehrere Spalten gleichzeitig machen will.
+3492560	3494480	Genau, damit ist ein bisschen was durchgemacht.
+3501600	3504080	Ja, das heißt, ich kann hier einfach ein Missing Value
+3504080	3505840	dann einfügen mit diesem Filter.
+3506080	3516960	Ja, und wie gesagt, ich kann das Ganze dann eben auch mit diesem Filter machen,
+3520480	3523920	und das, ja, wenn man ganz spezifisch was ändern will.
+3528320	3531840	Nun kommen natürlich auch zu einem sehr anderen wichtigen Thema ist,
+3531840	3534160	wie lege ich überhaupt Spalten an.
+3536800	3538720	Und das geht eigentlich ganz easy.
+3539840	3543200	Wenn ich eine Spalte machen will, dann mache ich einfach,
+3543200	3550080	wie beim Liktion Arrow zum Beispiel, einfach einen neuen Wert für diese Spalte,
+3550080	3551760	und dann einen Standard Wert.
+3554480	3556960	Das kann ich so machen, das kann ich aber auch mit Location,
+3556960	3558880	mit diesem Location Methode machen,
+3559840	3569760	die ja ist sicherer, weil ich hier ganz spezifisch die Zeilen definieren kann.
+3575440	3578560	Ich kann natürlich auch eine neue Spalte machen,
+3578560	3580400	indem ich eine andere Spalte hernehme,
+3580400	3587920	und da zum Beispiel sage, okay, ich möchte hier die Population in Millionen haben,
+3588560	3590480	dann nehme ich einfach die normale Population,
+3590480	3592800	spalte her und dividiere die durch eine Million.
+3597200	3600960	Oder das Ganze geht natürlich auch mit mehr Spalten,
+3600960	3604560	das heißt, ich kann hergehen und sage, okay, ich will die Density,
+3604560	3607600	also die Bevölkerungstichte berechnen,
+3607600	3612400	dass man mit Population als Bevölkerung durch die Fläche,
+3613360	3618800	und dann wird praktisch wirklich für jede Zeile die Population,
+3619360	3621920	der Population Wert hergenommen und der Area Wert hergenommen,
+3621920	3624080	und die zwei werden dann kombiniert,
+3624080	3628240	um dann einen neuen Wert in dieser Zeile in der neuen Spalte zu machen.
+3630400	3631200	Wie schaut das aus?
+3631440	3639920	Das haben wir hier unser DataFrame,
+3642640	3646320	wir wollen da jetzt eine neue Spalte hinzufügen,
+3647200	3648480	dann können wir das einfach so machen,
+3648800	3662880	dann haben wir hier eine neue Spalte mit dem Wert 1 drin stehen,
+3664560	3667280	sagen wir mal, wir wollen hier was anderes haben, zum Beispiel,
+3679440	3687760	Population, also ich kann zum Beispiel die Spalte kopieren einfach,
+3687760	3688400	das geht auch,
+3688960	3691040	jetzt habe ich hier einfach das gleiche drin stehen,
+3691040	3692560	was ich hier drin stehen gehabt habe,
+3693360	3698720	ich kann sagen, okay, ich will da das Ganze durch 1.000 machen,
+3700960	3704800	dann schreibt es mir hier die Werte durch 1.000 rein,
+3704800	3712560	also das ist jemals, wie ihr seht zum Beispiel 38 Millionen und hier steht dann 38.000 drin
+3713360	3717360	und hier steht 26 Millionen drin und hier steht dann 26.000 drin,
+3718400	3723440	ich kann aber hier dann auch wirklich zwei Spalten hernehmen,
+3724880	3729600	und dann wird hier zum Beispiel Population durch Area dividiert für jede Spalte einzeln,
+3729840	3734080	natürlich, wenn wir hier ein Missing Value haben,
+3734640	3736640	dann kommt hier auch ein Missing Value raus,
+3736640	3742320	oder wenn zum Beispiel der zweite, also hier Area Null ist,
+3743200	3745440	wir können nicht durch Null dividieren, das heißt,
+3745440	3747120	hier kommt auch ein Missing Value raus,
+3747120	3765200	genau, und da kann man natürlich auch wieder hergehen und irgendwelche Beifunktionen verwenden,
+3765200	3772480	zum Beispiel wollen wir die Population in Millionen hier runden,
+3772560	3777600	dann können wir einfach Round und die gleiche Spalte nochmal reinhauen,
+3778960	3780160	dann wird die eben gerundet,
+3786800	3790800	hier zum Beispiel die zweite wird auf 2 Kommastellen gerundet,
+3792240	3796480	und die erste wird auf keine Kommastelle gerundet,
+3796800	3802400	dann kommen wir noch zum Plotting,
+3804080	3805920	und Plotting ist auch richtig cool,
+3808320	3811440	so haben wir hier zum Beispiel unser DataFrame,
+3813280	3816080	dann können wir einfach sagen DataFrame.plot,
+3817920	3819920	da gibt es natürlich verschiedene Plots,
+3819920	3821760	also die kennt ihr wahrscheinlich eh alle,
+3822080	3827200	da gibt es die Barplot, also die Säulendiagramme,
+3827200	3831040	die Skatterplots und so weiter und so fort,
+3835040	3837200	hier zum Beispiel machen wir ein Barplot,
+3838080	3842160	also wir sagen unsere x-Axis ist der State,
+3842800	3846240	unsere y-Axis ist die Population Density,
+3847680	3849360	dann können wir da noch ein Titel definieren,
+3850320	3855600	dann sagen wir okay, welche Art von Plot zu sein,
+3855600	3857280	in diesem Fall soll es ein Barplot sein,
+3857840	3862720	dann können wir auch die x-Achsen und die y-Achsen praktisch erlabeln,
+3863360	3864560	und dann kriegen wir dann Plot raus,
+3868400	3872160	und ihr kennt das wahrscheinlich eh von Excel,
+3873120	3874880	da markiert man einfach die Spalten,
+3874880	3878080	und sonst hat man einfügen neuer Plot,
+3880160	3882000	ziemlich ähnlich hier nur, dass wir es praktisch
+3884080	3887280	hier ganz schnell zum Beispiel die Art des Plots austauschen können,
+3887280	3890560	oder die x- oder y-Achse austauschen können,
+3893200	3897200	und man kann halt mit sehr sehr vielen Daten arbeiten,
+3898880	3903200	obwohl das Plotding bei sehr sehr vielen Daten auch sehr langsam sein kann manchmal, leider.
+3903200	3910880	Genau, am Anfang haben wir gehabt,
+3910880	3915920	dass man aus CSV DataFrames erstellen kann,
+3915920	3918080	man kann das Ganze natürlich umgekehrt auch machen,
+3918080	3921760	man kann aus CSV DataFrames auch wieder CSV DataFrames machen,
+3922480	3924720	man kann auch andere DataFrames rausmachen,
+3924720	3926560	also man muss nicht nur CSV DataFrames machen,
+3926560	3928400	man kann auch Excel DataFrames machen,
+3928400	3929440	die sind ein bisschen anders,
+3929440	3938400	aber ja im Großen und Ganzen schreibt man einfach df.2csv,
+3938400	3940000	dann den Namen, den man haben möchte,
+3941840	3943920	und hier zum Beispiel kann man dann angeben,
+3944560	3947280	ob man den Index noch dazu haben will oder nicht,
+3947280	3948800	also der Index, der wäre hier,
+3948800	3950720	nicht 01234,
+3951440	3952640	hier in diesem Fall haben wir gesagt,
+3952640	3953760	nein wir wollen nicht,
+3953760	3956480	wenn wir das hier vergessen,
+3956480	3960160	dann haben wir hier automatisch 0123456 drin stehen.
+3966560	3969040	Genau, und dann kriegen wir praktisch einfach,
+3969040	3970960	also das schaut dann so aus,
+3970960	3972880	wenn wir es mit Excel zum Beispiel aufmachen,
+3972880	3974000	dann kriegen wir eben wieder das.
+3977280	3979920	Genau, warte ich zeig das eventuell nochmal kurz.
+3987280	3997200	Okay, zusammen wir wollen dieses DataFrame,
+3997200	3998960	das wir jetzt haben, speichern,
+4000800	4003040	dann können wir eben df.2csv,
+4003680	4004960	und das sieht ja schon,
+4004960	4007600	was alles möglich ist an DataEin,
+4008640	4013040	also ich kann es zum Beispiel einfach ins Clipboard speichern,
+4013040	4015840	das ist das Gleiche wie wenn ihr zum Beispiel kopieren,
+4016480	4019120	also irgendwas Rechtsklick und Kopieren macht,
+4019120	4020640	oder Steuerung C macht,
+4020640	4024480	das wird dann praktisch einfach in der Ram gespeichert,
+4025040	4026400	im Arbeitsspeicher,
+4026400	4030000	ihr könnt zum Beispiel eben das Ganze in ein csv umwandeln,
+4030000	4033600	ihr könnt aber auch einfach ein Beifendiktionell draus produzieren,
+4035120	4038240	dann gibt es eben noch Excel und so weiter und so fort,
+4041440	4043600	nehmen wir einfach mal csv her,
+4043680	4044480	und wie ihr seht,
+4044480	4046640	da gibt es Unmengen an Parametern,
+4046640	4048880	die ihr da verwenden könnt.
+4051040	4054960	Wir wollen jetzt mal zum ersten Mal den FileBuff haben,
+4055760	4057360	ah, hier sieht man es besser,
+4057360	4059920	also vielleicht kurz ein paar Parameter,
+4059920	4060800	die ihr anwenden könnt,
+4060800	4062240	also Puff oder Buff,
+4062240	4065040	das ist praktisch dort der Filename,
+4065760	4067520	wo ihr das csv speichern wollt,
+4068080	4069920	haben zum Beispiel neues,
+4071280	4074080	NewStates oder StatesProcess.csv,
+4075520	4077920	dann könnt ihr den Separator auswählen,
+4077920	4080240	der ist normalerweise einfach ein Komma,
+4080240	4081200	aber wenn ihr sagt,
+4081200	4083120	na, ich will alles Strichpunkt getrennt haben,
+4083120	4088000	dann könnt ihr hier Separator Strichpunkt angeben,
+4088880	4092480	oder Kanon kann man natürlich jeglichen String angeben,
+4092480	4093360	den ihr haben wollt,
+4093360	4096800	also das kann auch zum Beispiel Kanon Hallo sein,
+4096880	4100960	und dann wird praktisch euer csv mit dem String Hallo getrennt,
+4100960	4102160	das kann man auch kurz austesten.
+4104800	4105760	Dann zum Beispiel,
+4105760	4108240	wie MissingValues,
+4108240	4111520	also fehlende Werte repräsentiert werden sollen,
+4112080	4118320	die werden hier im nächsten Fall einfach in QuotationMarks gespeichert,
+4121840	4123280	man kann natürlich auch auswählen,
+4123280	4124160	welche Columns,
+4124160	4126480	also wenn man zum Beispiel nicht alle Columns haben will,
+4127760	4129520	kann man das auch auswählen,
+4130320	4133520	ob man den Header speichern will,
+4133520	4135440	also ob man zum Beispiel,
+4139600	4140720	das ist unser Header hier,
+4140720	4142080	also diese Fett markierten,
+4143120	4145040	ob wir die auch speichern wollen oder nicht.
+4151040	4152000	Den Index,
+4152000	4153360	genau das haben wir erst schon gemacht,
+4153680	4156880	ein Label für das Index,
+4158320	4160080	den Mode zum Beispiel,
+4160880	4162320	das ist eigentlich,
+4162320	4163520	falls ihr erinnern könnt,
+4163520	4164560	von den Files,
+4165360	4166560	da kann man zum Beispiel,
+4166560	4167920	also W ist für write,
+4167920	4169360	also für schreiben,
+4169360	4171600	aber man kann zum Beispiel auch A hernehmen,
+4171600	4173040	zum Beispiel für appenden,
+4173040	4173520	das heißt,
+4174960	4177280	wenn das File schon existiert,
+4177280	4179120	dann wird das nicht überschrieben,
+4179120	4180560	sondern es wird einfach,
+4181040	4183120	die neuen Daten einfach
+4183120	4184320	ganz am Ende hinzugeflügt.
+4190320	4192720	Die anderen sind jetzt nicht so wichtig,
+4192720	4193520	aber ja,
+4193520	4194880	die könnt ihr ja alle durchlesen.
+4196720	4199680	Jetzt machen wir da einfach states new,
+4200240	4200640	also was,
+4200640	4202720	wenn ich da jetzt das Punkt CSV nicht mache,
+4205760	4207600	dann macht es mir hier ein File,
+4207600	4208720	das keine Endung hat.
+4211520	4212960	Also die Werte drinnen
+4212960	4214480	sind natürlich immer noch
+4215360	4218640	gleich wie bei einem CSV-File,
+4218640	4220080	aber euer Betriebssystem weiß nicht,
+4220080	4221520	dass es ein CSV-File ist,
+4223440	4226000	das heißt, ich muss hier Punkt CSV schreiben,
+4230480	4232800	dann weiß das Betrieb ist dem AOK,
+4232800	4234320	du meinst, ein Komma separiert das,
+4235440	4236240	der Wellenformat.
+4236240	4240160	Genau,
+4244800	4245520	hier irgendwas gedrückt.
+4252160	4253120	Die Lecture ist weg.
+4257920	4260080	Dann kann man kurz zum separator vielleicht,
+4261520	4262240	also wie gesagt,
+4262240	4263600	der ist normalerweise Komma,
+4264400	4266160	also wenn ihr den separator nicht angeht,
+4266160	4267760	dann wird der Automatisch auf Komma gesetzt,
+4267760	4269280	aber ihr könnt da eben Strichpunkt verwenden,
+4269280	4271200	ihr könnt da eine Oderzei verwenden,
+4271200	4271760	ihr könnt da,
+4272960	4273360	keine Ahnung,
+4276160	4280960	separator schreiben,
+4280960	4282160	wenn ihr unbedingt haben wollt,
+4282720	4283600	so was passiert da,
+4285520	4286400	habe ich was vergessen.
+4291840	4293440	Okay, geht tatsächlich nicht,
+4294000	4296080	also der separator muss anscheinend
+4296480	4297440	ein Zeichen lang sein,
+4298320	4299680	dann habe ich ja Bullshit erzählt.
+4301200	4301920	Okay, aber das geht.
+4306240	4306800	Wie ihr seht,
+4306800	4308240	haben wir dann eben hier
+4308240	4309440	eine Oderzei hindern stehen.
+4312560	4312880	Genau,
+4316080	4317600	wenn ich da jetzt noch Heter dazu mache,
+4317600	4318160	oh,
+4323760	4324800	ist das hier Automatisch,
+4325520	4326080	was kann ich nicht,
+4326080	4326400	ob das,
+4326960	4327360	okay ich glaube,
+4327360	4329520	Heter ist automatisch auf True,
+4329520	4330160	maybe.
+4338080	4338400	Ja,
+4339280	4339520	sagen wir mal,
+4339520	4340560	ihr wollt die Heter nicht haben,
+4348560	4350400	da sind die jetzt da oben weg,
+4351280	4353520	also da fehlt jetzt die erste Zeile,
+4355520	4356400	gibt es da zu fragen.
+4359040	4359360	Okay,
+4364640	4365920	schau, ob ich da noch irgendwo
+4365920	4366960	das Apfel blotten.
+4374000	4374560	Ja, genau,
+4376080	4377440	also da gibt es alles Mögliche,
+4377440	4382320	in diesem Fall zum Beispiel
+4382320	4383760	verwenden wir einen By-Chart,
+4389280	4390400	hier einen By-Chart,
+4391920	4393840	ich werde euch dann noch dieses Notebook
+4394400	4395520	hochladen ins Citycenter,
+4395520	4396400	dann könnt ihr da eventuell
+4396400	4397280	auch nochmal nachschauen.
+4402960	4403280	Genau,
+4405360	4406160	ja das glaube ich,
+4406160	4407840	war es dann eh schon von der Banders.
+4411360	4412400	Vorlesung,
+4412400	4413680	gibt es dazu noch Fragen?
+4416480	4416880	Okay,
+4417520	4418480	dann vielleicht dann kurz
+4418480	4419600	was Organisatorisches,
+4419600	4421200	was jetzt noch auf euch zukommt.
+4424720	4425680	Wir sind,
+4425680	4426400	das heißt,
+4426400	4428800	sollte eigentlich Assignment 2 sein,
+4428800	4430560	also die Ausgabe wird jetzt
+4430560	4431840	in den nächsten paar Tagen kommen,
+4432560	4434400	es hat sich bis sich verzögert,
+4434400	4435840	weil wir jetzt eben mal
+4435920	4438560	kurze SimPy-Aufgabe einbauen werden,
+4441120	4442320	aber ihr bekommt dann eine E-Mail.
+4444480	4446640	Nächste Woche machten der Helmut noch
+4446640	4448480	über SimPy einen Crash Course,
+4451440	4455280	dann am 4. Feb,
+4455280	4456720	praktisch ist keine Vorlesung,
+4457360	4458560	und dann am 11.
+4458560	4460240	haben wir dann die Classeur-Vorbereitung,
+4460240	4461680	da wiederholen wir noch mal alles,
+4462320	4464160	was ihr für die Classeur braucht.
+4466480	4468640	Am 4. Feb ist dann eh schon,
+4468640	4470480	dass die Deadline für Assignment 2,
+4470480	4471920	ist seit eh schon alle in Gruppen
+4472560	4473200	angemeldet,
+4473200	4474400	nämlich an im Dietz-Center,
+4477120	4479360	und dann,
+4479920	4481040	ja, falls die Classeur
+4481040	4482000	im Nicht-Hin-Haus holt,
+4482000	4483280	dann gibt es eben noch eine Nachclasseur.
+4484960	4486560	Zu den Tutorien habe ich da auch noch,
+4487840	4489600	da wird dann nächste Woche
+4490960	4492480	noch mal das Ganze durchgemacht,
+4492480	4493840	was wir jetzt in den letzten
+4493840	4495600	zwei Crash Crosses durchgemacht haben,
+4496800	4499760	dann am 3.
+4499760	4502800	wahrscheinlich haben wir SimPy-Tutorium,
+4503760	4506400	und am 10. Dezember gibt es
+4506400	4508080	noch mal eine Fragestunde zu Assignment 2,
+4508080	4510080	falls es noch Unklarheiten gibt, ja.
+4514160	4515600	Man muss sich für die Classeur
+4515600	4516320	nicht anwenden, nein.
+4517840	4519120	Die ist dann ein,
+4519120	4520480	eigentlich ein Dietz-Center-Quiz,
+4522880	4523600	das könnt ihr dann
+4524240	4525840	zu Hause online machen.
+4533040	4533920	Wenn ich mich richtig erinnere,
+4533920	4535200	braucht ihr dafür
+4536000	4537280	für die Classeur auch noch mal
+4537280	4538640	50 Prozent der Punkte.
+4541520	4542560	Genau, ja,
+4543120	4544320	da haben wir jetzt alles durchgemacht,
+4545520	4546080	hoffentlich.
+4549840	4550560	Dann gehe ich kurz
+4550560	4552000	zu Assignment 2 über
+4552000	4552800	und erkläre kurz
+4553840	4554320	was wir
+4555920	4558320	Assignment 2 ablaufen wird.
+4559600	4561120	Es hat sich eigentlich
+4561120	4563440	seit letzten Jahren nicht viel geändert.
+4563440	4564880	Es ist immer noch Data Science
+4564880	4566160	für Civil Engineers.
+4566160	4567360	Was heißt das?
+4567360	4568640	Ja, ihr müsst damit banden,
+4568640	4569760	bis ihr was arbeitet,
+4571280	4572800	und das soll so ein bisschen simulieren,
+4572800	4574720	wie das wirklich in der Realität
+4575440	4577360	vielleicht auch aussehen könnte.
+4578240	4578800	Das heißt,
+4579760	4581520	ihr betreibt da Data Science
+4581520	4583040	in eurem Anwendungsfeld,
+4584560	4585840	und wir haben da Daten
+4585840	4587760	von Vorarlberger Ski-Liften
+4588320	4589120	und Seilbahnen,
+4589120	4590640	mit denen ihr dann arbeiten könnt.
+4593520	4594880	Und Ziel ist es da
+4594880	4596240	praktisch, bis die Bahnen das
+4596240	4597040	können zu lernen
+4597040	4600480	und damit was zu programmieren.
+4602080	4604000	Und dieses Assignment
+4604000	4606480	ist im Jahr in Teilen aufgedeilt.
+4607760	4608960	Ein Punkt bekommt ihr schon
+4608960	4610160	allein aus Daten laden.
+4610720	4612320	Das sollte jetzt kein Problem sein
+4612320	4614560	mit ReadCSV.
+4616400	4617600	Dann nochmal Pre-Processing.
+4618720	4620000	Pre-Processing, was heißt das?
+4620000	4621680	Ja, bevor wir mit den Daten
+4621680	4622960	überhaupt was anfangen wollen,
+4622960	4623760	müssen wir überhaupt schauen,
+4623760	4626960	dass die Daten gut aussehen.
+4626960	4628240	Das heißt, ob wir müssen
+4628240	4630480	die missing values zum Beispiel entfernen
+4632320	4634640	oder falls irgendwelche values
+4634640	4635440	nicht stimmen sollen,
+4635440	4636960	zum Beispiel wenn ein 0 drin steht,
+4636960	4638880	dann müssen wir das nachschauen
+4638880	4640000	und eventuell ausbessern.
+4640960	4642800	Und das machen wir dann alles mit Code.
+4645760	4646640	Und dann eigentlich
+4647840	4649840	gibt es noch die Exploration und Visualisierung.
+4649840	4650640	Das heißt praktisch,
+4650640	4651600	ich schaute euch die Daten an
+4651600	4653840	und plaudert es dann mal
+4653840	4655520	auf bestimmte Spalten oder so
+4655520	4656560	und seht es okay.
+4658080	4661040	Keine Ahnung, es gibt 20 Ski-Lifte
+4661040	4663760	oder die insgesamt,
+4664480	4666320	die gesamte Länge aller Ski-Lifte
+4666320	4668240	ist 50 Kilometer oder so.
+4670400	4671920	Also da kann man wie sie schauen,
+4671920	4673600	wie schauen die Daten überhaupt aus,
+4674800	4676240	statt dass man immer nur ne Tabelle hat.
+4678880	4680560	Und dann das ganze Schluss.
+4681520	4683120	Also das ist praktisch der erste Teil
+4684160	4685280	und dann gibt es den zweiten Teil,
+4685280	4686560	das ist praktisch eine Analyse
+4686560	4687120	und Berechnung,
+4688720	4691040	wo ihr noch mal 12,5 Punkte bekommt
+4691840	4693040	und da werden wir dieses Mal
+4694080	4695520	noch ein bisschen SimPy inkludieren.
+4697600	4698800	Und ja, das ist dann auch einfach
+4698800	4699520	noch mal,
+4700400	4702400	da gibt man dann noch mal tiefer rein,
+4702400	4704400	sucht sich bald durch einen bestimmten Punkt aus,
+4705840	4706480	wo man sagt okay,
+4706480	4708000	das möchte ich mir genauer anschauen,
+4708000	4709520	also möchte ich mir genauer analysieren,
+4709520	4710080	zum Beispiel,
+4716640	4717920	das Beispiel selber nicht ganz genau.
+4720640	4721680	Aber hier nehmen wir jetzt einfach mal
+4721680	4723040	ein grobes Beispiel her und sag,
+4723040	4725680	ich nehme jetzt die Länge
+4725680	4728400	aller Ski-Liftes 50 Kilometer
+4729520	4731040	und ich nehme jetzt die Länge,
+4733040	4734160	was kann ich mit dem anfangen.
+4735440	4735920	Das Beispiel,
+4738000	4739760	wie hoch ist zum Beispiel der Preis
+4739760	4740720	pro Kilometer,
+4740720	4741920	den ich dafür gezahlt habe
+4742640	4744960	oder wie viel Gewinn kann ich
+4744960	4748320	pro Kilometer Ski-Lift einnehmen.
+4750080	4751360	Das ist nur ein Beispiel,
+4751360	4752000	ich glaube,
+4752000	4753920	das ist dann ein bisschen anders,
+4753920	4754960	immer sei man zwei, aber
+4756320	4758160	aber ja, so was könnte ich darunter vorstellen.
+4759280	4762160	Für die Abgabe,
+4762160	4764560	also die Abgabe ist dann einfach
+4766640	4767680	das ist die Beschreibung,
+4767680	4768800	die ihr dann bekommen werdet,
+4769360	4770960	das ist dann eigentlich so ziemlich
+4770960	4772320	gleich wie Simon 1.
+4773760	4776640	Die Deadline ist dann Mitternacht am 14.
+4778080	4779600	Und da gibt ihr dann einfach
+4779600	4781840	dieses Simon 2 Punkt Notebook ab,
+4781840	4784160	also dieses IPNB.
+4784160	4789520	Ja, die Anforderungen und Output
+4789520	4791280	sind da exakt wiederzugeben,
+4791280	4791760	warum?
+4791760	4792720	Ja, weil wir da wieder
+4792720	4793840	das Testsystem verwenden.
+4797120	4799600	Also wir werden da auch wieder
+4799600	4800240	beim Testsystem,
+4800240	4801360	also dieses Testsystem
+4801360	4802720	mehrmals durchlaufen lassen,
+4802720	4804480	also jeweils Dienstag und Freitag.
+4806000	4807520	Ich rate euch da wirklich sehr,
+4807520	4808640	das auszunutzen,
+4809840	4811120	weil ihr da auch wirklich
+4811120	4812720	blöde Fehler draufkommt,
+4812720	4815600	könnt ihr die vielleicht durch Punkte abziehen.
+4819120	4822960	Ja, dieses Mal muss der Kommentarheader,
+4824640	4826480	ah, wo sind da beide Dateien?
+4829040	4830640	Also einfach in allen Dateien,
+4830640	4832160	die ihr dann abgeben solltet,
+4832160	4834880	sollte dieser Kommentarheader ausgefüllt werden.
+4836080	4838800	Und Codingstander soll auch wieder eingehalten werden.
+4839600	4843760	Ja, genau, zum Automatisieren Test nehmen,
+4846160	4847360	VIPAS 1 mit 1.
+4847360	4851600	Also wenn ihr alle Tests erfolgreich bestanden habt,
+4851600	4852400	muss das nicht heißen,
+4852400	4853600	dass ihr alle Punkte bekommt,
+4855360	4856640	weil wir natürlich auch noch
+4856640	4858240	im Hintergrund Tests haben,
+4859120	4862560	also am Ende mit anderen Werten,
+4862560	4864240	die wir nochmal austesten werden.
+4865840	4867200	Deshalb seid gefasst,
+4867200	4872240	dass ihr da wirklich alle Kleinigkeiten durchgedacht habt
+4874560	4875520	und dann sollte es eigentlich
+4875520	4876720	hier trotzdem kein Problem sein.
+4881520	4884000	Genau, Testruns, Dienstags und Freitags,
+4884000	4885600	wir werden dann wieder einfach die Abgaben
+4885600	4888640	ab 18 Uhr downloaden und testen
+4888640	4890080	und dann bekommt ihr wieder per Mail
+4891600	4892720	praktisch ein Feedback.
+4893840	4895520	Und falls ihr wirklich da Fragen habt
+4895520	4896560	zum Testreport,
+4896560	4898720	dann kommt ihr eben ins Tutorium
+4898720	4900240	oder schreibt es einfach in die Center,
+4900240	4902240	sagt okay, ich habe diesen Fehler bekommen
+4902800	4903840	im Feedback Report.
+4904800	4906000	Ich verstehe nicht,
+4906000	4908560	könnt ihr bitte uns da weiterhelfen.
+4910000	4911360	Und da werden wir versuchen,
+4911360	4914880	das so schnell wie möglich zu beantworten.
+4916880	4919840	Ja, das ist es eigentlich eh schon
+4919840	4922080	von diesem Crash Course.
+4922080	4923360	Gibt es sonst noch Fragen?
+4924320	4926080	Sonst würde ich mich bedanken.
+4932960	4933680	Das ist eine gute Frage.
+4939360	4940960	Da doch hier steht,
+4940960	4942400	im beiden Dateien,
+4943440	4944640	ja also ich denke schon,
+4944640	4946240	dass ihr praktisch da zusammen
+4946240	4947680	in einer Datei arbeiten könnt.
+4948240	4949280	Also ihr könnt es,
+4949600	4952000	ich will jetzt nichts Blödes sagen,
+4952000	4953600	weil ich das selber jetzt nicht weiß,
+4953600	4955200	aber ich kann mir halt gut vorstellen,
+4955200	4956560	dass ihr wahrscheinlich
+4956560	4958720	einfach entweder zu zweit euch zusammensetzt
+4958720	4960560	und das Gemeinsam programmiert
+4960560	4961760	und dann einfach
+4961760	4963200	für jeweils pro Person
+4963200	4965680	das gleiche File auf Teach Center hochlett.
+4965680	4966880	Da bekommt ihr jetzt kein Plagiat.
+4966880	4968160	Ich meine, das macht ihr zusammen.
+4968160	4969440	Das ist ja eigentlich die...
+4973200	4974480	Ihr sollt natürlich das nicht
+4974480	4976480	mit zwei verschiedenen Gruppen machen,
+4976480	4978320	aber ja, es ist einfach so,
+4979120	4981040	also es ist eine Gruppenarbeit.
+4981040	4982960	Das heißt, ihr könnt das ruhig zu zweit
+4982960	4984480	gemeinsam auf einem Computer machen.
+4985360	4986560	Wenn ihr das nicht möglich ist,
+4986560	4988000	dann könnt ihr das auch über Karnung,
+4988720	4990640	Discord machen oder Karnung.
+4990640	4991840	Also das ist alles möglich.
+4997280	4998080	Okay, was?
+4998800	5000480	Falls ihr sonst keine Fragen gibt,
+5000480	5001520	dann vielen Dank.
+5002480	5003040	Dann lasse ich euch...

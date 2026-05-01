@@ -1,0 +1,960 @@
+start	end	text
+0	19000	Herzlich Willkommen zum Bison Crash Course B und ja, ich starte dann gleich mal was wir heute oder was wir gestern gemacht haben, zur Wiederholung nochmal, also wir haben da bisschen die Variablen durchgemacht,
+20000	43000	also zwei Datentypen, die Operatoren plus, minus, Division, Multiplikation, Strings, wie man Strings zu Integers und Floats castet und umgekehrt und nochmal Assignment 0, also heute ist Deadline, bitte alle Assignment 0 abgeben, sonst werdet ihr vom Kurs abgemeldet.
+44000	55000	Ich starte jetzt gleich den Feedbacker, dann könnt ihr mir da toll die Fragen beantworten.
+55000	81000	So, ich glaube eine Frage könnte ein bisschen schwerer sein oder zwei, aber ist egal, versucht einfach und dann diskutieren wir.
+86000	105000	Dann gehen wir mal gemeinsam eure Antworten durch, schaue ich, ob ich da meinen Mauszeiger finde oder nicht, ja.
+105000	134000	Okay, also falls ihr noch erinnern könnt, bei den Variablenamen ist so, die dürfen nicht mit einer Zahl beginnen, deshalb ist zum Beispiel das 1 unter Strich Message ungeltig, es dürfen noch keine Leerzeichen zwischen den Variablenamen vorkommen, deshalb ist auch short Leerzeichen name ungeltig.
+136000	154000	Und das letzte ist auch ungeltig, weil Sonderzeichen leider auch nicht erlaubt sind, es sind nur Anderskurs aus Sonderzeichen erlaubt und eben sonst Zahlen zwischen den, also zwischen im Variablenamen aber nicht am Anfang.
+155000	174000	Generell solltet ihr überhaupt versuchen Zahlen in Variablenamen zu vermeiden, ist natürlich praktisch und geht schnell, also vielleicht bei den Abgaben schauen, dass ihr da keine Zahlen drin habt, aber sonst, wenn ihr einfach so codet, kein Problem.
+175000	177000	Gibt es da sonst Fragen?
+179000	180000	Ja.
+180000	193000	Die Zahl muss man nicht ausschreiben, man kann auch wirklich eine 1 reinschreiben, sie darf nur nicht am Anfang sein wie bei 1 Anderskurs Message.
+194000	220000	Da hat mir eben ja hartlich richtig abgestimmt, genau also es ist so, dass praktisch H1 mit dem Wert von H2 in der letzten Zeile überschrieben wird und wir deshalb praktisch dann den Wert 5 drinstehen haben.
+221000	228000	Genau, gibt es da sonst noch Fragen drüber?
+230000	243000	Also die unter zwei Antwortmöglichkeiten sind okay, das sind hier nicht Strings, aber das sind einfach nur, kann man das interpretieren als Variable.
+244000	256000	Ja, pass H2, könnte man richtig gelten, wenn man meint okay, ja das ist der Wert von H2, 5 ist halt korrekt in diesem Fall.
+259000	269000	Ja, das ist auch eine Tricksfrage, wir haben bei Bullians Tag gar nicht durchgemacht, das werden wir heute nochmal kurz durchmachen, ich habe gestern ein bisschen erwähnt.
+270000	278000	Hier gefragt speziell ist der Datentyp und nicht der Wert der Variable, deshalb ist Bullian richtig.
+282000	297000	Dadurch, dass wir das nicht wirklich durchgemacht haben, ist es natürlich ein bisschen schwer verständlich, aber praktisch dieses H kleiner als 15 ist praktisch ein Ausdruck, der eben wahr oder falsch ergibt.
+299000	305000	Aber der Datentyp von diesem Konstrukt ist praktisch ein Bullian.
+307000	309000	Gibt es da zu fragen?
+310000	312000	Okay, sonst machen wir hier dann gleich durch.
+313000	320000	Ja, das Titel haben wir glaube ich auch nur kurz drüber geskippt gestern.
+321000	331000	Titel ist eben eine Funktion, die immer den Großbuchstaben von einem Wort, den ersten Buchstaben eines Wortes groß macht.
+332000	335000	Hier seht ihr den ersten Antwort, die auch richtig ist.
+337000	341000	Zum Beispiel Informatik-BW, ganz groß geschrieben, das wäre zum Beispiel Appa.
+349000	353000	Dann gibt es natürlich auch das ungekehrte Lower.
+353000	365000	Zyntax error gibt es in diesem Fall nicht, weil ja praktisch den Code korrekt geschrieben haben.
+374000	376000	Gibt es da zu fragen?
+376000	384000	Die ganzen Stringfunktionen oder halt Großstelle Stringfunktionen, das sind jetzt auch in der Vorlesungsfolie von gestern enthalten.
+384000	392000	Die sollten jetzt online im D-Center, tut greifbar sein, hoffentlich, sonst meldet ihr euch bitte.
+400000	402000	Genau, da gibt es jetzt auch mehrere Antworten.
+403000	412000	Hier diese Antwort ist falsch, weil wir keinen String mit einem Integer kombinieren können, was leider ein Fehler wirft.
+413000	417000	Wir können natürlich zwei Strings kombinieren, das ist kein Problem.
+419000	428000	Hier können wir ein Format-String verwenden, das heißt praktisch hier haben wir dieses F davor und dann in den geschwungenen Klammern haben wir den variablen Namen stehen
+429000	438000	und dann wird praktisch der Wert dieser Variable hier reingeschrieben und die geschwungenen Klammern sind einfach praktisch irgendwann ignoriert.
+442000	452000	Genau, das ist einfach eine andere Anwendung von Format-Strings und hier auch nochmal eine andere Anwendung von Format-Strings.
+452000	454000	Gibt es da zu fragen?
+459000	479000	Okay, ja, das haben wir eh gestern durchgemacht, diese Antwort hier würde praktisch das hier liefern, also wenn wir uns das nochmal vorstellen,
+480000	492000	dann haben wir die Indizierung 0, 1, 2, 3, 4, 5 und 6.
+495000	504000	Dann ist die Zahl vor dem Doppelpunkt der Start, das heißt der ist inklusive, also von hier.
+505000	512000	Und nach dem Doppelpunkt haben wir gar keine Zahl, das heißt es geht bis ans Ende, das heißt wir würden Unterstrich-Gradz kriegen.
+513000	524000	Und das letzte wäre praktisch von 0 bis 1, das wäre praktisch 1 ist also das Ende sehr immer explosiver, das heißt wir haben nur 0 bis 0 und das wäre in diesem Fall ein T.
+526000	528000	Gibt es da zu fragen?
+529000	530000	Okay.
+534000	555000	Hier wieder ein großer Richtig, hier sind auch wieder zwei einfach nur Strings, Trickfragen oder Antworten drin, wie immer praktisch man kann nicht Strings mit Integer kombinieren,
+555000	557000	dann müsste man davor kasten.
+557000	565000	So, dann noch so von der Frage.
+566000	578000	Dabel gibt es, wenn ich mir richtig erinnere, nicht, also nicht, es gibt Bibotheken, die das ermöglichen, die praktisch mehr Datentypen zur Verfügung stellen,
+579000	588000	die praktisch eine Schnittstelle zwischen zum Beispiel C und Pfeifen liefern, zum Beispiel eine der bekanntesten ist NumPy.
+595000	600000	Die einem praktisch eine schnellere Berechnung ermöglicht.
+604000	605000	Genau.
+606000	608000	Wie läuft die Vorprogrammierung ab?
+608000	613000	Ist es schwierig, was passiert, wenn der Code nicht funktioniert, aber der Code fast richtig programmiert wurde, danke.
+613000	620000	Ja, es ist so, ihr habt ja ja wenig Zeit und deshalb auch wenig Zeit zum Testen.
+620000	634000	Es ist da kein Problem, falls der Code nicht funktioniert, also die Totoren gehen da wirklich alle Abgaben manuell durch und schauen, ob praktisch das Großteil richtig verstanden wurde.
+635000	648000	Also, wenn man da jetzt mal Karnung kurz einen irgendeinen Fehler übersehen hat, dann ist das jetzt nicht so problematisch.
+650000	658000	Schwierig ist es, wenn man jetzt nicht übt, also das ist praktisch waschologisch,
+658000	667000	aber also ich würde wirklich raten, dass ihr bei den Tutorien ein bisschen mitmacht und da die Übungen praktisch ausarbeitet.
+668000	676000	Ich glaube, heute sollte das erste Video online gestellt werden, da wird es eh sicher noch eine E-Mail kriegen dazu.
+677000	695000	Ihr habt da praktisch, das läuft dann so ab, dass ihr eine Aufgabenstellung kriegt, die könnt ihr dann für 10 Minuten mal durchlesen und euch auf ein Zettel Papier normalerweise niederschreiben und Gedanken euch darüber über das Programm machen, was ihr da programmieren müsst.
+696000	713000	Ihr dürft da in diesen ersten 10 Minuten, wo ihr les praktisch nicht selber was schreiben, direkt auf im JupyterLab, sondern nur vom Papier, also nicht auf dem Computer, damit ihr das nicht einfach dann kopieren könnt, damit ihr euch nicht dann vorteilfach schafft gegenüber anderen.
+714000	720000	Und dann habt ihr glaube ich nochmal eine halbe Stunde Zeit, um das zu programmieren.
+721000	723000	Gibt es dazu Fragen?
+727000	730000	Ihr braucht kein GitHub für WS Code.
+736000	738000	Genau, ich sende noch drei Fragen. Perfekt.
+742000	744000	Dann starte ich weiter.
+744000	751000	Genau, was machen wir heute? Also die Besprechung von Feedback haben wir schon eh schon gemacht.
+752000	757000	Ich werde nochmal kurz das Nankie-Wert wiederholen, falls das bisher nicht ganz klar war.
+758000	760000	Booleans gehen wir kurz durch.
+761000	770000	Und dann gehen wir eh schon in eigentlich die komplizierten Dinge im Beifen, das sind die Bedingungen, also if, if else, if, if else.
+771000	777000	Lists, Duples und die Vorschleifen, die wir hoffentlich heute noch schaffen.
+779000	785000	Passt nochmal kurz zum Nankie-Wert, also hat das jeder verstanden oder soll ich das nochmal wiederholen?
+787000	793000	Also das Nankie-Wert braucht man vor allem dann jetzt, wenn wir dann ifs verwenden und vor loops,
+794000	799000	damit wir dann praktisch davor schon die, den variablen Namen definiert haben.
+800000	803000	Wie hier zum Beispiel x ist gleich nann.
+804000	809000	Das wird dann gleich klar, warum wir das eben brauchen.
+811000	813000	Vielleicht kann ich das eh kurz herzeigen.
+814000	819000	Und zwar muss man sich das so vorstellen, dass im Beifen hat man alles so in Blöcke unterteilt.
+819000	823000	Das heißt, wenn ich hier meine Variable hab
+829000	832000	und dann habe ich meinen if Statement, dazu kommen wir dann eben gleich,
+837000	839000	dann wird hier eingerückt
+839000	850000	und das ist jetzt ein innerer Block, der praktisch nur Teil dieses if Statements ist.
+852000	860000	Das heißt, wenn wir zum Beispiel hier dann print ausführen würden,
+860000	875000	in diesem Fall würde es 5 ausgeben, weil if war, also wenn war, dann schrei mal x ist gleich 5, also ist das 5.
+876000	879000	Aber wenn das jetzt zum Beispiel false wäre
+883000	889000	und wir zum Beispiel hier x nicht definiert hätten, dann würde uns Beifen hier einen Fehler werfen.
+890000	899000	Aber dadurch, dass wir x hier definiert haben, kommt da einfach dann nann als Antwort raus.
+900000	906000	Also der Unterschied ist, ob wir nann als ausgegeben kriegen oder ob wir einen Fehler ausgegeben kriegen,
+907000	913000	der praktisch unser Programm abrupt verenden würde, was wir natürlich verhindern wollen.
+913000	918000	Dann kommen wir jetzt eh gleich mal zu diesen Bullschen ausdrücken.
+919000	924000	Den Namen haben wir eben, diesen George Bull, da zu verrankten.
+925000	937000	Und Bullians sind praktisch sehr simple Datentypen, die entweder nur 0 oder 1 sein können, also war oder falsch.
+938000	942000	Und im Beifen definieren wir die eben als true oder false.
+945000	949000	Und das kann eben sowas sein.
+950000	956000	Und zwar ist das hier in diesem Fall 2 plus 2 ist 4, ist kleiner als 4.
+958000	963000	Und das ist natürlich falsch, weil 4 ist gleich 4.
+964000	977000	Das heißt, wir haben diese Vergleichsoperatoren, die uns eben Bullians ermöglichen oder praktisch ausgeben.
+978000	982000	Und da gibt es ganz verschiedene Vergleichsoperatoren, da haben wir einmal dieses ist gleich,
+983000	987000	dann haben wir das ist nicht gleich, das größer als, das kleiner als,
+987000	991000	dann auch kleiner gleich als, größer gleich als.
+992000	996000	Und dann haben wir noch 2 spezielle, das ist das ist und das ist nicht.
+997000	999000	Das sollte ich vielleicht auch noch kurz erklären.
+1005000	1008000	Ich habe das gestern kurz erwähnt, dass eine Variable,
+1009000	1015000	die ist praktisch eigentlich nur so eine Art Label für eine Adresse irgendwo.
+1016000	1023000	Also die, der Computer sieht die eigentlich eher so, F, A, 0, B.
+1024000	1034000	Einfach ein Hexatezimaladresse und da steht dann der Wert 5 drin, wenn wir da zum Beispiel 5.
+1035000	1040000	Also das hier benennen wir einfach X.
+1042000	1048000	Und jetzt können wir eben, das war auch bei einer der Antworten oder einer der Fragen,
+1049000	1055000	bei dem Feedback gerade davor, was wenn wir jetzt sagen Y ist gleich X.
+1055000	1065000	Dann ist einerseits der Wert gleich, aber Y hat auch die gleiche Adresse hier.
+1066000	1074000	Und das ist eigentlich der große Unterschied für zwischen dem hier und ist,
+1075000	1084000	der hier vergleicht nur die Werte und der vergleicht die Adresse.
+1085000	1102000	Das heißt, wir können daraus finden, ob die Variable auf die selbe Adresse zeigt, wie die andere Variable.
+1103000	1108000	Gibt es dazu Fragen oder ist es, ja, okay.
+1110000	1112000	Das Gleiche geht natürlich auch mit IsNot.
+1113000	1116000	Speziell ist da auch das Nann Keyword.
+1117000	1127000	Und zwar machen wir beim Nann, also wenn wir Nann schauen wollen, ist X, da machen wir immer IsNann.
+1130000	1138000	Und nicht, ist gleich, ist gleich.
+1142000	1144000	Das liegt darin, dass Nann ein bisschen speziell ist.
+1145000	1152000	Das ist ein eigener Datentyp, der immer wirklich eine eigene spezielle Adresse hat und wirklich unfreinderbar ist.
+1153000	1154000	Das ist eben sowas wie eine Konstante.
+1157000	1162000	Genau, und wir bekommen da immer ein True oder False raus, also ein Wow oder Falsch.
+1164000	1168000	Und da gibt es dann in Python verschiedene Operatoren.
+1168000	1171000	Da haben wir zum Beispiel das Ohr, das End und das Not.
+1172000	1173000	Das sind eigentlich eh die wichtigsten.
+1174000	1183000	Das heißt praktisch, ich kann dann hier in meinem If rein, if X ist Nann, direkt Ohr schreiben.
+1192000	1193000	Und dann werden die verodert.
+1194000	1198000	Und wie das praktisch, was der Unterschied zwischen Ohr, End und Not ist, kommen wir gleich.
+1199000	1206000	Wichtig zu wissen ist, dass zuerst ist immer die Verneinung, dann das End und dann das Ohr.
+1208000	1210000	Also von der Ausführung.
+1223000	1246000	So was hab, dann wird zuerst das hier ausgeführt, dann das hier und dann ganz am Schluss noch das Ohr.
+1246000	1264000	Genau, also End haben wir, also wenn wir zwei Sachen verunden, dann ist das Ergebnis nur true, falls beide Sachen wahr sind.
+1265000	1270000	Bei Ohr muss nur eines der beiden Sachen wahr sein und Not ist einfach eine Verneinung praktisch.
+1270000	1276000	Wenn unser Bullenwert wahr war, dann mit Not ist es jetzt falsch.
+1281000	1284000	Und das schaut dann eben so aus, da gibt es eine tolle Wahrheitstabelle.
+1285000	1291000	Das heißt einfach, wir haben hier true, true ergibt bei und true und der Rest eigentlich immer false.
+1292000	1296000	Bei Ohr ergibt praktisch eigentlich nur false, false, false.
+1297000	1305000	Weil wir hier immer einen Wahrheitswert haben und das ist einfach die Regierung.
+1306000	1307000	Gibt es da zu fragen?
+1312000	1317000	Dann noch kurz vielleicht zu den anderen Operatoren, also wir sehen hier eh schon Ohr, End und Not,
+1318000	1320000	aber das sind eigentlich die, die ganz zum Schluss ausgeführt werden.
+1321000	1329000	Also wenn man praktisch, sagen wir mal, wir machen wirklich eine ultra lange, einen Einzeiler, wie man das so schön nennt.
+1330000	1347000	Zum Beispiel machen wir 2 hoch 2, dann multiplizieren wir das mit 2, dann noch plus 2 und so weiter und so fort.
+1347000	1353000	Dann wird praktisch zuerst das hier ausgeführt, dann das hier, dann das hier und so weiter und so fort.
+1354000	1359000	Praktisch ganz unten ist das, was zuerst ausgeführt wird und dann geht es nach oben, was zuletzt ausgeführt wird.
+1361000	1366000	Hier gibt es eben noch so spezielle Operatoren wie ADD, das ist zum Beispiel eine Matriz-Multiplikation,
+1367000	1371000	aber das glaube ich, würde ich in dieser Folie schon ja nicht brauchen.
+1372000	1378000	Genau, Division, Ganzzahldivision und Modulo oder halt Rest.
+1379000	1389000	Plus Minus, dann gibt es noch so Bit-Operatoren, damit kann man Bits verschieben.
+1390000	1396000	Das kann man sich so vorstellen, dass in Wirklichkeit, wenn praktisch alle Daten,
+1396000	1401000	nehmen wir jetzt mal zum Beispiel eine Ganzzahl, einen Integer her,
+1402000	1407000	dann wird der eigentlich intern vom Computer in Benärzahl repräsentiert.
+1408000	1420000	Das heißt, wir haben 1, 2, 4, das heißt, wir haben 1, 0, 1, das ist unsere Benärzahl.
+1420000	1432000	Und mit dieser Schiftooperation, zum Beispiel 2, kann man das Ganze eben nach vorne schiften.
+1433000	1436000	Das heißt, wir haben dann 1, 0, 1, 0, 0 stehen.
+1438000	1445000	Und das ist dann für die ganz schlauen, die machen dann ganz schnelle Berechnungen damit.
+1445000	1450000	Aber ja, das ist auch nicht so etwas, was ihr wahrscheinlich in der Vorlösung hier brauchen wird.
+1452000	1455000	Aber ja, falls man wirklich tiefer in die Materie einsteigen will,
+1456000	1462000	dann muss man sich vertraut sein, dass also mit diesen Bits, mit diesen Benäherzahlen,
+1463000	1469000	praktisch sollte man sich auskennen, aber ja, gibt es dazu Fragen sonst?
+1470000	1474000	Stimmt, ich glaube, Benärzahlen wird sogar gemacht in der Vorlösung,
+1475000	1476000	da später.
+1478000	1483000	Passt, dann kommen wir jetzt zu den If-Statements, ich habe sie schon kurz da gezeigt.
+1484000	1492000	Und zwar ist das einfach, wenn Bedingung erfüllt ist, dann mach das.
+1493000	1500000	Also wir haben hier, if die Bedingung hier, hier habe ich jetzt zum Beispiel X ist Nann,
+1501000	1503000	dann print mir das.
+1506000	1508000	Sonst wird es einfach übersprungen.
+1511000	1517000	Und hier wichtig für euch ist, dass ihr schaunst sollst, dass ihr immer 4 Leerzeichen eingerückt seid.
+1518000	1522000	Wenn ihr wischlst, du dir kurz zum Beispiel verwendet fürs Programmieren, dann könnt ihr glaube ich auch einfach Tab drücken
+1523000	1525000	und dann macht er automatisch 4 Leerzeichen.
+1527000	1532000	Ich sollte da auf jeden Fall schauen, dass das eben 4 sind und nicht 2 und eben auch kein Tab.
+1535000	1537000	Genau, gehen wir da kurz noch weiter.
+1539000	1546000	Genau, hier zum Beispiel sieht man das, hier haben wir die Bedingung, wenn die erfüllt ist, dann wird das ausgeführt.
+1547000	1554000	Falls wir aber nicht diese Bedingung erfüllen, dann wird das übersprungen, weil das praktisch hier eingerückt ist in einem Block.
+1555000	1564000	Und wir gehen zu der nächsten Anweisung, die praktisch hier auf derselben Block-Intentation ist, also Einrückung ist.
+1566000	1574000	Genau, und dann gibt es natürlich auch, wenn dann und dann sonst, also das Elf.
+1577000	1585000	Hier im diesen Fall wird das hier immer ausgeführt, aber wir können das natürlich auch anders machen.
+1586000	1591000	Wir können das sagen, okay, wir wollen das nur ausführen, falls die Kondition nicht erfüllt ist.
+1591000	1596000	Das heißt, wir machen, wenn die Kondition erfüllt ist, dann bringt mir das.
+1597000	1599000	Falls ihr aber nicht erfüllt ist, machen wir was anderes.
+1601000	1607000	Und das kann man natürlich noch erweitern und also hier nochmal kurz wiederholen.
+1609000	1618000	Dann gibt es nämlich noch das Elf dazwischen und das ist praktisch dann, wenn dann, sonst wenn dann.
+1619000	1621000	Und dann ganz zum Schluss sonst.
+1622000	1627000	Das heißt praktisch, wir haben hier, da kann man da ja, ein Kotbeispiel hier.
+1628000	1636000	Das heißt, wir haben hier, falls unsere Kondition erfüllt ist, machen wir das, falls sie nicht erfüllt ist, schauen wir die nächste Kondition an.
+1637000	1640000	Okay, die ist auch nicht erfüllt, dann schauen wir die nächste Kondition an.
+1641000	1645000	Okay, die scheint auch nicht zu erfüllt sein, dann bleibt nur noch das übrig, dann wird das ausgeführt.
+1646000	1652000	Falls wir irgendwo dazwischen landen, falls diese Kondition erfüllt ist, dann wird das ausgeführt, das hier wird aber nicht mehr ausgeführt.
+1654000	1658000	Ist das bis jetzt so verständlich oder gibt es Fragen?
+1660000	1669000	Okay. Wichtig ist, so was ist nicht gleich wie das her.
+1670000	1679000	Hier im diesem Fall ist es halt wirklich so, dass wir zuerst diese Kondition schauen und wenn die nicht erfüllt ist, dann gehen wir die nächste rein.
+1680000	1682000	Das ist praktisch alles ein zusammenhängender Block.
+1683000	1688000	Hier im diesem Fall, das sind alles getrennte Statements.
+1689000	1697000	Das heißt praktisch, wenn diese Kondition erfüllt ist, dann wird das hier gemacht, dann wird aber auch gleich diese Kondition angeschaut.
+1697000	1700000	Und falls die auch erfüllt ist, dann wird das ja auch ausgebrintet.
+1701000	1702000	Also hier in diesem Fall ist das nicht der Fall.
+1703000	1707000	Also wenn wir hier diese Kondition erreicht haben, dann wird der Rest hier nicht mehr ausgeführt, hier aber schon.
+1715000	1717000	Genau, dann nochmal zu den Intendation Rules.
+1718000	1724000	Also ich sollte da beachten, dass ihr immer vier Leerzeichen zur Einrückung verwendet, keine Daps.
+1724000	1729000	Also ich glaube, wir wischen, dass du dir kurz halt das eher automatisch auf vier Leerzeichen gehen.
+1730000	1732000	Falls nicht, kann man das umstellen.
+1733000	1737000	Genau, es ist eigentlich sehr ähnlich wie bei PowerPoint hier.
+1738000	1740000	Also wir haben hier der Block.
+1741000	1746000	Also hier haben wir eine List Entry und dann haben wir hier eine Einrückung.
+1746000	1755000	Und praktisch der ganze Teil hier gehört zu diesem Statement hier.
+1756000	1758000	Und dann gehen wir hier wieder raus.
+1760000	1762000	Gibt es dazu Fragen?
+1763000	1764000	Okay.
+1766000	1771000	Wichtig ist da, dass ihr auch immer schauen soll, dass also wenn ihr Code schreibt
+1771000	1777000	und ihr da zum Beispiel ein Leerzeichen macht,
+1783000	1788000	dann wird es euch also hier in diesem Fall noch, glaube ich, keinen, ah doch, hier wird es ja schon einen Fehler werfen,
+1789000	1793000	weil ihr hier die Einrückung nicht beachtet habt.
+1794000	1799000	Das heißt, hier müsst ihr immer schauen, dass die Sachen an der gleichen Einrückung starten.
+1802000	1804000	Sonst kommt es zu diesen Intentation Errors.
+1805000	1809000	Also wenn ihr das hier seht, dann wisst ihr, okay, irgendwo habe ich ein Leerzeichen bei meiner Einrückung vergessen.
+1810000	1814000	Meistens wird es eh schon rot markiert, also nur, dass ihr es wisst.
+1815000	1820000	Falls dieser Fehler kommt, dann ist es wahrscheinlich irgendein Problem mit einem Leerzeichen hier.
+1820000	1823000	Und diese Codeblöcke sind beliebig schachtelbar.
+1824000	1828000	Also ich weiß nicht, manche von euch haben eh schon bisschen Programmieren gehabt in der Schule.
+1829000	1832000	Es ist bei anderen Programmiersprachen ein bisschen anders.
+1833000	1838000	Da kann man zum Beispiel Klammern verwenden, die eben diese Blöcke für euch definieren.
+1839000	1841000	Im Beifen ist aber wirklich alles einfach so mit Leerzeichen gemacht.
+1841000	1847000	Das heißt, eine Vor- und Nachteile, also Nachteile ist, dass man halt sehr viele Leerzeichen schreiben muss.
+1848000	1854000	Also normalerweise werden die je automatisch gemacht, aber halt der Code hat dann insgesamt dann sehr viele Leerzeichen.
+1855000	1858000	Wenn man das natürlich jetzt mit Java oder C vergleicht, wenn man dann praktisch,
+1859000	1862000	wir sagen noch auch noch einen Strich, dann ist es einfach so.
+1862000	1866000	Aber ja, wie gesagt, einfach immer diese Leerzeichen verwenden.
+1867000	1872000	Und da kann man eben ifs in ifs schreiben, ifs, if else in ifs schreiben.
+1873000	1875000	Also es ist da beliebig machbar.
+1876000	1879000	Und ja, wenn man das natürlich jetzt mit Java oder C vergleicht,
+1880000	1883000	wenn man dann praktisch noch noch einen Strichpunkt Diamente hat,
+1884000	1886000	dann kann man alles in einer Zeile schreiben.
+1887000	1889000	Das ist ein bisschen anders.
+1889000	1896000	Und ja, wichtig da zu wissen, ist eben, dass der Teil wird da nur ausgeführt,
+1897000	1899000	falls der Teil ausgeführt wird.
+1900000	1902000	Das heißt praktisch, dass dieses Print wird nur ausgeführt,
+1903000	1908000	falls die Berter jünger ist als dieses maximale Age hier
+1909000	1913000	und das maximale Age kleiner ist als das Alter vom Beta.
+1913000	1919000	Das heißt, wenn hier gar keine Konditionen richtig wären,
+1920000	1925000	dann hätte man dieses Printstatement hier am Ende.
+1926000	1928000	Gibt es da so Fragen?
+1930000	1931000	Okay.
+1932000	1935000	Ich glaube, ich würde da mal kurz das überspringen.
+1937000	1939000	Dann kommen wir eigentlich eh schon zu den Listen.
+1943000	1948000	Und Listen sind auch eigentlich, also das haben wir, glaube ich,
+1949000	1951000	eh gestern schon ein bisschen durchgemacht mit den Strings.
+1952000	1954000	Also es ist sehr ähnlich zu den Strings.
+1955000	1960000	Listen sind nur noch praktisch noch viel stärker.
+1961000	1963000	Praktisch, wir können da nicht nur einzelne Characters speichern,
+1964000	1967000	wie wir hier haben, sondern wir können da wirklich ganze Elemente speichern.
+1967000	1971000	Und wir können diese auf diese Elemente zugreifen und verändern.
+1974000	1977000	Und genau, also das Wichtigste mal zuerst,
+1978000	1982000	wir haben praktisch am Anfang diese eckigen Klammern.
+1983000	1984000	Also das definiert ein Listen-Typ.
+1985000	1987000	Das könnt ihr auch mal kurz probieren, also das ist einfach...
+1990000	1995000	Es sollte da auch bei den variablen Benennungen praktisch vermeiden,
+1995000	1998000	dass ihr List, das Keyword List zum Beispiel verwendet.
+1999000	2004000	Also List ist nämlich schon eigentlich vergeben als Keyword,
+2005000	2009000	weil ihr praktisch damit zum Beispiel auch eine Liste definieren könnt.
+2011000	2015000	Aber ihr könnt ruhig das deutsche Wort verwenden, zum Beispiel Liste.
+2017000	2020000	Und das hier wird zum Beispiel eine leere Liste.
+2025000	2027000	Diese speziellen Keywords werden euch normalerweise auch bewischt,
+2028000	2031000	das Studio Code und so eigentlich auch schon markiert, andersfarbig.
+2032000	2034000	Also da kommt ihr dann eigentlich sehr schnell drauf,
+2035000	2037000	dass okay, dieses Keyword scheint benutzt zu sein.
+2038000	2040000	So viel ergibt es da eigentlich eh nicht.
+2041000	2046000	Die wichtigsten sind eh List, Set und Doppel.
+2052000	2053000	Die sind schon vordefiniert.
+2053000	2055000	Weil ihr praktisch nicht nur mit diesen eckigen Klammern,
+2056000	2061000	sondern auch eben immer mit diesen Keyword und Klammer auf Klammer zu,
+2063000	2064000	das Gleiche machen könnt.
+2065000	2068000	Also das hier sind keine Listen, das sind andere Sachen,
+2069000	2070000	da kommen wir auch dazu.
+2071000	2073000	Sie sind sehr ähnlich zu Listen, aber keine Listen.
+2076000	2080000	Genau, steht eigentlich hier schon oben, das ist ja wie mit einer leeren Liste definiert.
+2080000	2083000	Und es ist eigentlich ziemlich ähnlich über Strings,
+2084000	2086000	praktisch wie greift man auf diese Elemente in einer Liste dann zu.
+2087000	2090000	Ganz einfach, wir verwenden wieder diesen Index.
+2091000	2094000	Das heißt praktisch, ich habe hier meine Liste definiert,
+2095000	2096000	schrabe ich noch eine Eins rein.
+2097000	2102000	Wenn ich da jetzt auf diese Eins zugreifen will, also auf das erste Element unserer Liste.
+2102000	2110000	Was schrabe ich da rein?
+2111000	2120000	Null, genau, weil die komischen Informatik kann mit Null beginnen mit Zählen.
+2121000	2124000	Das Gleiche auch, wie bei den Strings wieder,
+2125000	2127000	praktisch ein negativer Index fängt von hinten an zu zählen,
+2128000	2130000	das heißt minus 1 gibt uns das letzte Element.
+2130000	2140000	Speziell für Listen ist jetzt, dass wir die Sachen bearbeiten können,
+2141000	2145000	also eigentlich auch wie bei Strings, aber man kann dann praktisch einfach sagen,
+2146000	2149000	okay, ich will das erste Element hier verändern, also mal hier einfach,
+2150000	2153000	hier in diesem Fall Colors an der Stelle Null, also an der ersten Stelle,
+2154000	2157000	habe ich jetzt mal zugewiesen auf Gray.
+2157000	2161000	Ich kann das aber auch dann später im Code dann einfach sagen,
+2162000	2166000	ja, ich will da gar nicht Gray mit E schreiben, sondern anders.
+2167000	2176000	Und kann ich einfach später sagen, ja, ich will das mit A schreiben
+2177000	2179000	und dann wird dieses Element überschrieben.
+2180000	2184000	Das heißt, da steht da nicht mal Gray drin, mit E, sondern Gray mit A
+2184000	2190000	und das wird dann auch so gespeichert, also im Fortlaufen des Programms.
+2191000	2194000	Ihr könnt dann natürlich auch neue Elemente hinzufügen,
+2195000	2200000	das ist eben mit Append, wenn ihr an einer sehr speziellen Stelle der Liste
+2201000	2204000	irgendwo ein Element hinzufügen wollt, dann müsst ihr das mit Insert machen
+2205000	2211000	und mit dem Index, wo ihr an welcher Stelle das Element in der Liste haben wollt,
+2211000	2217000	das ist auch wieder praktisch genau wie hier auch, fängt wieder mit Null an.
+2218000	2220000	Gibt es da so Fragen?
+2221000	2225000	Okay, jetzt kann man natürlich diese hinzugefügten Elemente auch wieder löschen,
+2226000	2230000	man kann auch natürlich Elemente löschen, die schon vordefiniert waren,
+2231000	2235000	also es ist nicht so, dass man nur Elemente löschen kann, die nur hinzugefügt worden sind.
+2235000	2246000	Genau, man kann das mit Dell machen, das sollte man aber eher bisschen vermeiden,
+2247000	2253000	besser ist das Pop, weil das dann wirklich das Element dann einfach rauslöscht
+2254000	2256000	und weiß gar nicht, wie das ist, muss ich kurz nachschauen.
+2265000	2278000	Machen wir da mal eine Liste.
+2279000	2291000	Die einzelnen Elemente sind kommergetrennt, zur besseren Lesbarkeit könnt ihr da auch einfach Leerzeichen immer dazu machen,
+2291000	2295000	die sind aber nicht verpflichtend.
+2296000	2299000	Ich glaube für den Coding-Standard schon, also besser Leerzeichen verwenden.
+2300000	2305000	Das heißt, wenn ich jetzt diese Liste hier auch brinden würde, dann haben wir das so.
+2306000	2314000	Und jetzt lösch ich da ein Element, machen wir gleich das erste,
+2314000	2318000	schauen wir mal, was rauskommt.
+2319000	2323000	Okay, dann wird es auch wirklich gelöscht.
+2324000	2331000	Sag mal, Pop ist in dem Fall hilfreich, wenn ihr das Element noch verwenden wollt,
+2331000	2342000	das heißt, wenn ich da Liste.pop...
+2343000	2357000	Normalerweise, wenn man nur Pop aufruft, dann wird da nämlich, ich mach das so, das letzte Element gelöscht.
+2362000	2368000	Und ihr könnt das praktisch dann noch verwenden, das heißt ihr könnt dieses Pop hier,
+2369000	2374000	da bekommt ihr auch wirklich, also das ist wie, ich drücke die Liste und dann popt das letzte Element raus
+2375000	2377000	und jetzt habe ich das Element und kann damit noch was anfangen.
+2378000	2384000	Der Lied ist es einfach weg, also bei, mit dem Dell Keyword ist es futsch und weg ist die Post.
+2384000	2390000	Da ist er wirklich, also da kann ich noch machen, X ist gleich Pop.
+2392000	2395000	Da kann ich das einfach hier daneben noch rausbrinden.
+2398000	2404000	Das heißt praktisch, ich habe jetzt so mal Pop aufgerufen, das heißt, die zwei Elemente sind da rausgepoppt.
+2405000	2415000	Ich habe bei X das erste mal Pop aufgerufen, da wird praktisch dann das Dreier herausgedrückt
+2416000	2418000	und das wird dann hier in diese Variable X gespeichert.
+2419000	2423000	Dann rufe ich nochmal Pop auf, hier verwende ich es nicht weiter, außer für das Print.
+2424000	2429000	Das heißt, die Liste ist nur noch mit einem Element übrig, weil wir jetzt zwei mal Pop aufgerufen haben
+2430000	2432000	und in X steht drei drin.
+2433000	2436000	Ist das soweit verständlich oder gibt es dazu Fragen?
+2448000	2453000	Pop und dann gibt es auch noch Remove und Remove ist deshalb hilfreich.
+2454000	2458000	Also Delete, wenn wir das anschauen, dann gehen wir den speziellen Index an,
+2458000	2465000	aber sagen wir mal, wir wissen jetzt nicht den Index, wir wollen aber einfach einen Kanon hier in diesem Fall Gray löschen,
+2466000	2470000	weil wir uns die Gefahr über auf die Nerven geht, dann können wir das mit Remove machen.
+2471000	2475000	Das heißt, Colors hat danach kein Element mit Gray mehr drin.
+2479000	2484000	Und wie bei Strings können wir auch wieder die Länge von Listen erfahren, indem wir dieses Land Keyword hier verwenden.
+2485000	2492000	Praktisch, das kommt von Länge und damit können wir praktisch herausfinden, wie lang unser Liste ist,
+2493000	2495000	also wie viele Elemente wir wirklich drin haben.
+2498000	2506000	Und da gibt es natürlich auch wieder Index Errors, praktisch, wenn wir da wieder auf einen ungültigen Index zugreifen in Analyster,
+2507000	2514000	dann wird Beifen sehr unhappy sein und uns sagen, na, da kannst du nicht zugreifen, das existiert gar nicht,
+2515000	2522000	dann kommt so ein Index Error raus. Also falls ihr so ein Index Error sieht, also nicht indent Error, sondern ein Index Error,
+2523000	2530000	dann wisst ihr, okay, ich habe auf ein Element in der Liste zugegriffen, das ist nicht existierab,
+2530000	2535000	praktisch auf eine Index zugegriffen, der außerhalb der Länge unserer Liste ist.
+2538000	2539000	Genau.
+2540000	2543000	Und sonst eben, wenn ihr das letzte Element haben wollt, wieder mit Minus 1.
+2544000	2549000	Und da gibt es auch wieder das gleiche wie bei Stringslicing, das haben wir durchgemacht.
+2550000	2556000	Also man kann bei den Listen auch wieder das gleiche Slicing Verfahren verwenden, das heißt, man kann ja auch wieder hergehen.
+2557000	2558000	Und
+2569000	2575000	kann ich machen, L von 0 bis 2,
+2576000	2578000	dann bekomme ich raus, also
+2578000	2590000	1, 2. Also das funktioniert natürlich auch wieder.
+2590000	2601000	Genau, das sieht so.
+2604000	2606000	Genau, das habe ich jetzt gerade erinnert.
+2608000	2611000	Es sollte eh identisch sein wie bei Stringslicing.
+2612000	2622000	Genau, und wie gesagt, ein Stringslicing ist eh eigentlich nichts anderes als eine Liste mit einzelnen Buchstaben drin.
+2625000	2628000	Genau, dann haben wir nochmal dieses in und not in.
+2629000	2633000	Nein, das haben wir gar nicht gehabt, nein, wir haben das is gehabt, sorry, selber verwirrt.
+2634000	2641000	Und das in ermöglicht uns rauszufinden, ob ein Element in der Liste ist oder nicht.
+2642000	2646000	Und das ist natürlich sehr praktisch, wenn wir das Ganze mit einem if kombinieren.
+2647000	2659000	Das heißt, wir haben hier unser Liste L,
+2660000	2671000	wenn ich das sage if 1 in L,
+2671000	2676000	L, dann mache ich da was.
+2682000	2686000	Das heißt, ich kann sehr schnell rausfinden, ob ein Element in meiner Liste ist oder nicht.
+2687000	2691000	Ich kann das natürlich das umgekehrt auch machen mit not in, das ist praktisch einfach die Verneinung davon.
+2692000	2697000	Ein sehr starkes Instrument.
+2706000	2711000	Gestern habe ich auch kurz erwähnt bei den Strings zum Beispiel das Feind.
+2712000	2716000	Das gibt es natürlich auch bei Listen, wenn man wirklich den Index haben will.
+2717000	2720000	Da gibt es also sehr ähnliche Operatoren.
+2721000	2723000	Gibt es dazu Fragen?
+2734000	2741000	Was der Befehllist hier bringt, größtenteils einfach nur für die Lesbarkeit des Codes.
+2742000	2751000	Es gibt dann nämlich noch speziellere Arten, wie man mit Listen eigentlich nicht,
+2752000	2754000	aber es ist einfach für die Lesbarkeit.
+2755000	2757000	Also dann weiß ich, okay, das ist ein List.
+2758000	2761000	Aber es ist eigentlich identisch wie zu den Eckigen Klammern.
+2762000	2766000	Und ihr könnt auch einfach direkt eckige Klammer verwenden, also ihr müsst ja nicht List, Klammer aufwenden.
+2772000	2773000	Ja.
+2777000	2780000	Na ja, du kannst glaube mit List nur Lehrer-Listen definieren.
+2782000	2787000	Das ist eben, ja, das ist nur, sagen wir zum Beispiel am Anfang des Programms habe ich
+2788000	2796000	eine Variable-Liste 3, die ich unbedingt schon davor definieren will als Lehrer-Liste.
+2797000	2800000	Dann kann ich das eben dieses Keyword hier verwenden, dieses List Keyword.
+2801000	2803000	Dann kann ich natürlich auch einfach den Klammer nehmen.
+2804000	2809000	Also dieses Keyword ist eher relativ wenig im Gebrauch, normalerweise.
+2813000	2817000	Was ganz cool ist, ist auch, man kann die Listen auch sortieren.
+2818000	2822000	Das heißt, wir haben da zwei Möglichkeiten, wir haben einmal das Punkt Sort.
+2823000	2825000	Das kann ich auch kurz mal kurz zeigen.
+2827000	2828000	Warte, bevor ich das mache.
+2828000	2830000	Praktisch, wir haben hier einmal das Punkt Sort.
+2831000	2833000	Das heißt, das hier ist eine Liste.
+2834000	2836000	Und dann kann ich da Punkt Sort aufrufen.
+2837000	2840000	Und dann wird mir, dann sortiert mir bei diese Liste.
+2841000	2842000	Das heißt praktisch alle Elemente.
+2843000	2848000	Zum Beispiel, wenn ich hier 3, 2, 1 geschrieben hätte, dann würde die sortiert nach 1, 2, 3.
+2850000	2855000	Das Gleiche ist auch, wenn ich zum Beispiel das Drinks drin habe, dann werde die eben nach Anfangsbuchstaben sortiert.
+2855000	2857000	Das heißt ABC.
+2859000	2861000	Man kann das natürlich auch reversen.
+2862000	2866000	Also man kann da auch einfach dann noch angeben, ich will hier reverse das Ganze machen.
+2867000	2869000	Oder eben auch so machen.
+2871000	2876000	Aber das hier ist ein bisschen spezielleres Keyword, das ist jetzt, das kommen wir auch gleich dazu.
+2877000	2881000	Das hier ist ein eigenständiges Statement.
+2881000	2885000	Das heißt, ich schreibe da nicht nochmal Colors, ist gleich Colors.sort,
+2886000	2889000	sondern ich schreibe nur Colors.sort und dann ist meine Colors Liste sortiert.
+2890000	2899000	Wenn ich aber Colors unsortiert haben möchte, also weil ich die später noch so unsortiert praktisch brauche,
+2900000	2903000	dann kann ich mir eine neue Liste machen mit diesem sorted Keyword.
+2904000	2909000	Das heißt, praktisch schreibe sorted, klamm auf, halte meine unsortierte Liste rein
+2909000	2915000	und dann gibt mir dieses sorted Keyword eine sortierte Liste, aber das ist eine neue Liste zurück.
+2919000	2922000	Das Ganze kann man natürlich auch mit Strings machen, weil das natürlich auch eine Liste ist.
+2926000	2928000	Und eben auch eine Liste von Strings.
+2930000	2937000	Wichtig ist da die Großschreibung, also ein großes A ist nicht das gleiche wie ein kleines A.
+2938000	2941000	Das kann man auch kurz herzeigen.
+2963000	2966000	Ich glaube, das hat da kein sort Keyword.
+2967000	2969000	Da können wir nur sorted verwenden.
+2984000	2990000	Und die hier seht, werden alle Großbuchstaben von den Kleinbuchstaben sortiert.
+2990000	3005000	Also es ist ein bisschen eine Eigenheit, das hat damit zu tun, dass man dieses A zum Beispiel in ein Integer-Wert umwandeln kann auf zwei Umwege.
+3005000	3017000	Das heißt, man kann da z.B. Klapp C, H, R, S, oder auch nicht.
+3018000	3023000	Ich weiß gar nicht mehr, was das ist.
+3032000	3034000	Okay, das ist praktisch das Umgekehrte.
+3034000	3038000	Das heißt, wenn ich hier 9.7 rein schreibe, dann bekomme ich das.
+3038000	3040000	Genau, also die haben intern alle einen Wert.
+3042000	3046000	Hier im diesem Fall das kleine A hat den Wert 97.
+3062000	3065000	Ich weiß gar nicht mehr, was das große A für einen Wert hat.
+3069000	3071000	Okay, 65 hat das.
+3072000	3078000	Also das große A hat den Wert 65 und das kleine A hat den Wert 97.
+3079000	3081000	Und deshalb werden die auch so sortiert.
+3086000	3092000	Das kann man in einer, zum Beispiel in einer ASCII Tabelle nachschauen.
+3092000	3094000	Ich kann das auch kurz zeigen.
+3099000	3101000	Das schaut dann so aus.
+3111000	3118000	Praktisch hier, in diesem Fall haben wir praktisch unseren Dezimalwert hier
+3118000	3124000	und dann unseren Charakter, also unseren einzelnen Charakter,
+3124000	3126000	unser einzelnen Schriftzeichen hier.
+3126000	3131000	Und wie ihr hier seht, ist hier das große A mit 65
+3131000	3133000	und dann geht das darunter.
+3133000	3136000	Und dann kommen wir noch ein paar Sonderzeichen
+3136000	3139000	und dann bei 97 startet das kleine Alphabet,
+3139000	3143000	bis Z was bei 122 endet.
+3145000	3148000	Und das ist intern, was Beifen verwendet,
+3148000	3151000	um praktisch den Buchstammel einen Wert zu geben.
+3154000	3163000	Genau, da vielleicht noch kurz hier zum Sorten.
+3166000	3171000	Da gibt es den Reverse-Parameter, den ihr auf True setzen könnt.
+3174000	3178000	Das ist dann praktisch eine spezielle Option für diese Funktion hier
+3178000	3182000	und ich sage dann, okay, wir wollen das Ganze eigentlich umgekehrt sortiert haben.
+3182000	3185000	Dann sortiert ihr das uns umgekehrt.
+3187000	3190000	Genau so werden die einfach dann reversed.
+3190000	3192000	Das ist nicht das gleiche wie sort.
+3200000	3203000	In diesem Fall natürlich ist es das gleiche wie sort reversed,
+3203000	3206000	aber wenn wir dann noch hat dritt, das sind Zufügen.
+3208000	3210000	B, starten wir es mit B.
+3212000	3217000	Also in diesem Fall hat man hier A, B, J am Anfang des Strings
+3217000	3222000	und natürlich wenn wir da noch einen drin haben, der zum Beispiel mit zwei As beginnt,
+3226000	3232000	dann wird der noch vor dem anderen String mit einem A geschrieben,
+3232000	3235000	weil der praktisch hier dann an zweiter Stelle ein B hat.
+3236000	3238000	Jetzt, wenn wir das reversen,
+3243000	3246000	dann haben wir praktisch hier umgekehrt sortiert.
+3247000	3252000	Also hier haben wir dann das AA ganz zum Schluss und das J hier am Anfang,
+3252000	3256000	aber wenn wir hier einfach nur reverse reinschreiben,
+3257000	3260000	dann dreht er uns einfach die Liste um.
+3260000	3265000	Das heißt, wir haben hier zwar das AA an der Anfang,
+3265000	3268000	aber das AB ist hier noch immer ganz zum Schluss.
+3269000	3272000	Aber ich habe euch da nicht zu viel verwirrt, ist das verständlich?
+3274000	3276000	Gibt es da Fragen?
+3278000	3279000	Was?
+3279000	3280000	Dann haben wir das auch.
+3284000	3287000	Genau, dann gibt es ja noch spezielle Art von Listen.
+3289000	3291000	Na stimmt, das ist eigentlich keine Liste,
+3291000	3293000	das ist eigentlich eine Zahlensequenz
+3294000	3296000	und das nennt sich eigentlich einen Generator.
+3298000	3302000	Und das können wir mit Range machen, also mit diesem Range Keyword
+3303000	3307000	und das ist sehr praktisch, wenn wir jetzt einfach eine schnelle
+3309000	3312000	Zahlensequenz brauchen, von 0 bis 100,
+3312000	3316000	dann können wir einfach Range 101 reinschreiben,
+3317000	3320000	weil praktisch das letzte,
+3320000	3322000	also diese Zahl ist exklusiv,
+3322000	3325000	das heißt, wir haben hier nur 0 bis 3,
+3326000	3329000	aber wie ihr seht, sind das ja vier Elemente.
+3331000	3334000	Da kann man natürlich auch noch vieles anderes machen,
+3334000	3337000	zum Beispiel eben den Start-Abpunkt definieren,
+3337000	3339000	also wenn ich nicht bei 0 starten will,
+3339000	3343000	sondern bei 1, dann kann ich da eben noch 1 davor schreiben,
+3343000	3345000	beistrigt und dann das Ende.
+3345000	3347000	Und ich kann auch,
+3347000	3349000	die Schrittweise angeben,
+3349000	3351000	das heißt praktisch,
+3351000	3353000	hier in diesem Fall
+3353000	3355000	gehen wir mal in drei Schritten weiter.
+3356000	3358000	Wir starten bei 1,
+3358000	3360000	dann 3 weiter, 4,
+3360000	3362000	dann nochmal 3 weiter, 7
+3362000	3364000	und dann haben wir,
+3364000	3366000	wenn wir da nochmal 3 weiter gehen,
+3366000	3368000	dann wäre das ja 10,
+3368000	3370000	aber 10 ist exklusiv,
+3370000	3372000	weil es ist nicht mehr enthalten.
+3372000	3375000	Und man kann diese Zahlensequenzen einfach umwandeln
+3375000	3377000	mit diesem List keyword,
+3377000	3379000	also für das ist es eigentlich
+3379000	3381000	größtenteils eben,
+3381000	3383000	fürs Casting wird es verwendet.
+3388000	3391000	Und das coole mit den Listen ist auch,
+3391000	3393000	sagen wir mal, wir definieren es,
+3393000	3395000	da haben wir eine Liste von 10,
+3395000	3397000	das ist die Liste,
+3397000	3399000	das ist die Liste,
+3399000	3401000	das ist die Liste,
+3401000	3404000	die Liste von 0 bis 2,
+3404000	3406000	also 0, 1, 2,
+3406000	3408000	dann können wir da eben
+3408000	3410000	das Minimum herausfinden
+3410000	3412000	mit diesem Min keyword,
+3412000	3414000	das heißt,
+3414000	3416000	da kriegen wir dann 0 raus,
+3416000	3418000	wenn wir da Max reingeben,
+3418000	3420000	also Max und die Liste,
+3420000	3422000	dann kriegen wir 2 raus.
+3423000	3425000	Wir können auch die Summe machen,
+3425000	3427000	das heißt,
+3427000	3429000	alle Elemente werden aufsummiert,
+3429000	3431000	das geht dann natürlich
+3431000	3433000	nur gescheit mit integer oder float,
+3436000	3438000	mit string,
+3438000	3440000	das ist eine gute Frage,
+3440000	3442000	ob man strings aufsummieren kann,
+3442000	3444000	müssen wir gleich mal ausprobieren.
+3444000	3446000	Man sagt ja,
+3446000	3448000	weil er hier
+3448000	3450000	Summe startet
+3450000	3452000	mit einem 0 integer,
+3452000	3454000	also definiert sich
+3454000	3456000	intern einfach einen Counter
+3456000	3458000	mit 0,
+3458000	3460000	oder halt
+3460000	3462000	einen Summen-Counter,
+3462000	3464000	das heißt,
+3464000	3466000	wenn man die Summen-Counter
+3466000	3468000	aufsummiert,
+3468000	3470000	dann kann man die Summen-Counter
+3470000	3472000	aufsummieren,
+3472000	3474000	um die Summen-Counter
+3474000	3476000	und dann versucht er hier
+3476000	3478000	das erste Objekt zu addieren,
+3478000	3480000	aber das ist hier in diesem Fall
+3480000	3482000	ein string,
+3482000	3484000	und wie wir ja wissen,
+3484000	3486000	kann man strings mit integers nicht addieren,
+3486000	3488000	außer sie werden gecastet,
+3488000	3490000	das heißt,
+3490000	3492000	hier gibt es ein Fehler.
+3496000	3498000	Und da kann man zum Beispiel auch ganz simpel
+3498000	3500000	dann den Durchschnittwert
+3500000	3502000	ausrechnen und zum Beispiel
+3502000	3504000	wenn wir 0, 1, 2 haben,
+3504000	3506000	dann addiert es praktisch Summe und das auf,
+3506000	3508000	das wäre dann praktisch 0 plus 1 plus 2,
+3508000	3510000	in diesem Fall 3,
+3510000	3512000	durch die Länge,
+3512000	3514000	die Länge der Liste ist auch 3,
+3514000	3516000	3 dividiert auch 3,
+3516000	3518000	der Durchschnitt ist 1.
+3520000	3522000	Was, dann kommen wir noch
+3522000	3524000	zu einem speziellen Art, also Tupel.
+3524000	3526000	Tupels sind sehr ähnlich zu Listen,
+3526000	3528000	nur können wir sie nicht verändern.
+3530000	3532000	Das heißt,
+3532000	3534000	das hat man davor auch schon kurz gesehen,
+3534000	3536000	wenn ich dann nochmal
+3536000	3538000	zum Coating gehe,
+3540000	3542000	hier das hier,
+3542000	3544000	ist ein Tupel,
+3544000	3546000	das kann ich nicht mehr verändern,
+3546000	3548000	und das hat halt
+3548000	3550000	ein paar Vorteile,
+3550000	3552000	also es ist einerseits,
+3552000	3554000	hat es praktisch das ganze
+3554000	3556000	drum herum bei den Listen nicht,
+3556000	3558000	das heißt,
+3558000	3560000	wenn ich dieses Tupel mal definiert habe,
+3560000	3562000	dann ist es konstant,
+3562000	3564000	das braucht viel weniger Speicher,
+3566000	3568000	und das hat eben
+3568000	3570000	verschiedene Verwendungsartwecke,
+3570000	3572000	zum einen
+3572000	3574000	habe ich zum Beispiel eben,
+3574000	3576000	wenn wir später dann
+3576000	3578000	Funktionen definieren,
+3582000	3584000	ich mach das mal ganz kurz,
+3588000	3590000	dann kann ich da
+3590000	3592000	eben ein Tupel
+3592000	3594000	zurückgeben,
+3594000	3596000	und das kann ich eben so machen,
+3598000	3600000	und generell ist ein Tupel,
+3600000	3602000	also wenn ich ein Tupel definiere
+3602000	3604000	als Variable,
+3604000	3606000	ist das mit den runden Klammern.
+3608000	3610000	Ich kann natürlich auf diese Werte zugreifen,
+3610000	3612000	zum Beispiel, wenn ich hier
+3612000	3614000	ein 1 reinschreib,
+3614000	3616000	dann kann ich da wie
+3616000	3618000	genauso wie bei Listen
+3618000	3620000	mit der Indizierung
+3620000	3622000	praktisch darauf zugreifen,
+3624000	3626000	und ja,
+3626000	3628000	es gibt da auch natürlich
+3628000	3630000	wieder, kann wieder die Länge
+3630000	3632000	herausfinden, mit dem Längenparameter,
+3634000	3636000	generell sind den Tupel
+3636000	3638000	praktisch werden verwendet,
+3638000	3640000	um fixer
+3640000	3642000	Sequenzen, fixer Rückgabewerte
+3642000	3644000	zu definieren,
+3648000	3650000	hat seine Vor- und Nachteile
+3650000	3652000	zu den Listen, also da ist
+3652000	3654000	nichts mehr veränderbar,
+3656000	3658000	und das ist halt
+3658000	3660000	ein Vergleich zu Tupel,
+3660000	3662000	also zu Listen
+3662000	3664000	sein Nachteil.
+3664000	3666000	Genau, zum Beispiel
+3666000	3668000	definiert man das eben so,
+3668000	3670000	und das ist
+3670000	3672000	dann so fast schon so eine Art
+3672000	3674000	Konstant, das heißt praktisch
+3674000	3676000	ich kann immer wieder auf dieses
+3676000	3678000	Base-Color-Tupel da
+3678000	3680000	hingehen und weiß,
+3680000	3682000	okay, diese Werte hier sind nicht
+3682000	3684000	verändert,
+3684000	3686000	und
+3686000	3688000	das sind praktisch so Fixpunkte
+3688000	3690000	in meinem Code.
+3690000	3692000	Genau,
+3692000	3694000	dann kann man noch zum letzten
+3694000	3696000	Teil, das sind die Vorloops,
+3696000	3698000	und
+3698000	3700000	Vorloops ist
+3700000	3702000	auch wieder ein sehr
+3702000	3704000	starkes
+3704000	3706000	Dual beim Programmieren,
+3708000	3710000	und damit
+3710000	3712000	kann man eben
+3712000	3714000	zum Beispiel durch Listen iterieren,
+3714000	3716000	das schaut dann so aus,
+3716000	3718000	also wenn man sich das dann
+3718000	3720000	vorstellt im Pseudocode, also einfach
+3720000	3722000	in normaler Sprache,
+3722000	3724000	für jedes Element
+3724000	3726000	in meiner Sequence
+3726000	3728000	oder in meiner Liste
+3728000	3730000	führe ich eine Art und Weise aus.
+3730000	3732000	Das sieht man, das ist auch wieder ein Block,
+3732000	3734000	das schaut dann so aus,
+3734000	3736000	vor Item,
+3736000	3738000	praktisch Item in diesem Fall
+3738000	3740000	ist eine neue Variable-Namen,
+3740000	3742000	den ich hier definiere,
+3742000	3744000	in List of Items,
+3744000	3746000	also diese List of Items habe ich
+3746000	3748000	schon davor definiert,
+3748000	3750000	und dann
+3750000	3752000	prönt ich das einfach hier aus.
+3752000	3754000	Ich kann natürlich in diesem Block
+3754000	3756000	auf dieses Item hier zugreifen,
+3756000	3758000	ich kann natürlich auch auf diese Liste direkt zugreifen,
+3760000	3762000	aber
+3762000	3764000	diese Variable nennt man auch Laufvariable,
+3764000	3766000	weil die mit der
+3766000	3768000	Schleife mitläuft, praktisch die verändert sich
+3768000	3770000	mit jeder Iteration,
+3770000	3772000	bis praktisch alle Elemente
+3772000	3774000	in dieser Liste durchgegangen worden sind,
+3776000	3778000	und die könnt ihr eben einen beliebigen Namen geben,
+3778000	3780000	da wird auch wieder
+3780000	3782000	Variable namens
+3784000	3786000	Regeln beachten,
+3786000	3788000	und innerhalb dieser Schleife
+3788000	3790000	wird das eben so wiederholt,
+3790000	3792000	bis diese Liste abgearbeitet wurde.
+3792000	3794000	Das heißt, wenn wir hier
+3794000	3796000	1, 2, 3 haben,
+3796000	3798000	dann wird diese Liste, also wird
+3798000	3800000	dieser Sprint-Statement hier
+3800000	3802000	dreimal ausgeführt, für jedes Element einzeln.
+3804000	3806000	Das schaut dann eben so zum Beispiel aus,
+3806000	3808000	hier in diesem Fall zum Beispiel
+3808000	3810000	habe ich eine Liste
+3810000	3812000	Lectures definiert,
+3812000	3814000	die praktisch da Mathe,
+3814000	3816000	Englisch, Computer Science
+3816000	3818000	drin,
+3818000	3820000	und dann iteriere ich darüber,
+3820000	3822000	das heißt, ich mache hier meine
+3822000	3824000	Für neue Variable,
+3824000	3826000	also in diesem Fall Lecture,
+3826000	3828000	wie ihr seht, fehlt das S, also
+3828000	3830000	das macht man normalerweise so,
+3830000	3832000	dass man die Liste
+3832000	3834000	im Mehrzahl definiert,
+3834000	3836000	und die Laufvariable
+3836000	3838000	singular
+3838000	3840000	in Lectures
+3840000	3842000	und dann Print, dann hier mit
+3842000	3844000	einem Format-String, I Love Lecture,
+3844000	3846000	das heißt, hier bekommen wir dann
+3846000	3848000	die Ausgabe Math,
+3848000	3850000	Englisch, Computer Science, also
+3850000	3852000	I Love Math, I Love Englisch,
+3852000	3854000	I Love Computer Science.
+3858000	3860000	Genau, also
+3860000	3862000	das ist die Definition
+3862000	3864000	der Initialisierung der Liste,
+3864000	3866000	also unsere
+3866000	3868000	Vorschleife,
+3868000	3870000	und das ist dann der innere Block,
+3870000	3872000	der dann immer in der Vorschleife ausgeführt wird.
+3872000	3874000	Das kann man sich dann so vorstellen.
+3882000	3884000	Genau, es gibt dann
+3884000	3886000	natürlich
+3886000	3888000	man kann natürlich auch
+3888000	3890000	zum Beispiel über jedes
+3890000	3892000	einzelne Zeichen
+3892000	3894000	in einem String drüber iterieren.
+3898000	3900000	Das heißt,
+3900000	3902000	kann ich mal kurz herzeigen.
+3902000	3904000	Vor
+3904000	3906000	Zeit
+3906000	3908000	den
+3908000	3910000	genannten
+3910000	3912000	Warte.
+3912000	3914000	Okay.
+3914000	3916000	Ich kann da
+3916000	3918000	auch das String hier direkt
+3918000	3920000	definieren,
+3920000	3922000	wenn ich das so möchte.
+3922000	3924000	Ich kann ja auch zum Beispiel hier
+3924000	3926000	eine Liste direkt definieren.
+3926000	3928000	Das geht auch.
+3928000	3930000	Also die muss nicht davor definiert werden,
+3930000	3932000	die kann auch hier so definiert werden.
+3932000	3934000	Hallo,
+3934000	3936000	dann hier wichtig,
+3936000	3938000	auch beim IF Statement
+3938000	3940000	ist dieser Doppelpunkt
+3940000	3942000	und
+3942000	3944000	dann kann ich machen
+3944000	3946000	Print
+3946000	3948000	Ciao.
+3948000	3950000	Und dann macht er mir da
+3950000	3952000	das Einzelnen.
+3952000	3954000	Ich kann da zum Beispiel dann
+3954000	3956000	Einzeln sagen, okay,
+3956000	3958000	das soll dann mal
+3958000	3960000	nünftig multipliziert werden.
+3960000	3962000	Also
+3962000	3964000	solche Sachen sind auch möglich.
+3966000	3968000	Gibt es dazu Fragen?
+3970000	3972000	Okay.
+3978000	3980000	Was für Werte müsste ich hier reinschreiben,
+3980000	3982000	wenn ich von 1 bis 10 zählen möchte
+3982000	3984000	in dieser Range?
+3984000	3986000	Das erste Fragezeichen.
+3998000	4000000	1 und 11,
+4000000	4002000	genau, ja.
+4002000	4004000	Weil hier praktisch
+4004000	4006000	mit 1 starten
+4006000	4008000	und 11 ist dann exklusiv,
+4008000	4010000	das heißt
+4010000	4012000	11 wird nicht mehr
+4012000	4014000	in dieser Zahlsequenz vorkommen.
+4016000	4018000	Und praktisch
+4018000	4020000	wie ihr seht, kann man da nämlich auch
+4020000	4022000	diese Zahlsequenzen, also diese Range
+4022000	4024000	verwenden, um dann sehr schnell
+4024000	4026000	über Nummern zu iterieren.
+4030000	4032000	Wenn ihr zum Beispiel
+4032000	4034000	hier eine Liste habt
+4034000	4036000	und ihr wollt aber auch wissen
+4036000	4038000	welches Element der Liste ich gerade,
+4038000	4040000	also der Index
+4040000	4042000	von meinem Element in der Liste,
+4042000	4044000	wo ich gerade bin,
+4044000	4046000	dann kann man dieses Enumerate verwenden.
+4046000	4048000	Das heißt, ich haue mal eine Liste
+4048000	4050000	hier in dieses Enumerate Statement rein
+4050000	4052000	und dann bekomme ich hier
+4052000	4054000	immer ein Tuple raus.
+4056000	4058000	Das heißt, hier habe ich den Index
+4058000	4060000	und hier die Lecture.
+4060000	4062000	Die Lecture, praktisch sind diese Werte
+4062000	4064000	und der Index
+4064000	4066000	stellt mir ein Enumerate zur Verfügung
+4066000	4068000	und der wird dann von Enumerate
+4068000	4070000	ausgeführt.
+4070000	4072000	Das kann man sich dann so vorstellen.
+4082000	4084000	Fortest
+4084000	4086000	in Enumerate
+4086000	4088000	ist man auch den Index.
+4088000	4090000	Dann haben wir da
+4090000	4092000	eins
+4108000	4110000	Doppelpunkt
+4114000	4116000	und dann kann ich da einfach sagen
+4116000	4118000	Index
+4118000	4120000	und Test.
+4124000	4126000	Ups, was habe ich gemacht?
+4128000	4130000	Ich habe das Enumerate vergessen.
+4136000	4138000	Das ist vielleicht auch interessant hier,
+4138000	4140000	also ich habe hier
+4140000	4142000	zwei Variablen angegeben
+4142000	4144000	aber davor hatte ich praktisch nur
+4144000	4146000	zwei Werte funktioniert
+4146000	4148000	und dann sagt er mir da einen
+4148000	4150000	Value Error,
+4150000	4152000	dass er praktisch zu viele
+4152000	4154000	Values hat, die er da
+4154000	4156000	immer aus einem Element
+4156000	4158000	rausholen kann.
+4158000	4160000	Wenn ich hier zum Beispiel
+4160000	4162000	Tuple verwenden hätte,
+4168000	4170000	dann hätte das funktioniert,
+4170000	4172000	weil das hier immer zwei Werte sind.
+4174000	4176000	Da könnt ihr dann selber
+4176000	4178000	auch bis sie testen.
+4178000	4180000	Das heißt, wir haben dann hier einfach
+4180000	4182000	immer unseren Index ausgeprintet,
+4182000	4184000	der eben auch wieder bei 0 startet,
+4184000	4186000	0, 1, 2
+4186000	4188000	und hier
+4188000	4190000	dann dann eben einfach das Element,
+4190000	4192000	das eben in diese Testvariable
+4192000	4194000	geschrieben wird.
+4194000	4196000	Gibt es da so Fragen?
+4200000	4202000	Ja, Komma isch
+4202000	4204000	zum ZIP.
+4204000	4206000	Das ist dann eben
+4206000	4208000	genau das, was ich eben gesagt habe
+4208000	4210000	mit dem Duple.
+4210000	4212000	Ihr habt da praktisch Lectures
+4212000	4214000	und Teachers.
+4214000	4216000	Wir sind ganz wichtig,
+4216000	4218000	diese Listen sind beide gleich lang.
+4218000	4220000	Das ist sehr wichtig, weil sonst wird
+4220000	4222000	euch ZIP ein Fehler werfen,
+4222000	4224000	wenn die Listen nicht gleich lang sind.
+4224000	4226000	Und was ZIP macht,
+4226000	4228000	es nimmt immer die ersten,
+4228000	4230000	es nimmt immer an der selben Index
+4230000	4232000	der beiden Listen hier
+4232000	4234000	das gleiche Element her,
+4234000	4236000	also hier Maths und Brown an der Stelle 0
+4236000	4238000	und kombiniert die
+4238000	4240000	zu einem Duple.
+4240000	4242000	Praktisch haben wir dann einen Duple stehen,
+4242000	4244000	der schaut dann eben so aus.
+4260000	4262000	Ja.
+4272000	4276000	Ich glaube, ich weiß gar nicht, ob ich das so machen kann.
+4280000	4282000	Genau.
+4282000	4284000	Das schaut dann eigentlich intern so aus,
+4284000	4286000	dass ihr dann immer praktisch hier,
+4286000	4288000	ihr seht immer 1
+4288000	4290000	und 4 als Duple,
+4290000	4292000	Speicherts 2 und 5 als Duple und 3 und 6.
+4306000	4308000	Das kann man dann natürlich so machen.
+4310000	4312000	Element 1,
+4312000	4314000	Element 2 in
+4314000	4316000	dann nehmen wir uns nochmal
+4316000	4318000	das ZIP her, dann müsst ihr nicht unbedingt
+4318000	4320000	das Ganze nochmal in eine Liste konvertieren.
+4320000	4322000	Das Problem nämlich
+4322000	4324000	ist, wenn ich
+4324000	4326000	nur das ZIP ausgebe,
+4328000	4330000	schaut das sehr unleserlich aus.
+4332000	4334000	Da sind wir beim Problem wieder vor.
+4338000	4340000	Und da machen wir dann das ZIP rein,
+4340000	4342000	dann wieder den Doppelpunkt.
+4346000	4348000	E1, E2
+4348000	4350000	und dann könnt ihr das so ausbinden.
+4360000	4362000	Gibt es da zu fragen?
+4362000	4364000	Okay.
+4368000	4370000	Dann gibt es noch so ein paar spezielle Keywords,
+4370000	4372000	die ihr in Schleifen
+4372000	4374000	verwenden könnt.
+4374000	4376000	Das Pass.
+4376000	4378000	Pass könnt ihr sogar überall im Programm verwenden.
+4378000	4380000	Und das ist einfach nur ein Lehrerkommand.
+4380000	4382000	Das ist zum Beispiel ganz praktisch,
+4382000	4384000	wenn ihr beim Coden seid
+4384000	4386000	und ihr wisst, okay,
+4390000	4392000	ich will dann IF machen,
+4392000	4394000	aber ich bin mir noch nicht ganz sicher,
+4394000	4396000	was ich reinschreiben will.
+4396000	4398000	Schreibe einfach ein Pass rein
+4398000	4400000	und dann meckert's Beifen nicht,
+4400000	4402000	weil wenn ich das nicht mache,
+4405000	4408000	dann sagt er mir, oh, da fehlt was.
+4408000	4410000	Aber da auch, dass ich eben
+4410000	4412000	ein leeres Statement verwendet habe,
+4412000	4414000	da passiert nix.
+4414000	4416000	Aber ich habe eben schon dieses IF definiert,
+4416000	4418000	weil ich später schon weiß, okay,
+4418000	4420000	da kommt dann diese Erzweigung
+4420000	4422000	im Programm rein, also
+4422000	4424000	schreibe ich mal das rein
+4424000	4426000	und dann später programmiere ich
+4426000	4428000	den Rest des Codes aus,
+4428000	4430000	da habe ich mal ein Pass rein.
+4430000	4432000	Das Break und das Continue
+4432000	4434000	ist nur ein Schleifen vor.
+4434000	4436000	Das Break, das bricht die Schleife ab.
+4436000	4438000	Zum Beispiel, ihr habt ein IF Statement erreicht,
+4438000	4440000	also wo ihr sagt, okay,
+4440000	4442000	ich bin jetzt ganz zufrieden
+4442000	4444000	mit dem, was ich da gemacht habe.
+4444000	4446000	Ich brauche den Rest der Schleife nicht mehr.
+4446000	4448000	Break, also
+4448000	4450000	abbrechen,
+4450000	4452000	gehe ich aus der Schleife raus.
+4452000	4454000	Continue ist so,
+4456000	4458000	stellt ihr vor, seit ihr gerade
+4458000	4460000	in der Schleife drin,
+4460000	4462000	da wird gerade was berechnet.
+4462000	4464000	Und da kommt jetzt auf ein Zwischenergebnis,
+4464000	4466000	mit dem ihr auch wieder zufrieden seid.
+4466000	4468000	Aber ihr möcht noch die
+4468000	4470000	alle anderen Ergebnisse ausrechnen
+4470000	4472000	in dieser Liste, die ihr damit
+4472000	4474000	in der Schleife durchgeht.
+4474000	4476000	Dann mache ich einfach Continue.
+4476000	4478000	Das heißt,
+4478000	4480000	der restliche Code
+4480000	4482000	in der Schleife wird nicht mehr ausgeführt
+4482000	4484000	und ich springe zum nächsten Element.
+4486000	4488000	Also damit, das ist einfach wie ein
+4488000	4490000	Element
+4490000	4492000	und das Break ist wie
+4492000	4494000	ich breche die Schleife komplett ab.
+4494000	4496000	Die zwei kann man nicht in der IF Anweisung
+4496000	4498000	verwenden, weil
+4498000	4500000	das macht eigentlich wenig Sinn.
+4500000	4502000	Genau.
+4502000	4504000	Ja.
+4504000	4506000	Das wäre es eigentlich eh schon
+4506000	4508000	von diesem Teil der Vorlesung.
+4508000	4510000	Gibt es da eigentlich noch Fragen,
+4510000	4512000	ob es noch nicht ganz verstanden,
+4512000	4514000	soll ich noch mal was wiederholen?
+4514000	4516000	Ja.
+4516000	4518000	Genau.
+4518000	4520000	Also ich habe die Beifendertei
+4520000	4522000	von gestern noch nicht hochgeladen.
+4522000	4524000	Ich werde einfach die Beifendertei
+4524000	4526000	kombinieren von heute
+4526000	4528000	und gestern
+4528000	4530000	und werde das dann heute Nachmittag
+4530000	4532000	hochladen.
+4532000	4534000	Falls es sonst keine Fragen gibt,
+4534000	4536000	falls noch jemand noch
+4536000	4538000	nicht assignment0 abgegeben hat,
+4538000	4540000	bitte abgeben
+4540000	4542000	und ja, vielen Dank.
+4546000	4548000	Vielen Dank.
