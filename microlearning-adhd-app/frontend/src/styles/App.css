@@ -73,20 +73,6 @@
   border-top: 1px solid rgba(138, 91, 43, 0.16);
 }
 
-.checkbox-row {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  font-size: 0.98rem;
-  line-height: 1.6;
-}
-
-.checkbox-row input {
-  width: 18px;
-  height: 18px;
-  margin-top: 4px;
-}
-
 .demographic-form {
   margin-top: 28px;
   display: grid;

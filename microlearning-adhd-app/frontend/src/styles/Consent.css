@@ -1,0 +1,65 @@
+.consent-card {
+  width: min(840px, 100%);
+}
+
+.consent-content h2 {
+  margin: 18px 0 10px;
+  font-size: 1.1rem;
+}
+
+.consent-content p {
+  line-height: 1.65;
+}
+
+.consent-content ul {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.checkbox-row input {
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+}
+
+.consent-check {
+  margin-top: 24px;
+}
+
+.secondary-button {
+  appearance: none;
+  border: 1px solid rgba(31, 59, 115, 0.2);
+  border-radius: 999px;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1f3b73;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background: #ffffff;
+}
+
+.secondary-button:focus-visible {
+  outline: 3px solid rgba(54, 87, 159, 0.35);
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .secondary-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
