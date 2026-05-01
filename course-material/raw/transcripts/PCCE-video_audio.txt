@@ -1,0 +1,899 @@
+Perfekt. Ja, dann willkommen zum Python Crash Course E, diesmal über Data Science und Bandas.
+Bevor wir beginnen, habe ich euch Feedback angelegt. Da könnt ihr diesmal fragen,
+falls ihr noch Fragen habt, ob sie live vorprogrammieren oder zum generell programmieren selbst
+oder andere Fragen. Also, die Ergebnisse werden ein bisschen länger dauern, weil wir alle
+manuell durchkorrigieren müssen. Das sind ca. 100 Abgaben, wahrscheinlich bei die 1, 2 Wochen.
+Die Ergebnisse werden ihr wahrscheinlich im Deed-Center auffinden und ich weiß ja,
+ob wir noch eine Mail, eine Info-Mail ausschicken werden.
+Das Samen 2 werde ich heute bis die Vorstellung am Ende der Vorlesung. Ihr werdet dafür eben auch
+das heutige Thema wissen müssen und auch das von der nächsten Vorlesung, das der Helmut dann noch
+präsentieren wird. Das ist über Sympai. Sympai wurde von den letzten Studenten also gefragt,
+weil das später noch mal in eurem Studium vorkommt und da haben viele gefragt, ob wir da nicht
+ein kleines fundamentales Tutorial drüber machen können, damit ihr da nicht als Experten schon
+einsteigen müsst in die spätere Vorlesung.
+Ich sehe, es gibt keine Fragen zum Programmieren. Das heißt, ich habe da wahrscheinlich die einzigen
+Guten hier im Raum. Falls ihr nach Fragen aufkommen, weil ihr euch gestern beim Vorprogrammieren
+richtig geärgert habt, dass es nicht funktioniert hat, könnt ihr das natürlich auch fragen.
+Also, können wir auf jeden Fall was machen und sonst steige ich direkt ins Data Science-Deme ein.
+Die Punktaufteilung vom Vorprogrammieren weiß ich jetzt leider auch nicht ganz genau, aber wir haben
+da eigentlich eine spezifische Punktetabelle, nachdem wir vorgehen. Es ist ja so, dass beim
+Vorprogrammieren habt ihr erstens wenig Zeit, zweitens seid ihr unter sehr hohen Druck und
+da könntest du mal einige Fehler passieren. Und manche Fehler wie zum Beispiel, wenn man
+jetzt ein String falsch hat, sind jetzt nicht so problematisch wie wenn man jetzt nicht verstanden
+hat, wie man ein Dictionary bedient. Das heißt praktisch, ihr könnt euch darunter so was vorstellen,
+wie schwerer der Code zu programmieren war, desto mehr Punkte hat. Aber wir werden so versuchen,
+so groß wie möglich zu sein. Und falls es dann immer noch nicht passt, das sagt okay,
+da hätte ich mehr verdient, dann könnt ihr immer noch zum Tutorial kommen und dann noch mal nach
+Auskunft fragen und diskutieren. Passt, dann werde ich da stoppen. Perfekt. Ja, dann
+kurz Southland heute. Also wir werden heute ein Introduction zu Data Science machen.
+Das beinhaltet, wie man CSV-Files oder CSV-Dateien einliest und was überhaupt CSV-Dateien sind.
+Wir gehen auch nochmal genau auf dieses Import-Modul ein oder was es da auf sie hat.
+Dann, der Großteil der Vorlesung wird ein Bandage Tutorial sein. Also da gehen wir ganz genau
+ein, was Bandage ist und was man damit anfangen kann, weil ihr Bandage dann auch für das Assignment
+2 brauchen wird. Und dann noch kurz ein organisatorisches und kurz das Assignment 2. So, was ist Data Science?
+Ja, also Data Science meistens eigentlich ein unnötiges Passwort. Warum? Ja, weil, wie macht man
+Wissenschaft ohne Daten? Science Englisch für Wissenschaft, weil das jemand nicht weiß.
+Und in Wirklichkeit ist das kein eigenes Forschungsgebiet, sondern besteht aus mehreren
+Fachübergreifenden Fähigkeiten. Die könnt ihr da sehen. Und die haben Anwendungen in
+industriellen und akademischen Bereichen und wird immer, immer wichtiger heutzutage. Ich weiß nicht,
+ob ihr das schon mal gehört habt. Zum Beispiel, so ein Passwort ist Building Information Modeling,
+zum Beispiel. Da baut man mit der Software eigentlich ein ganzes Gebäude nach und simuliert
+das Gebäude. Das heißt, man kann auch da zum Beispiel herausfinden, wie viel mir die Wartungskosten in
+den nächsten 20 Jahren kosten wird. Und das ist ja praktisch. Und dafür braucht man natürlich
+sehr viele Daten. Das heißt, wir haben da vereint drei verschiedene Bereiche. Unser Bereich wird
+jetzt vor allem hier sein mit Pfeifen und Bandas und Nampaioch. Sind wir dann Hacking Skills oder
+eigentlich ist einfach nur der informatische Teil davon. Und Data Science vereint praktisch Skills
+von den Statistikern. Das ist hier in der Mathe Bereich, welche Datenmengen modellieren und
+zusammenfassen können. Dann haben wir die Arbeiterinformatiker, die eben durch Algorithmen
+das Ganze sehr effizient verarbeiten können und visualisieren können, weil wir reden hier nicht
+nur von ein paar Hundertzeilen Daten, sondern manchmal sind das aber also Milliarden oder sogar
+noch mehr. Also da reden wir von Gigabyte oder Terabyte an Daten. Und dann brauchen wir natürlich
+aber auch die Expertise von den Fachexperten. Also die sind natürlich auch notwendig, weil
+ich kann schon Daten von einem Haus sammeln, aber wenn ich da nur, keine Ahnung, schaubt, das Licht ein
+und aus geht, jeden Tag, das wird wahrscheinlich für einen Bauingenieur nicht sehr hilfreich sein. Der
+wird wahrscheinlich andere Daten viel wichtiger finden und deshalb kommt der Bauingenieur zu den
+Informatikern oder Statistikern und sagt, ja diese Daten brauche ich, damit ich was anfangen kann.
+Ja und das Ganze ist sehr interdisziplinär, also das ist natürlich nicht nur im Bauingenieurswesen,
+sondern auch in allen möglichen, also das Recht von Psychologie zu Soziologie, zu
+Mathematik, alles Mögliche eigentlich, Elektrotechnik, Maschinenbau
+und ja vielleicht noch kurz zu den einzelnen Bubbles, die wir hier sehen. Wir haben hier noch
+zum Beispiel dieses Traditional Research. Traditional Research könnt ihr so vorstellen,
+das ist jetzt ohne Informatik, das heißt der Experte braucht eine Formel oder irgendeine
+statistische Analyse, weil er schon Daten hat und dann gibt hier einfach der Mathematiker
+einen Statistiker her und sagt, ja okay, diese Formeln müssen wir anwenden und das hat eigentlich
+nichts mit den Informatik zu tun, vielleicht ein bisschen was mit Axel, aber relativ klein.
+Dann haben wir auch das Machine Learning Teil hier, das ist eigentlich
+Überlappung zwischen den Informatikern und Mathematikern, hier versuchen wir so Regressionen
+zu machen oder ja einfach auch wieder praktisch mathematische Modelle aufzustellen,
+die wir dann in der Informatik anwenden können. Und dann gibt es eigentlich noch diese Danger Zone
+hier und die ist eigentlich, kann man fast sagen gefährliches Halbwissen, das heißt
+wir, der Experte zum Beispiel kommt zu uns, zu den Informatikern und sagt, ja er braucht
+den Algorithmus und bitte mach mir was, aber eine Informatik kann ich sagen,
+nicht unbedingt der beste Mathematiker, das heißt es kann sein, dass er dann zum Beispiel
+eine falsche Statistik verwendet oder falsche mathematische Formel anwendet und dann kommen
+wir zu sehr plausiblen Ergebnissen, die beim Wirklichkeit nicht stimmen. Ja, das ist ungefähr
+der Data Science zusammengefasst, also hier nochmal Expertenwissen. Genau, dann kurz zum Inboard.
+Ihr habt es wahrscheinlich eh schon mal gesehen, jetzt sehen wir es mal mit einem zum Beispiel,
+da importieren wir die Math Library und das Inboard-Keywort, mit dem können wir praktisch
+Funktionalität von anderen Python-Files oder Scripts oder Modulen praktisch importieren.
+Zum Beispiel, ich habe jetzt zwei Daten, zwei Python-Dateien und in der einen habe
+ich eine tolle Funktion geschrieben und die möchte ich jetzt in der anderen Datei verwenden,
+dann kann ich die einfach praktisch mit diesem Inboard-Statement importieren. Das heißt,
+ich kann der Code Bausteine von anderen Bibotheken oder einfach Python-Files hernehmen
+und in meinem Python-File verwenden. Und da habe ich das eh schon gesagt, Bibotheken,
+da sind praktisch diese Libraries und das sind meistens externe Code Bibotheken
+und die kann man eben mit diesem Python, mit diesem PIP installieren. PIP steht für PIP installs
+Packages. Cool, cooles Akronym. Und einerseits haben wir eben dieses PIP und einerseits haben wir
+diese Python Standard Library. Zum Beispiel, dieses Math, diese Math Library, die wir importiert haben
+in der Cymint1, das ist eine Standard Library. Ich kann das kurz zeigen, wenn wir da draufklicken.
+Das sehen wir praktisch eigentlich alles, was Python so an sich hat.
+Und hier fangen wir praktisch eigentlich so, also diese, man sieht hier die Schriftart,
+ist ein bisschen anders. Das sind praktisch alles Standard Libraries und da gibt es sehr, sehr,
+sehr viele. Und zum Beispiel dieses Math habt ihr schon kennengelernt, aber da gibt es eben auch so,
+weil ich, also die haben dann größere Überschriften, zum Beispiel hier, die haben alles mit Files zu tun,
+File Format, dann hier zum Beispiel kryptografische Services,
+die sind generische Betriebsoperationssystems, Services.
+Ja, könnt euch ruhig mal durchschauen. Es ist auf jeden Fall interessant, weil wahrscheinlich,
+falls ihr was praktisch programmieren wollt, gibt es wahrscheinlich schon.
+Und das andere wäre praktisch eigentlich PIP. Da kann ich das auch kurz zum Beispiel zeigen,
+das wäre hier PIP, zum Beispiel Pandas.
+Da sieht man zum Beispiel immer, wie man so ein Paket installieren kann, also es ist dann einfach
+PIP Install Pandas, in diesem Fall. Und Pandas hier zum Beispiel, hier sieht man die ganzen Informationen
+zu diesem, zu diesem, dieser Pivotek. Und da gibt es natürlich unmenschlich viele,
+also da kann man dann oben hier suchen. Zum Beispiel, wenn ich jetzt Karnung
+möchte, was suchen, zum Beispiel irgendwas über Machine Learning, da kann ich zum Beispiel schauen.
+Ein ganz bekanntes ist zum Beispiel By-Touch.
+Also, das heißt By-Touch.
+Und da zum Beispiel hat man dann eine ganze Pivotek, mit dem man praktisch Machine Learning
+betreiben kann. Und die können natürlich sehr, sehr, sehr stark sein, also da kann Funktionalität
+drin sein, wo man selber wahrscheinlich Jahre bräuchte, um das zu programmieren.
+Meistens diese Pakete werden auch von Hunderten von Leuten gleichzeitig also programmiert, also
+da wird dann aufgeteilt, wer was macht. Und deshalb geht das dann auch so flott.
+Aber ja auch By-Touch ist jetzt, glaube ich, seit über zehn Jahren in Entwicklung. Also,
+so was würde man nie selber eigentlich programmieren. Auch zum Beispiel kryptografische
+Pivotek, die sind immer besser, wenn man sie runterlässt, statt sich selber zu programmieren,
+weil man kann sich vorstellen, ein Back-Und schon ist ein ganzes kryptografisches Verfahren kaputt.
+Aber ja, das ist für euch hier nicht so richtig.
+Genau. Genau, das heißt praktisch, wir importieren hier Module und das sind dann unsere Werkzeuge,
+die wir aus der Werkzeugkiste nehmen und die können wir dann verwenden.
+Zum Sintax vielleicht kurz noch, wir können einfach Import und dann den Modulnamen schreiben.
+Das wird uns eine Fehler werfen, falls der Modulnamen nicht existiert oder wir den noch nicht
+installiert haben mit pip install. Also, falls ihr da eine Fehlermellung kriegt,
+dann vielleicht schaut ihr, ob der dann nochmal mit pip install das installiert.
+Ihr könnt dann auch noch hier mit ass ein Kürzel definieren. Hier zum Beispiel sieht man das
+gut, pandasas.pd. Und dann kann man da statt den ganzen Modulnamen, der vielleicht auch sehr
+lang sein kann, einfach dieses Kürzel verwenden. Und dann kann man da Kürzelpunkt und dann Funktionsnamen
+zum Beispiel, wenn man da Funktionen von dieser Bibothek verwenden will. Das schaut zum Beispiel
+so aus. Ich kann hier zum Beispiel random als rd importieren und dann hat dieses Random-Bibothek
+zum Beispiel diese rd int Funktion, die praktisch unsere Randomzahl zwischen 1 und 13 einfach wählt
+und die wir dann hier in diese variabel speichern können. Also, ich kann das auch kurz zeigen.
+Zum Beispiel random, ganz wichtig ist auch eine der Standard-Bibotheken. Schau mal.
+Ich kann da praktisch ganz oben hier, schauen, ob ich das größer machen kann.
+Dann kann ich eben, also wenn ich hier zum Beispiel ein Wischlerstudekord bin,
+dann sehe ich auch automatisch, welche Funktionen ich zur Verfügung habe. Und die fangen dann
+hier alle an. Und wie ihr seht, da gibt es dann sehr, sehr viele. Wir wollen hier zum Beispiel
+diese rd int. Und da seht ihr auch auf der Seite hier zum Beispiel eine kurze Beschreibung,
+was die macht. Return random integer in range ab, including both endpoints. Das heißt praktisch
+sowohl a als b kann auch noch gezogen werden. Das heißt, wenn ich hier 1 und 5 mache und das ausführe,
+da bekomme ich diesmal 4. Wenn ich das nochmal ausführe, dann bekomme ich eine andere Zahl.
+Also wie ihr seht, kann dem anders sein. Jetzt zum Beispiel was die selbe.
+Genau, ja. Ich hab's ja zur Frage. Also das Kürzel hier ist nicht unbedingt notwendig.
+Dann müsst ihr aber hier dann random schreiben.
+Und wenn ihr das import vergisst, dann sagt es hier auch schon gleich random is not defined.
+Random existiert praktisch nicht. Ist nicht definiert.
+Diesmal geht's. Warum? Weil ich
+wenn ich jupiter in jupiter arbeite und das einmal ausgeführt hab,
+dann merkt sich das jupiter und man muss es nicht zweimal oder dreimal importieren.
+Zum Beispiel wenn ich es jetzt ausführe, wo praktisch alles gelöscht wurde,
+dann bekomme ich diesen name error.
+So, was machen wir so?
+Genau, dann kommen wir zu den csv Dateien. csv Dateien, hier ein tolles Beispiel.
+Das heißt einfach comma separated values. Praktisch comma separiert. Wir haben hier
+praktisch irgendwelche Werte drin stehen. Komma, dann der nächsten Wert. Komma und so weiter.
+Und sofort. Das Wichtige dabei ist, dass hier, wenn wir hier vier Spalten definieren am Anfang,
+hier mal Trikelnummer vorne, dann mal nachher mit Punkte,
+da müssen die darauf folgenden auch immer vier sein.
+Und das schaut dann in Excel zum Beispiel so aus, das kennt ihr wahrscheinlich eh alle.
+Und genau, das ist einfach der Werte in einem Tabellenformat.
+Und ganz wichtig, das muss nicht nur nimmer ein Comma sein, das kann auch andere Werte sein,
+zum Beispiel, wie interessant es sind, dieses Semikolon, also Strichpunkt oder zum Beispiel auch Tabulator.
+Genau, und wie kann man mit denen in Beifen arbeiten? Da gibt es mehrere Varianten.
+Da gibt es zum Beispiel dieses csv Package, das ist auch wieder eine Standard Library
+oder eben mit Banders, das werden wir jetzt dann machen.
+Genau, zur Banders. Also wie ihr seht, Banders ist eigentlich ziemlich ähnlich wie Excel,
+also ihr könnt euch das so vorstellen, dass ihr da auch wieder so Tabellen habt.
+Aber das coole ist, dass ihr da nicht nur, keine Ahnung, 100 Zeilen,
+oder wenn man mit Excel mit 100.000 Zeilen arbeitet, ist das schon sehr unübersichtlich.
+Ihr könnt euch vorstellen, wenn man das ganze visuell machen muss, zum Beispiel da
+eine Formel herunterziehen muss in einer Spalte, dann kann das sehr viel Zeit beanspruchen.
+Banders, da können wir dann Beifencode verwenden und dann geht das sehr schnell,
+da kann man in einer Zeile auf eine Milliarde Zeilen zugreifen.
+Und das geht alles auf dem Laptop, also das ist kein Problem.
+Und da kann man eben Excel-Dateien oder eben csv Tabellen einlesen.
+Und das Wichtigste eigentlich für euch zu wissen ist, also so was nennt man ein Data Frame,
+das ist praktisch
+Netabelle, die besteht eigentlich aus mehreren Listen, also die Spalten hier sind einfach Listen.
+Und man kann dann eigentlich sehr ziemlich ähnlich zugreifen wie Dictionaries,
+nur sind diese Banders Data Frames noch viel stärker als eben Dictionaries.
+Da gehen wir dann eh gleich drauf ein und generell einfach Banders verwenden wir
+für praktisch eine effiziente Datenverwaltung, das heißt wir können da wie gesagt auf Milliarden
+von Daten gleichzeitig zugreifen und die verändern. Und ja, da hat eben verschiedene
+Funktionalitäten, Ladenspeichern, Zugriff, Filtern von Daten. Wir können fehlende oder
+fehlerhafte Daten ausbessern. Wir können Ergebnisse berechnen, zum Beispiel wollen
+wir den Mittelwert berechnen, dann ist das ganz einfach möglich. Wir können die Tabelle
+erweitern, wenn wir möchten. Und auch ganz cool ist, wir können auch blotten, das heißt wir können
+grafen erstellen und ja, da möchte ich euch da ein bisschen was zeigen heute.
+Zuerst mal, wie kann man so ein Data Frame überhaupt anlegen? Und da gibt es mehrere
+Möglichkeiten, da kann man zum Beispiel das Ganze mit einem Dictionary machen.
+Hier seht ihr zum Beispiel haben wir Population Area hier als Spalten.
+Das heißt wir haben hier Population und Area und dann haben wir hier für die einzelnen
+Zeilen nochmal ein Dictionary. Und da gehen wir dann einfach her, okay für Population, also für
+Population für diesen Bereich hier, möchten wir für Kalifornia den Wert drin stehen haben,
+für New York den Wert stehen haben und für Florida den Wert stehen haben. Und für Area,
+also für diese Spalter hier wollen wir diese Werte drin haben. Und dann kann man das ganze
+Dictionary einfach in so ein Data Frame konvertieren, wenn wir einfach bd, also pandas,
+Punkt Data Frame aufrufen und dann in den Klammern drin das Dictionary. Die andere Möglichkeit,
+was wir machen können, ist das Ganze mit Listen machen. Und das ist einfach eine
+zweidimensional Liste, praktisch eine Liste in Listen. Und da definieren wir einfach immer eine
+ganze Zeile, also Kalifornia den Wert den Wert, also den Wert den Wert, New York den Wert den Wert,
+New York den Wert den Wert und so weiter und so fort. Das ist natürlich sehr umständlich und
+meistens wird es sehr schnell unübersichtlich und ihr könnt euch vorstellen, wenn ich davor
+von Milliarden von Daten geredet habe, dann werde ich das Ganze hier nicht so machen.
+In der Praxis laden wir eher Daten von CSV, CSV Tabellen oder von anderen Data ein. Da gibt es
+natürlich auch noch viel effizientere Formate als CSV, aber die müsst ihr eigentlich für diese
+Vorlesung nicht wissen. Die können aber daneben Binary gespeichert werden und sind dann viel
+effizienter. Genau, wie lesen wir so eine CSV-Datei ein? Ja, das machen wir einfach mit Read CSV.
+Das heißt, wir haben hier zum Beispiel eine CSV-Datei, also wenn wir die in Excel aufmachen,
+dann schaut das so aus und im Bandage können wir dann einfach hier Bandage importieren und dann
+read CSV, eben eine CSV-Datei einlesen und dann BAM, haben wir hier die Tabelle, ich kann das auch
+kurz vorzeigen. Okay, also noch mal kurz zur Aufrichtung hier zum Beispiel, das funktioniert
+nicht, dann können wir hier mit PIP install Bandage. Ihr seht, habe ich hier einfach ein Rufzeichen
+davor gemacht, dann kann ich eben so Kommands einfügen, die ich normalerweise im Terminal aufrufe.
+Jetzt hat es mir hier Bandage installiert. Jetzt, wenn ich das nochmal ausführe, funktioniert,
+also das haben wir gerade durchgemacht und hier zum Beispiel habe ich eine CSV-Datei, die schaut so
+aus und dann kann ich die einfach einlesen. Und da hat man auch irgendwie für das Studio Code
+eigentlich eine tolle Übersicht, also da kann man zum Beispiel hier auch so filtern direkt schon,
+also zum Beispiel, wenn wir die aufsteigend haben, dann kann ich die Wert aufsteigend anzeigen und wenn
+ich da natürlich Dausende von Zeilen habe, dann kann ich die alle anschauen. Genau. Dann kommen wir
+zum nächsten, also wie greif ich da zum Beispiel auf einzelne Spalten zu? Da gibt es mehrere Varianten,
+da gibt es zum Beispiel, dass ich das so mache wie ein Dictionary zum Beispiel, also ich habe hier
+diese spalte Area und dann kann ich da entweder so zugreifen mit einem Stringkey, praktisch einfach
+schreibe ich da einfach Area rein oder ich kann auch Bandage mit dem Hintergrund direkt eine lokale
+Variable, das heißt ich kann dann auch hier einfach Punkt Area so hinschreiben oder zum Beispiel auch
+mit diesem Punkt Lock, das ist das Location, die Location Methode, da kann ich auch zum
+Beispiel zugreifen. Genau und wenn ich Lock ist eigentlich ein sehr starkes Tool, dann kann ich zum
+Beispiel einfach auch mit Index zugreifen, den Indexidema hier oder ihr könnt auch zum Beispiel
+auf eine gewisse Range zugreifen, zum Beispiel ich möchte hier von 2 bis 4 zugreifen in Area,
+dann ist das komplett möglich, also kann ich das kurz zeigen. Also hier haben wir noch mal mit Index,
+aber wir können natürlich auch zum Beispiel 2 bis 5 machen und dann Area und dann seht der bekam
+wir hier 2 bis 5 die Area Werte. Genau. Genau. Der Unterschied ist eben hier sind Spalten,
+und hier machen wir Zeilen. Genau. Was auch cool ist mit Bandages, manchmal will man nicht alle
+Daten haben, sondern will nur spezifisch welche haben und dann können wir das DataFrame filtern
+und da gibt es verschiedene Filteroperationen und zum Beispiel die Vergleichsoperatoren, die
+kennt ihr wahrscheinlich eh schon, also die haben wir ja schon mal bei einem FLs durchgemacht, da
+gibt es zum Beispiel größer, kleiner, größer gleich, kleiner gleich, ist gleich oder ist nicht
+gleich. Es gibt auch die Logischenoperatoren, also die normalen Beifungen kennt man die ja mit
+End oder Not, in Bandages kann man aber nur das Unzeichen, das Oderzeichen oder die Verneinung
+mit der Tilde verwenden und da generiert man praktisch so eine Art Boolean-Maske, das heißt
+praktisch, das werde ich gleich dann in der nächsten zeigen, macht man da gleich so, praktisch
+wenn ich da zum Beispiel hier ein DataFrame habe und ich will nach Population filtern und zwar dass
+ich will nur die Zeilen haben, die praktisch eine Population über 25 Millionen haben,
+dann mache ich das einfach so, Df, ganz wichtig noch zu Df, also Df entspricht ja eigentlich
+normalerweise nicht dem Coding-Standard, das hat sich so eingebürgert, dass Df kurz für DataFrame
+steht und wenn ich mir richtig erinnere, könnt ihr Df auch dann in Assignment 2 so verwenden,
+weil das ist einfach ein eingebürgertes Wort und wenn jemand Df in Code liest,
+dann weiß eigentlich sofort jeder, okay, damit ist eigentlich ein DataFrame gemeint. Das kann
+dann zum Beispiel auch Df Unterstrich States heißen, also wenn es falls ihr mehrere DataFrames
+habt, genau und wenn wir jetzt da zum Beispiel nach Population filtern wollen, dann können wir da
+eben Df, eckige Klammer aufmachen und dann haben wir da praktisch drin Df.population und dann hier
+eben unseren Vergleichsoperator, also wenn man da kleiner haben will, dann macht man da kleiner,
+wenn man gleich haben will, dann machen wir gleich und sonst eben größer und da gibt es auch wieder
+verschiedene Möglichkeiten, wie man da dieses Df.population drin machen kann. Da können wir zum
+Beispiel das eben mit Df.population machen, wir können das aber auch wie im Dictionary machen,
+also mit Anführungszeichen oder auch mit dem Location-Parameter oder halt Methode. Und was
+passiert im Hintergrund? Im Hintergrund geht Bandas her und geht für jede Zeile her und sagt, okay,
+ist dieser Wert größer als 25 Millionen? Ja, dann schreibt mir ein True da rein. Ist dieser Wert
+größer als 25 Millionen? Ja, passt true. Falls, falls, falls, falls, also im Hintergrund macht
+es uns dann so eine Liste, wo dann eben für jeden jede Zeile in der Spalte drin steht, ob die
+Bedingungen war es oder nicht. Okay, dann zeige ich das kurz her. Also, genau so schaut das aus,
+wenn ich jetzt zum Beispiel nur das Innere hier nehmen würde. Dann seht ihr, dass hier einfach True
+oder false drin stehen wird. Gibt es da zu fragen? Okay, genau. Genau, und die kann man
+eben kombinieren. Das macht man dann eben mit, mit diesem und oder oder Verneinung. Zum Beispiel hier
+will ich abfragen, welche Zeilenbeinhalt starten mit weniger als 15 Millionen Einwohnern und weniger
+als 200.000 Kilometer Fläche. Dann kann ich die einfach kombinieren. Dann sage ich, okay, der
+Population soll kleiner sein. Und dann vergleiben wir noch die Area gleich da drin dazu und dann
+können wir das kurz mal ausführen. Und dann sehen wir, okay, wir haben hier Hawaii, wo anscheinend
+bei 0 sein soll und immer neu die 12 Millionen oder fast 13 Millionen Einwohner hat. Genau. Dann können wir zum
+Beispiel auch die States rausfinden. Also hier davor hatten wir ja praktisch hier noch diese Zeile
+State und wir haben dieses gefilterte Data Frame jetzt in einer neuen Data Frame abgespeichert und
+dann können wir das neue Sachen abfragen, zum Beispiel eben hier die State Spalte.
+Genau. Das schaut dann eben so aus zum Beispiel. Und das haben wir gerade durchgemacht. Genau. Was auch
+ganz cool ist, wir können da zum Beispiel Stringen-Operationen durchführen. Zum Beispiel haben
+wir hier unser Data Frame und da als Population und Area zum Beispiel, das sieht man sofort,
+das sind Float Werte, weil die haben ja hier Punkt irgendwas stehen. Außer vielleicht der Wert hier,
+in der einen da kommen wir dann später noch dazu, dass da praktisch fehlt ein Wert. Aber hier
+diese Werte hier, das sind alle Strings. Und die können wir natürlich auch verändern. Da können
+wir eben die normalen Stringen-Operationen ausführen, die ihr eh schon kennt, Punkt Lower, Punkt Upper,
+Containen usw. und so fort. Und da kann ich zum Beispiel dann noch filtern. Zum Beispiel, wenn ich
+jetzt alle Staaten haben will, die New drin haben in ihrem Namen, dann kann ich das so machen,
+indem ich einfach sagt DF und dann schaue ich mir die States an, also diese Spalte hier und dann
+kann ich Punkt STR machen. Praktisch dann weiß ich okay, ich will eine Stringer Funktion ausführen
+und dann Punkt Contains und dann schaue ich einfach, ob dieses New Keyword drin vorhanden ist.
+Also so, das kann ich auch kurz vorzeigen. Okay, schauen wir mal dann noch das originale DF.
+Also das Wichtige ist eben, dass wir hier wieder diese Eckenklammern machen. DF, zum Beispiel State
+kann man, dann wollen wir praktisch das ganze als String behandeln und dann können wir eben hier
+zum Beispiel Contains machen und dann wollen wir herausfinden, zum Beispiel alle Staaten, die ein S
+vorhanden haben. Das heißt hier DEXAS, New Jersey und Illinois haben praktisch ein S. Was kann ich da
+noch machen? Ich kann zum Beispiel hergehen, also noch mal kurz Herzer zeigen, wenn ich die Eckenklammern
+weglasse, dann kann man wieder nur dieses True-False. Aber was ganz cool ist, ist zum Beispiel, ich kann da nicht
+nur Contains, also was zum Beispiel True oder False zurückgibt, ich kann da zum Beispiel eben auch
+lower machen. Und dann verwandelt es mir praktisch alle Namen in Kleinbust haben. Oder Abba.
+Gibt es da so Fragen? Okay. Genau, dann kann man eigentlich auch zu einem sehr starken Dual,
+was dieses DataFrame eben auch bereitstellt und dass es eben diese Aggregierungsfunktionen
+und da gibt es verschiedene, so gibt es zum Beispiel, man kann das ganze aufsummieren oder man kann den
+höchsten Wert herausfinden, den kleinsten Wert herausfinden. Man kann natürlich auch herausfinden,
+wie lang so ein DataFrame ist, also wie viele Zeilen ein DataFrame besitzt mit dem Length keyword. Das
+ist praktisch sehr ähnlich zu dem von der Liste. Genau. Und was auch noch interessant ist, wir haben
+da nicht nur was wir bei Listen haben, Sam, Max, Min, wir haben ja auch zum Beispiel, wir können
+den Medien ausrechnen, den Mittelwert und zum Beispiel, wie oft ein Value vorhanden ist. Wie schaut
+das aus, wenn ich das zum Beispiel mache? Sag mal, ich mache ein neues DataFrame.
+Schauen wir mal, ob das geht.
+Ich habe jetzt einfach mal ein DataFrame gestellt, dass praktisch diese Werte beinhalten. Wie ihr seht,
+kann man da einfach auch eine einfache Liste übergeben und dann macht das einfach nur eine Spalte.
+Und dann wollen wir da zum Beispiel herausfinden, was ist der kleinste Wert? Das anscheinend 1,
+der größte Wert ist anscheinend 6. Dann können wir einen Min machen, dann kommen wir den Mittelwert
+daraus und dann können wir zum Beispiel ValueCounts machen. Und das seht ihr, das ist jetzt bisschen blöd,
+weil das in NumPy umgewandelt wird, aber schaut einfach diesen Wert in der Klammer an und dann seht
+jetzt hier zum Beispiel, dass der Wert 2 anscheinend 2 mal vorkommt. Das heißt praktisch, wenn nicht zum
+Beispiel im oberen DataFrame 2 mal Kalifornien drin haben würde, dann würde ValueCounts dann
+Kalifornien hier stehen und hier 2. Damit kann sehr schnell praktisch Werte zählen. Das kann sehr praktisch sein.
+Genau, was auch ganz interessant ist, ist, man kann eben auch so arithmetische Spaltenoperationen machen.
+Was heißt das? Ich kann plus, minus, mal geteilt auf eine ganze Spalte anwenden.
+Noch mal hier zum Beispiel. Also hier haben wir das. Und jetzt möchte ich aber das Ganze multiplizieren.
+Dann kann ich das einfach machen. Null, warum steht hier Null drin? Weil unsere Spalte Null heißt.
+Das heißt praktisch, wenn wir hier keine Spaltenamen angeben, dann tut uns Pan das einfach
+irgendwelche Integer zuweisen. Ihr seht auch, das ist kein String. Also das ist wirklich ein Integer.
+Also wenn ich das hier als Integer, als String schreiben würde, dann würde das nicht funktionieren.
+Aber wenn eben zum Beispiel Area drin stehen würde, dann ist es automatisch ein String.
+Genau, und da kann man ganz viel machen. Da kann man eben alle möglichen Operatoren anwenden.
+So.
+Im Hintergrund praktisch werden dann einfach, wird jedes Spalte als Serious-Objekt bearbeitet.
+Das heißt praktisch, Serious könnt ihr euch vorstellen, ist einfach eine Pifenliste.
+Bissich komplizierter, weil es effizient programmiert wird als eine Pifenliste.
+Aber ihr könnt euch das wirklich so vorstellen, als wäre das einfach eine Pifenliste.
+Und dieses Serious-Objekt eben besteht aus einem NumBuy Area, genau, und so weiter und so fort,
+weil das Ganze ist dann nicht mehr beifenprogrammiert, sondern in C, weil das effizienter ist,
+und dann im Hintergrund praktisch schneller arbeiten kann.
+Ich kann hier zum Beispiel meine Area, die da vorhin squared miles war, in 1 km umrechnen,
+wenn ich zum Beispiel den Faktor weiß, und kann das Ganze dann noch so aufsummieren,
+dann weiß ich die Total Area, also eigentlich ein sehr starkes Tool.
+Genau, also hier zum Beispiel,
+natürlich wenn hier ein Nann drin steht, dann bleibt das Nann oder auch wenn das Null ist,
+Null multipliziert mit irgendwas, ist wieder Null.
+Und dann kommen wir auch zu diesem Nann, das sind praktisch fehlerhafte Daten,
+das heißt praktisch die fehlen einfach in unser TSV Datei zum Beispiel,
+und das ist eigentlich das Equivalent zu dem Nann, das wir hier schon gelernt haben.
+Und wenn ich zum Beispiel keinen anderen drin stehen haben will, sondern zum Beispiel Null,
+dann kann ich das mit diesem Fill Nah machen, also Fill NA,
+und dann hier einfach einen Wert bereit geben, das heißt zum Beispiel,
+wenn ich eben Null haben will, dann schreibe ich hier Null rein.
+Jetzt können wir auch ausdessen,
+gehen wir da zurück zu uns,
+schauen wir mal.
+Okay, dann müssen wir noch was hinzufügen.
+Ich habe davor gesagt, dass TSV Dateien immer,
+dann machen wir da einfach
+die man dann nicht solle Idee für ein Start,
+dann machen wir einfach, ah können, so,
+da schreibe man Plation 1 rein, und hier fehlt dann ein Wert.
+Bandas handelt das für uns, ohne Probleme.
+Da steht hier einfach Missing Value drin, also Visual Studio Code zeigt es uns als
+Missing Value an, im Hintergrund ist da dann einen anderen.
+Kannst vergessen, dass wir das schon drin gehabt haben, bei den New Jersey,
+das war schon tatsächlich, das fehlt hier auch.
+Und dann können wir hergehen und sagen,
+dann machen wir das ein bisschen kleiner hier,
+Punktvillner,
+da zum Beispiel minus 1.
+Und dann haben wir hier statt Missing Value minus 1 drin.
+Ja.
+Dann muss das filtern,
+da muss sagen, okay, ich
+praktisch, sagen wir mal, du willst jetzt nur,
+ich will jetzt nur von New Jersey den Wert, den Nahwert verändern,
+da muss ich zuerst hergehen und mit df.loc,
+dann zum Beispiel df.state ist gleich New Jersey machen,
+jetzt bekommen wir New Jersey raus,
+da geht man schon eher, also da braucht man dann nicht mal viel Nahverwenden,
+da kann man dann einfach direkt zum Beispiel die Area verändern,
+indem man einfach sagt, ich weiß gar nicht, ob ich das so machen kann.
+Ja.
+Und dann kann ich eben so praktisch zum Beispiel den Nahwert verändern.
+Also da, wenn du wirklich ganz spezifisch nur einen Wert verändern willst,
+dann bist du einfach filtern und den Wert direkt auf was setzen.
+Viel Nah ist eher so,
+ich will jetzt einfach keine Missing Values drin haben,
+weil ich, keine Ahnung, eine Funktion auf alle Spaltenwerte ausführen will
+und die nicht miteinander arbeiten kann zum Beispiel.
+Weil ich kann dann natürlich auch wirklich hergehen und sagen, okay,
+ich habe hier mal ein Data Frame, ja,
+und dann mache ich df., hol mir eine Spalte raus, zum Beispiel Area,
+Punkt Ablei und da kann ich jetzt eine wirklich von mir definierte Funktion zum Beispiel ausführen,
+also zum Beispiel Def,
+Print Area, die bekommt dann den Wert natürlich, Area,
+und dann,
+machen wir so,
+und dann gehe ich das nochmal zurück,
+und jetzt hat es mir da einfach diese Funktion auf alle Spalten ausgeführt,
+zum Beispiel mit diesem Ablei.
+Was passiert, wenn ich hier kein Return Area mache,
+dann geht bei FNaF unaus, dass du Return None machst,
+das heißt, alle Area-Werte werden mit None überschrieben,
+das heißt, jetzt hast du überall Missing Values drin stehen.
+Aber cooler ist dann natürlich, wenn man da wirklich hergeht und okay,
+was eine Berechnung machen will, zum Beispiel,
+hoch 2, zum Beispiel,
+da kann man natürlich sehr komplizierte Berechnungen auch machen.
+Genau.
+Man kann auf bestimmte Spalten hergehen,
+man kann auf das gesamte DataFrame die Werte ändern,
+also das würde ich nicht empfehlen,
+weil, sagen wir zum Beispiel, man hat jetzt eine Spalte,
+wo zum Beispiel die Namen der Staaten drin stehen hat,
+und dann eine, wo die Area drin stehen hat,
+und zusammen mit dem fehlt ein,
+und zusammen mit dem fehlt ein Value bei den Staatennamen
+und einer bei den Areas, und wir sagen einfach viel Namen mit minus 1,
+dann haben wir jetzt auch bei den Staatennamen
+an minus 1 drin stehen, und das ist vielleicht nicht unbedingt das,
+was wir wollen.
+Das Bessere, wir gehen wirklich nur her und machen für jede Spalte
+einzelne was, und kann natürlich auch hierhergehen,
+und für jede Spalte einen bestimmten Wert definieren,
+also das geht auch.
+Das ist wahrscheinlich, ja, wenn man mehrere Spalten gleichzeitig machen will.
+Genau, damit ist ein bisschen was durchgemacht.
+Ja, das heißt, ich kann hier einfach ein Missing Value
+dann einfügen mit diesem Filter.
+Ja, und wie gesagt, ich kann das Ganze dann eben auch mit diesem Filter machen,
+und das, ja, wenn man ganz spezifisch was ändern will.
+Nun kommen natürlich auch zu einem sehr anderen wichtigen Thema ist,
+wie lege ich überhaupt Spalten an.
+Und das geht eigentlich ganz easy.
+Wenn ich eine Spalte machen will, dann mache ich einfach,
+wie beim Liktion Arrow zum Beispiel, einfach einen neuen Wert für diese Spalte,
+und dann einen Standard Wert.
+Das kann ich so machen, das kann ich aber auch mit Location,
+mit diesem Location Methode machen,
+die ja ist sicherer, weil ich hier ganz spezifisch die Zeilen definieren kann.
+Ich kann natürlich auch eine neue Spalte machen,
+indem ich eine andere Spalte hernehme,
+und da zum Beispiel sage, okay, ich möchte hier die Population in Millionen haben,
+dann nehme ich einfach die normale Population,
+spalte her und dividiere die durch eine Million.
+Oder das Ganze geht natürlich auch mit mehr Spalten,
+das heißt, ich kann hergehen und sage, okay, ich will die Density,
+also die Bevölkerungstichte berechnen,
+dass man mit Population als Bevölkerung durch die Fläche,
+und dann wird praktisch wirklich für jede Zeile die Population,
+der Population Wert hergenommen und der Area Wert hergenommen,
+und die zwei werden dann kombiniert,
+um dann einen neuen Wert in dieser Zeile in der neuen Spalte zu machen.
+Wie schaut das aus?
+Das haben wir hier unser DataFrame,
+wir wollen da jetzt eine neue Spalte hinzufügen,
+dann können wir das einfach so machen,
+dann haben wir hier eine neue Spalte mit dem Wert 1 drin stehen,
+sagen wir mal, wir wollen hier was anderes haben, zum Beispiel,
+Population, also ich kann zum Beispiel die Spalte kopieren einfach,
+das geht auch,
+jetzt habe ich hier einfach das gleiche drin stehen,
+was ich hier drin stehen gehabt habe,
+ich kann sagen, okay, ich will da das Ganze durch 1.000 machen,
+dann schreibt es mir hier die Werte durch 1.000 rein,
+also das ist jemals, wie ihr seht zum Beispiel 38 Millionen und hier steht dann 38.000 drin
+und hier steht 26 Millionen drin und hier steht dann 26.000 drin,
+ich kann aber hier dann auch wirklich zwei Spalten hernehmen,
+und dann wird hier zum Beispiel Population durch Area dividiert für jede Spalte einzeln,
+natürlich, wenn wir hier ein Missing Value haben,
+dann kommt hier auch ein Missing Value raus,
+oder wenn zum Beispiel der zweite, also hier Area Null ist,
+wir können nicht durch Null dividieren, das heißt,
+hier kommt auch ein Missing Value raus,
+genau, und da kann man natürlich auch wieder hergehen und irgendwelche Beifunktionen verwenden,
+zum Beispiel wollen wir die Population in Millionen hier runden,
+dann können wir einfach Round und die gleiche Spalte nochmal reinhauen,
+dann wird die eben gerundet,
+hier zum Beispiel die zweite wird auf 2 Kommastellen gerundet,
+und die erste wird auf keine Kommastelle gerundet,
+dann kommen wir noch zum Plotting,
+und Plotting ist auch richtig cool,
+so haben wir hier zum Beispiel unser DataFrame,
+dann können wir einfach sagen DataFrame.plot,
+da gibt es natürlich verschiedene Plots,
+also die kennt ihr wahrscheinlich eh alle,
+da gibt es die Barplot, also die Säulendiagramme,
+die Skatterplots und so weiter und so fort,
+hier zum Beispiel machen wir ein Barplot,
+also wir sagen unsere x-Axis ist der State,
+unsere y-Axis ist die Population Density,
+dann können wir da noch ein Titel definieren,
+dann sagen wir okay, welche Art von Plot zu sein,
+in diesem Fall soll es ein Barplot sein,
+dann können wir auch die x-Achsen und die y-Achsen praktisch erlabeln,
+und dann kriegen wir dann Plot raus,
+und ihr kennt das wahrscheinlich eh von Excel,
+da markiert man einfach die Spalten,
+und sonst hat man einfügen neuer Plot,
+ziemlich ähnlich hier nur, dass wir es praktisch
+hier ganz schnell zum Beispiel die Art des Plots austauschen können,
+oder die x- oder y-Achse austauschen können,
+und man kann halt mit sehr sehr vielen Daten arbeiten,
+obwohl das Plotding bei sehr sehr vielen Daten auch sehr langsam sein kann manchmal, leider.
+Genau, am Anfang haben wir gehabt,
+dass man aus CSV DataFrames erstellen kann,
+man kann das Ganze natürlich umgekehrt auch machen,
+man kann aus CSV DataFrames auch wieder CSV DataFrames machen,
+man kann auch andere DataFrames rausmachen,
+also man muss nicht nur CSV DataFrames machen,
+man kann auch Excel DataFrames machen,
+die sind ein bisschen anders,
+aber ja im Großen und Ganzen schreibt man einfach df.2csv,
+dann den Namen, den man haben möchte,
+und hier zum Beispiel kann man dann angeben,
+ob man den Index noch dazu haben will oder nicht,
+also der Index, der wäre hier,
+nicht 01234,
+hier in diesem Fall haben wir gesagt,
+nein wir wollen nicht,
+wenn wir das hier vergessen,
+dann haben wir hier automatisch 0123456 drin stehen.
+Genau, und dann kriegen wir praktisch einfach,
+also das schaut dann so aus,
+wenn wir es mit Excel zum Beispiel aufmachen,
+dann kriegen wir eben wieder das.
+Genau, warte ich zeig das eventuell nochmal kurz.
+Okay, zusammen wir wollen dieses DataFrame,
+das wir jetzt haben, speichern,
+dann können wir eben df.2csv,
+und das sieht ja schon,
+was alles möglich ist an DataEin,
+also ich kann es zum Beispiel einfach ins Clipboard speichern,
+das ist das Gleiche wie wenn ihr zum Beispiel kopieren,
+also irgendwas Rechtsklick und Kopieren macht,
+oder Steuerung C macht,
+das wird dann praktisch einfach in der Ram gespeichert,
+im Arbeitsspeicher,
+ihr könnt zum Beispiel eben das Ganze in ein csv umwandeln,
+ihr könnt aber auch einfach ein Beifendiktionell draus produzieren,
+dann gibt es eben noch Excel und so weiter und so fort,
+nehmen wir einfach mal csv her,
+und wie ihr seht,
+da gibt es Unmengen an Parametern,
+die ihr da verwenden könnt.
+Wir wollen jetzt mal zum ersten Mal den FileBuff haben,
+ah, hier sieht man es besser,
+also vielleicht kurz ein paar Parameter,
+die ihr anwenden könnt,
+also Puff oder Buff,
+das ist praktisch dort der Filename,
+wo ihr das csv speichern wollt,
+haben zum Beispiel neues,
+NewStates oder StatesProcess.csv,
+dann könnt ihr den Separator auswählen,
+der ist normalerweise einfach ein Komma,
+aber wenn ihr sagt,
+na, ich will alles Strichpunkt getrennt haben,
+dann könnt ihr hier Separator Strichpunkt angeben,
+oder Kanon kann man natürlich jeglichen String angeben,
+den ihr haben wollt,
+also das kann auch zum Beispiel Kanon Hallo sein,
+und dann wird praktisch euer csv mit dem String Hallo getrennt,
+das kann man auch kurz austesten.
+Dann zum Beispiel,
+wie MissingValues,
+also fehlende Werte repräsentiert werden sollen,
+die werden hier im nächsten Fall einfach in QuotationMarks gespeichert,
+man kann natürlich auch auswählen,
+welche Columns,
+also wenn man zum Beispiel nicht alle Columns haben will,
+kann man das auch auswählen,
+ob man den Header speichern will,
+also ob man zum Beispiel,
+das ist unser Header hier,
+also diese Fett markierten,
+ob wir die auch speichern wollen oder nicht.
+Den Index,
+genau das haben wir erst schon gemacht,
+ein Label für das Index,
+den Mode zum Beispiel,
+das ist eigentlich,
+falls ihr erinnern könnt,
+von den Files,
+da kann man zum Beispiel,
+also W ist für write,
+also für schreiben,
+aber man kann zum Beispiel auch A hernehmen,
+zum Beispiel für appenden,
+das heißt,
+wenn das File schon existiert,
+dann wird das nicht überschrieben,
+sondern es wird einfach,
+die neuen Daten einfach
+ganz am Ende hinzugeflügt.
+Die anderen sind jetzt nicht so wichtig,
+aber ja,
+die könnt ihr ja alle durchlesen.
+Jetzt machen wir da einfach states new,
+also was,
+wenn ich da jetzt das Punkt CSV nicht mache,
+dann macht es mir hier ein File,
+das keine Endung hat.
+Also die Werte drinnen
+sind natürlich immer noch
+gleich wie bei einem CSV-File,
+aber euer Betriebssystem weiß nicht,
+dass es ein CSV-File ist,
+das heißt, ich muss hier Punkt CSV schreiben,
+dann weiß das Betrieb ist dem AOK,
+du meinst, ein Komma separiert das,
+der Wellenformat.
+Genau,
+hier irgendwas gedrückt.
+Die Lecture ist weg.
+Dann kann man kurz zum separator vielleicht,
+also wie gesagt,
+der ist normalerweise Komma,
+also wenn ihr den separator nicht angeht,
+dann wird der Automatisch auf Komma gesetzt,
+aber ihr könnt da eben Strichpunkt verwenden,
+ihr könnt da eine Oderzei verwenden,
+ihr könnt da,
+keine Ahnung,
+separator schreiben,
+wenn ihr unbedingt haben wollt,
+so was passiert da,
+habe ich was vergessen.
+Okay, geht tatsächlich nicht,
+also der separator muss anscheinend
+ein Zeichen lang sein,
+dann habe ich ja Bullshit erzählt.
+Okay, aber das geht.
+Wie ihr seht,
+haben wir dann eben hier
+eine Oderzei hindern stehen.
+Genau,
+wenn ich da jetzt noch Heter dazu mache,
+oh,
+ist das hier Automatisch,
+was kann ich nicht,
+ob das,
+okay ich glaube,
+Heter ist automatisch auf True,
+maybe.
+Ja,
+sagen wir mal,
+ihr wollt die Heter nicht haben,
+da sind die jetzt da oben weg,
+also da fehlt jetzt die erste Zeile,
+gibt es da zu fragen.
+Okay,
+schau, ob ich da noch irgendwo
+das Apfel blotten.
+Ja, genau,
+also da gibt es alles Mögliche,
+in diesem Fall zum Beispiel
+verwenden wir einen By-Chart,
+hier einen By-Chart,
+ich werde euch dann noch dieses Notebook
+hochladen ins Citycenter,
+dann könnt ihr da eventuell
+auch nochmal nachschauen.
+Genau,
+ja das glaube ich,
+war es dann eh schon von der Banders.
+Vorlesung,
+gibt es dazu noch Fragen?
+Okay,
+dann vielleicht dann kurz
+was Organisatorisches,
+was jetzt noch auf euch zukommt.
+Wir sind,
+das heißt,
+sollte eigentlich Assignment 2 sein,
+also die Ausgabe wird jetzt
+in den nächsten paar Tagen kommen,
+es hat sich bis sich verzögert,
+weil wir jetzt eben mal
+kurze SimPy-Aufgabe einbauen werden,
+aber ihr bekommt dann eine E-Mail.
+Nächste Woche machten der Helmut noch
+über SimPy einen Crash Course,
+dann am 4. Feb,
+praktisch ist keine Vorlesung,
+und dann am 11.
+haben wir dann die Classeur-Vorbereitung,
+da wiederholen wir noch mal alles,
+was ihr für die Classeur braucht.
+Am 4. Feb ist dann eh schon,
+dass die Deadline für Assignment 2,
+ist seit eh schon alle in Gruppen
+angemeldet,
+nämlich an im Dietz-Center,
+und dann,
+ja, falls die Classeur
+im Nicht-Hin-Haus holt,
+dann gibt es eben noch eine Nachclasseur.
+Zu den Tutorien habe ich da auch noch,
+da wird dann nächste Woche
+noch mal das Ganze durchgemacht,
+was wir jetzt in den letzten
+zwei Crash Crosses durchgemacht haben,
+dann am 3.
+wahrscheinlich haben wir SimPy-Tutorium,
+und am 10. Dezember gibt es
+noch mal eine Fragestunde zu Assignment 2,
+falls es noch Unklarheiten gibt, ja.
+Man muss sich für die Classeur
+nicht anwenden, nein.
+Die ist dann ein,
+eigentlich ein Dietz-Center-Quiz,
+das könnt ihr dann
+zu Hause online machen.
+Wenn ich mich richtig erinnere,
+braucht ihr dafür
+für die Classeur auch noch mal
+50 Prozent der Punkte.
+Genau, ja,
+da haben wir jetzt alles durchgemacht,
+hoffentlich.
+Dann gehe ich kurz
+zu Assignment 2 über
+und erkläre kurz
+was wir
+Assignment 2 ablaufen wird.
+Es hat sich eigentlich
+seit letzten Jahren nicht viel geändert.
+Es ist immer noch Data Science
+für Civil Engineers.
+Was heißt das?
+Ja, ihr müsst damit banden,
+bis ihr was arbeitet,
+und das soll so ein bisschen simulieren,
+wie das wirklich in der Realität
+vielleicht auch aussehen könnte.
+Das heißt,
+ihr betreibt da Data Science
+in eurem Anwendungsfeld,
+und wir haben da Daten
+von Vorarlberger Ski-Liften
+und Seilbahnen,
+mit denen ihr dann arbeiten könnt.
+Und Ziel ist es da
+praktisch, bis die Bahnen das
+können zu lernen
+und damit was zu programmieren.
+Und dieses Assignment
+ist im Jahr in Teilen aufgedeilt.
+Ein Punkt bekommt ihr schon
+allein aus Daten laden.
+Das sollte jetzt kein Problem sein
+mit ReadCSV.
+Dann nochmal Pre-Processing.
+Pre-Processing, was heißt das?
+Ja, bevor wir mit den Daten
+überhaupt was anfangen wollen,
+müssen wir überhaupt schauen,
+dass die Daten gut aussehen.
+Das heißt, ob wir müssen
+die missing values zum Beispiel entfernen
+oder falls irgendwelche values
+nicht stimmen sollen,
+zum Beispiel wenn ein 0 drin steht,
+dann müssen wir das nachschauen
+und eventuell ausbessern.
+Und das machen wir dann alles mit Code.
+Und dann eigentlich
+gibt es noch die Exploration und Visualisierung.
+Das heißt praktisch,
+ich schaute euch die Daten an
+und plaudert es dann mal
+auf bestimmte Spalten oder so
+und seht es okay.
+Keine Ahnung, es gibt 20 Ski-Lifte
+oder die insgesamt,
+die gesamte Länge aller Ski-Lifte
+ist 50 Kilometer oder so.
+Also da kann man wie sie schauen,
+wie schauen die Daten überhaupt aus,
+statt dass man immer nur ne Tabelle hat.
+Und dann das ganze Schluss.
+Also das ist praktisch der erste Teil
+und dann gibt es den zweiten Teil,
+das ist praktisch eine Analyse
+und Berechnung,
+wo ihr noch mal 12,5 Punkte bekommt
+und da werden wir dieses Mal
+noch ein bisschen SimPy inkludieren.
+Und ja, das ist dann auch einfach
+noch mal,
+da gibt man dann noch mal tiefer rein,
+sucht sich bald durch einen bestimmten Punkt aus,
+wo man sagt okay,
+das möchte ich mir genauer anschauen,
+also möchte ich mir genauer analysieren,
+zum Beispiel,
+das Beispiel selber nicht ganz genau.
+Aber hier nehmen wir jetzt einfach mal
+ein grobes Beispiel her und sag,
+ich nehme jetzt die Länge
+aller Ski-Liftes 50 Kilometer
+und ich nehme jetzt die Länge,
+was kann ich mit dem anfangen.
+Das Beispiel,
+wie hoch ist zum Beispiel der Preis
+pro Kilometer,
+den ich dafür gezahlt habe
+oder wie viel Gewinn kann ich
+pro Kilometer Ski-Lift einnehmen.
+Das ist nur ein Beispiel,
+ich glaube,
+das ist dann ein bisschen anders,
+immer sei man zwei, aber
+aber ja, so was könnte ich darunter vorstellen.
+Für die Abgabe,
+also die Abgabe ist dann einfach
+das ist die Beschreibung,
+die ihr dann bekommen werdet,
+das ist dann eigentlich so ziemlich
+gleich wie Simon 1.
+Die Deadline ist dann Mitternacht am 14.
+Und da gibt ihr dann einfach
+dieses Simon 2 Punkt Notebook ab,
+also dieses IPNB.
+Ja, die Anforderungen und Output
+sind da exakt wiederzugeben,
+warum?
+Ja, weil wir da wieder
+das Testsystem verwenden.
+Also wir werden da auch wieder
+beim Testsystem,
+also dieses Testsystem
+mehrmals durchlaufen lassen,
+also jeweils Dienstag und Freitag.
+Ich rate euch da wirklich sehr,
+das auszunutzen,
+weil ihr da auch wirklich
+blöde Fehler draufkommt,
+könnt ihr die vielleicht durch Punkte abziehen.
+Ja, dieses Mal muss der Kommentarheader,
+ah, wo sind da beide Dateien?
+Also einfach in allen Dateien,
+die ihr dann abgeben solltet,
+sollte dieser Kommentarheader ausgefüllt werden.
+Und Codingstander soll auch wieder eingehalten werden.
+Ja, genau, zum Automatisieren Test nehmen,
+VIPAS 1 mit 1.
+Also wenn ihr alle Tests erfolgreich bestanden habt,
+muss das nicht heißen,
+dass ihr alle Punkte bekommt,
+weil wir natürlich auch noch
+im Hintergrund Tests haben,
+also am Ende mit anderen Werten,
+die wir nochmal austesten werden.
+Deshalb seid gefasst,
+dass ihr da wirklich alle Kleinigkeiten durchgedacht habt
+und dann sollte es eigentlich
+hier trotzdem kein Problem sein.
+Genau, Testruns, Dienstags und Freitags,
+wir werden dann wieder einfach die Abgaben
+ab 18 Uhr downloaden und testen
+und dann bekommt ihr wieder per Mail
+praktisch ein Feedback.
+Und falls ihr wirklich da Fragen habt
+zum Testreport,
+dann kommt ihr eben ins Tutorium
+oder schreibt es einfach in die Center,
+sagt okay, ich habe diesen Fehler bekommen
+im Feedback Report.
+Ich verstehe nicht,
+könnt ihr bitte uns da weiterhelfen.
+Und da werden wir versuchen,
+das so schnell wie möglich zu beantworten.
+Ja, das ist es eigentlich eh schon
+von diesem Crash Course.
+Gibt es sonst noch Fragen?
+Sonst würde ich mich bedanken.
+Das ist eine gute Frage.
+Da doch hier steht,
+im beiden Dateien,
+ja also ich denke schon,
+dass ihr praktisch da zusammen
+in einer Datei arbeiten könnt.
+Also ihr könnt es,
+ich will jetzt nichts Blödes sagen,
+weil ich das selber jetzt nicht weiß,
+aber ich kann mir halt gut vorstellen,
+dass ihr wahrscheinlich
+einfach entweder zu zweit euch zusammensetzt
+und das Gemeinsam programmiert
+und dann einfach
+für jeweils pro Person
+das gleiche File auf Teach Center hochlett.
+Da bekommt ihr jetzt kein Plagiat.
+Ich meine, das macht ihr zusammen.
+Das ist ja eigentlich die...
+Ihr sollt natürlich das nicht
+mit zwei verschiedenen Gruppen machen,
+aber ja, es ist einfach so,
+also es ist eine Gruppenarbeit.
+Das heißt, ihr könnt das ruhig zu zweit
+gemeinsam auf einem Computer machen.
+Wenn ihr das nicht möglich ist,
+dann könnt ihr das auch über Karnung,
+Discord machen oder Karnung.
+Also das ist alles möglich.
+Okay, was?
+Falls ihr sonst keine Fragen gibt,
+dann vielen Dank.
+Dann lasse ich euch...

@@ -1,0 +1,1672 @@
+Perfekt. Ja, dann, hallo und herzlich willkommen zum
+Beifen Crash Course D. Mit diesem Crash Course, mit diesem letzten Crash Course,
+solltet ihr praktisch alle Grundprinzipien von Beifen kennengelernt haben, die ihr dann
+für Asylent-1 brauchen wird. Es gibt ja natürlich noch weitere Crash Courses zu
+Pandas und Zympai. Ja. Das sollte jetzt gefixt sein.
+Passt dann ändere ich das nach der Vorlesung um.
+Genau, ich weiß nicht, ich glaube, im Kalender ist heute die Vorlesungseinheit ein bisschen länger eingetragen.
+Sie sollte aber eigentlich gleich lang bleiben wie alle davor. Wir können es aber bis Sie verlängern,
+falls ihr noch kurz Asylent-1 kurz durchgehen wollt. Ich starte sonst gleich mal mit dem Feedbacken.
+Schauen wir, können Sie mal...
+Und ich schaue mir kurz an.
+Stimmt zu Asylent-1 gab es gestern noch technische Schwierigkeiten, deshalb ist es erst ab heute verfügbar.
+Aber ja, ich schaue mal...
+Ich habe es gestimmt.
+Ich habe es gestürzt, ich habe es gestürzt.
+Ich habe es gestürzt, ich habe es gestürzt.
+Die vorletzte Frage haben wir noch gar nicht durchgemacht.
+Ich habe jetzt mal dringelassen, damit ihr mal seht, was wir heute dann durchgehen werden.
+Ihr könnt euch mal Gedanken darüber machen und sonst ist es auch egal.
+Ich habe es gestürzt, ich habe es gestürzt.
+Ich habe es gestürzt, ich habe es gestürzt.
+Ich habe es gestürzt, ich habe es gestürzt.
+Ich habe es gestürzt, ich habe es gestürzt.
+Ich habe es gestürzt, ich habe es gestürzt.
+Ich habe es gestürzt, ich habe es gestürzt.
+Ich habe es gestürzt, ich habe es gestürzt.
+Ich habe es gestürzt, ich habe es gestürzt.
+Ich habe es gestürzt, ich habe es gestürzt.
+Passt, ich gebe euch noch eine Minute und dann bin ich.
+Ich gebe euch noch eine Minute und dann bin ich.
+Ich gebe euch noch eine Minute und dann bin ich.
+Ich gebe euch noch eine Minute und dann bin ich.
+All right.
+Passt, also hier haben wir es so, dass wir praktisch ein If-Statement in der Vorschleife haben, die uns ab einer gewissen Zahl die Schleife abricht.
+Praktisch die Schleife geht da nicht von 0, 1, 2, 3, 4 durch, sondern bricht da ab, sobald die Summe hier erreicht ist, also sobald die Summe größer als 4 ist.
+Das sieht man hier, also range, das liefert uns ja praktisch eine zahlende range ab und wir addieren hier dann immer praktisch diese Laufvariable zu unserer initialen Variable,
+dass wir praktisch hier in diesem Fall 0 plus 0, 0 plus 1, 1 plus 2, 3 plus 3 und 3 plus 3 ist 6, 6 ist größer als 4 und da bricht man ab.
+Und deshalb kommen wir da auch nie wirklich zur letzten Summe.
+Ist das soweit verständlich oder gibt es dazu noch Fragen?
+Genau, also wichtig bei unseren verdienten Datentypen von dictionary sets, duples und Listenes, dass praktisch nur Listen und Duple geordnet sind, was heißt geordnet?
+Wenn ich das kurz zeige, wenn ich zum Beispiel eine Liste definiere,
+und das gleiche mit einem Duple, dann bleiben diese Werte fixiert an dieser Position, das heißt da ist intern dann immer ein Index zugewiesen,
+1, 2, 0, 1, 2, 0, 1, 2, hingegen bei einem Set oder bei einem Dictionary, die haben keine Indizierung, also da gibt es das 0, 1, 2 nicht,
+also ich kann nicht Set an der Stelle 0 machen, das heißt intern beißen weiß nicht, dass der 3 an Position 1 oder 0 ist, 2 an 1 und 1 an 2,
+sondern beißen haut ihr einfach in einen Haufen rein und Geschichte ist erledigt,
+hingegen bei der Liste und beim Duple ist das komplett fixiert, das heißt ich kann da wirklich auf jeden diese einzelnen Zahlen zugreifen,
+mithilfe des Index und eben genau das gleiche mit Dictionaries ist wie bei Sets, praktisch haben wir ja diese Values, aber intern sind die nicht geordnet,
+das heißt da wird jetzt auch nicht, wenn jetzt zum Beispiel ich ein Dictionary definiere und dann füge ich dann noch einen zweiten Key hinzu zum Beispiel Key 0,
+dann wird diese 0 hier nicht vor dem 10er eingefügt oder irgendwie, sondern das wäre dann einfach eine ungeordnete,
+sprichert das einfach irgendwie ab, sicher werden wie ähnlich zu der Liste oder zum Duple können wir eben auch hier mit diesen eckigen Klammern zugreifen,
+aber hier wichtig ist, dass es kein Index, also es ist keine Numerierung, sondern es ist ein Key als ein Schlüssel und der kann irgendwas sein,
+also der muss jetzt nicht eine Zahl sein, der kann auch ein String sein oder eben auch ein Boolean oder irgendwas und das ist eben der Riesenunterschied zur Liste und Duple.
+Da geht es mir halt nicht richtig, ja das Interessante bei Sets ist, dass es keine Duplikate gibt,
+das heißt hier zum Beispiel in diesem Beispiel haben wir hier zweimal A drin stehen, das geht bei Sets natürlich nicht,
+Sets löscht einfach die zweite A und auch das zweite C raus, genauso wie hier A, A, C, C und auch ganz wichtig Sets können natürlich sowohl Strings als auch Integer oder Floats enthalten.
+Okay, das sind auch mehrheitlich richtig, da ist so, wir definieren initial ein Dictionary, wie ihr es seht, ganz wichtig geschwone Klammern und der Doppelpunkt.
+Dann fügen wir einen zweiten Value hinzu mit dem Key 4, 5, 6, das heißt wir haben da jetzt im Dictionary Students nicht nur 1, 2, 3 Max drin,
+sondern auch noch 4, 5, 6 Maria und dann im dritten Statement hier überschreiben wir den Value vom Key 1, 2, 3, das heißt praktisch hier haben wir ja 1, 2, 3 Max drin stehen
+und dann überschreiben wir das, weil das ist ja schon definiert hier, mit Lukas, das heißt wir kommen hier keinen Sünderkserre
+und es steht da praktisch dann auch Lukas drin, also das ist so generell überhaupt falsch, ja.
+Ist das mit dem Dictionary so einigermaßen verständlich oder soll ich da nochmal kurz was erklären?
+Okay, da gibt es noch ein bisschen Probleme mit dem Verständnis.
+Ja, eben das erste Beispiel hier zum Beispiel Vor- und Nachnahme von Studierenden als Key geht natürlich auf jeden Fall,
+in der echten Welt macht man das auch normalerweise anders, zum Beispiel wenn wir jetzt in der Uni sind wird normalerweise nicht nach Vor- und Nachnahmen gefragt,
+sondern nach der Matrickelnummer, weil die Matrickelnummer einfach ein wirklich einzigartiger Wert ist, den ich euch allen zuweisen kann,
+zum Beispiel könnte es sein, dass es 2 Gregor Meier gibt, aber es gibt also die 2 Gregor Meier haben nicht die gleiche Matrickelnummer.
+Und das ist das Coole, deshalb ist das ja auch hier bisschen problematisch, zum Beispiel wenn man das jetzt wirklich machen würde,
+so in diesem Fall und praktisch Vor- und Nachnahmen als Key abspeichert und die Matrickelnummer als Value,
+könnte es sein, dass der Value überschrieben wird, weil wir ja 2 Personen mit gleichen Namen haben könnten.
+Hingegen die Matrickelnummer ist einzigartig, da werden wir keine Probleme haben, dass es überschrieben wird.
+Das Gleiche auch mit Songname und Band-Erke, das ist generell problematisch, wir können es auch nicht umdrehen.
+Das ist eben so ein Fall, wo es gibt nämlich Songs, die haben den gleichen Namen und wir haben auch Bands, die den gleichen Namen haben.
+Oder generell, wir haben praktisch eine Band-Kamera Songname haben, also Band-Namen haben wir weniger Problem.
+Da muss man sich was anderes einfallen lassen, also entweder wir geben dem Songnamen eine bestimmte Nummer
+oder der Band eine bestimmte Nummer, aber ja, umgekehrt geht es glaube ich generell nicht.
+Und ihr seht da eigentlich so ein Schema, das sich da ausarbeitet, und zwar haben wir immer eher im Key die Nummer
+und dann im Value eigentlich einen Stringwert oder so.
+Also es ist meistens der Fall, dass wir eben sagen, okay, die Bustleitzahl machen wir als Key, weil das ist eine einzigartige Nummer.
+Ortsnamen können auch wieder doppelt vorkommen, deshalb ist es auch wieder problematisch.
+Ja, da mehrheitlich auch schon wieder richtig abgestimmt, also Funktionen, das werden wir heute durchmachen.
+Warum gibt es nichts aus?
+Weil wenn wir das einfach reinhauen in unserer Kurzheile, dann definieren wir nur diese Funktion,
+aber wir rufen die Funktion noch gar als nirgends auf, dazu aber später mehr.
+Okay, dann noch zu den offenen Fragen.
+Was sind die unterschiedlichen Listen, Doubles, List Z und so weiter mit dem zugehörigen Zeichen?
+Also wir haben es sehr kurz durchmacht.
+Noch mal Listen sind mit den eckigen Klammern.
+Das Wichtige da ist, man kann die Werte da drinnen verändern, das heißt man kann Werte rauslöschen,
+man kann Werte hinzufügen, wenn ihr euch zurückerinnert mit Erlöschen zum Beispiel mit dem Delete Keyword
+und dann zum Beispiel Liste an der Stelle und hier den Index oder auch zum Beispiel mit Remove
+und da einen bestimmten Wert reingeben, hier nicht einen Index, sondern hier den Wert, den ihr löschen wollt
+und dann noch hinzufügen, vielleicht wisst ihr es noch, das ist Abend.
+Doppel hingegen, das machen wir mit den runden Klammern, da kann man nichts löschen,
+da kann man nichts hinzufügen, wenn die mal definiert sind, dann kann man nur auf die einzelnen Werte zugreifen
+oder auf das gesamte Doppel, da können wir zum Beispiel eben sagen Doppel an der Stelle 0,
+also da wieder den Index und das wäre in diesem Fall 1.
+Setz hingegen, da können wir eben nicht mit dem Index zugreifen, die machen wir mit den geschwungenen Klammern
+und da wichtig zu wissen ist, dass wir praktisch keine Duplikate drin haben,
+also es gibt da nicht so was, also da wird ein Einzel dann rausgelöscht
+und wir bekommen eigentlich nur so was dann stehen
+und da auch wieder ähnlich zur Liste, können wir aber auch Sachen hinzufügen und wieder rauslöschen
+und da gibt es dann eben eigentlich diese mathematischen Operatoren, die wir jetzt kennen gelernt haben,
+da haben wir eben zum hinzufügen das Add, dann haben wir noch andere, da haben wir das End und das Oder,
+also das wäre auch in diesem Fall Union und das wäre in dem Fall Intersect
+und dann gibt es auch noch das Minus und das Minus ist einfach, wenn ich hier Set 1 und hier Set 2 habe,
+dann lösche ich praktisch hier in Set 1 alle Elemente raus, die Set 1 und Set 2 gemeinsam haben.
+Also S1 ist 1, 2 und S2 ist 2, 3, wenn wir da S1 minus S2 machen, dann bekommen wir 1 raus,
+weil 2 in beiden vorkommt und deshalb wird 2 rausgelöscht, 3 kommt nicht vor, deshalb wird es einfach ignoriert.
+Wie sieht das Feedback bei vorzeitiger Abgabe des Assignments aus?
+Ihr bekommt da wahrscheinlich, also hat der Mail-Seite, wo dann zu den einzelnen Funktionen dazusteht,
+ob es die Test-Cases durchlaufen sind oder nicht und ganz unten solltet ihr dann auch noch mögliche Fehler kriegen,
+falls ihr den Coding-Standard nicht einhält, wenn ich mich richtig erinnere.
+Assignment 1 macht ihr von zu Hause aus, genau, da habt ihr jetzt bis 9. November Zeit, das in aller Ruhe zu machen.
+Falls es noch Zeit ist, können wir ganz zum Schlusskurs die Angabe von Assignment 1 durchgehen.
+Ich habe jetzt auch in der Zwischenzeit das Abgabetatum geändert, das sollte jetzt passen.
+Wenn man bei Assignment 1 ein Code nicht weiß, davon Google zu raten,
+sie natürlich könnt ihr Google verwenden, ihr könnt generell alle Ressourcen verwenden, die euch zur Verfügung stehen.
+Ihr sollt nur aufpassen, dass, falls ihr jetzt Code von irgendwo her kopiert,
+könnte es sein, dass jemand anderes das Gleiche gemacht hat und es dadurch zum Plagiat kommt.
+Also wenn man genau, also wenn man das jetzt googelt und man findet genau die Abgabe so im Internet
+und kopiert die einfach rein, dann wird das als Plagiat gezählt.
+Der Code ist jetzt nicht so lang, also müsste jetzt nicht ultra viel programmieren
+und da kann es schon sein, dass es manchmal zur gleichen variablen Namen kommt und so.
+Also jetzt müsste jetzt da keine Angst haben, dass jetzt nur weil jetzt zwei Studierende aus Versehen
+jetzt den gleichen variablen Namen oder sowas verwenden, dass das jetzt gleich bei uns rot aufleuchtet.
+Bei uns ist es wirklich so, dass wenn der Code sehr offensichtlich Plagiat ist,
+dann werden wir uns bei euch melden, aber ja, solltet sonst keine Probleme bereiten.
+Ja, ihr müsst noch viel lernen, ja.
+Ich hoffe, mit diesen vier Einheiten habt ihr dann schon mal die Grundkenntnisse kennengelernt,
+damit ihr es einem einst zuerst mal bewältigen könnt.
+Generell eigentlich sollten eigentlich eh die meisten Grundkenntnisse sein,
+mit denen ihr ziemlich viel programmieren könnt.
+So kompliziert ist es dann auch wieder nicht.
+Natürlich jetzt die Funktionen, wie wir es sehen, können dann schon sehr kompliziert werden am Anfang,
+aber ich hoffe, ihr versteht das dann alle.
+Passt, dann werde ich da weitermachen.
+Gibt es sonst noch Fragen?
+Bevor wir zu den Funktionen kommen, möchte ich davor noch was anderes machen
+und das ist das Input unter die While-Schleifen.
+Und dann gehen wir zu den Funktionen über.
+Zu den Inputs ist so, wir haben bis jetzt kennengelernt, okay, man kann Print schreiben,
+man kann addieren, subtrahieren und so weiter und so fort.
+Aber was, wenn ich möchte, dass mein Programm den Benutzer fragt, ob er mir einen Input gibt.
+Das heißt, da kommt dann so ein tolles Fragefenster auf und sagt, okay, schreibt mir den Wert rein,
+damit ich mit dem Wert was anfangen kann.
+Und das Ganze können wir eben mit diesem Input machen, das schaut dann so aus mit dem Code.
+Das heißt, wir haben hier unsere Variable
+und dann haben wir diese Input-Funktion.
+Und da können wir dann noch die Frage reinstellen oder einen Text hinzufügen.
+Das ist aber optional, also das muss man gar nicht machen.
+Und dann sobald der User was reingeschrieben hat und dann Enter drückt,
+dann wird das in dieser Variable gespeichert
+und dann können wir diese Variable, also diesen Text, den wir da reingeschrieben haben, verwenden.
+Ich kann das kurz herzeigen.
+Dann noch mal eine Reite oben drauf.
+Machen wir hier.
+Wenn man das bei ihr erwischt, was du dir Code machst,
+sagen wir Name, Input.
+Also hier als Beispiel, wenn ich nichts reinschreib.
+Dann seht ihr hier ganz oben,
+kommt diese Eingabe-Leiste hier
+und da könnt ihr jetzt was reinschreiben.
+Dann werden wir uns das dann anschauen.
+Dann wird dieser Wert hier als String wichtig.
+Da kommt immer als Ergebnis ein String raus,
+wird dann in diese Variable gespeichert
+und dann können wir damit was anfangen.
+Wie wichtig, das ist ein String,
+weil es kann auch Probleme bereiten.
+Stellt euch vor, der User ist ein bisschen unhandlich mit der Zastatur
+und schreibt dir zum Beispiel davor noch ein Leerzeichen rein
+oder keine Ahnung was.
+Oder wie gesagt, das ist ja auch ein String.
+Das heißt, wenn der dann eine Zahl reinschreibt,
+dann ist das immer noch ein String.
+Dann kann man da ein paar Sachen machen.
+Also wir haben ja dann diesen Wert hier
+in dieser Variable Name gespeichert
+und sagen wir, ich fühle das noch mal aus.
+Und ich mache da jetzt ein Leerzeichen
+oder zwei oder drei.
+Da seht ihr, da sind da jetzt auch Leerzeichen drin.
+Und wie können wir diese Leerzeichen zum Beispiel weglöschen?
+Das kann man mit Strip machen.
+Und dann werden euch diese Leerzeichen wieder gelöscht.
+Und natürlich kann es sein,
+dass eben die großen Kleinschreibungen nicht passen und so.
+Und da kann man dann eben auch wieder
+diese String-Methoden verwenden.
+Die haben wir hier schon ein bisschen kennengelernt,
+zum Beispiel Lower, Upper, Title.
+Da kann man dann den Text in Kleinbuchstaben verwandeln,
+in Großbuchstaben verwandeln
+oder schauen, dass immer da erste Buchstabe großgeschrieben wird.
+So zum Beispiel.
+Zuerst löschen wir praktisch hier.
+Die Leerzeichen müssen nicht nur vorne sein,
+die können auch hinten sein.
+Wenn sie dazwischen sein, werden sie aber nicht draus gelöscht.
+Also sie werden nur mit Strip,
+werden sie nur vorne und hinten gelöscht.
+Da gibt es auch noch R-Strip oder L-Strip,
+wo ihr dann an der rechten Stelle nur
+oder an der linken Stelle nur weglöschen könnt.
+Das könnt ihr dann selber ausprobieren.
+Zum Casting.
+Also wir haben ja jetzt das Problem,
+wenn ihr euch zurückerinnert,
+wenn wir hier eine Zahl haben,
+also hier ein Integer,
+und dann die zweite Zahl ist aber ein String.
+Was passiert, wenn wir die zusammen addieren,
+kann man einen Fehler.
+Und da, falls ihr euch noch erinnern könnt,
+eine vorherige Vorlesung,
+da haben wir dieses Casting,
+mit dem wir praktisch diesen String wieder umwandeln,
+in etwas anderes,
+zum Beispiel eben in ein Integer,
+in ein Float, in ein Boolean,
+oder eben auch,
+kann man natürlich auch umgekehrt machen,
+dass man eine Zahl in ein String umwandelt.
+Genau, und da gibt es eben
+viele verschiedenen Datentypen.
+Das heißt, wir müssen zuerst casten,
+bevor wir addieren.
+Das können wir auch kurz ausprobieren.
+Zum Beispiel, wenn wir jetzt da 12,
+plus das hier machen,
+was passiert?
+Wenn ich da 3 rein schreibe,
+mag er nicht.
+Da bekommen wir diesen Type-Error raus.
+Praktisch die Datentypen
+stimmen wir nicht miteinander ein.
+Was machen wir?
+Wir casten das Ganze einfach zu einem Integer,
+und dann haben wir die Daten,
+die wir in einem String haben,
+und jetzt, wenn wir da 3 reinschreiben,
+funktioniert so eine Probleme.
+Natürlich,
+wie gesagt, da gibt es wieder,
+also das ist ja dann wieder Casting.
+Das heißt, wenn wir da
+4 und noch ein String dazuschreiben,
+funktioniert unser Casting nicht mehr.
+Was müssen wir da machen?
+Da müssen wir zuerst
+alles rauslöschen, was keine Zahl ist,
+damit das funktioniert.
+Und da gibt es natürlich auch wieder
+Möglichkeiten, wie man das macht.
+Ich bin uns nicht ganz sicher, ob das eine Aufgabe ist,
+deshalb werde ich das jetzt nicht erwähnen,
+falls ihr
+da Probleme habt,
+dann könnt ihr da immer noch
+im Titel eine Frage stellen,
+und ich werde euch das beantworten.
+Genau, dann gehen wir noch zu den Wailoops weiter.
+Und die Wailoops,
+das ist auch eine Art von Schleife,
+also wir kennen ja die einere Schleife,
+das war die Vorloop,
+und jetzt haben wir auch noch diese Wailoop,
+und die Wailoop ist ein bisschen speziell.
+Wie ihr seht,
+übersetzt ist das so, was wie so lange
+diese Bedingung erfüllt ist,
+und wird das Ganze
+in einer Endloschleife,
+oder wird das praktisch diese Ausweisung ausführen.
+Das heißt,
+hier haben wir eine Kondition,
+wenn ihr euch zurückerinnert,
+das haben wir es auch beim IF,
+das heißt praktisch, es ist sehr ähnlich zum IF,
+nur wird das Ganze
+einfach wiederholt,
+solange diese Kondition TRUE ist.
+Also das ist wieder ein Bolian hier,
+das schaut dann ungefähr so aus.
+Zum Beispiel haben wir hier eine Variable X,
+die wir mit 0 definieren,
+und solange X
+als 3 wiederholt sich das Ganze,
+und wie ihr es schon seht,
+können das auch zu Problemen führen,
+weil sagen wir zum Beispiel,
+wir vergessen das hier,
+was glaubt ihr, was passiert?
+Also, wir vergessen hier
+X zu inkrementieren mit 1.
+Genau, da haben wir eine Endloschleife,
+weil praktisch hier
+X nie verändert wird,
+das heißt X bleibt immer 0,
+das heißt,
+das hier ist praktisch immer wahr,
+und wir kommen da nicht mehr raus.
+Und das kann euch vielleicht auch
+beim Live-Programmen passieren,
+also da hatten wir über die Jahre
+schon öfters Problemen,
+dass jemand eine Weilschleife definiert
+und vergisst das hier zu machen,
+dass praktisch diese Variable,
+die wir hier in der Bedingung haben,
+nicht verändert
+und dann plötzlich reagiert
+mein JupyterLab nicht mehr
+in Wirklichkeit schon,
+es ist nur eine Endloschleife,
+die praktisch ewig durchläuft.
+Da kann man natürlich auch wieder,
+also wir können das mal ausprobieren,
+was passiert, wenn man so eine Endloschleife gerät,
+die einfachste wäre,
+zum Beispiel,
+while true,
+also,
+so lange war,
+machen wir irgendwas,
+so,
+jetzt läuft das hier,
+läuft, läuft, läuft, läuft,
+und das hört nicht mehr auf,
+und da können wir dann einfach hier,
+das hier,
+das hier,
+das hier,
+das hier,
+das hier,
+das hier,
+das hier,
+das hier,
+das hier,
+und da können wir dann einfach hier,
+manuell sagen,
+okay, wir stoppen hier,
+und kommt dieses Keyboard interrupt,
+ganz interessant bei Jupyter
+ist so, also wenn ihr das in Notebook macht,
+dann speichert er trotzdem
+noch diesen Wert, das heißt,
+wir können den auch mal auslesen,
+und jetzt wissen wir,
+wie oft diese Weisschleife
+während diesen fast 14 Sekunden
+hier durchlaufen ist,
+das heißt, wir haben hier
+1000
+eine Million
+33 Millionen
+Nein, 336 Millionen mal ist
+diese Weisschleife in der Zwischenzeit durchlaufen.
+Genau,
+aber für was
+verwendet man so eine Weisschleife eigentlich?
+Für was ist das notwendig?
+Also,
+sagen wir zum Beispiel,
+ihr wollt ein Programm machen,
+das zum Beispiel
+so eine Attaschenrechner,
+dann könnt ihr eben
+hier schauen,
+okay, ich will so lange
+Sachen addieren,
+oder eben hier zum Beispiel
+machen wir einfach so eine Art
+Papageide und sind immer wieder das,
+das rausschreibt,
+was wir reingeschrieben haben.
+Und wir schauen einfach, bis dieser Input
+quitt ist, das heißt praktisch,
+wenn ich dann immer ein Input quitt reinschreib,
+dann ist
+diese
+diese Condition
+nicht mehr erfüllt, weil, wie ihr hier seht,
+haben wir hier einen Ungleich,
+also dieses Rufenzeichen macht
+das Ganze nicht gleich,
+und sobald das nicht mehr erfüllt ist,
+bricht die Schleife ab
+und dann bändet unser Programm.
+Genau,
+nochmal zu Endloschleifen, also da gibt es eben
+wie gesagt, die einfachste ist diese
+Wild True Schleife,
+Wild True ist immer wahr,
+und die bricht praktisch nie mehr ab.
+Und was kann man da
+sonst noch so machen,
+wenn wir euch zurückerinnern,
+wir können hier entweder so
+das machen, aber wir können das Ganze
+auch so machen, dass wir einfach sagen,
+wir haben eine Endloschleife,
+und dann, wenn ihr euch zurückerinnert,
+gibt es hier dieses Break Statement,
+mit der wir praktisch die Schleife
+abbrechen können.
+Da können wir einfach so ein tolles If
+reinhauen, und das macht eigentlich
+nichts anderes, wie das, was da vorgemacht
+wurde.
+Hier im Gegensatz schauen wir aber,
+wirklich, der Usain would quit
+es, also nicht, nicht gleich,
+sondern ist gleich quit.
+Genau.
+Ist das soweit klar, oder
+soll ich da nochmal kurz was wiederholen?
+Okay.
+Was dann geht, da eigentlich
+ist schon zu den eigentlich
+wichtigsten Themen von heute,
+zu den Funktionen über.
+Und wenn ihr euch jetzt
+vielleicht ein bisschen nachdenkt,
+wir haben hier schon ein paar Funktionen
+durchgemacht, zum Beispiel
+das LEN, wenn ihr euch
+daran erinnert.
+Was macht das LEN?
+Also da haben wir eine Liste
+rein zum Beispiel.
+Das LEN,
+wenn ihr euch zurückerinnert,
+das ist,
+das kommt
+vom englischen Wort
+LENGF.
+Das ist da,
+das ist praktisch Länge
+bedeutet.
+Wir wollen praktisch die Länge
+von unserer Liste haben,
+und die ist da 1, 2, 3.
+Das heißt, wir bekommen hier eine 3 raus.
+Und das hier
+ist so eine Funktion.
+Das heißt, wir bekommen hier
+diese Liste als Input
+und dann bekommen
+ein Output, das wäre dann unser 3.
+Praktisch.
+Schaut dann so aus.
+Wir haben dann praktisch dieses LEN Keyword,
+macht dann im Hintergrund
+irgendwas.
+Was praktisch
+dann zu diesem 3
+führt.
+Genau,
+und da haben wir dann diesen Output.
+Normalerweise, dieser Output wird mit diesem
+Return Keyword zurückgegeben.
+Nicht jede Funktion
+muss dieses Return haben.
+Dann haben wir eine Funktion
+ohne Rückgabewert.
+Kann zum Beispiel auch einfach nur
+einen Konsolen-Output machen, also mit
+Print.
+Das heißt, wir bekommen hier die
+Parameter in ein
+Pfeilspeichern
+oder in andere
+Variablespeichern.
+Zum Beispiel
+Print ist ja auch so ein Statement,
+als eine Funktion.
+Gehen wir das mal anhand von diesem
+Beispiel hier durch.
+Das heißt, wir haben hier Print,
+dieses Attest.
+Das heißt, wir haben hier 4 Parameter.
+Die Funktion ist Print.
+Das hier.
+Und ausgegeben
+wird praktisch dann in der Konsole
+dieses Attest.
+Ebenes gleich mit LEN zum Beispiel.
+Da haben wir auch hier in diesem Fall
+unser Argument,
+was in diesem Fall praktisch diese Liste ist.
+Und dann bekommen wir diesen Rückgabewert.
+Das ist ein bisschen return
+Value.
+In diesem Fall.
+Und wenn wir so eine Funktion selber definieren,
+dann schaut das ungefähr so aus.
+Also, was fällt
+da auf? Einerseits dieses Def.
+Das Def
+kommt von Define.
+Define Funktion.
+Also, das solltet ihr auf jeden Fall merken.
+Dann unseren Funktionsnamen.
+Wie ihr seht, haben wir da
+alles kleinpustamen.
+Und
+wenn es ein längerer Funktionsnamen
+ist und mehrere Wörter beinhaltet,
+dann könnt ihr das mit diesem
+Anderscore hier trennen.
+Das kann natürlich auch einfach Def Test heißen.
+Also, wie ihr wollt.
+Und dann haben wir diese,
+hier haben wir einen Parameter.
+Also, es ist eine Variable, die wir dann
+hier definieren.
+Und die können wir dann hier verwenden.
+Aber nur in
+praktisch in diesem Funktionsblock.
+Wie ihr seht, haben wir hier wieder eine Einrückung.
+Und dann können wir da mit
+unserem Format String
+diesen Parameter ausgeben.
+In diesem Fall würde
+das einfach
+U-Past 13 to this Funktion.
+Und wie ihr hier seht,
+wenn ihr euch zurückerinnert
+an die Feedbackerfrage,
+da haben wir gehabt, dass praktisch
+nichts ausgegeben wird.
+Und das liegt daran, dass wir das nicht gemacht haben.
+Wir haben praktisch diese Funktion aufgerufen
+in unserem Code.
+Wichtig, das ist dann nicht
+im Funktionsblock, sondern
+irgendwo anders.
+Also, das muss dann mindestens auf derselben
+Ebene sein, wie die Definition
+der Funktion.
+Kann aber auch dann
+trotzdem noch weiter drin sein.
+Wenn die jetzt zum Beispiel
+im Funktionsblock drin ist,
+dann nennt man das eine rekursive Funktion.
+Das heißt, die ruft sich immer selber auf.
+Das ist auch so eine Art Endloschleife.
+Genau.
+So eine Funktion ist praktisch
+einfach so eine Art benannter Codeblock.
+Also, sagen wir mal, ich hab 100 Zeigen Code.
+Und möchte den
+wiederverwenden können,
+wenn ich diesen Codeblock mit dieser Define
+Function
+und dann kann ich eben diese Function
+einfach immer wieder aufrufen
+und das wird mir in dieser 100 Zeigen
+Code einfach wieder aufrufen.
+Wichtige Funktionen,
+die wir ja schon kennengelernt haben,
+ist dieses LAN, das Print und das Input
+und definiert es eben mit diesem
+Def, Name der Funktion
+und dann eine Parameterliste.
+Das werden wir dann genau
+jetzt dann gleich genau durchmachen
+und wichtig ist eben, der Codeblock
+ist wie beim IF oder bei einer Vorschleife
+oder einer Weisschleife
+eingerückt, also wieder unsere vier Leerzeigen.
+Und dann ganz zum Schluss,
+falls wir jetzt
+in diesem Codeblock was generieren,
+dann können wir diesen Wert
+natürlich dann auch wieder
+an unseren äußeren Codeblock zurückgeben
+und das machen wir mit Return.
+Dazu aber auch gleich mehr.
+Also so einfache Funktionen,
+also Beispiele sind
+zum Beispiel hier,
+hier haben wir
+die erste Funktion, die ist die
+TestSimple,
+wie ihr seht, hat die kein Parameter definiert,
+das geht natürlich auch,
+also die muss kein Parameter haben
+und dann rufen wir die auf
+und das heißt,
+hier passiert ja nichts,
+hier passiert ja auch nichts,
+dann wird hier
+diese Funktion aufgerufen,
+das heißt, ihr bekommt hier dann
+dieses Print Statement
+mit High Everyone,
+das wird dann in die Konsole ausgegeben
+und dann kommt hier zum nächsten
+Funktionsaufruf,
+da springt dann hier wieder rein,
+hier übergeben wir einen Parameter,
+String Hello,
+da wird dann hier mit dieser Print Funktion
+in die Konsole aufgerufen
+und dann springen wir wieder zurück
+und gehen hier weiter.
+Wir werden das dann auch gleich
+haustesten, noch
+kurz zur Definition,
+es gibt nämlich
+zwei Art, es gibt Funktionen
+und es gibt Methoden,
+Methoden, zum Beispiel
+haben wir das hier,
+das hier,
+das hier,
+das hier, zum Beispiel auch das Strip,
+woran erkennt man eine Methode,
+da haben wir nämlich
+unsere Variable,
+Punkt
+und dann
+unsere Methode,
+und was Methoden so
+anders zu Funktionen macht,
+ist,
+die geht her und schaut sich an,
+was da drin ist
+und praktisch
+führt ihren
+Funktionscode anhand
+von dem Wert dieser Variable aus,
+also wenn da jetzt eben
+sagen wir mal,
+so was,
+dann kann man das eigentlich
+so interpretieren,
+das heißt,
+wenn man das jetzt in eine Funktion
+umschreiben würde,
+wäre das dann so
+und wir müssen das eben nicht machen,
+wir können das eben so machen.
+Und das ist eigentlich der Riesenunterschied
+zu den normalen Funktionen,
+wie ihr euch vielleicht
+erinnern könnt, Funktionen
+definieren wir
+mit dem Dev Keyword
+und Methoden sind meistens
+schon definiert,
+in diesen Kursen
+machen wir eigentlich nichts mehr Klassen durch,
+ja, will ich da auch nichts mehr dazu sagen,
+aber eigentlich wichtig ist einfach,
+das gehört dann zum Objekt.
+Also da hat, ja, das ist dann ein bisschen komplizierter,
+da könnt ihr euch dann das eigentlich
+cyber recherchieren, falls ihr das genau rissen wollt,
+aber eigentlich wichtig ist nur,
+dass praktisch normale Funktionen mit dem Dev Keyword
+definiert worden sind
+und Methoden, also
+nennen wir, wenn sie so was sind,
+also mit diesem Punkt.
+Dann kommen wir zu den
+Return Values.
+Ich müsste das jetzt so verstellen,
+ich habe jetzt eine Funktion
+und die berechnet mir jetzt was.
+Sag mal, die macht 1 plus 2
+und ich will diesen Wert aber
+zurück haben,
+dann muss ich das mit Return machen,
+praktisch
+ich
+returniere diesen Wert
+und dann gehen wir
+praktisch,
+kehren wir zurück zum Hauptprogramm,
+das heißt dort, wo der Funktion
+die Funktion aufgerufen wurde,
+also sagen wir zum Beispiel,
+wir haben ja x ist gleich 0,
+dann haben wir,
+rufen wir unsere Funktion auf
+mit
+x drin
+okay, das sollte man vielleicht
+y dazuschreiben.
+Dann macht die intern irgendwas
+Return diesen neuen Wert
+und dann speichern wir uns dann in dieser Variable y.
+Praktisch, die springt dann dort
+zu hin, wo
+diese Funktion definiert worden ist
+und
+dann springt sie eigentlich
+wieder hier zurück
+und dann
+wird das
+nächste hier ausgeführt.
+Das heißt, wir können da bis
+dem Kot herum springen
+aber wir kommen dann eigentlich immer wieder
+als das sobald das aufgerufen wird,
+wird das abgearbeitet
+und dann gehen wir eigentlich zum nächsten
+genau das können wir zum Beispiel
+sagen wir, wir haben hier dieses
+Beispiel hier
+diese Funktion format name
+die bekommt 2
+Parameter übergeben
+first and last
+dann kombiniert sie diese Parameter
+hier mit einem Format string
+in einen einzelnen string
+dann rufen wir auf diesen string
+also die umspeichern das hier in dieses
+fullname Variable
+und dann machen wir da noch fullname.title
+und dann returner
+diesen Wert, das heißt
+was wenn wir hier in namet drinstehen haben
+gehen wir mal das kurz durch
+praktisch Arnold Schwarzenegger sind unsere Parameter
+das heißt hier haben wir dann Arnold
+und Schwarzenegger drinstehen
+dann kombinieren wir das zu einem
+einzelnen string
+dann rufen wir
+Deidlauf
+das wandelt dann
+diesen string hier mit
+klein und großbruchstaben
+in einen
+schönen formatierten string
+den returnen wir dann
+und dann haben wir hier in name
+jetzt Arnold Schwarzenegger drinstehen
+da kann man natürlich auch
+nicht nur strings oder einzelne integers
+so was zurückgeben, da kann man auch
+komplizierte Sachen zurückgeben
+man kann listen, man kann
+sets, man kann dictionaries
+man kann alles mögliche zurückgeben
+man kann auch mehrere mit beistrich
+getrennt Variablen so zurückgeben
+was man das haben möchte
+das wird vom Beifen eigentlich
+intern immer als duppel behandelt
+das können wir auch kurz zeigen
+hier habe ich einfach 3
+das kann man sich vorstellen
+sind wie 3 einzelne
+Werte hier
+und wenn wir da jetzt
+cool aufrufen
+sonst
+seht ihr, bekommen wir das
+als duppel zurück
+wenn ich da zum Beispiel noch x definiere
+kann ich das auch noch zurückgeben
+und dann wird
+praktisch dieser Wert von x
+returniert
+kann da auch noch
+was komplizierter das machen
+da habe ich da
+x als dictionary
+das kann ich auch noch
+was komplizierter das machen
+da habe ich da
+x als dictionary definiert
+das kann ich auch zurückgeben
+wenn ich nur x haben will
+geht das auch
+da wird es aber nicht ein duppel umgewandelt
+weil wir ja keine beistrische haben
+und wir kommen wir praktisch nur
+den Wert von x zurück
+also return
+gibt es praktisch
+den Wert
+der definierten Variablen hier
+zurück
+ist da zu fragen
+dann kommen wir zu den Argumenten
+also dieses Parameter
+ich habe das jetzt mal hier
+in rot und blau markiert
+weil da gibt es 2 verschiedene
+Arten wie ihr das machen könnt
+da gibt es einmal
+die Positional Arguments
+die sind praktisch definiert
+durch die Position
+also hier
+first
+ist praktisch schon
+an der 1. Position
+das heißt wenn wir hier
+einen Wert an der 1. Position
+reinschreiben
+dann wird das automatisch
+in die 1. Position
+also in dem Parameter
+der an der 1. Position ist
+reingeschrieben
+wäre die z.B. an der 2. Position
+dann würde es in
+das zweite Argument reinschreiben
+wir können das Ganze
+aber auch mit Keywords machen
+das heißt wir haben ja hier
+diesen Funktionsparameter
+praktisch definiert
+der heißt der Last
+den gibt es sonst nichts
+also der ist hier wirklich
+das 1. Mal definiert
+das ist hier keine Variable
+das ist hier praktisch
+in dieser Funktion definiert worden
+und wenn wir dann
+eine Funktion aufrufen
+dann können wir da praktisch
+mit diesem Keyword
+genau den Wert
+für diesen Parameter
+praktisch definieren
+da gibt es dann noch
+eine dritte Sache
+und das wäre praktisch
+dieser Default-Parameter
+sagen wir zum Beispiel
+wir haben eine Funktion
+kann ich hier das Beispiel herzeigen
+sagen wir hier haben wir eine Funktion
+die uns den Namen
+ausschreiben will
+aber
+wir überlassen
+praktisch
+wir haben nicht immer
+das Land zur Verfügung
+und dann können wir einfach sagen
+wenn wir das Land nicht zur Verfügung haben
+dann soll einfach
+das Default praktisch als
+normaler Wert
+ausspär verwendet werden
+das heißt wenn wir hier diese Funktion aufrufen
+aber Country nicht angeben
+dann geht
+die Funktion davon aus
+du willst einfach diesen Standard-Wert
+hier drin haben
+ich kann natürlich
+warte
+kann mich hier nicht mehr zurück
+cool
+ja dann machen wir einfach das her
+geben wir ein paar Beispiele durch
+sagen wir wir haben jetzt wieder
+diese gleiche Funktion hier definiert
+dann was kann ich machen
+ich kann machen
+nur positional Argument
+das heißt praktisch
+max wird hier in first
+reingeschrieben
+Muster wird in die zweite reingeschrieben
+wir haben kein drittes positional Argument
+deshalb wird da hier
+Standard-Wert verwendet
+wir können natürlich diesen Standard-Wert
+überschreiben
+dann machen wir einfach hier ein drittes positional Argument
+dann steht hier nicht mehr in Country
+als Standard-Wert
+aus hier drin sondern wird überschrieben mit Germany
+das gilt aber nur für diesen Funktionsaufruf
+also der wird dann nicht
+für immer überschrieben
+für diesen Funktionsaufruf
+dann können wir das gleiche natürlich auch mit keyword machen
+also da können wir dann keyword
+keyword angeben
+das Interessante bei keyword ist, die sind jetzt nicht positional
+also die können wir irgendwie umdauschen
+sagen wir, wir wollen
+zuerst das Country definieren
+dann ist das vollkommen möglich
+das Wichtigste ist nur
+positional Arguments
+sind immer vor den keyword Arguments zu verwenden
+also wenn ihr hier
+zuerst ein keyword Argument verwendet
+und dann ein positional Argument
+dann wird euch bei von einer Fehler werfen
+das kann man jetzt auch kurz zeigen
+eben
+gibt es mehrere Fehler
+die da auftreten können
+zum einen eben
+diese Argumentreihenfolge
+die eben falsch sein kann
+das heißt zum Beispiel, dass wir positional
+keyword
+positional Arguments nach keyword
+keyword Arguments haben
+können dann auch einfacher
+Tippfehler sein
+bei der keyword
+Zuweisung, das heißt
+wenn
+last
+hier zum Beispiel, wenn wir hier das a vergessen
+dann wird peifen
+uns auch einen Fehler werfen, weil
+lsd
+praktisch nicht definiert ist
+sondern nur last
+dann natürlich, wenn man zu viele Argumente
+rein schreibt
+positional Argument nach keyword Argument
+nochmal, ja
+es kann natürlich auch sein
+dass wir dann in der Funktion
+zum Beispiel
+sagen wir, wir haben ja eine Funktion
+die uns was addieren will
+und wir gehen davon aus
+dass wir hier integer bekommen
+aber wir schreiben hier dann
+max und muster rein
+diese Funktion
+dann
+5 plus first
+zu machen
+das wird dann natürlich nicht funktionieren
+da gibt es nämlich keinen check
+dafür, dass da praktisch
+das direkt ein integer ist
+es gibt da schon typing, aber
+wie gesagt, das ist dann
+eigentlich schon wieder advanced
+genau gehen wir da ein paar Beispiele durch
+sagen wir, wir haben wieder
+unsere Funktion hier
+hier zum Beispiel
+haben wir
+ein Argument vergessen
+hier haben wir praktisch nur
+ein positional Argument
+max, das heißt
+first wird richtig überschrieben
+aber mustermann fehlt
+oder
+muster
+das heißt
+er wird uns einen Fehler werfen
+und sagt, da fehlt ein Parameter
+den haben wir da nicht angegeben
+so haben wir das zum Beispiel ausprobiert
+sagen wir zum Beispiel
+ich habe hier
+erste
+Parameter
+jetzt haben wir hier
+einen Parameter definiert
+aber rufen hier cool ohne Parameter
+dann kommen wir hier diesen type error
+natürlich
+wenn wir den hier als default
+also mit einem
+Standardwert definieren
+ist das kein Problem
+wie ihr seht verwend ich denn gar nicht
+den Parameter, das ist nämlich auch vollkommen
+egal, also
+ich kann hier Parameter in der Funktion definieren
+die ich aber nie wirklich verwende
+da gibt es keinen Fehler
+genau
+dann gibt es natürlich auch so logische Fehler
+zum Beispiel
+wenn ich die positional Arguments
+vertausche
+zum Beispiel hier
+habe ich
+das Country davor
+definiert
+dass hier ist ein logischer Fehler
+das passiert im Beifen hinter nix
+weil der weiß ja nicht
+dass du am Anfang den first name willst
+und dann den last name
+sondern
+der weiß nur braucht drei Parameter
+oder praktisch zwei
+und einen default Parameter
+der nicht unbedingt angegeben werden muss
+dann
+gibt es natürlich das auch
+dass wenn das keyword falsch geschrieben ist
+da wird auch ein Fehler geworfen
+weil fs hier ist nirgends definiert
+also hier haben wir kein fs
+hier haben wir kein fs
+was mit fs machen
+aber das gibt es nicht
+deshalb bekommen wir da auch ein Fehler
+und
+zu guter Letzt nochmal
+praktisch positional Arguments
+müssen immer vor den keyword Arguments sein
+gibt es da zu fragen
+ok
+dann gehen wir das mal an einem tollen Beispiel durch
+davor wir haben hier drei Funktionen definiert
+und dann hier wird runProgram
+aufgerufen
+was passiert
+zuerst wird mal hier
+zu dieser Stelle
+im code gesprungen
+da haben wir dann
+eine Variable definiert
+die praktischen Liste ist
+und die übergeben wir dann
+einer zweiten Funktion
+die wir hier definiert haben
+das heißt
+hier haben wir dieses Elements
+das sind so neue Parameter
+und hier übergeben wir
+diese Variable
+das heißt Elements
+ist praktisch das gleiche wie
+Standard Elements
+also da haben wir praktisch die gleichen Werte drin stehen
+und dann wird hier das Print aufgerufen
+und dann geben wir hier
+ein zweiter Print
+da haben wir noch eine zweite Funktion
+die aufgerufen wird
+das heißt wir müssen zuerst
+in diese Funktion reingehen
+und da haben wir
+dieses Elements wieder
+das ist dann wieder das gleiche Elements wie hier
+das ist aber ein anderes Elements wie das hier
+sehr kompliziert
+und dann
+der macht uns ein FormatString
+ListLength ist
+und dann bekommen wir die Liste
+von dieser Elements
+Argument
+da wichtig haben wir dieses Return
+das heißt
+wir gehen hier
+wir schreiben dann
+diesen ReturnValue
+hier rein
+und da bekommen wir dann praktisch
+das Aus
+praktisch das erste Print hier
+List of Elements
+das hier
+und dann das zweite Print
+das hier
+schaut sehr kompliziert aus
+kann am Anfang
+vielleicht ein bisschen verwirrend sein
+aber da kommen eigentlich die schnell rein
+was ist zum Beispiel
+da will ich euch ein Beispiel zeigen
+da
+da
+da
+da
+da
+was wenn wir sowas haben
+ich definiere mir 2 Funktionen
+diese Funktion ruft
+die zweite auf
+und die zweite ruft die erste auf
+das heißt wir haben ja hier
+eigentlich so eine Abschleife
+und dann rufen wir sie auf
+und dann wird das
+hier aufgerufen, aufgerufen, aufgerufen
+aufgerufen, aufgerufen
+bis sie irgendwann sagt
+bei sie sagen ah, irgendwas stimmt da nicht
+also es ist nicht so wie eine Endlöschleife
+sondern hier erreichen wir dann
+ich habe es kurz davor erwähnt
+praktisch es gibt auch Funktionen
+die sich selber aufrufen können
+das ist eigentlich sehr ähnlich dazu
+irgendwann erreichen wir
+dieses Rekursionslimit
+das heißt
+nach dem hunderttausendmal
+sagt bei sie nahe zu Schluss
+hier stimmt irgendwas nicht
+also wenn ich das auch nochmal
+kurz so zeige
+ich muss mich zuerst definieren
+dann kann ich da drin nämlich
+die Funktion
+nochmal aufrufen
+die läuft und läuft und läuft
+und dann irgendwann kommt zu diesen
+Rekursionsfehler
+für was ist so
+eine rekursive Funktion eigentlich
+notwendig
+schauen wir mal da zum Beispiel so was machen
+hier müssen wir noch
+praktisch wie eine Schleife
+die ruft sich immer wieder selber auf
+also eigentlich ziemlich
+dasselbe wie eine Weilschleife ist
+nur dass wir die
+Funktion selber aufrufen
+was passiert
+wir gehen hier rein
+in diese Schleife
+arbeiten hier durch
+0 plus 1 ist 1
+1 ist kleiner als 5
+das ist wahr, deshalb rufen wir hier nochmal
+A auf
+das ganze geht nochmal rein
+aber diesmal haben wir hier 1 drin stehen
+1 plus 1 ist
+2
+dann geht es weiter
+bis hier 5 drin stehen haben
+dann ist dieses if nicht mehr erfüllt
+und dann
+passiert nichts mehr
+dann gehen wir wieder hier zurück
+da kommen wir auch noch zu einem
+wichtigen anderen Thema
+und das ist Scopes
+und zwar wenn wir so Variablen definieren
+die können ja
+innerhalb und außerhalb der Funktion
+definiert worden sein
+und das nennt man Scope
+praktisch haben eine andere Zugriff
+Berechtigung
+oder sind praktisch
+nicht immer lesbar
+hier zum Beispiel in grün
+haben wir unsere globalen
+Variablen definiert
+warum sind die global
+weil die außerhalb unserer definierten Funktion sind
+und die können wir dann auch
+innerhalb dieser Funktion verwenden
+umgekehrt geht aber nicht
+also wenn wir hier
+hier im Blau zum Beispiel dieses Z definieren
+das ist nicht
+hier, das können wir nicht
+außerhalb verwenden
+praktisch nicht lesbar
+außerhalb unserer Funktion
+das können wir auch kurz testen
+probieren wir mal das hier aus
+also hier
+haben wir unsere 2 globalen
+Variablen 4 und 3
+dann
+printen wir hier Z aus
+also die globale Variable Z
+dann rufen wir
+test.scope
+auf
+redefinieren wir Z
+printen hier
+einmal die globale Variable Y
+und einmal
+diese Funktionsvariable
+Z
+dann gehen wir wieder raus
+aus der Funktion
+und dann wollen wir nochmal
+Z printen
+was glaubt ihr
+steht da im letzten Z drin
+ist eine Tricksfrage
+also es ist so
+wir können
+globale Variablen lesen
+wir können sie aber nicht
+überschreiben in praktisch
+innerhalb der Funktion
+das heißt wenn wir das jetzt ausführen
+dann printen wir hier
+unsere globale Variable Z
+mit dem Bär 3
+dann gehen wir in diese Funktion
+dort printen wir die
+globale Variable Y
+weil wir können sie ja lesen
+dann
+versuchen wir aber hier Z
+zu printen
+aber wir haben die ja hier in der Funktion
+einen neuen Wert zugewiesen
+scheint zu mir so
+dann gehen wir wieder raus
+also das hier ist unsere Funktion
+und dann wollen wir nochmal die
+globale Variable Z printen
+aber die wurde jetzt nicht
+überschrieben
+weil man in
+praktisch innerhalb dieser Funktion
+die globale Variable nicht überschreiben kann
+das scheint ein bisschen kompliziert zu sein
+am Anfang aber es ist
+eigentlich eh selbstverständlich
+wir können das ja auch nochmal hier ausprobieren
+ah was hab ich hier ausprobieren
+ich muss ja mal schauen was ich da programmiert hab
+jetzt macht nochmal
+dasselbe
+wie
+können wir da zum Beispiel
+hergehen und Z
+wirklich überschreiben
+das geht natürlich
+trotzdem
+also da gibt es 2
+Varianten wie man das machen kann
+wir können einerseits sagen
+ok wir machen
+global Z
+also wir wollen ja
+wir wollen in dieser Funktion hier Z
+die globale Variable
+verwenden
+dann machen wir einfach
+das hier global Z
+und dann weiß die Funktion
+ok es gibt eine globale Variable Z
+die wir in dieser Funktion überschreiben wollen
+und da werden wir das jetzt ausführen
+tatsächlich
+ist hier dann nicht mehr 3 sondern 5
+das global
+solltet ihr aber nicht verwenden
+ihr solltet
+lieber sowas machen
+und hier kommt dieses return
+keyword
+wieder ins Spiel
+das heißt
+wir definieren
+hier unseren Variab
+unseren Parameter Z
+den wir überschreiben wollen
+ähm
+wir schreiben ihn hier
+und dann returnen wir den
+und dann machen wir hier einfach Z
+ist gleich der Wert der hier rauskommen soll
+und dann wird dieser Wert auch wirklich
+überschrieben
+ähm
+genau
+das heißt return Z
+so wenn wir das hier kurz durchgehen
+hier haben wir Z ist gleich 3
+dann übergeben wir hier
+den Wert 3
+in dieser Funktion
+also hier
+die muss hier nicht Z
+das heißt die kann hier auch was anderes heißen
+Funktionsintern wird hier nur mit
+den Werten gearbeitet
+und nicht mit der Variable selber
+das heißt hier wird
+einfach nur der 3er übergeben
+und nicht die Referenz
+zu diesem Z
+praktisch nicht die
+Adresse falls ihr jetzt zurückrennen könnt
+aber da kommen wir auch noch
+kurz dazu
+ähm
+genau
+und diese Sichtbarkeit
+vom Variablen
+also
+Sichtbarkeit
+wir haben ja hier jetzt
+W definiert ja
+ich kann W außerhalb
+der Funktion nicht verwenden
+dann bekomme ich so
+Gelb
+da steht W ist nicht definiert
+warum ist das nicht definiert
+weil es nicht im selben Kurzblock ist
+das hier ist 1 eingerückt
+deshalb ist
+die Sichtbarkeit ist immer nur in einer Richtung
+die geht nicht in beide Richtungen
+genau
+deshalb
+habe ich da auch kurz davor
+ähm
+dass die Funktionsparameter Z
+zu W umgenannt
+weil selbe Name
+lokal und global ist vermöglich
+aber das führt dann zu Problemen
+und das sollte man vermeiden
+also am besten immer wenn ihr eine Funktion habt
+den einen
+den Parameter einen anderen Namen geben
+wie außerhalb
+genau
+ja
+hier zum Beispiel
+was passiert hier
+selbe kurz nachschauen
+ähm
+ok probieren wir das
+kurz aus
+ok sagen wir wir definieren
+hier nicht Z
+ähm
+und definieren
+erst danach
+mal mache ich das da oben
+das ist ein guter
+wenn wir Z hier zum Beispiel
+erst danach definieren
+also nach dem Funktionsaufruf
+aber hier
+wir Z verwenden
+wollen
+dann funktioniert
+sich das
+im Moment trotzdem
+weil wir da noch
+ein Clubbitter verwenden
+ja der
+Clubbitter ist nämlich so
+der ähm
+kann sich im Hintergrund trotzdem diese Variable ab
+ähm
+deshalb könntet ihr auch später nochmal
+verwenden obwohl sie erst später definiert wird
+hier ist es dann so
+dass praktisch Z erst nach dem Funktionsaufruf
+definiert worden ist
+also hier haben wir so
+das hier ist ein Nähmauer weil hier
+die Variable überhaupt nicht
+definiert ist
+genau jetzt haben wir es eben so
+dass wir hier Z
+verwenden wollen
+aufs Volk gar nicht existiert
+in diesem Fall haben wir
+einen Nähmauer
+denn Anbau und Local Error
+muss ich nochmal nachschauen
+warum der kommt
+aber ja
+genau also
+wenn ihr hier in der Funktion
+globale Variablen
+verwendet
+die aber erst nach dem Funktionsaufruf
+definiert worden sind
+oder in einer anderen Variable
+Funktionen definiert worden sind
+ähm
+wie ihr seht hier
+der Scope ist hier zwar identisch
+aber das hier ist eine andere Funktion
+und die Funktion kann nicht in diese Funktion
+reinschauen
+und die Funktion kann nicht in diese Funktion
+ähm
+genauso kann
+man hier nicht in diese Funktion reinschauen
+also
+ich kann nur von dem
+nach außen schauen
+genau das wäre eigentlich
+schon das hier
+ich weiß es ist jetzt ein bisschen komplizierter
+soll ich da noch ein Beispiel machen
+oder wollte
+ähm
+das ist eine Variable
+das ist jetzt das erste
+simples Beispiel also man kann sich da jetzt
+natürlich denken
+ok
+zeige ich euch mal kurz ein anderes Beispiel her
+schauen wir mal ob ich da eins hab
+da oben glaube ich ist ja sehr gut
+ja stell euch vor ihr habt so ein
+Codeblock hier
+ich hab hier ähm
+praktisch die schauen ja sehr
+sehr ähnlich aus oder
+also wir haben hier praktisch hier nur
+First and Last Name wo wir praktisch diese
+Variable Namen verändern
+aber zum Beispiel hier
+dieses Full Name Punkt Title
+und das Print Full Name das bleibt eigentlich immer identisch
+für so was zum Beispiel ist es ultra nice
+wenn man eine Funktion hat
+oder was mache ich
+ich warte, ich werde das euch da kurz mal
+einfach so machen
+und die Bekommt First
+und Last
+da haben wir unseren Code
+drin
+da müssen wir natürlich auch wieder
+schauen, dass die Einrückung passt
+dann
+das ist der Code
+das ist der Code
+das ist der Code
+das ist der Code
+das ist der Code
+das ist der Code
+das ist der Code
+und das kann man diese Full Name
+Funktion immer wieder
+verwenden aber mit anderen
+Parametern das heißt
+hier haben wir unsere 4, 5, 6
+verschiedene Schauspiele
+die wir hier alle nacheinander
+ausgeben wollen
+hier ist es so, dass wir das Ganze
+dann einfach wirklich so machen können
+Und das kann man dann zum Beispiel kombinieren mit Schleifen nicht, also das kann ich dann
+auch noch kurz zeigen.
+Ah, okay ja, muss ich zuerst das hier machen?
+Okay, praktisch kann diese Funktion mehrmals aufrufen, da kann ich zum Beispiel sage ich
+habe eine Berechnung, die ich immer wieder machen muss, dann habe ich mir diese Berechnung
+hier in eine eigene Funktion rein und da kann ich die immer wieder aufrufen.
+Zum Beispiel, das ist ja auch, ich zeige das da vielleicht am besten eher an der Assignment
+1 Angabe, schau mal wo ich das habe, Angabe, immer Assignment 1, dann müsst ihr nämlich
+nur Funktionen definieren, genau und zum Beispiel hier habt ihr so, dass ihr eine Funktion
+erstellen müsst, die die Kreisfläche berechnet und natürlich sagen wir es ist jetzt wirklich
+ein simples Beispiel, aber ihr könnt dann praktisch einfach hier diesen Parameter D
+definieren in eurer Funktion und die Funktion dann mit verschiedenen Durchmessern aufrufen.
+Das heißt, wenn ich erst die Fläche vom Durchmeister 1 haben will, dann bleibt innen
+drin die Funktionslogik immer dieselbe, aber es wird natürlich ein anderer Wert ausgegeben
+werden, als wenn ich da bei D2 drin stehen habe, zum Beispiel, ja, also für solche Sachen
+ist normalerweise eine Funktion sehr hilfreich, wir machen hier natürlich nur ganz simple
+Beispiele durch, das kann natürlich auch sehr, sehr kompliziert werden, ich weiß gar
+nicht, ob ich vielleicht irgendein Beispiel habe, wie ich das vielleicht dann ausschauen
+könnte, wenn man, ja, genau, also ihr könnt in eurer Damplate, dass ihr da runter lädt,
+so viele Code-Zellen definieren, wie ihr wollt und da Code ausführen, zum Testen, was ihr wollt,
+als das ist kein Problem. Genau, ja, genau. Schauen wir mal, ob ich da, genau so schaut es
+zum Beispiel schon kompliziert aus. Wie ihr seht, habe ich hier eine Funktion definiert,
+die mir zum Beispiel irgendein Programm, ein File öffnet und natürlich, wenn ich da mehrere
+Files öffnen will, dann kann ich die einfach mal wieder verwenden. Und ja, wie gesagt,
+also die Funktionen, die können dann sehr kompliziert werden, aber so kompliziert ist
+in diesem Kurs hoffentlich nichts programmieren. Aussehewohl natürlich, dann könnt ihr es immer machen.
+Genau, sonst gehe ich noch kurz assignment 1 die Angabe durch und dann, falls noch Fragen sind,
+könnt ihr noch Fragen stellen. Genau, vielleicht kannst du anfangen. Abgabe-Termin ist hier,
+vielleicht noch ein bisschen größer, ist der 9. November, da habt ihr bis Mittag nach Zeit.
+Er erreicht praktisch die Abgabe wie bei assignment 0 im Decentre ein. Das Wichtigste ist
+wieder wie bei Abgabe 0, dass ihr die sehr ab, also der Deinnahmen hier verwendet, also dieses
+ipynb. Die Abgabe selbst soll assignment 1.ipynb heißen, die ja ein Code praktisch dann beinhaltet.
+Ihr habt wieder diesen Commentator, da sollte ja wieder ein Namen ausfüllen,
+hier auch wichtig den Pfeilnamen und ihr könnt auch diesmal eine Description hinzufügen.
+Das ist eigentlich einerseits für uns wichtig, weil jeder gibt von euch assignment 1.ipynb ab.
+Wie sollen wir sonst wissen, welches Pfeil gehört? Natürlich wissen wir schon trotzdem,
+aber es ist trotzdem noch mal hilfreich, wenn man das Pfeil aufmacht, dann sehe ich sofort,
+der Autor dieses Pfeils hat die Description und Comments. Das ist eigentlich nur für euch,
+falls ihr das nochmal aufmacht, genau praktisch gleich in die Description reinlesen könnt,
+okay, was habe ich da eigentlich gemacht. Ist es wirklich notwendig? Glaub nicht,
+trotzdem für euch trotzdem einmal zum Ausdessen, auf jeden Fall.
+Genau, automatisiertes Testen, also wir machen praktisch jeden Dienstag und Freitag bis
+spätestens 18 Uhr könnt ihr eine Abgabeversuch tätigen auf dem Deepcenter und euer Notebook
+hochladen und dann wird das durch unser automatisiertes Testsystem durchgelaufen und dann bekommt
+ihr dann am nächsten Tag eine E-Mail mit einem Test Report.
+Genau, so kannst du einfach so oft die überschreiben, wie du willst.
+Genau, also bis zum 9. November wird nichts bewertet. Also da könnt ihr so oft abgeben,
+ihr wollt es testen, getestet wird halt nur Dienstag und Freitag. Aber sagen wir zum Beispiel,
+ja, macht es am Montag noch schnell Funktion, letzt die hoch und dann fällt ihr auf am Dienstag
+vormittag, okay, nah, die Funktion habe ich, glaube ich, trotzdem noch nicht richtig geschrieben,
+dann kann ich sie noch nochmal überschreiben und dann bis 18 Uhr dann wird sie getestet.
+Aber da bekommt ihr noch keine fixen Punkte, also da wird auch nichts abgezogen.
+Wichtig ist trotzdem mal so, dass das System testet jetzt nicht alle Sachen durch, das wird
+erst ganz am Ende gemacht. Warum? Weil wir verhindern wollen, dass ihr das Testsystem
+ausnützt, um da praktisch zum Inmax. Genau, wichtig Formatierung von Ausgabe und Rückgaben.
+Genau, kleine Leerzeichen können eben schon, was war das hier? Genau, Ausgabe und Rückgabe,
+kleine Unterschiede wie Leerzeichen, also wenn ihr zum Beispiel ein doppeltes Leerzeichen drin
+habt, kann das schon zu einem gefehlten Test führen, also da genau schauen, dass die Ausgabe
+stimmt. Wir verwenden dann auch noch das gleiche Testsystem, nur mit mehr Tests für die Benutung.
+Ihr solltet deshalb auf jeden Fall zumindest einmal an einem Dienstag und Freitag pro
+halber euren Code schon mal hochladen und durch das Testsystem laufen lassen. Zum Coding
+Style, da gibt es ein eigenes Dokument. Praktisch, dass es dann zum Beispiel Coding Style in
+ihr einhalten sollte, sollte zum Beispiel schauen, dass eine Zeile nicht länger als 120 Zeichen ist.
+Zum Beispiel, das sieht man, hier sieht man es glaube ich nicht. Genau, also hier müsst ihr
+aufpassen, dass ihr nicht mehr als 120 Zeilen in einer Zeile habt. Man kann sich das glaube ich
+irgendwie auch anzeigen lassen. Einrückungen, da bitte schauen, dass ihr genau vier Leerzeichen
+verwendet zur Einrückung und normalerweise könnt ihr da eh die Setup, das die verwenden,
+die sollte euch dann eh automatisch vier Leerzeichen einrücken. Manchmal macht es mit zwei oder mit
+acht. Das kann man in den Einstellungen normalerweise einstellen. Variablen Namen und Kommentare müsst
+ihr auf Englisch machen. Es ist zwar eigentlich eine deutsche Vorlesung, aber die Code sind alle
+Englisch. Deshalb solltet ihr das in meinem internationalen Standard befolgen. Zu den
+Variablen Namen praktisch klein Buchstaben für Variablen, Argumenten und Funktionen
+und falls die aus mehreren Wörter bestehen, trennt ihr die nicht mit Leerzeichen, weil Leerzeichen
+funktioniert nicht mit diesem Anderscore. Genau, der Klassen und Exceptions machen wir
+eh nicht durch. Konstantin ist auch egal. Genau, ihr solltet auch immer schauen, dass der Variablen
+Namen dazu passt. Also hier zum Beispiel Letters stimmt hier nicht. Ihr solltet das vielleicht eher
+Digits nennen. Das wird aber jetzt glaube ich nicht vom Testsystem jetzt direkt bewertet. Also,
+das wird höchstens manuell durchgeschaut. Genau, ihr solltet auch nicht so ein nicht
+aussagekräftiger Variablenamen verhindern oder nicht verwenden, zum Beispiel eben so. Die ich
+eigentlich immer jetzt an der Vorlesung verwende, das ist eigentlich ein No-Go, aber es ist halt
+sehr schnell und zum Testen halt sehr praktisch. Schaut auch, dass ihr dann nicht sowas verwendet,
+wie ListDictBool. Also, wenn ich da vielleicht noch mal zurückgehe,
+ihr solltet das verhindern. Das sieht man eigentlich eh den Unterschied. Das hier ist so in den Lila
+Violette und hier überschreibe ich das Ganze. Also, das ist im Beifen durchaus möglich. Sollt
+ihr es machen, besser nicht. Sonst wird nämlich dieses Digi-Word hier einfach überschrieben mit
+dem String A hingegen, wenn ich das hier so mache. Das habe ich dann natürlich,
+das wird eigentlich hier so verwendet. Und jetzt haben wir auch schon das Problem. Jetzt muss ich da
+den Kernel restarten. Genau. Warum habe ich da zum Beispiel den Kernel restarten müssen? Das liegt
+daran, dass Jupiter intern sich das hier genau merkt, was ich hier reingeschrieben habe. Das heißt,
+hier habe ich x mit dem Wert 5 definiert und jetzt kann ich da in eine andere Code-Seile davorgehen
+und x aufrufen. Wenn ich jetzt zum Beispiel den Kernel restarte, dann werden alle Werte gelöscht
+und jetzt sagt er mir, x ist nicht definiert, weil x erst hier definiert wird. Das heißt, wenn ich es
+dann hier mache, dann hat jetzt x einen Wert und jetzt kann ich x wieder hier aufrufen und jetzt
+geht es. Also, das könnte euch auch öfters passieren, dass ihr eben so einen Fehler bekommt. Das liegt
+wahrscheinlich daran, dass ihr x in Wirklichkeit erst weiter unten definiert habt, aber x schon
+weit oben verwendet. Ihr schließt der neue Visual Studio Code, öffnet es dann wieder und plötzlich
+habt ihr praktisch eine neue Jupiter-Instanz, das ist praktisch wie restart kernel und plötzlich
+steht da im x nichts mehr drin und bei dem weiß nicht, was los ist. Also, das ist auch so ein
+gängiger Fehler, der vielleicht auftreten könnte. Ja, zu den übermäßigen unerwünschten Ausgaben,
+das ist so, die sind eigentlich nur der Fall in eurer wirklich definierten Funktion, die ihr
+ausprogrammieren müsst. Zum Testen könnt ihr so viele Prints reinhauen wie ihr noch wollt. Das
+ist euch dann vollkommen, euch selbst überlassen, wenn ich mir richtig erinnere.
+Genau, Imports ist jetzt eh nicht so wichtig. Ihr werdet es in der ... Sie selber nachschauen.
+Das ist kurz das hier beenden. Das hier ist der neue assignment 1 Notebook.
+Hier ist dieses Importmarf drin. Was das Import macht, es fügt euch noch Büberticken hinzu und hier
+in diesem Fall die Bübertikmarf. Das heißt, wenn ihr später unten irgendwas mit Marf aufrufen müsst,
+aber hier diese Zelle nie ausgeführt habt, ich kann das jetzt kurz mal ausruhen. Hier in diesem
+Fall will ich B. Dann geht das nicht, weil ich nie diese Zelle ausgeführt habe. Das heißt,
+bei euch im assignment schaut das ja immer diese importmarf Zelle mal ausführt, damit ihr auch Marf
+verwenden könnt. Ja, dann schauen, dass der Teilnahme richtig ist.
+Also, das Baskivert solltet ihr eigentlich auch nicht dann in eurem Code verwenden. Ihr solltet auch
+immer schauen, dass ihr da wirklich was macht in der F-Statement, weil wenn ihr euch das ja anschaut,
+das könnte man einfach zu dem hier umformen und ihr solltet auch immer schauen, dass ihr
+praktisch dann nicht solche empty Statements habt. Da einfach das umdrehen und dann habt ihr eigentlich
+dasselbe nur halt statt den vierzeilen in zwei Zeilen. Genau, globaler Variabel sollte man auch
+vermeiden. Ich glaube, die habt ihr ja eh nicht notwendig. Dann gibt es auch noch so Spezialfälle,
+zum Beispiel, wenn ihr hier eine Liste habt, die ihr definiert habt, dann solltet ihr da nicht mit
+einer Indizierung durchgehen, sondern ihr könnt dann eben direkt diese Laufvariable so beschreiben,
+genau überschreiben. Also, vorhin, wenn möglich, schaut das ja nicht range-lang names verwendet,
+sondern direkt in names. Weilschleifen sollten für solche Sachen überhaupt vermieden werden.
+Also, Weilschleifen, normalerweise verwendet ihr nur für Input-Sachen, also in eurem Use Case,
+sonst wenn so eine Liste vorkommt, verwendet das hier. Also, die normalen vor in names.
+Ja, Verschachtelungen so wie möglich übersichtlich behalten. Dickt Update solltet ihr auch nicht
+verwenden. Es gibt zwar, aber macht lieber sowas. Das Update ist nur verwirrend und es ist eigentlich
+nicht mehr so gebräulich. Genau. Das ist zum Coding-Standard, erlaubte Module und Beifen-Packages,
+wie gesagt, die erlaubten Module sind in der Template schon vorhanden. Ihr sollt generell keine
+zusätzlichen Module praktisch importieren, die habt ihr normalerweise auch nicht notwendig.
+Ja, zu Chatchapity und Co-Pilot und so weiter und so fort. Da aufpassen, ich würde euch raten,
+das nicht zu verwenden. Vor allem, das hier sind noch sehr simple Aufgaben, die ihr sicher, man
+braucht am Anfang vielleicht bis in der Weltzeit das Ganze zu verstehen. Aber wenn ihr das selber
+macht, am Anfang, dann ist es später viel, viel einfacher, wie das wieder zu verwenden.
+hingegen, wenn das jemand anders für euch durchprogrammiert, werdet ihr es nie erlernen und
+das ist leider ein bisschen schade. Deshalb versucht sowas wie Chatchapity und Co-Pilot, wie
+möge ich es nicht zu verwenden, vor allem beim Vorprogrammieren und so habt ihr es dann auch nicht
+wirklich, könnt ihr es nämlich auch nicht verwenden. Also das seid ihr dann wirklich
+allein, auf euch allein gestellt. Dann besten wirklich kurz mal alles selber durchprogrammieren und
+dann sollte es eigentlich kein Problem sein. Gibt es da was zum Testen noch?
+Ja, genau zu den Aufgaben selber. Da müsst ihr ein paar simple Funktionen selber definieren,
+also genau das, was wir heute gemacht haben. Genau, zum Beispiel hier diese Funktion hier
+muss was ausprinten. Was hier ganz sinnvoll ist für euch ist, ihr könnt hier einfach diesen Text
+kopieren und dann müsst ihr nun praktisch das ja umändern und der restlichen Text habt ihr
+da schon stehen dann und der ist dann praktisch identisch zu dem, was wir auch im Testsystem
+dann checken. Statt wenn ihr das wirklich hergeht und selber ausschreibt, dann kann es eben nämlich
+vorkommen, dass ihr zum Beispiel solche Fehler macht, wo dann das Testsystem vielleicht sagt,
+ah das ist nicht ganz korrekt, hier sind zwei Leerzeichen, hier ist ein Großbuchstabe drin.
+Hat jemand eine Ahnung, was man hier zum Beispiel verwenden könnte bei diesen King Klammern,
+damit man hier diese full name Variable verwendet oder verwenden kann? Zum Beispiel darf das da jetzt
+nicht das richtige Beispiel hernehmen, aber sagen wir zum Beispiel hi und hier will ich meine
+Namen drin haben. Wie kriege ich diese Variable hier in diesen String rein? Genau, mit dem Format String.
+Das heißt, hier macht man dann einen F daraus, das können wir so behalten und da diese größere
+Kleinerzeichen wollen wir weg haben. Wichtig hier, diese größeren Kleinerzeichen sollten dann im
+Endergebnis nicht mehr drin sein und da kann ich zum Beispiel das machen. Das heißt, der Wert von
+Name wird dann hier in diesen Format String reinhaut. Wenn ich das F nicht habe, geht das nicht.
+Genau, dann die Kreisfläche berechnen. Dann hier habt ihr noch eine größere Funktion,
+die ihr schreiben müsst. Hier müsst ihr nämlich selber eine Funktion schreiben, die die InfoBW-Note
+berechnet. Das ist so, der habt ja ganz unten dann immer definiert, welche Parameter dieses
+Funktionen bekommt. Das heißt, wir haben hier sechs Parameter, die haben dann auch den bestimmten
+Datentyp, das könnt ihr eigentlich ignorieren. Hier ist es nur für euch gut zu wissen, was es ist.
+Also hier habt ihr anscheinend ein True-False-Value, hier habt ihr einen Gleitkommazal, eigentlich hier
+habt ihr überall dann einen Gleitkommazal. Und dann hier ganz unten habt ihr noch,
+was die Funktion zurückgeben soll und das macht ihr mit Return und Return bekommt die berechnete
+Note, wenn eine Note vergeben wurde und sonst dieses Nann, wenn der Studierende keine Note erhalten hat.
+Genau, da müsst ihr dann eben hier mit der bisher Logik implementieren, mit if-elef-else. Dann habt
+ihr noch was über Vorloops. Also da müsst ihr dann über Listen drüber iterieren. Als iterieren
+heißt einfach, ich hau es in den Vorloop rein und dann wird praktisch das erste Element und
+das zweite Element und das dritte Element praktisch iteriert. Genau, dann müsst ihr dann
+Sachen zusammenfügen und da ist auch wieder Parameter und Return-Values sind dann ganz
+immer zum Schluss. Ja, diese Parameter ist das hier. Ich definiere mir meine Funktion,
+ja mit def, dann habe ich hier Funktionsname ja und das sind meine Parameter. Param1,
+Param2, Param3 und die heißen zwar Parameter, aber innerhalb der Funktion sind das praktisch
+einfach dann Variablen. Also ich kann dann einfach Param1 hier ganz normal verwenden.
+Visual Studio Code zeigt die dann halt in anderen Fahrwerden, die zeigt die dann halt so in rot und
+k, zum Beispiel so in leicht orange an, falls der Parameter nicht verwendet wurde und Return
+ist praktisch das hier. Ja. Genau, was das Testprogramm macht ist,
+du hast hier deine Funktion definiert, das Testprogramm extrahiert diese Funktion,
+ruft dies bei sich aus und dann schaut, ob der Wert hier mit, also schreibt dann hier andere
+Werte rein, also die, die ihr nicht bekommen habt, sondern die wir für uns definiert haben.
+Die Programmlogik wird dann von euch ausgeführt, also wird von der Funktion ausgeführt,
+ob die ihr definiert habt und dann schauen wir, ob dieser Wert hier stimmt oder falls
+der Print verwendet, ob die Print-Ausgabe gleich ist. Genau, und dann könnt ihr da eben,
+also in diesem Fall ist Param1 ja hier mit, mit dem Wert 1 dann vergeben und dann addieren wir
+hier noch bei diesem Param1, eins dazu und dann gehen wir das zurück und dann bekommen wir eben
+hier zweit, also hier haben wir dann den neuen Return Wert, dann können wir dann in einer neuen
+Variable zum Beispiel speichern. Genau, das sind dann zwei Aufgaben mit Vorloops,
+die ein bisschen komplizierter sind und dann habt ihr noch was mit Z-Stictionaries,
+wo ihr praktisch ein paar Set-Operationen durchführen müsst. Also hier, wie ihr seht,
+nochmals eine Wiederholung, Set, die haben hier keinen Doppelpunkt, die haben ja nur einen Beistrich,
+also so praktisch wie eine Liste, dann wisst ihr, ah ok, mit der geschwunden Klammer ohne Doppelpunkt,
+das ist ein Set und ihr sollt ihr hier in verschiedenen Set-Operationen durchmachen.
+Und hier der Return Value ist praktisch einerseits ein Doppel, das ist das mit den
+Rundenklammern und das Doppel, also wenn ich das hier kurz wirklich hinschreib,
+werdet ihr sowas rauskriegen, wir haben hier ein Doppel, also Klammer auf, ein Set,
+da steht anscheinend irgendwelche Strings drin, dann haben wir ein Beistrich,
+dann haben wir noch ein Set mit Strings drin, dann haben wir noch ein Set und noch ein Set
+und dann ist unser Doppel zu Ende. Also der Datentyp hier beim Return Value zeigt euch
+ungefähr, was für eine Struktur ihr zu erwarten habt. Wenn ihr euch zurückerinnern könnt, wenn ich
+sowas mache, sagen wir mal, ich habe hier paar Variablen definiert, das hier zum Beispiel,
+sagen wir mal, diese Variablen sind alle Strings, dann wäre das sowas.
+Doppel String String String.
+Also es steht normalerweise dabei, ob ihr es aus, also brinden sollt oder nicht. Also ganz wichtig,
+ich schaue ganz kurz, schauen wir mal, ob wir ein gutes Beispiel finden, hier. Also wenn da
+dieses normalerweise ausgeben steht, dann heißt das, ihr sollt was brinden. Wenn das jetzt nicht
+steht, dann müsst ihr nichts brinden. Meistens ist eh genau schon der String definiert, den ihr
+dann ausgeben sollt. Wie gesagt, ihr müsst dann vielleicht manchmal mit Format Strings oder Strings
+mit anderen Strings addieren, damit ihr zu diesen erwünschten Ergebnissen kommt. Und dann wenn Return
+steht, dann müsst ihr was returnen. Es gibt zum Beispiel ganz am Anfang die erste Funktion hier
+zum Beispiel, die hat gar kein, kein Parameter und keine Rückgabewerte. Da steht nochmal was dabei,
+falls es kein Rückgabewerte hat. Ja, genau. Und dann müsst ihr bei den letzten zwei einmal mit Z
+was machen und einmal mit Dictionary bis sie iterieren und da was machen. Und ja, gibt es dazu
+noch Fragen? Okay, dann war es das eigentlich von mir. Danke.

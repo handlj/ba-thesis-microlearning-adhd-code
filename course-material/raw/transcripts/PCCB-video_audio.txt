@@ -1,0 +1,959 @@
+Herzlich Willkommen zum Bison Crash Course B und ja, ich starte dann gleich mal was wir heute oder was wir gestern gemacht haben, zur Wiederholung nochmal, also wir haben da bisschen die Variablen durchgemacht,
+also zwei Datentypen, die Operatoren plus, minus, Division, Multiplikation, Strings, wie man Strings zu Integers und Floats castet und umgekehrt und nochmal Assignment 0, also heute ist Deadline, bitte alle Assignment 0 abgeben, sonst werdet ihr vom Kurs abgemeldet.
+Ich starte jetzt gleich den Feedbacker, dann könnt ihr mir da toll die Fragen beantworten.
+So, ich glaube eine Frage könnte ein bisschen schwerer sein oder zwei, aber ist egal, versucht einfach und dann diskutieren wir.
+Dann gehen wir mal gemeinsam eure Antworten durch, schaue ich, ob ich da meinen Mauszeiger finde oder nicht, ja.
+Okay, also falls ihr noch erinnern könnt, bei den Variablenamen ist so, die dürfen nicht mit einer Zahl beginnen, deshalb ist zum Beispiel das 1 unter Strich Message ungeltig, es dürfen noch keine Leerzeichen zwischen den Variablenamen vorkommen, deshalb ist auch short Leerzeichen name ungeltig.
+Und das letzte ist auch ungeltig, weil Sonderzeichen leider auch nicht erlaubt sind, es sind nur Anderskurs aus Sonderzeichen erlaubt und eben sonst Zahlen zwischen den, also zwischen im Variablenamen aber nicht am Anfang.
+Generell solltet ihr überhaupt versuchen Zahlen in Variablenamen zu vermeiden, ist natürlich praktisch und geht schnell, also vielleicht bei den Abgaben schauen, dass ihr da keine Zahlen drin habt, aber sonst, wenn ihr einfach so codet, kein Problem.
+Gibt es da sonst Fragen?
+Ja.
+Die Zahl muss man nicht ausschreiben, man kann auch wirklich eine 1 reinschreiben, sie darf nur nicht am Anfang sein wie bei 1 Anderskurs Message.
+Da hat mir eben ja hartlich richtig abgestimmt, genau also es ist so, dass praktisch H1 mit dem Wert von H2 in der letzten Zeile überschrieben wird und wir deshalb praktisch dann den Wert 5 drinstehen haben.
+Genau, gibt es da sonst noch Fragen drüber?
+Also die unter zwei Antwortmöglichkeiten sind okay, das sind hier nicht Strings, aber das sind einfach nur, kann man das interpretieren als Variable.
+Ja, pass H2, könnte man richtig gelten, wenn man meint okay, ja das ist der Wert von H2, 5 ist halt korrekt in diesem Fall.
+Ja, das ist auch eine Tricksfrage, wir haben bei Bullians Tag gar nicht durchgemacht, das werden wir heute nochmal kurz durchmachen, ich habe gestern ein bisschen erwähnt.
+Hier gefragt speziell ist der Datentyp und nicht der Wert der Variable, deshalb ist Bullian richtig.
+Dadurch, dass wir das nicht wirklich durchgemacht haben, ist es natürlich ein bisschen schwer verständlich, aber praktisch dieses H kleiner als 15 ist praktisch ein Ausdruck, der eben wahr oder falsch ergibt.
+Aber der Datentyp von diesem Konstrukt ist praktisch ein Bullian.
+Gibt es da zu fragen?
+Okay, sonst machen wir hier dann gleich durch.
+Ja, das Titel haben wir glaube ich auch nur kurz drüber geskippt gestern.
+Titel ist eben eine Funktion, die immer den Großbuchstaben von einem Wort, den ersten Buchstaben eines Wortes groß macht.
+Hier seht ihr den ersten Antwort, die auch richtig ist.
+Zum Beispiel Informatik-BW, ganz groß geschrieben, das wäre zum Beispiel Appa.
+Dann gibt es natürlich auch das ungekehrte Lower.
+Zyntax error gibt es in diesem Fall nicht, weil ja praktisch den Code korrekt geschrieben haben.
+Gibt es da zu fragen?
+Die ganzen Stringfunktionen oder halt Großstelle Stringfunktionen, das sind jetzt auch in der Vorlesungsfolie von gestern enthalten.
+Die sollten jetzt online im D-Center, tut greifbar sein, hoffentlich, sonst meldet ihr euch bitte.
+Genau, da gibt es jetzt auch mehrere Antworten.
+Hier diese Antwort ist falsch, weil wir keinen String mit einem Integer kombinieren können, was leider ein Fehler wirft.
+Wir können natürlich zwei Strings kombinieren, das ist kein Problem.
+Hier können wir ein Format-String verwenden, das heißt praktisch hier haben wir dieses F davor und dann in den geschwungenen Klammern haben wir den variablen Namen stehen
+und dann wird praktisch der Wert dieser Variable hier reingeschrieben und die geschwungenen Klammern sind einfach praktisch irgendwann ignoriert.
+Genau, das ist einfach eine andere Anwendung von Format-Strings und hier auch nochmal eine andere Anwendung von Format-Strings.
+Gibt es da zu fragen?
+Okay, ja, das haben wir eh gestern durchgemacht, diese Antwort hier würde praktisch das hier liefern, also wenn wir uns das nochmal vorstellen,
+dann haben wir die Indizierung 0, 1, 2, 3, 4, 5 und 6.
+Dann ist die Zahl vor dem Doppelpunkt der Start, das heißt der ist inklusive, also von hier.
+Und nach dem Doppelpunkt haben wir gar keine Zahl, das heißt es geht bis ans Ende, das heißt wir würden Unterstrich-Gradz kriegen.
+Und das letzte wäre praktisch von 0 bis 1, das wäre praktisch 1 ist also das Ende sehr immer explosiver, das heißt wir haben nur 0 bis 0 und das wäre in diesem Fall ein T.
+Gibt es da zu fragen?
+Okay.
+Hier wieder ein großer Richtig, hier sind auch wieder zwei einfach nur Strings, Trickfragen oder Antworten drin, wie immer praktisch man kann nicht Strings mit Integer kombinieren,
+dann müsste man davor kasten.
+So, dann noch so von der Frage.
+Dabel gibt es, wenn ich mir richtig erinnere, nicht, also nicht, es gibt Bibotheken, die das ermöglichen, die praktisch mehr Datentypen zur Verfügung stellen,
+die praktisch eine Schnittstelle zwischen zum Beispiel C und Pfeifen liefern, zum Beispiel eine der bekanntesten ist NumPy.
+Die einem praktisch eine schnellere Berechnung ermöglicht.
+Genau.
+Wie läuft die Vorprogrammierung ab?
+Ist es schwierig, was passiert, wenn der Code nicht funktioniert, aber der Code fast richtig programmiert wurde, danke.
+Ja, es ist so, ihr habt ja ja wenig Zeit und deshalb auch wenig Zeit zum Testen.
+Es ist da kein Problem, falls der Code nicht funktioniert, also die Totoren gehen da wirklich alle Abgaben manuell durch und schauen, ob praktisch das Großteil richtig verstanden wurde.
+Also, wenn man da jetzt mal Karnung kurz einen irgendeinen Fehler übersehen hat, dann ist das jetzt nicht so problematisch.
+Schwierig ist es, wenn man jetzt nicht übt, also das ist praktisch waschologisch,
+aber also ich würde wirklich raten, dass ihr bei den Tutorien ein bisschen mitmacht und da die Übungen praktisch ausarbeitet.
+Ich glaube, heute sollte das erste Video online gestellt werden, da wird es eh sicher noch eine E-Mail kriegen dazu.
+Ihr habt da praktisch, das läuft dann so ab, dass ihr eine Aufgabenstellung kriegt, die könnt ihr dann für 10 Minuten mal durchlesen und euch auf ein Zettel Papier normalerweise niederschreiben und Gedanken euch darüber über das Programm machen, was ihr da programmieren müsst.
+Ihr dürft da in diesen ersten 10 Minuten, wo ihr les praktisch nicht selber was schreiben, direkt auf im JupyterLab, sondern nur vom Papier, also nicht auf dem Computer, damit ihr das nicht einfach dann kopieren könnt, damit ihr euch nicht dann vorteilfach schafft gegenüber anderen.
+Und dann habt ihr glaube ich nochmal eine halbe Stunde Zeit, um das zu programmieren.
+Gibt es dazu Fragen?
+Ihr braucht kein GitHub für WS Code.
+Genau, ich sende noch drei Fragen. Perfekt.
+Dann starte ich weiter.
+Genau, was machen wir heute? Also die Besprechung von Feedback haben wir schon eh schon gemacht.
+Ich werde nochmal kurz das Nankie-Wert wiederholen, falls das bisher nicht ganz klar war.
+Booleans gehen wir kurz durch.
+Und dann gehen wir eh schon in eigentlich die komplizierten Dinge im Beifen, das sind die Bedingungen, also if, if else, if, if else.
+Lists, Duples und die Vorschleifen, die wir hoffentlich heute noch schaffen.
+Passt nochmal kurz zum Nankie-Wert, also hat das jeder verstanden oder soll ich das nochmal wiederholen?
+Also das Nankie-Wert braucht man vor allem dann jetzt, wenn wir dann ifs verwenden und vor loops,
+damit wir dann praktisch davor schon die, den variablen Namen definiert haben.
+Wie hier zum Beispiel x ist gleich nann.
+Das wird dann gleich klar, warum wir das eben brauchen.
+Vielleicht kann ich das eh kurz herzeigen.
+Und zwar muss man sich das so vorstellen, dass im Beifen hat man alles so in Blöcke unterteilt.
+Das heißt, wenn ich hier meine Variable hab
+und dann habe ich meinen if Statement, dazu kommen wir dann eben gleich,
+dann wird hier eingerückt
+und das ist jetzt ein innerer Block, der praktisch nur Teil dieses if Statements ist.
+Das heißt, wenn wir zum Beispiel hier dann print ausführen würden,
+in diesem Fall würde es 5 ausgeben, weil if war, also wenn war, dann schrei mal x ist gleich 5, also ist das 5.
+Aber wenn das jetzt zum Beispiel false wäre
+und wir zum Beispiel hier x nicht definiert hätten, dann würde uns Beifen hier einen Fehler werfen.
+Aber dadurch, dass wir x hier definiert haben, kommt da einfach dann nann als Antwort raus.
+Also der Unterschied ist, ob wir nann als ausgegeben kriegen oder ob wir einen Fehler ausgegeben kriegen,
+der praktisch unser Programm abrupt verenden würde, was wir natürlich verhindern wollen.
+Dann kommen wir jetzt eh gleich mal zu diesen Bullschen ausdrücken.
+Den Namen haben wir eben, diesen George Bull, da zu verrankten.
+Und Bullians sind praktisch sehr simple Datentypen, die entweder nur 0 oder 1 sein können, also war oder falsch.
+Und im Beifen definieren wir die eben als true oder false.
+Und das kann eben sowas sein.
+Und zwar ist das hier in diesem Fall 2 plus 2 ist 4, ist kleiner als 4.
+Und das ist natürlich falsch, weil 4 ist gleich 4.
+Das heißt, wir haben diese Vergleichsoperatoren, die uns eben Bullians ermöglichen oder praktisch ausgeben.
+Und da gibt es ganz verschiedene Vergleichsoperatoren, da haben wir einmal dieses ist gleich,
+dann haben wir das ist nicht gleich, das größer als, das kleiner als,
+dann auch kleiner gleich als, größer gleich als.
+Und dann haben wir noch 2 spezielle, das ist das ist und das ist nicht.
+Das sollte ich vielleicht auch noch kurz erklären.
+Ich habe das gestern kurz erwähnt, dass eine Variable,
+die ist praktisch eigentlich nur so eine Art Label für eine Adresse irgendwo.
+Also die, der Computer sieht die eigentlich eher so, F, A, 0, B.
+Einfach ein Hexatezimaladresse und da steht dann der Wert 5 drin, wenn wir da zum Beispiel 5.
+Also das hier benennen wir einfach X.
+Und jetzt können wir eben, das war auch bei einer der Antworten oder einer der Fragen,
+bei dem Feedback gerade davor, was wenn wir jetzt sagen Y ist gleich X.
+Dann ist einerseits der Wert gleich, aber Y hat auch die gleiche Adresse hier.
+Und das ist eigentlich der große Unterschied für zwischen dem hier und ist,
+der hier vergleicht nur die Werte und der vergleicht die Adresse.
+Das heißt, wir können daraus finden, ob die Variable auf die selbe Adresse zeigt, wie die andere Variable.
+Gibt es dazu Fragen oder ist es, ja, okay.
+Das Gleiche geht natürlich auch mit IsNot.
+Speziell ist da auch das Nann Keyword.
+Und zwar machen wir beim Nann, also wenn wir Nann schauen wollen, ist X, da machen wir immer IsNann.
+Und nicht, ist gleich, ist gleich.
+Das liegt darin, dass Nann ein bisschen speziell ist.
+Das ist ein eigener Datentyp, der immer wirklich eine eigene spezielle Adresse hat und wirklich unfreinderbar ist.
+Das ist eben sowas wie eine Konstante.
+Genau, und wir bekommen da immer ein True oder False raus, also ein Wow oder Falsch.
+Und da gibt es dann in Python verschiedene Operatoren.
+Da haben wir zum Beispiel das Ohr, das End und das Not.
+Das sind eigentlich eh die wichtigsten.
+Das heißt praktisch, ich kann dann hier in meinem If rein, if X ist Nann, direkt Ohr schreiben.
+Und dann werden die verodert.
+Und wie das praktisch, was der Unterschied zwischen Ohr, End und Not ist, kommen wir gleich.
+Wichtig zu wissen ist, dass zuerst ist immer die Verneinung, dann das End und dann das Ohr.
+Also von der Ausführung.
+So was hab, dann wird zuerst das hier ausgeführt, dann das hier und dann ganz am Schluss noch das Ohr.
+Genau, also End haben wir, also wenn wir zwei Sachen verunden, dann ist das Ergebnis nur true, falls beide Sachen wahr sind.
+Bei Ohr muss nur eines der beiden Sachen wahr sein und Not ist einfach eine Verneinung praktisch.
+Wenn unser Bullenwert wahr war, dann mit Not ist es jetzt falsch.
+Und das schaut dann eben so aus, da gibt es eine tolle Wahrheitstabelle.
+Das heißt einfach, wir haben hier true, true ergibt bei und true und der Rest eigentlich immer false.
+Bei Ohr ergibt praktisch eigentlich nur false, false, false.
+Weil wir hier immer einen Wahrheitswert haben und das ist einfach die Regierung.
+Gibt es da zu fragen?
+Dann noch kurz vielleicht zu den anderen Operatoren, also wir sehen hier eh schon Ohr, End und Not,
+aber das sind eigentlich die, die ganz zum Schluss ausgeführt werden.
+Also wenn man praktisch, sagen wir mal, wir machen wirklich eine ultra lange, einen Einzeiler, wie man das so schön nennt.
+Zum Beispiel machen wir 2 hoch 2, dann multiplizieren wir das mit 2, dann noch plus 2 und so weiter und so fort.
+Dann wird praktisch zuerst das hier ausgeführt, dann das hier, dann das hier und so weiter und so fort.
+Praktisch ganz unten ist das, was zuerst ausgeführt wird und dann geht es nach oben, was zuletzt ausgeführt wird.
+Hier gibt es eben noch so spezielle Operatoren wie ADD, das ist zum Beispiel eine Matriz-Multiplikation,
+aber das glaube ich, würde ich in dieser Folie schon ja nicht brauchen.
+Genau, Division, Ganzzahldivision und Modulo oder halt Rest.
+Plus Minus, dann gibt es noch so Bit-Operatoren, damit kann man Bits verschieben.
+Das kann man sich so vorstellen, dass in Wirklichkeit, wenn praktisch alle Daten,
+nehmen wir jetzt mal zum Beispiel eine Ganzzahl, einen Integer her,
+dann wird der eigentlich intern vom Computer in Benärzahl repräsentiert.
+Das heißt, wir haben 1, 2, 4, das heißt, wir haben 1, 0, 1, das ist unsere Benärzahl.
+Und mit dieser Schiftooperation, zum Beispiel 2, kann man das Ganze eben nach vorne schiften.
+Das heißt, wir haben dann 1, 0, 1, 0, 0 stehen.
+Und das ist dann für die ganz schlauen, die machen dann ganz schnelle Berechnungen damit.
+Aber ja, das ist auch nicht so etwas, was ihr wahrscheinlich in der Vorlösung hier brauchen wird.
+Aber ja, falls man wirklich tiefer in die Materie einsteigen will,
+dann muss man sich vertraut sein, dass also mit diesen Bits, mit diesen Benäherzahlen,
+praktisch sollte man sich auskennen, aber ja, gibt es dazu Fragen sonst?
+Stimmt, ich glaube, Benärzahlen wird sogar gemacht in der Vorlösung,
+da später.
+Passt, dann kommen wir jetzt zu den If-Statements, ich habe sie schon kurz da gezeigt.
+Und zwar ist das einfach, wenn Bedingung erfüllt ist, dann mach das.
+Also wir haben hier, if die Bedingung hier, hier habe ich jetzt zum Beispiel X ist Nann,
+dann print mir das.
+Sonst wird es einfach übersprungen.
+Und hier wichtig für euch ist, dass ihr schaunst sollst, dass ihr immer 4 Leerzeichen eingerückt seid.
+Wenn ihr wischlst, du dir kurz zum Beispiel verwendet fürs Programmieren, dann könnt ihr glaube ich auch einfach Tab drücken
+und dann macht er automatisch 4 Leerzeichen.
+Ich sollte da auf jeden Fall schauen, dass das eben 4 sind und nicht 2 und eben auch kein Tab.
+Genau, gehen wir da kurz noch weiter.
+Genau, hier zum Beispiel sieht man das, hier haben wir die Bedingung, wenn die erfüllt ist, dann wird das ausgeführt.
+Falls wir aber nicht diese Bedingung erfüllen, dann wird das übersprungen, weil das praktisch hier eingerückt ist in einem Block.
+Und wir gehen zu der nächsten Anweisung, die praktisch hier auf derselben Block-Intentation ist, also Einrückung ist.
+Genau, und dann gibt es natürlich auch, wenn dann und dann sonst, also das Elf.
+Hier im diesen Fall wird das hier immer ausgeführt, aber wir können das natürlich auch anders machen.
+Wir können das sagen, okay, wir wollen das nur ausführen, falls die Kondition nicht erfüllt ist.
+Das heißt, wir machen, wenn die Kondition erfüllt ist, dann bringt mir das.
+Falls ihr aber nicht erfüllt ist, machen wir was anderes.
+Und das kann man natürlich noch erweitern und also hier nochmal kurz wiederholen.
+Dann gibt es nämlich noch das Elf dazwischen und das ist praktisch dann, wenn dann, sonst wenn dann.
+Und dann ganz zum Schluss sonst.
+Das heißt praktisch, wir haben hier, da kann man da ja, ein Kotbeispiel hier.
+Das heißt, wir haben hier, falls unsere Kondition erfüllt ist, machen wir das, falls sie nicht erfüllt ist, schauen wir die nächste Kondition an.
+Okay, die ist auch nicht erfüllt, dann schauen wir die nächste Kondition an.
+Okay, die scheint auch nicht zu erfüllt sein, dann bleibt nur noch das übrig, dann wird das ausgeführt.
+Falls wir irgendwo dazwischen landen, falls diese Kondition erfüllt ist, dann wird das ausgeführt, das hier wird aber nicht mehr ausgeführt.
+Ist das bis jetzt so verständlich oder gibt es Fragen?
+Okay. Wichtig ist, so was ist nicht gleich wie das her.
+Hier im diesem Fall ist es halt wirklich so, dass wir zuerst diese Kondition schauen und wenn die nicht erfüllt ist, dann gehen wir die nächste rein.
+Das ist praktisch alles ein zusammenhängender Block.
+Hier im diesem Fall, das sind alles getrennte Statements.
+Das heißt praktisch, wenn diese Kondition erfüllt ist, dann wird das hier gemacht, dann wird aber auch gleich diese Kondition angeschaut.
+Und falls die auch erfüllt ist, dann wird das ja auch ausgebrintet.
+Also hier in diesem Fall ist das nicht der Fall.
+Also wenn wir hier diese Kondition erreicht haben, dann wird der Rest hier nicht mehr ausgeführt, hier aber schon.
+Genau, dann nochmal zu den Intendation Rules.
+Also ich sollte da beachten, dass ihr immer vier Leerzeichen zur Einrückung verwendet, keine Daps.
+Also ich glaube, wir wischen, dass du dir kurz halt das eher automatisch auf vier Leerzeichen gehen.
+Falls nicht, kann man das umstellen.
+Genau, es ist eigentlich sehr ähnlich wie bei PowerPoint hier.
+Also wir haben hier der Block.
+Also hier haben wir eine List Entry und dann haben wir hier eine Einrückung.
+Und praktisch der ganze Teil hier gehört zu diesem Statement hier.
+Und dann gehen wir hier wieder raus.
+Gibt es dazu Fragen?
+Okay.
+Wichtig ist da, dass ihr auch immer schauen soll, dass also wenn ihr Code schreibt
+und ihr da zum Beispiel ein Leerzeichen macht,
+dann wird es euch also hier in diesem Fall noch, glaube ich, keinen, ah doch, hier wird es ja schon einen Fehler werfen,
+weil ihr hier die Einrückung nicht beachtet habt.
+Das heißt, hier müsst ihr immer schauen, dass die Sachen an der gleichen Einrückung starten.
+Sonst kommt es zu diesen Intentation Errors.
+Also wenn ihr das hier seht, dann wisst ihr, okay, irgendwo habe ich ein Leerzeichen bei meiner Einrückung vergessen.
+Meistens wird es eh schon rot markiert, also nur, dass ihr es wisst.
+Falls dieser Fehler kommt, dann ist es wahrscheinlich irgendein Problem mit einem Leerzeichen hier.
+Und diese Codeblöcke sind beliebig schachtelbar.
+Also ich weiß nicht, manche von euch haben eh schon bisschen Programmieren gehabt in der Schule.
+Es ist bei anderen Programmiersprachen ein bisschen anders.
+Da kann man zum Beispiel Klammern verwenden, die eben diese Blöcke für euch definieren.
+Im Beifen ist aber wirklich alles einfach so mit Leerzeichen gemacht.
+Das heißt, eine Vor- und Nachteile, also Nachteile ist, dass man halt sehr viele Leerzeichen schreiben muss.
+Also normalerweise werden die je automatisch gemacht, aber halt der Code hat dann insgesamt dann sehr viele Leerzeichen.
+Wenn man das natürlich jetzt mit Java oder C vergleicht, wenn man dann praktisch,
+wir sagen noch auch noch einen Strich, dann ist es einfach so.
+Aber ja, wie gesagt, einfach immer diese Leerzeichen verwenden.
+Und da kann man eben ifs in ifs schreiben, ifs, if else in ifs schreiben.
+Also es ist da beliebig machbar.
+Und ja, wenn man das natürlich jetzt mit Java oder C vergleicht,
+wenn man dann praktisch noch noch einen Strichpunkt Diamente hat,
+dann kann man alles in einer Zeile schreiben.
+Das ist ein bisschen anders.
+Und ja, wichtig da zu wissen, ist eben, dass der Teil wird da nur ausgeführt,
+falls der Teil ausgeführt wird.
+Das heißt praktisch, dass dieses Print wird nur ausgeführt,
+falls die Berter jünger ist als dieses maximale Age hier
+und das maximale Age kleiner ist als das Alter vom Beta.
+Das heißt, wenn hier gar keine Konditionen richtig wären,
+dann hätte man dieses Printstatement hier am Ende.
+Gibt es da so Fragen?
+Okay.
+Ich glaube, ich würde da mal kurz das überspringen.
+Dann kommen wir eigentlich eh schon zu den Listen.
+Und Listen sind auch eigentlich, also das haben wir, glaube ich,
+eh gestern schon ein bisschen durchgemacht mit den Strings.
+Also es ist sehr ähnlich zu den Strings.
+Listen sind nur noch praktisch noch viel stärker.
+Praktisch, wir können da nicht nur einzelne Characters speichern,
+wie wir hier haben, sondern wir können da wirklich ganze Elemente speichern.
+Und wir können diese auf diese Elemente zugreifen und verändern.
+Und genau, also das Wichtigste mal zuerst,
+wir haben praktisch am Anfang diese eckigen Klammern.
+Also das definiert ein Listen-Typ.
+Das könnt ihr auch mal kurz probieren, also das ist einfach...
+Es sollte da auch bei den variablen Benennungen praktisch vermeiden,
+dass ihr List, das Keyword List zum Beispiel verwendet.
+Also List ist nämlich schon eigentlich vergeben als Keyword,
+weil ihr praktisch damit zum Beispiel auch eine Liste definieren könnt.
+Aber ihr könnt ruhig das deutsche Wort verwenden, zum Beispiel Liste.
+Und das hier wird zum Beispiel eine leere Liste.
+Diese speziellen Keywords werden euch normalerweise auch bewischt,
+das Studio Code und so eigentlich auch schon markiert, andersfarbig.
+Also da kommt ihr dann eigentlich sehr schnell drauf,
+dass okay, dieses Keyword scheint benutzt zu sein.
+So viel ergibt es da eigentlich eh nicht.
+Die wichtigsten sind eh List, Set und Doppel.
+Die sind schon vordefiniert.
+Weil ihr praktisch nicht nur mit diesen eckigen Klammern,
+sondern auch eben immer mit diesen Keyword und Klammer auf Klammer zu,
+das Gleiche machen könnt.
+Also das hier sind keine Listen, das sind andere Sachen,
+da kommen wir auch dazu.
+Sie sind sehr ähnlich zu Listen, aber keine Listen.
+Genau, steht eigentlich hier schon oben, das ist ja wie mit einer leeren Liste definiert.
+Und es ist eigentlich ziemlich ähnlich über Strings,
+praktisch wie greift man auf diese Elemente in einer Liste dann zu.
+Ganz einfach, wir verwenden wieder diesen Index.
+Das heißt praktisch, ich habe hier meine Liste definiert,
+schrabe ich noch eine Eins rein.
+Wenn ich da jetzt auf diese Eins zugreifen will, also auf das erste Element unserer Liste.
+Was schrabe ich da rein?
+Null, genau, weil die komischen Informatik kann mit Null beginnen mit Zählen.
+Das Gleiche auch, wie bei den Strings wieder,
+praktisch ein negativer Index fängt von hinten an zu zählen,
+das heißt minus 1 gibt uns das letzte Element.
+Speziell für Listen ist jetzt, dass wir die Sachen bearbeiten können,
+also eigentlich auch wie bei Strings, aber man kann dann praktisch einfach sagen,
+okay, ich will das erste Element hier verändern, also mal hier einfach,
+hier in diesem Fall Colors an der Stelle Null, also an der ersten Stelle,
+habe ich jetzt mal zugewiesen auf Gray.
+Ich kann das aber auch dann später im Code dann einfach sagen,
+ja, ich will da gar nicht Gray mit E schreiben, sondern anders.
+Und kann ich einfach später sagen, ja, ich will das mit A schreiben
+und dann wird dieses Element überschrieben.
+Das heißt, da steht da nicht mal Gray drin, mit E, sondern Gray mit A
+und das wird dann auch so gespeichert, also im Fortlaufen des Programms.
+Ihr könnt dann natürlich auch neue Elemente hinzufügen,
+das ist eben mit Append, wenn ihr an einer sehr speziellen Stelle der Liste
+irgendwo ein Element hinzufügen wollt, dann müsst ihr das mit Insert machen
+und mit dem Index, wo ihr an welcher Stelle das Element in der Liste haben wollt,
+das ist auch wieder praktisch genau wie hier auch, fängt wieder mit Null an.
+Gibt es da so Fragen?
+Okay, jetzt kann man natürlich diese hinzugefügten Elemente auch wieder löschen,
+man kann auch natürlich Elemente löschen, die schon vordefiniert waren,
+also es ist nicht so, dass man nur Elemente löschen kann, die nur hinzugefügt worden sind.
+Genau, man kann das mit Dell machen, das sollte man aber eher bisschen vermeiden,
+besser ist das Pop, weil das dann wirklich das Element dann einfach rauslöscht
+und weiß gar nicht, wie das ist, muss ich kurz nachschauen.
+Machen wir da mal eine Liste.
+Die einzelnen Elemente sind kommergetrennt, zur besseren Lesbarkeit könnt ihr da auch einfach Leerzeichen immer dazu machen,
+die sind aber nicht verpflichtend.
+Ich glaube für den Coding-Standard schon, also besser Leerzeichen verwenden.
+Das heißt, wenn ich jetzt diese Liste hier auch brinden würde, dann haben wir das so.
+Und jetzt lösch ich da ein Element, machen wir gleich das erste,
+schauen wir mal, was rauskommt.
+Okay, dann wird es auch wirklich gelöscht.
+Sag mal, Pop ist in dem Fall hilfreich, wenn ihr das Element noch verwenden wollt,
+das heißt, wenn ich da Liste.pop...
+Normalerweise, wenn man nur Pop aufruft, dann wird da nämlich, ich mach das so, das letzte Element gelöscht.
+Und ihr könnt das praktisch dann noch verwenden, das heißt ihr könnt dieses Pop hier,
+da bekommt ihr auch wirklich, also das ist wie, ich drücke die Liste und dann popt das letzte Element raus
+und jetzt habe ich das Element und kann damit noch was anfangen.
+Der Lied ist es einfach weg, also bei, mit dem Dell Keyword ist es futsch und weg ist die Post.
+Da ist er wirklich, also da kann ich noch machen, X ist gleich Pop.
+Da kann ich das einfach hier daneben noch rausbrinden.
+Das heißt praktisch, ich habe jetzt so mal Pop aufgerufen, das heißt, die zwei Elemente sind da rausgepoppt.
+Ich habe bei X das erste mal Pop aufgerufen, da wird praktisch dann das Dreier herausgedrückt
+und das wird dann hier in diese Variable X gespeichert.
+Dann rufe ich nochmal Pop auf, hier verwende ich es nicht weiter, außer für das Print.
+Das heißt, die Liste ist nur noch mit einem Element übrig, weil wir jetzt zwei mal Pop aufgerufen haben
+und in X steht drei drin.
+Ist das soweit verständlich oder gibt es dazu Fragen?
+Pop und dann gibt es auch noch Remove und Remove ist deshalb hilfreich.
+Also Delete, wenn wir das anschauen, dann gehen wir den speziellen Index an,
+aber sagen wir mal, wir wissen jetzt nicht den Index, wir wollen aber einfach einen Kanon hier in diesem Fall Gray löschen,
+weil wir uns die Gefahr über auf die Nerven geht, dann können wir das mit Remove machen.
+Das heißt, Colors hat danach kein Element mit Gray mehr drin.
+Und wie bei Strings können wir auch wieder die Länge von Listen erfahren, indem wir dieses Land Keyword hier verwenden.
+Praktisch, das kommt von Länge und damit können wir praktisch herausfinden, wie lang unser Liste ist,
+also wie viele Elemente wir wirklich drin haben.
+Und da gibt es natürlich auch wieder Index Errors, praktisch, wenn wir da wieder auf einen ungültigen Index zugreifen in Analyster,
+dann wird Beifen sehr unhappy sein und uns sagen, na, da kannst du nicht zugreifen, das existiert gar nicht,
+dann kommt so ein Index Error raus. Also falls ihr so ein Index Error sieht, also nicht indent Error, sondern ein Index Error,
+dann wisst ihr, okay, ich habe auf ein Element in der Liste zugegriffen, das ist nicht existierab,
+praktisch auf eine Index zugegriffen, der außerhalb der Länge unserer Liste ist.
+Genau.
+Und sonst eben, wenn ihr das letzte Element haben wollt, wieder mit Minus 1.
+Und da gibt es auch wieder das gleiche wie bei Stringslicing, das haben wir durchgemacht.
+Also man kann bei den Listen auch wieder das gleiche Slicing Verfahren verwenden, das heißt, man kann ja auch wieder hergehen.
+Und
+kann ich machen, L von 0 bis 2,
+dann bekomme ich raus, also
+1, 2. Also das funktioniert natürlich auch wieder.
+Genau, das sieht so.
+Genau, das habe ich jetzt gerade erinnert.
+Es sollte eh identisch sein wie bei Stringslicing.
+Genau, und wie gesagt, ein Stringslicing ist eh eigentlich nichts anderes als eine Liste mit einzelnen Buchstaben drin.
+Genau, dann haben wir nochmal dieses in und not in.
+Nein, das haben wir gar nicht gehabt, nein, wir haben das is gehabt, sorry, selber verwirrt.
+Und das in ermöglicht uns rauszufinden, ob ein Element in der Liste ist oder nicht.
+Und das ist natürlich sehr praktisch, wenn wir das Ganze mit einem if kombinieren.
+Das heißt, wir haben hier unser Liste L,
+wenn ich das sage if 1 in L,
+L, dann mache ich da was.
+Das heißt, ich kann sehr schnell rausfinden, ob ein Element in meiner Liste ist oder nicht.
+Ich kann das natürlich das umgekehrt auch machen mit not in, das ist praktisch einfach die Verneinung davon.
+Ein sehr starkes Instrument.
+Gestern habe ich auch kurz erwähnt bei den Strings zum Beispiel das Feind.
+Das gibt es natürlich auch bei Listen, wenn man wirklich den Index haben will.
+Da gibt es also sehr ähnliche Operatoren.
+Gibt es dazu Fragen?
+Was der Befehllist hier bringt, größtenteils einfach nur für die Lesbarkeit des Codes.
+Es gibt dann nämlich noch speziellere Arten, wie man mit Listen eigentlich nicht,
+aber es ist einfach für die Lesbarkeit.
+Also dann weiß ich, okay, das ist ein List.
+Aber es ist eigentlich identisch wie zu den Eckigen Klammern.
+Und ihr könnt auch einfach direkt eckige Klammer verwenden, also ihr müsst ja nicht List, Klammer aufwenden.
+Ja.
+Na ja, du kannst glaube mit List nur Lehrer-Listen definieren.
+Das ist eben, ja, das ist nur, sagen wir zum Beispiel am Anfang des Programms habe ich
+eine Variable-Liste 3, die ich unbedingt schon davor definieren will als Lehrer-Liste.
+Dann kann ich das eben dieses Keyword hier verwenden, dieses List Keyword.
+Dann kann ich natürlich auch einfach den Klammer nehmen.
+Also dieses Keyword ist eher relativ wenig im Gebrauch, normalerweise.
+Was ganz cool ist, ist auch, man kann die Listen auch sortieren.
+Das heißt, wir haben da zwei Möglichkeiten, wir haben einmal das Punkt Sort.
+Das kann ich auch kurz mal kurz zeigen.
+Warte, bevor ich das mache.
+Praktisch, wir haben hier einmal das Punkt Sort.
+Das heißt, das hier ist eine Liste.
+Und dann kann ich da Punkt Sort aufrufen.
+Und dann wird mir, dann sortiert mir bei diese Liste.
+Das heißt praktisch alle Elemente.
+Zum Beispiel, wenn ich hier 3, 2, 1 geschrieben hätte, dann würde die sortiert nach 1, 2, 3.
+Das Gleiche ist auch, wenn ich zum Beispiel das Drinks drin habe, dann werde die eben nach Anfangsbuchstaben sortiert.
+Das heißt ABC.
+Man kann das natürlich auch reversen.
+Also man kann da auch einfach dann noch angeben, ich will hier reverse das Ganze machen.
+Oder eben auch so machen.
+Aber das hier ist ein bisschen spezielleres Keyword, das ist jetzt, das kommen wir auch gleich dazu.
+Das hier ist ein eigenständiges Statement.
+Das heißt, ich schreibe da nicht nochmal Colors, ist gleich Colors.sort,
+sondern ich schreibe nur Colors.sort und dann ist meine Colors Liste sortiert.
+Wenn ich aber Colors unsortiert haben möchte, also weil ich die später noch so unsortiert praktisch brauche,
+dann kann ich mir eine neue Liste machen mit diesem sorted Keyword.
+Das heißt, praktisch schreibe sorted, klamm auf, halte meine unsortierte Liste rein
+und dann gibt mir dieses sorted Keyword eine sortierte Liste, aber das ist eine neue Liste zurück.
+Das Ganze kann man natürlich auch mit Strings machen, weil das natürlich auch eine Liste ist.
+Und eben auch eine Liste von Strings.
+Wichtig ist da die Großschreibung, also ein großes A ist nicht das gleiche wie ein kleines A.
+Das kann man auch kurz herzeigen.
+Ich glaube, das hat da kein sort Keyword.
+Da können wir nur sorted verwenden.
+Und die hier seht, werden alle Großbuchstaben von den Kleinbuchstaben sortiert.
+Also es ist ein bisschen eine Eigenheit, das hat damit zu tun, dass man dieses A zum Beispiel in ein Integer-Wert umwandeln kann auf zwei Umwege.
+Das heißt, man kann da z.B. Klapp C, H, R, S, oder auch nicht.
+Ich weiß gar nicht mehr, was das ist.
+Okay, das ist praktisch das Umgekehrte.
+Das heißt, wenn ich hier 9.7 rein schreibe, dann bekomme ich das.
+Genau, also die haben intern alle einen Wert.
+Hier im diesem Fall das kleine A hat den Wert 97.
+Ich weiß gar nicht mehr, was das große A für einen Wert hat.
+Okay, 65 hat das.
+Also das große A hat den Wert 65 und das kleine A hat den Wert 97.
+Und deshalb werden die auch so sortiert.
+Das kann man in einer, zum Beispiel in einer ASCII Tabelle nachschauen.
+Ich kann das auch kurz zeigen.
+Das schaut dann so aus.
+Praktisch hier, in diesem Fall haben wir praktisch unseren Dezimalwert hier
+und dann unseren Charakter, also unseren einzelnen Charakter,
+unser einzelnen Schriftzeichen hier.
+Und wie ihr hier seht, ist hier das große A mit 65
+und dann geht das darunter.
+Und dann kommen wir noch ein paar Sonderzeichen
+und dann bei 97 startet das kleine Alphabet,
+bis Z was bei 122 endet.
+Und das ist intern, was Beifen verwendet,
+um praktisch den Buchstammel einen Wert zu geben.
+Genau, da vielleicht noch kurz hier zum Sorten.
+Da gibt es den Reverse-Parameter, den ihr auf True setzen könnt.
+Das ist dann praktisch eine spezielle Option für diese Funktion hier
+und ich sage dann, okay, wir wollen das Ganze eigentlich umgekehrt sortiert haben.
+Dann sortiert ihr das uns umgekehrt.
+Genau so werden die einfach dann reversed.
+Das ist nicht das gleiche wie sort.
+In diesem Fall natürlich ist es das gleiche wie sort reversed,
+aber wenn wir dann noch hat dritt, das sind Zufügen.
+B, starten wir es mit B.
+Also in diesem Fall hat man hier A, B, J am Anfang des Strings
+und natürlich wenn wir da noch einen drin haben, der zum Beispiel mit zwei As beginnt,
+dann wird der noch vor dem anderen String mit einem A geschrieben,
+weil der praktisch hier dann an zweiter Stelle ein B hat.
+Jetzt, wenn wir das reversen,
+dann haben wir praktisch hier umgekehrt sortiert.
+Also hier haben wir dann das AA ganz zum Schluss und das J hier am Anfang,
+aber wenn wir hier einfach nur reverse reinschreiben,
+dann dreht er uns einfach die Liste um.
+Das heißt, wir haben hier zwar das AA an der Anfang,
+aber das AB ist hier noch immer ganz zum Schluss.
+Aber ich habe euch da nicht zu viel verwirrt, ist das verständlich?
+Gibt es da Fragen?
+Was?
+Dann haben wir das auch.
+Genau, dann gibt es ja noch spezielle Art von Listen.
+Na stimmt, das ist eigentlich keine Liste,
+das ist eigentlich eine Zahlensequenz
+und das nennt sich eigentlich einen Generator.
+Und das können wir mit Range machen, also mit diesem Range Keyword
+und das ist sehr praktisch, wenn wir jetzt einfach eine schnelle
+Zahlensequenz brauchen, von 0 bis 100,
+dann können wir einfach Range 101 reinschreiben,
+weil praktisch das letzte,
+also diese Zahl ist exklusiv,
+das heißt, wir haben hier nur 0 bis 3,
+aber wie ihr seht, sind das ja vier Elemente.
+Da kann man natürlich auch noch vieles anderes machen,
+zum Beispiel eben den Start-Abpunkt definieren,
+also wenn ich nicht bei 0 starten will,
+sondern bei 1, dann kann ich da eben noch 1 davor schreiben,
+beistrigt und dann das Ende.
+Und ich kann auch,
+die Schrittweise angeben,
+das heißt praktisch,
+hier in diesem Fall
+gehen wir mal in drei Schritten weiter.
+Wir starten bei 1,
+dann 3 weiter, 4,
+dann nochmal 3 weiter, 7
+und dann haben wir,
+wenn wir da nochmal 3 weiter gehen,
+dann wäre das ja 10,
+aber 10 ist exklusiv,
+weil es ist nicht mehr enthalten.
+Und man kann diese Zahlensequenzen einfach umwandeln
+mit diesem List keyword,
+also für das ist es eigentlich
+größtenteils eben,
+fürs Casting wird es verwendet.
+Und das coole mit den Listen ist auch,
+sagen wir mal, wir definieren es,
+da haben wir eine Liste von 10,
+das ist die Liste,
+das ist die Liste,
+das ist die Liste,
+die Liste von 0 bis 2,
+also 0, 1, 2,
+dann können wir da eben
+das Minimum herausfinden
+mit diesem Min keyword,
+das heißt,
+da kriegen wir dann 0 raus,
+wenn wir da Max reingeben,
+also Max und die Liste,
+dann kriegen wir 2 raus.
+Wir können auch die Summe machen,
+das heißt,
+alle Elemente werden aufsummiert,
+das geht dann natürlich
+nur gescheit mit integer oder float,
+mit string,
+das ist eine gute Frage,
+ob man strings aufsummieren kann,
+müssen wir gleich mal ausprobieren.
+Man sagt ja,
+weil er hier
+Summe startet
+mit einem 0 integer,
+also definiert sich
+intern einfach einen Counter
+mit 0,
+oder halt
+einen Summen-Counter,
+das heißt,
+wenn man die Summen-Counter
+aufsummiert,
+dann kann man die Summen-Counter
+aufsummieren,
+um die Summen-Counter
+und dann versucht er hier
+das erste Objekt zu addieren,
+aber das ist hier in diesem Fall
+ein string,
+und wie wir ja wissen,
+kann man strings mit integers nicht addieren,
+außer sie werden gecastet,
+das heißt,
+hier gibt es ein Fehler.
+Und da kann man zum Beispiel auch ganz simpel
+dann den Durchschnittwert
+ausrechnen und zum Beispiel
+wenn wir 0, 1, 2 haben,
+dann addiert es praktisch Summe und das auf,
+das wäre dann praktisch 0 plus 1 plus 2,
+in diesem Fall 3,
+durch die Länge,
+die Länge der Liste ist auch 3,
+3 dividiert auch 3,
+der Durchschnitt ist 1.
+Was, dann kommen wir noch
+zu einem speziellen Art, also Tupel.
+Tupels sind sehr ähnlich zu Listen,
+nur können wir sie nicht verändern.
+Das heißt,
+das hat man davor auch schon kurz gesehen,
+wenn ich dann nochmal
+zum Coating gehe,
+hier das hier,
+ist ein Tupel,
+das kann ich nicht mehr verändern,
+und das hat halt
+ein paar Vorteile,
+also es ist einerseits,
+hat es praktisch das ganze
+drum herum bei den Listen nicht,
+das heißt,
+wenn ich dieses Tupel mal definiert habe,
+dann ist es konstant,
+das braucht viel weniger Speicher,
+und das hat eben
+verschiedene Verwendungsartwecke,
+zum einen
+habe ich zum Beispiel eben,
+wenn wir später dann
+Funktionen definieren,
+ich mach das mal ganz kurz,
+dann kann ich da
+eben ein Tupel
+zurückgeben,
+und das kann ich eben so machen,
+und generell ist ein Tupel,
+also wenn ich ein Tupel definiere
+als Variable,
+ist das mit den runden Klammern.
+Ich kann natürlich auf diese Werte zugreifen,
+zum Beispiel, wenn ich hier
+ein 1 reinschreib,
+dann kann ich da wie
+genauso wie bei Listen
+mit der Indizierung
+praktisch darauf zugreifen,
+und ja,
+es gibt da auch natürlich
+wieder, kann wieder die Länge
+herausfinden, mit dem Längenparameter,
+generell sind den Tupel
+praktisch werden verwendet,
+um fixer
+Sequenzen, fixer Rückgabewerte
+zu definieren,
+hat seine Vor- und Nachteile
+zu den Listen, also da ist
+nichts mehr veränderbar,
+und das ist halt
+ein Vergleich zu Tupel,
+also zu Listen
+sein Nachteil.
+Genau, zum Beispiel
+definiert man das eben so,
+und das ist
+dann so fast schon so eine Art
+Konstant, das heißt praktisch
+ich kann immer wieder auf dieses
+Base-Color-Tupel da
+hingehen und weiß,
+okay, diese Werte hier sind nicht
+verändert,
+und
+das sind praktisch so Fixpunkte
+in meinem Code.
+Genau,
+dann kann man noch zum letzten
+Teil, das sind die Vorloops,
+und
+Vorloops ist
+auch wieder ein sehr
+starkes
+Dual beim Programmieren,
+und damit
+kann man eben
+zum Beispiel durch Listen iterieren,
+das schaut dann so aus,
+also wenn man sich das dann
+vorstellt im Pseudocode, also einfach
+in normaler Sprache,
+für jedes Element
+in meiner Sequence
+oder in meiner Liste
+führe ich eine Art und Weise aus.
+Das sieht man, das ist auch wieder ein Block,
+das schaut dann so aus,
+vor Item,
+praktisch Item in diesem Fall
+ist eine neue Variable-Namen,
+den ich hier definiere,
+in List of Items,
+also diese List of Items habe ich
+schon davor definiert,
+und dann
+prönt ich das einfach hier aus.
+Ich kann natürlich in diesem Block
+auf dieses Item hier zugreifen,
+ich kann natürlich auch auf diese Liste direkt zugreifen,
+aber
+diese Variable nennt man auch Laufvariable,
+weil die mit der
+Schleife mitläuft, praktisch die verändert sich
+mit jeder Iteration,
+bis praktisch alle Elemente
+in dieser Liste durchgegangen worden sind,
+und die könnt ihr eben einen beliebigen Namen geben,
+da wird auch wieder
+Variable namens
+Regeln beachten,
+und innerhalb dieser Schleife
+wird das eben so wiederholt,
+bis diese Liste abgearbeitet wurde.
+Das heißt, wenn wir hier
+1, 2, 3 haben,
+dann wird diese Liste, also wird
+dieser Sprint-Statement hier
+dreimal ausgeführt, für jedes Element einzeln.
+Das schaut dann eben so zum Beispiel aus,
+hier in diesem Fall zum Beispiel
+habe ich eine Liste
+Lectures definiert,
+die praktisch da Mathe,
+Englisch, Computer Science
+drin,
+und dann iteriere ich darüber,
+das heißt, ich mache hier meine
+Für neue Variable,
+also in diesem Fall Lecture,
+wie ihr seht, fehlt das S, also
+das macht man normalerweise so,
+dass man die Liste
+im Mehrzahl definiert,
+und die Laufvariable
+singular
+in Lectures
+und dann Print, dann hier mit
+einem Format-String, I Love Lecture,
+das heißt, hier bekommen wir dann
+die Ausgabe Math,
+Englisch, Computer Science, also
+I Love Math, I Love Englisch,
+I Love Computer Science.
+Genau, also
+das ist die Definition
+der Initialisierung der Liste,
+also unsere
+Vorschleife,
+und das ist dann der innere Block,
+der dann immer in der Vorschleife ausgeführt wird.
+Das kann man sich dann so vorstellen.
+Genau, es gibt dann
+natürlich
+man kann natürlich auch
+zum Beispiel über jedes
+einzelne Zeichen
+in einem String drüber iterieren.
+Das heißt,
+kann ich mal kurz herzeigen.
+Vor
+Zeit
+den
+genannten
+Warte.
+Okay.
+Ich kann da
+auch das String hier direkt
+definieren,
+wenn ich das so möchte.
+Ich kann ja auch zum Beispiel hier
+eine Liste direkt definieren.
+Das geht auch.
+Also die muss nicht davor definiert werden,
+die kann auch hier so definiert werden.
+Hallo,
+dann hier wichtig,
+auch beim IF Statement
+ist dieser Doppelpunkt
+und
+dann kann ich machen
+Print
+Ciao.
+Und dann macht er mir da
+das Einzelnen.
+Ich kann da zum Beispiel dann
+Einzeln sagen, okay,
+das soll dann mal
+nünftig multipliziert werden.
+Also
+solche Sachen sind auch möglich.
+Gibt es dazu Fragen?
+Okay.
+Was für Werte müsste ich hier reinschreiben,
+wenn ich von 1 bis 10 zählen möchte
+in dieser Range?
+Das erste Fragezeichen.
+1 und 11,
+genau, ja.
+Weil hier praktisch
+mit 1 starten
+und 11 ist dann exklusiv,
+das heißt
+11 wird nicht mehr
+in dieser Zahlsequenz vorkommen.
+Und praktisch
+wie ihr seht, kann man da nämlich auch
+diese Zahlsequenzen, also diese Range
+verwenden, um dann sehr schnell
+über Nummern zu iterieren.
+Wenn ihr zum Beispiel
+hier eine Liste habt
+und ihr wollt aber auch wissen
+welches Element der Liste ich gerade,
+also der Index
+von meinem Element in der Liste,
+wo ich gerade bin,
+dann kann man dieses Enumerate verwenden.
+Das heißt, ich haue mal eine Liste
+hier in dieses Enumerate Statement rein
+und dann bekomme ich hier
+immer ein Tuple raus.
+Das heißt, hier habe ich den Index
+und hier die Lecture.
+Die Lecture, praktisch sind diese Werte
+und der Index
+stellt mir ein Enumerate zur Verfügung
+und der wird dann von Enumerate
+ausgeführt.
+Das kann man sich dann so vorstellen.
+Fortest
+in Enumerate
+ist man auch den Index.
+Dann haben wir da
+eins
+Doppelpunkt
+und dann kann ich da einfach sagen
+Index
+und Test.
+Ups, was habe ich gemacht?
+Ich habe das Enumerate vergessen.
+Das ist vielleicht auch interessant hier,
+also ich habe hier
+zwei Variablen angegeben
+aber davor hatte ich praktisch nur
+zwei Werte funktioniert
+und dann sagt er mir da einen
+Value Error,
+dass er praktisch zu viele
+Values hat, die er da
+immer aus einem Element
+rausholen kann.
+Wenn ich hier zum Beispiel
+Tuple verwenden hätte,
+dann hätte das funktioniert,
+weil das hier immer zwei Werte sind.
+Da könnt ihr dann selber
+auch bis sie testen.
+Das heißt, wir haben dann hier einfach
+immer unseren Index ausgeprintet,
+der eben auch wieder bei 0 startet,
+0, 1, 2
+und hier
+dann dann eben einfach das Element,
+das eben in diese Testvariable
+geschrieben wird.
+Gibt es da so Fragen?
+Ja, Komma isch
+zum ZIP.
+Das ist dann eben
+genau das, was ich eben gesagt habe
+mit dem Duple.
+Ihr habt da praktisch Lectures
+und Teachers.
+Wir sind ganz wichtig,
+diese Listen sind beide gleich lang.
+Das ist sehr wichtig, weil sonst wird
+euch ZIP ein Fehler werfen,
+wenn die Listen nicht gleich lang sind.
+Und was ZIP macht,
+es nimmt immer die ersten,
+es nimmt immer an der selben Index
+der beiden Listen hier
+das gleiche Element her,
+also hier Maths und Brown an der Stelle 0
+und kombiniert die
+zu einem Duple.
+Praktisch haben wir dann einen Duple stehen,
+der schaut dann eben so aus.
+Ja.
+Ich glaube, ich weiß gar nicht, ob ich das so machen kann.
+Genau.
+Das schaut dann eigentlich intern so aus,
+dass ihr dann immer praktisch hier,
+ihr seht immer 1
+und 4 als Duple,
+Speicherts 2 und 5 als Duple und 3 und 6.
+Das kann man dann natürlich so machen.
+Element 1,
+Element 2 in
+dann nehmen wir uns nochmal
+das ZIP her, dann müsst ihr nicht unbedingt
+das Ganze nochmal in eine Liste konvertieren.
+Das Problem nämlich
+ist, wenn ich
+nur das ZIP ausgebe,
+schaut das sehr unleserlich aus.
+Da sind wir beim Problem wieder vor.
+Und da machen wir dann das ZIP rein,
+dann wieder den Doppelpunkt.
+E1, E2
+und dann könnt ihr das so ausbinden.
+Gibt es da zu fragen?
+Okay.
+Dann gibt es noch so ein paar spezielle Keywords,
+die ihr in Schleifen
+verwenden könnt.
+Das Pass.
+Pass könnt ihr sogar überall im Programm verwenden.
+Und das ist einfach nur ein Lehrerkommand.
+Das ist zum Beispiel ganz praktisch,
+wenn ihr beim Coden seid
+und ihr wisst, okay,
+ich will dann IF machen,
+aber ich bin mir noch nicht ganz sicher,
+was ich reinschreiben will.
+Schreibe einfach ein Pass rein
+und dann meckert's Beifen nicht,
+weil wenn ich das nicht mache,
+dann sagt er mir, oh, da fehlt was.
+Aber da auch, dass ich eben
+ein leeres Statement verwendet habe,
+da passiert nix.
+Aber ich habe eben schon dieses IF definiert,
+weil ich später schon weiß, okay,
+da kommt dann diese Erzweigung
+im Programm rein, also
+schreibe ich mal das rein
+und dann später programmiere ich
+den Rest des Codes aus,
+da habe ich mal ein Pass rein.
+Das Break und das Continue
+ist nur ein Schleifen vor.
+Das Break, das bricht die Schleife ab.
+Zum Beispiel, ihr habt ein IF Statement erreicht,
+also wo ihr sagt, okay,
+ich bin jetzt ganz zufrieden
+mit dem, was ich da gemacht habe.
+Ich brauche den Rest der Schleife nicht mehr.
+Break, also
+abbrechen,
+gehe ich aus der Schleife raus.
+Continue ist so,
+stellt ihr vor, seit ihr gerade
+in der Schleife drin,
+da wird gerade was berechnet.
+Und da kommt jetzt auf ein Zwischenergebnis,
+mit dem ihr auch wieder zufrieden seid.
+Aber ihr möcht noch die
+alle anderen Ergebnisse ausrechnen
+in dieser Liste, die ihr damit
+in der Schleife durchgeht.
+Dann mache ich einfach Continue.
+Das heißt,
+der restliche Code
+in der Schleife wird nicht mehr ausgeführt
+und ich springe zum nächsten Element.
+Also damit, das ist einfach wie ein
+Element
+und das Break ist wie
+ich breche die Schleife komplett ab.
+Die zwei kann man nicht in der IF Anweisung
+verwenden, weil
+das macht eigentlich wenig Sinn.
+Genau.
+Ja.
+Das wäre es eigentlich eh schon
+von diesem Teil der Vorlesung.
+Gibt es da eigentlich noch Fragen,
+ob es noch nicht ganz verstanden,
+soll ich noch mal was wiederholen?
+Ja.
+Genau.
+Also ich habe die Beifendertei
+von gestern noch nicht hochgeladen.
+Ich werde einfach die Beifendertei
+kombinieren von heute
+und gestern
+und werde das dann heute Nachmittag
+hochladen.
+Falls es sonst keine Fragen gibt,
+falls noch jemand noch
+nicht assignment0 abgegeben hat,
+bitte abgeben
+und ja, vielen Dank.
+Vielen Dank.

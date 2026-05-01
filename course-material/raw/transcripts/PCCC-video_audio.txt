@@ -1,0 +1,579 @@
+Okay, perfekt. Ja, dann herzlich willkommen zum Python Crash Course C. Ich hoffe, das
+Tutorial gestern war bis sie informationsreich und ihr habt was Neues dazu gelernt. Ich stecke
+ich noch kurz das ein. Ich werde dann auch gleich den Feedback danach starten und falls
+ihr da noch Fragen habt, können wir die dann noch gemeinsam beantworten. Heute oder was wir
+heute machen ist Feedback gefragt, nochmal Listen und Vorlubs wiederholen. Okay, ihr
+ausschaut. Die erste ist gleich sehr Trickfrage und zwar hat das damit zu tun, dass wenn ihr
+es zurück erinnern könnt, if und elif. Also hier im diesem Fall haben wir ja gar kein elif
+an der zweiten, beim zweiten if hier. Das heißt, der erste if-Block wird ausgeführt, weil ja h ist
+gleich drei, drei ist kleiner als vier, als so addieren wir fünf zum Preis hinzu. Aber hier
+haben wir dann kein elif, das heißt hier das wird auch ausgeführt, also hier das wird auch noch
+mal kontrolliert und natürlich drei ist immer noch kleiner als 18, wodurch wir eben nochmal zehn
+hinzufügen. Das heißt, wir haben 13 plus 5 ist 18 plus 10 ist 28. Da kommen wir dann eh schnell
+drauf auf der nächsten Frage. Da haben wir dann nämlich das elif und da habt ihr dann eh größtenteils
+alle richtig beantwortet und wir hier sehen praktisch hier haben wir h15, das heißt 15 ist
+natürlich nicht kleiner als vier, deshalb wird es auch gar nicht ausgeführt. Fünktion ist aber
+kleiner als 18, deshalb wird der zweite block ausgeführt und der Rest des elfs wird dann ignoriert.
+Hat jemand eine Idee, was passieren würde, wenn hier h3 wäre?
+Lauter? Praktisch wenn hier 3 stehen würde, dann würde der ifblock hier ausgeführt werden,
+genau. 13 plus 5 ist 18 und der Rest wird einfach ignoriert. Auch wenn hier h kleiner als 18 steht,
+ist komplett egal. Die erste ifanweisung ist richtig, deshalb wird der Rest vom elif elfsblock
+komplett ignoriert. Ja, das ist sehr gut. Ja, dann nochmal zur Wiederholung. Bei uns fängt,
+bei den Informatikern fängt das eben mit 0 an zu zählen, mit dem Index und nicht mit 1 und auch
+ganz wichtig, hi, also das funktioniert später bei den Dictionaries, das werden wir dann auch
+durchmachen, das wird dann noch bis ins Verwirrung führen, aber hoffentlich seid ihr dann schon
+alle Profis mit Listen. Genau, also das erste element ist mit 0 und dann gehen wir auch gleich zum
+nächsten. Oh ja, Listen hinzufügen. Ja, da gibt es mehrere Möglichkeiten. Ihr könnt eben ganz
+normal das Append verwenden und dann eine normale Zahl hinzufügen, aber was ganz interessant ist
+bei Beifniss, ihr könnt in einer Liste komplett irgendwas hinzufügen, also das muss nicht,
+wenn die Liste aus Zahlen ist, eine weitere Zahl sein, sondern das kann auch wirklich einfach ein
+String sein oder ein Float sein oder ein Bull sein oder irgendwas. Das macht das Ganze natürlich
+sehr vielfältig, aber kann natürlich auch dann später zu Fehlern führen, wenn man zum Beispiel
+eine Liste gemischt aus Zahlen und Strings hat und man will alle Elemente dieser Liste
+zusammen addieren und da ist dann ein String dabei, da wird euch dann natürlich einen Fehler
+werfen, wenn ihr euch zurück können die letzten Vorlesungen erinnern könnt. Insert geht nur mit
+einem der vorgesetzten Index, also dort wo ihr praktisch an der Stelle, wo ihr das Element hier
+5 einfügen wollt in der Liste, genauso Append ohne Index, also Append ist einfach am Ende,
+der Liste wird praktisch dieses Element dann einfach hinzugefügt. Add ist inkorrekt, also
+das sollt ihr wirklich aufpassen, dass es immer Append ist, das kommt, also add ist nämlich eher
+addieren und Append ist eher so hinzufügen. Ich weiß, die Wörter in Englisch sind manchmal sehr ähnlich,
+also schaut einfach, dass ihr euch da das Append merkt bei Listen und nicht add. Und das plus ist
+gleich geht auch nicht, weil das hier ist eine Liste und kein Integer oder Float und leider hat
+diese Liste keinen plus als Operator. Ist das soweit verständlich oder gibt es da noch Fragen?
+Also dritte Stelle bedeutet Index 2, das seid ihr euch eh schon mehr oder weniger. Das heißt wir
+können einerseits das Dell Keyword verwenden, damit löscht ihr einfach das Element komplett.
+Pop ohne nix reinzuschreiben löscht einfach das letzte Element der Liste und da das praktisch
+die dritte Stelle in der Liste das letzte Element ist, wäre in diesem Fall diese Aussage auch
+korrekt. Hätten wir hier natürlich vier Elemente drin, dann wäre pop ohne nix drin zu schreiben,
+auch falsch. Da könnt ihr dann natürlich eben auch wieder den Index angeben, welches Element
+ihr raus poppen wollt. Ganz wichtig im Gegensatz zu dem Dell Keyword bei pop, könnte dieses Element
+dann in eine Variable speichern. Praktisch da könnt ihr dann schreiben x oder zweites Element ist
+gleich stringless.pop und dann speichert es eben praktisch den Wert vom, also dieses Howdy in
+dieser neuen Variable. Stringless.remove funktioniert nicht, muss ich selber kurz nachschauen.
+Wollen wir mal kurz aus.
+By remove da gibt ihr nämlich den Wert, also eben wie hier richtig angegeben, also Howdy, ihr
+wollt Howdy löschen. Zwei existiert in dieser Liste nicht, da würde praktisch so ein Value Error
+bekommen. Also hier bei remove da gehen wir nicht den Index an, sondern wirklich den Wert,
+den wir aus der Liste rauslöschen wollen. Mit dem hier löschen wir die gesamte Liste und genau
+wie hier gesagt kann man direkt den Wert angeben und dann löscht es eben auch. In diesem Fall ist
+Howdy eben auch das dritte Element in der Liste, deshalb ist auch diese Aussage korrekt. Gibt es da
+so Fragen? Ja, da gehen wir jetzt schon ein bisschen mehr in die Theorie rein. Genau, als
+sie müsste ich das so vorstellen. Ihr habt eure Variable lecture hier, die hier und die wird
+hier in diesem vorschleifen Argument als in dieser Line erst erzeugt. Also die gibt es davor gar
+nicht, die ist erst hier erstellt worden und die heißt Laufvariable, weil die einfach mitläuft. Also
+die läuft einfach mit, solange die Schleife läuft, läuft sie mit, das heißt die wird da immer und
+immer wieder ersetzt, solange die Schleife läuft. Noch kurz davor die Selectures, das wäre
+praktisch diese Variable hier, das wäre praktisch eure Liste, eure Zahlen range und dann habt ihr
+euch noch dieses Print Statement hier, was praktisch immer wiederholt wird, also praktisch in der
+Schleife drin für jedes Element in dieser Liste hier. Können wir uns kurz herzeigen? Sagen wir,
+wir haben hier unsere Liste Test, die hat drei Elemente, 1, 2, 3 und jetzt machen wir da ein
+Vorstatement und dann wollen wir unsere Laufvariable definieren, die praktisch den Wert 1, 2 und 3
+annehmen wird nacheinander, die nehmen wir jetzt einfach zahl, dann in Test, Doppelpunkt und jetzt
+können wir da irgendwas machen mit dieser Test Variable, jetzt printen wir die einfach aus.
+Ups, da habe ich 1 geprintet und ich zahle. Und mache ich da ganz kurz das mit einer bisher Zeit,
+dann seht ihr das ein bisschen slow motion, machen wir eine Sekunde, praktisch das heißt einfach das
+Programm schläf für eine Sekunde, wenn ich jetzt mache, dann werden die alle nacheinander ausgeführt,
+praktisch zahl wird innerhalb dieser Schleife immer durch das nächste Element ersetzt,
+das heißt wir starten mit 1, dann gehen wir zu 2 weiter, dann gehen wir zu 3 weiter und dann ist die
+Schleife fertig oder die Liste fertig und dann praktisch bricht die Schleife ab und hat abgearbeitet.
+Gibt es da zu fragen? Einfach wichtig zu merken ist Lauf oder Schleifenvariable,
+das praktisch die die immer mitläuft, das wäre in diesem Fall die Zahl gewesen,
+die Durchlaufen der Sequence, also unsere Liste, die wir abarbeiten wollen.
+Und dann haben wir eben unseren Codeblock innerhalb der Schleife, der einfach immer wiederholt wird.
+Genau da habt ihr die meisten Images richtig abgestimmt, genau also die Laufvariable wird
+praktisch am Anfang jedes Schlaufendurchgang durch einen neuen Wert ersetzt in der Liste
+und das wird dann so lange abgearbeitet bis wir entweder mit Break abbrechen,
+falls ihr noch erinnern könnt oder eben die Liste abgearbeitet ist.
+Okay Adam, haben wir da ein paar größere Codezeilen, es gibt eben immer bei Bif noch
+mehrere Varianten, wie er praktisch zu einer gewissen Ausgabe kommt, also Möglichkeiten,
+wie er zur Lösung kommt. Und hier zum Beispiel bei diesen zwei, da nehmen wir einfach das hier her,
+stecken es direkt hier stattnehmen rein. Also wir sparen uns einfach hier diese variable nehmen,
+das hat natürlich Vorteile so eine Variable auch zu definieren manchmal, weil zum Beispiel wir
+wollen nicht nur Titel aufrufen, sondern wir wollen auch noch die Alice durch Baupersetzen,
+dann können wir das nämlich auch noch machen, dass wir zum Beispiel nicht so einfach möglich,
+wenn wir das einfach in einer Line haben. Aber natürlich, wenn man alles kurz und knapp haben will,
+dann kann man das Magician.title auch direkt hier so in die geschwungenen Klammern im Format-String
+rein hauen. Hier diese Antwort ist nicht richtig, weil dieser Teil, also dieser Codeblock,
+dieses Print Statement ganz zum Schluss, das sollte ja eigentlich nur einmal ausgeführt werden,
+aber dadurch, dass das hier im Vorschleifenblock ist, auch enthalten ist, wird das auch immer
+wieder aufgerufen, das heißt, da kommen nicht zu unserer gewünschten Ausgabe. Das hier ist nicht
+richtig, warum könnte das nicht richtig sein? Hat da jemand eine Idee? Was fehlt da? Ja, wie bitte?
+Genau, praktisch hier fehlt die Einrückung, also wenn ihr hier seht, hier haben wir immer vier
+Leerzeichen eingerückt, hier fehlt das, wir können das ja mal ausprobieren, wenn man das ausführt,
+wenn man das ausprobieren will. Da kommt hier dann so ein tollen Inventation-Error, weil hier einfach
+nach dem Doppelpunkt muss eine Einrückung kommen. Ist auch immer wichtig, beim IF ist es auch so,
+oder beim ELS, wenn hier ein Doppelpunkt kommt, kommt immer eine Einrückung, weil hier da praktisch
+ein Quadblock erstellt, der praktisch nur für das Vorstatement gilt. Das heißt, hier könnt ihr
+dann einfach mit Dab, das sind hier 1, 2, 3, 4 Leerzeichen, dann könnt ihr das ausführen und
+im nächsten Fall geht das natürlich überhaupt nicht, weil da auch noch der Format-String fehlt,
+das heißt, hier fehlt das F, ganz wichtig, also wenn hier das F fehlt, dann wird das einfach
+ignoriert, dann ist es nicht wie so ein praktisch Inline-Code, sondern wird da einfach der ganze
+Zeichensatz innen drin als normale Zeichenkette interpretiert und so natürlich haben wir
+den gewünschten Effekt. Und hier, was könnte hier das Problem sein?
+Ist auch ganz interessant, hier definieren wir ja Name nicht, sollte alles klappen, das Problem ist,
+dieses Printstatement danach, gleich danach, das ist dann nicht mehr im selben Quadblock,
+das heißt, es wird nicht für jede Vorschleife ausgeführt, sondern nur ganz zum Schluss einmal,
+kann ich das auch zeigen. Das heißt, wir haben hier eine Vorschleife, das wird hier 3 mal ausgeführt
+für Alice, David und Karolina, nehmen wir 3 mal überschrieben und natürlich beim letzten Mal
+steht der Karolina drin, das heißt, hier Name ist praktisch mit Karolina.titel überschrieben
+worden und dann weiß Beif nur noch, okay, jetzt steht da Karolina drin, aber hat keine Ahnung
+von den Sachen davor, weil das ja außerhalb der Schleife ist. Das heißt, wenn man das dann
+natürlich wieder reinschiebt in die Schleife, dass das zusammengehörig ist,
+damit das wieder 3 mal ausgeführt. Ich weiß, das ist ein bisschen kompliziert,
+aber am Anfang zu verstehen, gibt es da zu fragen, ist da was nicht ganz klar?
+Passt. Passt, was ist nochmal, Alice? Machen wir das auch nochmal durch. Schauen wir mal,
+ob ich eine Greide finde. Also, wenn ihr euch kurz an das erste Beispiel zurück erinnern könnt,
+wenn wir da if h kleiner 4 haben, dann machen wir da einfach. Wenn ich hier ein normales if reinhauen
+würde und h ist jetzt Summer 3, dann wird, schauen wir mal, 3 ist klein als 4, das heißt,
+das Ganze ist true, das heißt, das hier wird ausgeführt, aber jetzt haben wir hier kein
+elif, sondern ein normales if. Das heißt, man kann sich das so vorstellen, als wer das hier beendet
+und das hier ist komplett ein neues Programm. Das heißt, das hier wird auch wieder ganz normal
+ausgeführt und natürlich 3 ist auch wieder klein als 18, deshalb haben wir wieder dasselbe und das
+hier wird auch wieder ausgeführt. Aber wenn wir hier ein elif haben, dann sagen wir den Code,
+das hier gehört zusammen. Das kann man sich dann so vorstellen, dass man hier so hergeht, das heißt,
+hier hat man am Anfang das if, dann falls das nicht vorkommt, dann haben wir den elif und dann
+haben wir das else. Das heißt, das kann man sich so, so nach Stufen vorstellen und hier haben wir
+immer ein check, das heißt, praktisch ist es wahr oder falsch, falls es wahr ist, dann machen wir das
+falls nicht, gehen wir zum nächsten rüber und so weiter und so fort. Das heißt, wir kreieren
+praktisch einen größeren Block, der zusammenhängt, statt dass wir hier zwei unterschiedliche Programme haben.
+Assignment 1 ist, werde ich heute vorstellen, ganz am Ende der Vorlesung. Was machen Sachen?
+Vieles hoffentlich. Wo es Helmut, Helmut wird, glaube ich, die nächsten paar Vorlesungen abhalten,
+die sind dann über Binärrechnen und Zahlentheorie, kann auch sein, dass das Asynchron ist.
+Ihr werdet dann schon nochmal Helmut sehen. Genau, mit den neuen Gruppen. Ja, ich weiß,
+das ist ein bisschen verwirrend. Das liegt daran, wir haben nur zwei Totoren und das heißt,
+wir können nur wirklich zwei Gruppen haben. Natürlich war es jetzt so, dass am Anfang wir
+nicht genau wussten, wie viele Leute sich anmelden, deshalb hatten wir noch eine Reservegruppe, das war
+die Gruppe 3, wo man sich natürlich auch noch anmelden konnte, aber wir haben praktisch eigentlich
+dann nur zwei Hörsäle zur Verfügung, wo wir mit zwei Totoren arbeiten können und deshalb haben wir
+euch da jetzt mal in neue Gruppen einteilt. Wir werden dann wahrscheinlich die Gruppenanmeldung
+nochmal freischalten, damit ihr euch da eventuell noch ummelden könnt. Da schickt man nochmal eine
+Mail raus. Aber falls ihr sagt, es geht mir an einem Termin überhaupt nicht und ihr wollt lieber zum
+anderen Termin kommen, ist das auch kein Problem. Wir gehen eh davon aus, dass normalerweise immer
+weniger Leute zu den Tutorien kommen, weil sie alle Experten werden und das heißt, es sollte
+eigentlich immer Platz sein. Genau, Assignment 1, weil ich heute noch kurz besprechen. Passt.
+Genau, nochmal zur Wiederholung. Heute machen wir nochmal Loops und Datenstrukturen durch. Heute
+werden wir zu den Listen noch die Sets und die Dictionaries dazunehmen und dann werde ich noch
+vielleicht kurz über Functions reden und dann reden wir über Assignment 1. Passt. Also nochmal zu
+Vorloops. Ich habe das jetzt eh schon ein paar Mal über erwähnt, aber praktisch, wenn man das jetzt
+in normaler Sprache ausschreiben würde, würde es einfach so heißen für jedes Element in der
+Sequence oder in der Liste für Revolgen der Anweisungen aus. Und im Beißen ist es halt in
+Englisch geschrieben, das heißt vor Item in List of Items, aber das ist praktisch vor
+Laufvariablen in Liste oder Range oder irgendwas. Machen wir irgendwas. Und diese Laufvariablen,
+den könnt ihr wirklich jeglichen Namen zuweisen. Ihr müsst nur schauen, dass ihr wieder die Variablen
+Namen regel einhaltet. Praktisch am Anfang darf kein, also der erste Buchstauert darf
+keine Zahl sein und Zonderzeichen sind praktisch nur anders groß erlaubt. Meine arme Stimme.
+Genau, das ist praktisch einfach ein wiederholender Codeblock. Das heißt, wenn wir uns davor an
+das Beispiel erinnern, wo wir unsere Magicians ausprinten wollen, kann man das natürlich
+auch so machen. Print und dann machen wir Carolina, Print Alice, und so weiter und so fort. Das heißt,
+wir haben hier 10, 20 Print Statements hintereinander. Das schaut natürlich dann nicht so schön aus und
+deshalb verwenden wir hier zum Beispiel eine Vorschleife, wo wir dann einfach die Namen hier
+alle in einer Liste speichern und dann in einer Vorschleife das ganze in der Laufvariable zuweisen
+und dann brauchen wir nur noch einen Print Statement. Das ganze ist praktisch statt 10 Zeilencode,
+dann zwei oder drei Zeilencode. Das geht dann natürlich komplexer auch, also es ist ja nicht
+nur Print Statement, die man natürlich machen kann, da kann man natürlich auch sehr viel komplexere
+Sachen machen und stellt euch vor, ihr habt allein hier in der Vorschleife 100 Zeilencode drin und
+ihr müsst das tausendmal ausführen. Also könnt ihr euch vorstellen, dass ihr da nicht tausendmal
+diese 100 Zeilencode hintereinander hinschreiben wollt und dann jedes Mal da vielleicht nur den
+Namen austauschen wollt. Das kann natürlich dann sehr viel Arbeit kosten, statt dass ihr vielleicht nur
+die Liste ausbessern müsst in der Vorschleife. Genau, das schaut dann eben so aus.
+Schauen wir das nochmal so an. Das heißt praktisch hier haben wir unsere Initialisierung der Liste,
+das machen wir außerhalb der Schleife. Natürlich ihr habt es eh schon gesehen, man kann auch hier
+einfach hergehen und sagen okay will ich will kein Lectures haben, ich definiere hier direkt die Liste,
+das geht natürlich auch, ist nicht so übersichtlich und ist auch eigentlich glaube ich laut Coding
+Standard. Muss ich selber nachschauen, ob das erlaubt ist oder nicht. Also bis sie macht so mit
+eine eigene Variable. Genau und da holen wir uns dann einfach mal die einzelnen Elemente aus der
+Liste raus, Math, Englisch, Computer Science, nacheinander, also besser gesagt wie starten wir
+mit Maths, dann wird das ausgeführt, all of Maths, dann wird diese Lecture variabel überschrieben
+mit Englisch, dann wird wieder das Print Statement aufgerufen und so weiter und so fort.
+Genau, hier nochmal die Legende, falls sie jemand braucht. Richtig ist hier haben wir einfach die
+Definition der Sequence, dann haben wir hier diese Definition der Followup und dann haben wir uns
+an die wiederholbaren Block. Ich sehe, ich hatte die Formatierung nicht hingeklappt,
+dann kann sich da noch jemanden daran erinnern, welche Zahlen wir da drin haben wollten.
+Bei Range war es so, das ist ja dann praktisch eine Zahlen Range,
+fällt das deutsche Wort nicht rein und da können wir praktisch einmal den Start angeben und einmal
+den Stopp angeben, falls ihr euch erinnern könnt, der Start ist inklusive und der Stopp ist
+exklusiv anzugeben, das heißt der Stoppwert wird nicht mehr in dieser Range vorkommen,
+nur der vorletzte Wert und wenn wir von 1 bis 10 zählen wollen,
+dann ist das hier leider mit einer tollen Formatierungsfehler hier 1 bis 11. Ihr könnt
+dann auch noch weitergehen und eine Schrittanzahl angeben, das heißt ihr wollt nur jedes
+zweite Element zählen, dann kann man hier noch ein Beistrich hinzufügen und noch ein Zweier
+hinzufügen. Ist das soweit klar mit den Ranges? Ja.
+Das f, genau das ist das der Format, also
+ich zeig das einmal ein kurd Beispiel, ist besser.
+Also ein normaler String,
+also das nennt man normal String, also das ist ein String.
+Also so definiert man normalerweise einen normalen String,
+das ist praktisch eine normalen Zeichenkette, da gibt es natürlich auch wieder mehrere
+Möglichkeiten, ihr könnt das nämlich auch so machen,
+also geht auch mal den Doppelabus drauf,
+genau das ist ein String und jetzt gibt es noch zwei Varianten, es gibt das f,
+das ist praktisch f steht für Formatierung und was da cool ist,
+ist ihr könnt da mit geschwungenen Klammern dann Berechnungen praktisch Kot einfügen
+und normalerweise fügt man jetzt nicht allzu viel Kot ein, weil man hat da limitierten Zeitraum
+und normalerweise wird dann einfach eine Variable hinzugefügt, so praktisch wenn ich jetzt das
+ausfüge, dann fügt es mir hier diese erste String Variable hier nochmal ein, wenn ich das f weglasse,
+dann wird das hier nicht als Kot interpretiert, also das ist der Unterschied, es gibt dann auch noch
+noch eine spezielle Art und das wäre das r und das r steht für raw und das könnt ihr
+ich so vorstellen, dass wenn ihr hier zum Beispiel einen Backslash einfügt,
+das ist normalerweise ein spezieller Charakter, der praktisch für Escape verwendet wird, also
+für spezielle Zeichen verwendet wird, das zeige ich euch auch ganz kurz nochmal,
+wenn ich das jetzt ausführen würde, okay hier das scheint zu funktionieren,
+interessant, wahrscheinlich wird das intern als Ding umgewandelt,
+aber ja zum Beispiel sowas,
+praktisch hier können wir nämlich diesen Backslash verwenden, um
+dieses Single-Apostroph auch im String selber zu verwenden, weil das ist ja hier sonst nicht
+möglich, wenn ich hier sowas mache, dann ist hier ja das String beendet,
+deshalb kann ich damit Backslash hergehen und das so machen, hier natürlich mag er das überhaupt nicht,
+genau also hier kann ich das Escape verwenden und der Raw String ist eben dazu da, dass ich eben
+warte, wenn ich das jetzt zum Beispiel,
+wie interessant, dass das funktioniert,
+der Raw String ist halt dazu da, dass man halt dieses Backslash einfach so verwenden kann,
+aber ja das ist glaube ich für euch jetzt eh nicht so relevant,
+ihr sollt vor allem wissen, dass es den normalen String gibt und den F String,
+also der Formatierung String, der wird auch im Live-Programming vorkommen, also ihr solltet
+euch auf jeden Fall damit vertraut machen, selber mal versuchen da Variablen in diesen String
+reinzufügen, mit den geschwungenen Klammern wie hier, also natürlich mit einem F,
+ja so,
+sonst so weit klar mit dem Format String, ist das jetzt verständlicher, okay,
+genau dann nochmal zur Wiederholung, es gibt ja auch noch das Enumer Rate,
+und zwar ihr habt hier hier eure Liste definiert und das könnt ihr das ganze nochmal mit Enumer,
+also nochmal in dieses Enumer Rate reinhauen, praktisch ihr macht da Klammer auf,
+haut diese Variable, also diese Listenvariable rein, Klammer zu und was Enumer Rate macht,
+ist es generiert dann euch so genannte Duple von diesen Elementen mit immer dem Index dazu,
+das heißt ihr könnt euch das so vorstellen, dass ihr dann einfach
+hier Maths habt, aber auch gleichzeitig noch den Index dazu und könnt dann das praktisch dann
+gemeinsam abarbeiten, das heißt hier habt ihr dann immer zwei Variablen statt einer und Enumer Rate
+praktisch macht dann einerseits hier den Index, actualisiert hier den Index und dann
+einerseits das Element in der Liste, kann man auch nochmal kurz herzeigen,
+macht man da Liste, macht man B und Z,
+und jetzt machen wir so, dass wir praktisch da die Vorschläufe machen, aber jetzt machen wir
+nicht nur eine Variable, sondern zwei und das ist einerseits der Index
+und dann der Buchstabe, dann machen wir einfach Buchstabe
+als Variablename in und dann schreiben wir hier mal statt direkt Liste zu schreiben,
+schreiben wir die, so erst ist es Enumer Rate und dann in diesen Klammern drin unsere Liste
+und dann können wir das einfach printen, also wenn wir hier zum Beispiel einfach Index printen würden,
+dann werden wir praktisch einfach nur den Index von den einzelnen Elementen kriegen,
+können wir dann natürlich auch noch den Buchstaben dazu geben, print kann mehrere Variablen beistrich
+getrennt aus praktisch printen, die werden dann immer mit Tabulator praktisch mit Tab voneinander
+getrennt und wie ihr seht, da praktisch beide, also sowohl Index als auch Buchstabe in dieser
+Schleife immer erneuert. Sollte es es Enumer Rate fehlen und ich hier trotzdem mein Index hab,
+das glaube ich, wird passieren,
+Fehler, weil diese Liste hat ja nur immer einzelne Elemente drin, wenn ich natürlich so was hab,
+falls ihr zurückgerinnern könnt an die Dupel,
+also hier machen wir dann eine Liste aus Dupel, das heißt das sind immer dann
+das Element besteht eigentlich aus zwei Elementen,
+das ist dann schon sehr komplexe, ja
+Praktisch runde Klammern sind Dupel, das sind praktisch, die kann man nicht mehr verändern,
+die praktisch bleiben so wie sie sind und eckige Klammern sind Listen, da kann man wieder Elemente
+hinzufügen, löschen und so weiter und so fort. Dupel sind dementsprechend sinnvoll, weil man praktisch
+eben dann so nahe Konstanten hat, praktisch die man weiß, okay, da steht er drin und das wird
+nicht verändert, plus ist es ein bisschen mehr plattsparend, weil man natürlich diese ganzen
+Operationen wie hinzufügen, löschen und so weiter nicht braucht.
+Genau Enumer Rate macht eigentlich nichts anderes als das hier, also das würde unsere ABC Liste
+in das hier umwandeln, das macht ja genau dasselbe, also wenn wir auch hier wieder einfach nur Index
+reinschreiben, praktisch man kann sich das hier so vorstellen, das hier steht dann zum Beispiel eben
+im ersten Schleifendurchgang
+das hier drin, ja, ich mache einen Kommentar
+und der Nuller hier wird dem Index zugefügt und dem A, das A wird dem Buchstabe hinzugefügt,
+also Index wird mit diesem Nuller überschrieben und Buchstabe wird mit diesem A überschrieben.
+Natürlich kann man natürlich noch viel wahnsinniger werden und da immer noch ein drittes
+Element auch hinzufügen. Was glaubt ihr, was ich dann da brauche, damit das funktioniert?
+Hier eine dritte Laufvariable, weil wir hier immer drei Elemente haben, das heißt
+wenn ich hier nämlich dann mein Dreier hab und hier fehlt mein Test,
+dann weiß Beifen nicht wohin mit dem Dreier und wird uns ein Fehler werfen.
+Aber wenn wir eben hier noch unsere dritte Variable hinzufügen, die dann auch noch überschrieben
+werden soll, dann funktioniert das wieder einfach frei.
+Und da kann ich dann alles Mögliche damit machen, ich kann da zum Beispiel ein Plus-Test machen
+und so weiter und so fort, also da ist dann alles Mögliche möglich.
+All right, ist das jetzt verständlich oder gibt es da zu fragen?
+Jemand hat eine Idee, was hier passieren würde.
+Falls ihr euch zurückerinnern könnt, Strings sind sehr ähnlich zu Listen.
+Probiert es mal aus.
+Ja, das ist eine sehr interessante Eigenschaft von den Strings. Ihr könnt die Strings eigentlich
+als nichts anderes vorstellen als eine Liste von einzelnen Buchstaben.
+Das heißt, wenn ich das hier machen will,
+Chora String,
+Chora limb,
+Chora String
+Chora String
+Der Streamer ist cool vor Buchstabe in Cooler-Stream.
+Wir praktisch jeder Buchstabe einzeln in dieser Schleife behandelt.
+Da es wichtig ist, wie ihr seht, dass hier immer eine neue Zeile beginnt.
+Wenn ihr euch vorstellt, wenn ihr ein Dokument schreibt und eine neue Zeile macht,
+dann macht ihr normalerweise die Enter-Taste nicht und dann kommt eine neue Zeile
+und dann fängt praktisch eine neue Zeile an.
+Das ist hier genauso der Fall.
+Das macht nämlich Print automatisch.
+Es macht nämlich sobald es hier diese Variable praktisch ausgegeben hat,
+ganz zum Schluss noch eine neue Zeile.
+Ihr könnt das natürlich auch wirklich verändern, wenn ihr wollt.
+Da kann man zum Beispiel sowas machen mit diesem Endstatement.
+Da könnt ihr das Ende praktisch selber definieren, was ihr hat.
+Da könnt ihr ein Stream reinhauen, was ihr möchtet.
+Zum Beispiel machen wir einen Beistrich.
+Dann wird statt diesen neuen Zeile praktisch einfach ein Beistrich hinzugefügt.
+Das ist vielleicht dieser bisschen komplizierteres Ding, aber ich finde es immer ganz lustig.
+Da gibt es auch ganz spezielle Keywords, zum Beispiel das hier.
+Das ist eigentlich ein cooler Trick.
+Bechslisch R, das heißt Return, also geht zurück zu Start von dieser Zeile hier.
+Man kann sich hier so vorstellen, ihr seht den hier nicht, der hier schön blinkt.
+Das ist praktisch auch ein Cursor.
+Der sagt euch, okay, jetzt bin ich an dieser Stelle, okay, hier füge ich dann das nächste ein.
+Und das Return macht nichts anderes und sagt, okay, Return diesen Cursor hierher.
+Wenn ich das ausführe, wird am Ende praktisch, also ich schreibe zum Beispiel ein D.
+Und dann werden wir ein Cursor ja hier, der wird ja hier blinken.
+Aber mit Bechslisch R sage ich, na, ich will den wieder vor dem D haben.
+Und das könnt ihr vorstellen, es wird das einfach auch das D überschrieben.
+Das heißt, wenn ich da nochmal ein Sleep einfüge,
+dann wird der praktisch einfach der Reihe nach immer dieser Buchstabe überschrieben.
+Was ganz witzig sein kann.
+Genau, so, stoppe ich das.
+Ah ja.
+Dann haben wir auch nochmal zur Wiederholung dieses ZIP.
+Das ist auch so ähnlich wie das Enumerate ist.
+Wir, vielleicht jetzt nochmal zur Wiederholung, das Enumerate fügt immer den Index hinzu.
+Das ZIP, was es macht ist, ihr gebt dem ZIP zwei gleichlange, wichtig gleichlange Listen.
+Also die müssen wirklich gleich lang sein, sonst funktioniert das nicht.
+Und das macht auch, genau wie wir davor gesehen haben, eine Liste aus Tuple, wo dann immer praktisch so Bärchen drin sind.
+Dann haben wir hier immer Bärchen von Maths Brown, Englisch Orwell, Computer Science, Turing.
+Praktisch, oh, oh, wo ist meine Maus?
+Das macht dann euch dann sowas.
+Halt hier nicht mit dreier Duppel, sondern mit zweier Duppel.
+Und das kann man eben auch wieder so verwenden.
+Also wenn man sagt, okay, ich habe zwei gleich Listen und ich will praktisch mit Beigen gleichzeitig in der Vorschleife arbeiten,
+dann kann ich die zusammen zippen.
+Zipp ist wie Reißverschluss, praktisch einfach sowas, wo ihr dann praktisch zwei Listen zusammen verschließt.
+Genau, aber vielleicht, wie möchten wir leben, wenn ihr zwei nicht gleich lange Enden vom Reißverschluss habt, dann kommt dann Fehler.
+Das solltet ihr auf jeden Fall anschauen, das ZIP kommt jetzt auch dann zum Assignment 1 gleich.
+Genau, dann nochmal kurz zur Wiederholung.
+Pass ist, also es gibt eben noch diese drei Keywords, Pass, es ist einfach ein leerer Kommand, der eigentlich nichts tut.
+Das ist eben ganz, ganz nützlich, wenn ihr eben hier bei der Programmierung seid.
+Ich habe aber noch nicht sicher seid, was ihr da in die Seiliste reinschreiben wollt.
+Dann kann ich hier mal ein Pass machen, weil wenn ich das Pass weglasse, dann ist es hier eh schon rot und hier Fehler,
+aber wenn ich hier Pass reinschreibe, dann macht einfach gar nichts, aber jetzt bekomme ich kein Fehler.
+Dann gibt es das Break.
+Das Break könnt ihr ja so vorstellen, sagen wir zum Beispiel, if index ist gleich 1 Break.
+Das ist so die normale Art, wie man Break verwendet.
+Was hier passiert ist, ihr praktisch, die Schleife fängt an hier mit 0, mit 1, merkt okay, der Index ist jetzt 1.
+Okay, da muss ich abbrechen, das heißt dieses Break gehört zu dieser Vorschleife.
+Ganz wichtig, sie gehört praktisch, wenn hier noch eine Vorschleife drin wäre, gehört es immer,
+und da muss ich auch kurz, das kann nämlich sehr verwirrend sein.
+Woa, X in Arrange.
+Visual Studio Code macht das euch eh schon ein bisschen einfacher.
+Hier sieht man ganz leicht, hier, gerade weil man da der Kürze ist, seht ihr diese Linie hier,
+das zeige ich euch an, was alles in eurem Block ist.
+Und dieses Break gehört hier zum if, und das gehört hier zu dieser Vorschleife, und nicht zu dieser Vorschleife, ganz wichtig.
+Das kann am Anfang ein bisschen verwirrend sein, aber wenn man es ein bisschen austestet, dann kommt man eigentlich sehr schnell drauf.
+Also diese Blöcke, also das hier ist ein eigenständiger Block, der hat nichts mit dem hier zu tun.
+Und dieses Break geht immer so vor, ja, genau zur Schleife, die außerhalb ist.
+Also, das habe ich ein bisschen blüht, machen wir da, hier wird dann immer dreimalalala aufgerufen.
+Und wie ihr seht, nur bis eins, weil wir hier eins haben und dann soll die Liste abbrechen.
+Ich kann auch hier ein Break reinhauen, dann wird aber nur diese innere Liste abgebrochen und nicht die äußere.
+Also wie ihr seht, hier geht es trotzdem noch bis eins, und nicht, hört nicht bei null auf.
+Also sobald das Break seine Schleife gefunden hat, kann man sich so vorstellen, wie eine Rakete, das schießt da diese Schleife ab und bam, die ist weg, aber die davor, die gibt es noch.
+Und deshalb wird die auch noch weiter ausgeführt. Deshalb da auch aufpassen mit diesem Break, weil es gibt da noch eine andere Schleife, das ist die Wildschleife und die kann unendlich lang laufen.
+Und dann müsst ihr mit Break abbrechen und wenn ihr das Break nicht richtig macht, dann habt ihr dann Programm, das endlos läuft, bis ihr das Programm andersweitig abbrecht.
+Und dann gibt es noch das Continuum, zum Beispiel wir nehmen das Print Statement hier und fügen später ein.
+Hier zum Beispiel auch interessant, ihr seht, dass hier das Print ausgegraut ist.
+Das liegt daran, dass, wie schlust du dir kurz sofort, ihr seht, du hast hier ein Break drin, der hintere Teil, der wird nie mehr ausgeführt.
+Wenn wir hier zum Beispiel dann aber ein Continuum machen, Continuum, das bricht nicht ab, sondern das überspringt den Teil hier.
+Praktisch, wenn wir hier reingehen, Index, ok, Index ist 0, ist 0 gleich 1, nein, das ist nicht der Fall, dann können wir das ausführen.
+Index ist 1, 1 ist gleich 1, das ist wahr, das heißt, Continuum wird ausgeführt, das heißt, wir brechen hier unseren Schleifenvorgang ab und gehen zur nächsten Schleifenvorgang.
+Wenn ich das ausführe, dann seht ihr praktisch, dass hier wir kein Print 1 haben, sondern nur ein Print 2, weil der 1er übersprungen wird.
+Das ist vielleicht ein bisschen besser, wieder mit dem ausgegrauten zu sehen.
+Hier, der nächste Teil, hier wird jetzt in diesem Fall nie ausgeführt und meistens hat man da eben das Ganze, das Continuum in irgendeiner IF Anweisung drin, damit man nur in bestimmten Fällen Sachen überspringt.
+Ist das soweit verständlich oder gibt es da noch Fragen?
+Ok, genau, das haben wir gesehen.
+Passt, dann kann man zu den Datenstrukturen, deswegen habe ich ein bisschen sputen, und da gibt es mehrere.
+Lists und Doubles, die haben wir jetzt schon durchgemacht, Lists, das ist mit den eckigen Klammern, Doubles ist mit den runden Klammern, jetzt kann man noch 2 dazu, das sind die Sets und Dictionaries.
+Fangen wir mal mit ins Set.
+Sets sind, das kennen wir vielleicht aus der Mathematik, wo man auch Sets hat, das sind praktisch einfach eine ungehörnete Sammlung von eindeutigen, wichtig eindeutigen Elementen, das heißt praktisch, da kommt kein Wert zweimal vor.
+Wie gesagt, das kennen wir aus der Mathematik, vielleicht wenn ihr euch zurück erinnert an die Venndiagramme und so, dann repräsentiert man manchmal die Sets, und da gibt es eben keine Doppelgänge, also jedes Element ist nur einmal vorhanden.
+Und die Definition von einem Set ist mit diesen geschwungenen Klammern, praktisch das haben wir die eckigen Klammern, jetzt haben wir die runden Klammern, das kriegen wir auch noch die geschwungenen Klammern, oder eben durch dieses Set-Statement-Gedau, da kann man zum Beispiel einfach ein leeres Set machen.
+Und das ist ultra, ultra notwendig, wenn man ganz schnell eben zum Beispiel, sagen wir mal, man hat eine Liste mit Doppelgängen drin und will die Doppelgänger ganz schnell rauslöschen, dann wandle ich einfach diese Liste in ein Set um, und Schwups sind alle Doppelgänger weg, und da kann ich das Set wieder in eine Liste umwandeln.
+Und da gibt es dann auch diese ganzen Operatoren, die man auch aus der Mengenlehre kennt, also wie gesagt diese Venndiagramme auch.
+Wichtig aber, es gibt hier keinen direkten Elementzugriff, also man hat hier keinen Index, also man kann ja nicht Set an der Stelle 1 sagen, um das zweite Element rauszukriegen, sondern dann müsste man dieses Set zuerst in eine Liste umwandeln, wenn man das machen möchte.
+Aber man kann auch wieder Lenn verwenden, um praktisch die Länge unserer Sätze durchzuführen.
+Das schaut dann eben so aus.
+Praktisch hat man hier die geschwungenen Klammern auf, dann hat man hier ein Element, Beistrich, zweites Element, eigentlich identisch wie eine Liste ist, nur dass man statt den eckigen Klammern diese geschwungenen Klammern verwendet.
+Es gibt da natürlich jetzt sehr verwirrend hinzufügen und löschen.
+Bei Set ist so, da gibt es das Add, das kommt nämlich aus der Mathematik, und da kann man Set addieren, praktisch hat man nicht Append, sondern Add.
+Schaut, dass ihr das Append von den Listen und das Add von den Sets auseinanderhaltet.
+Genau, dann gibt es noch dieses Update, da kann man dann eine ganze Liste von Items hinzufügen.
+Dann gibt es zwei, das Remove und das Discard, das hier, wenn man Remove verwendet,
+sagen wir zum Beispiel, wir gehen jetzt her und haben in unseren Color Set Orange und Black drin und wir wollen jetzt Blue Remove, dann wird es uns ein Fehler werfen.
+Discard versucht es einfach und wenn es nicht funktioniert, dann ist auch egal, können wir auch kurz ausprobieren.
+Okay, dann Dual Set, dann definieren wir mal ein Set, wir haben da bei uns ein tollen Set, jetzt was Remove.
+Dann kriegen wir dann Fehler, falls es nicht existiert.
+Und Discard versucht es einfach und wenn es nicht existiert, dann passiert halt nichts, aber wir bekommen auch keinen Fehler.
+Und das ist manchmal sehr hilfreich, wenn man einfach Fehler vermeiden will, sagt okay, ich will es einfach versuchen zu löschen und wenn es nicht existiert, ist auch egal.
+Das heißt, wenn ich jetzt da das tolle Set print, dann ist das immer noch so, wenn ich da natürlich einen Fünfer drin habe, dann wird das der Fünfer ausgelöscht.
+Und wenn ich sage, ich will alle löschen, dann kann ich das mit Clear machen und dann wird mein tolle Set leer sein.
+Genau, das ist praktisch so hinzufügen und löschen.
+Und dann gibt es auch so Mengenoperationen, die ja kennt ihr vielleicht eh schon jetzt, vielleicht von den Booleons oder von der Mathematik.
+Sagen wir, ihr habt diese zwei Sets hier, da kann man verunten, das wäre praktisch in weder mit Intersection oder XY, also wenn Diagramme, normalerweise werden sie so in Kreise eingezeichnet und wäre diese Menge hier.
+Das wäre praktisch alles, was ZX und ZY gemeinsam haben und der Rest wird weggeworfen.
+Das Ohr wäre praktisch alles, also dass wir wirklich die komplette Menge beide kombiniert oder Junioren kann man auch nehmen.
+Also es gibt eben dieses Und-Zeichen für Und und diesen langen Strich runter, da ist es normalerweise bei der Statur, bei den kleiner größer Zeichen und noch eins drunter.
+Ihr könnt auch sonst eben auch Junioren verwenden.
+Ihr könnt ihn verwenden, um rauszufinden, ob ein gewisses Element in diesem Fett vorhanden ist, es ist sehr ähnlich zu den Listen eigentlich, da habt ihr ja derselbe.
+Und dann gibt es auch noch die Differenz und die Differenz der praktisch nur das hier.
+Also nur das und das, wenn es mich täuscht, dass ich selber nachschauen.
+Guck mal, kurz ausprobieren.
+X ist gleich 1, 2, Y ist gleich 2, 3.
+Jetzt können wir machen X und Y, da bekommt ihr praktisch nur die Elemente raus, die in beiden Sets vorhanden sind.
+Ihr könnt das Ohr machen.
+Das wären einfach alle Elemente und wie ihr seht, das Resultat ist auch immer wieder ein Set.
+Das heißt, wir haben hier nicht zweimal 2 drin stehen, sondern nur einmal, weil es ja keine Doppelgänger geben soll.
+Und dann gibt es eben auch noch das Minus.
+Und da ist so, ah ok, das ist so.
+Das ist nicht das hier.
+Sondern das könnt ihr so vorstellen, dass, sagen wir mal, das hier ist X und das ist Y.
+Und wir praktisch subtrahieren Y von X, dann bleibt praktisch nur noch dieser Teil hier übrig.
+Und der Teil hier, der praktisch mit Y überschneidet, wird gelöscht.
+Deshalb steht auch hier noch ein 1er drin, weil hier praktisch X ist ja 1 und 2.
+Und dann löschen wir praktisch alle Elemente in X, die in Y vorkommen.
+Das ist 2 und 3, aber 3 haben wir ja nichts nicht, deshalb ist das eh egal.
+Der 2er wird dann aus X rausgelöscht.
+Und da gibt es natürlich noch mehr Operatoren und die könnt ihr dann auch in den Beifendocs nachschauen.
+Die werden wir euch da mal verlinken.
+Genau, dann kommen wir noch zu den Dictionaries.
+Zu den Dictionaries.
+Und ihr könnt es so vorstellen wie ein Wörterbuch.
+Also Dictionaries, das heißt ja auch schon, übersetzt Wörterbuch.
+Und das ist so, wenn ihr jetzt euch ein Wörterbuch vorstellt, das besteht hier praktisch aus einer Liste von Wörtern.
+Und dann zum jeden Wort ist eine Beschreibung dazu.
+Das heißt, ihr habt praktisch einen Schlüssel, das wäre in diesem Fall eure Wort.
+Und ein Value, das wäre dann praktisch der Wert, der zu dem Wort gehört, die Beschreibung.
+Und das ist praktisch dann einfach so eine Sammlung von Schlüsselwertbahnen.
+Und das ist eigentlich ein sehr, sehr wichtiges Konzept im Beifen.
+Also das werdet ihr immer wieder verwenden, jetzt auch bei den Assignments.
+Und die Kies, das ist ganz interessant bei Beifen, kann wirklich also ziemlich alles sein, es gibt ja schon ein paar Einschränkungen.
+Aber zumindest von den Datentypen, die ihr bis jetzt gelernt habt, das könnt ihr, glaube ich, alles verwenden.
+Das heißt, euer Schlüssel muss nicht ein Wort sein, das kann auch wirklich eine Zahl sein, es kann auch ein Boolean sein.
+Also es ist sehr vielfältig.
+Sehr wichtig im Dictionary ist aber, dass ihr praktisch immer nur zu jedem Schlüssel, also der Schlüssel kann nur einmal vorkommen.
+Also ihr könnt nicht zweimal null, den Schlüssel null drin haben.
+Der wird dann einfach sonst überschrieben.
+Und wenn ihr da dann auch auf dem Schlüssel zugreift und der nicht existiert, dann bekommt ihr diesen Key.
+Bevor ich das dann euch kurz in Code zeig, will ich dann noch kurz zwei wahre Beispiele, damit ich das besser vorstellen kann.
+Zum einen eben, wie gesagt, dieses Wörterbuch.
+Wie ihr seht, haben wir hier immer im Fett dieses Wortes, das wäre unser Schlüssel, nicht?
+Und dann haben wir die Informationen zu diesem Schlüssel, das wäre unser Value, unser Wert.
+Ein anderes gutes Beispiel wäre ein Spind.
+Praktisch ein Spind, der hat hier euren Key nicht.
+Praktisch er hat eine Spindnummer und einem Spind könnt ihr reinholen, was ihr wollt.
+Natürlich bei Beifern ist es so, dass diese Spindnummer irgendwas sein kann.
+Das muss nicht eine Zahl sein, das kann auch ein String sein, was das natürlich noch viel komplexer macht.
+Aber auch cool.
+Genau, und wie definiert man so ein Dictionary?
+Es ist jetzt bisschen verwirrend, weil wir es gerade setz durchgemacht haben.
+Und zwar ist so, die Dictionaries werden auch mit geschwungener Klammer gemacht.
+Der große Unterschied sind diese Doppelpunkte hier.
+Das heißt, wenn ihr geschwungene Klammer seht und ein Doppelpunkt, dann wisst ihr sofort, okay, das ist ein Dictionary, das ist kein Set.
+Das ist komplett was anderes. Komplett nicht, aber.
+Man verwendet halt anders.
+Und das kann man eben so definieren.
+Hier in diesem Fall haben wir halt die Immerzahlen als Keys, also Key, Doppelpunkt, Value, und dann können wir den Value reinholen.
+Und das sind dann immer jetzt zusammengehörige Paare.
+Wie ihr seht, das ist dann mal ein Beistrich dazwischen.
+Zugreifen kann man dann einfach, hier haben wir den Dictionary definiert.
+Man kann dann einfach mit eckigen Klammern, wie ihr das eh schon vom Index kennt,
+statt dem Index nehmen wir jetzt aber einfach diesen Key her, praktisch das ist unser Schlüssel,
+mit dem wir praktisch dann einen gewissen Value aus dem Dictionary herausholen.
+Und da gibt es entweder das hier mit eckigen Klammern oder eben auch das Get, falls ihr es lieber ausschreiben möchtet.
+Und das ist ein sehr starkes Dual, da kann man nämlich auch einfach einfügen oder verändern.
+Das klingt am Anfang vielleicht verwirrend, das heißt, sagen wir mal, wir haben Stunes mit also an der Stelle Key 20,
+haben und definieren da Lisa, in diesem Fall würde bei Stunes hier ein neuer Eintrag mit Key 20 und Value Lisa hinzugefügt werden.
+Und hier in diesem Fall mit 1, 2, 3, 1, 2, 3 haben wir ja schon definiert, nicht?
+Also das ist ja schon in unserem Dictionary drin, da steht im Moment Maria.
+Jetzt falls das schon vorkommt, wird diese Wert Maria durch den neuen Wert einfach ersetzt.
+Da wird euch kein Fehler geworfen und kein gar nix, das wird einfach gemacht, deshalb immer aufpassen da.
+Also nochmal zur Wiederholung, das ist kein Index in diesem Fall, sondern einfach der Key, den ihr hier so definiert habt.
+So, oder wenn ihr später noch mehr hinzufügen wollt, könnt ihr dann einfach da noch einen neuen Key definieren, mit der gleichen Variable hier.
+Und wenn ihr praktisch eins löschen wollt, dann geht das da wieder mit diesem Delete Keyword hier, mit diesem Dell.
+Zeig mal ganz kurz her, schauen wir mal, was ich da ein Beispiel habe.
+Ja, hier in diesem Fall, weiter machen wir kurz so.
+Also hier definieren wir unser Set einer, sag ich, Dictionary, wenn ich selber schon verwirrt.
+Das heißt, wir haben hier dann praktisch drei Einträge drin, mit 123, Maria, 3, 1, Tim und 42 Max.
+Und dann wollen wir aber noch mit Key 668 die Martina hinzufügen, dann ist das ohne weiteres möglich.
+Wenn ich da jetzt zum Beispiel hier Maria reinschreib, geht das auch.
+Also die Werte, die können natürlich doppelt vorkommen, nur die Keys, die sind einzigartig.
+Also da, wenn der Schneim definiert worden ist, dann wird der überschrieben.
+Also hier in diesem Fall wurde 131, Tim durch Maria ersetzt.
+Und ich kann das natürlich auch löschen.
+Jetzt haben wir eine von unseren 3 Marias da gelöscht, also wir hatten da 3 Marias drin und jetzt ist der Key 123 gelöscht worden.
+Jetzt haben wir nur noch den 131, der wäre hier und den 668, der wäre hier.
+Und natürlich, wenn man versucht, etwas zu löschen, was nicht existiert, dann bekommt er auch wieder einen Fehler geworfen.
+Sehr viele geschwone Klammern.
+Passt, dann werde ich da mal ein bisschen schneller sein, ja.
+Genau, das schaut dann eben so aus, ob es da scheint, mein Code nicht zu funktionieren, meine Präsentation.
+Genau, man kann natürlich auch alle Schlüssel von seinem Dictionary sich rausholen.
+Das geht mit diesem Keystatement, das Gleiche geht mit dem Value auch.
+Das heißt, das ist nicht eine Liste, das ist eine spezielle Art.
+Und jetzt, wenn ich das students.keys mache.
+Dann, das schaut so aus in der Liste, aber es ist nicht eine Liste, das ist ein Dickkeys-Objekt.
+Scheint kompliziert zu sein, aber ihr könnt es ganz einfach in eine Liste umwandeln, einfach mit List.
+Dann bekommt ihr eine Liste raus.
+Und jetzt habt ihr praktisch alle Schlüssel, die praktisch im Dictionary gerade definiert sind.
+Das Gleiche geht natürlich auch mit Values.
+Da bekommt ihr die Values raus.
+Und wenn ihr immer die Baare haben wollt, dann könnt ihr da Items nehmen.
+Und dann habt ihr da praktisch so eine Liste aus Dupel, praktisch wo dann immer der Schlüssel drin ist und der Value.
+Und das ist ganz cool, weil ihr da praktisch das Ganze in Vorschleifen verwenden könnt.
+Das heißt, den Key könnt ihr dann in ein Laufvariabel reinhauen und den Value.
+Und dann werden die innerhalb der Schleife praktisch immer wieder neu definiert.
+Und so kann man praktisch über eine Liste iterieren und Sachen machen.
+Genau.
+Was dann, ich glaube, die Functions werde ich nächstes Mal morgen machen.
+Und dann gehen wir da weiter zu Assignment 1.
+Das heißt, morgen machen wir dann im Schnelldurchlauffunktionen durch.
+Genau, dann werde ich kurz Assignment 1 versprechen.
+Also Assignment 1 geht es eigentlich vor allem darum, dass ihr diese Konzepte, die jetzt praktisch in diesen 4 Byphen Crash Courses erlernt habt, also mit dem inklusive Morgen, das ihr dann mal das übt.
+Praktisch da werden dann ziemlich alles vorkommen, also Variablen, Datentypen, Funktionen, die wir dann eben morgen durchmachen, Loops, Listen und so weiter.
+Und ihr bekommt dann eben so mehrere Unterteilungen, kleine immer wieder so Aufgaben, die ihr dann lösten müsst und wo ihr dann praktisch das Ganze eigentlich mit Funktionen dann macht.
+Die machen wir dann eben morgen durch, dann sollte es eben kein Problem sein.
+Und jetzt müsst ihr dann eben so Funktionen definieren, die sind dann eigentlich eh schon relativ vorgegeben, was da praktisch welchen Namen die haben sollen und welche Parameter und so weiter.
+Wie gesagt, das machen wir morgen.
+Genau, und die Aufgaben werden dann immer komplizierter, das sind glaube ich so, könnten es ja 6 Aufgaben sein.
+Insgesamt, Richtschreibfehler sehe ich gerade, sind es 24 Punkte.
+Die einfachen Aufgaben werden euch natürlich weniger Punkte geben als die schweren Aufgaben.
+Schauen wir mal, genau, ihr bekommt dann eigentlich eine exakte Beschreibung, was ihr zu tun habt in den einzelnen Funktionen.
+Ihr bekommt dann auch ein Template zur Verfügung gestellt.
+Ganz, ganz wichtig, schaut, dass der Dateinamen richtig ist, also das Assignment 1 Punkt und diese Endung hier,
+dass hier kein Leerzeichen ist, dass hier kein Anderscore ist, dass hier kein Klammer auf null Klammer zu ist.
+Und schaut auch, dass ihr das Template verwendet, das ihr bekommt und das ausfüllt und nicht ein neues Notebook erstellt.
+Also nehmt einfach das hier, was wir euch schon vorgeben, weil das macht es uns dann auch einfacher.
+Die Date-Line ist dann eh erst im November, das heißt, ihr habt jetzt 3 Wochen Zeit dafür.
+Genau, schaut, dass die Anforderungen und der Output wirklich exakt so ist, wie es eben in diesem Assignment 1 Angabe.html drinsteht.
+Das könnt ihr dann praktisch einfach im Browse aufmachen und dann habt ihr dann tolle Angabe.
+Wichtig, der Kommentarhälter, also Assignment 0 war das eh relativ egal noch.
+Assignment 1 schaut wirklich, dass ihr euren Namen ausfüllt, euren Matrikelnummer,
+vielleicht auch eine kurze Beschreibung macht und schaut, dass der Codingstandard eingehalten wird.
+Das Ganze ist so, wir werden das Ganze automatisch testen.
+Das heißt, eure Programme werden dann so Ausgaben machen mit Print.
+Und wir testen dann einfach, ob diese Printstatements richtig sind.
+Das heißt, wenn ihr da die Printstatements nicht exakt macht, zum Beispiel,
+da ist ja extra Leerzeichen drin oder so, kann es sein, dass unser Testprogramm da was schreit.
+Das ist jetzt nicht allzu schlimm, aber wir werden dann eh nochmal bei denen nachschauen,
+wo es jetzt happert, also wo wirklich Fehler drin sind.
+Gehen wir normalerweise eh nochmal manual durch und schauen, woran es liegt.
+Genau, wir machen dann noch immer wieder Testruns.
+Das heißt, ihr bekommt auch, wenn ihr praktisch sagt, okay, ich werde früher fertig,
+ich lade das Ganze mal im T-Center hoch.
+Dann machen wir jeden Dienstag und Freitag Testruns.
+Da wird unser Testsystem einmal durchlaufen und euch dann eventuelle Fehler anzeigen.
+Und dann könnt ihr die eben nochmal ausbessern und einen neuen Code nochmal hochladen.
+Da wichtig ist, dass ihr es immer bis Dienstag und Freitag 18 Uhr macht,
+weil dann werden unsere Tutoren die Abgaben herunterladen und den Testsystem füttern.
+Und ihr bekommt dann normalerweise eine Mail mit einem Testreport.
+Falls ihr eben Fragen zu dem Testreport habt oder keine Ahnung was,
+dann könnt ihr natürlich wieder zum Tutorium kommen oder im T-Center auch Fragen stellen.
+Im T-Center bitte wichtig keinen Code reinstellen.
+Wir haben da auch dann noch so eine Website, wo ihr dann nochmal den Testreport lesen könnt.
+Da steht ja normalerweise zum Beispiel auch drin, falls ihr Formatierungsfehler habt,
+also Coding-Standardfehler, wird normalerweise das auch angezeigt.
+Ja, das wäre es eigentlich eh schon.
+Von diesen Crash-Kurs, nächstes Mal machen wir Funktions durch.
+Und ja, danke.
+Falls ihr noch Fragen habt, könnt ihr auch nochmal runterkommen.
