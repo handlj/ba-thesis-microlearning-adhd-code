@@ -1,0 +1,694 @@
+WEBVTT
+
+23:24.440 --> 23:33.120
+vielleicht kurz über Functions reden und dann reden wir über Assignment 1. Passt. Also nochmal zu
+
+23:33.120 --> 23:47.000
+Vorloops. Ich habe das jetzt eh schon ein paar Mal über erwähnt, aber praktisch, wenn man das jetzt
+
+23:47.000 --> 23:52.600
+in normaler Sprache ausschreiben würde, würde es einfach so heißen für jedes Element in der
+
+23:52.600 --> 24:02.160
+Sequence oder in der Liste für Revolgen der Anweisungen aus. Und im Beißen ist es halt in
+
+24:02.160 --> 24:08.160
+Englisch geschrieben, das heißt vor Item in List of Items, aber das ist praktisch vor
+
+24:08.160 --> 24:18.200
+Laufvariablen in Liste oder Range oder irgendwas. Machen wir irgendwas. Und diese Laufvariablen,
+
+24:18.200 --> 24:23.000
+den könnt ihr wirklich jeglichen Namen zuweisen. Ihr müsst nur schauen, dass ihr wieder die Variablen
+
+24:23.000 --> 24:29.400
+Namen regel einhaltet. Praktisch am Anfang darf kein, also der erste Buchstauert darf
+
+24:29.400 --> 24:40.120
+keine Zahl sein und Zonderzeichen sind praktisch nur anders groß erlaubt. Meine arme Stimme.
+
+24:40.120 --> 24:55.080
+Genau, das ist praktisch einfach ein wiederholender Codeblock. Das heißt, wenn wir uns davor an
+
+24:55.080 --> 25:01.400
+das Beispiel erinnern, wo wir unsere Magicians ausprinten wollen, kann man das natürlich
+
+25:01.400 --> 25:21.640
+auch so machen. Print und dann machen wir Carolina, Print Alice, und so weiter und so fort. Das heißt,
+
+25:21.960 --> 25:32.040
+wir haben hier 10, 20 Print Statements hintereinander. Das schaut natürlich dann nicht so schön aus und
+
+25:32.040 --> 25:36.200
+deshalb verwenden wir hier zum Beispiel eine Vorschleife, wo wir dann einfach die Namen hier
+
+25:36.200 --> 25:42.520
+alle in einer Liste speichern und dann in einer Vorschleife das ganze in der Laufvariable zuweisen
+
+25:42.520 --> 25:48.200
+und dann brauchen wir nur noch einen Print Statement. Das ganze ist praktisch statt 10 Zeilencode,
+
+25:49.000 --> 25:59.240
+dann zwei oder drei Zeilencode. Das geht dann natürlich komplexer auch, also es ist ja nicht
+
+25:59.240 --> 26:02.840
+nur Print Statement, die man natürlich machen kann, da kann man natürlich auch sehr viel komplexere
+
+26:02.840 --> 26:13.240
+Sachen machen und stellt euch vor, ihr habt allein hier in der Vorschleife 100 Zeilencode drin und
+
+26:13.320 --> 26:19.400
+ihr müsst das tausendmal ausführen. Also könnt ihr euch vorstellen, dass ihr da nicht tausendmal
+
+26:19.400 --> 26:25.960
+diese 100 Zeilencode hintereinander hinschreiben wollt und dann jedes Mal da vielleicht nur den
+
+26:25.960 --> 26:31.960
+Namen austauschen wollt. Das kann natürlich dann sehr viel Arbeit kosten, statt dass ihr vielleicht nur
+
+26:31.960 --> 26:40.440
+die Liste ausbessern müsst in der Vorschleife. Genau, das schaut dann eben so aus.
+
+26:43.240 --> 26:54.120
+Schauen wir das nochmal so an. Das heißt praktisch hier haben wir unsere Initialisierung der Liste,
+
+26:54.120 --> 26:59.080
+das machen wir außerhalb der Schleife. Natürlich ihr habt es eh schon gesehen, man kann auch hier
+
+26:59.080 --> 27:05.800
+einfach hergehen und sagen okay will ich will kein Lectures haben, ich definiere hier direkt die Liste,
+
+27:05.800 --> 27:11.640
+das geht natürlich auch, ist nicht so übersichtlich und ist auch eigentlich glaube ich laut Coding
+
+27:11.880 --> 27:18.200
+Standard. Muss ich selber nachschauen, ob das erlaubt ist oder nicht. Also bis sie macht so mit
+
+27:18.200 --> 27:27.800
+eine eigene Variable. Genau und da holen wir uns dann einfach mal die einzelnen Elemente aus der
+
+27:27.800 --> 27:32.760
+Liste raus, Math, Englisch, Computer Science, nacheinander, also besser gesagt wie starten wir
+
+27:32.760 --> 27:39.720
+mit Maths, dann wird das ausgeführt, all of Maths, dann wird diese Lecture variabel überschrieben
+
+27:39.720 --> 27:47.800
+mit Englisch, dann wird wieder das Print Statement aufgerufen und so weiter und so fort.
+
+27:51.000 --> 27:56.040
+Genau, hier nochmal die Legende, falls sie jemand braucht. Richtig ist hier haben wir einfach die
+
+27:56.040 --> 28:01.720
+Definition der Sequence, dann haben wir hier diese Definition der Followup und dann haben wir uns
+
+28:01.800 --> 28:10.280
+an die wiederholbaren Block. Ich sehe, ich hatte die Formatierung nicht hingeklappt,
+
+28:10.280 --> 28:16.120
+dann kann sich da noch jemanden daran erinnern, welche Zahlen wir da drin haben wollten.
+
+28:16.120 --> 28:33.880
+Bei Range war es so, das ist ja dann praktisch eine Zahlen Range,
+
+28:33.880 --> 28:43.320
+fällt das deutsche Wort nicht rein und da können wir praktisch einmal den Start angeben und einmal
+
+28:44.040 --> 28:49.160
+den Stopp angeben, falls ihr euch erinnern könnt, der Start ist inklusive und der Stopp ist
+
+28:49.160 --> 28:55.640
+exklusiv anzugeben, das heißt der Stoppwert wird nicht mehr in dieser Range vorkommen,
+
+28:56.600 --> 29:02.440
+nur der vorletzte Wert und wenn wir von 1 bis 10 zählen wollen,
+
+29:04.760 --> 29:11.720
+dann ist das hier leider mit einer tollen Formatierungsfehler hier 1 bis 11. Ihr könnt
+
+29:11.720 --> 29:16.200
+dann auch noch weitergehen und eine Schrittanzahl angeben, das heißt ihr wollt nur jedes
+
+29:19.080 --> 29:25.320
+zweite Element zählen, dann kann man hier noch ein Beistrich hinzufügen und noch ein Zweier
+
+29:25.320 --> 29:32.120
+hinzufügen. Ist das soweit klar mit den Ranges? Ja.
+
+29:41.800 --> 29:49.000
+Das f, genau das ist das der Format, also
+
+29:52.040 --> 29:54.120
+ich zeig das einmal ein kurd Beispiel, ist besser.
+
+29:54.440 --> 30:13.000
+Also ein normaler String,
+
+30:13.320 --> 30:25.480
+also das nennt man normal String, also das ist ein String.
+
+30:30.120 --> 30:32.440
+Also so definiert man normalerweise einen normalen String,
+
+30:33.800 --> 30:37.640
+das ist praktisch eine normalen Zeichenkette, da gibt es natürlich auch wieder mehrere
+
+30:37.640 --> 30:39.480
+Möglichkeiten, ihr könnt das nämlich auch so machen,
+
+30:48.280 --> 30:50.280
+also geht auch mal den Doppelabus drauf,
+
+30:52.520 --> 30:57.400
+genau das ist ein String und jetzt gibt es noch zwei Varianten, es gibt das f,
+
+30:58.600 --> 31:05.080
+das ist praktisch f steht für Formatierung und was da cool ist,
+
+31:05.080 --> 31:12.920
+ist ihr könnt da mit geschwungenen Klammern dann Berechnungen praktisch Kot einfügen
+
+31:14.280 --> 31:21.320
+und normalerweise fügt man jetzt nicht allzu viel Kot ein, weil man hat da limitierten Zeitraum
+
+31:24.120 --> 31:31.000
+und normalerweise wird dann einfach eine Variable hinzugefügt, so praktisch wenn ich jetzt das
+
+31:31.000 --> 31:40.280
+ausfüge, dann fügt es mir hier diese erste String Variable hier nochmal ein, wenn ich das f weglasse,
+
+31:44.840 --> 31:51.240
+dann wird das hier nicht als Kot interpretiert, also das ist der Unterschied, es gibt dann auch noch
+
+31:51.240 --> 31:58.120
+noch eine spezielle Art und das wäre das r und das r steht für raw und das könnt ihr
+
+31:58.200 --> 32:03.560
+ich so vorstellen, dass wenn ihr hier zum Beispiel einen Backslash einfügt,
+
+32:05.240 --> 32:10.120
+das ist normalerweise ein spezieller Charakter, der praktisch für Escape verwendet wird, also
+
+32:11.160 --> 32:14.200
+für spezielle Zeichen verwendet wird, das zeige ich euch auch ganz kurz nochmal,
+
+32:15.000 --> 32:20.840
+wenn ich das jetzt ausführen würde, okay hier das scheint zu funktionieren,
+
+32:28.520 --> 32:33.640
+interessant, wahrscheinlich wird das intern als Ding umgewandelt,
+
+32:37.800 --> 32:39.400
+aber ja zum Beispiel sowas,
+
+32:42.520 --> 32:47.960
+praktisch hier können wir nämlich diesen Backslash verwenden, um
+
+32:48.600 --> 32:52.840
+dieses Single-Apostroph auch im String selber zu verwenden, weil das ist ja hier sonst nicht
+
+32:52.840 --> 32:58.200
+möglich, wenn ich hier sowas mache, dann ist hier ja das String beendet,
+
+32:59.400 --> 33:09.560
+deshalb kann ich damit Backslash hergehen und das so machen, hier natürlich mag er das überhaupt nicht,
+
+33:09.560 --> 33:22.840
+genau also hier kann ich das Escape verwenden und der Raw String ist eben dazu da, dass ich eben
+
+33:24.360 --> 33:25.800
+warte, wenn ich das jetzt zum Beispiel,
+
+33:27.560 --> 33:29.160
+wie interessant, dass das funktioniert,
+
+33:30.920 --> 33:34.840
+der Raw String ist halt dazu da, dass man halt dieses Backslash einfach so verwenden kann,
+
+33:34.840 --> 33:41.480
+aber ja das ist glaube ich für euch jetzt eh nicht so relevant,
+
+33:41.480 --> 33:45.400
+ihr sollt vor allem wissen, dass es den normalen String gibt und den F String,
+
+33:45.960 --> 33:50.600
+also der Formatierung String, der wird auch im Live-Programming vorkommen, also ihr solltet
+
+33:50.600 --> 33:57.480
+euch auf jeden Fall damit vertraut machen, selber mal versuchen da Variablen in diesen String
+
+33:57.480 --> 34:03.400
+reinzufügen, mit den geschwungenen Klammern wie hier, also natürlich mit einem F,
+
+34:05.400 --> 34:06.200
+ja so,
+
+34:11.000 --> 34:15.000
+sonst so weit klar mit dem Format String, ist das jetzt verständlicher, okay,
+
+34:15.000 --> 34:35.320
+genau dann nochmal zur Wiederholung, es gibt ja auch noch das Enumer Rate,
+
+34:37.480 --> 34:43.160
+und zwar ihr habt hier hier eure Liste definiert und das könnt ihr das ganze nochmal mit Enumer,
+
+34:43.160 --> 34:47.240
+also nochmal in dieses Enumer Rate reinhauen, praktisch ihr macht da Klammer auf,
+
+34:48.680 --> 34:54.920
+haut diese Variable, also diese Listenvariable rein, Klammer zu und was Enumer Rate macht,
+
+34:54.920 --> 35:02.840
+ist es generiert dann euch so genannte Duple von diesen Elementen mit immer dem Index dazu,
+
+35:02.840 --> 35:05.640
+das heißt ihr könnt euch das so vorstellen, dass ihr dann einfach
+
+35:05.960 --> 35:14.440
+hier Maths habt, aber auch gleichzeitig noch den Index dazu und könnt dann das praktisch dann
+
+35:14.440 --> 35:20.840
+gemeinsam abarbeiten, das heißt hier habt ihr dann immer zwei Variablen statt einer und Enumer Rate
+
+35:20.840 --> 35:28.440
+praktisch macht dann einerseits hier den Index, actualisiert hier den Index und dann
+
+35:28.440 --> 35:34.040
+einerseits das Element in der Liste, kann man auch nochmal kurz herzeigen,
+
+35:34.040 --> 36:01.640
+macht man da Liste, macht man B und Z,
+
+36:04.200 --> 36:09.400
+und jetzt machen wir so, dass wir praktisch da die Vorschläufe machen, aber jetzt machen wir
+
+36:09.400 --> 36:12.840
+nicht nur eine Variable, sondern zwei und das ist einerseits der Index
+
+36:16.040 --> 36:20.360
+und dann der Buchstabe, dann machen wir einfach Buchstabe
+
+36:22.440 --> 36:28.440
+als Variablename in und dann schreiben wir hier mal statt direkt Liste zu schreiben,
+
+36:28.440 --> 36:35.960
+schreiben wir die, so erst ist es Enumer Rate und dann in diesen Klammern drin unsere Liste
+
+36:41.160 --> 36:45.240
+und dann können wir das einfach printen, also wenn wir hier zum Beispiel einfach Index printen würden,
+
+36:46.360 --> 36:51.480
+dann werden wir praktisch einfach nur den Index von den einzelnen Elementen kriegen,
+
+36:52.440 --> 36:59.960
+können wir dann natürlich auch noch den Buchstaben dazu geben, print kann mehrere Variablen beistrich
+
+36:59.960 --> 37:08.040
+getrennt aus praktisch printen, die werden dann immer mit Tabulator praktisch mit Tab voneinander
+
+37:08.040 --> 37:20.200
+getrennt und wie ihr seht, da praktisch beide, also sowohl Index als auch Buchstabe in dieser
+
+37:20.200 --> 37:29.160
+Schleife immer erneuert. Sollte es es Enumer Rate fehlen und ich hier trotzdem mein Index hab,
+
+37:30.040 --> 37:31.080
+das glaube ich, wird passieren,
+
+37:36.920 --> 37:45.560
+Fehler, weil diese Liste hat ja nur immer einzelne Elemente drin, wenn ich natürlich so was hab,
+
+37:46.520 --> 37:49.560
+falls ihr zurückgerinnern könnt an die Dupel,
+
+37:54.760 --> 37:57.960
+also hier machen wir dann eine Liste aus Dupel, das heißt das sind immer dann
+
+37:59.000 --> 38:00.920
+das Element besteht eigentlich aus zwei Elementen,
+
+38:05.000 --> 38:06.840
+das ist dann schon sehr komplexe, ja
+
+38:07.800 --> 38:17.400
+Praktisch runde Klammern sind Dupel, das sind praktisch, die kann man nicht mehr verändern,
+
+38:18.360 --> 38:24.360
+die praktisch bleiben so wie sie sind und eckige Klammern sind Listen, da kann man wieder Elemente
+
+38:24.360 --> 38:31.880
+hinzufügen, löschen und so weiter und so fort. Dupel sind dementsprechend sinnvoll, weil man praktisch
+
+38:32.840 --> 38:38.280
+eben dann so nahe Konstanten hat, praktisch die man weiß, okay, da steht er drin und das wird
+
+38:38.280 --> 38:42.920
+nicht verändert, plus ist es ein bisschen mehr plattsparend, weil man natürlich diese ganzen
+
+38:42.920 --> 38:45.320
+Operationen wie hinzufügen, löschen und so weiter nicht braucht.
+
+38:48.840 --> 38:55.800
+Genau Enumer Rate macht eigentlich nichts anderes als das hier, also das würde unsere ABC Liste
+
+38:56.120 --> 39:04.200
+in das hier umwandeln, das macht ja genau dasselbe, also wenn wir auch hier wieder einfach nur Index
+
+39:04.200 --> 39:13.560
+reinschreiben, praktisch man kann sich das hier so vorstellen, das hier steht dann zum Beispiel eben
+
+39:14.360 --> 39:15.800
+im ersten Schleifendurchgang
+
+39:19.640 --> 39:23.640
+das hier drin, ja, ich mache einen Kommentar
+
+39:23.640 --> 39:45.080
+und der Nuller hier wird dem Index zugefügt und dem A, das A wird dem Buchstabe hinzugefügt,
+
+39:45.080 --> 39:49.480
+also Index wird mit diesem Nuller überschrieben und Buchstabe wird mit diesem A überschrieben.
+
+39:50.440 --> 39:56.360
+Natürlich kann man natürlich noch viel wahnsinniger werden und da immer noch ein drittes
+
+39:56.360 --> 40:05.560
+Element auch hinzufügen. Was glaubt ihr, was ich dann da brauche, damit das funktioniert?
+
+40:05.800 --> 40:19.320
+Hier eine dritte Laufvariable, weil wir hier immer drei Elemente haben, das heißt
+
+40:22.120 --> 40:27.560
+wenn ich hier nämlich dann mein Dreier hab und hier fehlt mein Test,
+
+40:29.240 --> 40:34.680
+dann weiß Beifen nicht wohin mit dem Dreier und wird uns ein Fehler werfen.
+
+40:36.280 --> 40:42.200
+Aber wenn wir eben hier noch unsere dritte Variable hinzufügen, die dann auch noch überschrieben
+
+40:42.200 --> 40:45.800
+werden soll, dann funktioniert das wieder einfach frei.
+
+40:53.320 --> 40:57.080
+Und da kann ich dann alles Mögliche damit machen, ich kann da zum Beispiel ein Plus-Test machen
+
+40:58.680 --> 41:02.200
+und so weiter und so fort, also da ist dann alles Mögliche möglich.
+
+41:02.520 --> 41:09.000
+All right, ist das jetzt verständlich oder gibt es da zu fragen?
+
+41:23.000 --> 41:25.000
+Jemand hat eine Idee, was hier passieren würde.
+
+41:25.960 --> 41:30.040
+Falls ihr euch zurückerinnern könnt, Strings sind sehr ähnlich zu Listen.
+
+41:40.040 --> 41:40.920
+Probiert es mal aus.
+
+41:41.240 --> 41:46.280
+Ja, das ist eine sehr interessante Eigenschaft von den Strings. Ihr könnt die Strings eigentlich
+
+41:46.280 --> 41:52.360
+als nichts anderes vorstellen als eine Liste von einzelnen Buchstaben.
+
+41:54.840 --> 41:56.840
+Das heißt, wenn ich das hier machen will,
+
+41:57.040 --> 42:00.740
+Chora String,
+
+42:06.560 --> 42:10.480
+Chora limb,
+
+42:16.560 --> 42:19.240
+Chora String
+
+42:23.040 --> 42:24.680
+Chora String
+
+42:26.840 --> 42:37.840
+Der Streamer ist cool vor Buchstabe in Cooler-Stream.
+
+42:50.340 --> 42:53.840
+Wir praktisch jeder Buchstabe einzeln in dieser Schleife behandelt.
+
+42:56.840 --> 43:02.840
+Da es wichtig ist, wie ihr seht, dass hier immer eine neue Zeile beginnt.
+
+43:02.840 --> 43:08.840
+Wenn ihr euch vorstellt, wenn ihr ein Dokument schreibt und eine neue Zeile macht,
+
+43:08.840 --> 43:12.840
+dann macht ihr normalerweise die Enter-Taste nicht und dann kommt eine neue Zeile
+
+43:12.840 --> 43:14.840
+und dann fängt praktisch eine neue Zeile an.
+
+43:14.840 --> 43:16.840
+Das ist hier genauso der Fall.
+
+43:18.840 --> 43:21.840
+Das macht nämlich Print automatisch.
+
+43:21.840 --> 43:27.840
+Es macht nämlich sobald es hier diese Variable praktisch ausgegeben hat,
+
+43:27.840 --> 43:29.840
+ganz zum Schluss noch eine neue Zeile.
+
+43:29.840 --> 43:33.840
+Ihr könnt das natürlich auch wirklich verändern, wenn ihr wollt.
+
+43:33.840 --> 43:36.840
+Da kann man zum Beispiel sowas machen mit diesem Endstatement.
+
+43:36.840 --> 43:39.840
+Da könnt ihr das Ende praktisch selber definieren, was ihr hat.
+
+43:39.840 --> 43:44.840
+Da könnt ihr ein Stream reinhauen, was ihr möchtet.
+
+43:44.840 --> 43:46.840
+Zum Beispiel machen wir einen Beistrich.
+
+43:46.840 --> 43:54.840
+Dann wird statt diesen neuen Zeile praktisch einfach ein Beistrich hinzugefügt.
+
+43:54.840 --> 44:01.840
+Das ist vielleicht dieser bisschen komplizierteres Ding, aber ich finde es immer ganz lustig.
+
+44:01.840 --> 44:09.840
+Da gibt es auch ganz spezielle Keywords, zum Beispiel das hier.
+
+44:09.840 --> 44:12.840
+Das ist eigentlich ein cooler Trick.
+
+44:12.840 --> 44:22.840
+Bechslisch R, das heißt Return, also geht zurück zu Start von dieser Zeile hier.
+
+44:22.840 --> 44:28.840
+Man kann sich hier so vorstellen, ihr seht den hier nicht, der hier schön blinkt.
+
+44:28.840 --> 44:30.840
+Das ist praktisch auch ein Cursor.
+
+44:30.840 --> 44:36.840
+Der sagt euch, okay, jetzt bin ich an dieser Stelle, okay, hier füge ich dann das nächste ein.
+
+44:36.840 --> 44:45.840
+Und das Return macht nichts anderes und sagt, okay, Return diesen Cursor hierher.
+
+44:45.840 --> 44:52.840
+Wenn ich das ausführe, wird am Ende praktisch, also ich schreibe zum Beispiel ein D.
+
+44:52.840 --> 44:55.840
+Und dann werden wir ein Cursor ja hier, der wird ja hier blinken.
+
+44:55.840 --> 45:00.840
+Aber mit Bechslisch R sage ich, na, ich will den wieder vor dem D haben.
+
+45:00.840 --> 45:05.840
+Und das könnt ihr vorstellen, es wird das einfach auch das D überschrieben.
+
+45:05.840 --> 45:20.840
+Das heißt, wenn ich da nochmal ein Sleep einfüge,
+
+45:20.840 --> 45:25.840
+dann wird der praktisch einfach der Reihe nach immer dieser Buchstabe überschrieben.
+
+45:25.840 --> 45:34.840
+Was ganz witzig sein kann.
+
+45:34.840 --> 45:39.840
+Genau, so, stoppe ich das.
+
+45:39.840 --> 45:48.840
+Ah ja.
+
+45:48.840 --> 45:51.840
+Dann haben wir auch nochmal zur Wiederholung dieses ZIP.
+
+45:51.840 --> 45:55.840
+Das ist auch so ähnlich wie das Enumerate ist.
+
+45:55.840 --> 46:00.840
+Wir, vielleicht jetzt nochmal zur Wiederholung, das Enumerate fügt immer den Index hinzu.
+
+46:00.840 --> 46:06.840
+Das ZIP, was es macht ist, ihr gebt dem ZIP zwei gleichlange, wichtig gleichlange Listen.
+
+46:06.840 --> 46:10.840
+Also die müssen wirklich gleich lang sein, sonst funktioniert das nicht.
+
+46:10.840 --> 46:21.840
+Und das macht auch, genau wie wir davor gesehen haben, eine Liste aus Tuple, wo dann immer praktisch so Bärchen drin sind.
+
+46:21.840 --> 46:38.840
+Dann haben wir hier immer Bärchen von Maths Brown, Englisch Orwell, Computer Science, Turing.
+
+46:38.840 --> 46:41.840
+Praktisch, oh, oh, wo ist meine Maus?
+
+46:41.840 --> 46:43.840
+Das macht dann euch dann sowas.
+
+46:43.840 --> 46:49.840
+Halt hier nicht mit dreier Duppel, sondern mit zweier Duppel.
+
+46:50.840 --> 46:52.840
+Und das kann man eben auch wieder so verwenden.
+
+46:52.840 --> 46:58.840
+Also wenn man sagt, okay, ich habe zwei gleich Listen und ich will praktisch mit Beigen gleichzeitig in der Vorschleife arbeiten,
+
+46:58.840 --> 47:00.840
+dann kann ich die zusammen zippen.
+
+47:00.840 --> 47:18.840
+Zipp ist wie Reißverschluss, praktisch einfach sowas, wo ihr dann praktisch zwei Listen zusammen verschließt.
+
+47:19.840 --> 47:28.840
+Genau, aber vielleicht, wie möchten wir leben, wenn ihr zwei nicht gleich lange Enden vom Reißverschluss habt, dann kommt dann Fehler.
+
+47:33.840 --> 47:38.840
+Das solltet ihr auf jeden Fall anschauen, das ZIP kommt jetzt auch dann zum Assignment 1 gleich.
+
+47:41.840 --> 47:44.840
+Genau, dann nochmal kurz zur Wiederholung.
+
+47:44.840 --> 47:52.840
+Pass ist, also es gibt eben noch diese drei Keywords, Pass, es ist einfach ein leerer Kommand, der eigentlich nichts tut.
+
+47:52.840 --> 47:59.840
+Das ist eben ganz, ganz nützlich, wenn ihr eben hier bei der Programmierung seid.
+
+48:03.840 --> 48:07.840
+Ich habe aber noch nicht sicher seid, was ihr da in die Seiliste reinschreiben wollt.
+
+48:08.840 --> 48:20.840
+Dann kann ich hier mal ein Pass machen, weil wenn ich das Pass weglasse, dann ist es hier eh schon rot und hier Fehler,
+
+48:20.840 --> 48:26.840
+aber wenn ich hier Pass reinschreibe, dann macht einfach gar nichts, aber jetzt bekomme ich kein Fehler.
+
+48:27.840 --> 48:29.840
+Dann gibt es das Break.
+
+48:30.840 --> 48:46.840
+Das Break könnt ihr ja so vorstellen, sagen wir zum Beispiel, if index ist gleich 1 Break.
+
+48:48.840 --> 48:52.840
+Das ist so die normale Art, wie man Break verwendet.
+
+48:57.840 --> 49:13.840
+Was hier passiert ist, ihr praktisch, die Schleife fängt an hier mit 0, mit 1, merkt okay, der Index ist jetzt 1.
+
+49:14.840 --> 49:19.840
+Okay, da muss ich abbrechen, das heißt dieses Break gehört zu dieser Vorschleife.
+
+49:20.840 --> 49:27.840
+Ganz wichtig, sie gehört praktisch, wenn hier noch eine Vorschleife drin wäre, gehört es immer,
+
+49:27.840 --> 49:32.840
+und da muss ich auch kurz, das kann nämlich sehr verwirrend sein.
+
+49:33.840 --> 49:37.840
+Woa, X in Arrange.
+
+49:47.840 --> 49:51.840
+Visual Studio Code macht das euch eh schon ein bisschen einfacher.
+
+49:51.840 --> 49:59.840
+Hier sieht man ganz leicht, hier, gerade weil man da der Kürze ist, seht ihr diese Linie hier,
+
+49:59.840 --> 50:02.840
+das zeige ich euch an, was alles in eurem Block ist.
+
+50:03.840 --> 50:13.840
+Und dieses Break gehört hier zum if, und das gehört hier zu dieser Vorschleife, und nicht zu dieser Vorschleife, ganz wichtig.
+
+50:15.840 --> 50:20.840
+Das kann am Anfang ein bisschen verwirrend sein, aber wenn man es ein bisschen austestet, dann kommt man eigentlich sehr schnell drauf.
+
+50:21.840 --> 50:27.840
+Also diese Blöcke, also das hier ist ein eigenständiger Block, der hat nichts mit dem hier zu tun.
+
+50:27.840 --> 50:34.840
+Und dieses Break geht immer so vor, ja, genau zur Schleife, die außerhalb ist.
+
+50:42.840 --> 50:53.840
+Also, das habe ich ein bisschen blüht, machen wir da, hier wird dann immer dreimalalala aufgerufen.
+
+50:54.840 --> 51:01.840
+Und wie ihr seht, nur bis eins, weil wir hier eins haben und dann soll die Liste abbrechen.
+
+51:04.840 --> 51:15.840
+Ich kann auch hier ein Break reinhauen, dann wird aber nur diese innere Liste abgebrochen und nicht die äußere.
+
+51:16.840 --> 51:24.840
+Also wie ihr seht, hier geht es trotzdem noch bis eins, und nicht, hört nicht bei null auf.
+
+51:26.840 --> 51:38.840
+Also sobald das Break seine Schleife gefunden hat, kann man sich so vorstellen, wie eine Rakete, das schießt da diese Schleife ab und bam, die ist weg, aber die davor, die gibt es noch.
+
+51:39.840 --> 51:55.840
+Und deshalb wird die auch noch weiter ausgeführt. Deshalb da auch aufpassen mit diesem Break, weil es gibt da noch eine andere Schleife, das ist die Wildschleife und die kann unendlich lang laufen.
+
+51:56.840 --> 52:06.840
+Und dann müsst ihr mit Break abbrechen und wenn ihr das Break nicht richtig macht, dann habt ihr dann Programm, das endlos läuft, bis ihr das Programm andersweitig abbrecht.
+
+52:06.840 --> 52:19.840
+Und dann gibt es noch das Continuum, zum Beispiel wir nehmen das Print Statement hier und fügen später ein.
+
+52:23.840 --> 52:29.840
+Hier zum Beispiel auch interessant, ihr seht, dass hier das Print ausgegraut ist.
+
+52:30.840 --> 52:38.840
+Das liegt daran, dass, wie schlust du dir kurz sofort, ihr seht, du hast hier ein Break drin, der hintere Teil, der wird nie mehr ausgeführt.
+
+52:43.840 --> 52:53.840
+Wenn wir hier zum Beispiel dann aber ein Continuum machen, Continuum, das bricht nicht ab, sondern das überspringt den Teil hier.
+
+52:54.840 --> 53:04.840
+Praktisch, wenn wir hier reingehen, Index, ok, Index ist 0, ist 0 gleich 1, nein, das ist nicht der Fall, dann können wir das ausführen.
+
+53:06.840 --> 53:20.840
+Index ist 1, 1 ist gleich 1, das ist wahr, das heißt, Continuum wird ausgeführt, das heißt, wir brechen hier unseren Schleifenvorgang ab und gehen zur nächsten Schleifenvorgang.
+
+53:21.840 --> 53:33.840
+Wenn ich das ausführe, dann seht ihr praktisch, dass hier wir kein Print 1 haben, sondern nur ein Print 2, weil der 1er übersprungen wird.
+
+53:34.840 --> 53:38.840
+Das ist vielleicht ein bisschen besser, wieder mit dem ausgegrauten zu sehen.
+
+53:38.840 --> 54:00.840
+Hier, der nächste Teil, hier wird jetzt in diesem Fall nie ausgeführt und meistens hat man da eben das Ganze, das Continuum in irgendeiner IF Anweisung drin, damit man nur in bestimmten Fällen Sachen überspringt.
+
+54:03.840 --> 54:05.840
+Ist das soweit verständlich oder gibt es da noch Fragen?
+
+54:08.840 --> 54:12.840
+Ok, genau, das haben wir gesehen.

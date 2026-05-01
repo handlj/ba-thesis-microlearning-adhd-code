@@ -5,20 +5,20 @@
 Topic A
 -------
 
-Simple Datatypes and Operators (Booleans, comparison operators)
+booleans, simple comparison operators
 
 Topic B
 -------
 
-If-Statements
+if-statement basics
 
 Topic C
 -------
 
-Loops (for and while)
+loop basics (for and while)
 
 Topic D
 -------
 
-Functions (Basics)
+function basics
 

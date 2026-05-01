@@ -1,0 +1,949 @@
+WEBVTT
+
+32:17.000 --> 32:19.000
+Dann kommen wir eigentlich eh schon zu den Listen.
+
+32:23.000 --> 32:28.000
+Und Listen sind auch eigentlich, also das haben wir, glaube ich,
+
+32:29.000 --> 32:31.000
+eh gestern schon ein bisschen durchgemacht mit den Strings.
+
+32:32.000 --> 32:34.000
+Also es ist sehr ähnlich zu den Strings.
+
+32:35.000 --> 32:40.000
+Listen sind nur noch praktisch noch viel stärker.
+
+32:41.000 --> 32:43.000
+Praktisch, wir können da nicht nur einzelne Characters speichern,
+
+32:44.000 --> 32:47.000
+wie wir hier haben, sondern wir können da wirklich ganze Elemente speichern.
+
+32:47.000 --> 32:51.000
+Und wir können diese auf diese Elemente zugreifen und verändern.
+
+32:54.000 --> 32:57.000
+Und genau, also das Wichtigste mal zuerst,
+
+32:58.000 --> 33:02.000
+wir haben praktisch am Anfang diese eckigen Klammern.
+
+33:03.000 --> 33:04.000
+Also das definiert ein Listen-Typ.
+
+33:05.000 --> 33:07.000
+Das könnt ihr auch mal kurz probieren, also das ist einfach...
+
+33:10.000 --> 33:15.000
+Es sollte da auch bei den variablen Benennungen praktisch vermeiden,
+
+33:15.000 --> 33:18.000
+dass ihr List, das Keyword List zum Beispiel verwendet.
+
+33:19.000 --> 33:24.000
+Also List ist nämlich schon eigentlich vergeben als Keyword,
+
+33:25.000 --> 33:29.000
+weil ihr praktisch damit zum Beispiel auch eine Liste definieren könnt.
+
+33:31.000 --> 33:35.000
+Aber ihr könnt ruhig das deutsche Wort verwenden, zum Beispiel Liste.
+
+33:37.000 --> 33:40.000
+Und das hier wird zum Beispiel eine leere Liste.
+
+33:45.000 --> 33:47.000
+Diese speziellen Keywords werden euch normalerweise auch bewischt,
+
+33:48.000 --> 33:51.000
+das Studio Code und so eigentlich auch schon markiert, andersfarbig.
+
+33:52.000 --> 33:54.000
+Also da kommt ihr dann eigentlich sehr schnell drauf,
+
+33:55.000 --> 33:57.000
+dass okay, dieses Keyword scheint benutzt zu sein.
+
+33:58.000 --> 34:00.000
+So viel ergibt es da eigentlich eh nicht.
+
+34:01.000 --> 34:06.000
+Die wichtigsten sind eh List, Set und Doppel.
+
+34:12.000 --> 34:13.000
+Die sind schon vordefiniert.
+
+34:13.000 --> 34:15.000
+Weil ihr praktisch nicht nur mit diesen eckigen Klammern,
+
+34:16.000 --> 34:21.000
+sondern auch eben immer mit diesen Keyword und Klammer auf Klammer zu,
+
+34:23.000 --> 34:24.000
+das Gleiche machen könnt.
+
+34:25.000 --> 34:28.000
+Also das hier sind keine Listen, das sind andere Sachen,
+
+34:29.000 --> 34:30.000
+da kommen wir auch dazu.
+
+34:31.000 --> 34:33.000
+Sie sind sehr ähnlich zu Listen, aber keine Listen.
+
+34:36.000 --> 34:40.000
+Genau, steht eigentlich hier schon oben, das ist ja wie mit einer leeren Liste definiert.
+
+34:40.000 --> 34:43.000
+Und es ist eigentlich ziemlich ähnlich über Strings,
+
+34:44.000 --> 34:46.000
+praktisch wie greift man auf diese Elemente in einer Liste dann zu.
+
+34:47.000 --> 34:50.000
+Ganz einfach, wir verwenden wieder diesen Index.
+
+34:51.000 --> 34:54.000
+Das heißt praktisch, ich habe hier meine Liste definiert,
+
+34:55.000 --> 34:56.000
+schrabe ich noch eine Eins rein.
+
+34:57.000 --> 35:02.000
+Wenn ich da jetzt auf diese Eins zugreifen will, also auf das erste Element unserer Liste.
+
+35:02.000 --> 35:10.000
+Was schrabe ich da rein?
+
+35:11.000 --> 35:20.000
+Null, genau, weil die komischen Informatik kann mit Null beginnen mit Zählen.
+
+35:21.000 --> 35:24.000
+Das Gleiche auch, wie bei den Strings wieder,
+
+35:25.000 --> 35:27.000
+praktisch ein negativer Index fängt von hinten an zu zählen,
+
+35:28.000 --> 35:30.000
+das heißt minus 1 gibt uns das letzte Element.
+
+35:30.000 --> 35:40.000
+Speziell für Listen ist jetzt, dass wir die Sachen bearbeiten können,
+
+35:41.000 --> 35:45.000
+also eigentlich auch wie bei Strings, aber man kann dann praktisch einfach sagen,
+
+35:46.000 --> 35:49.000
+okay, ich will das erste Element hier verändern, also mal hier einfach,
+
+35:50.000 --> 35:53.000
+hier in diesem Fall Colors an der Stelle Null, also an der ersten Stelle,
+
+35:54.000 --> 35:57.000
+habe ich jetzt mal zugewiesen auf Gray.
+
+35:57.000 --> 36:01.000
+Ich kann das aber auch dann später im Code dann einfach sagen,
+
+36:02.000 --> 36:06.000
+ja, ich will da gar nicht Gray mit E schreiben, sondern anders.
+
+36:07.000 --> 36:16.000
+Und kann ich einfach später sagen, ja, ich will das mit A schreiben
+
+36:17.000 --> 36:19.000
+und dann wird dieses Element überschrieben.
+
+36:20.000 --> 36:24.000
+Das heißt, da steht da nicht mal Gray drin, mit E, sondern Gray mit A
+
+36:24.000 --> 36:30.000
+und das wird dann auch so gespeichert, also im Fortlaufen des Programms.
+
+36:31.000 --> 36:34.000
+Ihr könnt dann natürlich auch neue Elemente hinzufügen,
+
+36:35.000 --> 36:40.000
+das ist eben mit Append, wenn ihr an einer sehr speziellen Stelle der Liste
+
+36:41.000 --> 36:44.000
+irgendwo ein Element hinzufügen wollt, dann müsst ihr das mit Insert machen
+
+36:45.000 --> 36:51.000
+und mit dem Index, wo ihr an welcher Stelle das Element in der Liste haben wollt,
+
+36:51.000 --> 36:57.000
+das ist auch wieder praktisch genau wie hier auch, fängt wieder mit Null an.
+
+36:58.000 --> 37:00.000
+Gibt es da so Fragen?
+
+37:01.000 --> 37:05.000
+Okay, jetzt kann man natürlich diese hinzugefügten Elemente auch wieder löschen,
+
+37:06.000 --> 37:10.000
+man kann auch natürlich Elemente löschen, die schon vordefiniert waren,
+
+37:11.000 --> 37:15.000
+also es ist nicht so, dass man nur Elemente löschen kann, die nur hinzugefügt worden sind.
+
+37:15.000 --> 37:26.000
+Genau, man kann das mit Dell machen, das sollte man aber eher bisschen vermeiden,
+
+37:27.000 --> 37:33.000
+besser ist das Pop, weil das dann wirklich das Element dann einfach rauslöscht
+
+37:34.000 --> 37:36.000
+und weiß gar nicht, wie das ist, muss ich kurz nachschauen.
+
+37:45.000 --> 37:58.000
+Machen wir da mal eine Liste.
+
+37:59.000 --> 38:11.000
+Die einzelnen Elemente sind kommergetrennt, zur besseren Lesbarkeit könnt ihr da auch einfach Leerzeichen immer dazu machen,
+
+38:11.000 --> 38:15.000
+die sind aber nicht verpflichtend.
+
+38:16.000 --> 38:19.000
+Ich glaube für den Coding-Standard schon, also besser Leerzeichen verwenden.
+
+38:20.000 --> 38:25.000
+Das heißt, wenn ich jetzt diese Liste hier auch brinden würde, dann haben wir das so.
+
+38:26.000 --> 38:34.000
+Und jetzt lösch ich da ein Element, machen wir gleich das erste,
+
+38:34.000 --> 38:38.000
+schauen wir mal, was rauskommt.
+
+38:39.000 --> 38:43.000
+Okay, dann wird es auch wirklich gelöscht.
+
+38:44.000 --> 38:51.000
+Sag mal, Pop ist in dem Fall hilfreich, wenn ihr das Element noch verwenden wollt,
+
+38:51.000 --> 39:02.000
+das heißt, wenn ich da Liste.pop...
+
+39:03.000 --> 39:17.000
+Normalerweise, wenn man nur Pop aufruft, dann wird da nämlich, ich mach das so, das letzte Element gelöscht.
+
+39:22.000 --> 39:28.000
+Und ihr könnt das praktisch dann noch verwenden, das heißt ihr könnt dieses Pop hier,
+
+39:29.000 --> 39:34.000
+da bekommt ihr auch wirklich, also das ist wie, ich drücke die Liste und dann popt das letzte Element raus
+
+39:35.000 --> 39:37.000
+und jetzt habe ich das Element und kann damit noch was anfangen.
+
+39:38.000 --> 39:44.000
+Der Lied ist es einfach weg, also bei, mit dem Dell Keyword ist es futsch und weg ist die Post.
+
+39:44.000 --> 39:50.000
+Da ist er wirklich, also da kann ich noch machen, X ist gleich Pop.
+
+39:52.000 --> 39:55.000
+Da kann ich das einfach hier daneben noch rausbrinden.
+
+39:58.000 --> 40:04.000
+Das heißt praktisch, ich habe jetzt so mal Pop aufgerufen, das heißt, die zwei Elemente sind da rausgepoppt.
+
+40:05.000 --> 40:15.000
+Ich habe bei X das erste mal Pop aufgerufen, da wird praktisch dann das Dreier herausgedrückt
+
+40:16.000 --> 40:18.000
+und das wird dann hier in diese Variable X gespeichert.
+
+40:19.000 --> 40:23.000
+Dann rufe ich nochmal Pop auf, hier verwende ich es nicht weiter, außer für das Print.
+
+40:24.000 --> 40:29.000
+Das heißt, die Liste ist nur noch mit einem Element übrig, weil wir jetzt zwei mal Pop aufgerufen haben
+
+40:30.000 --> 40:32.000
+und in X steht drei drin.
+
+40:33.000 --> 40:36.000
+Ist das soweit verständlich oder gibt es dazu Fragen?
+
+40:48.000 --> 40:53.000
+Pop und dann gibt es auch noch Remove und Remove ist deshalb hilfreich.
+
+40:54.000 --> 40:58.000
+Also Delete, wenn wir das anschauen, dann gehen wir den speziellen Index an,
+
+40:58.000 --> 41:05.000
+aber sagen wir mal, wir wissen jetzt nicht den Index, wir wollen aber einfach einen Kanon hier in diesem Fall Gray löschen,
+
+41:06.000 --> 41:10.000
+weil wir uns die Gefahr über auf die Nerven geht, dann können wir das mit Remove machen.
+
+41:11.000 --> 41:15.000
+Das heißt, Colors hat danach kein Element mit Gray mehr drin.
+
+41:19.000 --> 41:24.000
+Und wie bei Strings können wir auch wieder die Länge von Listen erfahren, indem wir dieses Land Keyword hier verwenden.
+
+41:25.000 --> 41:32.000
+Praktisch, das kommt von Länge und damit können wir praktisch herausfinden, wie lang unser Liste ist,
+
+41:33.000 --> 41:35.000
+also wie viele Elemente wir wirklich drin haben.
+
+41:38.000 --> 41:46.000
+Und da gibt es natürlich auch wieder Index Errors, praktisch, wenn wir da wieder auf einen ungültigen Index zugreifen in Analyster,
+
+41:47.000 --> 41:54.000
+dann wird Beifen sehr unhappy sein und uns sagen, na, da kannst du nicht zugreifen, das existiert gar nicht,
+
+41:55.000 --> 42:02.000
+dann kommt so ein Index Error raus. Also falls ihr so ein Index Error sieht, also nicht indent Error, sondern ein Index Error,
+
+42:03.000 --> 42:10.000
+dann wisst ihr, okay, ich habe auf ein Element in der Liste zugegriffen, das ist nicht existierab,
+
+42:10.000 --> 42:15.000
+praktisch auf eine Index zugegriffen, der außerhalb der Länge unserer Liste ist.
+
+42:18.000 --> 42:19.000
+Genau.
+
+42:20.000 --> 42:23.000
+Und sonst eben, wenn ihr das letzte Element haben wollt, wieder mit Minus 1.
+
+42:24.000 --> 42:29.000
+Und da gibt es auch wieder das gleiche wie bei Stringslicing, das haben wir durchgemacht.
+
+42:30.000 --> 42:36.000
+Also man kann bei den Listen auch wieder das gleiche Slicing Verfahren verwenden, das heißt, man kann ja auch wieder hergehen.
+
+42:37.000 --> 42:38.000
+Und
+
+42:49.000 --> 42:55.000
+kann ich machen, L von 0 bis 2,
+
+42:56.000 --> 42:58.000
+dann bekomme ich raus, also
+
+42:58.000 --> 43:10.000
+1, 2. Also das funktioniert natürlich auch wieder.
+
+43:10.000 --> 43:21.000
+Genau, das sieht so.
+
+43:24.000 --> 43:26.000
+Genau, das habe ich jetzt gerade erinnert.
+
+43:28.000 --> 43:31.000
+Es sollte eh identisch sein wie bei Stringslicing.
+
+43:32.000 --> 43:42.000
+Genau, und wie gesagt, ein Stringslicing ist eh eigentlich nichts anderes als eine Liste mit einzelnen Buchstaben drin.
+
+43:45.000 --> 43:48.000
+Genau, dann haben wir nochmal dieses in und not in.
+
+43:49.000 --> 43:53.000
+Nein, das haben wir gar nicht gehabt, nein, wir haben das is gehabt, sorry, selber verwirrt.
+
+43:54.000 --> 44:01.000
+Und das in ermöglicht uns rauszufinden, ob ein Element in der Liste ist oder nicht.
+
+44:02.000 --> 44:06.000
+Und das ist natürlich sehr praktisch, wenn wir das Ganze mit einem if kombinieren.
+
+44:07.000 --> 44:19.000
+Das heißt, wir haben hier unser Liste L,
+
+44:20.000 --> 44:31.000
+wenn ich das sage if 1 in L,
+
+44:31.000 --> 44:36.000
+L, dann mache ich da was.
+
+44:42.000 --> 44:46.000
+Das heißt, ich kann sehr schnell rausfinden, ob ein Element in meiner Liste ist oder nicht.
+
+44:47.000 --> 44:51.000
+Ich kann das natürlich das umgekehrt auch machen mit not in, das ist praktisch einfach die Verneinung davon.
+
+44:52.000 --> 44:57.000
+Ein sehr starkes Instrument.
+
+45:06.000 --> 45:11.000
+Gestern habe ich auch kurz erwähnt bei den Strings zum Beispiel das Feind.
+
+45:12.000 --> 45:16.000
+Das gibt es natürlich auch bei Listen, wenn man wirklich den Index haben will.
+
+45:17.000 --> 45:20.000
+Da gibt es also sehr ähnliche Operatoren.
+
+45:21.000 --> 45:23.000
+Gibt es dazu Fragen?
+
+45:34.000 --> 45:41.000
+Was der Befehllist hier bringt, größtenteils einfach nur für die Lesbarkeit des Codes.
+
+45:42.000 --> 45:51.000
+Es gibt dann nämlich noch speziellere Arten, wie man mit Listen eigentlich nicht,
+
+45:52.000 --> 45:54.000
+aber es ist einfach für die Lesbarkeit.
+
+45:55.000 --> 45:57.000
+Also dann weiß ich, okay, das ist ein List.
+
+45:58.000 --> 46:01.000
+Aber es ist eigentlich identisch wie zu den Eckigen Klammern.
+
+46:02.000 --> 46:06.000
+Und ihr könnt auch einfach direkt eckige Klammer verwenden, also ihr müsst ja nicht List, Klammer aufwenden.
+
+46:12.000 --> 46:13.000
+Ja.
+
+46:17.000 --> 46:20.000
+Na ja, du kannst glaube mit List nur Lehrer-Listen definieren.
+
+46:22.000 --> 46:27.000
+Das ist eben, ja, das ist nur, sagen wir zum Beispiel am Anfang des Programms habe ich
+
+46:28.000 --> 46:36.000
+eine Variable-Liste 3, die ich unbedingt schon davor definieren will als Lehrer-Liste.
+
+46:37.000 --> 46:40.000
+Dann kann ich das eben dieses Keyword hier verwenden, dieses List Keyword.
+
+46:41.000 --> 46:43.000
+Dann kann ich natürlich auch einfach den Klammer nehmen.
+
+46:44.000 --> 46:49.000
+Also dieses Keyword ist eher relativ wenig im Gebrauch, normalerweise.
+
+46:53.000 --> 46:57.000
+Was ganz cool ist, ist auch, man kann die Listen auch sortieren.
+
+46:58.000 --> 47:02.000
+Das heißt, wir haben da zwei Möglichkeiten, wir haben einmal das Punkt Sort.
+
+47:03.000 --> 47:05.000
+Das kann ich auch kurz mal kurz zeigen.
+
+47:07.000 --> 47:08.000
+Warte, bevor ich das mache.
+
+47:08.000 --> 47:10.000
+Praktisch, wir haben hier einmal das Punkt Sort.
+
+47:11.000 --> 47:13.000
+Das heißt, das hier ist eine Liste.
+
+47:14.000 --> 47:16.000
+Und dann kann ich da Punkt Sort aufrufen.
+
+47:17.000 --> 47:20.000
+Und dann wird mir, dann sortiert mir bei diese Liste.
+
+47:21.000 --> 47:22.000
+Das heißt praktisch alle Elemente.
+
+47:23.000 --> 47:28.000
+Zum Beispiel, wenn ich hier 3, 2, 1 geschrieben hätte, dann würde die sortiert nach 1, 2, 3.
+
+47:30.000 --> 47:35.000
+Das Gleiche ist auch, wenn ich zum Beispiel das Drinks drin habe, dann werde die eben nach Anfangsbuchstaben sortiert.
+
+47:35.000 --> 47:37.000
+Das heißt ABC.
+
+47:39.000 --> 47:41.000
+Man kann das natürlich auch reversen.
+
+47:42.000 --> 47:46.000
+Also man kann da auch einfach dann noch angeben, ich will hier reverse das Ganze machen.
+
+47:47.000 --> 47:49.000
+Oder eben auch so machen.
+
+47:51.000 --> 47:56.000
+Aber das hier ist ein bisschen spezielleres Keyword, das ist jetzt, das kommen wir auch gleich dazu.
+
+47:57.000 --> 48:01.000
+Das hier ist ein eigenständiges Statement.
+
+48:01.000 --> 48:05.000
+Das heißt, ich schreibe da nicht nochmal Colors, ist gleich Colors.sort,
+
+48:06.000 --> 48:09.000
+sondern ich schreibe nur Colors.sort und dann ist meine Colors Liste sortiert.
+
+48:10.000 --> 48:19.000
+Wenn ich aber Colors unsortiert haben möchte, also weil ich die später noch so unsortiert praktisch brauche,
+
+48:20.000 --> 48:23.000
+dann kann ich mir eine neue Liste machen mit diesem sorted Keyword.
+
+48:24.000 --> 48:29.000
+Das heißt, praktisch schreibe sorted, klamm auf, halte meine unsortierte Liste rein
+
+48:29.000 --> 48:35.000
+und dann gibt mir dieses sorted Keyword eine sortierte Liste, aber das ist eine neue Liste zurück.
+
+48:39.000 --> 48:42.000
+Das Ganze kann man natürlich auch mit Strings machen, weil das natürlich auch eine Liste ist.
+
+48:46.000 --> 48:48.000
+Und eben auch eine Liste von Strings.
+
+48:50.000 --> 48:57.000
+Wichtig ist da die Großschreibung, also ein großes A ist nicht das gleiche wie ein kleines A.
+
+48:58.000 --> 49:01.000
+Das kann man auch kurz herzeigen.
+
+49:23.000 --> 49:26.000
+Ich glaube, das hat da kein sort Keyword.
+
+49:27.000 --> 49:29.000
+Da können wir nur sorted verwenden.
+
+49:44.000 --> 49:50.000
+Und die hier seht, werden alle Großbuchstaben von den Kleinbuchstaben sortiert.
+
+49:50.000 --> 50:05.000
+Also es ist ein bisschen eine Eigenheit, das hat damit zu tun, dass man dieses A zum Beispiel in ein Integer-Wert umwandeln kann auf zwei Umwege.
+
+50:05.000 --> 50:17.000
+Das heißt, man kann da z.B. Klapp C, H, R, S, oder auch nicht.
+
+50:18.000 --> 50:23.000
+Ich weiß gar nicht mehr, was das ist.
+
+50:32.000 --> 50:34.000
+Okay, das ist praktisch das Umgekehrte.
+
+50:34.000 --> 50:38.000
+Das heißt, wenn ich hier 9.7 rein schreibe, dann bekomme ich das.
+
+50:38.000 --> 50:40.000
+Genau, also die haben intern alle einen Wert.
+
+50:42.000 --> 50:46.000
+Hier im diesem Fall das kleine A hat den Wert 97.
+
+51:02.000 --> 51:05.000
+Ich weiß gar nicht mehr, was das große A für einen Wert hat.
+
+51:09.000 --> 51:11.000
+Okay, 65 hat das.
+
+51:12.000 --> 51:18.000
+Also das große A hat den Wert 65 und das kleine A hat den Wert 97.
+
+51:19.000 --> 51:21.000
+Und deshalb werden die auch so sortiert.
+
+51:26.000 --> 51:32.000
+Das kann man in einer, zum Beispiel in einer ASCII Tabelle nachschauen.
+
+51:32.000 --> 51:34.000
+Ich kann das auch kurz zeigen.
+
+51:39.000 --> 51:41.000
+Das schaut dann so aus.
+
+51:51.000 --> 51:58.000
+Praktisch hier, in diesem Fall haben wir praktisch unseren Dezimalwert hier
+
+51:58.000 --> 52:04.000
+und dann unseren Charakter, also unseren einzelnen Charakter,
+
+52:04.000 --> 52:06.000
+unser einzelnen Schriftzeichen hier.
+
+52:06.000 --> 52:11.000
+Und wie ihr hier seht, ist hier das große A mit 65
+
+52:11.000 --> 52:13.000
+und dann geht das darunter.
+
+52:13.000 --> 52:16.000
+Und dann kommen wir noch ein paar Sonderzeichen
+
+52:16.000 --> 52:19.000
+und dann bei 97 startet das kleine Alphabet,
+
+52:19.000 --> 52:23.000
+bis Z was bei 122 endet.
+
+52:25.000 --> 52:28.000
+Und das ist intern, was Beifen verwendet,
+
+52:28.000 --> 52:31.000
+um praktisch den Buchstammel einen Wert zu geben.
+
+52:34.000 --> 52:43.000
+Genau, da vielleicht noch kurz hier zum Sorten.
+
+52:46.000 --> 52:51.000
+Da gibt es den Reverse-Parameter, den ihr auf True setzen könnt.
+
+52:54.000 --> 52:58.000
+Das ist dann praktisch eine spezielle Option für diese Funktion hier
+
+52:58.000 --> 53:02.000
+und ich sage dann, okay, wir wollen das Ganze eigentlich umgekehrt sortiert haben.
+
+53:02.000 --> 53:05.000
+Dann sortiert ihr das uns umgekehrt.
+
+53:07.000 --> 53:10.000
+Genau so werden die einfach dann reversed.
+
+53:10.000 --> 53:12.000
+Das ist nicht das gleiche wie sort.
+
+53:20.000 --> 53:23.000
+In diesem Fall natürlich ist es das gleiche wie sort reversed,
+
+53:23.000 --> 53:26.000
+aber wenn wir dann noch hat dritt, das sind Zufügen.
+
+53:28.000 --> 53:30.000
+B, starten wir es mit B.
+
+53:32.000 --> 53:37.000
+Also in diesem Fall hat man hier A, B, J am Anfang des Strings
+
+53:37.000 --> 53:42.000
+und natürlich wenn wir da noch einen drin haben, der zum Beispiel mit zwei As beginnt,
+
+53:46.000 --> 53:52.000
+dann wird der noch vor dem anderen String mit einem A geschrieben,
+
+53:52.000 --> 53:55.000
+weil der praktisch hier dann an zweiter Stelle ein B hat.
+
+53:56.000 --> 53:58.000
+Jetzt, wenn wir das reversen,
+
+54:03.000 --> 54:06.000
+dann haben wir praktisch hier umgekehrt sortiert.
+
+54:07.000 --> 54:12.000
+Also hier haben wir dann das AA ganz zum Schluss und das J hier am Anfang,
+
+54:12.000 --> 54:16.000
+aber wenn wir hier einfach nur reverse reinschreiben,
+
+54:17.000 --> 54:20.000
+dann dreht er uns einfach die Liste um.
+
+54:20.000 --> 54:25.000
+Das heißt, wir haben hier zwar das AA an der Anfang,
+
+54:25.000 --> 54:28.000
+aber das AB ist hier noch immer ganz zum Schluss.
+
+54:29.000 --> 54:32.000
+Aber ich habe euch da nicht zu viel verwirrt, ist das verständlich?
+
+54:34.000 --> 54:36.000
+Gibt es da Fragen?
+
+54:38.000 --> 54:39.000
+Was?
+
+54:39.000 --> 54:40.000
+Dann haben wir das auch.
+
+54:44.000 --> 54:47.000
+Genau, dann gibt es ja noch spezielle Art von Listen.
+
+54:49.000 --> 54:51.000
+Na stimmt, das ist eigentlich keine Liste,
+
+54:51.000 --> 54:53.000
+das ist eigentlich eine Zahlensequenz
+
+54:54.000 --> 54:56.000
+und das nennt sich eigentlich einen Generator.
+
+54:58.000 --> 55:02.000
+Und das können wir mit Range machen, also mit diesem Range Keyword
+
+55:03.000 --> 55:07.000
+und das ist sehr praktisch, wenn wir jetzt einfach eine schnelle
+
+55:09.000 --> 55:12.000
+Zahlensequenz brauchen, von 0 bis 100,
+
+55:12.000 --> 55:16.000
+dann können wir einfach Range 101 reinschreiben,
+
+55:17.000 --> 55:20.000
+weil praktisch das letzte,
+
+55:20.000 --> 55:22.000
+also diese Zahl ist exklusiv,
+
+55:22.000 --> 55:25.000
+das heißt, wir haben hier nur 0 bis 3,
+
+55:26.000 --> 55:29.000
+aber wie ihr seht, sind das ja vier Elemente.
+
+55:31.000 --> 55:34.000
+Da kann man natürlich auch noch vieles anderes machen,
+
+55:34.000 --> 55:37.000
+zum Beispiel eben den Start-Abpunkt definieren,
+
+55:37.000 --> 55:39.000
+also wenn ich nicht bei 0 starten will,
+
+55:39.000 --> 55:43.000
+sondern bei 1, dann kann ich da eben noch 1 davor schreiben,
+
+55:43.000 --> 55:45.000
+beistrigt und dann das Ende.
+
+55:45.000 --> 55:47.000
+Und ich kann auch,
+
+55:47.000 --> 55:49.000
+die Schrittweise angeben,
+
+55:49.000 --> 55:51.000
+das heißt praktisch,
+
+55:51.000 --> 55:53.000
+hier in diesem Fall
+
+55:53.000 --> 55:55.000
+gehen wir mal in drei Schritten weiter.
+
+55:56.000 --> 55:58.000
+Wir starten bei 1,
+
+55:58.000 --> 56:00.000
+dann 3 weiter, 4,
+
+56:00.000 --> 56:02.000
+dann nochmal 3 weiter, 7
+
+56:02.000 --> 56:04.000
+und dann haben wir,
+
+56:04.000 --> 56:06.000
+wenn wir da nochmal 3 weiter gehen,
+
+56:06.000 --> 56:08.000
+dann wäre das ja 10,
+
+56:08.000 --> 56:10.000
+aber 10 ist exklusiv,
+
+56:10.000 --> 56:12.000
+weil es ist nicht mehr enthalten.
+
+56:12.000 --> 56:15.000
+Und man kann diese Zahlensequenzen einfach umwandeln
+
+56:15.000 --> 56:17.000
+mit diesem List keyword,
+
+56:17.000 --> 56:19.000
+also für das ist es eigentlich
+
+56:19.000 --> 56:21.000
+größtenteils eben,
+
+56:21.000 --> 56:23.000
+fürs Casting wird es verwendet.
+
+56:28.000 --> 56:31.000
+Und das coole mit den Listen ist auch,
+
+56:31.000 --> 56:33.000
+sagen wir mal, wir definieren es,
+
+56:33.000 --> 56:35.000
+da haben wir eine Liste von 10,
+
+56:35.000 --> 56:37.000
+das ist die Liste,
+
+56:37.000 --> 56:39.000
+das ist die Liste,
+
+56:39.000 --> 56:41.000
+das ist die Liste,
+
+56:41.000 --> 56:44.000
+die Liste von 0 bis 2,
+
+56:44.000 --> 56:46.000
+also 0, 1, 2,
+
+56:46.000 --> 56:48.000
+dann können wir da eben
+
+56:48.000 --> 56:50.000
+das Minimum herausfinden
+
+56:50.000 --> 56:52.000
+mit diesem Min keyword,
+
+56:52.000 --> 56:54.000
+das heißt,
+
+56:54.000 --> 56:56.000
+da kriegen wir dann 0 raus,
+
+56:56.000 --> 56:58.000
+wenn wir da Max reingeben,
+
+56:58.000 --> 57:00.000
+also Max und die Liste,
+
+57:00.000 --> 57:02.000
+dann kriegen wir 2 raus.
+
+57:03.000 --> 57:05.000
+Wir können auch die Summe machen,
+
+57:05.000 --> 57:07.000
+das heißt,
+
+57:07.000 --> 57:09.000
+alle Elemente werden aufsummiert,
+
+57:09.000 --> 57:11.000
+das geht dann natürlich
+
+57:11.000 --> 57:13.000
+nur gescheit mit integer oder float,
+
+57:16.000 --> 57:18.000
+mit string,
+
+57:18.000 --> 57:20.000
+das ist eine gute Frage,
+
+57:20.000 --> 57:22.000
+ob man strings aufsummieren kann,
+
+57:22.000 --> 57:24.000
+müssen wir gleich mal ausprobieren.
+
+57:24.000 --> 57:26.000
+Man sagt ja,
+
+57:26.000 --> 57:28.000
+weil er hier
+
+57:28.000 --> 57:30.000
+Summe startet
+
+57:30.000 --> 57:32.000
+mit einem 0 integer,
+
+57:32.000 --> 57:34.000
+also definiert sich
+
+57:34.000 --> 57:36.000
+intern einfach einen Counter
+
+57:36.000 --> 57:38.000
+mit 0,
+
+57:38.000 --> 57:40.000
+oder halt
+
+57:40.000 --> 57:42.000
+einen Summen-Counter,
+
+57:42.000 --> 57:44.000
+das heißt,
+
+57:44.000 --> 57:46.000
+wenn man die Summen-Counter
+
+57:46.000 --> 57:48.000
+aufsummiert,
+
+57:48.000 --> 57:50.000
+dann kann man die Summen-Counter
+
+57:50.000 --> 57:52.000
+aufsummieren,
+
+57:52.000 --> 57:54.000
+um die Summen-Counter
+
+57:54.000 --> 57:56.000
+und dann versucht er hier
+
+57:56.000 --> 57:58.000
+das erste Objekt zu addieren,
+
+57:58.000 --> 58:00.000
+aber das ist hier in diesem Fall
+
+58:00.000 --> 58:02.000
+ein string,
+
+58:02.000 --> 58:04.000
+und wie wir ja wissen,
+
+58:04.000 --> 58:06.000
+kann man strings mit integers nicht addieren,
+
+58:06.000 --> 58:08.000
+außer sie werden gecastet,
+
+58:08.000 --> 58:10.000
+das heißt,
+
+58:10.000 --> 58:12.000
+hier gibt es ein Fehler.
+
+58:16.000 --> 58:18.000
+Und da kann man zum Beispiel auch ganz simpel
+
+58:18.000 --> 58:20.000
+dann den Durchschnittwert
+
+58:20.000 --> 58:22.000
+ausrechnen und zum Beispiel
+
+58:22.000 --> 58:24.000
+wenn wir 0, 1, 2 haben,
+
+58:24.000 --> 58:26.000
+dann addiert es praktisch Summe und das auf,
+
+58:26.000 --> 58:28.000
+das wäre dann praktisch 0 plus 1 plus 2,
+
+58:28.000 --> 58:30.000
+in diesem Fall 3,
+
+58:30.000 --> 58:32.000
+durch die Länge,
+
+58:32.000 --> 58:34.000
+die Länge der Liste ist auch 3,
+
+58:34.000 --> 58:36.000
+3 dividiert auch 3,
+
+58:36.000 --> 58:38.000
+der Durchschnitt ist 1.

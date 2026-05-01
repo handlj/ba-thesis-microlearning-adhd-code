@@ -1,0 +1,2203 @@
+WEBVTT
+
+40:11.000 --> 40:13.000
+Was dann geht, da eigentlich
+
+40:13.000 --> 40:15.000
+ist schon zu den eigentlich
+
+40:15.000 --> 40:17.000
+wichtigsten Themen von heute,
+
+40:17.000 --> 40:19.000
+zu den Funktionen über.
+
+40:19.000 --> 40:21.000
+Und wenn ihr euch jetzt
+
+40:21.000 --> 40:23.000
+vielleicht ein bisschen nachdenkt,
+
+40:23.000 --> 40:25.000
+wir haben hier schon ein paar Funktionen
+
+40:25.000 --> 40:27.000
+durchgemacht, zum Beispiel
+
+40:27.000 --> 40:29.000
+das LEN, wenn ihr euch
+
+40:29.000 --> 40:31.000
+daran erinnert.
+
+40:35.000 --> 40:37.000
+Was macht das LEN?
+
+40:39.000 --> 40:41.000
+Also da haben wir eine Liste
+
+40:41.000 --> 40:43.000
+rein zum Beispiel.
+
+40:43.000 --> 40:45.000
+Das LEN,
+
+40:45.000 --> 40:47.000
+wenn ihr euch zurückerinnert,
+
+40:47.000 --> 40:49.000
+das ist,
+
+40:49.000 --> 40:51.000
+das kommt
+
+40:51.000 --> 40:53.000
+vom englischen Wort
+
+40:53.000 --> 40:55.000
+LENGF.
+
+40:59.000 --> 41:01.000
+Das ist da,
+
+41:01.000 --> 41:03.000
+das ist praktisch Länge
+
+41:03.000 --> 41:05.000
+bedeutet.
+
+41:05.000 --> 41:07.000
+Wir wollen praktisch die Länge
+
+41:07.000 --> 41:09.000
+von unserer Liste haben,
+
+41:09.000 --> 41:11.000
+und die ist da 1, 2, 3.
+
+41:11.000 --> 41:13.000
+Das heißt, wir bekommen hier eine 3 raus.
+
+41:13.000 --> 41:15.000
+Und das hier
+
+41:15.000 --> 41:17.000
+ist so eine Funktion.
+
+41:21.000 --> 41:23.000
+Das heißt, wir bekommen hier
+
+41:23.000 --> 41:25.000
+diese Liste als Input
+
+41:25.000 --> 41:27.000
+und dann bekommen
+
+41:27.000 --> 41:29.000
+ein Output, das wäre dann unser 3.
+
+41:29.000 --> 41:31.000
+Praktisch.
+
+41:31.000 --> 41:33.000
+Schaut dann so aus.
+
+41:33.000 --> 41:35.000
+Wir haben dann praktisch dieses LEN Keyword,
+
+41:35.000 --> 41:37.000
+macht dann im Hintergrund
+
+41:37.000 --> 41:39.000
+irgendwas.
+
+41:39.000 --> 41:41.000
+Was praktisch
+
+41:41.000 --> 41:43.000
+dann zu diesem 3
+
+41:43.000 --> 41:45.000
+führt.
+
+41:45.000 --> 41:47.000
+Genau,
+
+41:47.000 --> 41:49.000
+und da haben wir dann diesen Output.
+
+41:49.000 --> 41:51.000
+Normalerweise, dieser Output wird mit diesem
+
+41:51.000 --> 41:53.000
+Return Keyword zurückgegeben.
+
+41:53.000 --> 41:55.000
+Nicht jede Funktion
+
+41:55.000 --> 41:57.000
+muss dieses Return haben.
+
+41:57.000 --> 41:59.000
+Dann haben wir eine Funktion
+
+41:59.000 --> 42:01.000
+ohne Rückgabewert.
+
+42:01.000 --> 42:03.000
+Kann zum Beispiel auch einfach nur
+
+42:03.000 --> 42:05.000
+einen Konsolen-Output machen, also mit
+
+42:05.000 --> 42:07.000
+Print.
+
+42:07.000 --> 42:09.000
+Das heißt, wir bekommen hier die
+
+42:09.000 --> 42:11.000
+Parameter in ein
+
+42:11.000 --> 42:13.000
+Pfeilspeichern
+
+42:13.000 --> 42:15.000
+oder in andere
+
+42:15.000 --> 42:17.000
+Variablespeichern.
+
+42:17.000 --> 42:19.000
+Zum Beispiel
+
+42:19.000 --> 42:21.000
+Print ist ja auch so ein Statement,
+
+42:21.000 --> 42:23.000
+als eine Funktion.
+
+42:23.000 --> 42:25.000
+Gehen wir das mal anhand von diesem
+
+42:25.000 --> 42:27.000
+Beispiel hier durch.
+
+42:27.000 --> 42:29.000
+Das heißt, wir haben hier Print,
+
+42:29.000 --> 42:31.000
+dieses Attest.
+
+42:31.000 --> 42:33.000
+Das heißt, wir haben hier 4 Parameter.
+
+42:33.000 --> 42:35.000
+Die Funktion ist Print.
+
+42:35.000 --> 42:37.000
+Das hier.
+
+42:37.000 --> 42:39.000
+Und ausgegeben
+
+42:39.000 --> 42:41.000
+wird praktisch dann in der Konsole
+
+42:41.000 --> 42:43.000
+dieses Attest.
+
+42:45.000 --> 42:47.000
+Ebenes gleich mit LEN zum Beispiel.
+
+42:49.000 --> 42:51.000
+Da haben wir auch hier in diesem Fall
+
+42:51.000 --> 42:53.000
+unser Argument,
+
+42:53.000 --> 42:55.000
+was in diesem Fall praktisch diese Liste ist.
+
+42:57.000 --> 42:59.000
+Und dann bekommen wir diesen Rückgabewert.
+
+42:59.000 --> 43:01.000
+Das ist ein bisschen return
+
+43:01.000 --> 43:03.000
+Value.
+
+43:03.000 --> 43:05.000
+In diesem Fall.
+
+43:11.000 --> 43:13.000
+Und wenn wir so eine Funktion selber definieren,
+
+43:13.000 --> 43:15.000
+dann schaut das ungefähr so aus.
+
+43:17.000 --> 43:19.000
+Also, was fällt
+
+43:19.000 --> 43:21.000
+da auf? Einerseits dieses Def.
+
+43:21.000 --> 43:23.000
+Das Def
+
+43:23.000 --> 43:25.000
+kommt von Define.
+
+43:25.000 --> 43:27.000
+Define Funktion.
+
+43:27.000 --> 43:29.000
+Also, das solltet ihr auf jeden Fall merken.
+
+43:29.000 --> 43:31.000
+Dann unseren Funktionsnamen.
+
+43:31.000 --> 43:33.000
+Wie ihr seht, haben wir da
+
+43:33.000 --> 43:35.000
+alles kleinpustamen.
+
+43:35.000 --> 43:37.000
+Und
+
+43:37.000 --> 43:39.000
+wenn es ein längerer Funktionsnamen
+
+43:39.000 --> 43:41.000
+ist und mehrere Wörter beinhaltet,
+
+43:41.000 --> 43:43.000
+dann könnt ihr das mit diesem
+
+43:43.000 --> 43:45.000
+Anderscore hier trennen.
+
+43:45.000 --> 43:47.000
+Das kann natürlich auch einfach Def Test heißen.
+
+43:47.000 --> 43:49.000
+Also, wie ihr wollt.
+
+43:49.000 --> 43:51.000
+Und dann haben wir diese,
+
+43:51.000 --> 43:53.000
+hier haben wir einen Parameter.
+
+43:53.000 --> 43:55.000
+Also, es ist eine Variable, die wir dann
+
+43:55.000 --> 43:57.000
+hier definieren.
+
+43:57.000 --> 43:59.000
+Und die können wir dann hier verwenden.
+
+43:59.000 --> 44:01.000
+Aber nur in
+
+44:01.000 --> 44:03.000
+praktisch in diesem Funktionsblock.
+
+44:03.000 --> 44:05.000
+Wie ihr seht, haben wir hier wieder eine Einrückung.
+
+44:05.000 --> 44:07.000
+Und dann können wir da mit
+
+44:07.000 --> 44:09.000
+unserem Format String
+
+44:09.000 --> 44:11.000
+diesen Parameter ausgeben.
+
+44:11.000 --> 44:13.000
+In diesem Fall würde
+
+44:13.000 --> 44:15.000
+das einfach
+
+44:15.000 --> 44:17.000
+U-Past 13 to this Funktion.
+
+44:17.000 --> 44:19.000
+Und wie ihr hier seht,
+
+44:19.000 --> 44:21.000
+wenn ihr euch zurückerinnert
+
+44:21.000 --> 44:23.000
+an die Feedbackerfrage,
+
+44:23.000 --> 44:25.000
+da haben wir gehabt, dass praktisch
+
+44:25.000 --> 44:27.000
+nichts ausgegeben wird.
+
+44:27.000 --> 44:29.000
+Und das liegt daran, dass wir das nicht gemacht haben.
+
+44:31.000 --> 44:33.000
+Wir haben praktisch diese Funktion aufgerufen
+
+44:33.000 --> 44:35.000
+in unserem Code.
+
+44:35.000 --> 44:37.000
+Wichtig, das ist dann nicht
+
+44:37.000 --> 44:39.000
+im Funktionsblock, sondern
+
+44:39.000 --> 44:41.000
+irgendwo anders.
+
+44:41.000 --> 44:43.000
+Also, das muss dann mindestens auf derselben
+
+44:43.000 --> 44:45.000
+Ebene sein, wie die Definition
+
+44:45.000 --> 44:47.000
+der Funktion.
+
+44:49.000 --> 44:51.000
+Kann aber auch dann
+
+44:51.000 --> 44:53.000
+trotzdem noch weiter drin sein.
+
+44:53.000 --> 44:55.000
+Wenn die jetzt zum Beispiel
+
+44:55.000 --> 44:57.000
+im Funktionsblock drin ist,
+
+44:57.000 --> 44:59.000
+dann nennt man das eine rekursive Funktion.
+
+44:59.000 --> 45:01.000
+Das heißt, die ruft sich immer selber auf.
+
+45:01.000 --> 45:03.000
+Das ist auch so eine Art Endloschleife.
+
+45:07.000 --> 45:09.000
+Genau.
+
+45:09.000 --> 45:11.000
+So eine Funktion ist praktisch
+
+45:11.000 --> 45:13.000
+einfach so eine Art benannter Codeblock.
+
+45:13.000 --> 45:15.000
+Also, sagen wir mal, ich hab 100 Zeigen Code.
+
+45:19.000 --> 45:21.000
+Und möchte den
+
+45:21.000 --> 45:23.000
+wiederverwenden können,
+
+45:23.000 --> 45:25.000
+wenn ich diesen Codeblock mit dieser Define
+
+45:25.000 --> 45:27.000
+Function
+
+45:27.000 --> 45:29.000
+und dann kann ich eben diese Function
+
+45:29.000 --> 45:31.000
+einfach immer wieder aufrufen
+
+45:31.000 --> 45:33.000
+und das wird mir in dieser 100 Zeigen
+
+45:33.000 --> 45:35.000
+Code einfach wieder aufrufen.
+
+45:35.000 --> 45:37.000
+Wichtige Funktionen,
+
+45:37.000 --> 45:39.000
+die wir ja schon kennengelernt haben,
+
+45:39.000 --> 45:41.000
+ist dieses LAN, das Print und das Input
+
+45:41.000 --> 45:43.000
+und definiert es eben mit diesem
+
+45:43.000 --> 45:45.000
+Def, Name der Funktion
+
+45:45.000 --> 45:47.000
+und dann eine Parameterliste.
+
+45:47.000 --> 45:49.000
+Das werden wir dann genau
+
+45:49.000 --> 45:51.000
+jetzt dann gleich genau durchmachen
+
+45:51.000 --> 45:53.000
+und wichtig ist eben, der Codeblock
+
+45:53.000 --> 45:55.000
+ist wie beim IF oder bei einer Vorschleife
+
+45:55.000 --> 45:57.000
+oder einer Weisschleife
+
+45:57.000 --> 45:59.000
+eingerückt, also wieder unsere vier Leerzeigen.
+
+46:01.000 --> 46:03.000
+Und dann ganz zum Schluss,
+
+46:03.000 --> 46:05.000
+falls wir jetzt
+
+46:05.000 --> 46:07.000
+in diesem Codeblock was generieren,
+
+46:07.000 --> 46:09.000
+dann können wir diesen Wert
+
+46:09.000 --> 46:11.000
+natürlich dann auch wieder
+
+46:11.000 --> 46:13.000
+an unseren äußeren Codeblock zurückgeben
+
+46:13.000 --> 46:15.000
+und das machen wir mit Return.
+
+46:15.000 --> 46:17.000
+Dazu aber auch gleich mehr.
+
+46:17.000 --> 46:19.000
+Also so einfache Funktionen,
+
+46:19.000 --> 46:21.000
+also Beispiele sind
+
+46:21.000 --> 46:23.000
+zum Beispiel hier,
+
+46:23.000 --> 46:25.000
+hier haben wir
+
+46:25.000 --> 46:27.000
+die erste Funktion, die ist die
+
+46:27.000 --> 46:29.000
+TestSimple,
+
+46:29.000 --> 46:31.000
+wie ihr seht, hat die kein Parameter definiert,
+
+46:31.000 --> 46:33.000
+das geht natürlich auch,
+
+46:33.000 --> 46:35.000
+also die muss kein Parameter haben
+
+46:37.000 --> 46:39.000
+und dann rufen wir die auf
+
+46:39.000 --> 46:41.000
+und das heißt,
+
+46:41.000 --> 46:43.000
+hier passiert ja nichts,
+
+46:43.000 --> 46:45.000
+hier passiert ja auch nichts,
+
+46:45.000 --> 46:47.000
+dann wird hier
+
+46:47.000 --> 46:49.000
+diese Funktion aufgerufen,
+
+46:49.000 --> 46:51.000
+das heißt, ihr bekommt hier dann
+
+46:51.000 --> 46:53.000
+dieses Print Statement
+
+46:53.000 --> 46:55.000
+mit High Everyone,
+
+46:55.000 --> 46:57.000
+das wird dann in die Konsole ausgegeben
+
+46:57.000 --> 46:59.000
+und dann kommt hier zum nächsten
+
+46:59.000 --> 47:01.000
+Funktionsaufruf,
+
+47:01.000 --> 47:03.000
+da springt dann hier wieder rein,
+
+47:05.000 --> 47:07.000
+hier übergeben wir einen Parameter,
+
+47:07.000 --> 47:09.000
+String Hello,
+
+47:09.000 --> 47:11.000
+da wird dann hier mit dieser Print Funktion
+
+47:11.000 --> 47:13.000
+in die Konsole aufgerufen
+
+47:13.000 --> 47:15.000
+und dann springen wir wieder zurück
+
+47:15.000 --> 47:17.000
+und gehen hier weiter.
+
+47:19.000 --> 47:21.000
+Wir werden das dann auch gleich
+
+47:21.000 --> 47:23.000
+haustesten, noch
+
+47:23.000 --> 47:25.000
+kurz zur Definition,
+
+47:29.000 --> 47:31.000
+es gibt nämlich
+
+47:31.000 --> 47:33.000
+zwei Art, es gibt Funktionen
+
+47:33.000 --> 47:35.000
+und es gibt Methoden,
+
+47:35.000 --> 47:37.000
+Methoden, zum Beispiel
+
+47:37.000 --> 47:39.000
+haben wir das hier,
+
+47:43.000 --> 47:45.000
+das hier,
+
+47:45.000 --> 47:47.000
+das hier,
+
+47:47.000 --> 47:49.000
+das hier, zum Beispiel auch das Strip,
+
+47:55.000 --> 47:57.000
+woran erkennt man eine Methode,
+
+48:01.000 --> 48:03.000
+da haben wir nämlich
+
+48:03.000 --> 48:05.000
+unsere Variable,
+
+48:07.000 --> 48:09.000
+Punkt
+
+48:09.000 --> 48:11.000
+und dann
+
+48:11.000 --> 48:13.000
+unsere Methode,
+
+48:17.000 --> 48:19.000
+und was Methoden so
+
+48:19.000 --> 48:21.000
+anders zu Funktionen macht,
+
+48:21.000 --> 48:23.000
+ist,
+
+48:23.000 --> 48:25.000
+die geht her und schaut sich an,
+
+48:25.000 --> 48:27.000
+was da drin ist
+
+48:27.000 --> 48:29.000
+und praktisch
+
+48:29.000 --> 48:31.000
+führt ihren
+
+48:31.000 --> 48:33.000
+Funktionscode anhand
+
+48:33.000 --> 48:35.000
+von dem Wert dieser Variable aus,
+
+48:35.000 --> 48:37.000
+also wenn da jetzt eben
+
+48:37.000 --> 48:39.000
+sagen wir mal,
+
+48:39.000 --> 48:41.000
+so was,
+
+48:43.000 --> 48:45.000
+dann kann man das eigentlich
+
+48:45.000 --> 48:47.000
+so interpretieren,
+
+48:53.000 --> 48:55.000
+das heißt,
+
+48:55.000 --> 48:57.000
+wenn man das jetzt in eine Funktion
+
+48:57.000 --> 48:59.000
+umschreiben würde,
+
+49:05.000 --> 49:07.000
+wäre das dann so
+
+49:07.000 --> 49:09.000
+und wir müssen das eben nicht machen,
+
+49:09.000 --> 49:11.000
+wir können das eben so machen.
+
+49:15.000 --> 49:17.000
+Und das ist eigentlich der Riesenunterschied
+
+49:17.000 --> 49:19.000
+zu den normalen Funktionen,
+
+49:19.000 --> 49:21.000
+wie ihr euch vielleicht
+
+49:21.000 --> 49:23.000
+erinnern könnt, Funktionen
+
+49:23.000 --> 49:25.000
+definieren wir
+
+49:25.000 --> 49:27.000
+mit dem Dev Keyword
+
+49:27.000 --> 49:29.000
+und Methoden sind meistens
+
+49:29.000 --> 49:31.000
+schon definiert,
+
+49:31.000 --> 49:33.000
+in diesen Kursen
+
+49:33.000 --> 49:35.000
+machen wir eigentlich nichts mehr Klassen durch,
+
+49:35.000 --> 49:37.000
+ja, will ich da auch nichts mehr dazu sagen,
+
+49:37.000 --> 49:39.000
+aber eigentlich wichtig ist einfach,
+
+49:39.000 --> 49:41.000
+das gehört dann zum Objekt.
+
+49:43.000 --> 49:45.000
+Also da hat, ja, das ist dann ein bisschen komplizierter,
+
+49:49.000 --> 49:51.000
+da könnt ihr euch dann das eigentlich
+
+49:51.000 --> 49:53.000
+cyber recherchieren, falls ihr das genau rissen wollt,
+
+49:53.000 --> 49:55.000
+aber eigentlich wichtig ist nur,
+
+49:55.000 --> 49:57.000
+dass praktisch normale Funktionen mit dem Dev Keyword
+
+49:57.000 --> 49:59.000
+definiert worden sind
+
+49:59.000 --> 50:01.000
+und Methoden, also
+
+50:01.000 --> 50:03.000
+nennen wir, wenn sie so was sind,
+
+50:03.000 --> 50:05.000
+also mit diesem Punkt.
+
+50:11.000 --> 50:13.000
+Dann kommen wir zu den
+
+50:13.000 --> 50:15.000
+Return Values.
+
+50:17.000 --> 50:19.000
+Ich müsste das jetzt so verstellen,
+
+50:19.000 --> 50:21.000
+ich habe jetzt eine Funktion
+
+50:21.000 --> 50:23.000
+und die berechnet mir jetzt was.
+
+50:25.000 --> 50:27.000
+Sag mal, die macht 1 plus 2
+
+50:27.000 --> 50:29.000
+und ich will diesen Wert aber
+
+50:29.000 --> 50:31.000
+zurück haben,
+
+50:31.000 --> 50:33.000
+dann muss ich das mit Return machen,
+
+50:33.000 --> 50:35.000
+praktisch
+
+50:35.000 --> 50:37.000
+ich
+
+50:37.000 --> 50:39.000
+returniere diesen Wert
+
+50:39.000 --> 50:41.000
+und dann gehen wir
+
+50:41.000 --> 50:43.000
+praktisch,
+
+50:43.000 --> 50:45.000
+kehren wir zurück zum Hauptprogramm,
+
+50:45.000 --> 50:47.000
+das heißt dort, wo der Funktion
+
+50:47.000 --> 50:49.000
+die Funktion aufgerufen wurde,
+
+50:49.000 --> 50:51.000
+also sagen wir zum Beispiel,
+
+50:51.000 --> 50:53.000
+wir haben ja x ist gleich 0,
+
+50:53.000 --> 50:55.000
+dann haben wir,
+
+50:55.000 --> 50:57.000
+rufen wir unsere Funktion auf
+
+50:57.000 --> 50:59.000
+mit
+
+50:59.000 --> 51:01.000
+x drin
+
+51:01.000 --> 51:03.000
+okay, das sollte man vielleicht
+
+51:03.000 --> 51:05.000
+y dazuschreiben.
+
+51:07.000 --> 51:09.000
+Dann macht die intern irgendwas
+
+51:09.000 --> 51:11.000
+Return diesen neuen Wert
+
+51:11.000 --> 51:13.000
+und dann speichern wir uns dann in dieser Variable y.
+
+51:19.000 --> 51:21.000
+Praktisch, die springt dann dort
+
+51:21.000 --> 51:23.000
+zu hin, wo
+
+51:23.000 --> 51:25.000
+diese Funktion definiert worden ist
+
+51:27.000 --> 51:29.000
+und
+
+51:33.000 --> 51:35.000
+dann springt sie eigentlich
+
+51:35.000 --> 51:37.000
+wieder hier zurück
+
+51:37.000 --> 51:39.000
+und dann
+
+51:39.000 --> 51:41.000
+wird das
+
+51:41.000 --> 51:43.000
+nächste hier ausgeführt.
+
+51:49.000 --> 51:51.000
+Das heißt, wir können da bis
+
+51:51.000 --> 51:53.000
+dem Kot herum springen
+
+51:53.000 --> 51:55.000
+aber wir kommen dann eigentlich immer wieder
+
+51:55.000 --> 51:57.000
+als das sobald das aufgerufen wird,
+
+51:57.000 --> 51:59.000
+wird das abgearbeitet
+
+51:59.000 --> 52:01.000
+und dann gehen wir eigentlich zum nächsten
+
+52:05.000 --> 52:07.000
+genau das können wir zum Beispiel
+
+52:07.000 --> 52:09.000
+sagen wir, wir haben hier dieses
+
+52:09.000 --> 52:11.000
+Beispiel hier
+
+52:11.000 --> 52:13.000
+diese Funktion format name
+
+52:13.000 --> 52:15.000
+die bekommt 2
+
+52:15.000 --> 52:17.000
+Parameter übergeben
+
+52:17.000 --> 52:19.000
+first and last
+
+52:19.000 --> 52:21.000
+dann kombiniert sie diese Parameter
+
+52:21.000 --> 52:23.000
+hier mit einem Format string
+
+52:23.000 --> 52:25.000
+in einen einzelnen string
+
+52:25.000 --> 52:27.000
+dann rufen wir auf diesen string
+
+52:27.000 --> 52:29.000
+also die umspeichern das hier in dieses
+
+52:29.000 --> 52:31.000
+fullname Variable
+
+52:31.000 --> 52:33.000
+und dann machen wir da noch fullname.title
+
+52:35.000 --> 52:37.000
+und dann returner
+
+52:39.000 --> 52:41.000
+diesen Wert, das heißt
+
+52:41.000 --> 52:43.000
+was wenn wir hier in namet drinstehen haben
+
+52:43.000 --> 52:45.000
+gehen wir mal das kurz durch
+
+52:47.000 --> 52:49.000
+praktisch Arnold Schwarzenegger sind unsere Parameter
+
+52:49.000 --> 52:51.000
+das heißt hier haben wir dann Arnold
+
+52:51.000 --> 52:53.000
+und Schwarzenegger drinstehen
+
+52:53.000 --> 52:55.000
+dann kombinieren wir das zu einem
+
+52:55.000 --> 52:57.000
+einzelnen string
+
+52:57.000 --> 52:59.000
+dann rufen wir
+
+52:59.000 --> 53:01.000
+Deidlauf
+
+53:01.000 --> 53:03.000
+das wandelt dann
+
+53:03.000 --> 53:05.000
+diesen string hier mit
+
+53:05.000 --> 53:07.000
+klein und großbruchstaben
+
+53:07.000 --> 53:09.000
+in einen
+
+53:09.000 --> 53:11.000
+schönen formatierten string
+
+53:11.000 --> 53:13.000
+den returnen wir dann
+
+53:15.000 --> 53:17.000
+und dann haben wir hier in name
+
+53:17.000 --> 53:19.000
+jetzt Arnold Schwarzenegger drinstehen
+
+53:25.000 --> 53:27.000
+da kann man natürlich auch
+
+53:27.000 --> 53:29.000
+nicht nur strings oder einzelne integers
+
+53:29.000 --> 53:31.000
+so was zurückgeben, da kann man auch
+
+53:31.000 --> 53:33.000
+komplizierte Sachen zurückgeben
+
+53:33.000 --> 53:35.000
+man kann listen, man kann
+
+53:35.000 --> 53:37.000
+sets, man kann dictionaries
+
+53:37.000 --> 53:39.000
+man kann alles mögliche zurückgeben
+
+53:39.000 --> 53:41.000
+man kann auch mehrere mit beistrich
+
+53:41.000 --> 53:43.000
+getrennt Variablen so zurückgeben
+
+53:43.000 --> 53:45.000
+was man das haben möchte
+
+53:45.000 --> 53:47.000
+das wird vom Beifen eigentlich
+
+53:47.000 --> 53:49.000
+intern immer als duppel behandelt
+
+53:53.000 --> 53:55.000
+das können wir auch kurz zeigen
+
+54:15.000 --> 54:17.000
+hier habe ich einfach 3
+
+54:17.000 --> 54:19.000
+das kann man sich vorstellen
+
+54:19.000 --> 54:21.000
+sind wie 3 einzelne
+
+54:21.000 --> 54:23.000
+Werte hier
+
+54:23.000 --> 54:25.000
+und wenn wir da jetzt
+
+54:25.000 --> 54:27.000
+cool aufrufen
+
+54:27.000 --> 54:29.000
+sonst
+
+54:29.000 --> 54:31.000
+seht ihr, bekommen wir das
+
+54:31.000 --> 54:33.000
+als duppel zurück
+
+54:33.000 --> 54:35.000
+wenn ich da zum Beispiel noch x definiere
+
+54:35.000 --> 54:37.000
+kann ich das auch noch zurückgeben
+
+54:37.000 --> 54:39.000
+und dann wird
+
+54:39.000 --> 54:41.000
+praktisch dieser Wert von x
+
+54:41.000 --> 54:43.000
+returniert
+
+54:43.000 --> 54:45.000
+kann da auch noch
+
+54:45.000 --> 54:47.000
+was komplizierter das machen
+
+54:51.000 --> 54:53.000
+da habe ich da
+
+54:53.000 --> 54:55.000
+x als dictionary
+
+54:55.000 --> 54:57.000
+das kann ich auch noch
+
+54:57.000 --> 54:59.000
+was komplizierter das machen
+
+55:01.000 --> 55:03.000
+da habe ich da
+
+55:03.000 --> 55:05.000
+x als dictionary definiert
+
+55:05.000 --> 55:07.000
+das kann ich auch zurückgeben
+
+55:07.000 --> 55:09.000
+wenn ich nur x haben will
+
+55:11.000 --> 55:13.000
+geht das auch
+
+55:13.000 --> 55:15.000
+da wird es aber nicht ein duppel umgewandelt
+
+55:15.000 --> 55:17.000
+weil wir ja keine beistrische haben
+
+55:17.000 --> 55:19.000
+und wir kommen wir praktisch nur
+
+55:19.000 --> 55:21.000
+den Wert von x zurück
+
+55:21.000 --> 55:23.000
+also return
+
+55:23.000 --> 55:25.000
+gibt es praktisch
+
+55:25.000 --> 55:27.000
+den Wert
+
+55:27.000 --> 55:29.000
+der definierten Variablen hier
+
+55:29.000 --> 55:31.000
+zurück
+
+55:31.000 --> 55:33.000
+ist da zu fragen
+
+55:37.000 --> 55:39.000
+dann kommen wir zu den Argumenten
+
+55:39.000 --> 55:41.000
+also dieses Parameter
+
+55:41.000 --> 55:43.000
+ich habe das jetzt mal hier
+
+55:43.000 --> 55:45.000
+in rot und blau markiert
+
+55:45.000 --> 55:47.000
+weil da gibt es 2 verschiedene
+
+55:47.000 --> 55:49.000
+Arten wie ihr das machen könnt
+
+55:51.000 --> 55:53.000
+da gibt es einmal
+
+55:53.000 --> 55:55.000
+die Positional Arguments
+
+55:55.000 --> 55:57.000
+die sind praktisch definiert
+
+55:57.000 --> 55:59.000
+durch die Position
+
+55:59.000 --> 56:01.000
+also hier
+
+56:01.000 --> 56:03.000
+first
+
+56:03.000 --> 56:05.000
+ist praktisch schon
+
+56:05.000 --> 56:07.000
+an der 1. Position
+
+56:07.000 --> 56:09.000
+das heißt wenn wir hier
+
+56:09.000 --> 56:11.000
+einen Wert an der 1. Position
+
+56:11.000 --> 56:13.000
+reinschreiben
+
+56:13.000 --> 56:15.000
+dann wird das automatisch
+
+56:15.000 --> 56:17.000
+in die 1. Position
+
+56:17.000 --> 56:19.000
+also in dem Parameter
+
+56:19.000 --> 56:21.000
+der an der 1. Position ist
+
+56:21.000 --> 56:23.000
+reingeschrieben
+
+56:23.000 --> 56:25.000
+wäre die z.B. an der 2. Position
+
+56:25.000 --> 56:27.000
+dann würde es in
+
+56:27.000 --> 56:29.000
+das zweite Argument reinschreiben
+
+56:29.000 --> 56:31.000
+wir können das Ganze
+
+56:31.000 --> 56:33.000
+aber auch mit Keywords machen
+
+56:33.000 --> 56:35.000
+das heißt wir haben ja hier
+
+56:35.000 --> 56:37.000
+diesen Funktionsparameter
+
+56:37.000 --> 56:39.000
+praktisch definiert
+
+56:39.000 --> 56:41.000
+der heißt der Last
+
+56:41.000 --> 56:43.000
+den gibt es sonst nichts
+
+56:43.000 --> 56:45.000
+also der ist hier wirklich
+
+56:45.000 --> 56:47.000
+das 1. Mal definiert
+
+56:47.000 --> 56:49.000
+das ist hier keine Variable
+
+56:49.000 --> 56:51.000
+das ist hier praktisch
+
+56:51.000 --> 56:53.000
+in dieser Funktion definiert worden
+
+56:53.000 --> 56:55.000
+und wenn wir dann
+
+56:55.000 --> 56:57.000
+eine Funktion aufrufen
+
+56:57.000 --> 56:59.000
+dann können wir da praktisch
+
+56:59.000 --> 57:01.000
+mit diesem Keyword
+
+57:01.000 --> 57:03.000
+genau den Wert
+
+57:03.000 --> 57:05.000
+für diesen Parameter
+
+57:05.000 --> 57:07.000
+praktisch definieren
+
+57:11.000 --> 57:13.000
+da gibt es dann noch
+
+57:13.000 --> 57:15.000
+eine dritte Sache
+
+57:15.000 --> 57:17.000
+und das wäre praktisch
+
+57:17.000 --> 57:19.000
+dieser Default-Parameter
+
+57:19.000 --> 57:21.000
+sagen wir zum Beispiel
+
+57:21.000 --> 57:23.000
+wir haben eine Funktion
+
+57:23.000 --> 57:25.000
+kann ich hier das Beispiel herzeigen
+
+57:27.000 --> 57:29.000
+sagen wir hier haben wir eine Funktion
+
+57:29.000 --> 57:31.000
+die uns den Namen
+
+57:31.000 --> 57:33.000
+ausschreiben will
+
+57:33.000 --> 57:35.000
+aber
+
+57:35.000 --> 57:37.000
+wir überlassen
+
+57:37.000 --> 57:39.000
+praktisch
+
+57:39.000 --> 57:41.000
+wir haben nicht immer
+
+57:41.000 --> 57:43.000
+das Land zur Verfügung
+
+57:43.000 --> 57:45.000
+und dann können wir einfach sagen
+
+57:45.000 --> 57:47.000
+wenn wir das Land nicht zur Verfügung haben
+
+57:49.000 --> 57:51.000
+dann soll einfach
+
+57:51.000 --> 57:53.000
+das Default praktisch als
+
+57:53.000 --> 57:55.000
+normaler Wert
+
+57:55.000 --> 57:57.000
+ausspär verwendet werden
+
+57:59.000 --> 58:01.000
+das heißt wenn wir hier diese Funktion aufrufen
+
+58:01.000 --> 58:03.000
+aber Country nicht angeben
+
+58:03.000 --> 58:05.000
+dann geht
+
+58:05.000 --> 58:07.000
+die Funktion davon aus
+
+58:07.000 --> 58:09.000
+du willst einfach diesen Standard-Wert
+
+58:09.000 --> 58:11.000
+hier drin haben
+
+58:13.000 --> 58:15.000
+ich kann natürlich
+
+58:15.000 --> 58:17.000
+warte
+
+58:17.000 --> 58:19.000
+kann mich hier nicht mehr zurück
+
+58:21.000 --> 58:23.000
+cool
+
+58:25.000 --> 58:27.000
+ja dann machen wir einfach das her
+
+58:29.000 --> 58:31.000
+geben wir ein paar Beispiele durch
+
+58:33.000 --> 58:35.000
+sagen wir wir haben jetzt wieder
+
+58:35.000 --> 58:37.000
+diese gleiche Funktion hier definiert
+
+58:37.000 --> 58:39.000
+dann was kann ich machen
+
+58:39.000 --> 58:41.000
+ich kann machen
+
+58:41.000 --> 58:43.000
+nur positional Argument
+
+58:43.000 --> 58:45.000
+das heißt praktisch
+
+58:45.000 --> 58:47.000
+max wird hier in first
+
+58:47.000 --> 58:49.000
+reingeschrieben
+
+58:49.000 --> 58:51.000
+Muster wird in die zweite reingeschrieben
+
+58:51.000 --> 58:53.000
+wir haben kein drittes positional Argument
+
+58:53.000 --> 58:55.000
+deshalb wird da hier
+
+58:55.000 --> 58:57.000
+Standard-Wert verwendet
+
+58:57.000 --> 58:59.000
+wir können natürlich diesen Standard-Wert
+
+58:59.000 --> 59:01.000
+überschreiben
+
+59:01.000 --> 59:03.000
+dann machen wir einfach hier ein drittes positional Argument
+
+59:03.000 --> 59:05.000
+dann steht hier nicht mehr in Country
+
+59:05.000 --> 59:07.000
+als Standard-Wert
+
+59:07.000 --> 59:09.000
+aus hier drin sondern wird überschrieben mit Germany
+
+59:11.000 --> 59:13.000
+das gilt aber nur für diesen Funktionsaufruf
+
+59:13.000 --> 59:15.000
+also der wird dann nicht
+
+59:15.000 --> 59:17.000
+für immer überschrieben
+
+59:17.000 --> 59:19.000
+für diesen Funktionsaufruf
+
+59:21.000 --> 59:23.000
+dann können wir das gleiche natürlich auch mit keyword machen
+
+59:23.000 --> 59:25.000
+also da können wir dann keyword
+
+59:25.000 --> 59:27.000
+keyword angeben
+
+59:27.000 --> 59:29.000
+das Interessante bei keyword ist, die sind jetzt nicht positional
+
+59:29.000 --> 59:31.000
+also die können wir irgendwie umdauschen
+
+59:31.000 --> 59:33.000
+sagen wir, wir wollen
+
+59:33.000 --> 59:35.000
+zuerst das Country definieren
+
+59:35.000 --> 59:37.000
+dann ist das vollkommen möglich
+
+59:37.000 --> 59:39.000
+das Wichtigste ist nur
+
+59:39.000 --> 59:41.000
+positional Arguments
+
+59:41.000 --> 59:43.000
+sind immer vor den keyword Arguments zu verwenden
+
+59:43.000 --> 59:45.000
+also wenn ihr hier
+
+59:45.000 --> 59:47.000
+zuerst ein keyword Argument verwendet
+
+59:47.000 --> 59:49.000
+und dann ein positional Argument
+
+59:49.000 --> 59:51.000
+dann wird euch bei von einer Fehler werfen
+
+59:51.000 --> 59:53.000
+das kann man jetzt auch kurz zeigen
+
+59:53.000 --> 59:55.000
+eben
+
+59:55.000 --> 59:57.000
+gibt es mehrere Fehler
+
+59:57.000 --> 59:59.000
+die da auftreten können
+
+59:59.000 --> 01:00:01.000
+zum einen eben
+
+01:00:01.000 --> 01:00:03.000
+diese Argumentreihenfolge
+
+01:00:03.000 --> 01:00:05.000
+die eben falsch sein kann
+
+01:00:05.000 --> 01:00:07.000
+das heißt zum Beispiel, dass wir positional
+
+01:00:07.000 --> 01:00:09.000
+keyword
+
+01:00:09.000 --> 01:00:11.000
+positional Arguments nach keyword
+
+01:00:11.000 --> 01:00:13.000
+keyword Arguments haben
+
+01:00:13.000 --> 01:00:15.000
+können dann auch einfacher
+
+01:00:15.000 --> 01:00:17.000
+Tippfehler sein
+
+01:00:17.000 --> 01:00:19.000
+bei der keyword
+
+01:00:19.000 --> 01:00:21.000
+Zuweisung, das heißt
+
+01:00:21.000 --> 01:00:23.000
+wenn
+
+01:00:23.000 --> 01:00:25.000
+last
+
+01:00:25.000 --> 01:00:27.000
+hier zum Beispiel, wenn wir hier das a vergessen
+
+01:00:27.000 --> 01:00:29.000
+dann wird peifen
+
+01:00:29.000 --> 01:00:31.000
+uns auch einen Fehler werfen, weil
+
+01:00:31.000 --> 01:00:33.000
+lsd
+
+01:00:33.000 --> 01:00:35.000
+praktisch nicht definiert ist
+
+01:00:35.000 --> 01:00:37.000
+sondern nur last
+
+01:00:39.000 --> 01:00:41.000
+dann natürlich, wenn man zu viele Argumente
+
+01:00:41.000 --> 01:00:43.000
+rein schreibt
+
+01:00:45.000 --> 01:00:47.000
+positional Argument nach keyword Argument
+
+01:00:47.000 --> 01:00:49.000
+nochmal, ja
+
+01:00:49.000 --> 01:00:51.000
+es kann natürlich auch sein
+
+01:00:51.000 --> 01:00:53.000
+dass wir dann in der Funktion
+
+01:00:55.000 --> 01:00:57.000
+zum Beispiel
+
+01:00:57.000 --> 01:00:59.000
+sagen wir, wir haben ja eine Funktion
+
+01:00:59.000 --> 01:01:01.000
+die uns was addieren will
+
+01:01:01.000 --> 01:01:03.000
+und wir gehen davon aus
+
+01:01:03.000 --> 01:01:05.000
+dass wir hier integer bekommen
+
+01:01:05.000 --> 01:01:07.000
+aber wir schreiben hier dann
+
+01:01:07.000 --> 01:01:09.000
+max und muster rein
+
+01:01:09.000 --> 01:01:11.000
+diese Funktion
+
+01:01:11.000 --> 01:01:13.000
+dann
+
+01:01:13.000 --> 01:01:15.000
+5 plus first
+
+01:01:15.000 --> 01:01:17.000
+zu machen
+
+01:01:17.000 --> 01:01:19.000
+das wird dann natürlich nicht funktionieren
+
+01:01:19.000 --> 01:01:21.000
+da gibt es nämlich keinen check
+
+01:01:21.000 --> 01:01:23.000
+dafür, dass da praktisch
+
+01:01:23.000 --> 01:01:25.000
+das direkt ein integer ist
+
+01:01:25.000 --> 01:01:27.000
+es gibt da schon typing, aber
+
+01:01:27.000 --> 01:01:29.000
+wie gesagt, das ist dann
+
+01:01:29.000 --> 01:01:31.000
+eigentlich schon wieder advanced
+
+01:01:35.000 --> 01:01:37.000
+genau gehen wir da ein paar Beispiele durch
+
+01:01:37.000 --> 01:01:39.000
+sagen wir, wir haben wieder
+
+01:01:39.000 --> 01:01:41.000
+unsere Funktion hier
+
+01:01:43.000 --> 01:01:45.000
+hier zum Beispiel
+
+01:01:45.000 --> 01:01:47.000
+haben wir
+
+01:01:47.000 --> 01:01:49.000
+ein Argument vergessen
+
+01:01:49.000 --> 01:01:51.000
+hier haben wir praktisch nur
+
+01:01:51.000 --> 01:01:53.000
+ein positional Argument
+
+01:01:53.000 --> 01:01:55.000
+max, das heißt
+
+01:01:55.000 --> 01:01:57.000
+first wird richtig überschrieben
+
+01:01:57.000 --> 01:01:59.000
+aber mustermann fehlt
+
+01:01:59.000 --> 01:02:01.000
+oder
+
+01:02:01.000 --> 01:02:03.000
+muster
+
+01:02:03.000 --> 01:02:05.000
+das heißt
+
+01:02:05.000 --> 01:02:07.000
+er wird uns einen Fehler werfen
+
+01:02:07.000 --> 01:02:09.000
+und sagt, da fehlt ein Parameter
+
+01:02:09.000 --> 01:02:11.000
+den haben wir da nicht angegeben
+
+01:02:11.000 --> 01:02:13.000
+so haben wir das zum Beispiel ausprobiert
+
+01:02:17.000 --> 01:02:19.000
+sagen wir zum Beispiel
+
+01:02:19.000 --> 01:02:21.000
+ich habe hier
+
+01:02:21.000 --> 01:02:23.000
+erste
+
+01:02:23.000 --> 01:02:25.000
+Parameter
+
+01:02:27.000 --> 01:02:29.000
+jetzt haben wir hier
+
+01:02:29.000 --> 01:02:31.000
+einen Parameter definiert
+
+01:02:31.000 --> 01:02:33.000
+aber rufen hier cool ohne Parameter
+
+01:02:33.000 --> 01:02:35.000
+dann kommen wir hier diesen type error
+
+01:02:37.000 --> 01:02:39.000
+natürlich
+
+01:02:39.000 --> 01:02:41.000
+wenn wir den hier als default
+
+01:02:41.000 --> 01:02:43.000
+also mit einem
+
+01:02:43.000 --> 01:02:45.000
+Standardwert definieren
+
+01:02:45.000 --> 01:02:47.000
+ist das kein Problem
+
+01:02:49.000 --> 01:02:51.000
+wie ihr seht verwend ich denn gar nicht
+
+01:02:51.000 --> 01:02:53.000
+den Parameter, das ist nämlich auch vollkommen
+
+01:02:53.000 --> 01:02:55.000
+egal, also
+
+01:02:55.000 --> 01:02:57.000
+ich kann hier Parameter in der Funktion definieren
+
+01:02:57.000 --> 01:02:59.000
+die ich aber nie wirklich verwende
+
+01:02:59.000 --> 01:03:01.000
+da gibt es keinen Fehler
+
+01:03:03.000 --> 01:03:05.000
+genau
+
+01:03:05.000 --> 01:03:07.000
+dann gibt es natürlich auch so logische Fehler
+
+01:03:07.000 --> 01:03:09.000
+zum Beispiel
+
+01:03:09.000 --> 01:03:11.000
+wenn ich die positional Arguments
+
+01:03:11.000 --> 01:03:13.000
+vertausche
+
+01:03:13.000 --> 01:03:15.000
+zum Beispiel hier
+
+01:03:15.000 --> 01:03:17.000
+habe ich
+
+01:03:17.000 --> 01:03:19.000
+das Country davor
+
+01:03:19.000 --> 01:03:21.000
+definiert
+
+01:03:21.000 --> 01:03:23.000
+dass hier ist ein logischer Fehler
+
+01:03:23.000 --> 01:03:25.000
+das passiert im Beifen hinter nix
+
+01:03:25.000 --> 01:03:27.000
+weil der weiß ja nicht
+
+01:03:27.000 --> 01:03:29.000
+dass du am Anfang den first name willst
+
+01:03:29.000 --> 01:03:31.000
+und dann den last name
+
+01:03:31.000 --> 01:03:33.000
+sondern
+
+01:03:33.000 --> 01:03:35.000
+der weiß nur braucht drei Parameter
+
+01:03:35.000 --> 01:03:37.000
+oder praktisch zwei
+
+01:03:37.000 --> 01:03:39.000
+und einen default Parameter
+
+01:03:39.000 --> 01:03:41.000
+der nicht unbedingt angegeben werden muss
+
+01:03:45.000 --> 01:03:47.000
+dann
+
+01:03:47.000 --> 01:03:49.000
+gibt es natürlich das auch
+
+01:03:49.000 --> 01:03:51.000
+dass wenn das keyword falsch geschrieben ist
+
+01:03:51.000 --> 01:03:53.000
+da wird auch ein Fehler geworfen
+
+01:03:53.000 --> 01:03:55.000
+weil fs hier ist nirgends definiert
+
+01:03:55.000 --> 01:03:57.000
+also hier haben wir kein fs
+
+01:03:57.000 --> 01:03:59.000
+hier haben wir kein fs
+
+01:03:59.000 --> 01:04:01.000
+was mit fs machen
+
+01:04:01.000 --> 01:04:03.000
+aber das gibt es nicht
+
+01:04:03.000 --> 01:04:05.000
+deshalb bekommen wir da auch ein Fehler
+
+01:04:07.000 --> 01:04:09.000
+und
+
+01:04:09.000 --> 01:04:11.000
+zu guter Letzt nochmal
+
+01:04:11.000 --> 01:04:13.000
+praktisch positional Arguments
+
+01:04:13.000 --> 01:04:15.000
+müssen immer vor den keyword Arguments sein
+
+01:04:15.000 --> 01:04:17.000
+gibt es da zu fragen
+
+01:04:21.000 --> 01:04:23.000
+ok
+
+01:04:23.000 --> 01:04:25.000
+dann gehen wir das mal an einem tollen Beispiel durch
+
+01:04:29.000 --> 01:04:31.000
+davor wir haben hier drei Funktionen definiert
+
+01:04:33.000 --> 01:04:35.000
+und dann hier wird runProgram
+
+01:04:35.000 --> 01:04:37.000
+aufgerufen
+
+01:04:37.000 --> 01:04:39.000
+was passiert
+
+01:04:43.000 --> 01:04:45.000
+zuerst wird mal hier
+
+01:04:45.000 --> 01:04:47.000
+zu dieser Stelle
+
+01:04:47.000 --> 01:04:49.000
+im code gesprungen
+
+01:04:51.000 --> 01:04:53.000
+da haben wir dann
+
+01:04:53.000 --> 01:04:55.000
+eine Variable definiert
+
+01:04:55.000 --> 01:04:57.000
+die praktischen Liste ist
+
+01:04:57.000 --> 01:04:59.000
+und die übergeben wir dann
+
+01:04:59.000 --> 01:05:01.000
+einer zweiten Funktion
+
+01:05:01.000 --> 01:05:03.000
+die wir hier definiert haben
+
+01:05:03.000 --> 01:05:05.000
+das heißt
+
+01:05:05.000 --> 01:05:07.000
+hier haben wir dieses Elements
+
+01:05:07.000 --> 01:05:09.000
+das sind so neue Parameter
+
+01:05:09.000 --> 01:05:11.000
+und hier übergeben wir
+
+01:05:11.000 --> 01:05:13.000
+diese Variable
+
+01:05:17.000 --> 01:05:19.000
+das heißt Elements
+
+01:05:19.000 --> 01:05:21.000
+ist praktisch das gleiche wie
+
+01:05:21.000 --> 01:05:23.000
+Standard Elements
+
+01:05:23.000 --> 01:05:25.000
+also da haben wir praktisch die gleichen Werte drin stehen
+
+01:05:27.000 --> 01:05:29.000
+und dann wird hier das Print aufgerufen
+
+01:05:31.000 --> 01:05:33.000
+und dann geben wir hier
+
+01:05:33.000 --> 01:05:35.000
+ein zweiter Print
+
+01:05:35.000 --> 01:05:37.000
+da haben wir noch eine zweite Funktion
+
+01:05:37.000 --> 01:05:39.000
+die aufgerufen wird
+
+01:05:39.000 --> 01:05:41.000
+das heißt wir müssen zuerst
+
+01:05:41.000 --> 01:05:43.000
+in diese Funktion reingehen
+
+01:05:45.000 --> 01:05:47.000
+und da haben wir
+
+01:05:47.000 --> 01:05:49.000
+dieses Elements wieder
+
+01:05:49.000 --> 01:05:51.000
+das ist dann wieder das gleiche Elements wie hier
+
+01:05:51.000 --> 01:05:53.000
+das ist aber ein anderes Elements wie das hier
+
+01:05:53.000 --> 01:05:55.000
+sehr kompliziert
+
+01:05:55.000 --> 01:05:57.000
+und dann
+
+01:05:57.000 --> 01:05:59.000
+der macht uns ein FormatString
+
+01:05:59.000 --> 01:06:01.000
+ListLength ist
+
+01:06:01.000 --> 01:06:03.000
+und dann bekommen wir die Liste
+
+01:06:03.000 --> 01:06:05.000
+von dieser Elements
+
+01:06:05.000 --> 01:06:07.000
+Argument
+
+01:06:07.000 --> 01:06:09.000
+da wichtig haben wir dieses Return
+
+01:06:09.000 --> 01:06:11.000
+das heißt
+
+01:06:11.000 --> 01:06:13.000
+wir gehen hier
+
+01:06:13.000 --> 01:06:15.000
+wir schreiben dann
+
+01:06:15.000 --> 01:06:17.000
+diesen ReturnValue
+
+01:06:17.000 --> 01:06:19.000
+hier rein
+
+01:06:19.000 --> 01:06:21.000
+und da bekommen wir dann praktisch
+
+01:06:21.000 --> 01:06:23.000
+das Aus
+
+01:06:23.000 --> 01:06:25.000
+praktisch das erste Print hier
+
+01:06:25.000 --> 01:06:27.000
+List of Elements
+
+01:06:27.000 --> 01:06:29.000
+das hier
+
+01:06:29.000 --> 01:06:31.000
+und dann das zweite Print
+
+01:06:31.000 --> 01:06:33.000
+das hier
+
+01:06:35.000 --> 01:06:37.000
+schaut sehr kompliziert aus
+
+01:06:41.000 --> 01:06:43.000
+kann am Anfang
+
+01:06:43.000 --> 01:06:45.000
+vielleicht ein bisschen verwirrend sein
+
+01:06:45.000 --> 01:06:47.000
+aber da kommen eigentlich die schnell rein
+
+01:06:47.000 --> 01:06:49.000
+was ist zum Beispiel
+
+01:06:49.000 --> 01:06:51.000
+da will ich euch ein Beispiel zeigen
+
+01:06:53.000 --> 01:06:55.000
+da
+
+01:06:55.000 --> 01:06:57.000
+da
+
+01:06:57.000 --> 01:06:59.000
+da
+
+01:06:59.000 --> 01:07:01.000
+da
+
+01:07:01.000 --> 01:07:03.000
+da
+
+01:07:03.000 --> 01:07:05.000
+was wenn wir sowas haben
+
+01:07:07.000 --> 01:07:09.000
+ich definiere mir 2 Funktionen
+
+01:07:09.000 --> 01:07:11.000
+diese Funktion ruft
+
+01:07:11.000 --> 01:07:13.000
+die zweite auf
+
+01:07:13.000 --> 01:07:15.000
+und die zweite ruft die erste auf
+
+01:07:15.000 --> 01:07:17.000
+das heißt wir haben ja hier
+
+01:07:17.000 --> 01:07:19.000
+eigentlich so eine Abschleife
+
+01:07:23.000 --> 01:07:25.000
+und dann rufen wir sie auf
+
+01:07:29.000 --> 01:07:31.000
+und dann wird das
+
+01:07:31.000 --> 01:07:33.000
+hier aufgerufen, aufgerufen, aufgerufen
+
+01:07:33.000 --> 01:07:35.000
+aufgerufen, aufgerufen
+
+01:07:35.000 --> 01:07:37.000
+bis sie irgendwann sagt
+
+01:07:37.000 --> 01:07:39.000
+bei sie sagen ah, irgendwas stimmt da nicht
+
+01:07:39.000 --> 01:07:41.000
+also es ist nicht so wie eine Endlöschleife
+
+01:07:41.000 --> 01:07:43.000
+sondern hier erreichen wir dann
+
+01:07:43.000 --> 01:07:45.000
+ich habe es kurz davor erwähnt
+
+01:07:45.000 --> 01:07:47.000
+praktisch es gibt auch Funktionen
+
+01:07:47.000 --> 01:07:49.000
+die sich selber aufrufen können
+
+01:07:49.000 --> 01:07:51.000
+das ist eigentlich sehr ähnlich dazu
+
+01:07:51.000 --> 01:07:53.000
+irgendwann erreichen wir
+
+01:07:53.000 --> 01:07:55.000
+dieses Rekursionslimit
+
+01:07:55.000 --> 01:07:57.000
+das heißt
+
+01:07:59.000 --> 01:08:01.000
+nach dem hunderttausendmal
+
+01:08:01.000 --> 01:08:03.000
+sagt bei sie nahe zu Schluss
+
+01:08:05.000 --> 01:08:07.000
+hier stimmt irgendwas nicht
+
+01:08:09.000 --> 01:08:11.000
+also wenn ich das auch nochmal
+
+01:08:11.000 --> 01:08:13.000
+kurz so zeige
+
+01:08:15.000 --> 01:08:17.000
+ich muss mich zuerst definieren
+
+01:08:21.000 --> 01:08:23.000
+dann kann ich da drin nämlich
+
+01:08:23.000 --> 01:08:25.000
+die Funktion
+
+01:08:25.000 --> 01:08:27.000
+nochmal aufrufen
+
+01:08:35.000 --> 01:08:37.000
+die läuft und läuft und läuft
+
+01:08:39.000 --> 01:08:41.000
+und dann irgendwann kommt zu diesen
+
+01:08:41.000 --> 01:08:43.000
+Rekursionsfehler
+
+01:08:45.000 --> 01:08:47.000
+für was ist so
+
+01:08:47.000 --> 01:08:49.000
+eine rekursive Funktion eigentlich
+
+01:08:49.000 --> 01:08:51.000
+notwendig
+
+01:08:51.000 --> 01:08:53.000
+schauen wir mal da zum Beispiel so was machen
+
+01:09:19.000 --> 01:09:21.000
+hier müssen wir noch
+
+01:09:31.000 --> 01:09:33.000
+praktisch wie eine Schleife
+
+01:09:35.000 --> 01:09:37.000
+die ruft sich immer wieder selber auf
+
+01:09:37.000 --> 01:09:39.000
+also eigentlich ziemlich
+
+01:09:39.000 --> 01:09:41.000
+dasselbe wie eine Weilschleife ist
+
+01:09:41.000 --> 01:09:47.000
+nur dass wir die
+
+01:09:47.000 --> 01:09:49.000
+Funktion selber aufrufen
+
+01:09:49.000 --> 01:09:51.000
+was passiert
+
+01:09:51.000 --> 01:09:53.000
+wir gehen hier rein
+
+01:09:53.000 --> 01:09:55.000
+in diese Schleife
+
+01:09:55.000 --> 01:09:57.000
+arbeiten hier durch
+
+01:09:59.000 --> 01:10:01.000
+0 plus 1 ist 1
+
+01:10:01.000 --> 01:10:03.000
+1 ist kleiner als 5
+
+01:10:03.000 --> 01:10:05.000
+das ist wahr, deshalb rufen wir hier nochmal
+
+01:10:05.000 --> 01:10:07.000
+A auf
+
+01:10:07.000 --> 01:10:09.000
+das ganze geht nochmal rein
+
+01:10:09.000 --> 01:10:11.000
+aber diesmal haben wir hier 1 drin stehen
+
+01:10:11.000 --> 01:10:13.000
+1 plus 1 ist
+
+01:10:13.000 --> 01:10:15.000
+2
+
+01:10:15.000 --> 01:10:17.000
+dann geht es weiter
+
+01:10:17.000 --> 01:10:19.000
+bis hier 5 drin stehen haben
+
+01:10:19.000 --> 01:10:21.000
+dann ist dieses if nicht mehr erfüllt
+
+01:10:21.000 --> 01:10:23.000
+und dann
+
+01:10:23.000 --> 01:10:25.000
+passiert nichts mehr
+
+01:10:25.000 --> 01:10:27.000
+dann gehen wir wieder hier zurück

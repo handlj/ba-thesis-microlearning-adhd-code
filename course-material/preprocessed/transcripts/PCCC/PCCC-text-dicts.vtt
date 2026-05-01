@@ -1,0 +1,265 @@
+WEBVTT
+
+01:04:18.840 --> 01:04:24.840
+Genau, dann kommen wir noch zu den Dictionaries.
+
+01:04:25.840 --> 01:04:26.840
+Zu den Dictionaries.
+
+01:04:29.840 --> 01:04:32.840
+Und ihr könnt es so vorstellen wie ein Wörterbuch.
+
+01:04:33.840 --> 01:04:36.840
+Also Dictionaries, das heißt ja auch schon, übersetzt Wörterbuch.
+
+01:04:39.840 --> 01:04:45.840
+Und das ist so, wenn ihr jetzt euch ein Wörterbuch vorstellt, das besteht hier praktisch aus einer Liste von Wörtern.
+
+01:04:46.840 --> 01:04:48.840
+Und dann zum jeden Wort ist eine Beschreibung dazu.
+
+01:04:49.840 --> 01:04:53.840
+Das heißt, ihr habt praktisch einen Schlüssel, das wäre in diesem Fall eure Wort.
+
+01:04:54.840 --> 01:04:58.840
+Und ein Value, das wäre dann praktisch der Wert, der zu dem Wort gehört, die Beschreibung.
+
+01:05:02.840 --> 01:05:07.840
+Und das ist praktisch dann einfach so eine Sammlung von Schlüsselwertbahnen.
+
+01:05:08.840 --> 01:05:11.840
+Und das ist eigentlich ein sehr, sehr wichtiges Konzept im Beifen.
+
+01:05:12.840 --> 01:05:14.840
+Also das werdet ihr immer wieder verwenden, jetzt auch bei den Assignments.
+
+01:05:15.840 --> 01:05:25.840
+Und die Kies, das ist ganz interessant bei Beifen, kann wirklich also ziemlich alles sein, es gibt ja schon ein paar Einschränkungen.
+
+01:05:26.840 --> 01:05:31.840
+Aber zumindest von den Datentypen, die ihr bis jetzt gelernt habt, das könnt ihr, glaube ich, alles verwenden.
+
+01:05:32.840 --> 01:05:39.840
+Das heißt, euer Schlüssel muss nicht ein Wort sein, das kann auch wirklich eine Zahl sein, es kann auch ein Boolean sein.
+
+01:05:40.840 --> 01:05:45.840
+Also es ist sehr vielfältig.
+
+01:05:46.840 --> 01:05:53.840
+Sehr wichtig im Dictionary ist aber, dass ihr praktisch immer nur zu jedem Schlüssel, also der Schlüssel kann nur einmal vorkommen.
+
+01:05:54.840 --> 01:05:57.840
+Also ihr könnt nicht zweimal null, den Schlüssel null drin haben.
+
+01:05:58.840 --> 01:05:59.840
+Der wird dann einfach sonst überschrieben.
+
+01:06:00.840 --> 01:06:08.840
+Und wenn ihr da dann auch auf dem Schlüssel zugreift und der nicht existiert, dann bekommt ihr diesen Key.
+
+01:06:09.840 --> 01:06:20.840
+Bevor ich das dann euch kurz in Code zeig, will ich dann noch kurz zwei wahre Beispiele, damit ich das besser vorstellen kann.
+
+01:06:21.840 --> 01:06:23.840
+Zum einen eben, wie gesagt, dieses Wörterbuch.
+
+01:06:24.840 --> 01:06:27.840
+Wie ihr seht, haben wir hier immer im Fett dieses Wortes, das wäre unser Schlüssel, nicht?
+
+01:06:27.840 --> 01:06:34.840
+Und dann haben wir die Informationen zu diesem Schlüssel, das wäre unser Value, unser Wert.
+
+01:06:35.840 --> 01:06:40.840
+Ein anderes gutes Beispiel wäre ein Spind.
+
+01:06:41.840 --> 01:06:47.840
+Praktisch ein Spind, der hat hier euren Key nicht.
+
+01:06:48.840 --> 01:06:53.840
+Praktisch er hat eine Spindnummer und einem Spind könnt ihr reinholen, was ihr wollt.
+
+01:06:53.840 --> 01:06:58.840
+Natürlich bei Beifern ist es so, dass diese Spindnummer irgendwas sein kann.
+
+01:06:59.840 --> 01:07:06.840
+Das muss nicht eine Zahl sein, das kann auch ein String sein, was das natürlich noch viel komplexer macht.
+
+01:07:07.840 --> 01:07:09.840
+Aber auch cool.
+
+01:07:11.840 --> 01:07:15.840
+Genau, und wie definiert man so ein Dictionary?
+
+01:07:15.840 --> 01:07:20.840
+Es ist jetzt bisschen verwirrend, weil wir es gerade setz durchgemacht haben.
+
+01:07:21.840 --> 01:07:25.840
+Und zwar ist so, die Dictionaries werden auch mit geschwungener Klammer gemacht.
+
+01:07:26.840 --> 01:07:31.840
+Der große Unterschied sind diese Doppelpunkte hier.
+
+01:07:32.840 --> 01:07:39.840
+Das heißt, wenn ihr geschwungene Klammer seht und ein Doppelpunkt, dann wisst ihr sofort, okay, das ist ein Dictionary, das ist kein Set.
+
+01:07:40.840 --> 01:07:44.840
+Das ist komplett was anderes. Komplett nicht, aber.
+
+01:07:45.840 --> 01:07:47.840
+Man verwendet halt anders.
+
+01:07:48.840 --> 01:07:50.840
+Und das kann man eben so definieren.
+
+01:07:51.840 --> 01:07:59.840
+Hier in diesem Fall haben wir halt die Immerzahlen als Keys, also Key, Doppelpunkt, Value, und dann können wir den Value reinholen.
+
+01:08:01.840 --> 01:08:04.840
+Und das sind dann immer jetzt zusammengehörige Paare.
+
+01:08:05.840 --> 01:08:07.840
+Wie ihr seht, das ist dann mal ein Beistrich dazwischen.
+
+01:08:08.840 --> 01:08:14.840
+Zugreifen kann man dann einfach, hier haben wir den Dictionary definiert.
+
+01:08:15.840 --> 01:08:21.840
+Man kann dann einfach mit eckigen Klammern, wie ihr das eh schon vom Index kennt,
+
+01:08:22.840 --> 01:08:27.840
+statt dem Index nehmen wir jetzt aber einfach diesen Key her, praktisch das ist unser Schlüssel,
+
+01:08:28.840 --> 01:08:32.840
+mit dem wir praktisch dann einen gewissen Value aus dem Dictionary herausholen.
+
+01:08:33.840 --> 01:08:39.840
+Und da gibt es entweder das hier mit eckigen Klammern oder eben auch das Get, falls ihr es lieber ausschreiben möchtet.
+
+01:08:42.840 --> 01:08:48.840
+Und das ist ein sehr starkes Dual, da kann man nämlich auch einfach einfügen oder verändern.
+
+01:08:49.840 --> 01:08:58.840
+Das klingt am Anfang vielleicht verwirrend, das heißt, sagen wir mal, wir haben Stunes mit also an der Stelle Key 20,
+
+01:08:58.840 --> 01:09:11.840
+haben und definieren da Lisa, in diesem Fall würde bei Stunes hier ein neuer Eintrag mit Key 20 und Value Lisa hinzugefügt werden.
+
+01:09:12.840 --> 01:09:16.840
+Und hier in diesem Fall mit 1, 2, 3, 1, 2, 3 haben wir ja schon definiert, nicht?
+
+01:09:17.840 --> 01:09:20.840
+Also das ist ja schon in unserem Dictionary drin, da steht im Moment Maria.
+
+01:09:21.840 --> 01:09:27.840
+Jetzt falls das schon vorkommt, wird diese Wert Maria durch den neuen Wert einfach ersetzt.
+
+01:09:29.840 --> 01:09:35.840
+Da wird euch kein Fehler geworfen und kein gar nix, das wird einfach gemacht, deshalb immer aufpassen da.
+
+01:09:38.840 --> 01:09:44.840
+Also nochmal zur Wiederholung, das ist kein Index in diesem Fall, sondern einfach der Key, den ihr hier so definiert habt.
+
+01:09:44.840 --> 01:09:54.840
+So, oder wenn ihr später noch mehr hinzufügen wollt, könnt ihr dann einfach da noch einen neuen Key definieren, mit der gleichen Variable hier.
+
+01:09:56.840 --> 01:10:02.840
+Und wenn ihr praktisch eins löschen wollt, dann geht das da wieder mit diesem Delete Keyword hier, mit diesem Dell.
+
+01:10:03.840 --> 01:10:09.840
+Zeig mal ganz kurz her, schauen wir mal, was ich da ein Beispiel habe.
+
+01:10:13.840 --> 01:10:16.840
+Ja, hier in diesem Fall, weiter machen wir kurz so.
+
+01:10:24.840 --> 01:10:30.840
+Also hier definieren wir unser Set einer, sag ich, Dictionary, wenn ich selber schon verwirrt.
+
+01:10:33.840 --> 01:10:41.840
+Das heißt, wir haben hier dann praktisch drei Einträge drin, mit 123, Maria, 3, 1, Tim und 42 Max.
+
+01:10:43.840 --> 01:10:52.840
+Und dann wollen wir aber noch mit Key 668 die Martina hinzufügen, dann ist das ohne weiteres möglich.
+
+01:10:52.840 --> 01:11:05.840
+Wenn ich da jetzt zum Beispiel hier Maria reinschreib, geht das auch.
+
+01:11:07.840 --> 01:11:13.840
+Also die Werte, die können natürlich doppelt vorkommen, nur die Keys, die sind einzigartig.
+
+01:11:14.840 --> 01:11:24.840
+Also da, wenn der Schneim definiert worden ist, dann wird der überschrieben.
+
+01:11:28.840 --> 01:11:33.840
+Also hier in diesem Fall wurde 131, Tim durch Maria ersetzt.
+
+01:11:35.840 --> 01:11:37.840
+Und ich kann das natürlich auch löschen.
+
+01:11:38.840 --> 01:11:52.840
+Jetzt haben wir eine von unseren 3 Marias da gelöscht, also wir hatten da 3 Marias drin und jetzt ist der Key 123 gelöscht worden.
+
+01:11:52.840 --> 01:11:57.840
+Jetzt haben wir nur noch den 131, der wäre hier und den 668, der wäre hier.
+
+01:11:57.840 --> 01:12:09.840
+Und natürlich, wenn man versucht, etwas zu löschen, was nicht existiert, dann bekommt er auch wieder einen Fehler geworfen.
+
+01:12:22.840 --> 01:12:24.840
+Sehr viele geschwone Klammern.
+
+01:12:28.840 --> 01:12:32.840
+Passt, dann werde ich da mal ein bisschen schneller sein, ja.
+
+01:12:34.840 --> 01:12:42.840
+Genau, das schaut dann eben so aus, ob es da scheint, mein Code nicht zu funktionieren, meine Präsentation.
+
+01:12:43.840 --> 01:12:49.840
+Genau, man kann natürlich auch alle Schlüssel von seinem Dictionary sich rausholen.
+
+01:12:49.840 --> 01:12:56.840
+Das geht mit diesem Keystatement, das Gleiche geht mit dem Value auch.
+
+01:12:56.840 --> 01:13:01.840
+Das heißt, das ist nicht eine Liste, das ist eine spezielle Art.
+
+01:13:01.840 --> 01:13:28.840
+Und jetzt, wenn ich das students.keys mache.
+
+01:13:31.840 --> 01:13:39.840
+Dann, das schaut so aus in der Liste, aber es ist nicht eine Liste, das ist ein Dickkeys-Objekt.
+
+01:13:41.840 --> 01:13:47.840
+Scheint kompliziert zu sein, aber ihr könnt es ganz einfach in eine Liste umwandeln, einfach mit List.
+
+01:13:49.840 --> 01:13:51.840
+Dann bekommt ihr eine Liste raus.
+
+01:13:53.840 --> 01:13:58.840
+Und jetzt habt ihr praktisch alle Schlüssel, die praktisch im Dictionary gerade definiert sind.
+
+01:13:58.840 --> 01:14:00.840
+Das Gleiche geht natürlich auch mit Values.
+
+01:14:03.840 --> 01:14:05.840
+Da bekommt ihr die Values raus.
+
+01:14:05.840 --> 01:14:10.840
+Und wenn ihr immer die Baare haben wollt, dann könnt ihr da Items nehmen.
+
+01:14:12.840 --> 01:14:20.840
+Und dann habt ihr da praktisch so eine Liste aus Dupel, praktisch wo dann immer der Schlüssel drin ist und der Value.
+
+01:14:20.840 --> 01:14:27.840
+Und das ist ganz cool, weil ihr da praktisch das Ganze in Vorschleifen verwenden könnt.
+
+01:14:28.840 --> 01:14:32.840
+Das heißt, den Key könnt ihr dann in ein Laufvariabel reinhauen und den Value.
+
+01:14:33.840 --> 01:14:37.840
+Und dann werden die innerhalb der Schleife praktisch immer wieder neu definiert.
+
+01:14:38.840 --> 01:14:42.840
+Und so kann man praktisch über eine Liste iterieren und Sachen machen.
+
+01:14:43.840 --> 01:14:45.840
+Genau.
