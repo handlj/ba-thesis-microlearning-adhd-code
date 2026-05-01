@@ -1,0 +1,106 @@
+WEBVTT
+
+24:38.000 --> 24:43.000
+Passt, dann kommen wir jetzt zu den If-Statements, ich habe sie schon kurz da gezeigt.
+
+24:44.000 --> 24:52.000
+Und zwar ist das einfach, wenn Bedingung erfüllt ist, dann mach das.
+
+24:53.000 --> 25:00.000
+Also wir haben hier, if die Bedingung hier, hier habe ich jetzt zum Beispiel X ist Nann,
+
+25:01.000 --> 25:03.000
+dann print mir das.
+
+25:06.000 --> 25:08.000
+Sonst wird es einfach übersprungen.
+
+25:11.000 --> 25:17.000
+Und hier wichtig für euch ist, dass ihr schaunst sollst, dass ihr immer 4 Leerzeichen eingerückt seid.
+
+25:18.000 --> 25:22.000
+Wenn ihr wischlst, du dir kurz zum Beispiel verwendet fürs Programmieren, dann könnt ihr glaube ich auch einfach Tab drücken
+
+25:23.000 --> 25:25.000
+und dann macht er automatisch 4 Leerzeichen.
+
+25:27.000 --> 25:32.000
+Ich sollte da auf jeden Fall schauen, dass das eben 4 sind und nicht 2 und eben auch kein Tab.
+
+25:35.000 --> 25:37.000
+Genau, gehen wir da kurz noch weiter.
+
+25:39.000 --> 25:46.000
+Genau, hier zum Beispiel sieht man das, hier haben wir die Bedingung, wenn die erfüllt ist, dann wird das ausgeführt.
+
+25:47.000 --> 25:54.000
+Falls wir aber nicht diese Bedingung erfüllen, dann wird das übersprungen, weil das praktisch hier eingerückt ist in einem Block.
+
+25:55.000 --> 26:04.000
+Und wir gehen zu der nächsten Anweisung, die praktisch hier auf derselben Block-Intentation ist, also Einrückung ist.
+
+26:06.000 --> 26:14.000
+Genau, und dann gibt es natürlich auch, wenn dann und dann sonst, also das Elf.
+
+26:17.000 --> 26:25.000
+Hier im diesen Fall wird das hier immer ausgeführt, aber wir können das natürlich auch anders machen.
+
+26:26.000 --> 26:31.000
+Wir können das sagen, okay, wir wollen das nur ausführen, falls die Kondition nicht erfüllt ist.
+
+26:31.000 --> 26:36.000
+Das heißt, wir machen, wenn die Kondition erfüllt ist, dann bringt mir das.
+
+26:37.000 --> 26:39.000
+Falls ihr aber nicht erfüllt ist, machen wir was anderes.
+
+26:41.000 --> 26:47.000
+Und das kann man natürlich noch erweitern und also hier nochmal kurz wiederholen.
+
+26:49.000 --> 26:58.000
+Dann gibt es nämlich noch das Elf dazwischen und das ist praktisch dann, wenn dann, sonst wenn dann.
+
+26:59.000 --> 27:01.000
+Und dann ganz zum Schluss sonst.
+
+27:02.000 --> 27:07.000
+Das heißt praktisch, wir haben hier, da kann man da ja, ein Kotbeispiel hier.
+
+27:08.000 --> 27:16.000
+Das heißt, wir haben hier, falls unsere Kondition erfüllt ist, machen wir das, falls sie nicht erfüllt ist, schauen wir die nächste Kondition an.
+
+27:17.000 --> 27:20.000
+Okay, die ist auch nicht erfüllt, dann schauen wir die nächste Kondition an.
+
+27:21.000 --> 27:25.000
+Okay, die scheint auch nicht zu erfüllt sein, dann bleibt nur noch das übrig, dann wird das ausgeführt.
+
+27:26.000 --> 27:32.000
+Falls wir irgendwo dazwischen landen, falls diese Kondition erfüllt ist, dann wird das ausgeführt, das hier wird aber nicht mehr ausgeführt.
+
+27:34.000 --> 27:38.000
+Ist das bis jetzt so verständlich oder gibt es Fragen?
+
+27:40.000 --> 27:49.000
+Okay. Wichtig ist, so was ist nicht gleich wie das her.
+
+27:50.000 --> 27:59.000
+Hier im diesem Fall ist es halt wirklich so, dass wir zuerst diese Kondition schauen und wenn die nicht erfüllt ist, dann gehen wir die nächste rein.
+
+28:00.000 --> 28:02.000
+Das ist praktisch alles ein zusammenhängender Block.
+
+28:03.000 --> 28:08.000
+Hier im diesem Fall, das sind alles getrennte Statements.
+
+28:09.000 --> 28:17.000
+Das heißt praktisch, wenn diese Kondition erfüllt ist, dann wird das hier gemacht, dann wird aber auch gleich diese Kondition angeschaut.
+
+28:17.000 --> 28:20.000
+Und falls die auch erfüllt ist, dann wird das ja auch ausgebrintet.
+
+28:21.000 --> 28:22.000
+Also hier in diesem Fall ist das nicht der Fall.
+
+28:23.000 --> 28:27.000
+Also wenn wir hier diese Kondition erreicht haben, dann wird der Rest hier nicht mehr ausgeführt, hier aber schon.

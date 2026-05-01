@@ -1,0 +1,217 @@
+WEBVTT
+
+15:13.000 --> 15:18.000
+Dann kommen wir jetzt eh gleich mal zu diesen Bullschen ausdrücken.
+
+15:19.000 --> 15:24.000
+Den Namen haben wir eben, diesen George Bull, da zu verrankten.
+
+15:25.000 --> 15:37.000
+Und Bullians sind praktisch sehr simple Datentypen, die entweder nur 0 oder 1 sein können, also war oder falsch.
+
+15:38.000 --> 15:42.000
+Und im Beifen definieren wir die eben als true oder false.
+
+15:45.000 --> 15:49.000
+Und das kann eben sowas sein.
+
+15:50.000 --> 15:56.000
+Und zwar ist das hier in diesem Fall 2 plus 2 ist 4, ist kleiner als 4.
+
+15:58.000 --> 16:03.000
+Und das ist natürlich falsch, weil 4 ist gleich 4.
+
+16:04.000 --> 16:17.000
+Das heißt, wir haben diese Vergleichsoperatoren, die uns eben Bullians ermöglichen oder praktisch ausgeben.
+
+16:18.000 --> 16:22.000
+Und da gibt es ganz verschiedene Vergleichsoperatoren, da haben wir einmal dieses ist gleich,
+
+16:23.000 --> 16:27.000
+dann haben wir das ist nicht gleich, das größer als, das kleiner als,
+
+16:27.000 --> 16:31.000
+dann auch kleiner gleich als, größer gleich als.
+
+16:32.000 --> 16:36.000
+Und dann haben wir noch 2 spezielle, das ist das ist und das ist nicht.
+
+16:37.000 --> 16:39.000
+Das sollte ich vielleicht auch noch kurz erklären.
+
+16:45.000 --> 16:48.000
+Ich habe das gestern kurz erwähnt, dass eine Variable,
+
+16:49.000 --> 16:55.000
+die ist praktisch eigentlich nur so eine Art Label für eine Adresse irgendwo.
+
+16:56.000 --> 17:03.000
+Also die, der Computer sieht die eigentlich eher so, F, A, 0, B.
+
+17:04.000 --> 17:14.000
+Einfach ein Hexatezimaladresse und da steht dann der Wert 5 drin, wenn wir da zum Beispiel 5.
+
+17:15.000 --> 17:20.000
+Also das hier benennen wir einfach X.
+
+17:22.000 --> 17:28.000
+Und jetzt können wir eben, das war auch bei einer der Antworten oder einer der Fragen,
+
+17:29.000 --> 17:35.000
+bei dem Feedback gerade davor, was wenn wir jetzt sagen Y ist gleich X.
+
+17:35.000 --> 17:45.000
+Dann ist einerseits der Wert gleich, aber Y hat auch die gleiche Adresse hier.
+
+17:46.000 --> 17:54.000
+Und das ist eigentlich der große Unterschied für zwischen dem hier und ist,
+
+17:55.000 --> 18:04.000
+der hier vergleicht nur die Werte und der vergleicht die Adresse.
+
+18:05.000 --> 18:22.000
+Das heißt, wir können daraus finden, ob die Variable auf die selbe Adresse zeigt, wie die andere Variable.
+
+18:23.000 --> 18:28.000
+Gibt es dazu Fragen oder ist es, ja, okay.
+
+18:30.000 --> 18:32.000
+Das Gleiche geht natürlich auch mit IsNot.
+
+18:33.000 --> 18:36.000
+Speziell ist da auch das Nann Keyword.
+
+18:37.000 --> 18:47.000
+Und zwar machen wir beim Nann, also wenn wir Nann schauen wollen, ist X, da machen wir immer IsNann.
+
+18:50.000 --> 18:58.000
+Und nicht, ist gleich, ist gleich.
+
+19:02.000 --> 19:04.000
+Das liegt darin, dass Nann ein bisschen speziell ist.
+
+19:05.000 --> 19:12.000
+Das ist ein eigener Datentyp, der immer wirklich eine eigene spezielle Adresse hat und wirklich unfreinderbar ist.
+
+19:13.000 --> 19:14.000
+Das ist eben sowas wie eine Konstante.
+
+19:17.000 --> 19:22.000
+Genau, und wir bekommen da immer ein True oder False raus, also ein Wow oder Falsch.
+
+19:24.000 --> 19:28.000
+Und da gibt es dann in Python verschiedene Operatoren.
+
+19:28.000 --> 19:31.000
+Da haben wir zum Beispiel das Ohr, das End und das Not.
+
+19:32.000 --> 19:33.000
+Das sind eigentlich eh die wichtigsten.
+
+19:34.000 --> 19:43.000
+Das heißt praktisch, ich kann dann hier in meinem If rein, if X ist Nann, direkt Ohr schreiben.
+
+19:52.000 --> 19:53.000
+Und dann werden die verodert.
+
+19:54.000 --> 19:58.000
+Und wie das praktisch, was der Unterschied zwischen Ohr, End und Not ist, kommen wir gleich.
+
+19:59.000 --> 20:06.000
+Wichtig zu wissen ist, dass zuerst ist immer die Verneinung, dann das End und dann das Ohr.
+
+20:08.000 --> 20:10.000
+Also von der Ausführung.
+
+20:23.000 --> 20:46.000
+So was hab, dann wird zuerst das hier ausgeführt, dann das hier und dann ganz am Schluss noch das Ohr.
+
+20:46.000 --> 21:04.000
+Genau, also End haben wir, also wenn wir zwei Sachen verunden, dann ist das Ergebnis nur true, falls beide Sachen wahr sind.
+
+21:05.000 --> 21:10.000
+Bei Ohr muss nur eines der beiden Sachen wahr sein und Not ist einfach eine Verneinung praktisch.
+
+21:10.000 --> 21:16.000
+Wenn unser Bullenwert wahr war, dann mit Not ist es jetzt falsch.
+
+21:21.000 --> 21:24.000
+Und das schaut dann eben so aus, da gibt es eine tolle Wahrheitstabelle.
+
+21:25.000 --> 21:31.000
+Das heißt einfach, wir haben hier true, true ergibt bei und true und der Rest eigentlich immer false.
+
+21:32.000 --> 21:36.000
+Bei Ohr ergibt praktisch eigentlich nur false, false, false.
+
+21:37.000 --> 21:45.000
+Weil wir hier immer einen Wahrheitswert haben und das ist einfach die Regierung.
+
+21:46.000 --> 21:47.000
+Gibt es da zu fragen?
+
+21:52.000 --> 21:57.000
+Dann noch kurz vielleicht zu den anderen Operatoren, also wir sehen hier eh schon Ohr, End und Not,
+
+21:58.000 --> 22:00.000
+aber das sind eigentlich die, die ganz zum Schluss ausgeführt werden.
+
+22:01.000 --> 22:09.000
+Also wenn man praktisch, sagen wir mal, wir machen wirklich eine ultra lange, einen Einzeiler, wie man das so schön nennt.
+
+22:10.000 --> 22:27.000
+Zum Beispiel machen wir 2 hoch 2, dann multiplizieren wir das mit 2, dann noch plus 2 und so weiter und so fort.
+
+22:27.000 --> 22:33.000
+Dann wird praktisch zuerst das hier ausgeführt, dann das hier, dann das hier und so weiter und so fort.
+
+22:34.000 --> 22:39.000
+Praktisch ganz unten ist das, was zuerst ausgeführt wird und dann geht es nach oben, was zuletzt ausgeführt wird.
+
+22:41.000 --> 22:46.000
+Hier gibt es eben noch so spezielle Operatoren wie ADD, das ist zum Beispiel eine Matriz-Multiplikation,
+
+22:47.000 --> 22:51.000
+aber das glaube ich, würde ich in dieser Folie schon ja nicht brauchen.
+
+22:52.000 --> 22:58.000
+Genau, Division, Ganzzahldivision und Modulo oder halt Rest.
+
+22:59.000 --> 23:09.000
+Plus Minus, dann gibt es noch so Bit-Operatoren, damit kann man Bits verschieben.
+
+23:10.000 --> 23:16.000
+Das kann man sich so vorstellen, dass in Wirklichkeit, wenn praktisch alle Daten,
+
+23:16.000 --> 23:21.000
+nehmen wir jetzt mal zum Beispiel eine Ganzzahl, einen Integer her,
+
+23:22.000 --> 23:27.000
+dann wird der eigentlich intern vom Computer in Benärzahl repräsentiert.
+
+23:28.000 --> 23:40.000
+Das heißt, wir haben 1, 2, 4, das heißt, wir haben 1, 0, 1, das ist unsere Benärzahl.
+
+23:40.000 --> 23:52.000
+Und mit dieser Schiftooperation, zum Beispiel 2, kann man das Ganze eben nach vorne schiften.
+
+23:53.000 --> 23:56.000
+Das heißt, wir haben dann 1, 0, 1, 0, 0 stehen.
+
+23:58.000 --> 24:05.000
+Und das ist dann für die ganz schlauen, die machen dann ganz schnelle Berechnungen damit.
+
+24:05.000 --> 24:10.000
+Aber ja, das ist auch nicht so etwas, was ihr wahrscheinlich in der Vorlösung hier brauchen wird.
+
+24:12.000 --> 24:15.000
+Aber ja, falls man wirklich tiefer in die Materie einsteigen will,
+
+24:16.000 --> 24:22.000
+dann muss man sich vertraut sein, dass also mit diesen Bits, mit diesen Benäherzahlen,
+
+24:23.000 --> 24:29.000
+praktisch sollte man sich auskennen, aber ja, gibt es dazu Fragen sonst?
+
+24:30.000 --> 24:34.000
+Stimmt, ich glaube, Benärzahlen wird sogar gemacht in der Vorlösung,

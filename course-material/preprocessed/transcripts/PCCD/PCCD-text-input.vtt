@@ -1,0 +1,373 @@
+WEBVTT
+
+27:01.000 --> 27:05.000
+Bevor wir zu den Funktionen kommen, möchte ich davor noch was anderes machen
+
+27:05.000 --> 27:08.000
+und das ist das Input unter die While-Schleifen.
+
+27:08.000 --> 27:11.000
+Und dann gehen wir zu den Funktionen über.
+
+27:11.000 --> 27:22.000
+Zu den Inputs ist so, wir haben bis jetzt kennengelernt, okay, man kann Print schreiben,
+
+27:22.000 --> 27:26.000
+man kann addieren, subtrahieren und so weiter und so fort.
+
+27:27.000 --> 27:36.000
+Aber was, wenn ich möchte, dass mein Programm den Benutzer fragt, ob er mir einen Input gibt.
+
+27:36.000 --> 27:43.000
+Das heißt, da kommt dann so ein tolles Fragefenster auf und sagt, okay, schreibt mir den Wert rein,
+
+27:43.000 --> 27:46.000
+damit ich mit dem Wert was anfangen kann.
+
+27:46.000 --> 27:51.000
+Und das Ganze können wir eben mit diesem Input machen, das schaut dann so aus mit dem Code.
+
+27:51.000 --> 27:54.000
+Das heißt, wir haben hier unsere Variable
+
+27:54.000 --> 27:57.000
+und dann haben wir diese Input-Funktion.
+
+27:57.000 --> 28:02.000
+Und da können wir dann noch die Frage reinstellen oder einen Text hinzufügen.
+
+28:02.000 --> 28:05.000
+Das ist aber optional, also das muss man gar nicht machen.
+
+28:05.000 --> 28:10.000
+Und dann sobald der User was reingeschrieben hat und dann Enter drückt,
+
+28:10.000 --> 28:13.000
+dann wird das in dieser Variable gespeichert
+
+28:13.000 --> 28:19.000
+und dann können wir diese Variable, also diesen Text, den wir da reingeschrieben haben, verwenden.
+
+28:20.000 --> 28:23.000
+Ich kann das kurz herzeigen.
+
+28:29.000 --> 28:32.000
+Dann noch mal eine Reite oben drauf.
+
+28:32.000 --> 28:34.000
+Machen wir hier.
+
+28:35.000 --> 28:39.000
+Wenn man das bei ihr erwischt, was du dir Code machst,
+
+28:39.000 --> 28:42.000
+sagen wir Name, Input.
+
+28:42.000 --> 28:45.000
+Also hier als Beispiel, wenn ich nichts reinschreib.
+
+28:50.000 --> 28:53.000
+Dann seht ihr hier ganz oben,
+
+28:53.000 --> 28:58.000
+kommt diese Eingabe-Leiste hier
+
+28:58.000 --> 29:01.000
+und da könnt ihr jetzt was reinschreiben.
+
+29:06.000 --> 29:09.000
+Dann werden wir uns das dann anschauen.
+
+29:09.000 --> 29:13.000
+Dann wird dieser Wert hier als String wichtig.
+
+29:13.000 --> 29:16.000
+Da kommt immer als Ergebnis ein String raus,
+
+29:16.000 --> 29:18.000
+wird dann in diese Variable gespeichert
+
+29:18.000 --> 29:21.000
+und dann können wir damit was anfangen.
+
+29:27.000 --> 29:29.000
+Wie wichtig, das ist ein String,
+
+29:29.000 --> 29:33.000
+weil es kann auch Probleme bereiten.
+
+29:36.000 --> 29:41.000
+Stellt euch vor, der User ist ein bisschen unhandlich mit der Zastatur
+
+29:41.000 --> 29:45.000
+und schreibt dir zum Beispiel davor noch ein Leerzeichen rein
+
+29:45.000 --> 29:47.000
+oder keine Ahnung was.
+
+29:50.000 --> 29:52.000
+Oder wie gesagt, das ist ja auch ein String.
+
+29:52.000 --> 29:54.000
+Das heißt, wenn der dann eine Zahl reinschreibt,
+
+29:54.000 --> 29:56.000
+dann ist das immer noch ein String.
+
+29:56.000 --> 29:58.000
+Dann kann man da ein paar Sachen machen.
+
+29:58.000 --> 30:01.000
+Also wir haben ja dann diesen Wert hier
+
+30:03.000 --> 30:05.000
+in dieser Variable Name gespeichert
+
+30:05.000 --> 30:08.000
+und sagen wir, ich fühle das noch mal aus.
+
+30:09.000 --> 30:11.000
+Und ich mache da jetzt ein Leerzeichen
+
+30:11.000 --> 30:13.000
+oder zwei oder drei.
+
+30:19.000 --> 30:22.000
+Da seht ihr, da sind da jetzt auch Leerzeichen drin.
+
+30:24.000 --> 30:29.000
+Und wie können wir diese Leerzeichen zum Beispiel weglöschen?
+
+30:29.000 --> 30:31.000
+Das kann man mit Strip machen.
+
+30:39.000 --> 30:42.000
+Und dann werden euch diese Leerzeichen wieder gelöscht.
+
+30:43.000 --> 30:45.000
+Und natürlich kann es sein,
+
+30:45.000 --> 30:48.000
+dass eben die großen Kleinschreibungen nicht passen und so.
+
+30:48.000 --> 30:50.000
+Und da kann man dann eben auch wieder
+
+30:50.000 --> 30:53.000
+diese String-Methoden verwenden.
+
+30:53.000 --> 30:55.000
+Die haben wir hier schon ein bisschen kennengelernt,
+
+30:55.000 --> 30:58.000
+zum Beispiel Lower, Upper, Title.
+
+30:58.000 --> 31:01.000
+Da kann man dann den Text in Kleinbuchstaben verwandeln,
+
+31:01.000 --> 31:03.000
+in Großbuchstaben verwandeln
+
+31:03.000 --> 31:07.000
+oder schauen, dass immer da erste Buchstabe großgeschrieben wird.
+
+31:09.000 --> 31:11.000
+So zum Beispiel.
+
+31:11.000 --> 31:14.000
+Zuerst löschen wir praktisch hier.
+
+31:14.000 --> 31:16.000
+Die Leerzeichen müssen nicht nur vorne sein,
+
+31:16.000 --> 31:18.000
+die können auch hinten sein.
+
+31:18.000 --> 31:21.000
+Wenn sie dazwischen sein, werden sie aber nicht draus gelöscht.
+
+31:21.000 --> 31:23.000
+Also sie werden nur mit Strip,
+
+31:23.000 --> 31:25.000
+werden sie nur vorne und hinten gelöscht.
+
+31:25.000 --> 31:27.000
+Da gibt es auch noch R-Strip oder L-Strip,
+
+31:27.000 --> 31:29.000
+wo ihr dann an der rechten Stelle nur
+
+31:29.000 --> 31:31.000
+oder an der linken Stelle nur weglöschen könnt.
+
+31:31.000 --> 31:33.000
+Das könnt ihr dann selber ausprobieren.
+
+31:33.000 --> 31:35.000
+Zum Casting.
+
+31:35.000 --> 31:37.000
+Also wir haben ja jetzt das Problem,
+
+31:37.000 --> 31:39.000
+wenn ihr euch zurückerinnert,
+
+31:39.000 --> 31:42.000
+wenn wir hier eine Zahl haben,
+
+31:42.000 --> 31:44.000
+also hier ein Integer,
+
+31:44.000 --> 31:46.000
+und dann die zweite Zahl ist aber ein String.
+
+31:46.000 --> 31:48.000
+Was passiert, wenn wir die zusammen addieren,
+
+31:48.000 --> 31:50.000
+kann man einen Fehler.
+
+31:50.000 --> 31:53.000
+Und da, falls ihr euch noch erinnern könnt,
+
+31:53.000 --> 31:55.000
+eine vorherige Vorlesung,
+
+31:55.000 --> 31:58.000
+da haben wir dieses Casting,
+
+31:58.000 --> 32:01.000
+mit dem wir praktisch diesen String wieder umwandeln,
+
+32:01.000 --> 32:03.000
+in etwas anderes,
+
+32:03.000 --> 32:05.000
+zum Beispiel eben in ein Integer,
+
+32:05.000 --> 32:07.000
+in ein Float, in ein Boolean,
+
+32:07.000 --> 32:09.000
+oder eben auch,
+
+32:09.000 --> 32:11.000
+kann man natürlich auch umgekehrt machen,
+
+32:11.000 --> 32:13.000
+dass man eine Zahl in ein String umwandelt.
+
+32:16.000 --> 32:18.000
+Genau, und da gibt es eben
+
+32:18.000 --> 32:20.000
+viele verschiedenen Datentypen.
+
+32:23.000 --> 32:26.000
+Das heißt, wir müssen zuerst casten,
+
+32:26.000 --> 32:28.000
+bevor wir addieren.
+
+32:30.000 --> 32:32.000
+Das können wir auch kurz ausprobieren.
+
+32:34.000 --> 32:37.000
+Zum Beispiel, wenn wir jetzt da 12,
+
+32:37.000 --> 32:39.000
+plus das hier machen,
+
+32:39.000 --> 32:41.000
+was passiert?
+
+32:41.000 --> 32:43.000
+Wenn ich da 3 rein schreibe,
+
+32:43.000 --> 32:45.000
+mag er nicht.
+
+32:45.000 --> 32:47.000
+Da bekommen wir diesen Type-Error raus.
+
+32:47.000 --> 32:49.000
+Praktisch die Datentypen
+
+32:49.000 --> 32:51.000
+stimmen wir nicht miteinander ein.
+
+32:53.000 --> 32:55.000
+Was machen wir?
+
+32:55.000 --> 32:57.000
+Wir casten das Ganze einfach zu einem Integer,
+
+32:57.000 --> 32:59.000
+und dann haben wir die Daten,
+
+32:59.000 --> 33:01.000
+die wir in einem String haben,
+
+33:02.000 --> 33:05.000
+und jetzt, wenn wir da 3 reinschreiben,
+
+33:05.000 --> 33:07.000
+funktioniert so eine Probleme.
+
+33:07.000 --> 33:09.000
+Natürlich,
+
+33:11.000 --> 33:13.000
+wie gesagt, da gibt es wieder,
+
+33:13.000 --> 33:15.000
+also das ist ja dann wieder Casting.
+
+33:15.000 --> 33:17.000
+Das heißt, wenn wir da
+
+33:17.000 --> 33:19.000
+4 und noch ein String dazuschreiben,
+
+33:21.000 --> 33:23.000
+funktioniert unser Casting nicht mehr.
+
+33:25.000 --> 33:27.000
+Was müssen wir da machen?
+
+33:27.000 --> 33:29.000
+Da müssen wir zuerst
+
+33:29.000 --> 33:31.000
+alles rauslöschen, was keine Zahl ist,
+
+33:31.000 --> 33:33.000
+damit das funktioniert.
+
+33:35.000 --> 33:37.000
+Und da gibt es natürlich auch wieder
+
+33:37.000 --> 33:39.000
+Möglichkeiten, wie man das macht.
+
+33:41.000 --> 33:43.000
+Ich bin uns nicht ganz sicher, ob das eine Aufgabe ist,
+
+33:43.000 --> 33:45.000
+deshalb werde ich das jetzt nicht erwähnen,
+
+33:45.000 --> 33:47.000
+falls ihr
+
+33:47.000 --> 33:49.000
+da Probleme habt,
+
+33:49.000 --> 33:51.000
+dann könnt ihr da immer noch
+
+33:51.000 --> 33:53.000
+im Titel eine Frage stellen,
+
+33:53.000 --> 33:55.000
+und ich werde euch das beantworten.

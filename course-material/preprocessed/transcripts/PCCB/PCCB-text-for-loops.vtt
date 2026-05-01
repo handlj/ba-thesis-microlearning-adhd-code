@@ -1,0 +1,934 @@
+WEBVTT
+
+01:01:30.000 --> 01:01:32.000
+Genau,
+
+01:01:32.000 --> 01:01:34.000
+dann kann man noch zum letzten
+
+01:01:34.000 --> 01:01:36.000
+Teil, das sind die Vorloops,
+
+01:01:36.000 --> 01:01:38.000
+und
+
+01:01:38.000 --> 01:01:40.000
+Vorloops ist
+
+01:01:40.000 --> 01:01:42.000
+auch wieder ein sehr
+
+01:01:42.000 --> 01:01:44.000
+starkes
+
+01:01:44.000 --> 01:01:46.000
+Dual beim Programmieren,
+
+01:01:48.000 --> 01:01:50.000
+und damit
+
+01:01:50.000 --> 01:01:52.000
+kann man eben
+
+01:01:52.000 --> 01:01:54.000
+zum Beispiel durch Listen iterieren,
+
+01:01:54.000 --> 01:01:56.000
+das schaut dann so aus,
+
+01:01:56.000 --> 01:01:58.000
+also wenn man sich das dann
+
+01:01:58.000 --> 01:02:00.000
+vorstellt im Pseudocode, also einfach
+
+01:02:00.000 --> 01:02:02.000
+in normaler Sprache,
+
+01:02:02.000 --> 01:02:04.000
+für jedes Element
+
+01:02:04.000 --> 01:02:06.000
+in meiner Sequence
+
+01:02:06.000 --> 01:02:08.000
+oder in meiner Liste
+
+01:02:08.000 --> 01:02:10.000
+führe ich eine Art und Weise aus.
+
+01:02:10.000 --> 01:02:12.000
+Das sieht man, das ist auch wieder ein Block,
+
+01:02:12.000 --> 01:02:14.000
+das schaut dann so aus,
+
+01:02:14.000 --> 01:02:16.000
+vor Item,
+
+01:02:16.000 --> 01:02:18.000
+praktisch Item in diesem Fall
+
+01:02:18.000 --> 01:02:20.000
+ist eine neue Variable-Namen,
+
+01:02:20.000 --> 01:02:22.000
+den ich hier definiere,
+
+01:02:22.000 --> 01:02:24.000
+in List of Items,
+
+01:02:24.000 --> 01:02:26.000
+also diese List of Items habe ich
+
+01:02:26.000 --> 01:02:28.000
+schon davor definiert,
+
+01:02:28.000 --> 01:02:30.000
+und dann
+
+01:02:30.000 --> 01:02:32.000
+prönt ich das einfach hier aus.
+
+01:02:32.000 --> 01:02:34.000
+Ich kann natürlich in diesem Block
+
+01:02:34.000 --> 01:02:36.000
+auf dieses Item hier zugreifen,
+
+01:02:36.000 --> 01:02:38.000
+ich kann natürlich auch auf diese Liste direkt zugreifen,
+
+01:02:40.000 --> 01:02:42.000
+aber
+
+01:02:42.000 --> 01:02:44.000
+diese Variable nennt man auch Laufvariable,
+
+01:02:44.000 --> 01:02:46.000
+weil die mit der
+
+01:02:46.000 --> 01:02:48.000
+Schleife mitläuft, praktisch die verändert sich
+
+01:02:48.000 --> 01:02:50.000
+mit jeder Iteration,
+
+01:02:50.000 --> 01:02:52.000
+bis praktisch alle Elemente
+
+01:02:52.000 --> 01:02:54.000
+in dieser Liste durchgegangen worden sind,
+
+01:02:56.000 --> 01:02:58.000
+und die könnt ihr eben einen beliebigen Namen geben,
+
+01:02:58.000 --> 01:03:00.000
+da wird auch wieder
+
+01:03:00.000 --> 01:03:02.000
+Variable namens
+
+01:03:04.000 --> 01:03:06.000
+Regeln beachten,
+
+01:03:06.000 --> 01:03:08.000
+und innerhalb dieser Schleife
+
+01:03:08.000 --> 01:03:10.000
+wird das eben so wiederholt,
+
+01:03:10.000 --> 01:03:12.000
+bis diese Liste abgearbeitet wurde.
+
+01:03:12.000 --> 01:03:14.000
+Das heißt, wenn wir hier
+
+01:03:14.000 --> 01:03:16.000
+1, 2, 3 haben,
+
+01:03:16.000 --> 01:03:18.000
+dann wird diese Liste, also wird
+
+01:03:18.000 --> 01:03:20.000
+dieser Sprint-Statement hier
+
+01:03:20.000 --> 01:03:22.000
+dreimal ausgeführt, für jedes Element einzeln.
+
+01:03:24.000 --> 01:03:26.000
+Das schaut dann eben so zum Beispiel aus,
+
+01:03:26.000 --> 01:03:28.000
+hier in diesem Fall zum Beispiel
+
+01:03:28.000 --> 01:03:30.000
+habe ich eine Liste
+
+01:03:30.000 --> 01:03:32.000
+Lectures definiert,
+
+01:03:32.000 --> 01:03:34.000
+die praktisch da Mathe,
+
+01:03:34.000 --> 01:03:36.000
+Englisch, Computer Science
+
+01:03:36.000 --> 01:03:38.000
+drin,
+
+01:03:38.000 --> 01:03:40.000
+und dann iteriere ich darüber,
+
+01:03:40.000 --> 01:03:42.000
+das heißt, ich mache hier meine
+
+01:03:42.000 --> 01:03:44.000
+Für neue Variable,
+
+01:03:44.000 --> 01:03:46.000
+also in diesem Fall Lecture,
+
+01:03:46.000 --> 01:03:48.000
+wie ihr seht, fehlt das S, also
+
+01:03:48.000 --> 01:03:50.000
+das macht man normalerweise so,
+
+01:03:50.000 --> 01:03:52.000
+dass man die Liste
+
+01:03:52.000 --> 01:03:54.000
+im Mehrzahl definiert,
+
+01:03:54.000 --> 01:03:56.000
+und die Laufvariable
+
+01:03:56.000 --> 01:03:58.000
+singular
+
+01:03:58.000 --> 01:04:00.000
+in Lectures
+
+01:04:00.000 --> 01:04:02.000
+und dann Print, dann hier mit
+
+01:04:02.000 --> 01:04:04.000
+einem Format-String, I Love Lecture,
+
+01:04:04.000 --> 01:04:06.000
+das heißt, hier bekommen wir dann
+
+01:04:06.000 --> 01:04:08.000
+die Ausgabe Math,
+
+01:04:08.000 --> 01:04:10.000
+Englisch, Computer Science, also
+
+01:04:10.000 --> 01:04:12.000
+I Love Math, I Love Englisch,
+
+01:04:12.000 --> 01:04:14.000
+I Love Computer Science.
+
+01:04:18.000 --> 01:04:20.000
+Genau, also
+
+01:04:20.000 --> 01:04:22.000
+das ist die Definition
+
+01:04:22.000 --> 01:04:24.000
+der Initialisierung der Liste,
+
+01:04:24.000 --> 01:04:26.000
+also unsere
+
+01:04:26.000 --> 01:04:28.000
+Vorschleife,
+
+01:04:28.000 --> 01:04:30.000
+und das ist dann der innere Block,
+
+01:04:30.000 --> 01:04:32.000
+der dann immer in der Vorschleife ausgeführt wird.
+
+01:04:32.000 --> 01:04:34.000
+Das kann man sich dann so vorstellen.
+
+01:04:42.000 --> 01:04:44.000
+Genau, es gibt dann
+
+01:04:44.000 --> 01:04:46.000
+natürlich
+
+01:04:46.000 --> 01:04:48.000
+man kann natürlich auch
+
+01:04:48.000 --> 01:04:50.000
+zum Beispiel über jedes
+
+01:04:50.000 --> 01:04:52.000
+einzelne Zeichen
+
+01:04:52.000 --> 01:04:54.000
+in einem String drüber iterieren.
+
+01:04:58.000 --> 01:05:00.000
+Das heißt,
+
+01:05:00.000 --> 01:05:02.000
+kann ich mal kurz herzeigen.
+
+01:05:02.000 --> 01:05:04.000
+Vor
+
+01:05:04.000 --> 01:05:06.000
+Zeit
+
+01:05:06.000 --> 01:05:08.000
+den
+
+01:05:08.000 --> 01:05:10.000
+genannten
+
+01:05:10.000 --> 01:05:12.000
+Warte.
+
+01:05:12.000 --> 01:05:14.000
+Okay.
+
+01:05:14.000 --> 01:05:16.000
+Ich kann da
+
+01:05:16.000 --> 01:05:18.000
+auch das String hier direkt
+
+01:05:18.000 --> 01:05:20.000
+definieren,
+
+01:05:20.000 --> 01:05:22.000
+wenn ich das so möchte.
+
+01:05:22.000 --> 01:05:24.000
+Ich kann ja auch zum Beispiel hier
+
+01:05:24.000 --> 01:05:26.000
+eine Liste direkt definieren.
+
+01:05:26.000 --> 01:05:28.000
+Das geht auch.
+
+01:05:28.000 --> 01:05:30.000
+Also die muss nicht davor definiert werden,
+
+01:05:30.000 --> 01:05:32.000
+die kann auch hier so definiert werden.
+
+01:05:32.000 --> 01:05:34.000
+Hallo,
+
+01:05:34.000 --> 01:05:36.000
+dann hier wichtig,
+
+01:05:36.000 --> 01:05:38.000
+auch beim IF Statement
+
+01:05:38.000 --> 01:05:40.000
+ist dieser Doppelpunkt
+
+01:05:40.000 --> 01:05:42.000
+und
+
+01:05:42.000 --> 01:05:44.000
+dann kann ich machen
+
+01:05:44.000 --> 01:05:46.000
+Print
+
+01:05:46.000 --> 01:05:48.000
+Ciao.
+
+01:05:48.000 --> 01:05:50.000
+Und dann macht er mir da
+
+01:05:50.000 --> 01:05:52.000
+das Einzelnen.
+
+01:05:52.000 --> 01:05:54.000
+Ich kann da zum Beispiel dann
+
+01:05:54.000 --> 01:05:56.000
+Einzeln sagen, okay,
+
+01:05:56.000 --> 01:05:58.000
+das soll dann mal
+
+01:05:58.000 --> 01:06:00.000
+nünftig multipliziert werden.
+
+01:06:00.000 --> 01:06:02.000
+Also
+
+01:06:02.000 --> 01:06:04.000
+solche Sachen sind auch möglich.
+
+01:06:06.000 --> 01:06:08.000
+Gibt es dazu Fragen?
+
+01:06:10.000 --> 01:06:12.000
+Okay.
+
+01:06:18.000 --> 01:06:20.000
+Was für Werte müsste ich hier reinschreiben,
+
+01:06:20.000 --> 01:06:22.000
+wenn ich von 1 bis 10 zählen möchte
+
+01:06:22.000 --> 01:06:24.000
+in dieser Range?
+
+01:06:24.000 --> 01:06:26.000
+Das erste Fragezeichen.
+
+01:06:38.000 --> 01:06:40.000
+1 und 11,
+
+01:06:40.000 --> 01:06:42.000
+genau, ja.
+
+01:06:42.000 --> 01:06:44.000
+Weil hier praktisch
+
+01:06:44.000 --> 01:06:46.000
+mit 1 starten
+
+01:06:46.000 --> 01:06:48.000
+und 11 ist dann exklusiv,
+
+01:06:48.000 --> 01:06:50.000
+das heißt
+
+01:06:50.000 --> 01:06:52.000
+11 wird nicht mehr
+
+01:06:52.000 --> 01:06:54.000
+in dieser Zahlsequenz vorkommen.
+
+01:06:56.000 --> 01:06:58.000
+Und praktisch
+
+01:06:58.000 --> 01:07:00.000
+wie ihr seht, kann man da nämlich auch
+
+01:07:00.000 --> 01:07:02.000
+diese Zahlsequenzen, also diese Range
+
+01:07:02.000 --> 01:07:04.000
+verwenden, um dann sehr schnell
+
+01:07:04.000 --> 01:07:06.000
+über Nummern zu iterieren.
+
+01:07:10.000 --> 01:07:12.000
+Wenn ihr zum Beispiel
+
+01:07:12.000 --> 01:07:14.000
+hier eine Liste habt
+
+01:07:14.000 --> 01:07:16.000
+und ihr wollt aber auch wissen
+
+01:07:16.000 --> 01:07:18.000
+welches Element der Liste ich gerade,
+
+01:07:18.000 --> 01:07:20.000
+also der Index
+
+01:07:20.000 --> 01:07:22.000
+von meinem Element in der Liste,
+
+01:07:22.000 --> 01:07:24.000
+wo ich gerade bin,
+
+01:07:24.000 --> 01:07:26.000
+dann kann man dieses Enumerate verwenden.
+
+01:07:26.000 --> 01:07:28.000
+Das heißt, ich haue mal eine Liste
+
+01:07:28.000 --> 01:07:30.000
+hier in dieses Enumerate Statement rein
+
+01:07:30.000 --> 01:07:32.000
+und dann bekomme ich hier
+
+01:07:32.000 --> 01:07:34.000
+immer ein Tuple raus.
+
+01:07:36.000 --> 01:07:38.000
+Das heißt, hier habe ich den Index
+
+01:07:38.000 --> 01:07:40.000
+und hier die Lecture.
+
+01:07:40.000 --> 01:07:42.000
+Die Lecture, praktisch sind diese Werte
+
+01:07:42.000 --> 01:07:44.000
+und der Index
+
+01:07:44.000 --> 01:07:46.000
+stellt mir ein Enumerate zur Verfügung
+
+01:07:46.000 --> 01:07:48.000
+und der wird dann von Enumerate
+
+01:07:48.000 --> 01:07:50.000
+ausgeführt.
+
+01:07:50.000 --> 01:07:52.000
+Das kann man sich dann so vorstellen.
+
+01:08:02.000 --> 01:08:04.000
+Fortest
+
+01:08:04.000 --> 01:08:06.000
+in Enumerate
+
+01:08:06.000 --> 01:08:08.000
+ist man auch den Index.
+
+01:08:08.000 --> 01:08:10.000
+Dann haben wir da
+
+01:08:10.000 --> 01:08:12.000
+eins
+
+01:08:28.000 --> 01:08:30.000
+Doppelpunkt
+
+01:08:34.000 --> 01:08:36.000
+und dann kann ich da einfach sagen
+
+01:08:36.000 --> 01:08:38.000
+Index
+
+01:08:38.000 --> 01:08:40.000
+und Test.
+
+01:08:44.000 --> 01:08:46.000
+Ups, was habe ich gemacht?
+
+01:08:48.000 --> 01:08:50.000
+Ich habe das Enumerate vergessen.
+
+01:08:56.000 --> 01:08:58.000
+Das ist vielleicht auch interessant hier,
+
+01:08:58.000 --> 01:09:00.000
+also ich habe hier
+
+01:09:00.000 --> 01:09:02.000
+zwei Variablen angegeben
+
+01:09:02.000 --> 01:09:04.000
+aber davor hatte ich praktisch nur
+
+01:09:04.000 --> 01:09:06.000
+zwei Werte funktioniert
+
+01:09:06.000 --> 01:09:08.000
+und dann sagt er mir da einen
+
+01:09:08.000 --> 01:09:10.000
+Value Error,
+
+01:09:10.000 --> 01:09:12.000
+dass er praktisch zu viele
+
+01:09:12.000 --> 01:09:14.000
+Values hat, die er da
+
+01:09:14.000 --> 01:09:16.000
+immer aus einem Element
+
+01:09:16.000 --> 01:09:18.000
+rausholen kann.
+
+01:09:18.000 --> 01:09:20.000
+Wenn ich hier zum Beispiel
+
+01:09:20.000 --> 01:09:22.000
+Tuple verwenden hätte,
+
+01:09:28.000 --> 01:09:30.000
+dann hätte das funktioniert,
+
+01:09:30.000 --> 01:09:32.000
+weil das hier immer zwei Werte sind.
+
+01:09:34.000 --> 01:09:36.000
+Da könnt ihr dann selber
+
+01:09:36.000 --> 01:09:38.000
+auch bis sie testen.
+
+01:09:38.000 --> 01:09:40.000
+Das heißt, wir haben dann hier einfach
+
+01:09:40.000 --> 01:09:42.000
+immer unseren Index ausgeprintet,
+
+01:09:42.000 --> 01:09:44.000
+der eben auch wieder bei 0 startet,
+
+01:09:44.000 --> 01:09:46.000
+0, 1, 2
+
+01:09:46.000 --> 01:09:48.000
+und hier
+
+01:09:48.000 --> 01:09:50.000
+dann dann eben einfach das Element,
+
+01:09:50.000 --> 01:09:52.000
+das eben in diese Testvariable
+
+01:09:52.000 --> 01:09:54.000
+geschrieben wird.
+
+01:09:54.000 --> 01:09:56.000
+Gibt es da so Fragen?
+
+01:10:00.000 --> 01:10:02.000
+Ja, Komma isch
+
+01:10:02.000 --> 01:10:04.000
+zum ZIP.
+
+01:10:04.000 --> 01:10:06.000
+Das ist dann eben
+
+01:10:06.000 --> 01:10:08.000
+genau das, was ich eben gesagt habe
+
+01:10:08.000 --> 01:10:10.000
+mit dem Duple.
+
+01:10:10.000 --> 01:10:12.000
+Ihr habt da praktisch Lectures
+
+01:10:12.000 --> 01:10:14.000
+und Teachers.
+
+01:10:14.000 --> 01:10:16.000
+Wir sind ganz wichtig,
+
+01:10:16.000 --> 01:10:18.000
+diese Listen sind beide gleich lang.
+
+01:10:18.000 --> 01:10:20.000
+Das ist sehr wichtig, weil sonst wird
+
+01:10:20.000 --> 01:10:22.000
+euch ZIP ein Fehler werfen,
+
+01:10:22.000 --> 01:10:24.000
+wenn die Listen nicht gleich lang sind.
+
+01:10:24.000 --> 01:10:26.000
+Und was ZIP macht,
+
+01:10:26.000 --> 01:10:28.000
+es nimmt immer die ersten,
+
+01:10:28.000 --> 01:10:30.000
+es nimmt immer an der selben Index
+
+01:10:30.000 --> 01:10:32.000
+der beiden Listen hier
+
+01:10:32.000 --> 01:10:34.000
+das gleiche Element her,
+
+01:10:34.000 --> 01:10:36.000
+also hier Maths und Brown an der Stelle 0
+
+01:10:36.000 --> 01:10:38.000
+und kombiniert die
+
+01:10:38.000 --> 01:10:40.000
+zu einem Duple.
+
+01:10:40.000 --> 01:10:42.000
+Praktisch haben wir dann einen Duple stehen,
+
+01:10:42.000 --> 01:10:44.000
+der schaut dann eben so aus.
+
+01:11:00.000 --> 01:11:02.000
+Ja.
+
+01:11:12.000 --> 01:11:16.000
+Ich glaube, ich weiß gar nicht, ob ich das so machen kann.
+
+01:11:20.000 --> 01:11:22.000
+Genau.
+
+01:11:22.000 --> 01:11:24.000
+Das schaut dann eigentlich intern so aus,
+
+01:11:24.000 --> 01:11:26.000
+dass ihr dann immer praktisch hier,
+
+01:11:26.000 --> 01:11:28.000
+ihr seht immer 1
+
+01:11:28.000 --> 01:11:30.000
+und 4 als Duple,
+
+01:11:30.000 --> 01:11:32.000
+Speicherts 2 und 5 als Duple und 3 und 6.
+
+01:11:46.000 --> 01:11:48.000
+Das kann man dann natürlich so machen.
+
+01:11:50.000 --> 01:11:52.000
+Element 1,
+
+01:11:52.000 --> 01:11:54.000
+Element 2 in
+
+01:11:54.000 --> 01:11:56.000
+dann nehmen wir uns nochmal
+
+01:11:56.000 --> 01:11:58.000
+das ZIP her, dann müsst ihr nicht unbedingt
+
+01:11:58.000 --> 01:12:00.000
+das Ganze nochmal in eine Liste konvertieren.
+
+01:12:00.000 --> 01:12:02.000
+Das Problem nämlich
+
+01:12:02.000 --> 01:12:04.000
+ist, wenn ich
+
+01:12:04.000 --> 01:12:06.000
+nur das ZIP ausgebe,
+
+01:12:08.000 --> 01:12:10.000
+schaut das sehr unleserlich aus.
+
+01:12:12.000 --> 01:12:14.000
+Da sind wir beim Problem wieder vor.
+
+01:12:18.000 --> 01:12:20.000
+Und da machen wir dann das ZIP rein,
+
+01:12:20.000 --> 01:12:22.000
+dann wieder den Doppelpunkt.
+
+01:12:26.000 --> 01:12:28.000
+E1, E2
+
+01:12:28.000 --> 01:12:30.000
+und dann könnt ihr das so ausbinden.
+
+01:12:40.000 --> 01:12:42.000
+Gibt es da zu fragen?
+
+01:12:42.000 --> 01:12:44.000
+Okay.
+
+01:12:48.000 --> 01:12:50.000
+Dann gibt es noch so ein paar spezielle Keywords,
+
+01:12:50.000 --> 01:12:52.000
+die ihr in Schleifen
+
+01:12:52.000 --> 01:12:54.000
+verwenden könnt.
+
+01:12:54.000 --> 01:12:56.000
+Das Pass.
+
+01:12:56.000 --> 01:12:58.000
+Pass könnt ihr sogar überall im Programm verwenden.
+
+01:12:58.000 --> 01:13:00.000
+Und das ist einfach nur ein Lehrerkommand.
+
+01:13:00.000 --> 01:13:02.000
+Das ist zum Beispiel ganz praktisch,
+
+01:13:02.000 --> 01:13:04.000
+wenn ihr beim Coden seid
+
+01:13:04.000 --> 01:13:06.000
+und ihr wisst, okay,
+
+01:13:10.000 --> 01:13:12.000
+ich will dann IF machen,
+
+01:13:12.000 --> 01:13:14.000
+aber ich bin mir noch nicht ganz sicher,
+
+01:13:14.000 --> 01:13:16.000
+was ich reinschreiben will.
+
+01:13:16.000 --> 01:13:18.000
+Schreibe einfach ein Pass rein
+
+01:13:18.000 --> 01:13:20.000
+und dann meckert's Beifen nicht,
+
+01:13:20.000 --> 01:13:22.000
+weil wenn ich das nicht mache,
+
+01:13:25.000 --> 01:13:28.000
+dann sagt er mir, oh, da fehlt was.
+
+01:13:28.000 --> 01:13:30.000
+Aber da auch, dass ich eben
+
+01:13:30.000 --> 01:13:32.000
+ein leeres Statement verwendet habe,
+
+01:13:32.000 --> 01:13:34.000
+da passiert nix.
+
+01:13:34.000 --> 01:13:36.000
+Aber ich habe eben schon dieses IF definiert,
+
+01:13:36.000 --> 01:13:38.000
+weil ich später schon weiß, okay,
+
+01:13:38.000 --> 01:13:40.000
+da kommt dann diese Erzweigung
+
+01:13:40.000 --> 01:13:42.000
+im Programm rein, also
+
+01:13:42.000 --> 01:13:44.000
+schreibe ich mal das rein
+
+01:13:44.000 --> 01:13:46.000
+und dann später programmiere ich
+
+01:13:46.000 --> 01:13:48.000
+den Rest des Codes aus,
+
+01:13:48.000 --> 01:13:50.000
+da habe ich mal ein Pass rein.
+
+01:13:50.000 --> 01:13:52.000
+Das Break und das Continue
+
+01:13:52.000 --> 01:13:54.000
+ist nur ein Schleifen vor.
+
+01:13:54.000 --> 01:13:56.000
+Das Break, das bricht die Schleife ab.
+
+01:13:56.000 --> 01:13:58.000
+Zum Beispiel, ihr habt ein IF Statement erreicht,
+
+01:13:58.000 --> 01:14:00.000
+also wo ihr sagt, okay,
+
+01:14:00.000 --> 01:14:02.000
+ich bin jetzt ganz zufrieden
+
+01:14:02.000 --> 01:14:04.000
+mit dem, was ich da gemacht habe.
+
+01:14:04.000 --> 01:14:06.000
+Ich brauche den Rest der Schleife nicht mehr.
+
+01:14:06.000 --> 01:14:08.000
+Break, also
+
+01:14:08.000 --> 01:14:10.000
+abbrechen,
+
+01:14:10.000 --> 01:14:12.000
+gehe ich aus der Schleife raus.
+
+01:14:12.000 --> 01:14:14.000
+Continue ist so,
+
+01:14:16.000 --> 01:14:18.000
+stellt ihr vor, seit ihr gerade
+
+01:14:18.000 --> 01:14:20.000
+in der Schleife drin,
+
+01:14:20.000 --> 01:14:22.000
+da wird gerade was berechnet.
+
+01:14:22.000 --> 01:14:24.000
+Und da kommt jetzt auf ein Zwischenergebnis,
+
+01:14:24.000 --> 01:14:26.000
+mit dem ihr auch wieder zufrieden seid.
+
+01:14:26.000 --> 01:14:28.000
+Aber ihr möcht noch die
+
+01:14:28.000 --> 01:14:30.000
+alle anderen Ergebnisse ausrechnen
+
+01:14:30.000 --> 01:14:32.000
+in dieser Liste, die ihr damit
+
+01:14:32.000 --> 01:14:34.000
+in der Schleife durchgeht.
+
+01:14:34.000 --> 01:14:36.000
+Dann mache ich einfach Continue.
+
+01:14:36.000 --> 01:14:38.000
+Das heißt,
+
+01:14:38.000 --> 01:14:40.000
+der restliche Code
+
+01:14:40.000 --> 01:14:42.000
+in der Schleife wird nicht mehr ausgeführt
+
+01:14:42.000 --> 01:14:44.000
+und ich springe zum nächsten Element.
+
+01:14:46.000 --> 01:14:48.000
+Also damit, das ist einfach wie ein
+
+01:14:48.000 --> 01:14:50.000
+Element
+
+01:14:50.000 --> 01:14:52.000
+und das Break ist wie
+
+01:14:52.000 --> 01:14:54.000
+ich breche die Schleife komplett ab.
+
+01:14:54.000 --> 01:14:56.000
+Die zwei kann man nicht in der IF Anweisung
+
+01:14:56.000 --> 01:14:58.000
+verwenden, weil
+
+01:14:58.000 --> 01:15:00.000
+das macht eigentlich wenig Sinn.
+
+01:15:00.000 --> 01:15:02.000
+Genau.
+
+01:15:02.000 --> 01:15:04.000
+Ja.
+
+01:15:04.000 --> 01:15:06.000
+Das wäre es eigentlich eh schon
+
+01:15:06.000 --> 01:15:08.000
+von diesem Teil der Vorlesung.

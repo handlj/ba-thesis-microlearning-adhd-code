@@ -1,0 +1,160 @@
+WEBVTT
+
+54:13.840 --> 54:23.840
+Passt, dann kann man zu den Datenstrukturen, deswegen habe ich ein bisschen sputen, und da gibt es mehrere.
+
+54:24.840 --> 54:35.840
+Lists und Doubles, die haben wir jetzt schon durchgemacht, Lists, das ist mit den eckigen Klammern, Doubles ist mit den runden Klammern, jetzt kann man noch 2 dazu, das sind die Sets und Dictionaries.
+
+54:36.840 --> 54:40.840
+Fangen wir mal mit ins Set.
+
+54:41.840 --> 54:58.840
+Sets sind, das kennen wir vielleicht aus der Mathematik, wo man auch Sets hat, das sind praktisch einfach eine ungehörnete Sammlung von eindeutigen, wichtig eindeutigen Elementen, das heißt praktisch, da kommt kein Wert zweimal vor.
+
+54:59.840 --> 55:16.840
+Wie gesagt, das kennen wir aus der Mathematik, vielleicht wenn ihr euch zurück erinnert an die Venndiagramme und so, dann repräsentiert man manchmal die Sets, und da gibt es eben keine Doppelgänge, also jedes Element ist nur einmal vorhanden.
+
+55:17.840 --> 55:39.840
+Und die Definition von einem Set ist mit diesen geschwungenen Klammern, praktisch das haben wir die eckigen Klammern, jetzt haben wir die runden Klammern, das kriegen wir auch noch die geschwungenen Klammern, oder eben durch dieses Set-Statement-Gedau, da kann man zum Beispiel einfach ein leeres Set machen.
+
+55:40.840 --> 56:00.840
+Und das ist ultra, ultra notwendig, wenn man ganz schnell eben zum Beispiel, sagen wir mal, man hat eine Liste mit Doppelgängen drin und will die Doppelgänger ganz schnell rauslöschen, dann wandle ich einfach diese Liste in ein Set um, und Schwups sind alle Doppelgänger weg, und da kann ich das Set wieder in eine Liste umwandeln.
+
+56:01.840 --> 56:09.840
+Und da gibt es dann auch diese ganzen Operatoren, die man auch aus der Mengenlehre kennt, also wie gesagt diese Venndiagramme auch.
+
+56:12.840 --> 56:29.840
+Wichtig aber, es gibt hier keinen direkten Elementzugriff, also man hat hier keinen Index, also man kann ja nicht Set an der Stelle 1 sagen, um das zweite Element rauszukriegen, sondern dann müsste man dieses Set zuerst in eine Liste umwandeln, wenn man das machen möchte.
+
+56:30.840 --> 56:37.840
+Aber man kann auch wieder Lenn verwenden, um praktisch die Länge unserer Sätze durchzuführen.
+
+56:38.840 --> 56:39.840
+Das schaut dann eben so aus.
+
+56:44.840 --> 56:58.840
+Praktisch hat man hier die geschwungenen Klammern auf, dann hat man hier ein Element, Beistrich, zweites Element, eigentlich identisch wie eine Liste ist, nur dass man statt den eckigen Klammern diese geschwungenen Klammern verwendet.
+
+57:01.840 --> 57:11.840
+Es gibt da natürlich jetzt sehr verwirrend hinzufügen und löschen.
+
+57:14.840 --> 57:26.840
+Bei Set ist so, da gibt es das Add, das kommt nämlich aus der Mathematik, und da kann man Set addieren, praktisch hat man nicht Append, sondern Add.
+
+57:27.840 --> 57:32.840
+Schaut, dass ihr das Append von den Listen und das Add von den Sets auseinanderhaltet.
+
+57:36.840 --> 57:45.840
+Genau, dann gibt es noch dieses Update, da kann man dann eine ganze Liste von Items hinzufügen.
+
+57:46.840 --> 58:04.840
+Dann gibt es zwei, das Remove und das Discard, das hier, wenn man Remove verwendet,
+
+58:04.840 --> 58:14.840
+sagen wir zum Beispiel, wir gehen jetzt her und haben in unseren Color Set Orange und Black drin und wir wollen jetzt Blue Remove, dann wird es uns ein Fehler werfen.
+
+58:17.840 --> 58:24.840
+Discard versucht es einfach und wenn es nicht funktioniert, dann ist auch egal, können wir auch kurz ausprobieren.
+
+58:24.840 --> 58:49.840
+Okay, dann Dual Set, dann definieren wir mal ein Set, wir haben da bei uns ein tollen Set, jetzt was Remove.
+
+58:55.840 --> 58:58.840
+Dann kriegen wir dann Fehler, falls es nicht existiert.
+
+59:06.840 --> 59:13.840
+Und Discard versucht es einfach und wenn es nicht existiert, dann passiert halt nichts, aber wir bekommen auch keinen Fehler.
+
+59:14.840 --> 59:24.840
+Und das ist manchmal sehr hilfreich, wenn man einfach Fehler vermeiden will, sagt okay, ich will es einfach versuchen zu löschen und wenn es nicht existiert, ist auch egal.
+
+59:27.840 --> 59:42.840
+Das heißt, wenn ich jetzt da das tolle Set print, dann ist das immer noch so, wenn ich da natürlich einen Fünfer drin habe, dann wird das der Fünfer ausgelöscht.
+
+59:44.840 --> 59:56.840
+Und wenn ich sage, ich will alle löschen, dann kann ich das mit Clear machen und dann wird mein tolle Set leer sein.
+
+59:57.840 --> 01:00:02.840
+Genau, das ist praktisch so hinzufügen und löschen.
+
+01:00:05.840 --> 01:00:14.840
+Und dann gibt es auch so Mengenoperationen, die ja kennt ihr vielleicht eh schon jetzt, vielleicht von den Booleons oder von der Mathematik.
+
+01:00:15.840 --> 01:00:40.840
+Sagen wir, ihr habt diese zwei Sets hier, da kann man verunten, das wäre praktisch in weder mit Intersection oder XY, also wenn Diagramme, normalerweise werden sie so in Kreise eingezeichnet und wäre diese Menge hier.
+
+01:00:41.840 --> 01:00:50.840
+Das wäre praktisch alles, was ZX und ZY gemeinsam haben und der Rest wird weggeworfen.
+
+01:00:52.840 --> 01:01:08.840
+Das Ohr wäre praktisch alles, also dass wir wirklich die komplette Menge beide kombiniert oder Junioren kann man auch nehmen.
+
+01:01:08.840 --> 01:01:22.840
+Also es gibt eben dieses Und-Zeichen für Und und diesen langen Strich runter, da ist es normalerweise bei der Statur, bei den kleiner größer Zeichen und noch eins drunter.
+
+01:01:23.840 --> 01:01:28.840
+Ihr könnt auch sonst eben auch Junioren verwenden.
+
+01:01:29.840 --> 01:01:40.840
+Ihr könnt ihn verwenden, um rauszufinden, ob ein gewisses Element in diesem Fett vorhanden ist, es ist sehr ähnlich zu den Listen eigentlich, da habt ihr ja derselbe.
+
+01:01:43.840 --> 01:01:50.840
+Und dann gibt es auch noch die Differenz und die Differenz der praktisch nur das hier.
+
+01:01:53.840 --> 01:02:01.840
+Also nur das und das, wenn es mich täuscht, dass ich selber nachschauen.
+
+01:02:02.840 --> 01:02:04.840
+Guck mal, kurz ausprobieren.
+
+01:02:10.840 --> 01:02:21.840
+X ist gleich 1, 2, Y ist gleich 2, 3.
+
+01:02:23.840 --> 01:02:35.840
+Jetzt können wir machen X und Y, da bekommt ihr praktisch nur die Elemente raus, die in beiden Sets vorhanden sind.
+
+01:02:36.840 --> 01:02:38.840
+Ihr könnt das Ohr machen.
+
+01:02:42.840 --> 01:02:47.840
+Das wären einfach alle Elemente und wie ihr seht, das Resultat ist auch immer wieder ein Set.
+
+01:02:47.840 --> 01:02:53.840
+Das heißt, wir haben hier nicht zweimal 2 drin stehen, sondern nur einmal, weil es ja keine Doppelgänger geben soll.
+
+01:02:55.840 --> 01:02:57.840
+Und dann gibt es eben auch noch das Minus.
+
+01:03:01.840 --> 01:03:05.840
+Und da ist so, ah ok, das ist so.
+
+01:03:09.840 --> 01:03:10.840
+Das ist nicht das hier.
+
+01:03:17.840 --> 01:03:27.840
+Sondern das könnt ihr so vorstellen, dass, sagen wir mal, das hier ist X und das ist Y.
+
+01:03:29.840 --> 01:03:37.840
+Und wir praktisch subtrahieren Y von X, dann bleibt praktisch nur noch dieser Teil hier übrig.
+
+01:03:38.840 --> 01:03:43.840
+Und der Teil hier, der praktisch mit Y überschneidet, wird gelöscht.
+
+01:03:44.840 --> 01:03:50.840
+Deshalb steht auch hier noch ein 1er drin, weil hier praktisch X ist ja 1 und 2.
+
+01:03:51.840 --> 01:03:57.840
+Und dann löschen wir praktisch alle Elemente in X, die in Y vorkommen.
+
+01:03:58.840 --> 01:04:02.840
+Das ist 2 und 3, aber 3 haben wir ja nichts nicht, deshalb ist das eh egal.
+
+01:04:02.840 --> 01:04:04.840
+Der 2er wird dann aus X rausgelöscht.
+
+01:04:06.840 --> 01:04:13.840
+Und da gibt es natürlich noch mehr Operatoren und die könnt ihr dann auch in den Beifendocs nachschauen.
+
+01:04:14.840 --> 01:04:16.840
+Die werden wir euch da mal verlinken.

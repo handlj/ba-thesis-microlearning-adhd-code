@@ -1,0 +1,472 @@
+WEBVTT
+
+33:59.000 --> 34:01.000
+Genau, dann gehen wir noch zu den Wailoops weiter.
+
+34:03.000 --> 34:05.000
+Und die Wailoops,
+
+34:05.000 --> 34:07.000
+das ist auch eine Art von Schleife,
+
+34:07.000 --> 34:09.000
+also wir kennen ja die einere Schleife,
+
+34:09.000 --> 34:11.000
+das war die Vorloop,
+
+34:11.000 --> 34:13.000
+und jetzt haben wir auch noch diese Wailoop,
+
+34:13.000 --> 34:15.000
+und die Wailoop ist ein bisschen speziell.
+
+34:15.000 --> 34:17.000
+Wie ihr seht,
+
+34:17.000 --> 34:19.000
+übersetzt ist das so, was wie so lange
+
+34:19.000 --> 34:21.000
+diese Bedingung erfüllt ist,
+
+34:21.000 --> 34:23.000
+und wird das Ganze
+
+34:23.000 --> 34:25.000
+in einer Endloschleife,
+
+34:25.000 --> 34:27.000
+oder wird das praktisch diese Ausweisung ausführen.
+
+34:29.000 --> 34:31.000
+Das heißt,
+
+34:31.000 --> 34:33.000
+hier haben wir eine Kondition,
+
+34:33.000 --> 34:35.000
+wenn ihr euch zurückerinnert,
+
+34:35.000 --> 34:37.000
+das haben wir es auch beim IF,
+
+34:37.000 --> 34:39.000
+das heißt praktisch, es ist sehr ähnlich zum IF,
+
+34:41.000 --> 34:43.000
+nur wird das Ganze
+
+34:43.000 --> 34:45.000
+einfach wiederholt,
+
+34:45.000 --> 34:47.000
+solange diese Kondition TRUE ist.
+
+34:47.000 --> 34:49.000
+Also das ist wieder ein Bolian hier,
+
+34:49.000 --> 34:51.000
+das schaut dann ungefähr so aus.
+
+34:51.000 --> 34:53.000
+Zum Beispiel haben wir hier eine Variable X,
+
+34:53.000 --> 34:55.000
+die wir mit 0 definieren,
+
+34:55.000 --> 34:57.000
+und solange X
+
+34:57.000 --> 34:59.000
+als 3 wiederholt sich das Ganze,
+
+35:01.000 --> 35:03.000
+und wie ihr es schon seht,
+
+35:03.000 --> 35:05.000
+können das auch zu Problemen führen,
+
+35:05.000 --> 35:07.000
+weil sagen wir zum Beispiel,
+
+35:09.000 --> 35:11.000
+wir vergessen das hier,
+
+35:11.000 --> 35:13.000
+was glaubt ihr, was passiert?
+
+35:15.000 --> 35:17.000
+Also, wir vergessen hier
+
+35:17.000 --> 35:19.000
+X zu inkrementieren mit 1.
+
+35:27.000 --> 35:29.000
+Genau, da haben wir eine Endloschleife,
+
+35:29.000 --> 35:31.000
+weil praktisch hier
+
+35:31.000 --> 35:33.000
+X nie verändert wird,
+
+35:33.000 --> 35:35.000
+das heißt X bleibt immer 0,
+
+35:35.000 --> 35:37.000
+das heißt,
+
+35:37.000 --> 35:39.000
+das hier ist praktisch immer wahr,
+
+35:39.000 --> 35:41.000
+und wir kommen da nicht mehr raus.
+
+35:43.000 --> 35:45.000
+Und das kann euch vielleicht auch
+
+35:45.000 --> 35:47.000
+beim Live-Programmen passieren,
+
+35:47.000 --> 35:49.000
+also da hatten wir über die Jahre
+
+35:49.000 --> 35:51.000
+schon öfters Problemen,
+
+35:51.000 --> 35:53.000
+dass jemand eine Weilschleife definiert
+
+35:53.000 --> 35:55.000
+und vergisst das hier zu machen,
+
+35:55.000 --> 35:57.000
+dass praktisch diese Variable,
+
+35:57.000 --> 35:59.000
+die wir hier in der Bedingung haben,
+
+35:59.000 --> 36:01.000
+nicht verändert
+
+36:01.000 --> 36:03.000
+und dann plötzlich reagiert
+
+36:03.000 --> 36:05.000
+mein JupyterLab nicht mehr
+
+36:05.000 --> 36:07.000
+in Wirklichkeit schon,
+
+36:07.000 --> 36:09.000
+es ist nur eine Endloschleife,
+
+36:09.000 --> 36:11.000
+die praktisch ewig durchläuft.
+
+36:13.000 --> 36:15.000
+Da kann man natürlich auch wieder,
+
+36:15.000 --> 36:17.000
+also wir können das mal ausprobieren,
+
+36:17.000 --> 36:19.000
+was passiert, wenn man so eine Endloschleife gerät,
+
+36:19.000 --> 36:21.000
+die einfachste wäre,
+
+36:21.000 --> 36:23.000
+zum Beispiel,
+
+36:23.000 --> 36:25.000
+while true,
+
+36:27.000 --> 36:29.000
+also,
+
+36:29.000 --> 36:31.000
+so lange war,
+
+36:31.000 --> 36:33.000
+machen wir irgendwas,
+
+36:33.000 --> 36:35.000
+so,
+
+36:35.000 --> 36:37.000
+jetzt läuft das hier,
+
+36:37.000 --> 36:39.000
+läuft, läuft, läuft, läuft,
+
+36:39.000 --> 36:41.000
+und das hört nicht mehr auf,
+
+36:41.000 --> 36:43.000
+und da können wir dann einfach hier,
+
+36:43.000 --> 36:45.000
+das hier,
+
+36:45.000 --> 36:47.000
+das hier,
+
+36:47.000 --> 36:49.000
+das hier,
+
+36:49.000 --> 36:51.000
+das hier,
+
+36:51.000 --> 36:53.000
+das hier,
+
+36:53.000 --> 36:55.000
+das hier,
+
+36:55.000 --> 36:57.000
+das hier,
+
+36:57.000 --> 36:59.000
+das hier,
+
+36:59.000 --> 37:01.000
+das hier,
+
+37:01.000 --> 37:03.000
+und da können wir dann einfach hier,
+
+37:03.000 --> 37:05.000
+manuell sagen,
+
+37:05.000 --> 37:07.000
+okay, wir stoppen hier,
+
+37:07.000 --> 37:09.000
+und kommt dieses Keyboard interrupt,
+
+37:11.000 --> 37:13.000
+ganz interessant bei Jupyter
+
+37:13.000 --> 37:15.000
+ist so, also wenn ihr das in Notebook macht,
+
+37:15.000 --> 37:17.000
+dann speichert er trotzdem
+
+37:17.000 --> 37:19.000
+noch diesen Wert, das heißt,
+
+37:19.000 --> 37:21.000
+wir können den auch mal auslesen,
+
+37:21.000 --> 37:23.000
+und jetzt wissen wir,
+
+37:23.000 --> 37:25.000
+wie oft diese Weisschleife
+
+37:25.000 --> 37:27.000
+während diesen fast 14 Sekunden
+
+37:27.000 --> 37:29.000
+hier durchlaufen ist,
+
+37:29.000 --> 37:31.000
+das heißt, wir haben hier
+
+37:31.000 --> 37:33.000
+1000
+
+37:33.000 --> 37:35.000
+eine Million
+
+37:39.000 --> 37:41.000
+33 Millionen
+
+37:45.000 --> 37:47.000
+Nein, 336 Millionen mal ist
+
+37:47.000 --> 37:49.000
+diese Weisschleife in der Zwischenzeit durchlaufen.
+
+37:59.000 --> 38:01.000
+Genau,
+
+38:01.000 --> 38:03.000
+aber für was
+
+38:03.000 --> 38:05.000
+verwendet man so eine Weisschleife eigentlich?
+
+38:05.000 --> 38:07.000
+Für was ist das notwendig?
+
+38:07.000 --> 38:09.000
+Also,
+
+38:09.000 --> 38:11.000
+sagen wir zum Beispiel,
+
+38:11.000 --> 38:13.000
+ihr wollt ein Programm machen,
+
+38:13.000 --> 38:15.000
+das zum Beispiel
+
+38:15.000 --> 38:17.000
+so eine Attaschenrechner,
+
+38:17.000 --> 38:19.000
+dann könnt ihr eben
+
+38:19.000 --> 38:21.000
+hier schauen,
+
+38:21.000 --> 38:23.000
+okay, ich will so lange
+
+38:23.000 --> 38:25.000
+Sachen addieren,
+
+38:25.000 --> 38:27.000
+oder eben hier zum Beispiel
+
+38:27.000 --> 38:29.000
+machen wir einfach so eine Art
+
+38:29.000 --> 38:31.000
+Papageide und sind immer wieder das,
+
+38:31.000 --> 38:33.000
+das rausschreibt,
+
+38:33.000 --> 38:35.000
+was wir reingeschrieben haben.
+
+38:37.000 --> 38:39.000
+Und wir schauen einfach, bis dieser Input
+
+38:39.000 --> 38:41.000
+quitt ist, das heißt praktisch,
+
+38:41.000 --> 38:43.000
+wenn ich dann immer ein Input quitt reinschreib,
+
+38:43.000 --> 38:45.000
+dann ist
+
+38:45.000 --> 38:47.000
+diese
+
+38:47.000 --> 38:49.000
+diese Condition
+
+38:49.000 --> 38:51.000
+nicht mehr erfüllt, weil, wie ihr hier seht,
+
+38:51.000 --> 38:53.000
+haben wir hier einen Ungleich,
+
+38:53.000 --> 38:55.000
+also dieses Rufenzeichen macht
+
+38:55.000 --> 38:57.000
+das Ganze nicht gleich,
+
+38:57.000 --> 38:59.000
+und sobald das nicht mehr erfüllt ist,
+
+38:59.000 --> 39:01.000
+bricht die Schleife ab
+
+39:01.000 --> 39:03.000
+und dann bändet unser Programm.
+
+39:07.000 --> 39:09.000
+Genau,
+
+39:09.000 --> 39:11.000
+nochmal zu Endloschleifen, also da gibt es eben
+
+39:11.000 --> 39:13.000
+wie gesagt, die einfachste ist diese
+
+39:13.000 --> 39:15.000
+Wild True Schleife,
+
+39:15.000 --> 39:17.000
+Wild True ist immer wahr,
+
+39:17.000 --> 39:19.000
+und die bricht praktisch nie mehr ab.
+
+39:19.000 --> 39:21.000
+Und was kann man da
+
+39:21.000 --> 39:23.000
+sonst noch so machen,
+
+39:23.000 --> 39:25.000
+wenn wir euch zurückerinnern,
+
+39:25.000 --> 39:27.000
+wir können hier entweder so
+
+39:27.000 --> 39:29.000
+das machen, aber wir können das Ganze
+
+39:29.000 --> 39:31.000
+auch so machen, dass wir einfach sagen,
+
+39:31.000 --> 39:33.000
+wir haben eine Endloschleife,
+
+39:33.000 --> 39:35.000
+und dann, wenn ihr euch zurückerinnert,
+
+39:35.000 --> 39:37.000
+gibt es hier dieses Break Statement,
+
+39:37.000 --> 39:39.000
+mit der wir praktisch die Schleife
+
+39:39.000 --> 39:41.000
+abbrechen können.
+
+39:41.000 --> 39:43.000
+Da können wir einfach so ein tolles If
+
+39:43.000 --> 39:45.000
+reinhauen, und das macht eigentlich
+
+39:45.000 --> 39:47.000
+nichts anderes, wie das, was da vorgemacht
+
+39:47.000 --> 39:49.000
+wurde.
+
+39:49.000 --> 39:51.000
+Hier im Gegensatz schauen wir aber,
+
+39:51.000 --> 39:53.000
+wirklich, der Usain would quit
+
+39:53.000 --> 39:55.000
+es, also nicht, nicht gleich,
+
+39:55.000 --> 39:57.000
+sondern ist gleich quit.
+
+39:59.000 --> 40:01.000
+Genau.
+
+40:01.000 --> 40:03.000
+Ist das soweit klar, oder
+
+40:03.000 --> 40:05.000
+soll ich da nochmal kurz was wiederholen?
+
+40:05.000 --> 40:07.000
+Okay.
