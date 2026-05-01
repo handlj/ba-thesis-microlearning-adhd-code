@@ -1,2 +1,4 @@
 audios/*
 !audios/.gitkeep
+videos/*
+!videos/.gitkeep
