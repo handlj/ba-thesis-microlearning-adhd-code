@@ -12,7 +12,9 @@ It will be updated in the course of the thesis, with changes being documented in
 ## Contents
 - `course_materials/`
   - `raw/`: raw course slides, audios, transcripts and videos (local for space reasons)
-  - `preprocessed/`: manually preprocessed transcripts for selected videos
+  - `preprocessed/`
+    - `transcripts/`: manually preprocessed transcripts for selected videos
+    - `slides/`: preprocessed slides for microlearning session
 - `microlearning-adhd-app/`
   - `frontend/`: React/TypeScript frontend for the microlearning app
   - `backend/`: tba
@@ -21,3 +23,4 @@ It will be updated in the course of the thesis, with changes being documented in
 - **2026-03-01**: Initialization
 - **2026-04-29**: Add raw course presentation .odp files
 - **2026-05-01**: Add full video audios and transcripts, add session proposal for microlearning, init frontend of microlearning app
+- **2026-05-02**: Add presentation for microlearning session
