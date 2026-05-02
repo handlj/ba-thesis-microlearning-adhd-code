@@ -2,23 +2,43 @@
 20min Microlearning Session
 ===========================
 
-Topic A
--------
+4 topics a ~5mins
 
-booleans, simple comparison operators
+We orient ourselves on very basic concepts of programming.
+Target users should have little to no experience in programming
+and its related concepts.
 
-Topic B
--------
+Statements on the amount of slides per topic relate to
+"full-presentation-shortened" inthe 
+/course-material/preprocessed/slides directory.
 
-if-statement basics
 
-Topic C
--------
+Topic A (7 slides)
+-------------------
+Variables, simple data types
+o definition of variables
+o overview on data types
+o integers & strings (basics)
 
-loop basics (for and while)
 
-Topic D
--------
+Topic B (5 slides)
+------------------
+If-statement basics
+o definition and examples (code snippets)
 
-function basics
+
+Topic C (7 slides)
+------------------
+Loops
+o for loops (basics)
+o while loops (basics)
+o loop keywords (break, pass, continue)
+
+
+Topic D (7 slides)
+------------------
+Functions
+o basic concept
+o definition
+o examples for valid use and errors
 

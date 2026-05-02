@@ -2,3 +2,4 @@ audios/*
 !audios/.gitkeep
 videos/*
 !videos/.gitkeep
+slides/*.odp
