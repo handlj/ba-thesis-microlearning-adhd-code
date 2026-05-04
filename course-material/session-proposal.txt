@@ -2,7 +2,7 @@
 20min Microlearning Session
 ===========================
 
-4 topics a ~5mins
+4 topics a ~5min
 
 We orient ourselves on very basic concepts of programming.
 Target users should have little to no experience in programming
@@ -11,6 +11,8 @@ and its related concepts.
 Statements on the amount of slides per topic relate to
 "relevant-topics-shortened" in the 
 /course-material/preprocessed/slides directory.
+
+Therefore, the full microlearning session will have 26 slides.
 
 
 Topic A (7 slides)
