@@ -9,7 +9,7 @@ Target users should have little to no experience in programming
 and its related concepts.
 
 Statements on the amount of slides per topic relate to
-"full-presentation-shortened" inthe 
+"relevant-topics-shortened" in the 
 /course-material/preprocessed/slides directory.
 
 
