@@ -89,7 +89,8 @@
   color: var(--text-h);
 }
 
-.demographic-form select {
+.demographic-form select,
+.demographic-form input {
   appearance: none;
   width: 100%;
   border-radius: 16px;
@@ -100,7 +101,8 @@
   font: inherit;
 }
 
-.demographic-form select:focus-visible {
+.demographic-form select:focus-visible,
+.demographic-form input:focus-visible {
   outline: 3px solid rgba(54, 87, 159, 0.25);
   outline-offset: 2px;
 }
@@ -155,6 +157,20 @@
 
 .status {
   color: var(--text);
+}
+
+.error-text {
+  margin: 0;
+  color: #9b1c1c;
+  font-weight: 600;
+}
+
+.assignment-result {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(31, 59, 115, 0.08);
+  border: 1px solid rgba(31, 59, 115, 0.16);
 }
 
 @media (max-width: 640px) {
