@@ -7,8 +7,6 @@
 ## Overview
 This repository contains the code and data used for the bachelor thesis with the working title "ADHD Microlearning" by Jan S. Handler.  
 
-It will be updated in the course of the thesis, with changes being documented in the changelog below.
-
 ## Contents
 - `course_materials/`
   - `raw/`: raw course slides, audios, transcripts and videos (local for space reasons)
