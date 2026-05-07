@@ -29,6 +29,14 @@
   width: min(760px, 100%);
 }
 
+.study-card--ready {
+  width: min(760px, 100%);
+}
+
+.study-card--video {
+  width: min(920px, 100%);
+}
+
 .eyebrow {
   margin: 0 0 16px;
   font-size: 0.85rem;
@@ -171,6 +179,46 @@
   border-radius: 12px;
   background: rgba(31, 59, 115, 0.08);
   border: 1px solid rgba(31, 59, 115, 0.16);
+}
+
+.video-panel {
+  margin-top: 28px;
+  display: grid;
+  gap: 18px;
+}
+
+.video-meta {
+  display: grid;
+  gap: 8px;
+}
+
+.video-kicker {
+  font-weight: 700;
+  color: #1f3b73;
+}
+
+.video-description {
+  max-width: 60ch;
+  line-height: 1.65;
+}
+
+.video-shell {
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(138, 91, 43, 0.16);
+  background: #0f1720;
+  box-shadow: 0 18px 40px rgba(15, 23, 32, 0.16);
+}
+
+.video-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0f1720;
+}
+
+.video-status {
+  color: #4f453a;
 }
 
 @media (max-width: 640px) {

@@ -5,10 +5,12 @@ import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
 import Consent from './Consent.tsx'
 import Demographics from './Demographics.tsx'
+import ControlGroup from './ControlGroup.tsx'
+import ExperimentalGroup from './ExperimentalGroup.tsx'
 import { assignDeterministicGroup, type DemographicAnswers, type GroupAssignment } from '../utils/groupAssignment'
 import { validateDemographics } from '../utils/demographicsValidation'
 
-type Page = 'welcome' | 'consent' | 'demographics' | 'ready'
+type Page = 'welcome' | 'consent' | 'demographics' | 'ready' | 'control' | 'experimental'
 
 type BufferedEvent = {
   event: string
@@ -45,6 +47,29 @@ function App() {
       ? 'Control group'
       : 'Experimental group'
   }, [assignment])
+
+  const resetStudyState = () => {
+    setAgreed(false)
+    setDemographics(defaultDemographics)
+    setDemographicError(null)
+    setAssignment(null)
+  }
+
+  const returnToWelcome = () => {
+    transitionTo('welcome')
+    resetStudyState()
+  }
+
+  const continueFromReady = () => {
+    if (assignment === 'control') {
+      transitionTo('control')
+      return
+    }
+
+    if (assignment === 'experimental') {
+      transitionTo('experimental')
+    }
+  }
 
   const persistBuffer = () => {
     localStorage.setItem(STUDY_BUFFER_KEY, JSON.stringify(bufferRef.current))
@@ -88,13 +113,7 @@ function App() {
         agreed={agreed}
         onAgreementChange={setAgreed}
         onProceed={() => transitionTo('demographics')}
-        onBack={() => {
-          transitionTo('welcome')
-          setAgreed(false)
-          setDemographics(defaultDemographics)
-          setDemographicError(null)
-          setAssignment(null)
-        }}
+        onBack={returnToWelcome}
       />
     )
   }
@@ -132,11 +151,11 @@ function App() {
 
   if (page === 'ready') {
     return (
-      <StudyPage ariaLabelledBy="ready-title">
+      <StudyPage ariaLabelledBy="ready-title" cardClassName="study-card--ready">
         <StudyHeading
           eyebrow="Setup complete"
           title="Thank you. You are ready to begin."
-          intro="Your demographic questionnaire is complete, and you have been assigned deterministically for this study run."
+          intro="Your demographic questionnaire is complete, and you have been assigned deterministically for this study run. The next page loads your group-specific study material."
           id="ready-title"
         />
         <StudyActions>
@@ -148,19 +167,25 @@ function App() {
           <button
             type="button"
             className="start-button"
-            onClick={() => {
-              transitionTo('welcome')
-              setAgreed(false)
-              setDemographics(defaultDemographics)
-              setDemographicError(null)
-              setAssignment(null)
-            }}
+            onClick={continueFromReady}
+            disabled={!assignment}
           >
+            Continue
+          </button>
+          <button type="button" className="secondary-button" onClick={returnToWelcome}>
             Return to welcome
           </button>
         </StudyActions>
       </StudyPage>
     )
+  }
+
+  if (page === 'control') {
+    return <ControlGroup onBackToStart={returnToWelcome} />
+  }
+
+  if (page === 'experimental') {
+    return <ExperimentalGroup onBackToStart={returnToWelcome} />
   }
 
   return (
