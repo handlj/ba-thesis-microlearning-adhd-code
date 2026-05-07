@@ -1,10 +1,14 @@
 import { useMemo, useRef, useState } from 'react'
 import '../styles/App.css'
+import StudyActions from '../components/StudyActions.tsx'
+import StudyHeading from '../components/StudyHeading.tsx'
+import StudyPage from '../components/StudyPage.tsx'
 import Consent from './Consent.tsx'
-import Demographics, { type DemographicAnswers } from './Demographics.tsx'
+import Demographics from './Demographics.tsx'
+import { assignDeterministicGroup, type DemographicAnswers, type GroupAssignment } from '../utils/groupAssignment'
+import { validateDemographics } from '../utils/demographicsValidation'
 
 type Page = 'welcome' | 'consent' | 'demographics' | 'ready'
-type GroupAssignment = 'control' | 'experimental'
 
 type BufferedEvent = {
   event: string
@@ -20,28 +24,6 @@ const defaultDemographics: DemographicAnswers = {
   age: '',
   studyBackground: '',
   adhdDiagnosis: '',
-}
-
-function stableSerialize(data: Record<string, string>): string {
-  return Object.keys(data)
-    .sort()
-    .map((key) => `${key}:${data[key]}`)
-    .join('|')
-}
-
-function hashDjb2(value: string): number {
-  let hash = 5381
-  for (let index = 0; index < value.length; index += 1) {
-    hash = (hash * 33) ^ value.charCodeAt(index)
-  }
-  return hash >>> 0
-}
-
-function assignDeterministicGroup(
-  demographics: DemographicAnswers,
-): GroupAssignment {
-  const serialized = stableSerialize(demographics)
-  return hashDjb2(serialized) % 2 === 0 ? 'control' : 'experimental'
 }
 
 function App() {
@@ -128,25 +110,18 @@ function App() {
         }}
         onBack={() => transitionTo('consent')}
         onSubmit={() => {
-          const { age, studyBackground, adhdDiagnosis } = demographics
-          const parsedAge = Number(age)
-
-          if (!age || !studyBackground || !adhdDiagnosis) {
-            setDemographicError('Please answer all questions before continuing.')
-            return
-          }
-
-          if (!Number.isInteger(parsedAge) || parsedAge < 13 || parsedAge > 120) {
-            setDemographicError('Please enter a valid age between 13 and 120.')
+          const validation = validateDemographics(demographics)
+          if (!validation.valid) {
+            setDemographicError(validation.error)
             return
           }
 
           const nextAssignment = assignDeterministicGroup(demographics)
           setAssignment(nextAssignment)
           addBufferedEvent('demographics_submitted', 'demographics', {
-            age,
-            studyBackground,
-            adhdDiagnosis,
+            age: demographics.age,
+            studyBackground: demographics.studyBackground,
+            adhdDiagnosis: demographics.adhdDiagnosis,
             assignment: nextAssignment,
           })
           transitionTo('ready')
@@ -157,63 +132,59 @@ function App() {
 
   if (page === 'ready') {
     return (
-      <main className="study-page">
-        <section className="study-card" aria-labelledby="ready-title">
-          <p className="eyebrow">Setup complete</p>
-          <h1 id="ready-title">Thank you. You are ready to begin.</h1>
-          <p className="intro">
-            Your demographic questionnaire is complete, and you have been
-            assigned deterministically for this study run.
-          </p>
+      <StudyPage ariaLabelledBy="ready-title">
+        <StudyHeading
+          eyebrow="Setup complete"
+          title="Thank you. You are ready to begin."
+          intro="Your demographic questionnaire is complete, and you have been assigned deterministically for this study run."
+          id="ready-title"
+        />
+        <StudyActions>
           {assignmentLabel ? (
             <p className="assignment-result">
               Assigned group: <strong>{assignmentLabel}</strong>
             </p>
           ) : null}
-          <div className="study-actions">
-            <button
-              type="button"
-              className="start-button"
-              onClick={() => {
-                transitionTo('welcome')
-                setAgreed(false)
-                setDemographics(defaultDemographics)
-                setDemographicError(null)
-                setAssignment(null)
-              }}
-            >
-              Return to welcome
-            </button>
-          </div>
-        </section>
-      </main>
+          <button
+            type="button"
+            className="start-button"
+            onClick={() => {
+              transitionTo('welcome')
+              setAgreed(false)
+              setDemographics(defaultDemographics)
+              setDemographicError(null)
+              setAssignment(null)
+            }}
+          >
+            Return to welcome
+          </button>
+        </StudyActions>
+      </StudyPage>
     )
   }
 
   return (
-    <main className="study-page">
-      <section className="study-card" aria-labelledby="study-title">
-        <p className="eyebrow">Microlearning study</p>
-        <h1 id="study-title">Welcome, participant.</h1>
-        <p className="intro">
-          You are about to begin a short study session. Take your time, read
-          carefully, and start whenever you are ready.
-        </p>
+    <StudyPage ariaLabelledBy="study-title" cardClassName="study-card--landing">
+      <StudyHeading
+        eyebrow="Microlearning study"
+        title="Welcome, participant."
+        intro="You are about to begin a short study session. Take your time, read carefully, and start whenever you are ready."
+        id="study-title"
+      />
 
-        <div className="study-actions">
-          <button
-            type="button"
-            className="start-button"
-            onClick={() => transitionTo('consent')}
-          >
-            Start study
-          </button>
-          <p className="status" aria-live="polite">
-            No data is collected yet.
-          </p>
-        </div>
-      </section>
-    </main>
+      <StudyActions>
+        <button
+          type="button"
+          className="start-button"
+          onClick={() => transitionTo('consent')}
+        >
+          Start study
+        </button>
+        <p className="status" aria-live="polite">
+          No data is collected yet.
+        </p>
+      </StudyActions>
+    </StudyPage>
   )
 }
 
