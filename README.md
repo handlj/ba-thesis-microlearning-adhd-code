@@ -17,10 +17,17 @@ It will be updated in the course of the thesis, with changes being documented in
     - `slides/`: preprocessed slides for microlearning session
 - `microlearning-adhd-app/`
   - `frontend/`: React/TypeScript frontend for the microlearning app
-  - `backend/`: tba
+  - `backend/`: FastAPI backend for loading materials and storing user data
 
-## Changelog
-- **2026-03-01**: Initialization
-- **2026-04-29**: Add raw course presentation .odp files
-- **2026-05-01**: Add full video audios and transcripts, add session proposal for microlearning, init frontend of microlearning app
-- **2026-05-02**: Add presentation for microlearning session
+## Microlearning App Usage
+To run the microlearning app, navigate to the `microlearning-adhd-app/frontend` directory and run:
+```bash
+npm run dev
+```
+This will start the development server, and you can access the app at `http://localhost:5173`.
+
+To start the backend server, navigate to the `microlearning-adhd-app/backend` directory and run:
+```bash
+python main.py
+```
+This will start the backend server, and you can access the API at `http://localhost:8000`.
