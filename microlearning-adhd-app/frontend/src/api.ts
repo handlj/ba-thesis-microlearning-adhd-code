@@ -7,4 +7,15 @@ const api = axios.create({
   },
 });
 
+export type ControlVideo = {
+  title: string;
+  description: string;
+  video_url: string;
+};
+
+export async function fetchControlVideo() {
+  const response = await api.get<ControlVideo>("/control-video");
+  return response.data;
+}
+
 export default api;
