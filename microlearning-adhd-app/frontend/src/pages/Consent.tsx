@@ -5,12 +5,21 @@ import StudyPage from '../components/StudyPage.tsx'
 
 type ConsentProps = {
   agreed: boolean
+  error: string | null
+  isSubmitting: boolean
   onAgreementChange: (agreed: boolean) => void
   onProceed: () => void
   onBack: () => void
 }
 
-function Consent({ agreed, onAgreementChange, onProceed, onBack }: ConsentProps) {
+function Consent({
+  agreed,
+  error,
+  isSubmitting,
+  onAgreementChange,
+  onProceed,
+  onBack,
+}: ConsentProps) {
   return (
     <StudyPage ariaLabelledBy="consent-title" cardClassName="consent-card">
       <StudyHeading
@@ -48,17 +57,24 @@ function Consent({ agreed, onAgreementChange, onProceed, onBack }: ConsentProps)
         </span>
       </label>
 
+      {error ? <p className="error-text">{error}</p> : null}
+
       <StudyActions>
-        <button type="button" className="secondary-button" onClick={onBack}>
+        <button
+          type="button"
+          className="secondary-button"
+          onClick={onBack}
+          disabled={isSubmitting}
+        >
           Back
         </button>
         <button
           type="button"
           className="start-button"
           onClick={onProceed}
-          disabled={!agreed}
+          disabled={!agreed || isSubmitting}
         >
-          Proceed
+          {isSubmitting ? 'Saving...' : 'Proceed'}
         </button>
       </StudyActions>
     </StudyPage>
