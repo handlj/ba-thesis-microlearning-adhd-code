@@ -7,7 +7,11 @@ import Consent from './Consent.tsx'
 import Demographics from './Demographics.tsx'
 import ControlGroup from './ControlGroup.tsx'
 import ExperimentalGroup from './ExperimentalGroup.tsx'
-import { assignDeterministicGroup, type DemographicAnswers, type GroupAssignment } from '../utils/groupAssignment'
+import {
+  createConsentSession,
+  submitDemographics,
+} from '../api.ts'
+import { type DemographicAnswers, type GroupAssignment } from '../utils/groupAssignment'
 import { validateDemographics } from '../utils/demographicsValidation'
 
 type Page = 'welcome' | 'consent' | 'demographics' | 'ready' | 'control' | 'experimental'
@@ -21,6 +25,7 @@ type BufferedEvent = {
 
 const STUDY_BUFFER_KEY = 'study.localBuffer'
 const STUDY_FLUSHED_KEY = 'study.flushedEvents'
+const PARTICIPANT_ID_KEY = 'study.participantId'
 
 const defaultDemographics: DemographicAnswers = {
   age: '',
@@ -37,7 +42,13 @@ function App() {
   })
   const [demographics, setDemographics] =
     useState<DemographicAnswers>(defaultDemographics)
+  const [participantId, setParticipantId] = useState<string | null>(() =>
+    localStorage.getItem(PARTICIPANT_ID_KEY),
+  )
+  const [consentError, setConsentError] = useState<string | null>(null)
   const [demographicError, setDemographicError] = useState<string | null>(null)
+  const [isSavingConsent, setIsSavingConsent] = useState(false)
+  const [isSavingDemographics, setIsSavingDemographics] = useState(false)
   const [assignment, setAssignment] = useState<GroupAssignment | null>(null)
   const bufferRef = useRef<BufferedEvent[]>(initialBuffer)
 
@@ -51,8 +62,13 @@ function App() {
   const resetStudyState = () => {
     setAgreed(false)
     setDemographics(defaultDemographics)
+    setParticipantId(null)
+    setConsentError(null)
     setDemographicError(null)
+    setIsSavingConsent(false)
+    setIsSavingDemographics(false)
     setAssignment(null)
+    localStorage.removeItem(PARTICIPANT_ID_KEY)
   }
 
   const returnToWelcome = () => {
@@ -107,12 +123,79 @@ function App() {
     setPage(nextPage)
   }
 
+  const handleConsentProceed = async () => {
+    if (!agreed || isSavingConsent) return
+
+    try {
+      setConsentError(null)
+      setIsSavingConsent(true)
+      const consentSession = await createConsentSession()
+      setParticipantId(consentSession.participant_id)
+      localStorage.setItem(PARTICIPANT_ID_KEY, consentSession.participant_id)
+      addBufferedEvent('consent_submitted', 'consent', {
+        participantId: consentSession.participant_id,
+      })
+      transitionTo('demographics')
+    } catch (requestError) {
+      setConsentError(
+        requestError instanceof Error
+          ? requestError.message
+          : 'Could not save consent. Please try again.',
+      )
+    } finally {
+      setIsSavingConsent(false)
+    }
+  }
+
+  const handleDemographicsSubmit = async () => {
+    const validation = validateDemographics(demographics)
+    if (!validation.valid) {
+      setDemographicError(validation.error)
+      return
+    }
+
+    if (!participantId) {
+      setDemographicError(
+        'Consent was not saved for this session. Please return to the consent page and try again.',
+      )
+      return
+    }
+
+    try {
+      setDemographicError(null)
+      setIsSavingDemographics(true)
+      const response = await submitDemographics(participantId, demographics)
+      setAssignment(response.assignment)
+      addBufferedEvent('demographics_submitted', 'demographics', {
+        participantId,
+        age: demographics.age,
+        studyBackground: demographics.studyBackground,
+        adhdDiagnosis: demographics.adhdDiagnosis,
+        assignment: response.assignment,
+      })
+      transitionTo('ready')
+    } catch (requestError) {
+      setDemographicError(
+        requestError instanceof Error
+          ? requestError.message
+          : 'Could not save demographics. Please try again.',
+      )
+    } finally {
+      setIsSavingDemographics(false)
+    }
+  }
+
   if (page === 'consent') {
     return (
       <Consent
         agreed={agreed}
-        onAgreementChange={setAgreed}
-        onProceed={() => transitionTo('demographics')}
+        error={consentError}
+        isSubmitting={isSavingConsent}
+        onAgreementChange={(nextAgreed) => {
+          setAgreed(nextAgreed)
+          if (consentError) setConsentError(null)
+        }}
+        onProceed={handleConsentProceed}
         onBack={returnToWelcome}
       />
     )
@@ -123,28 +206,13 @@ function App() {
       <Demographics
         values={demographics}
         error={demographicError}
+        isSubmitting={isSavingDemographics}
         onChange={(field, value) => {
           setDemographics((previous) => ({ ...previous, [field]: value }))
           if (demographicError) setDemographicError(null)
         }}
         onBack={() => transitionTo('consent')}
-        onSubmit={() => {
-          const validation = validateDemographics(demographics)
-          if (!validation.valid) {
-            setDemographicError(validation.error)
-            return
-          }
-
-          const nextAssignment = assignDeterministicGroup(demographics)
-          setAssignment(nextAssignment)
-          addBufferedEvent('demographics_submitted', 'demographics', {
-            age: demographics.age,
-            studyBackground: demographics.studyBackground,
-            adhdDiagnosis: demographics.adhdDiagnosis,
-            assignment: nextAssignment,
-          })
-          transitionTo('ready')
-        }}
+        onSubmit={handleDemographicsSubmit}
       />
     )
   }

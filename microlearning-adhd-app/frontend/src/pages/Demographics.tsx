@@ -44,6 +44,7 @@ const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = [
 type DemographicsProps = {
   values: DemographicAnswers
   error: string | null
+  isSubmitting: boolean
   onChange: (field: keyof DemographicAnswers, value: string) => void
   onBack: () => void
   onSubmit: () => void
@@ -52,6 +53,7 @@ type DemographicsProps = {
 function Demographics({
   values,
   error,
+  isSubmitting,
   onChange,
   onBack,
   onSubmit,
@@ -77,11 +79,16 @@ function Demographics({
         onSubmit={onSubmit}
         actions={
           <StudyActions>
-            <button type="button" className="secondary-button" onClick={onBack}>
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={onBack}
+              disabled={isSubmitting}
+            >
               Back
             </button>
-            <button type="submit" className="start-button">
-              Continue
+            <button type="submit" className="start-button" disabled={isSubmitting}>
+              {isSubmitting ? 'Saving...' : 'Continue'}
             </button>
           </StudyActions>
         }
