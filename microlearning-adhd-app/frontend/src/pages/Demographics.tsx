@@ -1,7 +1,45 @@
 import { type DemographicAnswers } from '../utils/groupAssignment'
+import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../components/forms'
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
+
+type DemographicQuestionId = keyof DemographicAnswers
+
+const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = [
+  {
+    id: 'age',
+    type: 'number',
+    label: 'Age',
+    placeholder: 'Enter your age',
+    min: 13,
+    max: 120,
+    required: true,
+  },
+  {
+    id: 'studyBackground',
+    type: 'select',
+    label: 'Study background',
+    required: true,
+    options: [
+      { value: 'computer-science', label: 'Computer science' },
+      { value: 'stem-other', label: 'Other STEM discipline' },
+      { value: 'non-stem', label: 'Non-STEM discipline' },
+      { value: 'not-studying', label: 'Not currently studying' },
+    ],
+  },
+  {
+    id: 'adhdDiagnosis',
+    type: 'select',
+    label: 'ADHD diagnosis status',
+    required: true,
+    options: [
+      { value: 'diagnosed', label: 'Diagnosed' },
+      { value: 'not-diagnosed', label: 'Not diagnosed' },
+      { value: 'prefer-not-to-say', label: 'Prefer not to say' },
+    ],
+  },
+]
 
 type DemographicsProps = {
   values: DemographicAnswers
@@ -27,66 +65,27 @@ function Demographics({
         id="demographics-title"
       />
 
-      <form
-        className="demographic-form"
-        onSubmit={(event) => {
-          event.preventDefault()
-          onSubmit()
+      <StudyForm
+        questions={demographicQuestions}
+        values={values}
+        error={error}
+        onChange={(field, value: FormAnswerValue) => {
+          if (!Array.isArray(value)) {
+            onChange(field, value)
+          }
         }}
-      >
-        <label>
-          <span>Age</span>
-          <input
-            type="number"
-            value={values.age}
-            onChange={(event) => onChange('age', event.target.value)}
-            min={13}
-            max={120}
-            placeholder="Enter your age"
-            required
-          />
-        </label>
-
-        <label>
-          <span>Study background</span>
-          <select
-            value={values.studyBackground}
-            onChange={(event) => onChange('studyBackground', event.target.value)}
-            required
-          >
-            <option value="">Select one</option>
-            <option value="computer-science">Computer science</option>
-            <option value="stem-other">Other STEM discipline</option>
-            <option value="non-stem">Non-STEM discipline</option>
-            <option value="not-studying">Not currently studying</option>
-          </select>
-        </label>
-
-        <label>
-          <span>ADHD diagnosis status</span>
-          <select
-            value={values.adhdDiagnosis}
-            onChange={(event) => onChange('adhdDiagnosis', event.target.value)}
-            required
-          >
-            <option value="">Select one</option>
-            <option value="diagnosed">Diagnosed</option>
-            <option value="not-diagnosed">Not diagnosed</option>
-            <option value="prefer-not-to-say">Prefer not to say</option>
-          </select>
-        </label>
-
-        {error ? <p className="error-text">{error}</p> : null}
-
-        <StudyActions>
-          <button type="button" className="secondary-button" onClick={onBack}>
-            Back
-          </button>
-          <button type="submit" className="start-button">
-            Continue
-          </button>
-        </StudyActions>
-      </form>
+        onSubmit={onSubmit}
+        actions={
+          <StudyActions>
+            <button type="button" className="secondary-button" onClick={onBack}>
+              Back
+            </button>
+            <button type="submit" className="start-button">
+              Continue
+            </button>
+          </StudyActions>
+        }
+      />
     </StudyPage>
   )
 }

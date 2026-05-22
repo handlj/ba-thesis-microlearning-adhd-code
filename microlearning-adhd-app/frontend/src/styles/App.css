@@ -81,24 +81,33 @@
   border-top: 1px solid rgba(138, 91, 43, 0.16);
 }
 
-.demographic-form {
+.study-form {
   margin-top: 28px;
   display: grid;
   gap: 18px;
 }
 
-.demographic-form label {
+.question-field {
   display: grid;
   gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
-.demographic-form span {
+.question-label {
   font-weight: 600;
   color: var(--text-h);
 }
 
-.demographic-form select,
-.demographic-form input {
+.question-help {
+  color: #6b6258;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.question-control {
   appearance: none;
   width: 100%;
   border-radius: 16px;
@@ -109,8 +118,40 @@
   font: inherit;
 }
 
-.demographic-form select:focus-visible,
-.demographic-form input:focus-visible {
+.question-control:focus-visible {
+  outline: 3px solid rgba(54, 87, 159, 0.25);
+  outline-offset: 2px;
+}
+
+.choice-list {
+  display: grid;
+  gap: 8px;
+}
+
+.choice-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(138, 91, 43, 0.16);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text-h);
+  padding: 12px 14px;
+  cursor: pointer;
+}
+
+.choice-option input {
+  margin-top: 0.25em;
+  accent-color: #36579f;
+}
+
+.choice-option:has(input:checked) {
+  border-color: rgba(54, 87, 159, 0.4);
+  background: rgba(31, 59, 115, 0.08);
+}
+
+.choice-option:has(input:focus-visible) {
   outline: 3px solid rgba(54, 87, 159, 0.25);
   outline-offset: 2px;
 }
