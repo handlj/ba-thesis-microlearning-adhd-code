@@ -3,3 +3,9 @@
 .ipynb_checkpoints
 __pycache__/
 microlearning-adhd-app/backend/data/
+microlearning-adhd-app/backend/venv/
+microlearning-adhd-app/frontend/node_modules/
+microlearning-adhd-app/frontend/build/
+microlearning-adhd-app/frontend/dist/
+
+.vscode/*

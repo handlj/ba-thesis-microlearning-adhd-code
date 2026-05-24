@@ -15,13 +15,32 @@ from sqlmodel import Field, Session, SQLModel, create_engine, select
 from typing import AsyncGenerator, Generator, List
 from uuid import uuid4
 
-class Item(BaseModel):
-    id: int
-    name: str
-    description: str
 
-class Items(BaseModel):
-    items: List[Item]
+BASE_DIR = Path(__file__).resolve().parent
+MEDIA_DIR = BASE_DIR / "media"
+DATA_DIR = BASE_DIR / "data"
+DATABASE_URL = f"sqlite:///{DATA_DIR / 'study.db'}"
+
+sqlite_engine = create_engine(
+    DATABASE_URL,
+    connect_args={"check_same_thread": False},
+)
+
+VALID_STUDY_BACKGROUNDS = {
+    "computer-science",
+    "stem-other",
+    "non-stem",
+    "not-studying",
+}
+VALID_ADHD_DIAGNOSES = {
+    "diagnosed",
+    "not-diagnosed",
+    "prefer-not-to-say",
+}
+
+origins = [
+    "http://localhost:5173"
+]
 
 
 class ControlVideo(BaseModel):
@@ -65,35 +84,6 @@ class DemographicsRequest(BaseModel):
 class DemographicsResponse(BaseModel):
     participant_id: str
     assignment: str
-
-
-BASE_DIR = Path(__file__).resolve().parent
-MEDIA_DIR = BASE_DIR / "media"
-DATA_DIR = BASE_DIR / "data"
-DATABASE_URL = f"sqlite:///{DATA_DIR / 'study.db'}"
-
-sqlite_engine = create_engine(
-    DATABASE_URL,
-    connect_args={"check_same_thread": False},
-)
-
-VALID_STUDY_BACKGROUNDS = {
-    "computer-science",
-    "stem-other",
-    "non-stem",
-    "not-studying",
-}
-VALID_ADHD_DIAGNOSES = {
-    "diagnosed",
-    "not-diagnosed",
-    "prefer-not-to-say",
-}
-
-origins = [
-    "http://localhost:5173"
-]
-
-memory_items = {"items": []}
 
 
 def current_utc_timestamp() -> datetime:
@@ -149,16 +139,6 @@ app.add_middleware(
 )
 
 app.mount("/api/media", StaticFiles(directory=MEDIA_DIR), name="media")
-
-
-@app.get("/items", response_model=Items)
-def get_items():
-    return Items(items=memory_items["items"])
-
-@app.post("/items", response_model=Items)
-def add_item(item: Item):
-    memory_items["items"].append(item)
-    return Items(items=memory_items["items"])
 
 
 @app.post("/api/participants/consent", response_model=ConsentResponse)

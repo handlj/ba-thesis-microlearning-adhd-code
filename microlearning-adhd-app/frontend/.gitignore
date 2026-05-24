@@ -25,3 +25,5 @@ dist-ssr
 
 # Cache directories
 __pycache__
+
+src/assets
