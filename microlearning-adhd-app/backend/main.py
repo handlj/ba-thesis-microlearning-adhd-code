@@ -12,7 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from pathlib import Path
 from sqlmodel import Field, Session, SQLModel, create_engine, select
-from typing import AsyncGenerator, Generator, List
+from typing import AsyncGenerator, Generator
 from uuid import uuid4
 
 
