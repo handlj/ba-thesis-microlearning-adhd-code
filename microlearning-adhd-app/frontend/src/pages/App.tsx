@@ -9,7 +9,9 @@ import ControlGroup from './ControlGroup.tsx'
 import ExperimentalGroup from './ExperimentalGroup.tsx'
 import {
   createConsentSession,
+  recordInteractionEvent,
   submitDemographics,
+  type StudyInteractionPayload,
 } from '../api.ts'
 import { type DemographicAnswers, type GroupAssignment } from '../utils/groupAssignment'
 import { validateDemographics } from '../utils/demographicsValidation'
@@ -121,6 +123,25 @@ function App() {
     addBufferedEvent('transition', page, { from: page, to: nextPage })
     flushBuffer()
     setPage(nextPage)
+  }
+
+  const logStudyInteraction = (
+    group: GroupAssignment,
+    eventType: string,
+    payload?: StudyInteractionPayload,
+  ) => {
+    if (!participantId) {
+      return
+    }
+
+    void recordInteractionEvent(participantId, {
+      group,
+      page: group,
+      event_type: eventType,
+      payload,
+    }).catch((requestError) => {
+      console.error('Could not persist interaction event.', requestError)
+    })
   }
 
   const handleConsentProceed = async () => {
@@ -249,11 +270,25 @@ function App() {
   }
 
   if (page === 'control') {
-    return <ControlGroup onBackToStart={returnToWelcome} />
+    return (
+      <ControlGroup
+        onBackToStart={returnToWelcome}
+        onLogInteraction={(eventType, payload) =>
+          logStudyInteraction('control', eventType, payload)
+        }
+      />
+    )
   }
 
   if (page === 'experimental') {
-    return <ExperimentalGroup onBackToStart={returnToWelcome} />
+    return (
+      <ExperimentalGroup
+        onBackToStart={returnToWelcome}
+        onLogInteraction={(eventType, payload) =>
+          logStudyInteraction('experimental', eventType, payload)
+        }
+      />
+    )
   }
 
   return (

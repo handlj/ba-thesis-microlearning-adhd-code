@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
 import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../components/forms'
-import { fetchControlVideo, type ControlVideo } from '../api.ts'
+import { fetchControlVideo, type ControlVideo, type StudyInteractionPayload } from '../api.ts'
 
 type ControlGroupProps = {
   onBackToStart: () => void
+  onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
 }
 
 type ControlPhase = 'video' | 'quiz'
@@ -48,7 +49,7 @@ const controlQuizQuestions: StudyQuestion<ControlQuizQuestionId>[] = [
   },
 ]
 
-function ControlGroup({ onBackToStart }: ControlGroupProps) {
+function ControlGroup({ onBackToStart, onLogInteraction }: ControlGroupProps) {
   const [video, setVideo] = useState<ControlVideo | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -57,6 +58,7 @@ function ControlGroup({ onBackToStart }: ControlGroupProps) {
   const [quizAnswers, setQuizAnswers] = useState<ControlQuizAnswers>(
     defaultControlQuizAnswers,
   )
+  const previousVideoTimeRef = useRef(0)
 
   const isQuizComplete = Object.values(quizAnswers).every(Boolean)
 
@@ -107,19 +109,63 @@ function ControlGroup({ onBackToStart }: ControlGroupProps) {
         ...previousAnswers,
         [field]: value,
       }))
+      onLogInteraction('control_quiz_answer_selected', {
+        questionId: field,
+        answer: value,
+      })
     }
   }
 
   const showQuiz = () => {
     if (canContinue) {
+      onLogInteraction('control_video_proceed_clicked', {
+        videoTitle: video?.title ?? null,
+      })
       setPhase('quiz')
     }
   }
 
   const submitQuiz = () => {
     if (isQuizComplete) {
+      onLogInteraction('control_quiz_submitted', {
+        mainTopic: quizAnswers.mainTopic,
+        perceivedClarity: quizAnswers.perceivedClarity,
+      })
       onBackToStart()
     }
+  }
+
+  const returnToWelcome = () => {
+    onLogInteraction('control_back_clicked', {
+      fromPhase: phase,
+    })
+    onBackToStart()
+  }
+
+  const returnToVideo = () => {
+    onLogInteraction('control_back_to_video_clicked')
+    setPhase('video')
+  }
+
+  const handleVideoSeek = (nextTime: number) => {
+    const previousTime = previousVideoTimeRef.current
+    const deltaSeconds = nextTime - previousTime
+
+    if (deltaSeconds > 1) {
+      onLogInteraction('control_video_skipped', {
+        fromSeconds: Math.round(previousTime),
+        toSeconds: Math.round(nextTime),
+      })
+    }
+
+    if (deltaSeconds < -1) {
+      onLogInteraction('control_video_rewatched', {
+        fromSeconds: Math.round(previousTime),
+        toSeconds: Math.round(nextTime),
+      })
+    }
+
+    previousVideoTimeRef.current = nextTime
   }
 
   return (
@@ -146,8 +192,20 @@ function ControlGroup({ onBackToStart }: ControlGroupProps) {
               className="video-frame"
               controls
               preload="metadata"
-              onEnded={() => setCanContinue(true)}
-              onLoadedMetadata={() => setCanContinue(false)}
+              onEnded={() => {
+                setCanContinue(true)
+                onLogInteraction('control_video_ended', {
+                  videoTitle: video.title,
+                })
+              }}
+              onLoadedMetadata={() => {
+                setCanContinue(false)
+                previousVideoTimeRef.current = 0
+              }}
+              onSeeking={(event) => handleVideoSeek(event.currentTarget.currentTime)}
+              onTimeUpdate={(event) => {
+                previousVideoTimeRef.current = event.currentTarget.currentTime
+              }}
             >
               <source src={video.video_url} type="video/mp4" />
               Your browser does not support the video tag.
@@ -172,7 +230,7 @@ function ControlGroup({ onBackToStart }: ControlGroupProps) {
               <button
                 type="button"
                 className="secondary-button"
-                onClick={() => setPhase('video')}
+                onClick={returnToVideo}
               >
                 Back to video
               </button>
@@ -189,7 +247,7 @@ function ControlGroup({ onBackToStart }: ControlGroupProps) {
 
       {phase === 'video' ? (
         <StudyActions className="study-actions--stacked">
-          <button type="button" className="secondary-button" onClick={onBackToStart}>
+          <button type="button" className="secondary-button" onClick={returnToWelcome}>
             Return to welcome
           </button>
           <button type="button" className="start-button" disabled={!canContinue} onClick={showQuiz}>

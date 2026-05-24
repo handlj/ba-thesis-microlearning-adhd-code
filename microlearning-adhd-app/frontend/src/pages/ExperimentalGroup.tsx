@@ -1,11 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
-import { fetchExperimentalVideos, type ExperimentalVideo } from '../api.ts'
+import {
+  fetchExperimentalVideos,
+  type ExperimentalVideo,
+  type StudyInteractionPayload,
+} from '../api.ts'
 
 type ExperimentalGroupProps = {
   onBackToStart: () => void
+  onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
 }
 
 type ExperimentalPhase = 'video' | 'quiz'
@@ -16,7 +21,7 @@ const sampleQuizOptions = [
   'A live group discussion',
 ]
 
-function ExperimentalGroup({ onBackToStart }: ExperimentalGroupProps) {
+function ExperimentalGroup({ onBackToStart, onLogInteraction }: ExperimentalGroupProps) {
   const [videos, setVideos] = useState<ExperimentalVideo[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -24,6 +29,7 @@ function ExperimentalGroup({ onBackToStart }: ExperimentalGroupProps) {
   const [phase, setPhase] = useState<ExperimentalPhase>('video')
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
   const [quizAnswer, setQuizAnswer] = useState('')
+  const previousVideoTimeRef = useRef(0)
 
   useEffect(() => {
     let active = true
@@ -67,16 +73,29 @@ function ExperimentalGroup({ onBackToStart }: ExperimentalGroupProps) {
   const videoCount = videos.length
   const isLastVideo = currentIndex === videoCount - 1
 
+  const getCurrentVideoPayload = () => ({
+    videoId: currentVideo?.id ?? null,
+    videoTitle: currentVideo?.title ?? null,
+    videoIndex: currentIndex + 1,
+    videoCount,
+  })
+
   const resetStepState = () => {
     setPhase('video')
     setHasVideoEnded(false)
     setQuizAnswer('')
+    previousVideoTimeRef.current = 0
   }
 
   const handleProceedFromVideo = () => {
     if (!hasVideoEnded) {
       return
     }
+
+    onLogInteraction('experimental_video_proceed_clicked', {
+      ...getCurrentVideoPayload(),
+      isLastVideo,
+    })
 
     if (isLastVideo) {
       onBackToStart()
@@ -91,8 +110,53 @@ function ExperimentalGroup({ onBackToStart }: ExperimentalGroupProps) {
       return
     }
 
+    onLogInteraction('experimental_quiz_submitted', {
+      ...getCurrentVideoPayload(),
+      questionId: 'sampleQuiz',
+      answer: quizAnswer,
+    })
     setCurrentIndex((previousIndex) => previousIndex + 1)
     resetStepState()
+  }
+
+  const returnToWelcome = () => {
+    onLogInteraction('experimental_back_clicked', {
+      fromPhase: phase,
+      ...getCurrentVideoPayload(),
+    })
+    onBackToStart()
+  }
+
+  const selectQuizAnswer = (answer: string) => {
+    setQuizAnswer(answer)
+    onLogInteraction('experimental_quiz_answer_selected', {
+      ...getCurrentVideoPayload(),
+      questionId: 'sampleQuiz',
+      answer,
+    })
+  }
+
+  const handleVideoSeek = (nextTime: number) => {
+    const previousTime = previousVideoTimeRef.current
+    const deltaSeconds = nextTime - previousTime
+
+    if (deltaSeconds > 1) {
+      onLogInteraction('experimental_video_skipped', {
+        ...getCurrentVideoPayload(),
+        fromSeconds: Math.round(previousTime),
+        toSeconds: Math.round(nextTime),
+      })
+    }
+
+    if (deltaSeconds < -1) {
+      onLogInteraction('experimental_video_rewatched', {
+        ...getCurrentVideoPayload(),
+        fromSeconds: Math.round(previousTime),
+        toSeconds: Math.round(nextTime),
+      })
+    }
+
+    previousVideoTimeRef.current = nextTime
   }
 
   return (
@@ -132,8 +196,18 @@ function ExperimentalGroup({ onBackToStart }: ExperimentalGroupProps) {
                   className="video-frame"
                   controls
                   preload="metadata"
-                  onEnded={() => setHasVideoEnded(true)}
-                  onLoadedMetadata={() => setHasVideoEnded(false)}
+                  onEnded={() => {
+                    setHasVideoEnded(true)
+                    onLogInteraction('experimental_video_ended', getCurrentVideoPayload())
+                  }}
+                  onLoadedMetadata={() => {
+                    setHasVideoEnded(false)
+                    previousVideoTimeRef.current = 0
+                  }}
+                  onSeeking={(event) => handleVideoSeek(event.currentTarget.currentTime)}
+                  onTimeUpdate={(event) => {
+                    previousVideoTimeRef.current = event.currentTarget.currentTime
+                  }}
                 >
                   <source src={currentVideo.video_url} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -163,7 +237,7 @@ function ExperimentalGroup({ onBackToStart }: ExperimentalGroupProps) {
                       name={`experimental-quiz-${currentVideo.id}`}
                       value={option}
                       checked={quizAnswer === option}
-                      onChange={(event) => setQuizAnswer(event.target.value)}
+                      onChange={(event) => selectQuizAnswer(event.target.value)}
                     />
                     <span>{option}</span>
                   </label>
@@ -180,7 +254,7 @@ function ExperimentalGroup({ onBackToStart }: ExperimentalGroupProps) {
       ) : null}
 
       <StudyActions className="study-actions--stacked">
-        <button type="button" className="secondary-button" onClick={onBackToStart}>
+        <button type="button" className="secondary-button" onClick={returnToWelcome}>
           Return to welcome
         </button>
         {currentVideo && phase === 'video' ? (
