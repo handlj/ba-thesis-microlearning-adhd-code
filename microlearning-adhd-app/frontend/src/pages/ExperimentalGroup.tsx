@@ -97,11 +97,6 @@ function ExperimentalGroup({ onBackToStart, onLogInteraction }: ExperimentalGrou
       isLastVideo,
     })
 
-    if (isLastVideo) {
-      onBackToStart()
-      return
-    }
-
     setPhase('quiz')
   }
 
@@ -115,6 +110,11 @@ function ExperimentalGroup({ onBackToStart, onLogInteraction }: ExperimentalGrou
       questionId: 'sampleQuiz',
       answer: quizAnswer,
     })
+    if (isLastVideo) {
+      onBackToStart()
+      return
+    }
+
     setCurrentIndex((previousIndex) => previousIndex + 1)
     resetStepState()
   }
@@ -164,7 +164,7 @@ function ExperimentalGroup({ onBackToStart, onLogInteraction }: ExperimentalGrou
       <StudyHeading
         eyebrow="Experimental group"
         title="Complete the microlearning sequence"
-        intro="Watch each video fully, answer the short sample quiz, and continue through the five-part sequence."
+        intro="Watch each video fully, answer the short sample quiz, and continue through the four-part sequence."
         id="experimental-title"
       />
 
@@ -215,9 +215,7 @@ function ExperimentalGroup({ onBackToStart, onLogInteraction }: ExperimentalGrou
               </div>
               <p className="video-status" aria-live="polite">
                 {hasVideoEnded
-                  ? isLastVideo
-                    ? 'The final video finished. You can continue.'
-                    : 'The video finished. You can answer the quiz.'
+                  ? 'The video finished. You can answer the quiz.'
                   : 'Watch the full video before continuing.'}
               </p>
             </>
@@ -264,7 +262,7 @@ function ExperimentalGroup({ onBackToStart, onLogInteraction }: ExperimentalGrou
             disabled={!hasVideoEnded}
             onClick={handleProceedFromVideo}
           >
-            {isLastVideo ? 'Continue' : 'Start quiz'}
+            Start quiz
           </button>
         ) : null}
         {currentVideo && phase === 'quiz' ? (
@@ -274,7 +272,7 @@ function ExperimentalGroup({ onBackToStart, onLogInteraction }: ExperimentalGrou
             disabled={!quizAnswer}
             onClick={handleProceedFromQuiz}
           >
-            Next video
+            {isLastVideo ? 'Continue' : 'Next video'}
           </button>
         ) : null}
       </StudyActions>
