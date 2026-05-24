@@ -14,6 +14,13 @@ export type ControlVideo = {
   video_url: string;
 };
 
+export type ExperimentalVideo = {
+  id: string;
+  title: string;
+  description: string;
+  video_url: string;
+};
+
 export type ConsentSession = {
   participant_id: string;
   consented_at: string;
@@ -48,6 +55,11 @@ export async function submitDemographics(
 
 export async function fetchControlVideo() {
   const response = await api.get<ControlVideo>("/control-video");
+  return response.data;
+}
+
+export async function fetchExperimentalVideos() {
+  const response = await api.get<ExperimentalVideo[]>("/experimental-videos");
   return response.data;
 }
 
