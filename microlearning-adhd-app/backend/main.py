@@ -49,6 +49,13 @@ class ControlVideo(BaseModel):
     video_url: str
 
 
+class ExperimentalVideo(BaseModel):
+    id: str
+    title: str
+    description: str
+    video_url: str
+
+
 class ParticipantSession(SQLModel, table=True):
     id: str = Field(default_factory=lambda: str(uuid4()), primary_key=True)
     consented: bool
@@ -223,6 +230,24 @@ def get_control_video():
         description="A short placeholder video served from the backend for control-group testing.",
         video_url="http://localhost:8000/api/media/control-preview.mp4",
     )
+
+
+@app.get("/api/experimental-videos", response_model=list[ExperimentalVideo])
+def get_experimental_videos():
+    sample_video_url = "http://localhost:8000/api/media/control-preview.mp4"
+    return [
+        ExperimentalVideo(
+            id=f"experimental-video-{index}",
+            title=f"Experimental video {index}",
+            description=(
+                "A short placeholder video served from the backend for "
+                f"experimental lesson {index}."
+            ),
+            video_url=sample_video_url,
+        )
+        for index in range(1, 5)
+    ]
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

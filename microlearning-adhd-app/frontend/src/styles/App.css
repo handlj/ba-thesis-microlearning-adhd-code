@@ -262,6 +262,37 @@
   color: #4f453a;
 }
 
+.sequence-progress {
+  width: fit-content;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(31, 59, 115, 0.08);
+  color: #1f3b73;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.quiz-panel {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  border-radius: 20px;
+  background: rgba(255, 250, 244, 0.78);
+  border: 1px solid rgba(138, 91, 43, 0.14);
+}
+
+.quiz-title {
+  margin: 8px 0 0;
+  font-size: 1.35rem;
+  line-height: 1.35;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 10px;
+}
+
 @media (max-width: 640px) {
   .study-page {
     padding: 16px;
