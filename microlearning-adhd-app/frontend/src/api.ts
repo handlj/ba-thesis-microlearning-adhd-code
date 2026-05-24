@@ -31,6 +31,21 @@ export type DemographicsSubmission = {
   assignment: GroupAssignment;
 };
 
+export type StudyInteractionPayload = Record<string, string | number | boolean | null>;
+
+export type StudyInteractionEvent = {
+  group: GroupAssignment;
+  page: string;
+  event_type: string;
+  occurred_at: string;
+  payload?: StudyInteractionPayload;
+};
+
+export type StudyInteractionEventResponse = {
+  id: number;
+  received_at: string;
+};
+
 export async function createConsentSession() {
   const response = await api.post<ConsentSession>("/participants/consent", {
     consented: true,
@@ -60,6 +75,20 @@ export async function fetchControlVideo() {
 
 export async function fetchExperimentalVideos() {
   const response = await api.get<ExperimentalVideo[]>("/experimental-videos");
+  return response.data;
+}
+
+export async function recordInteractionEvent(
+  participantId: string,
+  event: Omit<StudyInteractionEvent, "occurred_at">,
+) {
+  const response = await api.post<StudyInteractionEventResponse>(
+    `/participants/${participantId}/events`,
+    {
+      ...event,
+      occurred_at: new Date().toISOString(),
+    },
+  );
   return response.data;
 }
 

@@ -4,6 +4,7 @@
 # This is the main entry point for the FastAPI backend server.
 
 import uvicorn
+import json
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from fastapi import Depends, FastAPI, HTTPException
@@ -73,6 +74,17 @@ class Demographics(SQLModel, table=True):
     submitted_at: datetime
 
 
+class InteractionEvent(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    participant_id: str = Field(foreign_key="participantsession.id")
+    group: str
+    page: str
+    event_type: str
+    occurred_at: datetime
+    received_at: datetime
+    payload_json: str | None = None
+
+
 class ConsentRequest(BaseModel):
     consented: bool
 
@@ -91,6 +103,19 @@ class DemographicsRequest(BaseModel):
 class DemographicsResponse(BaseModel):
     participant_id: str
     assignment: str
+
+
+class InteractionEventRequest(BaseModel):
+    group: str
+    page: str
+    event_type: str
+    occurred_at: datetime
+    payload: dict[str, str | int | float | bool | None] | None = None
+
+
+class InteractionEventResponse(BaseModel):
+    id: int
+    received_at: datetime
 
 
 def current_utc_timestamp() -> datetime:
@@ -127,6 +152,17 @@ def assign_deterministic_group(demographics: DemographicsRequest) -> str:
         }
     )
     return "control" if hash_djb2(serialized) % 2 == 0 else "experimental"
+
+
+def ensure_participant_exists(participant_id: str, session: Session) -> ParticipantSession:
+    participant = session.exec(
+        select(ParticipantSession).where(ParticipantSession.id == participant_id)
+    ).first()
+
+    if participant is None:
+        raise HTTPException(status_code=404, detail="Participant session not found.")
+
+    return participant
 
 
 @asynccontextmanager
@@ -184,12 +220,7 @@ def submit_demographics(
     demographics: DemographicsRequest,
     session: Session = Depends(get_session),
 ):
-    participant = session.exec(
-        select(ParticipantSession).where(ParticipantSession.id == participant_id)
-    ).first()
-
-    if participant is None:
-        raise HTTPException(status_code=404, detail="Participant session not found.")
+    participant = ensure_participant_exists(participant_id, session)
 
     if demographics.age < 13 or demographics.age > 120:
         raise HTTPException(
@@ -220,6 +251,36 @@ def submit_demographics(
     return DemographicsResponse(
         participant_id=participant.id,
         assignment=assignment,
+    )
+
+
+@app.post(
+    "/api/participants/{participant_id}/events",
+    response_model=InteractionEventResponse,
+)
+def record_interaction_event(
+    participant_id: str,
+    event: InteractionEventRequest,
+    session: Session = Depends(get_session),
+):
+    ensure_participant_exists(participant_id, session)
+
+    interaction_event = InteractionEvent(
+        participant_id=participant_id,
+        group=event.group,
+        page=event.page,
+        event_type=event.event_type,
+        occurred_at=event.occurred_at,
+        received_at=current_utc_timestamp(),
+        payload_json=json.dumps(event.payload) if event.payload else None,
+    )
+    session.add(interaction_event)
+    session.commit()
+    session.refresh(interaction_event)
+
+    return InteractionEventResponse(
+        id=interaction_event.id,
+        received_at=interaction_event.received_at,
     )
 
 
