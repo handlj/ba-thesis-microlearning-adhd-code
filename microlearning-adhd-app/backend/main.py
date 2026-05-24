@@ -85,6 +85,18 @@ class InteractionEvent(SQLModel, table=True):
     payload_json: str | None = None
 
 
+class PostInterventionResponse(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    participant_id: str = Field(foreign_key="participantsession.id")
+    assignment: str
+    attention_support: str
+    content_clarity: str
+    workload_fit: str
+    preferred_format: str
+    open_feedback: str
+    submitted_at: datetime
+
+
 class ConsentRequest(BaseModel):
     consented: bool
 
@@ -116,6 +128,20 @@ class InteractionEventRequest(BaseModel):
 class InteractionEventResponse(BaseModel):
     id: int
     received_at: datetime
+
+
+class PostInterventionRequest(BaseModel):
+    assignment: str
+    attention_support: str
+    content_clarity: str
+    workload_fit: str
+    preferred_format: str
+    open_feedback: str
+
+
+class PostInterventionResponsePayload(BaseModel):
+    participant_id: str
+    submitted_at: datetime
 
 
 def current_utc_timestamp() -> datetime:
@@ -163,6 +189,14 @@ def ensure_participant_exists(participant_id: str, session: Session) -> Particip
         raise HTTPException(status_code=404, detail="Participant session not found.")
 
     return participant
+
+
+def require_non_empty_text(value: str, field_name: str) -> str:
+    normalized_value = value.strip()
+    if not normalized_value:
+        raise HTTPException(status_code=400, detail=f"{field_name} is required.")
+
+    return normalized_value
 
 
 @asynccontextmanager
@@ -281,6 +315,56 @@ def record_interaction_event(
     return InteractionEventResponse(
         id=interaction_event.id,
         received_at=interaction_event.received_at,
+    )
+
+
+@app.post(
+    "/api/participants/{participant_id}/post-intervention",
+    response_model=PostInterventionResponsePayload,
+)
+def submit_post_intervention(
+    participant_id: str,
+    questionnaire: PostInterventionRequest,
+    session: Session = Depends(get_session),
+):
+    ensure_participant_exists(participant_id, session)
+
+    assignment = require_non_empty_text(questionnaire.assignment, "Assignment")
+    if assignment not in {"control", "experimental"}:
+        raise HTTPException(status_code=400, detail="Invalid assignment.")
+
+    submitted_at = current_utc_timestamp()
+    post_intervention_response = PostInterventionResponse(
+        participant_id=participant_id,
+        assignment=assignment,
+        attention_support=require_non_empty_text(
+            questionnaire.attention_support,
+            "Attention support",
+        ),
+        content_clarity=require_non_empty_text(
+            questionnaire.content_clarity,
+            "Content clarity",
+        ),
+        workload_fit=require_non_empty_text(
+            questionnaire.workload_fit,
+            "Workload fit",
+        ),
+        preferred_format=require_non_empty_text(
+            questionnaire.preferred_format,
+            "Preferred format",
+        ),
+        open_feedback=require_non_empty_text(
+            questionnaire.open_feedback,
+            "Open feedback",
+        ),
+        submitted_at=submitted_at,
+    )
+    session.add(post_intervention_response)
+    session.commit()
+
+    return PostInterventionResponsePayload(
+        participant_id=participant_id,
+        submitted_at=submitted_at,
     )
 
 

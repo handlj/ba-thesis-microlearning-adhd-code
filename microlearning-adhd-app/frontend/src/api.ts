@@ -31,6 +31,19 @@ export type DemographicsSubmission = {
   assignment: GroupAssignment;
 };
 
+export type PostInterventionAnswers = {
+  attentionSupport: string;
+  contentClarity: string;
+  workloadFit: string;
+  preferredFormat: string;
+  openFeedback: string;
+};
+
+export type PostInterventionSubmission = {
+  participant_id: string;
+  submitted_at: string;
+};
+
 export type StudyInteractionPayload = Record<string, string | number | boolean | null>;
 
 export type StudyInteractionEvent = {
@@ -63,6 +76,25 @@ export async function submitDemographics(
       age: Number(demographics.age),
       study_background: demographics.studyBackground,
       adhd_diagnosis: demographics.adhdDiagnosis,
+    },
+  );
+  return response.data;
+}
+
+export async function submitPostInterventionQuestionnaire(
+  participantId: string,
+  assignment: GroupAssignment,
+  answers: PostInterventionAnswers,
+) {
+  const response = await api.post<PostInterventionSubmission>(
+    `/participants/${participantId}/post-intervention`,
+    {
+      assignment,
+      attention_support: answers.attentionSupport,
+      content_clarity: answers.contentClarity,
+      workload_fit: answers.workloadFit,
+      preferred_format: answers.preferredFormat,
+      open_feedback: answers.openFeedback,
     },
   );
   return response.data;

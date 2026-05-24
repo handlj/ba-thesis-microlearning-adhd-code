@@ -10,6 +10,7 @@ import {
 
 type ExperimentalGroupProps = {
   onBackToStart: () => void
+  onCompleteIntervention: () => void
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
 }
 
@@ -21,7 +22,11 @@ const sampleQuizOptions = [
   'A live group discussion',
 ]
 
-function ExperimentalGroup({ onBackToStart, onLogInteraction }: ExperimentalGroupProps) {
+function ExperimentalGroup({
+  onBackToStart,
+  onCompleteIntervention,
+  onLogInteraction,
+}: ExperimentalGroupProps) {
   const [videos, setVideos] = useState<ExperimentalVideo[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -111,7 +116,7 @@ function ExperimentalGroup({ onBackToStart, onLogInteraction }: ExperimentalGrou
       answer: quizAnswer,
     })
     if (isLastVideo) {
-      onBackToStart()
+      onCompleteIntervention()
       return
     }
 

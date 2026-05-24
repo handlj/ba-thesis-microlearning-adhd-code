@@ -7,16 +7,28 @@ import Consent from './Consent.tsx'
 import Demographics from './Demographics.tsx'
 import ControlGroup from './ControlGroup.tsx'
 import ExperimentalGroup from './ExperimentalGroup.tsx'
+import PostInterventionQuestionnaire from './PostInterventionQuestionnaire.tsx'
+import ThankYou from './ThankYou.tsx'
 import {
   createConsentSession,
   recordInteractionEvent,
   submitDemographics,
+  submitPostInterventionQuestionnaire,
+  type PostInterventionAnswers,
   type StudyInteractionPayload,
 } from '../api.ts'
 import { type DemographicAnswers, type GroupAssignment } from '../utils/groupAssignment'
 import { validateDemographics } from '../utils/demographicsValidation'
 
-type Page = 'welcome' | 'consent' | 'demographics' | 'ready' | 'control' | 'experimental'
+type Page =
+  | 'welcome'
+  | 'consent'
+  | 'demographics'
+  | 'ready'
+  | 'control'
+  | 'experimental'
+  | 'postIntervention'
+  | 'thankYou'
 
 type BufferedEvent = {
   event: string
@@ -35,6 +47,14 @@ const defaultDemographics: DemographicAnswers = {
   adhdDiagnosis: '',
 }
 
+const defaultPostInterventionAnswers: PostInterventionAnswers = {
+  attentionSupport: '',
+  contentClarity: '',
+  workloadFit: '',
+  preferredFormat: '',
+  openFeedback: '',
+}
+
 function App() {
   const [page, setPage] = useState<Page>('welcome')
   const [agreed, setAgreed] = useState(false)
@@ -44,13 +64,17 @@ function App() {
   })
   const [demographics, setDemographics] =
     useState<DemographicAnswers>(defaultDemographics)
+  const [postInterventionAnswers, setPostInterventionAnswers] =
+    useState<PostInterventionAnswers>(defaultPostInterventionAnswers)
   const [participantId, setParticipantId] = useState<string | null>(() =>
     localStorage.getItem(PARTICIPANT_ID_KEY),
   )
   const [consentError, setConsentError] = useState<string | null>(null)
   const [demographicError, setDemographicError] = useState<string | null>(null)
+  const [postInterventionError, setPostInterventionError] = useState<string | null>(null)
   const [isSavingConsent, setIsSavingConsent] = useState(false)
   const [isSavingDemographics, setIsSavingDemographics] = useState(false)
+  const [isSavingPostIntervention, setIsSavingPostIntervention] = useState(false)
   const [assignment, setAssignment] = useState<GroupAssignment | null>(null)
   const bufferRef = useRef<BufferedEvent[]>(initialBuffer)
 
@@ -64,11 +88,14 @@ function App() {
   const resetStudyState = () => {
     setAgreed(false)
     setDemographics(defaultDemographics)
+    setPostInterventionAnswers(defaultPostInterventionAnswers)
     setParticipantId(null)
     setConsentError(null)
     setDemographicError(null)
+    setPostInterventionError(null)
     setIsSavingConsent(false)
     setIsSavingDemographics(false)
+    setIsSavingPostIntervention(false)
     setAssignment(null)
     localStorage.removeItem(PARTICIPANT_ID_KEY)
   }
@@ -87,6 +114,10 @@ function App() {
     if (assignment === 'experimental') {
       transitionTo('experimental')
     }
+  }
+
+  const completeIntervention = () => {
+    transitionTo('postIntervention')
   }
 
   const persistBuffer = () => {
@@ -206,6 +237,47 @@ function App() {
     }
   }
 
+  const handlePostInterventionSubmit = async () => {
+    const missingAnswer = Object.values(postInterventionAnswers).some(
+      (value) => !value.trim(),
+    )
+
+    if (missingAnswer) {
+      setPostInterventionError('Please answer every question before completing the study.')
+      return
+    }
+
+    if (!participantId || !assignment) {
+      setPostInterventionError(
+        'Study session data is missing. Please return to the start page and try again.',
+      )
+      return
+    }
+
+    try {
+      setPostInterventionError(null)
+      setIsSavingPostIntervention(true)
+      await submitPostInterventionQuestionnaire(
+        participantId,
+        assignment,
+        postInterventionAnswers,
+      )
+      addBufferedEvent('post_intervention_submitted', 'postIntervention', {
+        participantId,
+        assignment,
+      })
+      transitionTo('thankYou')
+    } catch (requestError) {
+      setPostInterventionError(
+        requestError instanceof Error
+          ? requestError.message
+          : 'Could not save the post-intervention questionnaire. Please try again.',
+      )
+    } finally {
+      setIsSavingPostIntervention(false)
+    }
+  }
+
   if (page === 'consent') {
     return (
       <Consent
@@ -273,6 +345,7 @@ function App() {
     return (
       <ControlGroup
         onBackToStart={returnToWelcome}
+        onCompleteIntervention={completeIntervention}
         onLogInteraction={(eventType, payload) =>
           logStudyInteraction('control', eventType, payload)
         }
@@ -284,11 +357,31 @@ function App() {
     return (
       <ExperimentalGroup
         onBackToStart={returnToWelcome}
+        onCompleteIntervention={completeIntervention}
         onLogInteraction={(eventType, payload) =>
           logStudyInteraction('experimental', eventType, payload)
         }
       />
     )
+  }
+
+  if (page === 'postIntervention') {
+    return (
+      <PostInterventionQuestionnaire
+        values={postInterventionAnswers}
+        error={postInterventionError}
+        isSubmitting={isSavingPostIntervention}
+        onChange={(field, value) => {
+          setPostInterventionAnswers((previous) => ({ ...previous, [field]: value }))
+          if (postInterventionError) setPostInterventionError(null)
+        }}
+        onSubmit={handlePostInterventionSubmit}
+      />
+    )
+  }
+
+  if (page === 'thankYou') {
+    return <ThankYou onReturnToStart={returnToWelcome} />
   }
 
   return (
