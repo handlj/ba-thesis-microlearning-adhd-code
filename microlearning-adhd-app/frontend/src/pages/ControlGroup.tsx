@@ -7,6 +7,7 @@ import { fetchControlVideo, type ControlVideo, type StudyInteractionPayload } fr
 
 type ControlGroupProps = {
   onBackToStart: () => void
+  onCompleteIntervention: () => void
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
 }
 
@@ -49,7 +50,11 @@ const controlQuizQuestions: StudyQuestion<ControlQuizQuestionId>[] = [
   },
 ]
 
-function ControlGroup({ onBackToStart, onLogInteraction }: ControlGroupProps) {
+function ControlGroup({
+  onBackToStart,
+  onCompleteIntervention,
+  onLogInteraction,
+}: ControlGroupProps) {
   const [video, setVideo] = useState<ControlVideo | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -131,7 +136,7 @@ function ControlGroup({ onBackToStart, onLogInteraction }: ControlGroupProps) {
         mainTopic: quizAnswers.mainTopic,
         perceivedClarity: quizAnswers.perceivedClarity,
       })
-      onBackToStart()
+      onCompleteIntervention()
     }
   }
 
