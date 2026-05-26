@@ -7,15 +7,9 @@ Format: Voiceover-Skript für Microlearning-Unit (Folie für Folie)
 
 ---
 
-Einleitung (vor Folie 1)
-
-Herzlich willkommen zu dieser Lerneinheit über die Grundlagen der Programmierung mit Python.
-In den nächsten Minuten lernst du, was Variablen sind, welche Datentypen Python kennt und wie du mit Zahlen und Texten arbeiten kannst.
-Lass uns loslegen!
-
----
-
 Folie 1 – Variablen: Was sind sie?
+
+Was versteht man unter Variablen?
 
 Eine Variable ist wie ein Etikett: Sie steht für einen Wert, den dein Programm zwischenspeichern soll.
 
@@ -35,7 +29,7 @@ Python unterscheidet verschiedene Arten von Werten – sogenannte Datentypen. Di
 `bool` – ein Wahrheitswert: entweder `True` oder `False`.
 `str` – Text in Anführungszeichen, zum Beispiel `x = 'Test'`.
 
-Daneben gibt es noch Typen für Sammlungen von Werten, wie `list`, `tuple` und `dict` – dazu kommst du später im Kurs.
+Daneben gibt es noch Typen für Sammlungen von Werten, wie `list`, `tuple` und `dict` – diese werden vergleichsweise weniger häufig verwendet.
 Merke dir vor allem `int`, `float`, `str` und `bool` – mit diesen arbeitest du am häufigsten.
 
 ---
@@ -65,10 +59,14 @@ Für mehrzeilige Texte verwendest du dreifache Anführungszeichen: `'''Dies ist 
 
 ---
 
-Folie 6-7 – Strings: Zugriff und Slicing
+Folie 6 – Strings
 
 Python nummeriert jeden Buchstaben in einem String mit einem Index – beginnend bei null.
 Das heißt: `string[0]` gibt dir das erste Zeichen. Die Länge des Strings ermittelst du mit `len(string)`.
+
+--
+
+Folie 7 - Strings: Slicing
 
 Mit Slicing kannst du dir einen Teilbereich herausschneiden:
 `string[start:ende]` liefert alle Zeichen von „start" bis kurz vor „ende".
@@ -78,11 +76,5 @@ Slicing ist ein mächtiges Werkzeug, das du vor allem bei der Textverarbeitung h
 
 ---
 
-Abschluss
-
-Sehr gut! Du hast jetzt die wichtigsten Grundbausteine von Python kennengelernt:
-Variablen, Datentypen, Rechenoperationen und Strings.
-
----
-
 *Skript generiert auf Basis der Präsentation „topic-a.odp" von Thorsten Ruprechter, Informatik BW.*
+
