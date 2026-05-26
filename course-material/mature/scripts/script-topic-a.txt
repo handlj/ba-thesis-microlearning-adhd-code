@@ -1,0 +1,88 @@
+Microlearning Script: Python Grundlagen – Variablen, Datentypen & Strings
+Kurs: Informatik BW  
+Autor der Folien: Thorsten Ruprechter  
+Zielgruppe: Programmiereinsteiger  
+Geschätzte Sprechdauer: ca. 5–6 Minuten  
+Format: Voiceover-Skript für Microlearning-Unit (Folie für Folie)
+
+---
+
+Einleitung (vor Folie 1)
+
+Herzlich willkommen zu dieser Lerneinheit über die Grundlagen der Programmierung mit Python.
+In den nächsten Minuten lernst du, was Variablen sind, welche Datentypen Python kennt und wie du mit Zahlen und Texten arbeiten kannst.
+Lass uns loslegen!
+
+---
+
+Folie 1 – Variablen: Was sind sie?
+
+Eine Variable ist wie ein Etikett: Sie steht für einen Wert, den dein Programm zwischenspeichern soll.
+
+Um einer Variable einen Wert zuzuweisen, verwendest du das Gleichheitszeichen – zum Beispiel: `number = 123`. Ab jetzt steht „number" für die Zahl 123.
+Du kannst auch Text speichern: `message = 'Hello World!'` – oder den Wert einer Variable in eine andere kopieren: `number2 = number`.
+
+Wichtig: Du kannst den Wert einer Variable jederzeit ändern, aber du musst ihr zuerst einen Startwert geben.
+
+---
+
+Folie 2 – Datentypen: Welche Arten von Werten gibt es?
+
+Python unterscheidet verschiedene Arten von Werten – sogenannte Datentypen. Die wichtigsten sind:
+
+`int` – ganze Zahlen, zum Beispiel `x = 3`.
+`float` – Gleitkommazahlen mit Dezimalpunkt, zum Beispiel `x = 3.0`.
+`bool` – ein Wahrheitswert: entweder `True` oder `False`.
+`str` – Text in Anführungszeichen, zum Beispiel `x = 'Test'`.
+
+Daneben gibt es noch Typen für Sammlungen von Werten, wie `list`, `tuple` und `dict` – dazu kommst du später im Kurs.
+Merke dir vor allem `int`, `float`, `str` und `bool` – mit diesen arbeitest du am häufigsten.
+
+---
+
+Folie 3 – Integer & Float: Rechnen mit Zahlen
+
+Mit Zahlen kannst du in Python ganz normal rechnen: addieren mit `+`, subtrahieren mit `-`, multiplizieren mit `*`, dividieren mit `/`. Dazu kommen das Potenzieren mit `**` und der Modulo-Operator `%`, der den Rest einer Division liefert.
+
+Ein Beispiel: `number = 5 + 13` speichert das Ergebnis 18 direkt in der Variable.
+
+---
+
+Folie 4 - Erweiterte Operatoren
+
+Python bietet außerdem praktische Kurzschreibweisen: Statt `number = number + 8` schreibst du einfach `number += 8`. Dasselbe funktioniert mit `-=`, `*=` und `/=`. Diese Kurzformen sparen Tipparbeit und machen den Code übersichtlicher.
+
+---
+
+Folie 5 – Strings: Text in Python
+
+Text wird in Python als String bezeichnet – eine Folge von Zeichen in Anführungszeichen.
+Du kannst einfache oder doppelte Anführungszeichen verwenden, beides funktioniert:
+`string = 'Das ist ein String'` oder `string = "Das ist auch ein String"`.
+
+Willst du Anführungszeichen im Text selbst verwenden, wechselst du einfach die Art.
+Für mehrzeilige Texte verwendest du dreifache Anführungszeichen: `'''Dies ist ein mehrzeiliger String'''`.
+
+---
+
+Folie 6-7 – Strings: Zugriff und Slicing
+
+Python nummeriert jeden Buchstaben in einem String mit einem Index – beginnend bei null.
+Das heißt: `string[0]` gibt dir das erste Zeichen. Die Länge des Strings ermittelst du mit `len(string)`.
+
+Mit Slicing kannst du dir einen Teilbereich herausschneiden:
+`string[start:ende]` liefert alle Zeichen von „start" bis kurz vor „ende".
+Mit einer Schrittweite – `string[start:ende:schrittweite]` – kannst du zum Beispiel jeden zweiten Buchstaben abrufen.
+
+Slicing ist ein mächtiges Werkzeug, das du vor allem bei der Textverarbeitung häufig einsetzen wirst.
+
+---
+
+Abschluss
+
+Sehr gut! Du hast jetzt die wichtigsten Grundbausteine von Python kennengelernt:
+Variablen, Datentypen, Rechenoperationen und Strings.
+
+---
+
+*Skript generiert auf Basis der Präsentation „topic-a.odp" von Thorsten Ruprechter, Informatik BW.*
