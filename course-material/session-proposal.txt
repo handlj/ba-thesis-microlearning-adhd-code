@@ -10,7 +10,7 @@ and its related concepts.
 
 Statements on the amount of slides per topic relate to
 "relevant-topics-shortened" in the 
-/course-material/preprocessed/slides directory.
+/course-material/mature/slides directory.
 
 Therefore, the full microlearning session will have 26 slides.
 

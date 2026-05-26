@@ -1,0 +1,119 @@
+Microlearning Script: Python Grundlagen - Funktionen
+Kurs: Informatik BW
+Autor der Folien: Thorsten Ruprechter
+Zielgruppe: Programmiereinsteiger
+Geschaetzte Sprechdauer: ca. 5-6 Minuten
+Format: Voiceover-Skript fuer Microlearning-Unit (Folie fuer Folie)
+
+---
+
+Einleitung (vor Folie 1)
+
+Herzlich willkommen zu dieser Lerneinheit ueber Funktionen in Python.
+In den naechsten Minuten lernst du, was Funktionen sind, wie du eigene definierst und wie du Daten an sie uebergibst - und was passiert, wenn dabei etwas schieflaeuft.
+Lass uns gleich loslegen!
+
+---
+
+Folie 1 - Funktionen: Grundkonzept
+
+Stell dir vor, du hast einen Codeblock, den du immer wieder an verschiedenen Stellen in deinem Programm benoetigen wirst. Statt ihn jedes Mal neu zu schreiben, kannst du ihn einmal definieren - als Funktion.
+
+Eine Funktion ist ein benannter Codeblock mit einer bestimmten Aufgabe. Du schreibst den Code einmal, gibst ihm einen Namen, und kannst ihn danach beliebig oft durch diesen Namen aufrufen.
+
+Konzeptuell besteht eine Funktion aus drei Teilen: den Eingaben - also Parametern oder Argumenten - die ihr uebergeben werden, der Logik, die darin ausgefuehrt wird, und einer optionalen Ausgabe, dem sogenannten Rueckgabewert. Die Ausgabe kann auf der Konsole erscheinen, in einer Variable gespeichert oder in eine Datei geschrieben werden.
+
+Kurz zur Terminologie: Ein Parameter ist die Variable, die in der Funktionsdefinition steht. Ein Argument ist der konkrete Wert, den du beim Aufruf uebergibst. Die Begriffe werden im Alltag haeufig synonym verwendet.
+
+---
+
+Folie 2 - Funktionen: Beispiel print()
+
+Um das Konzept greifbar zu machen, schauen wir uns eine Funktion an, die du bereits kennst: print.
+
+print ist eine eingebaute Python-Funktion. Du rufst sie auf, uebergibst ihr Argumente - zum Beispiel die Strings "This", "is", "a" und "Test" - und sie gibt diese Werte auf der Konsole aus.
+
+Der Name print ist also das Label fuer den Codeblock, der die Ausgabe steuert. Du musst nicht wissen, wie print intern funktioniert - du musst nur wissen, wie du sie aufrufst und was du ihr mitgibst.
+
+Genau so funktionieren auch deine eigenen Funktionen: einmal schreiben, beliebig oft aufrufen.
+
+---
+
+Folie 3 - Funktionen: Beispiel len()
+
+Ein weiteres gutes Beispiel fuer eine eingebaute Funktion ist len.
+
+len nimmt eine Liste als Argument entgegen und gibt die Anzahl der enthaltenen Elemente zurueck - also einen sogenannten Rueckgabewert.
+
+Im Beispiel: len mit der Liste 4, 8, "This", "Test" gibt den Wert 4 zurueck - denn die Liste hat vier Elemente.
+
+Dieser Rueckgabewert ist besonders nuetzlich, weil du ihn weiterverwenden kannst - zum Beispiel in einer Berechnung oder als Bedingung in einem if-Statement. Das macht Funktionen so maechtig: Sie kapseln Logik und liefern ein verwertbares Ergebnis zurueck.
+
+---
+
+Folie 4 - Funktionen: Definition und Aufruf
+
+Jetzt schreiben wir unsere erste eigene Funktion.
+
+Eine Funktionsdefinition beginnt immer mit dem Schluesselwort def, gefolgt vom Namen der Funktion, runden Klammern fuer die Parameter und einem Doppelpunkt. Der Funktionskoerper - also der Code, der beim Aufruf ausgefuehrt wird - steht eingerueckt darunter.
+
+Wichtig: Funktionen muessen im Code definiert sein, bevor sie aufgerufen werden. Und zwei Funktionen duerfen nicht denselben Namen haben - die zweite wuerde die erste einfach ueberschreiben.
+
+Im Beispiel: Wir definieren test_function mit einem Parameter namens param. Im Koerper wird eine Nachricht ausgegeben, die den uebergebenen Wert einbettet. Der Aufruf test_function mit dem Argument 13 fuehrt diese Funktion aus und gibt die entsprechende Nachricht aus.
+
+---
+
+Folie 5 - Funktionen: Einfaches Code-Beispiel
+
+Schauen wir uns zwei Funktionen im direkten Vergleich an.
+
+Die erste heisst test_simple und hat keine Parameter. Sie gibt bei jedem Aufruf einfach "Hi everyone!" aus.
+
+Die zweite heisst test_param und nimmt einen Parameter namens param entgegen. Sie gibt eine Nachricht aus, die diesen Wert einbettet.
+
+Der Aufruf von test_simple erfolgt mit leeren Klammern - die Klammern sind auch ohne Argumente Pflicht. Der Aufruf von test_param erfolgt mit dem Argument "Hello!" in den Klammern.
+
+Beide Funktionen werden nacheinander aufgerufen, jede fuehrt ihren Codeblock aus, und danach laeuft das Programm normal weiter. Das ist das grundlegende Schema fuer jeden Funktionsaufruf in Python.
+
+---
+
+Folie 6 - Funktionen: Beispiele fuer valide Aufrufe
+
+Funktionen koennen auf verschiedene Weisen aufgerufen werden - Python bietet dabei viel Flexibilitaet.
+
+Im Beispiel haben wir die Funktion say_name mit drei Parametern: first, last und country. Fuer country ist ein Standardwert hinterlegt - naemlich "Austria". Das bedeutet: Wenn beim Aufruf kein Wert fuer country angegeben wird, verwendet Python automatisch diesen Standard.
+
+Es gibt mehrere gueltige Aufrufmoeglichkeiten. Erstens per Position: Du gibst die Argumente in der Reihenfolge an, in der die Parameter definiert wurden. Zweitens per Schluesselwort: Du gibst den Parameternamen explizit an, dann spielt die Reihenfolge keine Rolle mehr. Drittens als Mischform: Positionelle Argumente zuerst, danach Schluesselwortargumente.
+
+Diese Flexibilitaet macht Funktionen in Python besonders vielseitig.
+
+---
+
+Folie 7 - Funktionen: Argument-Fehler
+
+Schauen wir uns abschliessend an, was passiert, wenn Funktionen falsch aufgerufen werden.
+
+Der erste Fehlertyp: Du uebergibst zu wenige Argumente. Python meldet dann einen TypeError mit dem Hinweis, dass ein erforderliches Argument fehlt.
+
+Der zweite Fehlertyp: Du uebergibst die Argumente in der falschen Reihenfolge. Python erkennt das nicht als Fehler, aber du bekommst einen logischen Fehler - die falschen Werte landen in den falschen Parametern.
+
+Der dritte Fehlertyp: Du verwendest einen Schluesselwortnamen, der in der Funktionsdefinition nicht existiert. Python meldet einen TypeError wegen eines unerwarteten Schluesselwortarguments.
+
+Der vierte Fehlertyp: Du schreibst ein positionelles Argument nach einem Schluesselwortargument. Das ist ein SyntaxError - Python verlangt, dass positionelle Argumente immer zuerst kommen.
+
+Diese Fehlermeldungen klingen zunaechst einschuechterd, aber sie sind sehr praesize - sie sagen dir genau, was schiefgelaufen ist.
+
+---
+
+Abschluss
+
+Sehr gut! Du hast jetzt die wichtigsten Grundlagen zu Funktionen in Python kennengelernt:
+
+Was eine Funktion ist und wozu sie dient.
+Wie du eigene Funktionen mit def definierst.
+Wie du Parameter und Argumente verwendest - positionell, per Schluesselwort oder als Mischform.
+Und welche Fehler beim Aufruf auftreten koennen und was sie bedeuten.
+
+---
+
+Skript erstellt auf Basis der Praesentation topic-d.odp von Thorsten Ruprechter, Informatik BW.
