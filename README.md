@@ -13,9 +13,15 @@ This repository contains the code and data used for the bachelor thesis with the
   - `preprocessed/`
     - `transcripts/`: manually preprocessed transcripts for selected videos
     - `slides/`: preprocessed slides for microlearning session
+  - `mature`
+    - `scripts`: scripts for video narration (either tts or self-narrated)
+    - `slides`: selected slides for microlearning session
+    - `videos`: tba
 - `microlearning-adhd-app/`
   - `frontend/`: React/TypeScript frontend for the microlearning app
   - `backend/`: FastAPI backend for loading materials and storing user data. Connected to a local SQLite database.
+    - `data/`: directory for storing the SQLite database and exported CSV files for data analysis
+    - `utils/`: utility scripts for database inspection and export
 
 ## Microlearning App Usage
 To run the microlearning app, navigate to the `microlearning-adhd-app/frontend` directory and run:
