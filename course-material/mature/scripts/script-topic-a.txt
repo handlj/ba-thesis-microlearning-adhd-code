@@ -11,9 +11,9 @@ Folie 1 – Variablen: Was sind sie?
 
 Was versteht man unter Variablen?
 
-Eine Variable ist wie ein Etikett: Sie steht für einen Wert, den dein Programm zwischenspeichern soll.
+Eine Variable ist wie ein Etikett: Sie steht für einen Wert, den dein Programm zwischenspeichern soll. Man kann sie auch als "Platzhalter" für diesen Wert verstehen.
 
-Um einer Variable einen Wert zuzuweisen, verwendest du das Gleichheitszeichen – zum Beispiel: `number = 123`. Ab jetzt steht „number" für die Zahl 123.
+Um einer Variable einen Wert zuzuweisen, verwendest du das Gleichheitszeichen - siehe zum Beispiel unten rechts: `number = 123`. Ab jetzt steht „number" für die Zahl 123.
 Du kannst auch Text speichern: `message = 'Hello World!'` – oder den Wert einer Variable in eine andere kopieren: `number2 = number`.
 
 Wichtig: Du kannst den Wert einer Variable jederzeit ändern, aber du musst ihr zuerst einen Startwert geben.
@@ -22,23 +22,24 @@ Wichtig: Du kannst den Wert einer Variable jederzeit ändern, aber du musst ihr 
 
 Folie 2 – Datentypen: Welche Arten von Werten gibt es?
 
-Python unterscheidet verschiedene Arten von Werten – sogenannte Datentypen. Die wichtigsten sind:
+Die Programmiersprache Python unterscheidet verschiedene Arten von Werten – sogenannte Datentypen. Die wichtigsten sind folgende:
 
 `int` – ganze Zahlen, zum Beispiel `x = 3`.
 `float` – Gleitkommazahlen mit Dezimalpunkt, zum Beispiel `x = 3.0`.
 `bool` – ein Wahrheitswert: entweder `True` oder `False`.
-`str` – Text in Anführungszeichen, zum Beispiel `x = 'Test'`.
+`str` – Text in (einfachen, oder doppelten) Anführungszeichen, zum Beispiel `x = 'Test'`.
 
 Daneben gibt es noch Typen für Sammlungen von Werten, wie `list`, `tuple` und `dict` – diese werden vergleichsweise weniger häufig verwendet.
+
 Merke dir vor allem `int`, `float`, `str` und `bool` – mit diesen arbeitest du am häufigsten.
 
 ---
 
 Folie 3 – Integer & Float: Rechnen mit Zahlen
 
-Mit Zahlen kannst du in Python ganz normal rechnen: addieren mit `+`, subtrahieren mit `-`, multiplizieren mit `*`, dividieren mit `/`. Dazu kommen das Potenzieren mit `**` und der Modulo-Operator `%`, der den Rest einer Division liefert.
+Mit "ints" und "floats" kannst du in Python ganz normal rechnen: addieren mit `+`, subtrahieren mit `-`, multiplizieren mit `* (asterisk)`, dividieren mit `/`. Dazu kommen das Potenzieren mit `**` und der Modulo-Operator `%`, der den Rest einer Division liefert.
 
-Ein Beispiel: `number = 5 + 13` speichert das Ergebnis 18 direkt in der Variable.
+Unten rechts wieder ein Beispiel: `number = 5 + 13` speichert das Ergebnis 18 direkt in der Variable. number_2 übernimmt den Wert von number addiert mit 5.
 
 ---
 
@@ -50,26 +51,35 @@ Python bietet außerdem praktische Kurzschreibweisen: Statt `number = number + 8
 
 Folie 5 – Strings: Text in Python
 
-Text wird in Python als String bezeichnet – eine Folge von Zeichen in Anführungszeichen.
+Nun kommen wir zu Strings oder Zeichenketten.
+
+Text wird in Python als String bezeichnet – eine Folge von Zeichen deren Start und Ende mittels Anführungszeichen markiert ist.
+
 Du kannst einfache oder doppelte Anführungszeichen verwenden, beides funktioniert:
-`string = 'Das ist ein String'` oder `string = "Das ist auch ein String"`.
+Siehe zum Beispiel: `string = 'Das ist ein String'` oder `string = "Das ist auch ein String"`.
 
 Willst du Anführungszeichen im Text selbst verwenden, wechselst du einfach die Art.
-Für mehrzeilige Texte verwendest du dreifache Anführungszeichen: `'''Dies ist ein mehrzeiliger String'''`.
+
+Für mehrzeilige Texte verwendest du dreifache Anführungszeichen: 
+Siehe zum Beispiel: string = `'''Dies ist ein mehrzeiliger String'''`.
 
 ---
 
 Folie 6 – Strings
 
 Python nummeriert jeden Buchstaben in einem String mit einem Index – beginnend bei null.
-Das heißt: `string[0]` gibt dir das erste Zeichen. Die Länge des Strings ermittelst du mit `len(string)`.
+Das heißt: `string[0]` gibt dir das erste Zeichen. 
+
+Zur Auswahl mehrerer Zeichen - dem sogenannten Slicing - kommen wir in der nächsten Folie.
+
+Die Länge des Strings ermittelst du mit `len(string)`.
 
 --
 
 Folie 7 - Strings: Slicing
 
-Mit Slicing kannst du dir einen Teilbereich herausschneiden:
-`string[start:ende]` liefert alle Zeichen von „start" bis kurz vor „ende".
+Mit Slicing kannst du dir einen Teilbereich aus einem String herausschneiden:
+`string[start:ende]` liefert alle Zeichen von „start" bis kurz vor (also ein Zeichen vor) „ende".
 Mit einer Schrittweite – `string[start:ende:schrittweite]` – kannst du zum Beispiel jeden zweiten Buchstaben abrufen.
 
 Slicing ist ein mächtiges Werkzeug, das du vor allem bei der Textverarbeitung häufig einsetzen wirst.
