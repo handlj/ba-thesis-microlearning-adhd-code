@@ -14,6 +14,10 @@ export type ControlVideo = {
   video_url: string;
 };
 
+export type InstructionVideo = {
+  video_url: string;
+};
+
 export type ExperimentalVideo = {
   id: string;
   title: string;
@@ -102,6 +106,11 @@ export async function submitPostInterventionQuestionnaire(
 
 export async function fetchControlVideo() {
   const response = await api.get<ControlVideo>("/control-video");
+  return response.data;
+}
+
+export async function fetchInstructionVideo() {
+  const response = await api.get<InstructionVideo>("/instruction-video");
   return response.data;
 }
 
