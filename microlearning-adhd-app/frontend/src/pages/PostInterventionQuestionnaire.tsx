@@ -3,6 +3,7 @@ import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
 import { type PostInterventionAnswers } from '../api.ts'
+import { copy } from '../content/copy'
 
 type PostInterventionQuestionId = keyof PostInterventionAnswers
 
@@ -10,56 +11,62 @@ const postInterventionQuestions: StudyQuestion<PostInterventionQuestionId>[] = [
   {
     id: 'attentionSupport',
     type: 'radio',
-    label: 'The study material helped me stay focused.',
+    label: copy.postIntervention.questions.attentionSupport.label,
     required: true,
     options: [
-      { value: 'strongly-agree', label: 'Strongly agree' },
-      { value: 'agree', label: 'Agree' },
-      { value: 'neutral', label: 'Neutral' },
-      { value: 'disagree', label: 'Disagree' },
+      { value: 'strongly-agree', label: copy.postIntervention.agreementOptions.stronglyAgree },
+      { value: 'agree', label: copy.postIntervention.agreementOptions.agree },
+      { value: 'neutral', label: copy.postIntervention.agreementOptions.neutral },
+      { value: 'disagree', label: copy.postIntervention.agreementOptions.disagree },
     ],
   },
   {
     id: 'contentClarity',
     type: 'radio',
-    label: 'The content was easy to understand.',
+    label: copy.postIntervention.questions.contentClarity.label,
     required: true,
     options: [
-      { value: 'strongly-agree', label: 'Strongly agree' },
-      { value: 'agree', label: 'Agree' },
-      { value: 'neutral', label: 'Neutral' },
-      { value: 'disagree', label: 'Disagree' },
+      { value: 'strongly-agree', label: copy.postIntervention.agreementOptions.stronglyAgree },
+      { value: 'agree', label: copy.postIntervention.agreementOptions.agree },
+      { value: 'neutral', label: copy.postIntervention.agreementOptions.neutral },
+      { value: 'disagree', label: copy.postIntervention.agreementOptions.disagree },
     ],
   },
   {
     id: 'workloadFit',
     type: 'radio',
-    label: 'The amount of work felt manageable.',
+    label: copy.postIntervention.questions.workloadFit.label,
     required: true,
     options: [
-      { value: 'strongly-agree', label: 'Strongly agree' },
-      { value: 'agree', label: 'Agree' },
-      { value: 'neutral', label: 'Neutral' },
-      { value: 'disagree', label: 'Disagree' },
+      { value: 'strongly-agree', label: copy.postIntervention.agreementOptions.stronglyAgree },
+      { value: 'agree', label: copy.postIntervention.agreementOptions.agree },
+      { value: 'neutral', label: copy.postIntervention.agreementOptions.neutral },
+      { value: 'disagree', label: copy.postIntervention.agreementOptions.disagree },
     ],
   },
   {
     id: 'preferredFormat',
     type: 'radio',
-    label: 'Which format would you prefer for future learning material?',
+    label: copy.postIntervention.questions.preferredFormat.label,
     required: true,
     options: [
-      { value: 'single-video', label: 'One longer video' },
-      { value: 'short-videos', label: 'Several short videos' },
-      { value: 'text', label: 'Written material' },
-      { value: 'mixed', label: 'A mix of formats' },
+      {
+        value: 'single-video',
+        label: copy.postIntervention.questions.preferredFormat.options.singleVideo,
+      },
+      {
+        value: 'short-videos',
+        label: copy.postIntervention.questions.preferredFormat.options.shortVideos,
+      },
+      { value: 'text', label: copy.postIntervention.questions.preferredFormat.options.text },
+      { value: 'mixed', label: copy.postIntervention.questions.preferredFormat.options.mixed },
     ],
   },
   {
     id: 'openFeedback',
     type: 'text',
-    label: 'Is there anything you would improve about the learning experience?',
-    placeholder: 'Share a short comment',
+    label: copy.postIntervention.questions.openFeedback.label,
+    placeholder: copy.postIntervention.questions.openFeedback.placeholder,
     required: true,
   },
 ]
@@ -84,9 +91,9 @@ function PostInterventionQuestionnaire({
   return (
     <StudyPage ariaLabelledBy="post-intervention-title" cardClassName="study-card--form">
       <StudyHeading
-        eyebrow="Post-intervention questionnaire"
-        title="Tell us about the study material"
-        intro="Please answer these short sample questions before completing the study."
+        eyebrow={copy.postIntervention.heading.eyebrow}
+        title={copy.postIntervention.heading.title}
+        intro={copy.postIntervention.heading.intro}
         id="post-intervention-title"
       />
 
@@ -107,7 +114,7 @@ function PostInterventionQuestionnaire({
               className="start-button"
               disabled={!isComplete || isSubmitting}
             >
-              {isSubmitting ? 'Saving...' : 'Complete study'}
+              {isSubmitting ? copy.actions.saving : copy.actions.completeStudy}
             </button>
           </StudyActions>
         }

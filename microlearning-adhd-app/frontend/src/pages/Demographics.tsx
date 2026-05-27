@@ -3,6 +3,7 @@ import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../componen
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
+import { copy } from '../content/copy'
 
 type DemographicQuestionId = keyof DemographicAnswers
 
@@ -10,8 +11,8 @@ const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = [
   {
     id: 'age',
     type: 'number',
-    label: 'Age',
-    placeholder: 'Enter your age',
+    label: copy.demographics.questions.age.label,
+    placeholder: copy.demographics.questions.age.placeholder,
     min: 13,
     max: 120,
     required: true,
@@ -19,24 +20,45 @@ const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = [
   {
     id: 'studyBackground',
     type: 'select',
-    label: 'Study background',
+    label: copy.demographics.questions.studyBackground.label,
     required: true,
     options: [
-      { value: 'computer-science', label: 'Computer science' },
-      { value: 'stem-other', label: 'Other STEM discipline' },
-      { value: 'non-stem', label: 'Non-STEM discipline' },
-      { value: 'not-studying', label: 'Not currently studying' },
+      {
+        value: 'computer-science',
+        label: copy.demographics.questions.studyBackground.options.computerScience,
+      },
+      {
+        value: 'stem-other',
+        label: copy.demographics.questions.studyBackground.options.stemOther,
+      },
+      {
+        value: 'non-stem',
+        label: copy.demographics.questions.studyBackground.options.nonStem,
+      },
+      {
+        value: 'not-studying',
+        label: copy.demographics.questions.studyBackground.options.notStudying,
+      },
     ],
   },
   {
     id: 'adhdDiagnosis',
     type: 'select',
-    label: 'ADHD diagnosis status',
+    label: copy.demographics.questions.adhdDiagnosis.label,
     required: true,
     options: [
-      { value: 'diagnosed', label: 'Diagnosed' },
-      { value: 'not-diagnosed', label: 'Not diagnosed' },
-      { value: 'prefer-not-to-say', label: 'Prefer not to say' },
+      {
+        value: 'diagnosed',
+        label: copy.demographics.questions.adhdDiagnosis.options.diagnosed,
+      },
+      {
+        value: 'not-diagnosed',
+        label: copy.demographics.questions.adhdDiagnosis.options.notDiagnosed,
+      },
+      {
+        value: 'prefer-not-to-say',
+        label: copy.demographics.questions.adhdDiagnosis.options.preferNotToSay,
+      },
     ],
   },
 ]
@@ -61,9 +83,9 @@ function Demographics({
   return (
     <StudyPage ariaLabelledBy="demographics-title" cardClassName="study-card--form">
       <StudyHeading
-        eyebrow="Demographic questionnaire"
-        title="Before we start the study tasks"
-        intro="Please answer the following questions. These answers are used for deterministic group assignment in this pilot phase."
+        eyebrow={copy.demographics.heading.eyebrow}
+        title={copy.demographics.heading.title}
+        intro={copy.demographics.heading.intro}
         id="demographics-title"
       />
 
@@ -85,10 +107,10 @@ function Demographics({
               onClick={onBack}
               disabled={isSubmitting}
             >
-              Back
+              {copy.actions.back}
             </button>
             <button type="submit" className="start-button" disabled={isSubmitting}>
-              {isSubmitting ? 'Saving...' : 'Continue'}
+              {isSubmitting ? copy.actions.saving : copy.actions.continue}
             </button>
           </StudyActions>
         }

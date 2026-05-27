@@ -4,6 +4,7 @@ import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
 import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../components/forms'
 import { fetchControlVideo, type ControlVideo, type StudyInteractionPayload } from '../api.ts'
+import { copy } from '../content/copy'
 
 type ControlGroupProps = {
   onBackToStart: () => void
@@ -29,23 +30,41 @@ const controlQuizQuestions: StudyQuestion<ControlQuizQuestionId>[] = [
   {
     id: 'mainTopic',
     type: 'radio',
-    label: 'What was the reference video mainly about?',
+    label: copy.controlGroup.quiz.questions.mainTopic.label,
     required: true,
     options: [
-      { value: 'study-material', label: 'The study material shown in the video' },
-      { value: 'demographics', label: 'The demographic questionnaire' },
-      { value: 'technical-setup', label: 'Browser or technical setup instructions' },
+      {
+        value: 'study-material',
+        label: copy.controlGroup.quiz.questions.mainTopic.options.studyMaterial,
+      },
+      {
+        value: 'demographics',
+        label: copy.controlGroup.quiz.questions.mainTopic.options.demographics,
+      },
+      {
+        value: 'technical-setup',
+        label: copy.controlGroup.quiz.questions.mainTopic.options.technicalSetup,
+      },
     ],
   },
   {
     id: 'perceivedClarity',
     type: 'radio',
-    label: 'How clear was the reference video?',
+    label: copy.controlGroup.quiz.questions.perceivedClarity.label,
     required: true,
     options: [
-      { value: 'clear', label: 'Clear' },
-      { value: 'somewhat-clear', label: 'Somewhat clear' },
-      { value: 'not-clear', label: 'Not clear' },
+      {
+        value: 'clear',
+        label: copy.controlGroup.quiz.questions.perceivedClarity.options.clear,
+      },
+      {
+        value: 'somewhat-clear',
+        label: copy.controlGroup.quiz.questions.perceivedClarity.options.somewhatClear,
+      },
+      {
+        value: 'not-clear',
+        label: copy.controlGroup.quiz.questions.perceivedClarity.options.notClear,
+      },
     ],
   },
 ]
@@ -89,7 +108,7 @@ function ControlGroup({
         setError(
           requestError instanceof Error
             ? requestError.message
-            : 'Could not load the control video.',
+            : copy.errors.controlVideoLoad,
         )
       } finally {
         if (active) {
@@ -176,12 +195,16 @@ function ControlGroup({
   return (
     <StudyPage ariaLabelledBy="control-title" cardClassName="study-card--video">
       <StudyHeading
-        eyebrow="Control group"
-        title={phase === 'video' ? 'Watch the reference video' : 'Complete the post-video quiz'}
+        eyebrow={copy.controlGroup.heading.eyebrow}
+        title={
+          phase === 'video'
+            ? copy.controlGroup.heading.videoTitle
+            : copy.controlGroup.heading.quizTitle
+        }
         intro={
           phase === 'video'
-            ? 'Watch the full backend-served video before continuing to the short sample quiz.'
-            : 'Answer both sample questions to finish this temporary control-group flow.'
+            ? copy.controlGroup.heading.videoIntro
+            : copy.controlGroup.heading.quizIntro
         }
         id="control-title"
       />
@@ -213,13 +236,13 @@ function ControlGroup({
               }}
             >
               <source src={video.video_url} type="video/mp4" />
-              Your browser does not support the video tag.
+              {copy.video.unsupported}
             </video>
           </div>
           <p className="video-status" aria-live="polite">
             {canContinue
-              ? 'The video finished. You can continue.'
-              : 'Watch the full video before continuing.'}
+              ? copy.controlGroup.status.videoFinished
+              : copy.video.watchFullVideo}
           </p>
         </div>
       ) : null}
@@ -237,26 +260,26 @@ function ControlGroup({
                 className="secondary-button"
                 onClick={returnToVideo}
               >
-                Back to video
+                {copy.actions.backToVideo}
               </button>
               <button type="submit" className="start-button" disabled={!isQuizComplete}>
-                Continue
+                {copy.actions.continue}
               </button>
             </StudyActions>
           }
         />
       ) : null}
 
-      {isLoading ? <p className="video-status">Loading control video from the backend...</p> : null}
+      {isLoading ? <p className="video-status">{copy.controlGroup.status.loading}</p> : null}
       {error ? <p className="error-text">{error}</p> : null}
 
       {phase === 'video' ? (
         <StudyActions className="study-actions--stacked">
           <button type="button" className="secondary-button" onClick={returnToWelcome}>
-            Return to welcome
+            {copy.actions.returnToWelcome}
           </button>
           <button type="button" className="start-button" disabled={!canContinue} onClick={showQuiz}>
-            Continue
+            {copy.actions.continue}
           </button>
         </StudyActions>
       ) : null}

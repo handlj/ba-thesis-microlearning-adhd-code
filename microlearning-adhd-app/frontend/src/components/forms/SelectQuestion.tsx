@@ -35,7 +35,7 @@ function SelectQuestion<QuestionId extends string = string>({
         required={question.required}
         aria-describedby={question.helpText ? helpId : undefined}
       >
-        <option value="">{question.placeholder ?? 'Select one'}</option>
+        <option value="">{question.placeholder ?? 'Antwort wählen'}</option>
         {question.options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}

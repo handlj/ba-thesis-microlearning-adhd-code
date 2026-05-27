@@ -1,4 +1,5 @@
 import { type DemographicAnswers } from './groupAssignment'
+import { copy } from '../content/copy'
 
 export type ValidationResult =
   | { valid: true }
@@ -13,14 +14,14 @@ export function validateDemographics(
   if (!age || !studyBackground || !adhdDiagnosis) {
     return {
       valid: false,
-      error: 'Please answer all questions before continuing.',
+      error: copy.validation.demographicsAllQuestions,
     }
   }
 
   if (!Number.isInteger(parsedAge) || parsedAge < 13 || parsedAge > 120) {
     return {
       valid: false,
-      error: 'Please enter a valid age between 13 and 120.',
+      error: copy.validation.demographicsAgeRange,
     }
   }
 

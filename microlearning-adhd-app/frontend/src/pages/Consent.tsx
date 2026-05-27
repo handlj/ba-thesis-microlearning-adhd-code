@@ -2,6 +2,7 @@ import '../styles/Consent.css'
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
+import { copy } from '../content/copy'
 
 type ConsentProps = {
   agreed: boolean
@@ -23,26 +24,23 @@ function Consent({
   return (
     <StudyPage ariaLabelledBy="consent-title" cardClassName="consent-card">
       <StudyHeading
-        eyebrow="Participant information and consent"
-        title="Before we collect any data"
-        intro="This study investigates how learners engage with short microlearning materials. Before starting, please review the information below."
+        eyebrow={copy.consent.heading.eyebrow}
+        title={copy.consent.heading.title}
+        intro={copy.consent.heading.intro}
         id="consent-title"
       />
 
       <div className="consent-content">
-        <h2>What data we collect</h2>
-        <ul>
-          <li>Basic demographic answers such as age range and study background.</li>
-          <li>Responses to study questions and interaction timings.</li>
-          <li>Technical metadata needed to ensure data quality.</li>
-        </ul>
-
-        <h2>How your data is handled</h2>
-        <ul>
-          <li>Your responses are used for academic research purposes only.</li>
-          <li>Data is stored securely and reported in aggregated form.</li>
-          <li>You may stop participation at any time before submission.</li>
-        </ul>
+        {copy.consent.sections.map((section) => (
+          <section key={section.title}>
+            <h2>{section.title}</h2>
+            <ul>
+              {section.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        ))}
       </div>
 
       <label className="checkbox-row consent-check">
@@ -51,10 +49,7 @@ function Consent({
           checked={agreed}
           onChange={(event) => onAgreementChange(event.target.checked)}
         />
-        <span>
-          I have read the information above and agree to proceed to the
-          demographic questions.
-        </span>
+        <span>{copy.consent.agreement}</span>
       </label>
 
       {error ? <p className="error-text">{error}</p> : null}
@@ -66,7 +61,7 @@ function Consent({
           onClick={onBack}
           disabled={isSubmitting}
         >
-          Back
+          {copy.actions.back}
         </button>
         <button
           type="button"
@@ -74,7 +69,7 @@ function Consent({
           onClick={onProceed}
           disabled={!agreed || isSubmitting}
         >
-          {isSubmitting ? 'Saving...' : 'Proceed'}
+          {isSubmitting ? copy.actions.saving : copy.actions.proceed}
         </button>
       </StudyActions>
     </StudyPage>

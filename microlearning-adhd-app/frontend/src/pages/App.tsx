@@ -19,6 +19,7 @@ import {
 } from '../api.ts'
 import { type DemographicAnswers, type GroupAssignment } from '../utils/groupAssignment'
 import { validateDemographics } from '../utils/demographicsValidation'
+import { copy } from '../content/copy'
 
 type Page =
   | 'welcome'
@@ -81,8 +82,8 @@ function App() {
   const assignmentLabel = useMemo(() => {
     if (!assignment) return null
     return assignment === 'control'
-      ? 'Control group'
-      : 'Experimental group'
+      ? copy.ready.groupLabels.control
+      : copy.ready.groupLabels.experimental
   }, [assignment])
 
   const resetStudyState = () => {
@@ -171,7 +172,7 @@ function App() {
       event_type: eventType,
       payload,
     }).catch((requestError) => {
-      console.error('Could not persist interaction event.', requestError)
+      console.error(copy.errors.interactionPersist, requestError)
     })
   }
 
@@ -192,7 +193,7 @@ function App() {
       setConsentError(
         requestError instanceof Error
           ? requestError.message
-          : 'Could not save consent. Please try again.',
+          : copy.errors.consentSave,
       )
     } finally {
       setIsSavingConsent(false)
@@ -208,7 +209,7 @@ function App() {
 
     if (!participantId) {
       setDemographicError(
-        'Consent was not saved for this session. Please return to the consent page and try again.',
+        copy.errors.demographicsMissingSession,
       )
       return
     }
@@ -230,7 +231,7 @@ function App() {
       setDemographicError(
         requestError instanceof Error
           ? requestError.message
-          : 'Could not save demographics. Please try again.',
+          : copy.errors.demographicsSave,
       )
     } finally {
       setIsSavingDemographics(false)
@@ -243,13 +244,13 @@ function App() {
     )
 
     if (missingAnswer) {
-      setPostInterventionError('Please answer every question before completing the study.')
+      setPostInterventionError(copy.errors.postInterventionMissingAnswers)
       return
     }
 
     if (!participantId || !assignment) {
       setPostInterventionError(
-        'Study session data is missing. Please return to the start page and try again.',
+        copy.errors.postInterventionMissingSession,
       )
       return
     }
@@ -271,7 +272,7 @@ function App() {
       setPostInterventionError(
         requestError instanceof Error
           ? requestError.message
-          : 'Could not save the post-intervention questionnaire. Please try again.',
+          : copy.errors.postInterventionSave,
       )
     } finally {
       setIsSavingPostIntervention(false)
@@ -314,15 +315,15 @@ function App() {
     return (
       <StudyPage ariaLabelledBy="ready-title" cardClassName="study-card--ready">
         <StudyHeading
-          eyebrow="Setup complete"
-          title="Thank you. You are ready to begin."
-          intro="Your demographic questionnaire is complete, and you have been assigned deterministically for this study run. The next page loads your group-specific study material."
+          eyebrow={copy.ready.heading.eyebrow}
+          title={copy.ready.heading.title}
+          intro={copy.ready.heading.intro}
           id="ready-title"
         />
         <StudyActions>
           {assignmentLabel ? (
             <p className="assignment-result">
-              Assigned group: <strong>{assignmentLabel}</strong>
+              {copy.ready.assignmentLabel} <strong>{assignmentLabel}</strong>
             </p>
           ) : null}
           <button
@@ -331,10 +332,10 @@ function App() {
             onClick={continueFromReady}
             disabled={!assignment}
           >
-            Continue
+            {copy.actions.continue}
           </button>
           <button type="button" className="secondary-button" onClick={returnToWelcome}>
-            Return to welcome
+            {copy.actions.returnToWelcome}
           </button>
         </StudyActions>
       </StudyPage>
@@ -387,9 +388,9 @@ function App() {
   return (
     <StudyPage ariaLabelledBy="study-title" cardClassName="study-card--landing">
       <StudyHeading
-        eyebrow="Microlearning study"
-        title="Welcome, participant."
-        intro="You are about to begin a short study session. Take your time, read carefully, and start whenever you are ready."
+        eyebrow={copy.welcome.heading.eyebrow}
+        title={copy.welcome.heading.title}
+        intro={copy.welcome.heading.intro}
         id="study-title"
       />
 
@@ -399,10 +400,10 @@ function App() {
           className="start-button"
           onClick={() => transitionTo('consent')}
         >
-          Start study
+          {copy.actions.startStudy}
         </button>
         <p className="status" aria-live="polite">
-          No data is collected yet.
+          {copy.welcome.status.noDataCollected}
         </p>
       </StudyActions>
     </StudyPage>
