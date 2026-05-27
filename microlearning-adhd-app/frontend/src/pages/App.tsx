@@ -1,10 +1,11 @@
-import { useMemo, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import '../styles/App.css'
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
 import Consent from './Consent.tsx'
 import Demographics from './Demographics.tsx'
+import Ready from './Ready.tsx'
 import ControlGroup from './ControlGroup.tsx'
 import ExperimentalGroup from './ExperimentalGroup.tsx'
 import PostInterventionQuestionnaire from './PostInterventionQuestionnaire.tsx'
@@ -78,13 +79,6 @@ function App() {
   const [isSavingPostIntervention, setIsSavingPostIntervention] = useState(false)
   const [assignment, setAssignment] = useState<GroupAssignment | null>(null)
   const bufferRef = useRef<BufferedEvent[]>(initialBuffer)
-
-  const assignmentLabel = useMemo(() => {
-    if (!assignment) return null
-    return assignment === 'control'
-      ? copy.ready.groupLabels.control
-      : copy.ready.groupLabels.experimental
-  }, [assignment])
 
   const resetStudyState = () => {
     setAgreed(false)
@@ -313,32 +307,11 @@ function App() {
 
   if (page === 'ready') {
     return (
-      <StudyPage ariaLabelledBy="ready-title" cardClassName="study-card--ready">
-        <StudyHeading
-          eyebrow={copy.ready.heading.eyebrow}
-          title={copy.ready.heading.title}
-          intro={copy.ready.heading.intro}
-          id="ready-title"
-        />
-        <StudyActions>
-          {assignmentLabel ? (
-            <p className="assignment-result">
-              {copy.ready.assignmentLabel} <strong>{assignmentLabel}</strong>
-            </p>
-          ) : null}
-          <button
-            type="button"
-            className="start-button"
-            onClick={continueFromReady}
-            disabled={!assignment}
-          >
-            {copy.actions.continue}
-          </button>
-          <button type="button" className="secondary-button" onClick={returnToWelcome}>
-            {copy.actions.returnToWelcome}
-          </button>
-        </StudyActions>
-      </StudyPage>
+      <Ready
+        assignment={assignment}
+        onContinue={continueFromReady}
+        onReturnToWelcome={returnToWelcome}
+      />
     )
   }
 
