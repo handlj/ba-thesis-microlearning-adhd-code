@@ -155,6 +155,7 @@ function App() {
     group: GroupAssignment,
     eventType: string,
     payload?: StudyInteractionPayload,
+    interactionPage: string = group,
   ) => {
     if (!participantId) {
       return
@@ -162,7 +163,7 @@ function App() {
 
     void recordInteractionEvent(participantId, {
       group,
-      page: group,
+      page: interactionPage,
       event_type: eventType,
       payload,
     }).catch((requestError) => {
@@ -311,6 +312,11 @@ function App() {
         assignment={assignment}
         onContinue={continueFromReady}
         onReturnToWelcome={returnToWelcome}
+        onLogInteraction={(eventType, payload) => {
+          if (assignment) {
+            logStudyInteraction(assignment, eventType, payload, 'ready')
+          }
+        }}
       />
     )
   }

@@ -50,6 +50,10 @@ class ControlVideo(BaseModel):
     video_url: str
 
 
+class InstructionVideo(BaseModel):
+    video_url: str
+
+
 class ExperimentalVideo(BaseModel):
     id: str
     title: str
@@ -373,6 +377,13 @@ def get_control_video():
     return ControlVideo(
         title="Control group reference video",
         description="A short placeholder video served from the backend for control-group testing.",
+        video_url="http://localhost:8000/api/media/control-preview.mp4",
+    )
+
+
+@app.get("/api/instruction-video", response_model=InstructionVideo)
+def get_instruction_video():
+    return InstructionVideo(
         video_url="http://localhost:8000/api/media/control-preview.mp4",
     )
 

@@ -107,12 +107,32 @@ export const copy = {
   },
   ready: {
     heading: {
-      eyebrow: 'Einrichtung abgeschlossen',
-      title: 'Vielen Dank. Sie können nun beginnen.',
+      eyebrow: 'Vorbereitung auf die Lernphase',
+      title: 'Bitte sehen Sie sich die Einführung an.',
       intro:
-        'Ihr demografischer Fragebogen ist abgeschlossen, und Sie wurden für diesen Studiendurchlauf deterministisch zugeordnet. Auf der nächsten Seite wird Ihr gruppenspezifisches Studienmaterial geladen.',
+        'Im folgenden Video erhalten Sie die wichtigsten Hinweise zur Microlearning-Intervention. Nutzen Sie es auch, um die Videowiedergabe vorab zu testen.',
     },
     assignmentLabel: 'Zugeordnete Gruppe:',
+    instructions: {
+      title: 'Vor dem Start',
+      items: [
+        'Testen Sie bitte Ihre Lautsprecher oder Kopfhörer und stellen Sie eine angenehme Lautstärke ein.',
+        'Starten Sie das Video und prüfen Sie, ob Bild und Ton ohne Probleme wiedergegeben werden.',
+        'Klicken Sie erst auf Weiter, wenn Sie bereit sind, sich für etwa 20 Minuten möglichst ohne Unterbrechung zu konzentrieren.',
+      ],
+    },
+    video: {
+      title: 'Einführungsvideo zur Studie',
+      description:
+        'Sehen Sie sich das vollständige Video an. Danach wird die Schaltfläche zum Fortfahren freigeschaltet.',
+    },
+    status: {
+      loading: 'Einführungsvideo wird vom Backend geladen...',
+      loadError: 'Das Einführungsvideo konnte nicht geladen werden.',
+      videoFinished: 'Das Video ist beendet. Sie können fortfahren, sobald Sie bereit sind.',
+    },
+    readinessNote:
+      'Bitte fahren Sie nur fort, wenn Sie jetzt etwa 20 Minuten konzentriert und möglichst ohne Unterbrechung arbeiten können.',
     groupLabels: {
       control: 'Kontrollgruppe',
       experimental: 'Experimentalgruppe',

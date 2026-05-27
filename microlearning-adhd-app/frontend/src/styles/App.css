@@ -222,6 +222,34 @@
   border: 1px solid rgba(31, 59, 115, 0.16);
 }
 
+.ready-instructions {
+  margin-top: 28px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 250, 244, 0.78);
+  border: 1px solid rgba(138, 91, 43, 0.14);
+}
+
+.ready-instructions h2 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+.ready-instruction-list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+  line-height: 1.6;
+}
+
+.ready-note {
+  flex-basis: 100%;
+  margin: 0;
+  color: #4f453a;
+  line-height: 1.6;
+}
+
 .video-panel {
   margin-top: 28px;
   display: grid;
