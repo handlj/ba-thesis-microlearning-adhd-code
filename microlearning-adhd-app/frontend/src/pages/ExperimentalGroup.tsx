@@ -7,6 +7,7 @@ import {
   type ExperimentalVideo,
   type StudyInteractionPayload,
 } from '../api.ts'
+import { copy } from '../content/copy'
 
 type ExperimentalGroupProps = {
   onBackToStart: () => void
@@ -16,11 +17,7 @@ type ExperimentalGroupProps = {
 
 type ExperimentalPhase = 'video' | 'quiz'
 
-const sampleQuizOptions = [
-  'A short introduction to the topic',
-  'A long written assignment',
-  'A live group discussion',
-]
+const sampleQuizOptions = copy.experimentalGroup.quiz.options
 
 function ExperimentalGroup({
   onBackToStart,
@@ -58,7 +55,7 @@ function ExperimentalGroup({
         setError(
           requestError instanceof Error
             ? requestError.message
-            : 'Could not load the experimental videos.',
+            : copy.errors.experimentalVideosLoad,
         )
       } finally {
         if (active) {
@@ -167,26 +164,26 @@ function ExperimentalGroup({
   return (
     <StudyPage ariaLabelledBy="experimental-title" cardClassName="study-card--video">
       <StudyHeading
-        eyebrow="Experimental group"
-        title="Complete the microlearning sequence"
-        intro="Watch each video fully, answer the short sample quiz, and continue through the four-part sequence."
+        eyebrow={copy.experimentalGroup.heading.eyebrow}
+        title={copy.experimentalGroup.heading.title}
+        intro={copy.experimentalGroup.heading.intro}
         id="experimental-title"
       />
 
       {isLoading ? (
-        <p className="video-status">Loading experimental videos from the backend...</p>
+        <p className="video-status">{copy.experimentalGroup.status.loading}</p>
       ) : null}
 
       {error ? <p className="error-text">{error}</p> : null}
 
       {!isLoading && !error && videoCount === 0 ? (
-        <p className="video-status">No experimental videos are available yet.</p>
+        <p className="video-status">{copy.experimentalGroup.status.noVideos}</p>
       ) : null}
 
       {currentVideo ? (
         <div className="video-panel">
           <p className="sequence-progress">
-            Video {currentIndex + 1} of {videoCount}
+            {copy.experimentalGroup.progress(currentIndex + 1, videoCount)}
           </p>
 
           {phase === 'video' ? (
@@ -215,21 +212,21 @@ function ExperimentalGroup({
                   }}
                 >
                   <source src={currentVideo.video_url} type="video/mp4" />
-                  Your browser does not support the video tag.
+                  {copy.video.unsupported}
                 </video>
               </div>
               <p className="video-status" aria-live="polite">
                 {hasVideoEnded
-                  ? 'The video finished. You can answer the quiz.'
-                  : 'Watch the full video before continuing.'}
+                  ? copy.experimentalGroup.status.videoFinished
+                  : copy.video.watchFullVideo}
               </p>
             </>
           ) : (
             <div className="quiz-panel" aria-labelledby="sample-quiz-title">
               <div>
-                <p className="video-kicker">Sample quiz</p>
+                <p className="video-kicker">{copy.experimentalGroup.quiz.kicker}</p>
                 <h2 id="sample-quiz-title" className="quiz-title">
-                  What did this lesson ask you to complete?
+                  {copy.experimentalGroup.quiz.question}
                 </h2>
               </div>
               <div className="quiz-options">
@@ -248,8 +245,8 @@ function ExperimentalGroup({
               </div>
               <p className="video-status" aria-live="polite">
                 {quizAnswer
-                  ? 'Answer selected. You can continue.'
-                  : 'Select any answer to continue.'}
+                  ? copy.experimentalGroup.status.answerSelected
+                  : copy.experimentalGroup.status.selectAnswer}
               </p>
             </div>
           )}
@@ -258,7 +255,7 @@ function ExperimentalGroup({
 
       <StudyActions className="study-actions--stacked">
         <button type="button" className="secondary-button" onClick={returnToWelcome}>
-          Return to welcome
+          {copy.actions.returnToWelcome}
         </button>
         {currentVideo && phase === 'video' ? (
           <button
@@ -267,7 +264,7 @@ function ExperimentalGroup({
             disabled={!hasVideoEnded}
             onClick={handleProceedFromVideo}
           >
-            Start quiz
+            {copy.actions.startQuiz}
           </button>
         ) : null}
         {currentVideo && phase === 'quiz' ? (
@@ -277,7 +274,7 @@ function ExperimentalGroup({
             disabled={!quizAnswer}
             onClick={handleProceedFromQuiz}
           >
-            {isLastVideo ? 'Continue' : 'Next video'}
+            {isLastVideo ? copy.actions.continue : copy.actions.nextVideo}
           </button>
         ) : null}
       </StudyActions>
