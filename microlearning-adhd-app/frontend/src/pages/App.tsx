@@ -5,6 +5,7 @@ import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
 import Consent from './Consent.tsx'
 import Demographics from './Demographics.tsx'
+import PreInterventionQuestionnaire from './PreInterventionQuestionnaire.tsx'
 import Ready from './Ready.tsx'
 import ControlGroup from './ControlGroup.tsx'
 import ExperimentalGroup from './ExperimentalGroup.tsx'
@@ -21,11 +22,13 @@ import {
 import { type DemographicAnswers, type GroupAssignment } from '../utils/groupAssignment'
 import { validateDemographics } from '../utils/demographicsValidation'
 import { copy } from '../content/copy'
+import { fam } from '../content/fam'
 
 type Page =
   | 'welcome'
   | 'consent'
   | 'demographics'
+  | 'preIntervention'
   | 'ready'
   | 'control'
   | 'experimental'
@@ -49,6 +52,14 @@ const defaultDemographics: DemographicAnswers = {
   adhdDiagnosis: '',
 }
 
+const defaultPreInterventionAnswers = fam.questions.reduce<Record<string, string>>(
+  (answers, question) => {
+    answers[question.id] = ''
+    return answers
+  },
+  {},
+)
+
 const defaultPostInterventionAnswers: PostInterventionAnswers = {
   attentionSupport: '',
   contentClarity: '',
@@ -66,6 +77,8 @@ function App() {
   })
   const [demographics, setDemographics] =
     useState<DemographicAnswers>(defaultDemographics)
+  const [preInterventionAnswers, setPreInterventionAnswers] =
+    useState<Record<string, string>>(defaultPreInterventionAnswers)
   const [postInterventionAnswers, setPostInterventionAnswers] =
     useState<PostInterventionAnswers>(defaultPostInterventionAnswers)
   const [participantId, setParticipantId] = useState<string | null>(() =>
@@ -73,6 +86,7 @@ function App() {
   )
   const [consentError, setConsentError] = useState<string | null>(null)
   const [demographicError, setDemographicError] = useState<string | null>(null)
+  const [preInterventionError, setPreInterventionError] = useState<string | null>(null)
   const [postInterventionError, setPostInterventionError] = useState<string | null>(null)
   const [isSavingConsent, setIsSavingConsent] = useState(false)
   const [isSavingDemographics, setIsSavingDemographics] = useState(false)
@@ -83,10 +97,12 @@ function App() {
   const resetStudyState = () => {
     setAgreed(false)
     setDemographics(defaultDemographics)
+    setPreInterventionAnswers(defaultPreInterventionAnswers)
     setPostInterventionAnswers(defaultPostInterventionAnswers)
     setParticipantId(null)
     setConsentError(null)
     setDemographicError(null)
+    setPreInterventionError(null)
     setPostInterventionError(null)
     setIsSavingConsent(false)
     setIsSavingDemographics(false)
@@ -221,7 +237,7 @@ function App() {
         adhdDiagnosis: demographics.adhdDiagnosis,
         assignment: response.assignment,
       })
-      transitionTo('ready')
+      transitionTo('preIntervention')
     } catch (requestError) {
       setDemographicError(
         requestError instanceof Error
@@ -231,6 +247,25 @@ function App() {
     } finally {
       setIsSavingDemographics(false)
     }
+  }
+
+  const handlePreInterventionSubmit = () => {
+    const missingAnswer = fam.questions.some(
+      (question) => !preInterventionAnswers[question.id]?.trim(),
+    )
+
+    if (missingAnswer) {
+      setPreInterventionError(copy.validation.preInterventionAllQuestions)
+      return
+    }
+
+    setPreInterventionError(null)
+    addBufferedEvent('pre_intervention_fam_submitted', 'preIntervention', {
+      ...(participantId ? { participantId } : {}),
+      ...(assignment ? { assignment } : {}),
+      ...preInterventionAnswers,
+    })
+    transitionTo('ready')
   }
 
   const handlePostInterventionSubmit = async () => {
@@ -302,6 +337,24 @@ function App() {
         }}
         onBack={() => transitionTo('consent')}
         onSubmit={handleDemographicsSubmit}
+      />
+    )
+  }
+
+  if (page === 'preIntervention') {
+    return (
+      <PreInterventionQuestionnaire
+        values={preInterventionAnswers}
+        error={preInterventionError}
+        onChange={(questionId, value) => {
+          setPreInterventionAnswers((previous) => ({
+            ...previous,
+            [questionId]: value,
+          }))
+          if (preInterventionError) setPreInterventionError(null)
+        }}
+        onBack={() => transitionTo('demographics')}
+        onSubmit={handlePreInterventionSubmit}
       />
     )
   }

@@ -12,3 +12,4 @@
 
 ## Nice to have
 - [ ] Add that the videos do not only get counted as watched if the user watches the whole video, but also if they watch a certain percentage/range of it (e.g. 80%).
+- [ ] Progress Indicator for the whole study

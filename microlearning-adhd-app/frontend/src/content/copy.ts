@@ -30,6 +30,8 @@ export const copy = {
   validation: {
     demographicsAllQuestions: 'Bitte beantworten Sie alle Fragen, bevor Sie fortfahren.',
     demographicsAgeRange: 'Bitte geben Sie ein gültiges Alter zwischen 13 und 120 ein.',
+    preInterventionAllQuestions:
+      'Bitte beantworten Sie alle Aussagen, bevor Sie fortfahren.',
   },
   video: {
     unsupported: 'Ihr Browser unterstützt das Video-Element nicht.',
@@ -103,6 +105,14 @@ export const copy = {
           preferNotToSay: 'Keine Angabe',
         },
       },
+    },
+  },
+  preIntervention: {
+    heading: {
+      eyebrow: 'Fragebogen vor der Lernphase',
+      title: 'Ihre Einschätzung vor der Aufgabe',
+      intro:
+        'Bitte beantworten Sie die folgenden Aussagen, bevor Sie mit der Vorbereitung auf die Lernphase fortfahren.',
     },
   },
   ready: {
