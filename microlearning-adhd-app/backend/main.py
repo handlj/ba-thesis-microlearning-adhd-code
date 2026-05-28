@@ -390,7 +390,7 @@ def get_instruction_video():
 
 @app.get("/api/experimental-videos", response_model=list[ExperimentalVideo])
 def get_experimental_videos():
-    sample_video_url = "http://localhost:8000/api/media/control-preview.mp4"
+    sample_video_url = "http://localhost:8000/api/media/video-topic-a-v1.mp4"
     return [
         ExperimentalVideo(
             id=f"experimental-video-{index}",
