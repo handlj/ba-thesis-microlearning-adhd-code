@@ -23,6 +23,7 @@ import { type DemographicAnswers, type GroupAssignment } from '../utils/groupAss
 import { validateDemographics } from '../utils/demographicsValidation'
 import { copy } from '../content/copy'
 import { fam } from '../content/fam'
+import { panas } from '../content/panas'
 import { ues } from '../content/ues'
 
 type Page =
@@ -61,6 +62,14 @@ const defaultPreInterventionAnswers = fam.questions.reduce<Record<string, string
   {},
 )
 
+const defaultPanasAnswers = panas.questions.reduce<Record<string, string>>(
+  (answers, question) => {
+    answers[question.id] = ''
+    return answers
+  },
+  {},
+)
+
 const defaultPostInterventionAnswers: PostInterventionAnswers = {
   attentionSupport: '',
   contentClarity: '',
@@ -88,8 +97,12 @@ function App() {
     useState<DemographicAnswers>(defaultDemographics)
   const [preInterventionAnswers, setPreInterventionAnswers] =
     useState<Record<string, string>>(defaultPreInterventionAnswers)
+  const [preInterventionPanasAnswers, setPreInterventionPanasAnswers] =
+    useState<Record<string, string>>(defaultPanasAnswers)
   const [postInterventionAnswers, setPostInterventionAnswers] =
     useState<PostInterventionAnswers>(defaultPostInterventionAnswers)
+  const [postInterventionPanasAnswers, setPostInterventionPanasAnswers] =
+    useState<Record<string, string>>(defaultPanasAnswers)
   const [uesAnswers, setUesAnswers] =
     useState<Record<string, string>>(defaultUesAnswers)
   const [participantId, setParticipantId] = useState<string | null>(() =>
@@ -98,7 +111,11 @@ function App() {
   const [consentError, setConsentError] = useState<string | null>(null)
   const [demographicError, setDemographicError] = useState<string | null>(null)
   const [preInterventionError, setPreInterventionError] = useState<string | null>(null)
+  const [preInterventionPanasError, setPreInterventionPanasError] =
+    useState<string | null>(null)
   const [postInterventionError, setPostInterventionError] = useState<string | null>(null)
+  const [postInterventionPanasError, setPostInterventionPanasError] =
+    useState<string | null>(null)
   const [uesError, setUesError] = useState<string | null>(null)
   const [isSavingConsent, setIsSavingConsent] = useState(false)
   const [isSavingDemographics, setIsSavingDemographics] = useState(false)
@@ -110,13 +127,17 @@ function App() {
     setAgreed(false)
     setDemographics(defaultDemographics)
     setPreInterventionAnswers(defaultPreInterventionAnswers)
+    setPreInterventionPanasAnswers(defaultPanasAnswers)
     setPostInterventionAnswers(defaultPostInterventionAnswers)
+    setPostInterventionPanasAnswers(defaultPanasAnswers)
     setUesAnswers(defaultUesAnswers)
     setParticipantId(null)
     setConsentError(null)
     setDemographicError(null)
     setPreInterventionError(null)
+    setPreInterventionPanasError(null)
     setPostInterventionError(null)
+    setPostInterventionPanasError(null)
     setUesError(null)
     setIsSavingConsent(false)
     setIsSavingDemographics(false)
@@ -282,6 +303,25 @@ function App() {
     transitionTo('ready')
   }
 
+  const handlePreInterventionPanasProceed = () => {
+    const missingAnswer = panas.questions.some(
+      (question) => !preInterventionPanasAnswers[question.id]?.trim(),
+    )
+
+    if (missingAnswer) {
+      setPreInterventionPanasError(panas.validation.allQuestions)
+      return false
+    }
+
+    setPreInterventionPanasError(null)
+    addBufferedEvent('pre_intervention_panas_submitted', 'preIntervention', {
+      ...(participantId ? { participantId } : {}),
+      ...(assignment ? { assignment } : {}),
+      ...preInterventionPanasAnswers,
+    })
+    return true
+  }
+
   const handlePostInterventionSubmit = async () => {
     const missingAnswer = Object.values(postInterventionAnswers).some(
       (value) => !value.trim(),
@@ -342,6 +382,25 @@ function App() {
     return true
   }
 
+  const handlePostInterventionPanasProceed = () => {
+    const missingAnswer = panas.questions.some(
+      (question) => !postInterventionPanasAnswers[question.id]?.trim(),
+    )
+
+    if (missingAnswer) {
+      setPostInterventionPanasError(panas.validation.allQuestions)
+      return false
+    }
+
+    setPostInterventionPanasError(null)
+    addBufferedEvent('post_intervention_panas_submitted', 'postIntervention', {
+      ...(participantId ? { participantId } : {}),
+      ...(assignment ? { assignment } : {}),
+      ...postInterventionPanasAnswers,
+    })
+    return true
+  }
+
   if (page === 'consent') {
     return (
       <Consent
@@ -378,7 +437,9 @@ function App() {
     return (
       <PreInterventionQuestionnaire
         values={preInterventionAnswers}
+        panasValues={preInterventionPanasAnswers}
         error={preInterventionError}
+        panasError={preInterventionPanasError}
         onChange={(questionId, value) => {
           setPreInterventionAnswers((previous) => ({
             ...previous,
@@ -386,6 +447,14 @@ function App() {
           }))
           if (preInterventionError) setPreInterventionError(null)
         }}
+        onPanasChange={(questionId, value) => {
+          setPreInterventionPanasAnswers((previous) => ({
+            ...previous,
+            [questionId]: value,
+          }))
+          if (preInterventionPanasError) setPreInterventionPanasError(null)
+        }}
+        onPanasProceed={handlePreInterventionPanasProceed}
         onBack={() => transitionTo('demographics')}
         onSubmit={handlePreInterventionSubmit}
       />
@@ -435,14 +504,24 @@ function App() {
     return (
       <PostInterventionQuestionnaire
         values={postInterventionAnswers}
+        panasValues={postInterventionPanasAnswers}
         uesValues={uesAnswers}
         error={postInterventionError}
+        panasError={postInterventionPanasError}
         uesError={uesError}
         isSubmitting={isSavingPostIntervention}
         onChange={(field, value) => {
           setPostInterventionAnswers((previous) => ({ ...previous, [field]: value }))
           if (postInterventionError) setPostInterventionError(null)
         }}
+        onPanasChange={(questionId, value) => {
+          setPostInterventionPanasAnswers((previous) => ({
+            ...previous,
+            [questionId]: value,
+          }))
+          if (postInterventionPanasError) setPostInterventionPanasError(null)
+        }}
+        onPanasProceed={handlePostInterventionPanasProceed}
         onUesChange={(questionId, value) => {
           setUesAnswers((previous) => ({
             ...previous,

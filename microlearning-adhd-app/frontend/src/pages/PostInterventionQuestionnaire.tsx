@@ -3,9 +3,11 @@ import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../componen
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
+import PANAS from '../components/evaluation/PANAS.tsx'
 import UES from '../components/evaluation/UES.tsx'
 import { type PostInterventionAnswers } from '../api.ts'
 import { copy } from '../content/copy'
+import { panas } from '../content/panas'
 import { ues } from '../content/ues'
 
 type PostInterventionQuestionId = keyof PostInterventionAnswers
@@ -76,11 +78,15 @@ const postInterventionQuestions: StudyQuestion<PostInterventionQuestionId>[] = [
 
 type PostInterventionQuestionnaireProps = {
   values: PostInterventionAnswers
+  panasValues: Record<string, string>
   uesValues: Record<string, string>
   error: string | null
+  panasError: string | null
   uesError: string | null
   isSubmitting: boolean
   onChange: (field: keyof PostInterventionAnswers, value: string) => void
+  onPanasChange: (questionId: string, value: string) => void
+  onPanasProceed: () => boolean
   onUesChange: (questionId: string, value: string) => void
   onUesProceed: () => boolean
   onSubmit: () => void
@@ -88,19 +94,57 @@ type PostInterventionQuestionnaireProps = {
 
 function PostInterventionQuestionnaire({
   values,
+  panasValues,
   uesValues,
   error,
+  panasError,
   uesError,
   isSubmitting,
   onChange,
+  onPanasChange,
+  onPanasProceed,
   onUesChange,
   onUesProceed,
   onSubmit,
 }: PostInterventionQuestionnaireProps) {
-  const [isShowingFollowUpQuestions, setIsShowingFollowUpQuestions] = useState(false)
+  const [step, setStep] = useState<'panas' | 'ues' | 'followUp'>('panas')
   const isComplete = Object.values(values).every((value) => value.trim())
 
-  if (!isShowingFollowUpQuestions) {
+  if (step === 'panas') {
+    return (
+      <StudyPage
+        ariaLabelledBy="post-intervention-title"
+        cardClassName="study-card--questionnaire"
+      >
+        <StudyHeading
+          eyebrow={panas.heading.eyebrow}
+          title={panas.heading.title}
+          intro={panas.heading.intro}
+          id="post-intervention-title"
+        />
+
+        <form
+          className="study-form"
+          onSubmit={(event) => {
+            event.preventDefault()
+            if (onPanasProceed()) {
+              setStep('ues')
+            }
+          }}
+        >
+          <PANAS values={panasValues} error={panasError} onChange={onPanasChange} />
+
+          <StudyActions>
+            <button type="submit" className="start-button">
+              {panas.actions.proceed}
+            </button>
+          </StudyActions>
+        </form>
+      </StudyPage>
+    )
+  }
+
+  if (step === 'ues') {
     return (
       <StudyPage
         ariaLabelledBy="post-intervention-title"
@@ -118,7 +162,7 @@ function PostInterventionQuestionnaire({
           onSubmit={(event) => {
             event.preventDefault()
             if (onUesProceed()) {
-              setIsShowingFollowUpQuestions(true)
+              setStep('followUp')
             }
           }}
         >

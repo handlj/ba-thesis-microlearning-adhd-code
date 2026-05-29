@@ -230,12 +230,14 @@
 }
 
 .fam-questionnaire,
+.panas-questionnaire,
 .ues-questionnaire {
   display: grid;
   gap: 18px;
 }
 
 .fam-title,
+.panas-title,
 .ues-title {
   margin: 0;
   text-align: center;
@@ -243,6 +245,7 @@
 }
 
 .fam-instructions,
+.panas-instructions,
 .ues-instructions {
   max-width: 76ch;
   margin: 0;
@@ -250,6 +253,7 @@
 }
 
 .fam-table-wrap,
+.panas-table-wrap,
 .ues-table-wrap {
   width: 100%;
   overflow-x: auto;
@@ -257,6 +261,7 @@
 }
 
 .fam-table,
+.panas-table,
 .ues-table {
   width: 100%;
   border-collapse: collapse;
@@ -267,18 +272,25 @@
   min-width: 820px;
 }
 
+.panas-table {
+  min-width: 760px;
+}
+
 .ues-table {
   min-width: 860px;
 }
 
 .fam-question-heading,
 .fam-question-cell,
+.panas-question-heading,
+.panas-question-cell,
 .ues-question-heading,
 .ues-question-cell {
   width: 56%;
 }
 
 .fam-scale-heading,
+.panas-scale-heading,
 .ues-scale-heading {
   width: calc(44% / 7);
   vertical-align: bottom;
@@ -287,20 +299,25 @@
   font-size: 0.95rem;
 }
 
+.panas-scale-heading,
 .ues-scale-heading {
   width: calc(44% / 5);
 }
 
 .fam-scale-heading,
+.panas-scale-heading,
 .ues-scale-heading,
 .fam-question-cell,
+.panas-question-cell,
 .ues-question-cell,
 .fam-option-cell,
+.panas-option-cell,
 .ues-option-cell {
   padding: 8px 6px;
 }
 
 .fam-scale-endpoint,
+.panas-scale-label,
 .ues-scale-label {
   display: block;
   min-height: 2.6em;
@@ -309,11 +326,13 @@
   line-height: 1.15;
 }
 
+.panas-scale-label,
 .ues-scale-label {
   min-height: 3.8em;
 }
 
 .fam-question-cell,
+.panas-question-cell,
 .ues-question-cell {
   text-align: left;
   vertical-align: top;
@@ -322,6 +341,7 @@
 }
 
 .fam-question-number,
+.panas-question-number,
 .ues-question-number {
   display: inline-block;
   width: 2.2em;
@@ -329,12 +349,14 @@
 }
 
 .fam-option-cell,
+.panas-option-cell,
 .ues-option-cell {
   text-align: center;
   vertical-align: top;
 }
 
 .fam-option,
+.panas-option,
 .ues-option {
   display: inline-grid;
   place-items: center;
@@ -346,6 +368,7 @@
 }
 
 .fam-option input,
+.panas-option input,
 .ues-option input {
   position: absolute;
   opacity: 0;
@@ -353,6 +376,7 @@
 }
 
 .fam-option span,
+.panas-option span,
 .ues-option span {
   display: grid;
   place-items: center;
@@ -363,6 +387,7 @@
 }
 
 .fam-option input:checked + span,
+.panas-option input:checked + span,
 .ues-option input:checked + span {
   border-color: rgba(54, 87, 159, 0.55);
   background: rgba(31, 59, 115, 0.1);
@@ -370,6 +395,7 @@
 }
 
 .fam-option input:focus-visible + span,
+.panas-option input:focus-visible + span,
 .ues-option input:focus-visible + span {
   outline: 3px solid rgba(54, 87, 159, 0.25);
   outline-offset: 2px;
