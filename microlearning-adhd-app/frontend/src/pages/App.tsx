@@ -23,6 +23,7 @@ import { type DemographicAnswers, type GroupAssignment } from '../utils/groupAss
 import { validateDemographics } from '../utils/demographicsValidation'
 import { copy } from '../content/copy'
 import { fam } from '../content/fam'
+import { ues } from '../content/ues'
 
 type Page =
   | 'welcome'
@@ -68,6 +69,14 @@ const defaultPostInterventionAnswers: PostInterventionAnswers = {
   openFeedback: '',
 }
 
+const defaultUesAnswers = ues.questions.reduce<Record<string, string>>(
+  (answers, question) => {
+    answers[question.id] = ''
+    return answers
+  },
+  {},
+)
+
 function App() {
   const [page, setPage] = useState<Page>('welcome')
   const [agreed, setAgreed] = useState(false)
@@ -81,6 +90,8 @@ function App() {
     useState<Record<string, string>>(defaultPreInterventionAnswers)
   const [postInterventionAnswers, setPostInterventionAnswers] =
     useState<PostInterventionAnswers>(defaultPostInterventionAnswers)
+  const [uesAnswers, setUesAnswers] =
+    useState<Record<string, string>>(defaultUesAnswers)
   const [participantId, setParticipantId] = useState<string | null>(() =>
     localStorage.getItem(PARTICIPANT_ID_KEY),
   )
@@ -88,6 +99,7 @@ function App() {
   const [demographicError, setDemographicError] = useState<string | null>(null)
   const [preInterventionError, setPreInterventionError] = useState<string | null>(null)
   const [postInterventionError, setPostInterventionError] = useState<string | null>(null)
+  const [uesError, setUesError] = useState<string | null>(null)
   const [isSavingConsent, setIsSavingConsent] = useState(false)
   const [isSavingDemographics, setIsSavingDemographics] = useState(false)
   const [isSavingPostIntervention, setIsSavingPostIntervention] = useState(false)
@@ -99,11 +111,13 @@ function App() {
     setDemographics(defaultDemographics)
     setPreInterventionAnswers(defaultPreInterventionAnswers)
     setPostInterventionAnswers(defaultPostInterventionAnswers)
+    setUesAnswers(defaultUesAnswers)
     setParticipantId(null)
     setConsentError(null)
     setDemographicError(null)
     setPreInterventionError(null)
     setPostInterventionError(null)
+    setUesError(null)
     setIsSavingConsent(false)
     setIsSavingDemographics(false)
     setIsSavingPostIntervention(false)
@@ -309,6 +323,25 @@ function App() {
     }
   }
 
+  const handleUesProceed = () => {
+    const missingAnswer = ues.questions.some(
+      (question) => !uesAnswers[question.id]?.trim(),
+    )
+
+    if (missingAnswer) {
+      setUesError(ues.validation.allQuestions)
+      return false
+    }
+
+    setUesError(null)
+    addBufferedEvent('post_intervention_ues_submitted', 'postIntervention', {
+      ...(participantId ? { participantId } : {}),
+      ...(assignment ? { assignment } : {}),
+      ...uesAnswers,
+    })
+    return true
+  }
+
   if (page === 'consent') {
     return (
       <Consent
@@ -402,12 +435,22 @@ function App() {
     return (
       <PostInterventionQuestionnaire
         values={postInterventionAnswers}
+        uesValues={uesAnswers}
         error={postInterventionError}
+        uesError={uesError}
         isSubmitting={isSavingPostIntervention}
         onChange={(field, value) => {
           setPostInterventionAnswers((previous) => ({ ...previous, [field]: value }))
           if (postInterventionError) setPostInterventionError(null)
         }}
+        onUesChange={(questionId, value) => {
+          setUesAnswers((previous) => ({
+            ...previous,
+            [questionId]: value,
+          }))
+          if (uesError) setUesError(null)
+        }}
+        onUesProceed={handleUesProceed}
         onSubmit={handlePostInterventionSubmit}
       />
     )

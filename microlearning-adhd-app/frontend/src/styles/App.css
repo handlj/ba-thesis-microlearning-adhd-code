@@ -229,42 +229,57 @@
   border: 0;
 }
 
-.fam-questionnaire {
+.fam-questionnaire,
+.ues-questionnaire {
   display: grid;
   gap: 18px;
 }
 
-.fam-title {
+.fam-title,
+.ues-title {
   margin: 0;
   text-align: center;
   font-size: 1.2rem;
 }
 
-.fam-instructions {
+.fam-instructions,
+.ues-instructions {
   max-width: 76ch;
   margin: 0;
   line-height: 1.7;
 }
 
-.fam-table-wrap {
+.fam-table-wrap,
+.ues-table-wrap {
   width: 100%;
   overflow-x: auto;
   padding-bottom: 6px;
 }
 
-.fam-table {
+.fam-table,
+.ues-table {
   width: 100%;
-  min-width: 820px;
   border-collapse: collapse;
   table-layout: fixed;
 }
 
+.fam-table {
+  min-width: 820px;
+}
+
+.ues-table {
+  min-width: 860px;
+}
+
 .fam-question-heading,
-.fam-question-cell {
+.fam-question-cell,
+.ues-question-heading,
+.ues-question-cell {
   width: 56%;
 }
 
-.fam-scale-heading {
+.fam-scale-heading,
+.ues-scale-heading {
   width: calc(44% / 7);
   vertical-align: bottom;
   text-align: center;
@@ -272,13 +287,21 @@
   font-size: 0.95rem;
 }
 
+.ues-scale-heading {
+  width: calc(44% / 5);
+}
+
 .fam-scale-heading,
+.ues-scale-heading,
 .fam-question-cell,
-.fam-option-cell {
+.ues-question-cell,
+.fam-option-cell,
+.ues-option-cell {
   padding: 8px 6px;
 }
 
-.fam-scale-endpoint {
+.fam-scale-endpoint,
+.ues-scale-label {
   display: block;
   min-height: 2.6em;
   margin-bottom: 4px;
@@ -286,25 +309,33 @@
   line-height: 1.15;
 }
 
-.fam-question-cell {
+.ues-scale-label {
+  min-height: 3.8em;
+}
+
+.fam-question-cell,
+.ues-question-cell {
   text-align: left;
   vertical-align: top;
   font-weight: 400;
   line-height: 1.35;
 }
 
-.fam-question-number {
+.fam-question-number,
+.ues-question-number {
   display: inline-block;
   width: 2.2em;
   color: #4f453a;
 }
 
-.fam-option-cell {
+.fam-option-cell,
+.ues-option-cell {
   text-align: center;
   vertical-align: top;
 }
 
-.fam-option {
+.fam-option,
+.ues-option {
   display: inline-grid;
   place-items: center;
   min-width: 32px;
@@ -314,13 +345,15 @@
   color: var(--text-h);
 }
 
-.fam-option input {
+.fam-option input,
+.ues-option input {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
 
-.fam-option span {
+.fam-option span,
+.ues-option span {
   display: grid;
   place-items: center;
   width: 30px;
@@ -329,13 +362,15 @@
   border: 1px solid transparent;
 }
 
-.fam-option input:checked + span {
+.fam-option input:checked + span,
+.ues-option input:checked + span {
   border-color: rgba(54, 87, 159, 0.55);
   background: rgba(31, 59, 115, 0.1);
   font-weight: 700;
 }
 
-.fam-option input:focus-visible + span {
+.fam-option input:focus-visible + span,
+.ues-option input:focus-visible + span {
   outline: 3px solid rgba(54, 87, 159, 0.25);
   outline-offset: 2px;
 }

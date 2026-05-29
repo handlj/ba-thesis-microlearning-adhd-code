@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../components/forms'
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
+import UES from '../components/evaluation/UES.tsx'
 import { type PostInterventionAnswers } from '../api.ts'
 import { copy } from '../content/copy'
+import { ues } from '../content/ues'
 
 type PostInterventionQuestionId = keyof PostInterventionAnswers
 
@@ -73,20 +76,63 @@ const postInterventionQuestions: StudyQuestion<PostInterventionQuestionId>[] = [
 
 type PostInterventionQuestionnaireProps = {
   values: PostInterventionAnswers
+  uesValues: Record<string, string>
   error: string | null
+  uesError: string | null
   isSubmitting: boolean
   onChange: (field: keyof PostInterventionAnswers, value: string) => void
+  onUesChange: (questionId: string, value: string) => void
+  onUesProceed: () => boolean
   onSubmit: () => void
 }
 
 function PostInterventionQuestionnaire({
   values,
+  uesValues,
   error,
+  uesError,
   isSubmitting,
   onChange,
+  onUesChange,
+  onUesProceed,
   onSubmit,
 }: PostInterventionQuestionnaireProps) {
+  const [isShowingFollowUpQuestions, setIsShowingFollowUpQuestions] = useState(false)
   const isComplete = Object.values(values).every((value) => value.trim())
+
+  if (!isShowingFollowUpQuestions) {
+    return (
+      <StudyPage
+        ariaLabelledBy="post-intervention-title"
+        cardClassName="study-card--questionnaire"
+      >
+        <StudyHeading
+          eyebrow={ues.heading.eyebrow}
+          title={ues.heading.title}
+          intro={ues.heading.intro}
+          id="post-intervention-title"
+        />
+
+        <form
+          className="study-form"
+          onSubmit={(event) => {
+            event.preventDefault()
+            if (onUesProceed()) {
+              setIsShowingFollowUpQuestions(true)
+            }
+          }}
+        >
+          <UES values={uesValues} error={uesError} onChange={onUesChange} />
+
+          <StudyActions>
+            <button type="submit" className="start-button">
+              {ues.actions.proceed}
+            </button>
+          </StudyActions>
+        </form>
+      </StudyPage>
+    )
+  }
 
   return (
     <StudyPage ariaLabelledBy="post-intervention-title" cardClassName="study-card--form">
