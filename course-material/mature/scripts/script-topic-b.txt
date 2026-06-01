@@ -7,23 +7,17 @@ Format: Voiceover-Skript fuer Microlearning-Unit (Folie fuer Folie)
 
 ---
 
-Einleitung (vor Folie 1)
-
-Herzlich willkommen zu dieser Lerneinheit ueber Verzweigungen in Python.
-In den naechsten Minuten lernst du, wie dein Programm Entscheidungen treffen kann - je nachdem, ob eine Bedingung erfuellt ist oder nicht.
-Lass uns gleich loslegen!
-
----
-
 Folie 1 - Verzweigungen: if-Statements
 
-Stell dir vor, dein Programm soll nur unter bestimmten Umstaenden etwas tun. Genau dafuer gibt es in Python das if-Statement - also die einfache Wenn-Dann-Bedingung.
+Stell dir vor, dein Programm soll nur unter bestimmten Umstaenden etwas tun. Genau dafuer gibt es in Python das sogenannte if-Statement - also die einfache Wenn-Dann-Bedingung.
 
-Die Idee dahinter laesst sich in einem Satz zusammenfassen: WENN eine Bedingung erfuellt ist, DANN fuehre einen bestimmten Code aus.
+Die Idee dahinter lässt sich in einem Satz zusammenfassen: 
+WENN eine Bedingung erfuellt ist, DANN fuehre einen bestimmten Code aus.
 
-Die Syntax in Python sieht so aus: Du schreibst das Schluesselwort if, gefolgt von der Bedingung, dann ein Doppelpunkt. Alles, was bei erfuellter Bedingung ausgefuehrt werden soll, steht eingerueckt darunter - und zwar mit genau vier Leerzeichen. Diese Einrueckung ist in Python keine Empfehlung, sondern Pflicht.
+Die Syntax in Python sieht so aus: Du schreibst das Schlüsselwort if, gefolgt von der Bedingung - also der "Condition", dann ein Doppelpunkt. Alles, was bei erfüllter Bedingung ausgefuehrt werden soll, steht eingerückt darunter - in diesem Fall mit vier Leerzeichen. Diese Einrueckung ist in Python nicht nur guter Stil, sondern Pflicht.
 
-Ein konkretes Beispiel: if x groesser als 2, dann gib "In if" aus. Die naechste Zeile ohne Einrueckung - "Not in if" - wird hingegen immer ausgefuehrt, egal ob die Bedingung wahr war oder nicht. Sie steht ausserhalb des if-Blocks.
+Ein konkretes Beispiel siehst du unten rechts: 
+if x groesser als 2, dann gib "In if" aus. Die naechste Zeile ohne Einrueckung - "Not in if" - wird hingegen immer ausgefuehrt, egal ob die obere Bedingung wahr ist oder nicht. Sie steht außerhalb des if-Blocks.
 
 ---
 
@@ -31,58 +25,49 @@ Folie 2 - Verzweigungen: if-else-Statements
 
 Was passiert, wenn die Bedingung nicht erfuellt ist? Fuer genau diesen Fall gibt es das if-else-Statement - das WENN-DANN-SONST-Prinzip.
 
-WENN die Bedingung zutrifft, wird der if-Block ausgefuehrt. SONST - also wenn sie nicht zutrifft - wird der else-Block ausgefuehrt. Es laeuft immer genau einer der beiden Bloecke durch.
+WENN die Bedingung zutrifft, wird der if-Block ausgefuehrt. SONST - also wenn sie nicht zutrifft - wird der else-Block ausgefuehrt. Es laeuft immer genau einer, und nur einer der beiden Bloecke durch.
 
 Ein alltagsnahes Beispiel macht das anschaulich: WENN ich fuer die Pruefung lerne, DANN bestehe ich die Lehrveranstaltung. SONST falle ich durch.
 
-In Python sieht das so aus: Nach dem if-Block folgt das Schluesselwort else, ebenfalls mit Doppelpunkt, und darunter eingerueckt der alternative Code. Der else-Block braucht keine eigene Bedingung - er greift immer dann, wenn das if nicht ausgefuehrt wurde.
+In Python sieht das so aus: Nach dem if-Block - also if condition then do something - folgt das Schluesselwort else, ebenfalls mit Doppelpunkt, und darunter eingerueckt der alternative Code. Der else-Block braucht keine eigene Bedingung - er greift immer dann, wenn das if nicht ausgefuehrt wurde.
 
 ---
 
 Folie 3 - Verzweigungen: if-elif-else-Statements (Konzept)
 
-Was aber, wenn es mehr als zwei Moeglichkeiten gibt? Dafuer bietet Python das elif - kurz fuer "else if", also "sonst wenn". Damit lassen sich mehrere Bedingungen hintereinanderschalten.
+Was aber, wenn es mehr als zwei Möglichkeiten gibt? Dafuer bietet Python das elif - kurz für "else if", also "sonst wenn" Schlüsselwort. Damit lassen sich mehrere Bedingungen hintereinanderschalten.
 
 Die Logik lautet: WENN Bedingung eins zutrifft, tue das. SONST WENN Bedingung zwei zutrifft, tue jenes. SONST WENN Bedingung drei zutrifft, tue wieder etwas anderes. Und wenn keine der Bedingungen passt, greift optional ein abschliessender else-Block.
 
 Ein konkretes Beispiel aus dem Alltag: WENN ich intensiv fuer die Pruefung lerne, komme ich leicht durch. SONST WENN ich die Uebung gut absolviert habe, schaffe ich die Klausur gerade so. SONST falle ich durch.
 
-Python prueft die Bedingungen von oben nach unten und fuehrt immer nur die erste zutreffende aus. Alle weiteren Bloecke werden dann uebersprungen.
+Python prueft die Bedingungen von oben nach unten und fuehrt immer nur die erste zutreffende aus. Alle weiteren Bloecke werden dann uebersprungen. Es wird hier also auch immer nur genau eine Bedingung ausgeführt.
 
 ---
 
 Folie 4 - Verzweigungen: if-elif-else-Statements (Syntax)
 
-Schauen wir uns die vollstaendige Syntax an. Ein if-elif-else-Konstrukt beginnt mit dem if-Block, gefolgt von beliebig vielen elif-Bloecken und einem optionalen else am Ende.
+Schauen wir uns jetzt die vollstaendige Syntax an. Ein if-elif-else-Konstrukt beginnt mit dem if-Block, gefolgt von beliebig vielen elif-Bloecken und einem - merke: optionalen - else am Ende.
 
 Jeder Block beginnt mit seinem Schluesselwort und einem Doppelpunkt, gefolgt vom eingerueckten Code darunter.
 
-Ein Beispiel mit Zuckerln: Du hast 8 Euro. WENN der Preis hoechstens 4 Euro betraegt, kaufst du 2 Stueck. SONST WENN er hoechstens 6 Euro betraegt, kaufst du 3. SONST bekommst du einen Rabatt und kaufst 4 Stueck.
+Ein Beispiel mit Süßigkeiten: Du hast 8 Euro. WENN der Preis hoechstens 4 Euro betraegt, kaufst du 2 Stueck. SONST WENN er hoechstens 6 Euro betraegt, kaufst du 3. SONST bekommst du einen Rabatt und kaufst 4 Stueck.
 
-Wichtig: Python validiert beim if-elif-else-Konstrukt immer nur genau einen Block. Sobald eine Bedingung zutrifft, werden alle nachfolgenden Pruefungen uebersprungen - egal ob sie ebenfalls wahr waeren.
+Wichtig: Python validiert beim if-elif-else-Konstrukt immer nur genau einen Block. Sobald eine Bedingung zutrifft, werden alle nachfolgenden Prüfungen uebersprungen - egal ob sie ebenfalls wahr gewesen wären.
 
 ---
 
 Folie 5 - Verzweigungen: if-elif-else-Statements (Beispiel)
 
-Zum Abschluss ein Beispiel, das einen typischen Anfaengerfehler zeigt. Vergleiche zwei Codeausschnitte: Snippet A und Snippet B.
+Hier noch ein Beispiel, das einen typischen Anfaengerfehler zeigt. Vergleiche zwei Codeausschnitte: Snippet A und Snippet B.
 
 In Snippet A folgen nach dem if mehrere elif-Bloecke und ein abschliessendes else. Das ist ein zusammenhaengendes Konstrukt - Python prueft die Bedingungen der Reihe nach und fuehrt genau einen Block aus.
 
-In Snippet B hingegen stehen mehrere eigenstaendige if-Statements nacheinander, ohne elif. Jedes davon wird unabhaengig geprueft. Das bedeutet: Mehrere Bloecke koennen gleichzeitig ausgefuehrt werden, was meist nicht das gewuenschte Verhalten ist.
+In Snippet B hingegen stehen mehrere eigenstaendige if-Statements nacheinander, ohne elif. Jedes davon wird unabhaengig geprueft. Das bedeutet: Mehrere Bloecke koennen hier nacheinander ausgefuehrt werden, was meist nicht das gewuenschte Verhalten ist.
 
 Diese beiden Varianten sehen aehnlich aus, verhalten sich aber grundlegend anders. Wenn deine Bedingungen sich gegenseitig ausschliessen sollen, verwende immer elif - niemals mehrere separate if-Statements.
 
 ---
 
-Abschluss
-
-Sehr gut! Du hast jetzt die wichtigsten Arten von Verzweigungen in Python kennengelernt:
-
-Das einfache if fuer eine einzelne Bedingungspruefung.
-Das if-else fuer eine klare Entweder-oder-Entscheidung.
-Und das if-elif-else fuer mehrere gestaffelte Faelle.
-
----
-
 Skript erstellt auf Basis der Praesentation topic-b.odp von Thorsten Ruprechter, Informatik BW.
+

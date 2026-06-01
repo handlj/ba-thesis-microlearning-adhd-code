@@ -5,7 +5,8 @@
 - [ ] Replace all mock questions and quizzes with the actual quizzes
 - [ ] Add an "Are you sure" dialog if the user tries to return to welcome page or the session overview page, to prevent them from losing their progress.
 - [ ] Add that reloading the page does not reset the progress of the user.
-- [ ] Add the functionality that the user can change the video speed
+- [ ] Add the functionality that the user can change the video speed (not only the volume)
+- [ ] Add measurement for dezibel and speed of the video
 
 ## Before Deployment
 - [ ] Remove the explicit group label in the Ready page.
