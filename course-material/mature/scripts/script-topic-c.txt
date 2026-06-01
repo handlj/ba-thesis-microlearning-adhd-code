@@ -7,21 +7,13 @@ Format: Voiceover-Skript fuer Microlearning-Unit (Folie fuer Folie)
 
 ---
 
-Einleitung (vor Folie 1)
-
-Herzlich willkommen zu dieser Lerneinheit ueber Schleifen in Python.
-In den naechsten Minuten lernst du, wie du Code automatisch wiederholen kannst - mit dem for-Loop fuer bekannte Sequenzen und dem while-Loop fuer bedingungsgesteuerte Wiederholungen.
-Lass uns gleich loslegen!
-
----
-
 Folie 1 - for-Loops: Grundkonzept
 
-Stell dir vor, du moechtest fuer jedes Element einer Liste dieselbe Aktion ausfuehren. Genau dafuer gibt es in Python den for-Loop - die sogenannte Zaehlschleife.
+Stell dir vor, du moechtest fuer jedes Element einer Sequenz, beispielsweise einer Liste dieselbe Aktion ausfuehren. Genau dafuer gibt es in Python die for-Loop - eine Form der Zaehlschleife.
 
-Das Grundprinzip klingt fast wie ein Satz aus der Alltagssprache: FUER jedes Element IN einer Sequenz, fuehre diese Anweisungen aus.
+Das Grundprinzip klingt denkbar einfach: FUER jedes Element IN einer Sequenz, fuehre eine Anweisungen aus.
 
-Die Syntax in Python lautet: for, dann die Schleifenvariable, dann das Schluesselwort in, dann die Sequenz - und alles, was in jedem Durchlauf ausgefuehrt werden soll, steht eingerueckt im Codeblock darunter.
+Die Syntax in Python lautet: for, dann die Schleifenvariable, dann das Schluesselwort in, dann die Sequenz bzw. Liste - und alles, was in jedem Durchlauf ausgefuehrt werden soll, steht eingerueckt im Codeblock darunter.
 
 Die Schleifenvariable kann beliebig benannt werden. Sie nimmt in jedem Durchlauf automatisch den Wert des naechsten Elements aus der Sequenz an. Der eingerueckte Codeblock kann beliebig viele Anweisungen enthalten.
 
@@ -31,11 +23,11 @@ Folie 2 - for-Loops: Beispiel (Einfuehrung)
 
 Schauen wir uns ein konkretes Beispiel an. Wir haben eine Liste namens lectures, die drei Eintrage enthaelt: Maths, English und Computer Science.
 
-Mit einem for-Loop koennen wir nun fuer jeden Eintrag automatisch eine Ausgabe erzeugen. Wir schreiben: for lecture in lectures, und im Codeblock darunter: Ausgabe des Satzes "I love" gefolgt vom aktuellen Wert der Variable lecture.
+Mit einer for-Loop koennen wir nun fuer jeden Eintrag automatisch eine Ausgabe erzeugen. Wir schreiben: for lecture in lectures, und im Codeblock darunter: Ausgabe des Satzes "I love" gefolgt vom aktuellen Wert der Variable lecture.
 
 Was passiert nun Schritt fuer Schritt? Im ersten Durchlauf wird Maths aus der Liste geholt und der Variable lecture zugewiesen - ausgegeben wird "I love Maths". Im zweiten Durchlauf kommt English dran, dann Computer Science. Nach dem dritten Durchlauf ist die Liste erschoepft und die Schleife endet.
 
-Das ist ein sehr wichtiges Konzept - merke dir dieses Muster gut, du wirst es staendig verwenden.
+Das ist ein sehr wichtiges Konzept - merke dir dieses Muster gut, man verwendet es ständig.
 
 ---
 
@@ -49,17 +41,17 @@ Die zweite Zeile ist die for-Loop-Definition selbst: Sie legt fest, welche Varia
 
 Der eingerueckte Codeblock darunter ist der wiederholte Teil: Er wird fuer jedes Element der Liste einmal ausgefuehrt.
 
-Zusammengefasst: Die Sequenz liefert die Elemente, die Schleifenvariable traegt sie nacheinander weiter, und der Codeblock verarbeitet sie. Dieses Zusammenspiel ist das Herzstuck jedes for-Loops.
+Zusammengefasst: Die Sequenz liefert die Elemente, die Schleifenvariable traegt sie nacheinander weiter, und der Codeblock verarbeitet sie. Dieses Zusammenspiel ist das Herzstuck aller for-Loops.
 
 ---
 
 Folie 4 - while-Loops: Grundkonzept
 
-Neben dem for-Loop gibt es in Python noch eine zweite wichtige Schleifenart: den while-Loop.
+Neben der for-Loop gibt es in Python noch eine zweite wichtige Schleifenart: die while-Loop.
 
-Der Unterschied liegt im Steuerungsprinzip. Ein for-Loop laeuft fuer jedes Element einer Sequenz. Ein while-Loop laeuft so lange, wie eine Bedingung erfuellt ist.
+Der Unterschied liegt im Steuerungsprinzip. Eine for-Loop laeuft fuer jedes Element einer Sequenz. Eine while-Loop laeuft so lange, wie eine Bedingung erfuellt ist.
 
-Das klingt so: SOLANGE die Bedingung gilt, fuehre die Anweisungen aus.
+Das funktioniert so: SOLANGE die Bedingung gilt, fuehre die Anweisungen aus.
 
 In Python lautet die Syntax: while, dann die Bedingung, Doppelpunkt, und darunter eingerueckt der Codeblock.
 
@@ -69,23 +61,23 @@ Ein einfaches Beispiel: x startet bei 0. Solange x kleiner als 3 ist, wird x aus
 
 Folie 5 - while-Loops: Kombination mit User-Input
 
-Ein besonders haeufiges Einsatzgebiet fuer while-Loops ist die Verarbeitung von Benutzereingaben.
+Ein besonders haeufiges Einsatzgebiet fuer while-Loops ist die Verarbeitung von Benutzereingaben bzw. User Input.
 
-Stell dir vor, dein Programm soll so lange weiterlaufen, bis der Nutzer ein bestimmtes Wort eingibt. Das laesst sich elegant mit einem while-Loop umsetzen.
+Stell dir vor, dein Programm soll so lange weiterlaufen, bis der Nutzer ein bestimmtes Wort eingibt. Das laesst sich elegant mit einer while-Loop umsetzen.
 
-Im Beispiel: Eine Variable user_input wird auf einen leeren String gesetzt. Der while-Loop laeuft solange, wie user_input nicht gleich "quit" ist. Innerhalb der Schleife wird der Nutzer nach einer Eingabe gefragt, der eingegebene Text wird in user_input gespeichert und anschliessend ausgegeben. Sobald der Nutzer "quit" eingibt, ist die Bedingung nicht mehr erfuellt und die Schleife stoppt.
+Im Beispiel: Eine Variable user_input wird auf einen leeren String gesetzt. Die while-Loop laeuft solange, wie user_input nicht gleich "quit" ist. Innerhalb der Schleife wird der Nutzer nach einer Eingabe gefragt, der eingegebene Text wird in user_input gespeichert und anschliessend ausgegeben. Sobald der Nutzer "quit" eingibt, ist die Bedingung nicht mehr erfuellt und die Schleife stoppt.
 
-Alternativ kann man das Abbruchverhalten auch ueber einen sogenannten Flag steuern - das ist eine einfache Boolean-Variable, die auf True oder False gesetzt wird und so den Schleifenablauf kontrolliert.
+Alternativ kann man das Abbruchverhalten auch ueber eine sogenannte Flag steuern - das ist eine einfache Boolean-Variable, die auf True oder False gesetzt wird und so den Schleifenablauf kontrolliert.
 
 ---
 
 Folie 6 - while-Loops: Endlosschleifen
 
-Eine besondere Variante des while-Loops ist die Endlosschleife. Sie entsteht, wenn als Bedingung einfach True geschrieben wird - also eine Bedingung, die sich nie aendert.
+Eine besondere Variante der while-Loop ist die Endlosschleife. Sie entsteht, wenn als Bedingung einfach True geschrieben wird - also eine Bedingung, die sich nie aendert.
 
 Da True immer wahr ist, wuerde eine solche Schleife theoretisch unendlich lange laufen. In der Praxis bricht man sie gezielt mit dem Schluesselwort break ab.
 
-Im Beispiel: Der Loop fragt in jedem Durchlauf nach einer Eingabe und gibt sie aus. Erst wenn der Nutzer "quit" eingibt, wird mit break die Schleife sofort beendet.
+Im Beispiel: Die Loop fragt in jedem Durchlauf nach einer Eingabe und gibt sie aus. Erst wenn der Nutzer "quit" eingibt, wird mit break die Schleife sofort beendet.
 
 Dieses Muster ist in der Praxis sehr verbreitet - etwa bei Menueprogrammen oder Chat-Anwendungen, die kontinuierlich auf Eingaben warten sollen.
 
@@ -93,7 +85,7 @@ Dieses Muster ist in der Praxis sehr verbreitet - etwa bei Menueprogrammen oder 
 
 Folie 7 - Loops: Schluesselwoerter fuer den Ablauf
 
-Abschliessend gibt es drei Schluesselwoerter, die du im Zusammenhang mit Schleifen kennen solltest.
+Es gibt drei Schluesselwoerter, die du im Zusammenhang mit Schleifen kennen solltest.
 
 Das erste ist pass. Es tut buchstaeblich nichts - es ist ein Platzhalter fuer Stellen im Code, an denen Python eine Anweisung erwartet, du aber noch keinen echten Inhalt hast.
 
@@ -102,16 +94,6 @@ Das zweite ist break. Es bricht die innerste Schleife sofort ab, unabhaengig dav
 Das dritte ist continue. Es beendet den aktuellen Durchlauf vorzeitig und springt direkt zur naechsten Iteration - der Rest des Codeblocks wird in diesem Durchlauf uebersprungen.
 
 Mit diesen drei Schluesselwoertern hast du volle Kontrolle ueber den Ablauf deiner Schleifen.
-
----
-
-Abschluss
-
-Sehr gut! Du hast jetzt die wichtigsten Schleifenarten in Python kennengelernt:
-
-Den for-Loop fuer das Durchlaufen bekannter Sequenzen.
-Den while-Loop fuer bedingungsgesteuerte Wiederholungen.
-Und die Schluesselwoerter pass, break und continue fuer die gezielte Steuerung des Schleifenablaufs.
 
 ---
 
