@@ -9,7 +9,7 @@ Format: Voiceover-Skript fuer Microlearning-Unit (Folie fuer Folie)
 
 Folie 1 - Verzweigungen: if-Statements
 
-Stell dir vor, dein Programm soll nur unter bestimmten Umstaenden etwas tun. Genau dafuer gibt es in Python das sogenannte if-Statement - also die einfache Wenn-Dann-Bedingung.
+Was ist, wenn dein Programm soll nur unter bestimmten Umstaenden etwas tun soll? Dafuer gibt es in Python das sogenannte if-Statement - also die einfache Wenn-Dann-Bedingung.
 
 Die Idee dahinter lässt sich in einem Satz zusammenfassen: 
 WENN eine Bedingung erfuellt ist, DANN fuehre einen bestimmten Code aus.
