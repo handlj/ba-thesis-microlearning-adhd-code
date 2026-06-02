@@ -3,7 +3,7 @@ Format: Begrüßung und Instruktion für Teilnehmende
 
 ---
 
-Begrüßung
+Folie 1 - Begrüßung
 
 Herzlich willkommen - und vielen Dank für Ihre Teilnahme.
 
@@ -11,39 +11,42 @@ Sie werden gleich in eine Lernsitzung zum Thema grundlegende Konzepte in der Pro
 
 Die Inhalte sind so gestaltet, dass keinerlei Vorkenntnisse erforderlich sind — Sie können also ganz ohne Erfahrung in das Thema einsteigen.
 
-Die Sitzung besteht aus Videos und Quizfragen. Bitte lesen Sie die folgenden Hinweise sorgfältig durch, bevor Sie beginnen.
+Die Sitzung besteht aus Videos und Quizfragen. Bitte lesen Sie die folgenden Hinweise sorgfältig durch und hören Sie gut zu, bevor Sie beginnen.
 
 ---
 
-Videos
+Folie 2 - Videos und Quizfragen
+
+o Videos
 
 Sie können die Videos in Ihrem eigenen Tempo anschauen. Pausieren, zurückspulen und erneut ansehen ist jederzeit möglich. Sie können Abschnitte auch überspringen, wenn Sie möchten.
 
 Nehmen Sie sich die Zeit, die Sie brauchen — es gibt keine Vorgabe, wie schnell Sie vorankommen sollen.
 
----
-
-Quizfragen
+o Quizfragen
 
 Im Verlauf der Sitzung werden Sie gebeten, kurze Quizfragen zu beantworten.
 
-Lesen Sie jede Frage sorgfältig durch und antworten Sie so gut Sie können, bevor Sie zur nächsten Frage oder zum nächsten Video weitergehen. Es ist in Ordnung, wenn Sie sich bei einer Antwort unsicher sind — geben Sie einfach Ihr Bestes.
+Lesen Sie jede Frage sorgfältig durch und antworten Sie so gut Sie können, bevor Sie zur nächsten Frage weitergehen. 
+Es ist in Ordnung, wenn Sie sich bei einer Antwort unsicher sind - geben Sie einfach Ihr Bestes.
 
 ---
 
-Wie Sie arbeiten sollten
+Folie 3 - Arbeitsweise und Bereit
 
+o Wie Sie arbeiten sollten
+
+Wie sollten Sie arbeiten?
 Es gibt keinen Zeitdruck. Qualität der Auseinandersetzung mit dem Material ist wichtiger als Schnelligkeit.
 
 Gehen Sie die Inhalte so an, wie Sie es normalerweise beim Lernen tun würden — ganz natürlich und in Ihrem eigenen Stil. Es gibt keine vorgeschriebene Art und Weise, die Sitzung zu durchlaufen.
 
-„Verhalten Sie sich so natürlich wie möglich — so als würden Sie dieses Material auf eigene Faust studieren."
+„Verhalten Sie sich so natürlich wie möglich - als würden Sie dieses Material auf eigene Faust studieren."
 
----
+o Sind Sie Bereit?
 
-Bereit?
-
-Wenn Sie bereit sind, drücken Sie bei dem ersten Video auf Play. Die Sitzung führt Sie automatisch durch die weiteren Schritte.
+Wenn Sie bereit sind, klicken Sie auf den "Weiter"-Knopf den Sie unten auf dieser Seite sehen.
+Die Sitzung führt Sie dann automatisch durch alle weiteren Schritte.
 
 Viel Erfolg!
 
