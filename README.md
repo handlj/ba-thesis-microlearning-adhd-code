@@ -50,3 +50,14 @@ Note that at the moment, for every table in `study.db`, a separate timestamped C
 ## Data Collection
 
 As soon as the study participants consents to data collection and proceeds (clicks the proceed button), data collection will commence by means of a first post request to the backend (containing the consent flag).
+
+## Prerequisites
+
+This repository uses [Git LFS](https://git-lfs.github.com/) for storing large files such as session videos and audios.
+
+Before cloning, make sure Git LFS is installed:
+
+1. Install Git LFS: https://git-lfs.github.com/
+2. Enable it: `git lfs install`
+3. Clone the repository: `git clone <repository-url>`
+4. Pull the large files: `git lfs pull`
