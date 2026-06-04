@@ -9,7 +9,7 @@ Herzlich willkommen - und vielen Dank für Ihre Teilnahme.
 
 Sie werden gleich in eine Lernsitzung zum Thema grundlegende Konzepte in der Programmiersprache "Python" starten.
 
-Die Inhalte sind so gestaltet, dass keinerlei Vorkenntnisse erforderlich sind — Sie können also ganz ohne Erfahrung in das Thema einsteigen.
+Die Inhalte sind so gestaltet, dass keinerlei Vorkenntnisse erforderlich sind — Sie können also ganz ohne Programmiererfahrung in das Thema einsteigen.
 
 Die Sitzung besteht aus Videos und Quizfragen. Bitte lesen Sie die folgenden Hinweise sorgfältig durch und hören Sie gut zu, bevor Sie beginnen.
 
@@ -19,7 +19,7 @@ Folie 2 - Videos und Quizfragen
 
 o Videos
 
-Sie können die Videos in Ihrem eigenen Tempo anschauen. Pausieren, zurückspulen und erneut ansehen ist jederzeit möglich. Sie können Abschnitte auch überspringen, wenn Sie möchten.
+Sie können alle Videoinhalte in Ihrem eigenen Tempo anschauen. Pausieren, zurückspulen und erneut ansehen ist jederzeit möglich. Sie können Abschnitte auch überspringen, wenn Sie möchten.
 
 Nehmen Sie sich die Zeit, die Sie brauchen — es gibt keine Vorgabe, wie schnell Sie vorankommen sollen.
 
@@ -45,7 +45,7 @@ Gehen Sie die Inhalte so an, wie Sie es normalerweise beim Lernen tun würden �
 
 o Sind Sie Bereit?
 
-Wenn Sie bereit sind, klicken Sie auf den "Weiter"-Knopf den Sie unten auf dieser Seite sehen.
+Wenn Sie bereit sind, klicken Sie auf die "Weiter"-Schaltfläche die Sie unten auf dieser Seite sehen.
 Die Sitzung führt Sie dann automatisch durch alle weiteren Schritte.
 
 Viel Erfolg!
