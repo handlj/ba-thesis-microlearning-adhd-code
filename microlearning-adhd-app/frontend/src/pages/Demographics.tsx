@@ -7,6 +7,15 @@ import { copy } from '../content/copy'
 
 type DemographicQuestionId = keyof DemographicAnswers
 
+const copyOptionKeyToValue = (key: string) =>
+  key.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)
+
+const buildOptionsFromCopy = (options: Record<string, string>) =>
+  Object.entries(options).map(([key, label]) => ({
+    value: copyOptionKeyToValue(key),
+    label,
+  }))
+
 const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = [
   {
     id: 'age',
@@ -22,44 +31,14 @@ const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = [
     type: 'select',
     label: copy.demographics.questions.studyBackground.label,
     required: true,
-    options: [
-      {
-        value: 'computer-science',
-        label: copy.demographics.questions.studyBackground.options.computerScience,
-      },
-      {
-        value: 'stem-other',
-        label: copy.demographics.questions.studyBackground.options.stemOther,
-      },
-      {
-        value: 'non-stem',
-        label: copy.demographics.questions.studyBackground.options.nonStem,
-      },
-      {
-        value: 'not-studying',
-        label: copy.demographics.questions.studyBackground.options.notStudying,
-      },
-    ],
+    options: buildOptionsFromCopy(copy.demographics.questions.studyBackground.options),
   },
   {
     id: 'adhdDiagnosis',
     type: 'select',
     label: copy.demographics.questions.adhdDiagnosis.label,
     required: true,
-    options: [
-      {
-        value: 'diagnosed',
-        label: copy.demographics.questions.adhdDiagnosis.options.diagnosed,
-      },
-      {
-        value: 'not-diagnosed',
-        label: copy.demographics.questions.adhdDiagnosis.options.notDiagnosed,
-      },
-      {
-        value: 'prefer-not-to-say',
-        label: copy.demographics.questions.adhdDiagnosis.options.preferNotToSay,
-      },
-    ],
+    options: buildOptionsFromCopy(copy.demographics.questions.adhdDiagnosis.options),
   },
 ]
 

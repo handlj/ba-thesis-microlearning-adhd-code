@@ -79,9 +79,9 @@ export const copy = {
   demographics: {
     heading: {
       eyebrow: 'Demografischer Fragebogen',
-      title: 'Bevor wir mit den Studienaufgaben beginnen',
+      title: 'Bevor wir loslegen',
       intro:
-        'Bitte beantworten Sie die folgenden Fragen. Diese Antworten werden in dieser Pilotphase für die deterministische Gruppenzuordnung verwendet.',
+        'Bitte beantworten Sie die folgenden Fragen. Alle Angaben werden anonymisiert verarbeitet und lassen keinerlei Rückschluss auf Ihre Person zu.',
     },
     questions: {
       age: {
@@ -101,6 +101,7 @@ export const copy = {
         label: 'ADHS-Diagnosestatus',
         options: {
           diagnosed: 'Diagnostiziert',
+          selfDiagnosed: 'Selbstdiagnose',
           notDiagnosed: 'Nicht diagnostiziert',
           preferNotToSay: 'Keine Angabe',
         },

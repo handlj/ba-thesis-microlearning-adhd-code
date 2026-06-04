@@ -19,6 +19,7 @@ VALID_STUDY_BACKGROUNDS = {
 
 VALID_ADHD_DIAGNOSES = {
     "diagnosed",
+    "self-diagnosed",
     "not-diagnosed",
     "prefer-not-to-say",
 }
