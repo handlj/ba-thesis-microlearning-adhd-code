@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { fetchInstructionVideo, type InstructionVideo, type StudyInteractionPayload } from '../api.ts'
+import { fetchInstructionVideo, type InstructionVideo, type StudyInteractionPayload } from '../services/api.ts'
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'

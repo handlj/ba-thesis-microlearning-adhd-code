@@ -1,5 +1,5 @@
 import axios from "axios";
-import { type DemographicAnswers, type GroupAssignment } from "./utils/groupAssignment";
+import { type DemographicAnswers, type GroupAssignment } from "./../utils/groupAssignment";
 
 const api = axios.create({
   baseURL: "http://localhost:8000/api",

@@ -6,7 +6,7 @@ import {
   fetchExperimentalVideos,
   type ExperimentalVideo,
   type StudyInteractionPayload,
-} from '../api.ts'
+} from '../services/api.ts'
 import { copy } from '../content/copy'
 
 type ExperimentalGroupProps = {
