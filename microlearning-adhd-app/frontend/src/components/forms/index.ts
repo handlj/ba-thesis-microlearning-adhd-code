@@ -1,3 +1,4 @@
+export { buildOptionsFromCopy } from './utils'
 export { default as CheckboxQuestion } from './CheckboxQuestion'
 export { default as QuestionField } from './QuestionField'
 export { default as RadioQuestion } from './RadioQuestion'

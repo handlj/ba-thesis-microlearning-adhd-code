@@ -1,7 +1,5 @@
 from fastapi import APIRouter, Request
-
-
-
+from app.config import NUMBER_OF_EXPERIMENTAL_VIDEOS
 from app.schemas import ControlVideo, ExperimentalVideo, InstructionVideo
 
 
@@ -36,5 +34,6 @@ def get_experimental_videos(request: Request):
             ),
             video_url=str(request.url_for("media", path=f"video{index}.mp4")),
         )
-        for index in range(1, 4)
+        # This sends exactly NUMBER_OF_EXPERIMENTAL_VIDEOS experimental videos. Do not change!
+        for index in range(1, NUMBER_OF_EXPERIMENTAL_VIDEOS + 1)
     ]

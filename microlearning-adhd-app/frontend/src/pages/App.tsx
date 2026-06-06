@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import '../styles/App.css'
+import '../../assets/styles/App.css'
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'

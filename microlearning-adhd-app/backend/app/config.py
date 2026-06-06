@@ -6,6 +6,8 @@ MEDIA_DIR = BASE_DIR / "media"
 DATA_DIR = BASE_DIR / "data"
 DATABASE_URL = f"sqlite:///{DATA_DIR / 'study.db'}"
 
+NUMBER_OF_EXPERIMENTAL_VIDEOS = 4
+
 ORIGINS = [
     "http://localhost:5173",
 ]

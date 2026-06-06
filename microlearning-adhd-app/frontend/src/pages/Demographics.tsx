@@ -1,46 +1,10 @@
 import { type DemographicAnswers } from '../utils/groupAssignment'
-import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../components/forms'
+import { StudyForm, type FormAnswerValue } from '../components/forms'
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
 import { copy } from '../content/copy'
-
-type DemographicQuestionId = keyof DemographicAnswers
-
-const copyOptionKeyToValue = (key: string) =>
-  key.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)
-
-const buildOptionsFromCopy = (options: Record<string, string>) =>
-  Object.entries(options).map(([key, label]) => ({
-    value: copyOptionKeyToValue(key),
-    label,
-  }))
-
-const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = [
-  {
-    id: 'age',
-    type: 'number',
-    label: copy.demographics.questions.age.label,
-    placeholder: copy.demographics.questions.age.placeholder,
-    min: 13,
-    max: 120,
-    required: true,
-  },
-  {
-    id: 'studyBackground',
-    type: 'select',
-    label: copy.demographics.questions.studyBackground.label,
-    required: true,
-    options: buildOptionsFromCopy(copy.demographics.questions.studyBackground.options),
-  },
-  {
-    id: 'adhdDiagnosis',
-    type: 'select',
-    label: copy.demographics.questions.adhdDiagnosis.label,
-    required: true,
-    options: buildOptionsFromCopy(copy.demographics.questions.adhdDiagnosis.options),
-  },
-]
+import { demographicQuestions } from '../content/demographics'
 
 type DemographicsProps = {
   values: DemographicAnswers

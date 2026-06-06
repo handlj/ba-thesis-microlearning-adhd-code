@@ -1,4 +1,4 @@
-import '../styles/Consent.css'
+import '../../assets/styles/Consent.css'
 import StudyActions from '../components/StudyActions.tsx'
 import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
