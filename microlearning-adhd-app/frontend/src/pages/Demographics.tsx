@@ -23,6 +23,18 @@ function Demographics({
   onBack,
   onSubmit,
 }: DemographicsProps) {
+  const isStudying = values.currentlyStudying === 'yes'
+  const visibleQuestions = demographicQuestions.filter(
+    (q) => q.id !== 'studyBackground' || isStudying,
+  )
+
+  const handleChange = (field: keyof DemographicAnswers, value: string) => {
+    onChange(field, value)
+    if (field === 'currentlyStudying' && value !== 'yes') {
+      onChange('studyBackground', 'not-studying')
+    }
+  }
+
   return (
     <StudyPage ariaLabelledBy="demographics-title" cardClassName="study-card--form">
       <StudyHeading
@@ -33,12 +45,12 @@ function Demographics({
       />
 
       <StudyForm
-        questions={demographicQuestions}
+        questions={visibleQuestions}
         values={values}
         error={error}
         onChange={(field, value: FormAnswerValue) => {
           if (!Array.isArray(value)) {
-            onChange(field, value)
+            handleChange(field, value)
           }
         }}
         onSubmit={onSubmit}
