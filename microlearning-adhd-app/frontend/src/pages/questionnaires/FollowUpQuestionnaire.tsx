@@ -1,14 +1,9 @@
-import { useState } from 'react'
-import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../components/forms'
-import StudyActions from '../components/StudyActions.tsx'
-import StudyHeading from '../components/StudyHeading.tsx'
-import StudyPage from '../components/StudyPage.tsx'
-import PANAS from '../components/evaluation/PANAS.tsx'
-import UES from '../components/evaluation/UES.tsx'
-import { type PostInterventionAnswers } from '../services/api.ts'
-import { copy } from '../content/copy'
-import { panas } from '../content/panas'
-import { ues } from '../content/ues'
+import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../../components/forms/index.ts'
+import StudyActions from '../../components/StudyActions.tsx'
+import StudyHeading from '../../components/StudyHeading.tsx'
+import StudyPage from '../../components/StudyPage.tsx'
+import { type PostInterventionAnswers } from '../../services/api.ts'
+import { copy } from '../../content/copy.ts'
 
 type PostInterventionQuestionId = keyof PostInterventionAnswers
 
@@ -72,119 +67,34 @@ const postInterventionQuestions: StudyQuestion<PostInterventionQuestionId>[] = [
     type: 'text',
     label: copy.postIntervention.questions.openFeedback.label,
     placeholder: copy.postIntervention.questions.openFeedback.placeholder,
-    required: true,
+    required: false,
   },
 ]
 
-type PostInterventionQuestionnaireProps = {
+type FollowUpQuestionnaireProps = {
   values: PostInterventionAnswers
-  panasValues: Record<string, string>
-  uesValues: Record<string, string>
   error: string | null
-  panasError: string | null
-  uesError: string | null
   isSubmitting: boolean
   onChange: (field: keyof PostInterventionAnswers, value: string) => void
-  onPanasChange: (questionId: string, value: string) => void
-  onPanasProceed: () => boolean
-  onUesChange: (questionId: string, value: string) => void
-  onUesProceed: () => boolean
   onSubmit: () => void
 }
 
-function PostInterventionQuestionnaire({
+function FollowUpQuestionnaire({
   values,
-  panasValues,
-  uesValues,
   error,
-  panasError,
-  uesError,
   isSubmitting,
   onChange,
-  onPanasChange,
-  onPanasProceed,
-  onUesChange,
-  onUesProceed,
   onSubmit,
-}: PostInterventionQuestionnaireProps) {
-  const [step, setStep] = useState<'panas' | 'ues' | 'followUp'>('panas')
+}: FollowUpQuestionnaireProps) {
   const isComplete = Object.values(values).every((value) => value.trim())
 
-  if (step === 'panas') {
-    return (
-      <StudyPage
-        ariaLabelledBy="post-intervention-title"
-        cardClassName="study-card--questionnaire"
-      >
-        <StudyHeading
-          eyebrow={panas.heading.eyebrow}
-          title={panas.heading.title}
-          intro={panas.heading.intro}
-          id="post-intervention-title"
-        />
-
-        <form
-          className="study-form"
-          onSubmit={(event) => {
-            event.preventDefault()
-            if (onPanasProceed()) {
-              setStep('ues')
-            }
-          }}
-        >
-          <PANAS values={panasValues} error={panasError} onChange={onPanasChange} />
-
-          <StudyActions>
-            <button type="submit" className="start-button">
-              {panas.actions.proceed}
-            </button>
-          </StudyActions>
-        </form>
-      </StudyPage>
-    )
-  }
-
-  if (step === 'ues') {
-    return (
-      <StudyPage
-        ariaLabelledBy="post-intervention-title"
-        cardClassName="study-card--questionnaire"
-      >
-        <StudyHeading
-          eyebrow={ues.heading.eyebrow}
-          title={ues.heading.title}
-          intro={ues.heading.intro}
-          id="post-intervention-title"
-        />
-
-        <form
-          className="study-form"
-          onSubmit={(event) => {
-            event.preventDefault()
-            if (onUesProceed()) {
-              setStep('followUp')
-            }
-          }}
-        >
-          <UES values={uesValues} error={uesError} onChange={onUesChange} />
-
-          <StudyActions>
-            <button type="submit" className="start-button">
-              {ues.actions.proceed}
-            </button>
-          </StudyActions>
-        </form>
-      </StudyPage>
-    )
-  }
-
   return (
-    <StudyPage ariaLabelledBy="post-intervention-title" cardClassName="study-card--form">
+    <StudyPage ariaLabelledBy="follow-up-title" cardClassName="study-card--form">
       <StudyHeading
         eyebrow={copy.postIntervention.heading.eyebrow}
         title={copy.postIntervention.heading.title}
         intro={copy.postIntervention.heading.intro}
-        id="post-intervention-title"
+        id="follow-up-title"
       />
 
       <StudyForm
@@ -213,4 +123,4 @@ function PostInterventionQuestionnaire({
   )
 }
 
-export default PostInterventionQuestionnaire
+export default FollowUpQuestionnaire

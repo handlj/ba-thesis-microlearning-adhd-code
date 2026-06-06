@@ -150,7 +150,7 @@ export const copy = {
       eyebrow: '',
       title: 'Bitte füllen Sie den Fragebogen aus',
       intro:
-        'Nun wollen wir wissen, wie deine momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu findest du auf dieser Seite Aussagen. Kreuze bitte jene Zahl an, die auf dich am Besten passt.',
+        'Bevor wir starten, wollen wir wissen, wie deine momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu findest du auf dieser Seite Aussagen. Kreuze bitte jene Zahl an, die auf dich am Besten passt.',
     },
   },
   ready: {

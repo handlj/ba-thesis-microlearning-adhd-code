@@ -5,11 +5,13 @@ import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
 import Consent from './Consent.tsx'
 import Demographics from './Demographics.tsx'
-import PreInterventionQuestionnaire from './PreInterventionQuestionnaire.tsx'
+import PanasQuestionnaire from './questionnaires/PanasQuestionnaire.tsx'
+import FAMQuestionnaire from './questionnaires/FAMQuestionnaire.tsx'
 import Ready from './Ready.tsx'
+import UESQuestionnaire from './questionnaires/UESQuestionnaire.tsx'
+import FollowUpQuestionnaire from './questionnaires/FollowUpQuestionnaire.tsx'
 import ControlGroup from './ControlGroup.tsx'
 import ExperimentalGroup from './ExperimentalGroup.tsx'
-import PostInterventionQuestionnaire from './PostInterventionQuestionnaire.tsx'
 import ThankYou from './ThankYou.tsx'
 import {
   createConsentSession,
@@ -30,11 +32,14 @@ type Page =
   | 'welcome'
   | 'consent'
   | 'demographics'
-  | 'preIntervention'
+  | 'prePanas'
   | 'ready'
+  | 'fam'
   | 'control'
   | 'experimental'
-  | 'postIntervention'
+  | 'postPanas'
+  | 'ues'
+  | 'followUp'
   | 'thankYou'
 
 type BufferedEvent = {
@@ -57,7 +62,7 @@ const defaultDemographics: DemographicAnswers = {
   adhdDiagnosis: '',
 }
 
-const defaultPreInterventionAnswers = fam.questions.reduce<Record<string, string>>(
+const defaultFamAnswers = fam.questions.reduce<Record<string, string>>(
   (answers, question) => {
     answers[question.id] = ''
     return answers
@@ -98,13 +103,13 @@ function App() {
   })
   const [demographics, setDemographics] =
     useState<DemographicAnswers>(defaultDemographics)
-  const [preInterventionAnswers, setPreInterventionAnswers] =
-    useState<Record<string, string>>(defaultPreInterventionAnswers)
-  const [preInterventionPanasAnswers, setPreInterventionPanasAnswers] =
+  const [famAnswers, setFamAnswers] =
+    useState<Record<string, string>>(defaultFamAnswers)
+  const [prePanasAnswers, setPrePanasAnswers] =
     useState<Record<string, string>>(defaultPanasAnswers)
   const [postInterventionAnswers, setPostInterventionAnswers] =
     useState<PostInterventionAnswers>(defaultPostInterventionAnswers)
-  const [postInterventionPanasAnswers, setPostInterventionPanasAnswers] =
+  const [postPanasAnswers, setPostPanasAnswers] =
     useState<Record<string, string>>(defaultPanasAnswers)
   const [uesAnswers, setUesAnswers] =
     useState<Record<string, string>>(defaultUesAnswers)
@@ -113,38 +118,36 @@ function App() {
   )
   const [consentError, setConsentError] = useState<string | null>(null)
   const [demographicError, setDemographicError] = useState<string | null>(null)
-  const [preInterventionError, setPreInterventionError] = useState<string | null>(null)
-  const [preInterventionPanasError, setPreInterventionPanasError] =
-    useState<string | null>(null)
-  const [postInterventionError, setPostInterventionError] = useState<string | null>(null)
-  const [postInterventionPanasError, setPostInterventionPanasError] =
-    useState<string | null>(null)
+  const [prePanasError, setPrePanasError] = useState<string | null>(null)
+  const [famError, setFamError] = useState<string | null>(null)
+  const [postPanasError, setPostPanasError] = useState<string | null>(null)
   const [uesError, setUesError] = useState<string | null>(null)
+  const [followUpError, setFollowUpError] = useState<string | null>(null)
   const [isSavingConsent, setIsSavingConsent] = useState(false)
   const [isSavingDemographics, setIsSavingDemographics] = useState(false)
-  const [isSavingPostIntervention, setIsSavingPostIntervention] = useState(false)
+  const [isSavingFollowUp, setIsSavingFollowUp] = useState(false)
   const [assignment, setAssignment] = useState<GroupAssignment | null>(null)
   const bufferRef = useRef<BufferedEvent[]>(initialBuffer)
 
   const resetStudyState = () => {
     setAgreed(false)
     setDemographics(defaultDemographics)
-    setPreInterventionAnswers(defaultPreInterventionAnswers)
-    setPreInterventionPanasAnswers(defaultPanasAnswers)
+    setFamAnswers(defaultFamAnswers)
+    setPrePanasAnswers(defaultPanasAnswers)
     setPostInterventionAnswers(defaultPostInterventionAnswers)
-    setPostInterventionPanasAnswers(defaultPanasAnswers)
+    setPostPanasAnswers(defaultPanasAnswers)
     setUesAnswers(defaultUesAnswers)
     setParticipantId(null)
     setConsentError(null)
     setDemographicError(null)
-    setPreInterventionError(null)
-    setPreInterventionPanasError(null)
-    setPostInterventionError(null)
-    setPostInterventionPanasError(null)
+    setPrePanasError(null)
+    setFamError(null)
+    setPostPanasError(null)
     setUesError(null)
+    setFollowUpError(null)
     setIsSavingConsent(false)
     setIsSavingDemographics(false)
-    setIsSavingPostIntervention(false)
+    setIsSavingFollowUp(false)
     setAssignment(null)
     localStorage.removeItem(PARTICIPANT_ID_KEY)
   }
@@ -154,19 +157,8 @@ function App() {
     resetStudyState()
   }
 
-  const continueFromReady = () => {
-    if (assignment === 'control') {
-      transitionTo('control')
-      return
-    }
-
-    if (assignment === 'experimental') {
-      transitionTo('experimental')
-    }
-  }
-
   const completeIntervention = () => {
-    transitionTo('postIntervention')
+    transitionTo('postPanas')
   }
 
   const persistBuffer = () => {
@@ -275,7 +267,7 @@ function App() {
         adhdDiagnosis: demographics.adhdDiagnosis,
         assignment: response.assignment,
       })
-      transitionTo('preIntervention')
+      transitionTo('prePanas')
     } catch (requestError) {
       setDemographicError(
         requestError instanceof Error
@@ -287,121 +279,129 @@ function App() {
     }
   }
 
-  const handlePreInterventionSubmit = () => {
-    const missingAnswer = fam.questions.some(
-      (question) => !preInterventionAnswers[question.id]?.trim(),
+  const handlePrePanasSubmit = () => {
+    const missingAnswer = panas.questions.some(
+      (question) => !prePanasAnswers[question.id]?.trim(),
     )
 
     if (missingAnswer) {
-      setPreInterventionError(copy.validation.preInterventionAllQuestions)
+      setPrePanasError(panas.validation.allQuestions)
       return
     }
 
-    setPreInterventionError(null)
-    addBufferedEvent('pre_intervention_fam_submitted', 'preIntervention', {
+    setPrePanasError(null)
+    addBufferedEvent('pre_intervention_panas_submitted', 'prePanas', {
       ...(participantId ? { participantId } : {}),
       ...(assignment ? { assignment } : {}),
-      ...preInterventionAnswers,
+      ...prePanasAnswers,
     })
     transitionTo('ready')
   }
 
-  const handlePreInterventionPanasProceed = () => {
-    const missingAnswer = panas.questions.some(
-      (question) => !preInterventionPanasAnswers[question.id]?.trim(),
+  const handleFamSubmit = () => {
+    const missingAnswer = fam.questions.some(
+      (question) => !famAnswers[question.id]?.trim(),
     )
 
     if (missingAnswer) {
-      setPreInterventionPanasError(panas.validation.allQuestions)
-      return false
+      setFamError(copy.validation.preInterventionAllQuestions)
+      return
     }
 
-    setPreInterventionPanasError(null)
-    addBufferedEvent('pre_intervention_panas_submitted', 'preIntervention', {
+    setFamError(null)
+    addBufferedEvent('pre_intervention_fam_submitted', 'fam', {
       ...(participantId ? { participantId } : {}),
       ...(assignment ? { assignment } : {}),
-      ...preInterventionPanasAnswers,
+      ...famAnswers,
     })
-    return true
+
+    if (assignment === 'control') {
+      transitionTo('control')
+      return
+    }
+
+    if (assignment === 'experimental') {
+      transitionTo('experimental')
+    }
   }
 
-  const handlePostInterventionSubmit = async () => {
-    const missingAnswer = Object.values(postInterventionAnswers).some(
-      (value) => !value.trim(),
+  const handlePostPanasSubmit = () => {
+    const missingAnswer = panas.questions.some(
+      (question) => !postPanasAnswers[question.id]?.trim(),
     )
 
     if (missingAnswer) {
-      setPostInterventionError(copy.errors.postInterventionMissingAnswers)
+      setPostPanasError(panas.validation.allQuestions)
       return
     }
 
-    if (!participantId || !assignment) {
-      setPostInterventionError(
-        copy.errors.postInterventionMissingSession,
-      )
-      return
-    }
-
-    try {
-      setPostInterventionError(null)
-      setIsSavingPostIntervention(true)
-      await submitPostInterventionQuestionnaire(
-        participantId,
-        assignment,
-        postInterventionAnswers,
-      )
-      addBufferedEvent('post_intervention_submitted', 'postIntervention', {
-        participantId,
-        assignment,
-      })
-      transitionTo('thankYou')
-    } catch (requestError) {
-      setPostInterventionError(
-        requestError instanceof Error
-          ? requestError.message
-          : copy.errors.postInterventionSave,
-      )
-    } finally {
-      setIsSavingPostIntervention(false)
-    }
+    setPostPanasError(null)
+    addBufferedEvent('post_intervention_panas_submitted', 'postPanas', {
+      ...(participantId ? { participantId } : {}),
+      ...(assignment ? { assignment } : {}),
+      ...postPanasAnswers,
+    })
+    transitionTo('ues')
   }
 
-  const handleUesProceed = () => {
+  const handleUesSubmit = () => {
     const missingAnswer = ues.questions.some(
       (question) => !uesAnswers[question.id]?.trim(),
     )
 
     if (missingAnswer) {
       setUesError(ues.validation.allQuestions)
-      return false
+      return
     }
 
     setUesError(null)
-    addBufferedEvent('post_intervention_ues_submitted', 'postIntervention', {
+    addBufferedEvent('post_intervention_ues_submitted', 'ues', {
       ...(participantId ? { participantId } : {}),
       ...(assignment ? { assignment } : {}),
       ...uesAnswers,
     })
-    return true
+    transitionTo('followUp')
   }
 
-  const handlePostInterventionPanasProceed = () => {
-    const missingAnswer = panas.questions.some(
-      (question) => !postInterventionPanasAnswers[question.id]?.trim(),
+  const handleFollowUpSubmit = async () => {
+    const missingAnswer = Object.values(postInterventionAnswers).some(
+      (value) => !value.trim(),
     )
 
     if (missingAnswer) {
-      setPostInterventionPanasError(panas.validation.allQuestions)
-      return false
+      setFollowUpError(copy.errors.postInterventionMissingAnswers)
+      return
     }
 
-    setPostInterventionPanasError(null)
-    addBufferedEvent('post_intervention_panas_submitted', 'postIntervention', {
-      ...(participantId ? { participantId } : {}),
-      ...(assignment ? { assignment } : {}),
-      ...postInterventionPanasAnswers,
-    })
-    return true
+    if (!participantId || !assignment) {
+      setFollowUpError(
+        copy.errors.postInterventionMissingSession,
+      )
+      return
+    }
+
+    try {
+      setFollowUpError(null)
+      setIsSavingFollowUp(true)
+      await submitPostInterventionQuestionnaire(
+        participantId,
+        assignment,
+        postInterventionAnswers,
+      )
+      addBufferedEvent('post_intervention_submitted', 'followUp', {
+        participantId,
+        assignment,
+      })
+      transitionTo('thankYou')
+    } catch (requestError) {
+      setFollowUpError(
+        requestError instanceof Error
+          ? requestError.message
+          : copy.errors.postInterventionSave,
+      )
+    } finally {
+      setIsSavingFollowUp(false)
+    }
   }
 
   if (page === 'consent') {
@@ -436,30 +436,17 @@ function App() {
     )
   }
 
-  if (page === 'preIntervention') {
+  if (page === 'prePanas') {
     return (
-      <PreInterventionQuestionnaire
-        values={preInterventionAnswers}
-        panasValues={preInterventionPanasAnswers}
-        error={preInterventionError}
-        panasError={preInterventionPanasError}
+      <PanasQuestionnaire
+        values={prePanasAnswers}
+        error={prePanasError}
         onChange={(questionId, value) => {
-          setPreInterventionAnswers((previous) => ({
-            ...previous,
-            [questionId]: value,
-          }))
-          if (preInterventionError) setPreInterventionError(null)
+          setPrePanasAnswers((previous) => ({ ...previous, [questionId]: value }))
+          if (prePanasError) setPrePanasError(null)
         }}
-        onPanasChange={(questionId, value) => {
-          setPreInterventionPanasAnswers((previous) => ({
-            ...previous,
-            [questionId]: value,
-          }))
-          if (preInterventionPanasError) setPreInterventionPanasError(null)
-        }}
-        onPanasProceed={handlePreInterventionPanasProceed}
         onBack={() => transitionTo('demographics')}
-        onSubmit={handlePreInterventionSubmit}
+        onSubmit={handlePrePanasSubmit}
       />
     )
   }
@@ -468,13 +455,28 @@ function App() {
     return (
       <Ready
         assignment={assignment}
-        onContinue={continueFromReady}
+        onContinue={() => transitionTo('fam')}
         onReturnToWelcome={returnToWelcome}
         onLogInteraction={(eventType, payload) => {
           if (assignment) {
             logStudyInteraction(assignment, eventType, payload, 'ready')
           }
         }}
+      />
+    )
+  }
+
+  if (page === 'fam') {
+    return (
+      <FAMQuestionnaire
+        values={famAnswers}
+        error={famError}
+        onChange={(questionId, value) => {
+          setFamAnswers((previous) => ({ ...previous, [questionId]: value }))
+          if (famError) setFamError(null)
+        }}
+        onBack={() => transitionTo('ready')}
+        onSubmit={handleFamSubmit}
       />
     )
   }
@@ -503,37 +505,45 @@ function App() {
     )
   }
 
-  if (page === 'postIntervention') {
+  if (page === 'postPanas') {
     return (
-      <PostInterventionQuestionnaire
-        values={postInterventionAnswers}
-        panasValues={postInterventionPanasAnswers}
-        uesValues={uesAnswers}
-        error={postInterventionError}
-        panasError={postInterventionPanasError}
-        uesError={uesError}
-        isSubmitting={isSavingPostIntervention}
-        onChange={(field, value) => {
-          setPostInterventionAnswers((previous) => ({ ...previous, [field]: value }))
-          if (postInterventionError) setPostInterventionError(null)
+      <PanasQuestionnaire
+        values={postPanasAnswers}
+        error={postPanasError}
+        onChange={(questionId, value) => {
+          setPostPanasAnswers((previous) => ({ ...previous, [questionId]: value }))
+          if (postPanasError) setPostPanasError(null)
         }}
-        onPanasChange={(questionId, value) => {
-          setPostInterventionPanasAnswers((previous) => ({
-            ...previous,
-            [questionId]: value,
-          }))
-          if (postInterventionPanasError) setPostInterventionPanasError(null)
-        }}
-        onPanasProceed={handlePostInterventionPanasProceed}
-        onUesChange={(questionId, value) => {
-          setUesAnswers((previous) => ({
-            ...previous,
-            [questionId]: value,
-          }))
+        onSubmit={handlePostPanasSubmit}
+      />
+    )
+  }
+
+  if (page === 'ues') {
+    return (
+      <UESQuestionnaire
+        values={uesAnswers}
+        error={uesError}
+        onChange={(questionId, value) => {
+          setUesAnswers((previous) => ({ ...previous, [questionId]: value }))
           if (uesError) setUesError(null)
         }}
-        onUesProceed={handleUesProceed}
-        onSubmit={handlePostInterventionSubmit}
+        onSubmit={handleUesSubmit}
+      />
+    )
+  }
+
+  if (page === 'followUp') {
+    return (
+      <FollowUpQuestionnaire
+        values={postInterventionAnswers}
+        error={followUpError}
+        isSubmitting={isSavingFollowUp}
+        onChange={(field, value) => {
+          setPostInterventionAnswers((previous) => ({ ...previous, [field]: value }))
+          if (followUpError) setFollowUpError(null)
+        }}
+        onSubmit={handleFollowUpSubmit}
       />
     )
   }

@@ -6,6 +6,7 @@
 - [ ] Add that reloading the page does not reset the progress of the user.
 - [ ] Add the functionality that the user can change the video speed (not only the volume)
 - [ ] Add measurement for dezibel and speed of the video
+- [ ] Move fam questionnaire after the instruction video, so that the user knows what to expect and can judge his feelings towards it better.
 
 ## Before Deployment
 - [ ] Remove the explicit group label in the Ready page.
@@ -13,3 +14,6 @@
 ## Nice to have
 - [ ] Add that the videos do not only get counted as watched if the user watches the whole video, but also if they watch a certain percentage/range of it (e.g. 80%).
 - [ ] Progress Indicator for the whole study
+- [ ] Add that the progress indicator of the questionnaires is also on the sticky header.
+- [ ] Add back buttons on every page without loosing progress, so that users can navigate freely between pages.
+
