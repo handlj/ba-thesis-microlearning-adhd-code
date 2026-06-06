@@ -1,7 +1,7 @@
 export const fam = {
-  title: 'FAM',
+  title: '',
   instructions:
-    'Nun wollen wir wissen, wie deine momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu findest du auf dieser Seite Aussagen. Kreuze bitte jene Zahl an, die auf dich am Besten passt.',
+    '',
   scale: {
     low: 'trifft nicht zu',
     high: 'trifft zu',

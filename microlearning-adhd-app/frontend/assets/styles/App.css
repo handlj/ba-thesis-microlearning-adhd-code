@@ -252,12 +252,38 @@
   line-height: 1.7;
 }
 
+.questionnaire-progress {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #4f453a;
+  font-variant-numeric: tabular-nums;
+}
+
 .fam-table-wrap,
 .panas-table-wrap,
 .ues-table-wrap {
   width: 100%;
   overflow-x: auto;
   padding-bottom: 6px;
+}
+
+/* On desktop, clip instead of scroll so position:sticky on thead propagates to the page viewport.
+   overflow-x:auto creates a scroll container that traps sticky; clip does not. */
+@media (min-width: 880px) {
+  .fam-table-wrap,
+  .panas-table-wrap,
+  .ues-table-wrap {
+    overflow-x: clip;
+  }
+}
+
+.fam-table thead th,
+.panas-table thead th,
+.ues-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.97);
 }
 
 .fam-table,
@@ -322,8 +348,8 @@
   display: block;
   min-height: 2.6em;
   margin-bottom: 4px;
-  font-size: 0.85rem;
-  line-height: 1.15;
+  font-size: 0.9rem;
+  line-height: 1.25;
 }
 
 .panas-scale-label,
@@ -337,15 +363,35 @@
   text-align: left;
   vertical-align: top;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: 1.5;
 }
 
 .fam-question-number,
 .panas-question-number,
 .ues-question-number {
   display: inline-block;
-  width: 2.2em;
+  width: 1.8em;
   color: #4f453a;
+}
+
+/* zebra striping for readability on long questionnaires */
+.fam-table tbody tr:nth-child(even),
+.panas-table tbody tr:nth-child(even),
+.ues-table tbody tr:nth-child(even) {
+  background: rgba(138, 91, 43, 0.04);
+}
+
+/* answered-row feedback: unanswered rows have a visible left border accent */
+.fam-table tbody tr:not(:has(input:checked)) .fam-question-cell,
+.panas-table tbody tr:not(:has(input:checked)) .panas-question-cell,
+.ues-table tbody tr:not(:has(input:checked)) .ues-question-cell {
+  border-left: 3px solid rgba(138, 91, 43, 0.25);
+}
+
+.fam-table tbody tr:has(input:checked) .fam-question-cell,
+.panas-table tbody tr:has(input:checked) .panas-question-cell,
+.ues-table tbody tr:has(input:checked) .ues-question-cell {
+  border-left: 3px solid rgba(54, 87, 159, 0.4);
 }
 
 .fam-option-cell,
@@ -360,8 +406,8 @@
 .ues-option {
   display: inline-grid;
   place-items: center;
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 999px;
   cursor: pointer;
   color: var(--text-h);
@@ -380,24 +426,33 @@
 .ues-option span {
   display: grid;
   place-items: center;
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
   border-radius: 999px;
-  border: 1px solid transparent;
+  border: 1.5px solid rgba(138, 91, 43, 0.2);
+  transition: background 0.1s, border-color 0.1s;
+}
+
+.fam-option:hover span,
+.panas-option:hover span,
+.ues-option:hover span {
+  background: rgba(31, 59, 115, 0.08);
+  border-color: rgba(54, 87, 159, 0.35);
 }
 
 .fam-option input:checked + span,
 .panas-option input:checked + span,
 .ues-option input:checked + span {
-  border-color: rgba(54, 87, 159, 0.55);
-  background: rgba(31, 59, 115, 0.1);
+  background: rgba(31, 59, 115, 0.85);
+  border-color: transparent;
+  color: #fff;
   font-weight: 700;
 }
 
 .fam-option input:focus-visible + span,
 .panas-option input:focus-visible + span,
 .ues-option input:focus-visible + span {
-  outline: 3px solid rgba(54, 87, 159, 0.25);
+  outline: 3px solid rgba(54, 87, 159, 0.35);
   outline-offset: 2px;
 }
 

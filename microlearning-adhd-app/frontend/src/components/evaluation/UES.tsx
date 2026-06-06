@@ -9,12 +9,18 @@ type UesProps = {
 }
 
 function UES({ values, error, onChange }: UesProps) {
+  const answered = Object.values(values).filter(Boolean).length
+  const total = ues.questions.length
+
   return (
     <section className="ues-questionnaire" aria-labelledby="ues-title">
       <h2 className="ues-title" id="ues-title">
         {ues.title}
       </h2>
       <p className="ues-instructions">{ues.instructions}</p>
+      <p className="questionnaire-progress" aria-live="polite">
+        {answered} von {total} beantwortet
+      </p>
 
       <div className="ues-table-wrap">
         <table className="ues-table">

@@ -9,12 +9,18 @@ type FamProps = {
 }
 
 function FAM({ values, error, onChange }: FamProps) {
+  const answered = Object.values(values).filter(Boolean).length
+  const total = fam.questions.length
+
   return (
     <section className="fam-questionnaire" aria-labelledby="fam-title">
       <h2 className="fam-title" id="fam-title">
         {fam.title}
       </h2>
       <p className="fam-instructions">{fam.instructions}</p>
+      <p className="questionnaire-progress" aria-live="polite">
+        {answered} von {total} beantwortet
+      </p>
 
       <div className="fam-table-wrap">
         <table className="fam-table">

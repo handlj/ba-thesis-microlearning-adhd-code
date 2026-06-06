@@ -9,12 +9,18 @@ type PanasProps = {
 }
 
 function PANAS({ values, error, onChange }: PanasProps) {
+  const answered = Object.values(values).filter(Boolean).length
+  const total = panas.questions.length
+
   return (
     <section className="panas-questionnaire" aria-labelledby="panas-title">
       <h2 className="panas-title" id="panas-title">
         {panas.title}
       </h2>
       <p className="panas-instructions">{panas.instructions}</p>
+      <p className="questionnaire-progress" aria-live="polite">
+        {answered} von {total} beantwortet
+      </p>
 
       <div className="panas-table-wrap">
         <table className="panas-table">

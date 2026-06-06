@@ -1,13 +1,13 @@
 export const panas = {
-  title: 'PANAS',
+  title: '',
   heading: {
-    eyebrow: 'Fragebogen zum aktuellen Befinden',
-    title: 'PANAS',
+    eyebrow: '',
+    title: 'Bitte füllen Sie den Fragebogen aus',
     intro:
-      'Bitte beantworten Sie diese Aussagen zu Ihrem aktuellen Befinden, bevor Sie fortfahren.',
+      'Nun möchten wir gerne von Ihnen wissen, wie Sie sich fühlen. Die folgenden Wörter beschreiben unterschiedliche Gefühle und Empfindungen. Lesen Sie jedes Wort und tragen Sie dann in die Skala neben jedem Wort die Intensität ein. Sie haben die Möglichkeit, zwischen fünf Abstufungen zu wählen. Geben Sie bitte an, wie Sie sich im Moment fühlen.',
   },
   instructions:
-    'Nun möchten wir gerne von Ihnen wissen, wie Sie sich fühlen. Die folgenden Wörter beschreiben unterschiedliche Gefühle und Empfindungen. Lesen Sie jedes Wort und tragen Sie dann in die Skala neben jedem Wort die Intensität ein. Sie haben die Möglichkeit, zwischen fünf Abstufungen zu wählen. Geben Sie bitte an, wie Sie sich im Moment fühlen.',
+    '',
   actions: {
     proceed: 'Fortfahren',
   },
@@ -19,7 +19,7 @@ export const panas = {
     labels: {
       '1': 'gar nicht',
       '2': 'ein bisschen',
-      '3': 'einigermaßen',
+      '3': 'einiger-maßen',
       '4': 'erheblich',
       '5': 'äußerst',
     },

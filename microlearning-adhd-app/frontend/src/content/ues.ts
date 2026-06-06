@@ -1,13 +1,13 @@
 export const ues = {
-  title: 'User Engagement Scale',
+  title: '',
   heading: {
-    eyebrow: 'Post-intervention questionnaire',
-    title: 'User Engagement Scale',
+    eyebrow: '',
+    title: 'Bitte füllen Sie den Fragebogen aus',
     intro:
-      'Please answer the following statements before proceeding to the final questions.',
+      'Please indicate how much you agree or disagree with each statement.',
   },
   instructions:
-    'Please indicate how much you agree or disagree with each statement.',
+    '',
   actions: {
     proceed: 'Proceed',
   },

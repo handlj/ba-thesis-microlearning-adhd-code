@@ -40,12 +40,12 @@ export const copy = {
   welcome: {
     heading: {
       eyebrow: 'Microlearning-Studie',
-      title: 'Willkommen, Teilnehmer:in.',
+      title: 'Herzlich Willkommen!',
       intro:
-        'Sie beginnen gleich eine kurze Studiensitzung. Nehmen Sie sich Zeit, lesen Sie sorgfältig und starten Sie, sobald Sie bereit sind.',
+        'Sie beginnen gleich eine kurze Studiensitzung. Nehmen Sie sich Zeit, lesen Sie alle Informationen sorgfältig und starten Sie, sobald Sie bereit sind.',
     },
     status: {
-      noDataCollected: 'Es werden noch keine Daten erhoben.',
+      noDataCollected: 'Ohne Ihr ausdrückliches Einverständnis werden keine Daten erhoben.',
     },
   },
   consent: {
@@ -53,14 +53,14 @@ export const copy = {
       eyebrow: 'Teilnehmer:inneninformation und Einwilligung',
       title: 'Bevor wir Daten erheben',
       intro:
-        'Diese Studie untersucht, wie Lernende mit kurzen Microlearning-Materialien arbeiten. Bitte lesen Sie vor dem Start die folgenden Informationen.',
+        'Diese Studie untersucht, wie Lernende mit kurzen Mikrolern-Materialien arbeiten. Bitte lesen Sie vor dem Start die folgenden Informationen.',
     },
     sections: [
       {
         title: 'Welche Daten wir erheben',
         items: [
-          'Grundlegende demografische Angaben wie Altersbereich und Studienhintergrund.',
-          'Antworten auf Studienfragen und Interaktionszeitpunkte.',
+          'Grundlegende demografische Angaben wie Alter, Geschlecht und Studienhintergrund.',
+          'Antworten auf Fragebögen und Interaktionszeitpunkte.',
           'Technische Metadaten, die zur Sicherstellung der Datenqualität benötigt werden.',
         ],
       },
@@ -69,16 +69,22 @@ export const copy = {
         items: [
           'Ihre Antworten werden ausschließlich für akademische Forschungszwecke verwendet.',
           'Die Daten werden sicher gespeichert und in aggregierter Form berichtet.',
-          'Sie können die Teilnahme jederzeit vor der Übermittlung beenden.',
+          'Sie können die Teilnahme jederzeit ohne Angabe von Gründen beenden.',
         ],
       },
+      {
+        title: 'Kontakt und weitere Informationen',
+        items: [
+          'Wenn Sie Fragen zur Studie oder zur Datenverarbeitung haben, kontaktieren Sie uns bitte unter jan.handler@student.tugraz.at.',
+        ],
+      }
     ],
     agreement:
       'Ich habe die obigen Informationen gelesen und stimme zu, mit den demografischen Fragen fortzufahren.',
   },
   demographics: {
     heading: {
-      eyebrow: 'Demografischer Fragebogen',
+      eyebrow: '',
       title: 'Bevor wir loslegen',
       intro:
         'Bitte beantworten Sie die folgenden Fragen zu Ihrer Person. Alle Angaben werden anonymisiert verarbeitet und lassen keinerlei Rückschluss auf Sie zu.',
@@ -141,18 +147,18 @@ export const copy = {
   },
   preIntervention: {
     heading: {
-      eyebrow: 'Fragebogen vor der Lernphase',
-      title: 'Ihre Einschätzung vor der Aufgabe',
+      eyebrow: '',
+      title: 'Bitte füllen Sie den Fragebogen aus',
       intro:
-        'Bitte beantworten Sie die folgenden Aussagen, bevor Sie mit der Vorbereitung auf die Lernphase fortfahren.',
+        'Nun wollen wir wissen, wie deine momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu findest du auf dieser Seite Aussagen. Kreuze bitte jene Zahl an, die auf dich am Besten passt.',
     },
   },
   ready: {
     heading: {
-      eyebrow: 'Vorbereitung auf die Lernphase',
-      title: 'Bitte sehen Sie sich die Einführung an.',
+      eyebrow: '',
+      title: 'Bitte sehen Sie sich das Einführungsvideo an.',
       intro:
-        'Im folgenden Video erhalten Sie die wichtigsten Hinweise zur Microlearning-Intervention. Nutzen Sie es auch, um die Videowiedergabe vorab zu testen.',
+        'Im folgenden Video erhalten Sie die wichtigsten Hinweise zur nachfolgenden Lerneinheit. Nutzen Sie es auch, um die Videowiedergabe vorab zu testen. Nachdem Sie das Video vollständig angesehen haben, wird die Schaltfläche zum Fortfahren freigeschaltet.',
     },
     assignmentLabel: 'Zugeordnete Gruppe:',
     instructions: {
@@ -164,17 +170,17 @@ export const copy = {
       ],
     },
     video: {
-      title: 'Einführungsvideo zur Studie',
+      title: '',
       description:
-        'Sehen Sie sich das vollständige Video an. Danach wird die Schaltfläche zum Fortfahren freigeschaltet.',
+        '',
     },
     status: {
-      loading: 'Einführungsvideo wird vom Backend geladen...',
+      loading: 'Einführungsvideo wird vom geladen...',
       loadError: 'Das Einführungsvideo konnte nicht geladen werden.',
-      videoFinished: 'Das Video ist beendet. Sie können fortfahren, sobald Sie bereit sind.',
+      videoFinished: 'Das Video ist beendet. Sie können fortfahren, sobald Sie bereit sind, sich für etwa 20 Minuten möglichst ohne Unterbrechung zu konzentrieren.',
     },
     readinessNote:
-      'Bitte fahren Sie nur fort, wenn Sie jetzt etwa 20 Minuten konzentriert und möglichst ohne Unterbrechung arbeiten können.',
+      '',
     groupLabels: {
       control: 'Kontrollgruppe',
       experimental: 'Experimentalgruppe',
@@ -182,17 +188,17 @@ export const copy = {
   },
   controlGroup: {
     heading: {
-      eyebrow: 'Kontrollgruppe',
-      videoTitle: 'Sehen Sie sich das Referenzvideo an',
-      quizTitle: 'Bearbeiten Sie das Quiz nach dem Video',
+      eyebrow: '',
+      videoTitle: 'Sehen Sie sich nun das Lernvideo an.',
+      quizTitle: 'Bearbeiten Sie nun die folgenden Quizfragen',
       videoIntro:
-        'Sehen Sie sich das vollständig vom Backend bereitgestellte Video an, bevor Sie mit dem kurzen Beispielquiz fortfahren.',
+        '',
       quizIntro:
-        'Beantworten Sie beide Beispielfragen, um diesen vorläufigen Ablauf für die Kontrollgruppe abzuschließen.',
+        '',
     },
     status: {
-      loading: 'Kontrollvideo wird vom Backend geladen...',
-      videoFinished: 'Das Video ist beendet. Sie können fortfahren.',
+      loading: 'Kontrollvideo wird geladen...',
+      videoFinished: 'Das Video ist beendet. Sie können nun zum Quiz fortfahren.',
     },
     quiz: {
       questions: {
@@ -218,21 +224,21 @@ export const copy = {
   experimentalGroup: {
     heading: {
       eyebrow: 'Experimentalgruppe',
-      title: 'Bearbeiten Sie die Microlearning-Sequenz',
+      title: 'Bearbeiten Sie die Videos und Quizfragen',
       intro:
-        'Sehen Sie sich jedes Video vollständig an, beantworten Sie das kurze Beispielquiz und arbeiten Sie die vierteilige Sequenz durch.',
+        'Sehen Sie sich jedes Video vollständig an und bearbeiten Sie das nachfolgende Quiz, bevor Sie zum nächsten Video weitergehen.',
     },
     status: {
       answerSelected: 'Antwort ausgewählt. Sie können fortfahren.',
       loading: 'Experimentelle Videos werden vom Backend geladen...',
       noVideos: 'Es sind noch keine experimentellen Videos verfügbar.',
       selectAnswer: 'Wählen Sie eine Antwort aus, um fortzufahren.',
-      videoFinished: 'Das Video ist beendet. Sie können das Quiz beantworten.',
+      videoFinished: 'Das Video ist beendet. Sie können nun zum Quiz fortfahren.',
     },
     progress: (current: number, total: number) => `Video ${current} von ${total}`,
     quiz: {
-      kicker: 'Beispielquiz',
-      question: 'Was sollten Sie in dieser Lektion bearbeiten?',
+      kicker: '',
+      question: 'Was sollten Sie in dieser Lektion lernen?',
       options: [
         'Eine kurze Einführung in das Thema',
         'Eine lange schriftliche Aufgabe',
@@ -242,9 +248,9 @@ export const copy = {
   },
   postIntervention: {
     heading: {
-      eyebrow: 'Post-Interventions-Fragebogen',
-      title: 'Teilen Sie uns Ihre Einschätzung zum Studienmaterial mit',
-      intro: 'Bitte beantworten Sie diese kurzen Beispielfragen, bevor Sie die Studie abschließen.',
+      eyebrow: '',
+      title: 'Teilen Sie uns Ihre Einschätzung mit',
+      intro: 'Bitte beantworten Sie die folgenden Fragen, bevor Sie die Studie abschließen.',
     },
     questions: {
       attentionSupport: {
@@ -282,7 +288,7 @@ export const copy = {
       eyebrow: 'Studie abgeschlossen',
       title: 'Vielen Dank für Ihre Teilnahme an der Studie.',
       intro:
-        'Ihre Antworten wurden übermittelt. Wenn Sie Fragen zu dieser Studie haben, wenden Sie sich bitte an jan.handler@student.tugraz.at.',
+        'Ihre Antworten wurden übermittelt. Sie können dieses Fenster nun schließen und die Studie beenden. Wenn Sie Fragen zu dieser Studie haben, wenden Sie sich bitte an jan.handler@student.tugraz.at.',
     },
   },
 } as const
