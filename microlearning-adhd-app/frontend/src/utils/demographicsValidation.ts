@@ -8,16 +8,18 @@ export type ValidationResult =
 export function validateDemographics(
   demographics: DemographicAnswers,
 ): ValidationResult {
-  const { age, studyBackground, adhdDiagnosis } = demographics
-  const parsedAge = Number(age)
+  const allFilled = (Object.keys(demographics) as (keyof DemographicAnswers)[]).every(
+    (key) => Boolean(demographics[key]),
+  )
 
-  if (!age || !studyBackground || !adhdDiagnosis) {
+  if (!allFilled) {
     return {
       valid: false,
       error: copy.validation.demographicsAllQuestions,
     }
   }
 
+  const parsedAge = Number(demographics.age)
   if (!Number.isInteger(parsedAge) || parsedAge < 13 || parsedAge > 120) {
     return {
       valid: false,

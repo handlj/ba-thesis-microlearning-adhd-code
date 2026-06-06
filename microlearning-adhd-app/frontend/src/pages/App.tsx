@@ -50,6 +50,9 @@ const PARTICIPANT_ID_KEY = 'study.participantId'
 
 const defaultDemographics: DemographicAnswers = {
   age: '',
+  gender: '',
+  highestEducation: '',
+  currentlyStudying: '',
   studyBackground: '',
   adhdDiagnosis: '',
 }

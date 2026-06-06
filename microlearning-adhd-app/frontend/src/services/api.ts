@@ -78,6 +78,7 @@ export async function submitDemographics(
     `/participants/${participantId}/demographics`,
     {
       age: Number(demographics.age),
+      gender: demographics.gender,
       study_background: demographics.studyBackground,
       adhd_diagnosis: demographics.adhdDiagnosis,
     },

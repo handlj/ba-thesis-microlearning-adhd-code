@@ -81,17 +81,48 @@ export const copy = {
       eyebrow: 'Demografischer Fragebogen',
       title: 'Bevor wir loslegen',
       intro:
-        'Bitte beantworten Sie die folgenden Fragen. Alle Angaben werden anonymisiert verarbeitet und lassen keinerlei Rückschluss auf Ihre Person zu.',
+        'Bitte beantworten Sie die folgenden Fragen zu Ihrer Person. Alle Angaben werden anonymisiert verarbeitet und lassen keinerlei Rückschluss auf Sie zu.',
     },
     questions: {
       age: {
         label: 'Alter',
         placeholder: 'Geben Sie Ihr Alter ein',
       },
+      gender: {
+        label: 'Geschlecht',
+        placeholder: 'Wählen Sie Ihr Geschlecht',
+        options: {
+          male: 'Männlich',
+          female: 'Weiblich',
+          other: 'Sonstiges',
+          preferNotToSay: 'Keine Angabe',
+        }
+      },
+      highestEducation: {
+        label: 'Höchster Bildungsabschluss',
+        options: {
+          noneOrMandatory: 'Kein Abschluss oder Pflichtschulabschluss',
+          highSchool: 'Matura/Abitur oder gleichwertig',
+          bachelor: 'Bachelorabschluss',
+          master: 'Masterabschluss',
+          doctorate: 'Promotion',
+          other: 'Anderer Abschluss',
+          preferNotToSay: 'Keine Angabe',
+        },
+      },
+      currentlyStudying: {
+        label: 'Derzeit studierend',
+        options: {
+          yes: 'Ja',
+          no: 'Nein',
+        },
+      },
       studyBackground: {
         label: 'Studienhintergrund',
         options: {
           computerScience: 'Informatik',
+          softwareEngineering: 'Software Engineering & Management',
+          computationalSocialSciences: 'Computational Social Sciences',
           stemOther: 'Andere MINT-Fachrichtung',
           nonStem: 'Nicht-MINT-Fachrichtung',
           notStudying: 'Derzeit nicht studierend',
@@ -101,7 +132,7 @@ export const copy = {
         label: 'ADHS-Diagnosestatus',
         options: {
           diagnosed: 'Diagnostiziert',
-          selfDiagnosed: 'Selbstdiagnose',
+          selfDiagnosed: 'Selbstdiagnostiziert',
           notDiagnosed: 'Nicht diagnostiziert',
           preferNotToSay: 'Keine Angabe',
         },
