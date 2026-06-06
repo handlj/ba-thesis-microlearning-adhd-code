@@ -1,7 +1,7 @@
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
-import UES from '../../components/evaluation/UES.tsx'
+import LikertQuestionnaire from '../../components/evaluation/LikertQuestionnaire.tsx'
 import { ues } from '../../content/ues.ts'
 
 type UESQuestionnaireProps = {
@@ -31,7 +31,17 @@ function UESQuestionnaire({ values, error, onChange, onSubmit }: UESQuestionnair
           onSubmit()
         }}
       >
-        <UES values={values} error={error} onChange={onChange} />
+        <LikertQuestionnaire
+          modifier="ues"
+          title={ues.title}
+          instructions={ues.instructions}
+          questionColumnLabel={ues.table.questionColumn}
+          scale={ues.scale}
+          questions={ues.questions}
+          values={values}
+          error={error}
+          onChange={onChange}
+        />
 
         <StudyActions>
           <button type="submit" className="start-button">

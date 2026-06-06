@@ -1,7 +1,7 @@
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
-import PANAS from '../../components/evaluation/PANAS.tsx'
+import LikertQuestionnaire from '../../components/evaluation/LikertQuestionnaire.tsx'
 import { copy } from '../../content/copy.ts'
 import { panas } from '../../content/panas.ts'
 
@@ -39,7 +39,17 @@ function PanasQuestionnaire({
           onSubmit()
         }}
       >
-        <PANAS values={values} error={error} onChange={onChange} />
+        <LikertQuestionnaire
+          modifier="panas"
+          title={panas.title}
+          instructions={panas.instructions}
+          questionColumnLabel={panas.table.questionColumn}
+          scale={panas.scale}
+          questions={panas.questions}
+          values={values}
+          error={error}
+          onChange={onChange}
+        />
 
         <StudyActions>
           {onBack && (

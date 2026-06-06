@@ -1,8 +1,9 @@
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
-import FAM from '../../components/evaluation/FAM.tsx'
+import LikertQuestionnaire from '../../components/evaluation/LikertQuestionnaire.tsx'
 import { copy } from '../../content/copy.ts'
+import { fam } from '../../content/fam.ts'
 
 type FAMQuestionnaireProps = {
   values: Record<string, string>
@@ -38,7 +39,17 @@ function FAMQuestionnaire({
           onSubmit()
         }}
       >
-        <FAM values={values} error={error} onChange={onChange} />
+        <LikertQuestionnaire
+          modifier="fam"
+          title={fam.title}
+          instructions={fam.instructions}
+          questionColumnLabel={fam.table.questionColumn}
+          scale={fam.scale}
+          questions={fam.questions}
+          values={values}
+          error={error}
+          onChange={onChange}
+        />
 
         <StudyActions>
           <button type="button" className="secondary-button" onClick={onBack}>

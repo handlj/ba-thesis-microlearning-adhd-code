@@ -229,181 +229,154 @@
   border: 0;
 }
 
-.fam-questionnaire,
-.panas-questionnaire,
-.ues-questionnaire {
+.likert-questionnaire {
   display: grid;
   gap: 18px;
 }
 
-.fam-title,
-.panas-title,
-.ues-title {
+.likert-title {
   margin: 0;
   text-align: center;
   font-size: 1.2rem;
 }
 
-.fam-instructions,
-.panas-instructions,
-.ues-instructions {
+.likert-instructions {
   max-width: 76ch;
   margin: 0;
   line-height: 1.7;
 }
 
-.questionnaire-progress {
-  margin: 0;
-  font-size: 0.85rem;
-  color: #4f453a;
-  font-variant-numeric: tabular-nums;
-}
-
-.fam-table-wrap,
-.panas-table-wrap,
-.ues-table-wrap {
+/* Divider separating the heading/intro block from the answer grid. */
+.likert-table-wrap {
   width: 100%;
   overflow-x: auto;
   padding-bottom: 6px;
+  border-top: 1px solid rgba(138, 91, 43, 0.16);
 }
 
 /* On desktop, clip instead of scroll so position:sticky on thead propagates to the page viewport.
    overflow-x:auto creates a scroll container that traps sticky; clip does not. */
 @media (min-width: 880px) {
-  .fam-table-wrap,
-  .panas-table-wrap,
-  .ues-table-wrap {
+  .likert-table-wrap {
     overflow-x: clip;
   }
 }
 
-.fam-table thead th,
-.panas-table thead th,
-.ues-table thead th {
+/* Sticky header bar: progress (left) + scale labels (right) stay pinned together,
+   set apart from the rows by an opaque background, bottom border and a soft shadow. */
+.likert-table thead th {
   position: sticky;
   top: 0;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.97);
+  background: #fbf7f1;
+  border-bottom: 1px solid rgba(138, 91, 43, 0.22);
+  box-shadow: 0 6px 12px -8px rgba(33, 24, 11, 0.35);
 }
 
-.fam-table,
-.panas-table,
-.ues-table {
+.likert-table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
 }
 
-.fam-table {
+.likert-table--fam {
   min-width: 820px;
 }
 
-.panas-table {
+.likert-table--panas {
   min-width: 760px;
 }
 
-.ues-table {
+.likert-table--ues {
   min-width: 860px;
 }
 
-.fam-question-heading,
-.fam-question-cell,
-.panas-question-heading,
-.panas-question-cell,
-.ues-question-heading,
-.ues-question-cell {
+.likert-question-heading,
+.likert-question-cell {
   width: 56%;
 }
 
-.fam-scale-heading,
-.panas-scale-heading,
-.ues-scale-heading {
+.likert-scale-heading {
   width: calc(44% / 7);
-  vertical-align: bottom;
+  vertical-align: middle;
   text-align: center;
   font-weight: 600;
   font-size: 0.95rem;
 }
 
-.panas-scale-heading,
-.ues-scale-heading {
+.likert-table--panas .likert-scale-heading,
+.likert-table--ues .likert-scale-heading {
   width: calc(44% / 5);
 }
 
-.fam-scale-heading,
-.panas-scale-heading,
-.ues-scale-heading,
-.fam-question-cell,
-.panas-question-cell,
-.ues-question-cell,
-.fam-option-cell,
-.panas-option-cell,
-.ues-option-cell {
+.likert-scale-heading,
+.likert-question-cell,
+.likert-option-cell {
   padding: 8px 6px;
 }
 
-.fam-scale-endpoint,
-.panas-scale-label,
-.ues-scale-label {
+.likert-question-heading {
+  vertical-align: bottom;
+  text-align: left;
+  padding: 8px 6px;
+}
+
+.likert-progress {
   display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #4f453a;
+  font-variant-numeric: tabular-nums;
+}
+
+.likert-scale-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 2.6em;
   margin-bottom: 4px;
   font-size: 0.9rem;
   line-height: 1.25;
 }
 
-.panas-scale-label,
-.ues-scale-label {
+.likert-table--panas .likert-scale-label,
+.likert-table--ues .likert-scale-label {
   min-height: 3.8em;
 }
 
-.fam-question-cell,
-.panas-question-cell,
-.ues-question-cell {
+.likert-question-cell {
   text-align: left;
   vertical-align: top;
   font-weight: 400;
   line-height: 1.5;
 }
 
-.fam-question-number,
-.panas-question-number,
-.ues-question-number {
+.likert-question-number {
   display: inline-block;
   width: 1.8em;
   color: #4f453a;
 }
 
 /* zebra striping for readability on long questionnaires */
-.fam-table tbody tr:nth-child(even),
-.panas-table tbody tr:nth-child(even),
-.ues-table tbody tr:nth-child(even) {
+.likert-table tbody tr:nth-child(even) {
   background: rgba(138, 91, 43, 0.04);
 }
 
 /* answered-row feedback: unanswered rows have a visible left border accent */
-.fam-table tbody tr:not(:has(input:checked)) .fam-question-cell,
-.panas-table tbody tr:not(:has(input:checked)) .panas-question-cell,
-.ues-table tbody tr:not(:has(input:checked)) .ues-question-cell {
+.likert-table tbody tr:not(:has(input:checked)) .likert-question-cell {
   border-left: 3px solid rgba(138, 91, 43, 0.25);
 }
 
-.fam-table tbody tr:has(input:checked) .fam-question-cell,
-.panas-table tbody tr:has(input:checked) .panas-question-cell,
-.ues-table tbody tr:has(input:checked) .ues-question-cell {
+.likert-table tbody tr:has(input:checked) .likert-question-cell {
   border-left: 3px solid rgba(54, 87, 159, 0.4);
 }
 
-.fam-option-cell,
-.panas-option-cell,
-.ues-option-cell {
+.likert-option-cell {
   text-align: center;
   vertical-align: top;
 }
 
-.fam-option,
-.panas-option,
-.ues-option {
+.likert-option {
   display: inline-grid;
   place-items: center;
   min-width: 44px;
@@ -413,17 +386,13 @@
   color: var(--text-h);
 }
 
-.fam-option input,
-.panas-option input,
-.ues-option input {
+.likert-option input {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
 
-.fam-option span,
-.panas-option span,
-.ues-option span {
+.likert-option span {
   display: grid;
   place-items: center;
   width: 38px;
@@ -433,25 +402,19 @@
   transition: background 0.1s, border-color 0.1s;
 }
 
-.fam-option:hover span,
-.panas-option:hover span,
-.ues-option:hover span {
+.likert-option:hover span {
   background: rgba(31, 59, 115, 0.08);
   border-color: rgba(54, 87, 159, 0.35);
 }
 
-.fam-option input:checked + span,
-.panas-option input:checked + span,
-.ues-option input:checked + span {
+.likert-option input:checked + span {
   background: rgba(31, 59, 115, 0.85);
   border-color: transparent;
   color: #fff;
   font-weight: 700;
 }
 
-.fam-option input:focus-visible + span,
-.panas-option input:focus-visible + span,
-.ues-option input:focus-visible + span {
+.likert-option input:focus-visible + span {
   outline: 3px solid rgba(54, 87, 159, 0.35);
   outline-offset: 2px;
 }
