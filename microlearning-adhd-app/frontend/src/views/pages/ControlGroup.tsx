@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import StudyActions from '../components/StudyActions.tsx'
-import StudyHeading from '../components/StudyHeading.tsx'
-import StudyPage from '../components/StudyPage.tsx'
-import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../components/forms'
-import { fetchControlVideo, type ControlVideo, type StudyInteractionPayload } from '../services/api.ts'
-import { copy } from '../content/copy'
+import StudyActions from '../../components/StudyActions.tsx'
+import StudyHeading from '../../components/StudyHeading.tsx'
+import StudyPage from '../../components/StudyPage.tsx'
+import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../../components/forms/index.ts'
+import { fetchControlVideo, type ControlVideo, type StudyInteractionPayload } from '../../services/api.ts'
+import { copy } from '../../content/copy.ts'
 
 type ControlGroupProps = {
   onBackToStart: () => void

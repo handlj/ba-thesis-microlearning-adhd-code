@@ -1,10 +1,10 @@
-import { type DemographicAnswers } from '../utils/groupAssignment'
-import { StudyForm, type FormAnswerValue } from '../components/forms'
-import StudyActions from '../components/StudyActions.tsx'
-import StudyHeading from '../components/StudyHeading.tsx'
-import StudyPage from '../components/StudyPage.tsx'
-import { copy } from '../content/copy'
-import { demographicQuestions } from '../content/demographics'
+import { type DemographicAnswers } from '../../utils/groupAssignment.ts'
+import { StudyForm, type FormAnswerValue } from '../../components/forms/index.ts'
+import StudyActions from '../../components/StudyActions.tsx'
+import StudyHeading from '../../components/StudyHeading.tsx'
+import StudyPage from '../../components/StudyPage.tsx'
+import { copy } from '../../content/copy.ts'
+import { demographicQuestions } from '../../content/demographics.ts'
 
 type DemographicsProps = {
   values: DemographicAnswers

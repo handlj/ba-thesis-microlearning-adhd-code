@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { fetchInstructionVideo, type InstructionVideo, type StudyInteractionPayload } from '../services/api.ts'
-import StudyActions from '../components/StudyActions.tsx'
-import StudyHeading from '../components/StudyHeading.tsx'
-import StudyPage from '../components/StudyPage.tsx'
-import { copy } from '../content/copy'
-import { type GroupAssignment } from '../utils/groupAssignment'
+import { fetchInstructionVideo, type InstructionVideo, type StudyInteractionPayload } from '../../services/api.ts'
+import StudyActions from '../../components/StudyActions.tsx'
+import StudyHeading from '../../components/StudyHeading.tsx'
+import StudyPage from '../../components/StudyPage.tsx'
+import { copy } from '../../content/copy.ts'
+import { type GroupAssignment } from '../../utils/groupAssignment.ts'
 
 type ReadyProps = {
   assignment: GroupAssignment | null

@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
-import StudyActions from '../components/StudyActions.tsx'
-import StudyHeading from '../components/StudyHeading.tsx'
-import StudyPage from '../components/StudyPage.tsx'
+import StudyActions from '../../components/StudyActions.tsx'
+import StudyHeading from '../../components/StudyHeading.tsx'
+import StudyPage from '../../components/StudyPage.tsx'
 import {
   fetchExperimentalVideos,
   type ExperimentalVideo,
   type StudyInteractionPayload,
-} from '../services/api.ts'
-import { copy } from '../content/copy'
+} from '../../services/api.ts'
+import { copy } from '../../content/copy.ts'
 
 type ExperimentalGroupProps = {
   onBackToStart: () => void

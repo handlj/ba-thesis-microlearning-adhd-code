@@ -1,7 +1,7 @@
-import StudyActions from '../components/StudyActions.tsx'
-import StudyHeading from '../components/StudyHeading.tsx'
-import StudyPage from '../components/StudyPage.tsx'
-import { copy } from '../content/copy'
+import StudyActions from '../../components/StudyActions.tsx'
+import StudyHeading from '../../components/StudyHeading.tsx'
+import StudyPage from '../../components/StudyPage.tsx'
+import { copy } from '../../content/copy.ts'
 
 type ThankYouProps = {
   onReturnToStart: () => void

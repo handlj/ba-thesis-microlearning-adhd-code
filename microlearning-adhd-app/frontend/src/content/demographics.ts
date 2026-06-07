@@ -1,6 +1,6 @@
-import { copy } from './copy'
 import type { StudyQuestion } from '../components/forms'
 import { buildOptionsFromCopy } from '../components/forms'
+import { copy } from './copy'
 
 export type DemographicQuestionId = keyof typeof copy.demographics.questions
 
