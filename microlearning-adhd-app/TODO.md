@@ -6,7 +6,9 @@
 - [ ] Add that reloading the page does not reset the progress of the user.
 - [ ] Add the functionality that the user can change the video speed (not only the volume)
 - [ ] Add measurement for dezibel and speed of the video
-- [ ] Move fam questionnaire after the instruction video, so that the user knows what to expect and can judge his feelings towards it better.
+- [ ] Translate and adapt the ues questionnaire and instructions
+- [ ] Translate all buttons from proceed to fortfahren
+- [ ] If the user changes from one page to the other, it should arrive at the top of the page and not the same position as before.
 
 ## Before Deployment
 - [ ] Remove the explicit group label in the Ready page.
