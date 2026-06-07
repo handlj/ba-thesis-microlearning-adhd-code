@@ -1,3 +1,5 @@
+/* TODO: Extract modular components (buttons, form controls, etc.) to separate files as needed, but keep page-level styles here. */
+
 .study-page {
   min-height: 100svh;
   display: grid;
@@ -291,6 +293,10 @@
   min-width: 860px;
 }
 
+.likert-table--adhd {
+  min-width: 760px;
+}
+
 .likert-question-heading,
 .likert-question-cell {
   width: 56%;
@@ -305,7 +311,8 @@
 }
 
 .likert-table--panas .likert-scale-heading,
-.likert-table--ues .likert-scale-heading {
+.likert-table--ues .likert-scale-heading,
+.likert-table--adhd .likert-scale-heading {
   width: calc(44% / 5);
 }
 
@@ -340,7 +347,8 @@
 }
 
 .likert-table--panas .likert-scale-label,
-.likert-table--ues .likert-scale-label {
+.likert-table--ues .likert-scale-label,
+.likert-table--adhd .likert-scale-label {
   min-height: 3.8em;
 }
 

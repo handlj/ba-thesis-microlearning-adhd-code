@@ -5,6 +5,7 @@ import StudyHeading from '../components/StudyHeading.tsx'
 import StudyPage from '../components/StudyPage.tsx'
 import Consent from './Consent.tsx'
 import Demographics from './Demographics.tsx'
+import AdhdScreeningQuestionnaire from './questionnaires/AdhdScreeningQuestionnaire.tsx'
 import PanasQuestionnaire from './questionnaires/PanasQuestionnaire.tsx'
 import FAMQuestionnaire from './questionnaires/FAMQuestionnaire.tsx'
 import Ready from './Ready.tsx'
@@ -24,6 +25,7 @@ import {
 import { type DemographicAnswers, type GroupAssignment } from '../utils/groupAssignment'
 import { validateDemographics } from '../utils/demographicsValidation'
 import { copy } from '../content/copy'
+import { adhdScreening } from '../content/adhdScreening'
 import { fam } from '../content/fam'
 import { panas } from '../content/panas'
 import { ues } from '../content/ues'
@@ -32,6 +34,7 @@ type Page =
   | 'welcome'
   | 'consent'
   | 'demographics'
+  | 'adhdScreening'
   | 'prePanas'
   | 'ready'
   | 'fam'
@@ -70,6 +73,13 @@ const defaultFamAnswers = fam.questions.reduce<Record<string, string>>(
   {},
 )
 
+const defaultAdhdScreeningAnswers = adhdScreening.questions.reduce<
+  Record<string, string>
+>((answers, question) => {
+  answers[question.id] = ''
+  return answers
+}, {})
+
 const defaultPanasAnswers = panas.questions.reduce<Record<string, string>>(
   (answers, question) => {
     answers[question.id] = ''
@@ -103,6 +113,8 @@ function App() {
   })
   const [demographics, setDemographics] =
     useState<DemographicAnswers>(defaultDemographics)
+  const [adhdScreeningAnswers, setAdhdScreeningAnswers] =
+    useState<Record<string, string>>(defaultAdhdScreeningAnswers)
   const [famAnswers, setFamAnswers] =
     useState<Record<string, string>>(defaultFamAnswers)
   const [prePanasAnswers, setPrePanasAnswers] =
@@ -118,6 +130,9 @@ function App() {
   )
   const [consentError, setConsentError] = useState<string | null>(null)
   const [demographicError, setDemographicError] = useState<string | null>(null)
+  const [adhdScreeningError, setAdhdScreeningError] = useState<string | null>(
+    null,
+  )
   const [prePanasError, setPrePanasError] = useState<string | null>(null)
   const [famError, setFamError] = useState<string | null>(null)
   const [postPanasError, setPostPanasError] = useState<string | null>(null)
@@ -132,6 +147,7 @@ function App() {
   const resetStudyState = () => {
     setAgreed(false)
     setDemographics(defaultDemographics)
+    setAdhdScreeningAnswers(defaultAdhdScreeningAnswers)
     setFamAnswers(defaultFamAnswers)
     setPrePanasAnswers(defaultPanasAnswers)
     setPostInterventionAnswers(defaultPostInterventionAnswers)
@@ -140,6 +156,7 @@ function App() {
     setParticipantId(null)
     setConsentError(null)
     setDemographicError(null)
+    setAdhdScreeningError(null)
     setPrePanasError(null)
     setFamError(null)
     setPostPanasError(null)
@@ -267,7 +284,7 @@ function App() {
         adhdDiagnosis: demographics.adhdDiagnosis,
         assignment: response.assignment,
       })
-      transitionTo('prePanas')
+      transitionTo('adhdScreening')
     } catch (requestError) {
       setDemographicError(
         requestError instanceof Error
@@ -277,6 +294,25 @@ function App() {
     } finally {
       setIsSavingDemographics(false)
     }
+  }
+
+  const handleAdhdScreeningSubmit = () => {
+    const missingAnswer = adhdScreening.questions.some(
+      (question) => !adhdScreeningAnswers[question.id]?.trim(),
+    )
+
+    if (missingAnswer) {
+      setAdhdScreeningError(adhdScreening.validation.allQuestions)
+      return
+    }
+
+    setAdhdScreeningError(null)
+    addBufferedEvent('adhd_screening_submitted', 'adhdScreening', {
+      ...(participantId ? { participantId } : {}),
+      ...(assignment ? { assignment } : {}),
+      ...adhdScreeningAnswers,
+    })
+    transitionTo('prePanas')
   }
 
   const handlePrePanasSubmit = () => {
@@ -436,6 +472,24 @@ function App() {
     )
   }
 
+  if (page === 'adhdScreening') {
+    return (
+      <AdhdScreeningQuestionnaire
+        values={adhdScreeningAnswers}
+        error={adhdScreeningError}
+        onChange={(questionId, value) => {
+          setAdhdScreeningAnswers((previous) => ({
+            ...previous,
+            [questionId]: value,
+          }))
+          if (adhdScreeningError) setAdhdScreeningError(null)
+        }}
+        onBack={() => transitionTo('demographics')}
+        onSubmit={handleAdhdScreeningSubmit}
+      />
+    )
+  }
+
   if (page === 'prePanas') {
     return (
       <PanasQuestionnaire
@@ -445,7 +499,7 @@ function App() {
           setPrePanasAnswers((previous) => ({ ...previous, [questionId]: value }))
           if (prePanasError) setPrePanasError(null)
         }}
-        onBack={() => transitionTo('demographics')}
+        onBack={() => transitionTo('adhdScreening')}
         onSubmit={handlePrePanasSubmit}
       />
     )
