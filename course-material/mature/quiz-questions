@@ -1,0 +1,110 @@
+Questions to ask after the Microlearning Intervention
+=====================================================
+
+5 questions per topic -> 20 questions in total.
+Answer with multiple choice (one to many are correct), 4 options each
+
+2 Reproduction of learned facts (Level 1)
+  o How would you... How does ... work
+2 Application on code snippets (Level 2)
+  o Identify the error, fill the blank space
+1 Application on slightly modified problem (Level 3)
+  o Thinking about the topic of xxx, how could one possibly declare a variable, construct a clause, build a loop, define a function, which...
+  
+---------------------------------------------------------------------------
+
+Topic A
+-------
+
+1. Welche der folgenden Zuordnungen zwischen Variablen und ihren Datentypen sind korrekt und typisch?
+  a. int x = 3 (r)
+  b. float x = [1, 2, 3]
+  c. str x = True
+  d. dict x = {1: 'blue', 2: 'red'} (r)
+  
+2. Welche der folgenden Ausdrücke sind jeweils gleichbedeutend?
+  a. number = number / 4 und number -= 4
+  b. number = number * 10 und number *= 10 (r)
+  c. number = number - 5 und number /= 5
+  d. number = number + 7 und number += 7 (r)
+  
+3. Betrachte den folgenden Code-Auszug:
+  zahl = 36
+  zahl = 4
+  zahl += 4
+  
+  zahl2 = 28
+  zahl2 -= zahl
+  
+  zahl3 = zahl2 % zahl
+  
+  Welche Werte nehmen die Variablen zahl, zahl2 und zahl3 jeweils an? (8, 20, 4)
+  
+4. Betrachte den folgenden Code-Auszug:
+  int zaehler = 4
+  int nenner = 5
+  int bruch = 0
+  
+  bruch = zaehler / nenner (r)
+  
+  Hat sich hier ein Fehler eingeschlichen, wenn ja, in welcher Zeile?
+  
+5. Betrachte den folgenden Code-Auszug:
+  string book = "Dies ist ein sehr langer aber auch spannender Text der in jedem Fall über mehrere Zeilen geht..."
+  
+  Haben sich hier Fehler eingeschlichen, wenn ja, welches Wort/welche Wörter beschreiben sie am besten?
+  
+  a. Datentyp (r)
+  b. Operator
+  c. Es sind hier keine Fehler vorhanden.
+  d. Anführungszeichen (r)
+  
+---------------------------------------------------------------------------
+
+Topic B
+-------
+
+1. Welche der unten angegebenen Schlüsselwörter gehören zu WENN-DANN-SONSTWENN-DANN-SONST Bedingung?
+  a. else (r)
+  b. elif (r)
+  c. if (r)
+  d. for
+
+2. Welche der folgenden Elemente muss jedes if-Statement in Python in jedem Fall enthalten.
+  a. Einrückung im Codeblock (r)
+  b. "if" Schlüsselwort (r)
+  c. "else" Schlüsselwort
+  d. "elif" Schlüsselwort
+
+3. Betrachte folgenden Code-Auszug:
+
+if x < 10:
+  print("Ich bin einstellig.")
+else:
+  print("Ich nicht?").
+  
+Welcher der folgenden Code-Auszüge gibt denselben Text aus?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
