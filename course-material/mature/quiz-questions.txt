@@ -1,0 +1,257 @@
+Questions to ask after the Microlearning Intervention
+=====================================================
+
+5 questions per topic -> 20 questions in total.
+Answer with multiple choice (one to many are correct), 4 options each
+
+Reproduction of learned facts (Level 1)
+Application on code snippets (Level 2)
+Application on slightly modified problem (Level 3)
+
+---------------------------------------------------------------------------
+
+Topic A
+-------
+
+1. Welche der folgenden Zuordnungen zwischen Variablen und ihren Datentypen sind korrekt?
+  a. x = 3 -> x ist vom Typ int (r)
+  b. x = [1, 2, 3] -> x ist vom Typ float
+  c. x = True -> x ist vom Typ str
+  d. x = {1: 'blue', 2: 'red'} -> x ist vom Typ dict (r)
+  
+2. Welche der folgenden Ausdrücke sind jeweils gleichbedeutend?
+  a. number = number / 4 und number -= 4
+  b. number = number * 10 und number *= 10 (r)
+  c. number = number - 5 und number /= 5
+  d. number = number + 7 und number += 7 (r)
+  
+3. Betrachte den folgenden Code-Auszug:
+  zahl = 36
+  zahl = 4
+  zahl += 4
+  
+  zahl2 = 28
+  zahl2 -= zahl
+  
+  zahl3 = zahl2 % zahl
+  
+  Welche Werte nehmen die Variablen zahl, zahl2 und zahl3 jeweils an?
+  
+  a. zahl = 8, zahl2 = 20, zahl3 = 4 (r)
+  b. zahl = 8, zahl2 = 20, zahl3 = 8
+  c. zahl = 40, zahl2 = -12, zahl3 = 28
+  d. zahl = 8, zahl2 = 20, zahl3 = 0
+  
+4. Betrachte den folgenden Code-Auszug:
+  zaehler = 4
+  nenner = 5
+  bruch = 0
+  
+  bruch = zaehler / nenner
+  
+  Welche Aussagen über die Variable bruch sind korrekt?
+
+  a. bruch hat den Wert 0.8 (r)
+  b. bruch ist vom Typ float (r)
+  c. bruch hat den Wert 0
+  d. Die Ausführung erzeugt einen Fehler, weil 4/5 keine ganze Zahl (int Datentyp) ist
+  
+5. Betrachte den folgenden Code-Auszug:
+  Welche der folgenden Zuweisungen erzeugen einen gültigen (fehlerfreien) String?
+
+  a. string = 'Das ist ein String' (r)
+  b. string = "Das ist ein String'
+  c. string = '''Dies ist ein 
+                 mehrzeiliger String''' (r)
+  d. string = Das ist ein String
+  
+---------------------------------------------------------------------------
+
+Topic B
+-------
+
+1. Welche der unten angegebenen Schlüsselwörter gehören zur WENN-DANN-SONSTWENN-DANN-SONST Bedingung?
+  a. else (r)
+  b. elif (r)
+  c. if (r)
+  d. for
+
+2. Welche der folgenden Elemente muss jedes if-Statement in Python in jedem Fall enthalten.
+  a. Einrückung im Codeblock (r)
+  b. "if" Schlüsselwort (r)
+  c. "else" Schlüsselwort
+  d. "elif" Schlüsselwort
+
+3. Betrachte folgenden Code-Auszug:
+
+if x < 10:
+  print("Ich bin einstellig.")
+else:
+  print("Ich nicht.")
+print("Mir ist es egal.")
+  
+Welche der folgenden Aussagen sind korrekt?
+
+  a. Für jeden einstelligen Wert der Variable x wird nur "Ich bin einstellig." ausgegeben.
+  b. Für alle zweistelligen Werte der Variable x wird nur "Ich nicht." ausgegeben.
+  c. Egal welche Ausprägung x annimmt, "Mir ist es egal." wird immer mitausgegeben. (r)
+  d. Es gibt einstellige Ausprägungen von x, für die "Ich nicht." ausgegeben wird.
+
+4. Betrachte den oben angeführten Code-Auszug erneut.
+   Durch welche der unten angeführten Codezeilen lässt sich die Zeile "else:" ersetzen, ohne die Funktionalität des Code-Auszugs oben einzuschränken?
+   
+  a. "if x > 10:"
+  b. "elif x > 10:"
+  c. "" (Die Zeile weglöschen)
+  d. "if x >= 10:" (r)
+
+5. Welche der folgenden Aussagen zu if-Statements sind korrekt?
+  a. Jedes if-Statement benötigt neben einem if-Block auch einen else-Block
+  b. Die Verwendung von elif-Blöcken ist optional. (r)
+  c. Die Anzahl der verwendbaren elif-Blöcke ist aus Laufzeitgründen nach oben hin beschränkt.
+  d. Egal welche Form des if-Statements verwendet wird, seine Codeblöcke müssen beispielsweise durch Leerzeichen eingerückt sein. (r)
+
+---------------------------------------------------------------------------
+
+Topic C
+-------
+
+1. Welche der folgenden Schlüsselwörter steuern den Ablauf einer Schleife (Schleife abbrechen oder zur nächsten Iteration springen)?
+  a. pass
+  b. break (r)
+  c. continue (r)
+  d. return
+
+2. Betrachte folgenden Code-Auszug:
+
+[...] zahl in [1, 2, 3, 4]:
+  print(zahl)
+
+Welche Aussagen sind korrekt?
+
+a. An der Stelle [...] muss das Schlüsselwort for stehen. (r)
+b. Die Schleife iteriert über die Elemente einer Liste. (r)
+c. An der Stelle [...] könnte ohne weitere Änderung auch while stehen.
+d. Die Schleife läuft genau drei Mal.
+  
+3. Durch welchen der folgenden Schleifen-Anfänge entsteht eine Endlosschleife (sofern im Schleifenkörper keine Abbruchbedingung verwendet wird)?
+
+  a. while True: (r)
+  b. while False:
+  c. while x < 0:  (wobei zuvor x = 5 gesetzt wurde)
+  d. for i in [1, 2, 3]:
+
+4. Welches Schlüsselwort (Keyword) eignet sich am besten, um eine Endlosschleife zu beenden?
+
+  a. pass
+  b. continue
+  c. if
+  d. break (r)
+
+5. Betrachte den folgenden Code-Auszug:
+
+x = 2
+x += x
+while x > 4:
+  x += 1
+  print("Hi!")
+print("Hi!")
+
+Wie oft wird "Hi!" ausgegeben?
+
+ a. Nie
+ b. Ein Mal (r)
+ c. Endlosschleife
+ d. Zwei Mal
+
+---------------------------------------------------------------------------
+
+Topic D
+-------
+
+1. Betrachte die folgende Funktion:
+
+print('I', 'think', 'therefore', 'I', 'am.')
+
+Welche der folgenden Zuordnungen sind richtig?
+
+  a. Argumente/Input: 'I', 'think', 'therefore', 'I', 'am.' (r)
+  b. Funktion: print (r)
+  c. Output: "I think therefore I am."(r)
+  d. Rückgabewert (return-value): 5
+
+2. Welche der folgenden Aussagen zu Funktionen sind richtig?
+
+  a. Jede Funktion benötigt einen oder mehrere Parameter.
+  b. Das Schlüsselwort (Keyword) "def" definiert eine Funktion. (r)
+  c. Beim Übergeben von Argumenten "per position", spielt die Reihenfolge der Argumente keine Rolle.
+  d. Beim Übergeben von Argumenten mittels "keyword-specification" spielt die Reihenfolge der Argumente keine Rolle. (r)
+  
+3. Betrachte folgende Funktion:
+
+def which_dog_is_it(dogname, ownername, age=0):
+  print(f'My dog {dogname} is {age} years old and the owner is {ownername}.')
+  
+Welche der folgenden Beispiele sind valide Funktionsaufrufe für einen dreijährigen Hund mit dem Namen Pluto, dessen Besitzer (owner) Hans heißt?
+
+  a. which_dog_is_it('Pluto', 'Hans', 3) (r)
+  b. which_dog_is_it(age=3, 'Hans', dogname='Pluto')
+  c. which_dog_is_it(age=3, ownername='Hans', dogname='Pluto') (r)
+  d. which_dog_is_it('Pluto', 'Hans')
+  
+4. Betrachte erneut die oben angeführte Funktion which_dog_is_it. 
+   Welchen Fehler erhält man bei folgendem Funktionsaufruf:
+
+which_dog_is_it('Hans', 'Pluto')
+
+  a. SyntaxError: positional argument follows keyword argument
+  b. TypeError: which_dog_is_it() missing 1 positional argument: 'age'
+  c. SyntaxError: which_dog_is_it() missing 1 positional argument: 'age'
+  d. Kein Fehler in der Ausführung, aber: "Logischer Fehler" (r)
+
+5. Welche Funktion ermöglicht das Schlüsselwort (Keyword) "return"?
+
+  a. Abbruch der innersten Schleife.
+  b. Sprung zurück an den Anfang der innersten Schleife.
+  c. Rückgabe von Werten aus einer Funktion an das Hauptprogramm. (r)
+  d. Abbruch der aktuell ausgeführten Funktionslogik, falls die übergebenen Argumente einen "TypeError" erzeugen.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

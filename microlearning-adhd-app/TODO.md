@@ -2,6 +2,8 @@
 
 ## Next Up
 - [ ] Replace all mock questions and quizzes with the actual quizzes
+- [ ] Add full backend persistence for all user data
+- [ ] Improve determination of group assignment, so that approximate 50/50 distribution is guaranteed.
 - [ ] Add an "Are you sure" dialog if the user tries to return to welcome page or the session overview page, to prevent them from losing their progress.
 - [ ] Add that reloading the page does not reset the progress of the user.
 - [ ] Add the functionality that the user can change the video speed (not only the volume)
