@@ -2,7 +2,7 @@
 
 ## Next Up
 - [ ] Replace post study feedback with actual questions
-- [ ] Add full backend persistence for all user data
+- [ ] Update Backend persistence for updated questions (demographics, post-study feedback)
 - [ ] Think about if user should be able to go back to videos, since then quizzes can be irrelevant
 - [ ] Improve determination of group assignment, so that approximate 50/50 distribution is guaranteed.
 - [ ] Add an "Are you sure" dialog if the user tries to return to welcome page or the session overview page, to prevent them from losing their progress.
