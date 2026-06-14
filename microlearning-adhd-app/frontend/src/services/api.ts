@@ -105,6 +105,108 @@ export async function submitPostInterventionQuestionnaire(
   return response.data;
 }
 
+export type QuestionnaireSubmission = {
+  participant_id: string;
+  submitted_at: string;
+};
+
+export type QuizSubmission = {
+  participant_id: string;
+  answer_count: number;
+  submitted_at: string;
+};
+
+export type QuizAnswerSubmission = {
+  group: GroupAssignment;
+  video_id: string | null;
+  video_index: number | null;
+  topic_id: string;
+  answers: Record<string, string[]>;
+};
+
+// Converts the string-valued Likert answers held in component state into the
+// numeric map the backend expects.
+function toNumericAnswers(answers: Record<string, string>) {
+  return Object.fromEntries(
+    Object.entries(answers).map(([questionId, value]) => [
+      questionId,
+      Number(value),
+    ]),
+  );
+}
+
+async function submitLikertQuestionnaire(
+  participantId: string,
+  path: string,
+  assignment: GroupAssignment,
+  answers: Record<string, string>,
+) {
+  const response = await api.post<QuestionnaireSubmission>(
+    `/participants/${participantId}/${path}`,
+    {
+      assignment,
+      answers: toNumericAnswers(answers),
+    },
+  );
+  return response.data;
+}
+
+export async function submitAdhdScreening(
+  participantId: string,
+  assignment: GroupAssignment,
+  answers: Record<string, string>,
+) {
+  return submitLikertQuestionnaire(
+    participantId,
+    "adhd-screening",
+    assignment,
+    answers,
+  );
+}
+
+export async function submitPanasPre(
+  participantId: string,
+  assignment: GroupAssignment,
+  answers: Record<string, string>,
+) {
+  return submitLikertQuestionnaire(participantId, "panas-pre", assignment, answers);
+}
+
+export async function submitPanasPost(
+  participantId: string,
+  assignment: GroupAssignment,
+  answers: Record<string, string>,
+) {
+  return submitLikertQuestionnaire(participantId, "panas-post", assignment, answers);
+}
+
+export async function submitFam(
+  participantId: string,
+  assignment: GroupAssignment,
+  answers: Record<string, string>,
+) {
+  return submitLikertQuestionnaire(participantId, "fam", assignment, answers);
+}
+
+export async function submitUes(
+  participantId: string,
+  assignment: GroupAssignment,
+  answers: Record<string, string>,
+) {
+  return submitLikertQuestionnaire(participantId, "ues", assignment, answers);
+}
+
+export async function submitQuizAnswers(
+  participantId: string,
+  submission: QuizAnswerSubmission,
+) {
+  const response = await api.post<QuizSubmission>(
+    `/participants/${participantId}/quiz`,
+    submission,
+  );
+  return response.data;
+}
+
 export async function fetchControlVideo() {
   const response = await api.get<ControlVideo>("/control-video");
   return response.data;

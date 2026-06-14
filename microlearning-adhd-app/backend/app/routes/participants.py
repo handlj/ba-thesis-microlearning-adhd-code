@@ -3,16 +3,25 @@ import json
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session
 
-from app.config import VALID_ADHD_DIAGNOSES, VALID_STUDY_BACKGROUNDS
+from app.config import ADHD_SCREENING_QUESTION_IDS, FAM_QUESTION_IDS
+from app.config import FAM_SCALE_MAX, LIKERT_MAX, LIKERT_MIN
+from app.config import PANAS_QUESTION_IDS, UES_QUESTION_IDS
+from app.config import VALID_ADHD_DIAGNOSES, VALID_ASSIGNMENTS
+from app.config import VALID_STUDY_BACKGROUNDS
 from app.database import get_session
-from app.models import Demographics, InteractionEvent, ParticipantSession
+from app.models import AdhdScreeningResponse, Demographics, FamResponse
+from app.models import InteractionEvent, PanasPostResponse, PanasPreResponse
+from app.models import ParticipantSession, QuizAnswer, UesResponse
 from app.models import PostInterventionResponse as PostInterventionResponseModel
 from app.schemas import ConsentRequest, ConsentResponse, DemographicsRequest
 from app.schemas import DemographicsResponse, InteractionEventRequest
-from app.schemas import InteractionEventResponse, PostInterventionRequest
-from app.schemas import PostInterventionResponsePayload
+from app.schemas import InteractionEventResponse, LikertQuestionnaireRequest
+from app.schemas import PostInterventionRequest, PostInterventionResponsePayload
+from app.schemas import QuestionnaireResponsePayload, QuizSubmissionRequest
+from app.schemas import QuizSubmissionResponse
 from app.services import assign_deterministic_group, current_utc_timestamp
 from app.services import ensure_participant_exists, require_non_empty_text
+from app.services import validate_likert_answers
 
 
 router = APIRouter(prefix="/api/participants")
@@ -164,5 +173,183 @@ def submit_post_intervention(
 
     return PostInterventionResponsePayload(
         participant_id=participant_id,
+        submitted_at=submitted_at,
+    )
+
+
+def _validate_assignment(assignment: str) -> str:
+    normalized = require_non_empty_text(assignment, "Assignment")
+    if normalized not in VALID_ASSIGNMENTS:
+        raise HTTPException(status_code=400, detail="Invalid assignment.")
+    return normalized
+
+
+def _persist_questionnaire(
+    participant_id: str,
+    request: LikertQuestionnaireRequest,
+    session: Session,
+    model: type,
+    expected_ids: set[str],
+    min_value: int,
+    max_value: int,
+) -> QuestionnaireResponsePayload:
+    ensure_participant_exists(participant_id, session)
+    assignment = _validate_assignment(request.assignment)
+    answers = validate_likert_answers(
+        request.answers,
+        expected_ids,
+        min_value,
+        max_value,
+    )
+
+    submitted_at = current_utc_timestamp()
+    row = model(
+        participant_id=participant_id,
+        assignment=assignment,
+        submitted_at=submitted_at,
+        **answers,
+    )
+    session.add(row)
+    session.commit()
+
+    return QuestionnaireResponsePayload(
+        participant_id=participant_id,
+        submitted_at=submitted_at,
+    )
+
+
+@router.post(
+    "/{participant_id}/adhd-screening",
+    response_model=QuestionnaireResponsePayload,
+)
+def submit_adhd_screening(
+    participant_id: str,
+    questionnaire: LikertQuestionnaireRequest,
+    session: Session = Depends(get_session),
+):
+    return _persist_questionnaire(
+        participant_id,
+        questionnaire,
+        session,
+        AdhdScreeningResponse,
+        ADHD_SCREENING_QUESTION_IDS,
+        LIKERT_MIN,
+        LIKERT_MAX,
+    )
+
+
+@router.post(
+    "/{participant_id}/panas-pre",
+    response_model=QuestionnaireResponsePayload,
+)
+def submit_panas_pre(
+    participant_id: str,
+    questionnaire: LikertQuestionnaireRequest,
+    session: Session = Depends(get_session),
+):
+    return _persist_questionnaire(
+        participant_id,
+        questionnaire,
+        session,
+        PanasPreResponse,
+        PANAS_QUESTION_IDS,
+        LIKERT_MIN,
+        LIKERT_MAX,
+    )
+
+
+@router.post(
+    "/{participant_id}/panas-post",
+    response_model=QuestionnaireResponsePayload,
+)
+def submit_panas_post(
+    participant_id: str,
+    questionnaire: LikertQuestionnaireRequest,
+    session: Session = Depends(get_session),
+):
+    return _persist_questionnaire(
+        participant_id,
+        questionnaire,
+        session,
+        PanasPostResponse,
+        PANAS_QUESTION_IDS,
+        LIKERT_MIN,
+        LIKERT_MAX,
+    )
+
+
+@router.post(
+    "/{participant_id}/fam",
+    response_model=QuestionnaireResponsePayload,
+)
+def submit_fam(
+    participant_id: str,
+    questionnaire: LikertQuestionnaireRequest,
+    session: Session = Depends(get_session),
+):
+    return _persist_questionnaire(
+        participant_id,
+        questionnaire,
+        session,
+        FamResponse,
+        FAM_QUESTION_IDS,
+        LIKERT_MIN,
+        FAM_SCALE_MAX,
+    )
+
+
+@router.post(
+    "/{participant_id}/ues",
+    response_model=QuestionnaireResponsePayload,
+)
+def submit_ues(
+    participant_id: str,
+    questionnaire: LikertQuestionnaireRequest,
+    session: Session = Depends(get_session),
+):
+    return _persist_questionnaire(
+        participant_id,
+        questionnaire,
+        session,
+        UesResponse,
+        UES_QUESTION_IDS,
+        LIKERT_MIN,
+        LIKERT_MAX,
+    )
+
+
+@router.post(
+    "/{participant_id}/quiz",
+    response_model=QuizSubmissionResponse,
+)
+def submit_quiz(
+    participant_id: str,
+    submission: QuizSubmissionRequest,
+    session: Session = Depends(get_session),
+):
+    ensure_participant_exists(participant_id, session)
+    group = _validate_assignment(submission.group)
+
+    if not submission.answers:
+        raise HTTPException(status_code=400, detail="Quiz answers are required.")
+
+    submitted_at = current_utc_timestamp()
+    for question_id, selected_options in submission.answers.items():
+        quiz_answer = QuizAnswer(
+            participant_id=participant_id,
+            group=group,
+            video_id=submission.video_id,
+            video_index=submission.video_index,
+            topic_id=submission.topic_id,
+            question_id=question_id,
+            selected_options=json.dumps(selected_options),
+            submitted_at=submitted_at,
+        )
+        session.add(quiz_answer)
+    session.commit()
+
+    return QuizSubmissionResponse(
+        participant_id=participant_id,
+        answer_count=len(submission.answers),
         submitted_at=submitted_at,
     )

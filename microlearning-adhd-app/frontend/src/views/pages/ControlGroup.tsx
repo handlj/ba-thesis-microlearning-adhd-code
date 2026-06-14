@@ -10,6 +10,7 @@ type ControlGroupProps = {
   onBackToStart: () => void
   onCompleteIntervention: () => void
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
+  onSubmitQuiz: (answers: Record<string, string[]>) => void
 }
 
 type ControlPhase = 'video' | 'quiz'
@@ -18,6 +19,7 @@ function ControlGroup({
   onBackToStart,
   onCompleteIntervention,
   onLogInteraction,
+  onSubmitQuiz,
 }: ControlGroupProps) {
   const [video, setVideo] = useState<ControlVideo | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -166,6 +168,7 @@ function ControlGroup({
           onSubmit={onCompleteIntervention}
           onBackToVideo={returnToVideo}
           onLogInteraction={onLogInteraction}
+          onSubmitQuiz={onSubmitQuiz}
         />
       ) : null}
 

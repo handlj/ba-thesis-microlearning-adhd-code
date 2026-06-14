@@ -26,6 +26,12 @@ export const copy = {
       'Sitzungsdaten der Studie fehlen. Bitte kehren Sie zur Startseite zurück und versuchen Sie es erneut.',
     postInterventionSave:
       'Der Post-Interventions-Fragebogen konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.',
+    questionnaireMissingSession:
+      'Sitzungsdaten der Studie fehlen. Bitte kehren Sie zur Startseite zurück und versuchen Sie es erneut.',
+    questionnaireSave:
+      'Der Fragebogen konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.',
+    quizSave:
+      'Die Quiz-Antworten konnten nicht gespeichert werden. Bitte versuchen Sie es erneut.',
   },
   validation: {
     demographicsAllQuestions: 'Bitte beantworten Sie alle Fragen, bevor Sie fortfahren.',

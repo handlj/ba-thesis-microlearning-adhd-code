@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import QuizQuestionField from '../../components/quiz/QuizQuestionField.tsx'
-import { useQuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
+import {
+  useQuizAnswers,
+  type QuizAnswers,
+} from '../../components/quiz/useQuizAnswers.ts'
 import type { QuizTopic } from '../../content/quiz.ts'
 import type { StudyInteractionPayload } from '../../services/api.ts'
 
@@ -9,6 +12,7 @@ type ExperimentalGroupQuizzesProps = {
   videoContext: StudyInteractionPayload
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
   onCompletionChange: (complete: boolean) => void
+  onAnswersChange: (answers: QuizAnswers) => void
 }
 
 // Renders the quiz questions for a single topic after the matching video.
@@ -20,12 +24,17 @@ function ExperimentalGroupQuizzes({
   videoContext,
   onLogInteraction,
   onCompletionChange,
+  onAnswersChange,
 }: ExperimentalGroupQuizzesProps) {
   const { answers, isComplete, toggle } = useQuizAnswers(topic.questions)
 
   useEffect(() => {
     onCompletionChange(isComplete)
   }, [isComplete, onCompletionChange])
+
+  useEffect(() => {
+    onAnswersChange(answers)
+  }, [answers, onAnswersChange])
 
   const handleToggle = (questionId: string, optionId: string) => {
     const checked = toggle(questionId, optionId)

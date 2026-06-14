@@ -9,12 +9,14 @@ type ControlGroupQuizProps = {
   onSubmit: () => void
   onBackToVideo: () => void
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
+  onSubmitQuiz: (answers: Record<string, string[]>) => void
 }
 
 function ControlGroupQuiz({
   onSubmit,
   onBackToVideo,
   onLogInteraction,
+  onSubmitQuiz,
 }: ControlGroupQuizProps) {
   const { answers, isComplete, toggle } = useQuizAnswers(allQuizQuestions)
 
@@ -35,6 +37,7 @@ function ControlGroupQuiz({
     onLogInteraction('control_quiz_submitted', {
       answers: JSON.stringify(answers),
     })
+    onSubmitQuiz(answers)
     onSubmit()
   }
 

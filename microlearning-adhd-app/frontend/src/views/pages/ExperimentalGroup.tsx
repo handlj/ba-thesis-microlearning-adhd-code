@@ -3,6 +3,7 @@ import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import ExperimentalGroupQuizzes from './ExperimentalGroupQuizzes.tsx'
+import type { QuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
 import { quizTopics } from '../../content/quiz.ts'
 import {
   fetchExperimentalVideos,
@@ -15,6 +16,12 @@ type ExperimentalGroupProps = {
   onBackToStart: () => void
   onCompleteIntervention: () => void
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
+  onSubmitQuiz: (submission: {
+    video_id: string | null
+    video_index: number | null
+    topic_id: string
+    answers: QuizAnswers
+  }) => void
 }
 
 type ExperimentalPhase = 'video' | 'quiz'
@@ -23,6 +30,7 @@ function ExperimentalGroup({
   onBackToStart,
   onCompleteIntervention,
   onLogInteraction,
+  onSubmitQuiz,
 }: ExperimentalGroupProps) {
   const [videos, setVideos] = useState<ExperimentalVideo[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -31,6 +39,7 @@ function ExperimentalGroup({
   const [phase, setPhase] = useState<ExperimentalPhase>('video')
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
   const [quizComplete, setQuizComplete] = useState(false)
+  const [currentQuizAnswers, setCurrentQuizAnswers] = useState<QuizAnswers>({})
   const previousVideoTimeRef = useRef(0)
 
   useEffect(() => {
@@ -87,6 +96,7 @@ function ExperimentalGroup({
     setPhase('video')
     setHasVideoEnded(false)
     setQuizComplete(false)
+    setCurrentQuizAnswers({})
     previousVideoTimeRef.current = 0
   }
 
@@ -114,6 +124,14 @@ function ExperimentalGroup({
       ...getCurrentVideoPayload(),
       topicId: currentTopic?.id ?? null,
     })
+    if (currentTopic) {
+      onSubmitQuiz({
+        video_id: currentVideo?.id ?? null,
+        video_index: currentIndex + 1,
+        topic_id: currentTopic.id,
+        answers: currentQuizAnswers,
+      })
+    }
     if (isLastVideo) {
       onCompleteIntervention()
       return
@@ -222,6 +240,7 @@ function ExperimentalGroup({
                 videoContext={getCurrentVideoPayload()}
                 onLogInteraction={onLogInteraction}
                 onCompletionChange={setQuizComplete}
+                onAnswersChange={setCurrentQuizAnswers}
               />
               <p className="video-status" aria-live="polite">
                 {quizComplete

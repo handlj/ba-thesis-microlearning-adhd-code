@@ -65,3 +65,27 @@ class PostInterventionRequest(BaseModel):
 class PostInterventionResponsePayload(BaseModel):
     participant_id: str
     submitted_at: datetime
+
+
+class LikertQuestionnaireRequest(BaseModel):
+    assignment: str
+    answers: dict[str, int]
+
+
+class QuestionnaireResponsePayload(BaseModel):
+    participant_id: str
+    submitted_at: datetime
+
+
+class QuizSubmissionRequest(BaseModel):
+    group: str
+    video_id: str | None = None
+    video_index: int | None = None
+    topic_id: str
+    answers: dict[str, list[str]]
+
+
+class QuizSubmissionResponse(BaseModel):
+    participant_id: str
+    answer_count: int
+    submitted_at: datetime

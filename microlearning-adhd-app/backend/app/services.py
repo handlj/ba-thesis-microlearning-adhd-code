@@ -53,3 +53,35 @@ def require_non_empty_text(value: str, field_name: str) -> str:
         raise HTTPException(status_code=400, detail=f"{field_name} is required.")
 
     return normalized_value
+
+
+def validate_likert_answers(
+    answers: dict[str, int],
+    expected_ids: set[str],
+    min_value: int,
+    max_value: int,
+) -> dict[str, int]:
+    if set(answers) != expected_ids:
+        missing = expected_ids - set(answers)
+        unexpected = set(answers) - expected_ids
+        details = []
+        if missing:
+            details.append(f"missing: {', '.join(sorted(missing))}")
+        if unexpected:
+            details.append(f"unexpected: {', '.join(sorted(unexpected))}")
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid questionnaire answers ({'; '.join(details)}).",
+        )
+
+    for question_id, value in answers.items():
+        if value < min_value or value > max_value:
+            raise HTTPException(
+                status_code=400,
+                detail=(
+                    f"Answer for {question_id} must be between "
+                    f"{min_value} and {max_value}."
+                ),
+            )
+
+    return answers

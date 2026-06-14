@@ -1,7 +1,7 @@
 # Project TODO
 
 ## Next Up
-- [ ] Replace all mock questions and quizzes with the actual quizzes
+- [ ] Replace post study feedback with actual questions
 - [ ] Add full backend persistence for all user data
 - [ ] Think about if user should be able to go back to videos, since then quizzes can be irrelevant
 - [ ] Improve determination of group assignment, so that approximate 50/50 distribution is guaranteed.

@@ -17,9 +17,16 @@ import ThankYou from '../pages/ThankYou.tsx'
 import {
   createConsentSession,
   recordInteractionEvent,
+  submitAdhdScreening,
   submitDemographics,
+  submitFam,
+  submitPanasPost,
+  submitPanasPre,
   submitPostInterventionQuestionnaire,
+  submitQuizAnswers,
+  submitUes,
   type PostInterventionAnswers,
+  type QuizAnswerSubmission,
   type StudyInteractionPayload,
 } from '../../services/api.ts'
 import { type DemographicAnswers, type GroupAssignment } from '../../utils/groupAssignment.ts'
@@ -143,6 +150,7 @@ function App() {
   const [isSavingFollowUp, setIsSavingFollowUp] = useState(false)
   const [assignment, setAssignment] = useState<GroupAssignment | null>(null)
   const bufferRef = useRef<BufferedEvent[]>(initialBuffer)
+  const isSavingQuestionnaireRef = useRef(false)
 
   const resetStudyState = () => {
     setAgreed(false)
@@ -234,6 +242,20 @@ function App() {
     })
   }
 
+  const submitQuizForGroup = (
+    submission: Omit<QuizAnswerSubmission, 'group'> & {
+      group: GroupAssignment
+    },
+  ) => {
+    if (!participantId) {
+      return
+    }
+
+    void submitQuizAnswers(participantId, submission).catch((requestError) => {
+      console.error(copy.errors.quizSave, requestError)
+    })
+  }
+
   const handleConsentProceed = async () => {
     if (!agreed || isSavingConsent) return
 
@@ -296,7 +318,7 @@ function App() {
     }
   }
 
-  const handleAdhdScreeningSubmit = () => {
+  const handleAdhdScreeningSubmit = async () => {
     const missingAnswer = adhdScreening.questions.some(
       (question) => !adhdScreeningAnswers[question.id]?.trim(),
     )
@@ -306,16 +328,35 @@ function App() {
       return
     }
 
-    setAdhdScreeningError(null)
-    addBufferedEvent('adhd_screening_submitted', 'adhdScreening', {
-      ...(participantId ? { participantId } : {}),
-      ...(assignment ? { assignment } : {}),
-      ...adhdScreeningAnswers,
-    })
-    transitionTo('prePanas')
+    if (!participantId || !assignment) {
+      setAdhdScreeningError(copy.errors.questionnaireMissingSession)
+      return
+    }
+
+    if (isSavingQuestionnaireRef.current) return
+
+    try {
+      isSavingQuestionnaireRef.current = true
+      setAdhdScreeningError(null)
+      await submitAdhdScreening(participantId, assignment, adhdScreeningAnswers)
+      addBufferedEvent('adhd_screening_submitted', 'adhdScreening', {
+        participantId,
+        assignment,
+        ...adhdScreeningAnswers,
+      })
+      transitionTo('prePanas')
+    } catch (requestError) {
+      setAdhdScreeningError(
+        requestError instanceof Error
+          ? requestError.message
+          : copy.errors.questionnaireSave,
+      )
+    } finally {
+      isSavingQuestionnaireRef.current = false
+    }
   }
 
-  const handlePrePanasSubmit = () => {
+  const handlePrePanasSubmit = async () => {
     const missingAnswer = panas.questions.some(
       (question) => !prePanasAnswers[question.id]?.trim(),
     )
@@ -325,16 +366,35 @@ function App() {
       return
     }
 
-    setPrePanasError(null)
-    addBufferedEvent('pre_intervention_panas_submitted', 'prePanas', {
-      ...(participantId ? { participantId } : {}),
-      ...(assignment ? { assignment } : {}),
-      ...prePanasAnswers,
-    })
-    transitionTo('ready')
+    if (!participantId || !assignment) {
+      setPrePanasError(copy.errors.questionnaireMissingSession)
+      return
+    }
+
+    if (isSavingQuestionnaireRef.current) return
+
+    try {
+      isSavingQuestionnaireRef.current = true
+      setPrePanasError(null)
+      await submitPanasPre(participantId, assignment, prePanasAnswers)
+      addBufferedEvent('pre_intervention_panas_submitted', 'prePanas', {
+        participantId,
+        assignment,
+        ...prePanasAnswers,
+      })
+      transitionTo('ready')
+    } catch (requestError) {
+      setPrePanasError(
+        requestError instanceof Error
+          ? requestError.message
+          : copy.errors.questionnaireSave,
+      )
+    } finally {
+      isSavingQuestionnaireRef.current = false
+    }
   }
 
-  const handleFamSubmit = () => {
+  const handleFamSubmit = async () => {
     const missingAnswer = fam.questions.some(
       (question) => !famAnswers[question.id]?.trim(),
     )
@@ -344,24 +404,40 @@ function App() {
       return
     }
 
-    setFamError(null)
-    addBufferedEvent('pre_intervention_fam_submitted', 'fam', {
-      ...(participantId ? { participantId } : {}),
-      ...(assignment ? { assignment } : {}),
-      ...famAnswers,
-    })
-
-    if (assignment === 'control') {
-      transitionTo('control')
+    if (!participantId || !assignment) {
+      setFamError(copy.errors.questionnaireMissingSession)
       return
     }
 
-    if (assignment === 'experimental') {
-      transitionTo('experimental')
+    if (isSavingQuestionnaireRef.current) return
+
+    try {
+      isSavingQuestionnaireRef.current = true
+      setFamError(null)
+      await submitFam(participantId, assignment, famAnswers)
+      addBufferedEvent('pre_intervention_fam_submitted', 'fam', {
+        participantId,
+        assignment,
+        ...famAnswers,
+      })
+
+      if (assignment === 'control') {
+        transitionTo('control')
+      } else if (assignment === 'experimental') {
+        transitionTo('experimental')
+      }
+    } catch (requestError) {
+      setFamError(
+        requestError instanceof Error
+          ? requestError.message
+          : copy.errors.questionnaireSave,
+      )
+    } finally {
+      isSavingQuestionnaireRef.current = false
     }
   }
 
-  const handlePostPanasSubmit = () => {
+  const handlePostPanasSubmit = async () => {
     const missingAnswer = panas.questions.some(
       (question) => !postPanasAnswers[question.id]?.trim(),
     )
@@ -371,16 +447,35 @@ function App() {
       return
     }
 
-    setPostPanasError(null)
-    addBufferedEvent('post_intervention_panas_submitted', 'postPanas', {
-      ...(participantId ? { participantId } : {}),
-      ...(assignment ? { assignment } : {}),
-      ...postPanasAnswers,
-    })
-    transitionTo('ues')
+    if (!participantId || !assignment) {
+      setPostPanasError(copy.errors.questionnaireMissingSession)
+      return
+    }
+
+    if (isSavingQuestionnaireRef.current) return
+
+    try {
+      isSavingQuestionnaireRef.current = true
+      setPostPanasError(null)
+      await submitPanasPost(participantId, assignment, postPanasAnswers)
+      addBufferedEvent('post_intervention_panas_submitted', 'postPanas', {
+        participantId,
+        assignment,
+        ...postPanasAnswers,
+      })
+      transitionTo('ues')
+    } catch (requestError) {
+      setPostPanasError(
+        requestError instanceof Error
+          ? requestError.message
+          : copy.errors.questionnaireSave,
+      )
+    } finally {
+      isSavingQuestionnaireRef.current = false
+    }
   }
 
-  const handleUesSubmit = () => {
+  const handleUesSubmit = async () => {
     const missingAnswer = ues.questions.some(
       (question) => !uesAnswers[question.id]?.trim(),
     )
@@ -390,13 +485,32 @@ function App() {
       return
     }
 
-    setUesError(null)
-    addBufferedEvent('post_intervention_ues_submitted', 'ues', {
-      ...(participantId ? { participantId } : {}),
-      ...(assignment ? { assignment } : {}),
-      ...uesAnswers,
-    })
-    transitionTo('followUp')
+    if (!participantId || !assignment) {
+      setUesError(copy.errors.questionnaireMissingSession)
+      return
+    }
+
+    if (isSavingQuestionnaireRef.current) return
+
+    try {
+      isSavingQuestionnaireRef.current = true
+      setUesError(null)
+      await submitUes(participantId, assignment, uesAnswers)
+      addBufferedEvent('post_intervention_ues_submitted', 'ues', {
+        participantId,
+        assignment,
+        ...uesAnswers,
+      })
+      transitionTo('followUp')
+    } catch (requestError) {
+      setUesError(
+        requestError instanceof Error
+          ? requestError.message
+          : copy.errors.questionnaireSave,
+      )
+    } finally {
+      isSavingQuestionnaireRef.current = false
+    }
   }
 
   const handleFollowUpSubmit = async () => {
@@ -543,6 +657,15 @@ function App() {
         onLogInteraction={(eventType, payload) =>
           logStudyInteraction('control', eventType, payload)
         }
+        onSubmitQuiz={(answers) =>
+          submitQuizForGroup({
+            group: 'control',
+            video_id: null,
+            video_index: null,
+            topic_id: 'all',
+            answers,
+          })
+        }
       />
     )
   }
@@ -554,6 +677,9 @@ function App() {
         onCompleteIntervention={completeIntervention}
         onLogInteraction={(eventType, payload) =>
           logStudyInteraction('experimental', eventType, payload)
+        }
+        onSubmitQuiz={(submission) =>
+          submitQuizForGroup({ group: 'experimental', ...submission })
         }
       />
     )
