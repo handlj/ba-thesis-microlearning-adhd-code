@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
-import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../../components/forms/index.ts'
+import ControlGroupQuiz from './ControlGroupQuiz.tsx'
 import { fetchControlVideo, type ControlVideo, type StudyInteractionPayload } from '../../services/api.ts'
 import { copy } from '../../content/copy.ts'
 
@@ -14,61 +14,6 @@ type ControlGroupProps = {
 
 type ControlPhase = 'video' | 'quiz'
 
-type ControlQuizAnswers = {
-  mainTopic: string
-  perceivedClarity: string
-}
-
-type ControlQuizQuestionId = keyof ControlQuizAnswers
-
-const defaultControlQuizAnswers: ControlQuizAnswers = {
-  mainTopic: '',
-  perceivedClarity: '',
-}
-
-const controlQuizQuestions: StudyQuestion<ControlQuizQuestionId>[] = [
-  {
-    id: 'mainTopic',
-    type: 'radio',
-    label: copy.controlGroup.quiz.questions.mainTopic.label,
-    required: true,
-    options: [
-      {
-        value: 'study-material',
-        label: copy.controlGroup.quiz.questions.mainTopic.options.studyMaterial,
-      },
-      {
-        value: 'demographics',
-        label: copy.controlGroup.quiz.questions.mainTopic.options.demographics,
-      },
-      {
-        value: 'technical-setup',
-        label: copy.controlGroup.quiz.questions.mainTopic.options.technicalSetup,
-      },
-    ],
-  },
-  {
-    id: 'perceivedClarity',
-    type: 'radio',
-    label: copy.controlGroup.quiz.questions.perceivedClarity.label,
-    required: true,
-    options: [
-      {
-        value: 'clear',
-        label: copy.controlGroup.quiz.questions.perceivedClarity.options.clear,
-      },
-      {
-        value: 'somewhat-clear',
-        label: copy.controlGroup.quiz.questions.perceivedClarity.options.somewhatClear,
-      },
-      {
-        value: 'not-clear',
-        label: copy.controlGroup.quiz.questions.perceivedClarity.options.notClear,
-      },
-    ],
-  },
-]
-
 function ControlGroup({
   onBackToStart,
   onCompleteIntervention,
@@ -79,12 +24,7 @@ function ControlGroup({
   const [error, setError] = useState<string | null>(null)
   const [canContinue, setCanContinue] = useState(false)
   const [phase, setPhase] = useState<ControlPhase>('video')
-  const [quizAnswers, setQuizAnswers] = useState<ControlQuizAnswers>(
-    defaultControlQuizAnswers,
-  )
   const previousVideoTimeRef = useRef(0)
-
-  const isQuizComplete = Object.values(quizAnswers).every(Boolean)
 
   useEffect(() => {
     let active = true
@@ -124,38 +64,12 @@ function ControlGroup({
     }
   }, [])
 
-  const handleQuizChange = (
-    field: ControlQuizQuestionId,
-    value: FormAnswerValue,
-  ) => {
-    if (!Array.isArray(value)) {
-      setQuizAnswers((previousAnswers) => ({
-        ...previousAnswers,
-        [field]: value,
-      }))
-      onLogInteraction('control_quiz_answer_selected', {
-        questionId: field,
-        answer: value,
-      })
-    }
-  }
-
   const showQuiz = () => {
     if (canContinue) {
       onLogInteraction('control_video_proceed_clicked', {
         videoTitle: video?.title ?? null,
       })
       setPhase('quiz')
-    }
-  }
-
-  const submitQuiz = () => {
-    if (isQuizComplete) {
-      onLogInteraction('control_quiz_submitted', {
-        mainTopic: quizAnswers.mainTopic,
-        perceivedClarity: quizAnswers.perceivedClarity,
-      })
-      onCompleteIntervention()
     }
   }
 
@@ -248,25 +162,10 @@ function ControlGroup({
       ) : null}
 
       {phase === 'quiz' ? (
-        <StudyForm
-          questions={controlQuizQuestions}
-          values={quizAnswers}
-          onChange={handleQuizChange}
-          onSubmit={submitQuiz}
-          actions={
-            <StudyActions>
-              <button
-                type="button"
-                className="secondary-button"
-                onClick={returnToVideo}
-              >
-                {copy.actions.backToVideo}
-              </button>
-              <button type="submit" className="start-button" disabled={!isQuizComplete}>
-                {copy.actions.continue}
-              </button>
-            </StudyActions>
-          }
+        <ControlGroupQuiz
+          onSubmit={onCompleteIntervention}
+          onBackToVideo={returnToVideo}
+          onLogInteraction={onLogInteraction}
         />
       ) : null}
 

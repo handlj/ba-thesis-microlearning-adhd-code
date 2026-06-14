@@ -534,6 +534,72 @@
   gap: 10px;
 }
 
+/* Assessment quiz: stacked questions with embedded code snippets. */
+.quiz-question-list {
+  display: grid;
+  gap: 22px;
+}
+
+.quiz-question {
+  gap: 12px;
+}
+
+.quiz-prompt {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  width: 100%;
+  line-height: 1.5;
+}
+
+.quiz-question-number {
+  flex: 0 0 auto;
+  color: #4f453a;
+  font-variant-numeric: tabular-nums;
+}
+
+.quiz-option-content {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Inline code chips inside prompts and option labels. */
+.quiz-inline-code {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: rgba(31, 59, 115, 0.08);
+  border: 1px solid rgba(31, 59, 115, 0.12);
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+
+/* Multi-line code blocks in question stems and full-snippet options. */
+.quiz-code {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #0f1720;
+  border: 1px solid rgba(15, 23, 32, 0.4);
+  overflow-x: auto;
+}
+
+.quiz-code code {
+  display: block;
+  white-space: pre;
+  color: #f4ede2;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  tab-size: 2;
+}
+
+.quiz-code--option {
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
 @media (max-width: 640px) {
   .study-page {
     padding: 16px;

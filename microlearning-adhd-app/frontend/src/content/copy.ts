@@ -229,10 +229,10 @@ export const copy = {
         'Sehen Sie sich jedes Video vollständig an und bearbeiten Sie das nachfolgende Quiz, bevor Sie zum nächsten Video weitergehen.',
     },
     status: {
-      answerSelected: 'Antwort ausgewählt. Sie können fortfahren.',
+      allAnswered: 'Alle Fragen beantwortet. Sie können fortfahren.',
+      answerAllQuestions: 'Bitte beantworten Sie alle Fragen, um fortzufahren.',
       loading: 'Experimentelle Videos werden vom Backend geladen...',
       noVideos: 'Es sind noch keine experimentellen Videos verfügbar.',
-      selectAnswer: 'Wählen Sie eine Antwort aus, um fortzufahren.',
       videoFinished: 'Das Video ist beendet. Sie können nun zum Quiz fortfahren.',
     },
     progress: (current: number, total: number) => `Video ${current} von ${total}`,

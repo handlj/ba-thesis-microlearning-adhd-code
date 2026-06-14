@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
+import ExperimentalGroupQuizzes from './ExperimentalGroupQuizzes.tsx'
+import { quizTopics } from '../../content/quiz.ts'
 import {
   fetchExperimentalVideos,
   type ExperimentalVideo,
@@ -17,8 +19,6 @@ type ExperimentalGroupProps = {
 
 type ExperimentalPhase = 'video' | 'quiz'
 
-const sampleQuizOptions = copy.experimentalGroup.quiz.options
-
 function ExperimentalGroup({
   onBackToStart,
   onCompleteIntervention,
@@ -30,7 +30,7 @@ function ExperimentalGroup({
   const [currentIndex, setCurrentIndex] = useState(0)
   const [phase, setPhase] = useState<ExperimentalPhase>('video')
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
-  const [quizAnswer, setQuizAnswer] = useState('')
+  const [quizComplete, setQuizComplete] = useState(false)
   const previousVideoTimeRef = useRef(0)
 
   useEffect(() => {
@@ -74,6 +74,7 @@ function ExperimentalGroup({
   const currentVideo = videos[currentIndex]
   const videoCount = videos.length
   const isLastVideo = currentIndex === videoCount - 1
+  const currentTopic = quizTopics[currentIndex]
 
   const getCurrentVideoPayload = () => ({
     videoId: currentVideo?.id ?? null,
@@ -85,7 +86,7 @@ function ExperimentalGroup({
   const resetStepState = () => {
     setPhase('video')
     setHasVideoEnded(false)
-    setQuizAnswer('')
+    setQuizComplete(false)
     previousVideoTimeRef.current = 0
   }
 
@@ -102,15 +103,16 @@ function ExperimentalGroup({
     setPhase('quiz')
   }
 
+  const canProceedFromQuiz = currentTopic ? quizComplete : true
+
   const handleProceedFromQuiz = () => {
-    if (!quizAnswer) {
+    if (!canProceedFromQuiz) {
       return
     }
 
     onLogInteraction('experimental_quiz_submitted', {
       ...getCurrentVideoPayload(),
-      questionId: 'sampleQuiz',
-      answer: quizAnswer,
+      topicId: currentTopic?.id ?? null,
     })
     if (isLastVideo) {
       onCompleteIntervention()
@@ -127,15 +129,6 @@ function ExperimentalGroup({
       ...getCurrentVideoPayload(),
     })
     onBackToStart()
-  }
-
-  const selectQuizAnswer = (answer: string) => {
-    setQuizAnswer(answer)
-    onLogInteraction('experimental_quiz_answer_selected', {
-      ...getCurrentVideoPayload(),
-      questionId: 'sampleQuiz',
-      answer,
-    })
   }
 
   const handleVideoSeek = (nextTime: number) => {
@@ -221,35 +214,22 @@ function ExperimentalGroup({
                   : copy.video.watchFullVideo}
               </p>
             </>
-          ) : (
-            <div className="quiz-panel" aria-labelledby="sample-quiz-title">
-              <div>
-                <p className="video-kicker">{copy.experimentalGroup.quiz.kicker}</p>
-                <h2 id="sample-quiz-title" className="quiz-title">
-                  {copy.experimentalGroup.quiz.question}
-                </h2>
-              </div>
-              <div className="quiz-options">
-                {sampleQuizOptions.map((option) => (
-                  <label className="choice-option" key={option}>
-                    <input
-                      type="radio"
-                      name={`experimental-quiz-${currentVideo.id}`}
-                      value={option}
-                      checked={quizAnswer === option}
-                      onChange={(event) => selectQuizAnswer(event.target.value)}
-                    />
-                    <span>{option}</span>
-                  </label>
-                ))}
-              </div>
+          ) : currentTopic ? (
+            <>
+              <ExperimentalGroupQuizzes
+                key={currentVideo.id}
+                topic={currentTopic}
+                videoContext={getCurrentVideoPayload()}
+                onLogInteraction={onLogInteraction}
+                onCompletionChange={setQuizComplete}
+              />
               <p className="video-status" aria-live="polite">
-                {quizAnswer
-                  ? copy.experimentalGroup.status.answerSelected
-                  : copy.experimentalGroup.status.selectAnswer}
+                {quizComplete
+                  ? copy.experimentalGroup.status.allAnswered
+                  : copy.experimentalGroup.status.answerAllQuestions}
               </p>
-            </div>
-          )}
+            </>
+          ) : null}
         </div>
       ) : null}
 
@@ -271,7 +251,7 @@ function ExperimentalGroup({
           <button
             type="button"
             className="start-button"
-            disabled={!quizAnswer}
+            disabled={!canProceedFromQuiz}
             onClick={handleProceedFromQuiz}
           >
             {isLastVideo ? copy.actions.continue : copy.actions.nextVideo}
