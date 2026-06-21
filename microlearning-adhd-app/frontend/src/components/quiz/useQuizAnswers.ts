@@ -18,9 +18,10 @@ export function useQuizAnswers(questions: QuizQuestion[]) {
     createEmptyAnswers(questions),
   )
 
-  const isComplete = questions.every(
+  const answeredCount = questions.filter(
     (question) => (answers[question.id]?.length ?? 0) > 0,
-  )
+  ).length
+  const isComplete = answeredCount === questions.length
 
   const toggle = (questionId: string, optionId: string): boolean => {
     const current = answers[questionId] ?? []
@@ -38,5 +39,5 @@ export function useQuizAnswers(questions: QuizQuestion[]) {
     return willBeChecked
   }
 
-  return { answers, isComplete, toggle }
+  return { answers, isComplete, answeredCount, total: questions.length, toggle }
 }

@@ -4,151 +4,151 @@ export const ues = {
     eyebrow: '',
     title: 'Bitte füllen Sie den Fragebogen aus',
     intro:
-      'Please indicate how much you agree or disagree with each statement.',
+      'Bitte geben Sie an, wie sehr Sie jeder Aussage zustimmen oder sie ablehnen.',
   },
   instructions:
     '',
   actions: {
-    proceed: 'Proceed',
+    proceed: 'Fortfahren',
   },
   validation: {
-    allQuestions: 'Please answer all statements before proceeding.',
+    allQuestions: 'Bitte beantworten Sie alle Aussagen, bevor Sie fortfahren.',
   },
   scale: {
     values: ['1', '2', '3', '4', '5'],
     labels: {
-      '1': 'Strongly disagree',
-      '2': 'Disagree',
-      '3': 'Neither agree nor disagree',
-      '4': 'Agree',
-      '5': 'Strongly Agree',
+      '1': 'Stimme überhaupt nicht zu',
+      '2': 'Stimme nicht zu',
+      '3': 'Weder noch',
+      '4': 'Stimme zu',
+      '5': 'Stimme voll und ganz zu',
     },
     optionLabel: (question: string, value: string, label: string) =>
       `${question}: ${value}, ${label}`,
   },
   table: {
-    questionColumn: 'Statement',
+    questionColumn: 'Aussage',
   },
   questions: [
     {
       id: 'ues1',
-      text: 'I lost myself in this experience.',
+      text: 'Ich war völlig in dieses Erlebnis vertieft.',
     },
     {
       id: 'ues2',
-      text: 'I was so involved in this experience that I lost track of time.',
+      text: 'Ich war so in dieses Erlebnis vertieft, dass ich das Zeitgefühl verlor.',
     },
     {
       id: 'ues3',
-      text: 'I blocked out things around me when I was using Application X.',
+      text: 'Ich habe die Dinge um mich herum ausgeblendet, während ich die Anwendung nutzte.',
     },
     {
       id: 'ues4',
-      text: 'When I was using Application X, I lost track of the world around me.',
+      text: 'Während ich die Anwendung nutzte, vergaß ich die Welt um mich herum.',
     },
     {
       id: 'ues5',
-      text: 'The time I spent using Application X just slipped away.',
+      text: 'Die Zeit, die ich mit der Anwendung verbrachte, verging wie im Flug.',
     },
     {
       id: 'ues6',
-      text: 'I was absorbed in this experience.',
+      text: 'Ich war von diesem Erlebnis gefesselt.',
     },
     {
       id: 'ues7',
-      text: 'During this experience I let myself go.',
+      text: 'Während dieses Erlebnisses ließ ich mich völlig darauf ein.',
     },
     {
       id: 'ues8',
-      text: 'I felt frustrated while using this Application X.',
+      text: 'Ich fühlte mich frustriert, während ich die Anwendung nutzte.',
     },
     {
       id: 'ues9',
-      text: 'I found this Application X confusing to use.',
+      text: 'Ich fand die Nutzung der Anwendung verwirrend.',
     },
     {
       id: 'ues10',
-      text: 'I felt annoyed while using Application X.',
+      text: 'Ich fühlte mich genervt, während ich die Anwendung nutzte.',
     },
     {
       id: 'ues11',
-      text: 'I felt discouraged while using this Application X.',
+      text: 'Ich fühlte mich entmutigt, während ich die Anwendung nutzte.',
     },
     {
       id: 'ues12',
-      text: 'Using this Application X was taxing',
+      text: 'Die Nutzung der Anwendung war anstrengend.',
     },
     {
       id: 'ues13',
-      text: 'This experience was demanding.',
+      text: 'Dieses Erlebnis war fordernd.',
     },
     {
       id: 'ues14',
-      text: 'I felt in control while using this Application X.',
+      text: 'Ich fühlte mich beim Nutzen der Anwendung in Kontrolle.',
     },
     {
       id: 'ues15',
-      text: 'I could not do some of the things I needed to do while using Application X.',
+      text: 'Einige Dinge, die ich tun musste, konnte ich während der Nutzung der Anwendung nicht erledigen.',
     },
     {
       id: 'ues16',
-      text: 'This Application X was attractive',
+      text: 'Die Anwendung war ansprechend.',
     },
     {
       id: 'ues17',
-      text: 'This Application X was aesthetically appealing.',
+      text: 'Die Anwendung war ästhetisch ansprechend.',
     },
     {
       id: 'ues18',
-      text: 'I liked the graphics and images of Application X.',
+      text: 'Mir gefielen die Grafiken und Bilder der Anwendung.',
     },
     {
       id: 'ues19',
-      text: 'Application X appealed to be visual senses.',
+      text: 'Die Anwendung sprach meine visuellen Sinne an.',
     },
     {
       id: 'ues20',
-      text: 'The screen layout of Application X was visually pleasing.',
+      text: 'Das Bildschirmlayout der Anwendung war optisch ansprechend.',
     },
     {
       id: 'ues21',
-      text: 'Using Application X was worthwhile',
+      text: 'Die Nutzung der Anwendung hat sich gelohnt.',
     },
     {
       id: 'ues22',
-      text: 'I consider my experience a success.',
+      text: 'Ich betrachte mein Erlebnis als Erfolg.',
     },
     {
       id: 'ues23',
-      text: 'This experience did not work out the way I had planned.',
+      text: 'Dieses Erlebnis verlief nicht so, wie ich es geplant hatte.',
     },
     {
       id: 'ues24',
-      text: 'My experience was rewarding.',
+      text: 'Mein Erlebnis war lohnend.',
     },
     {
       id: 'ues25',
-      text: 'I would recommend Application X to my family and friends',
+      text: 'Ich würde die Anwendung meiner Familie und meinen Freunden weiterempfehlen.',
     },
     {
       id: 'ues26',
-      text: 'I continued to use Application X out of curiosity.',
+      text: 'Ich habe die Anwendung aus Neugier weiter genutzt.',
     },
     {
       id: 'ues27',
-      text: 'The content of Application X incited my curiosity.',
+      text: 'Der Inhalt der Anwendung weckte meine Neugier.',
     },
     {
       id: 'ues28',
-      text: 'I was really drawn into this experience.',
+      text: 'Ich wurde von diesem Erlebnis wirklich in den Bann gezogen.',
     },
     {
       id: 'ues29',
-      text: 'I felt involved in this experience.',
+      text: 'Ich fühlte mich in dieses Erlebnis eingebunden.',
     },
     {
       id: 'ues30',
-      text: 'This experience was fun.',
+      text: 'Dieses Erlebnis hat Spaß gemacht.',
     },
   ],
 } as const

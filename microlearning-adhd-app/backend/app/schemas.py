@@ -55,10 +55,6 @@ class InteractionEventResponse(BaseModel):
 
 class PostInterventionRequest(BaseModel):
     assignment: str
-    attention_support: str
-    content_clarity: str
-    workload_fit: str
-    preferred_format: str
     open_feedback: str
 
 

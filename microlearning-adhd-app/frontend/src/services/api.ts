@@ -95,10 +95,6 @@ export async function submitPostInterventionQuestionnaire(
     `/participants/${participantId}/post-intervention`,
     {
       assignment,
-      attention_support: answers.attentionSupport,
-      content_clarity: answers.contentClarity,
-      workload_fit: answers.workloadFit,
-      preferred_format: answers.preferredFormat,
       open_feedback: answers.openFeedback,
     },
   );

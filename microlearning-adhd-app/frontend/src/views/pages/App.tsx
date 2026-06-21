@@ -514,15 +514,6 @@ function App() {
   }
 
   const handleFollowUpSubmit = async () => {
-    const missingAnswer = Object.values(postInterventionAnswers).some(
-      (value) => !value.trim(),
-    )
-
-    if (missingAnswer) {
-      setFollowUpError(copy.errors.postInterventionMissingAnswers)
-      return
-    }
-
     if (!participantId || !assignment) {
       setFollowUpError(
         copy.errors.postInterventionMissingSession,

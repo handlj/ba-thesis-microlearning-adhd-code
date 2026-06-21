@@ -130,6 +130,8 @@
 }
 
 .choice-list {
+  margin-top: 8px;
+  margin-bottom: 8px;
   display: grid;
   gap: 8px;
 }
@@ -534,6 +536,28 @@
   gap: 10px;
 }
 
+/* Sticky progress bar for the quiz screens, mirroring the questionnaire header. */
+.quiz-progress-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin-bottom: 4px;
+  padding: 10px 0;
+  background: #fbf7f1;
+  border-bottom: 1px solid rgba(138, 91, 43, 0.22);
+  box-shadow: 0 6px 12px -8px rgba(33, 24, 11, 0.35);
+}
+
+/* Same treatment as .likert-progress (kept as a sibling rule to keep the
+   quiz feature decoupled from the questionnaire naming). */
+.quiz-progress {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #4f453a;
+  font-variant-numeric: tabular-nums;
+}
+
 /* Assessment quiz: stacked questions with embedded code snippets. */
 .quiz-question-list {
   display: grid;
@@ -549,7 +573,10 @@
   align-items: baseline;
   gap: 8px;
   width: 100%;
+  font-size: 1.05rem;
   line-height: 1.5;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(138, 91, 43, 0.16);
 }
 
 .quiz-question-number {
@@ -580,15 +607,15 @@
   margin: 0;
   padding: 14px 16px;
   border-radius: 14px;
-  background: #0f1720;
-  border: 1px solid rgba(15, 23, 32, 0.4);
+  background: #f3f4f6;
+  border: 1px solid rgba(15, 23, 32, 0.12);
   overflow-x: auto;
 }
 
 .quiz-code code {
   display: block;
   white-space: pre;
-  color: #f4ede2;
+  color: var(--text-h);
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.9rem;
   line-height: 1.55;
@@ -598,6 +625,12 @@
 .quiz-code--option {
   padding: 10px 12px;
   border-radius: 12px;
+}
+
+/* Stem code blocks (direct fieldset children) get extra breathing room;
+   the more compact in-option blocks are nested deeper and unaffected. */
+.quiz-question > .quiz-code {
+  margin-top: 8px;
 }
 
 @media (max-width: 640px) {

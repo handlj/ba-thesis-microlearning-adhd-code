@@ -1,4 +1,5 @@
 import StudyActions from '../../components/StudyActions.tsx'
+import QuizProgressHeader from '../../components/quiz/QuizProgressHeader.tsx'
 import QuizQuestionField from '../../components/quiz/QuizQuestionField.tsx'
 import { useQuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
 import { allQuizQuestions } from '../../content/quiz.ts'
@@ -18,7 +19,8 @@ function ControlGroupQuiz({
   onLogInteraction,
   onSubmitQuiz,
 }: ControlGroupQuizProps) {
-  const { answers, isComplete, toggle } = useQuizAnswers(allQuizQuestions)
+  const { answers, isComplete, answeredCount, total, toggle } =
+    useQuizAnswers(allQuizQuestions)
 
   const handleToggle = (questionId: string, optionId: string) => {
     const checked = toggle(questionId, optionId)
@@ -49,6 +51,8 @@ function ControlGroupQuiz({
         handleSubmit()
       }}
     >
+      <QuizProgressHeader answered={answeredCount} total={total} />
+
       {allQuizQuestions.map((question, questionIndex) => (
         <QuizQuestionField
           key={question.id}

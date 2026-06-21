@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import QuizProgressHeader from '../../components/quiz/QuizProgressHeader.tsx'
 import QuizQuestionField from '../../components/quiz/QuizQuestionField.tsx'
 import {
   useQuizAnswers,
@@ -26,7 +27,9 @@ function ExperimentalGroupQuizzes({
   onCompletionChange,
   onAnswersChange,
 }: ExperimentalGroupQuizzesProps) {
-  const { answers, isComplete, toggle } = useQuizAnswers(topic.questions)
+  const { answers, isComplete, answeredCount, total, toggle } = useQuizAnswers(
+    topic.questions,
+  )
 
   useEffect(() => {
     onCompletionChange(isComplete)
@@ -49,6 +52,7 @@ function ExperimentalGroupQuizzes({
 
   return (
     <div className="quiz-panel">
+      <QuizProgressHeader answered={answeredCount} total={total} />
       <p className="video-kicker">{topic.title}</p>
       <div className="quiz-question-list">
         {topic.questions.map((question, questionIndex) => (

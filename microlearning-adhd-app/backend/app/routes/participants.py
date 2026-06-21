@@ -146,22 +146,6 @@ def submit_post_intervention(
     post_intervention_response = PostInterventionResponseModel(
         participant_id=participant_id,
         assignment=assignment,
-        attention_support=require_non_empty_text(
-            questionnaire.attention_support,
-            "Attention support",
-        ),
-        content_clarity=require_non_empty_text(
-            questionnaire.content_clarity,
-            "Content clarity",
-        ),
-        workload_fit=require_non_empty_text(
-            questionnaire.workload_fit,
-            "Workload fit",
-        ),
-        preferred_format=require_non_empty_text(
-            questionnaire.preferred_format,
-            "Preferred format",
-        ),
         open_feedback=require_non_empty_text(
             questionnaire.open_feedback,
             "Open feedback",

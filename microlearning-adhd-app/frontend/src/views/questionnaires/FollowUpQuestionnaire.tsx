@@ -9,60 +9,6 @@ type PostInterventionQuestionId = keyof PostInterventionAnswers
 
 const postInterventionQuestions: StudyQuestion<PostInterventionQuestionId>[] = [
   {
-    id: 'attentionSupport',
-    type: 'radio',
-    label: copy.postIntervention.questions.attentionSupport.label,
-    required: true,
-    options: [
-      { value: 'strongly-agree', label: copy.postIntervention.agreementOptions.stronglyAgree },
-      { value: 'agree', label: copy.postIntervention.agreementOptions.agree },
-      { value: 'neutral', label: copy.postIntervention.agreementOptions.neutral },
-      { value: 'disagree', label: copy.postIntervention.agreementOptions.disagree },
-    ],
-  },
-  {
-    id: 'contentClarity',
-    type: 'radio',
-    label: copy.postIntervention.questions.contentClarity.label,
-    required: true,
-    options: [
-      { value: 'strongly-agree', label: copy.postIntervention.agreementOptions.stronglyAgree },
-      { value: 'agree', label: copy.postIntervention.agreementOptions.agree },
-      { value: 'neutral', label: copy.postIntervention.agreementOptions.neutral },
-      { value: 'disagree', label: copy.postIntervention.agreementOptions.disagree },
-    ],
-  },
-  {
-    id: 'workloadFit',
-    type: 'radio',
-    label: copy.postIntervention.questions.workloadFit.label,
-    required: true,
-    options: [
-      { value: 'strongly-agree', label: copy.postIntervention.agreementOptions.stronglyAgree },
-      { value: 'agree', label: copy.postIntervention.agreementOptions.agree },
-      { value: 'neutral', label: copy.postIntervention.agreementOptions.neutral },
-      { value: 'disagree', label: copy.postIntervention.agreementOptions.disagree },
-    ],
-  },
-  {
-    id: 'preferredFormat',
-    type: 'radio',
-    label: copy.postIntervention.questions.preferredFormat.label,
-    required: true,
-    options: [
-      {
-        value: 'single-video',
-        label: copy.postIntervention.questions.preferredFormat.options.singleVideo,
-      },
-      {
-        value: 'short-videos',
-        label: copy.postIntervention.questions.preferredFormat.options.shortVideos,
-      },
-      { value: 'text', label: copy.postIntervention.questions.preferredFormat.options.text },
-      { value: 'mixed', label: copy.postIntervention.questions.preferredFormat.options.mixed },
-    ],
-  },
-  {
     id: 'openFeedback',
     type: 'text',
     label: copy.postIntervention.questions.openFeedback.label,
@@ -86,7 +32,13 @@ function FollowUpQuestionnaire({
   onChange,
   onSubmit,
 }: FollowUpQuestionnaireProps) {
-  const isComplete = Object.values(values).every((value) => value.trim())
+  const isComplete = postInterventionQuestions.every((q) => {
+    if (q.required) {
+      const value = values[q.id]
+      return value !== undefined && value !== ''
+    }
+    return true
+  })
 
   return (
     <StudyPage ariaLabelledBy="follow-up-title" cardClassName="study-card--form">
