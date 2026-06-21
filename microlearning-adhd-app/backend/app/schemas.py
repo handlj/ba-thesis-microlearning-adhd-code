@@ -37,7 +37,16 @@ class DemographicsRequest(BaseModel):
 
 class DemographicsResponse(BaseModel):
     participant_id: str
+
+
+class AdhdScreeningRequest(BaseModel):
+    answers: dict[str, int]
+
+
+class AdhdScreeningResponsePayload(BaseModel):
+    participant_id: str
     assignment: str
+    submitted_at: datetime
 
 
 class InteractionEventRequest(BaseModel):

@@ -10,6 +10,7 @@ class ParticipantSession(SQLModel, table=True):
     consented_at: datetime
     created_at: datetime
     assignment: str | None = None
+    adhd_screen_positive: bool | None = None
 
 
 class Demographics(SQLModel, table=True):

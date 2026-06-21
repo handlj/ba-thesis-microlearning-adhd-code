@@ -13,15 +13,16 @@ from app.models import AdhdScreeningResponse, Demographics, FamResponse
 from app.models import InteractionEvent, PanasPostResponse, PanasPreResponse
 from app.models import ParticipantSession, QuizAnswer, UesResponse
 from app.models import PostInterventionResponse as PostInterventionResponseModel
+from app.schemas import AdhdScreeningRequest, AdhdScreeningResponsePayload
 from app.schemas import ConsentRequest, ConsentResponse, DemographicsRequest
 from app.schemas import DemographicsResponse, InteractionEventRequest
 from app.schemas import InteractionEventResponse, LikertQuestionnaireRequest
 from app.schemas import PostInterventionRequest, PostInterventionResponsePayload
 from app.schemas import QuestionnaireResponsePayload, QuizSubmissionRequest
 from app.schemas import QuizSubmissionResponse
-from app.services import assign_deterministic_group, current_utc_timestamp
+from app.services import assign_balanced_group, current_utc_timestamp
 from app.services import ensure_participant_exists, require_non_empty_text
-from app.services import validate_likert_answers
+from app.services import score_adhd_screening, validate_likert_answers
 
 
 router = APIRouter(prefix="/api/participants")
@@ -77,9 +78,8 @@ def submit_demographics(
     if demographics.adhd_diagnosis not in VALID_ADHD_DIAGNOSES:
         raise HTTPException(status_code=400, detail="Invalid ADHD diagnosis status.")
 
-    assignment = assign_deterministic_group(demographics)
-    participant.assignment = assignment
-
+    # Group assignment is deferred to the ADHD screening step, where it is drawn
+    # from the screening result rather than self-reported demographics.
     demographics_row = Demographics(
         participant_id=participant.id,
         age=demographics.age,
@@ -87,14 +87,10 @@ def submit_demographics(
         adhd_diagnosis=demographics.adhd_diagnosis,
         submitted_at=current_utc_timestamp(),
     )
-    session.add(participant)
     session.add(demographics_row)
     session.commit()
 
-    return DemographicsResponse(
-        participant_id=participant.id,
-        assignment=assignment,
-    )
+    return DemographicsResponse(participant_id=participant.id)
 
 
 @router.post(
@@ -204,21 +200,46 @@ def _persist_questionnaire(
 
 @router.post(
     "/{participant_id}/adhd-screening",
-    response_model=QuestionnaireResponsePayload,
+    response_model=AdhdScreeningResponsePayload,
 )
 def submit_adhd_screening(
     participant_id: str,
-    questionnaire: LikertQuestionnaireRequest,
+    request: AdhdScreeningRequest,
     session: Session = Depends(get_session),
 ):
-    return _persist_questionnaire(
-        participant_id,
-        questionnaire,
-        session,
-        AdhdScreeningResponse,
+    participant = ensure_participant_exists(participant_id, session)
+    answers = validate_likert_answers(
+        request.answers,
         ADHD_SCREENING_QUESTION_IDS,
         LIKERT_MIN,
         LIKERT_MAX,
+    )
+
+    screen_positive = score_adhd_screening(answers)
+
+    # Assign once per participant. Reusing an existing assignment keeps the
+    # endpoint idempotent (e.g. on resubmission) and avoids double-counting the
+    # arm balance.
+    if participant.assignment is None:
+        participant.adhd_screen_positive = screen_positive
+        participant.assignment = assign_balanced_group(session, screen_positive)
+        session.add(participant)
+
+    submitted_at = current_utc_timestamp()
+    session.add(
+        AdhdScreeningResponse(
+            participant_id=participant_id,
+            assignment=participant.assignment,
+            submitted_at=submitted_at,
+            **answers,
+        )
+    )
+    session.commit()
+
+    return AdhdScreeningResponsePayload(
+        participant_id=participant_id,
+        assignment=participant.assignment,
+        submitted_at=submitted_at,
     )
 
 

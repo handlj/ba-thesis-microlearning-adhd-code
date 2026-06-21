@@ -32,7 +32,12 @@ export type ConsentSession = {
 
 export type DemographicsSubmission = {
   participant_id: string;
+};
+
+export type AdhdScreeningSubmission = {
+  participant_id: string;
   assignment: GroupAssignment;
+  submitted_at: string;
 };
 
 export type PostInterventionAnswers = {
@@ -147,17 +152,19 @@ async function submitLikertQuestionnaire(
   return response.data;
 }
 
+// The ADHD screening is special: its result determines the group assignment, so
+// it posts only the answers and receives the freshly drawn assignment back.
 export async function submitAdhdScreening(
   participantId: string,
-  assignment: GroupAssignment,
   answers: Record<string, string>,
 ) {
-  return submitLikertQuestionnaire(
-    participantId,
-    "adhd-screening",
-    assignment,
-    answers,
+  const response = await api.post<AdhdScreeningSubmission>(
+    `/participants/${participantId}/adhd-screening`,
+    {
+      answers: toNumericAnswers(answers),
+    },
   );
+  return response.data;
 }
 
 export async function submitPanasPre(

@@ -297,14 +297,12 @@ function App() {
     try {
       setDemographicError(null)
       setIsSavingDemographics(true)
-      const response = await submitDemographics(participantId, demographics)
-      setAssignment(response.assignment)
+      await submitDemographics(participantId, demographics)
       addBufferedEvent('demographics_submitted', 'demographics', {
         participantId,
         age: demographics.age,
         studyBackground: demographics.studyBackground,
         adhdDiagnosis: demographics.adhdDiagnosis,
-        assignment: response.assignment,
       })
       transitionTo('adhdScreening')
     } catch (requestError) {
@@ -328,7 +326,7 @@ function App() {
       return
     }
 
-    if (!participantId || !assignment) {
+    if (!participantId) {
       setAdhdScreeningError(copy.errors.questionnaireMissingSession)
       return
     }
@@ -338,10 +336,11 @@ function App() {
     try {
       isSavingQuestionnaireRef.current = true
       setAdhdScreeningError(null)
-      await submitAdhdScreening(participantId, assignment, adhdScreeningAnswers)
+      const response = await submitAdhdScreening(participantId, adhdScreeningAnswers)
+      setAssignment(response.assignment)
       addBufferedEvent('adhd_screening_submitted', 'adhdScreening', {
         participantId,
-        assignment,
+        assignment: response.assignment,
         ...adhdScreeningAnswers,
       })
       transitionTo('prePanas')
