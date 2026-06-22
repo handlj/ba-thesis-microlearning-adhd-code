@@ -142,10 +142,7 @@ def submit_post_intervention(
     post_intervention_response = PostInterventionResponseModel(
         participant_id=participant_id,
         assignment=assignment,
-        open_feedback=require_non_empty_text(
-            questionnaire.open_feedback,
-            "Open feedback",
-        ),
+        open_feedback=questionnaire.open_feedback,
         submitted_at=submitted_at,
     )
     session.add(post_intervention_response)
