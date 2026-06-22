@@ -17,6 +17,8 @@ VALID_STUDY_BACKGROUNDS = {
     "stem-other",
     "non-stem",
     "not-studying",
+    "software-engineering",
+    "computational-social-sciences"
 }
 
 VALID_ADHD_DIAGNOSES = {
