@@ -56,3 +56,7 @@ UES_QUESTION_IDS = {f"ues{index}" for index in range(1, 31)}
 LIKERT_MIN = 1
 LIKERT_MAX = 5
 FAM_SCALE_MAX = 7
+
+# Demographics Validation
+MIN_AGE = 18
+MAX_AGE = 99

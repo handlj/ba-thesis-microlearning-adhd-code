@@ -1,5 +1,6 @@
-import { type DemographicAnswers } from './groupAssignment'
-import { copy } from '../content/copy'
+import { copy } from '../content/copy';
+import { MAX_AGE, MIN_AGE } from './config';
+import { type DemographicAnswers } from './groupAssignment';
 
 export type ValidationResult =
   | { valid: true }
@@ -20,7 +21,7 @@ export function validateDemographics(
   }
 
   const parsedAge = Number(demographics.age)
-  if (!Number.isInteger(parsedAge) || parsedAge < 13 || parsedAge > 120) {
+  if (!Number.isInteger(parsedAge) || parsedAge < MIN_AGE || parsedAge > MAX_AGE) {
     return {
       valid: false,
       error: copy.validation.demographicsAgeRange,

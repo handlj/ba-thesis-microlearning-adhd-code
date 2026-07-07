@@ -3,7 +3,7 @@ import json
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session
 
-from app.config import ADHD_SCREENING_QUESTION_IDS, FAM_QUESTION_IDS
+from app.config import ADHD_SCREENING_QUESTION_IDS, FAM_QUESTION_IDS, MAX_AGE, MIN_AGE
 from app.config import FAM_SCALE_MAX, LIKERT_MAX, LIKERT_MIN
 from app.config import PANAS_QUESTION_IDS, UES_QUESTION_IDS
 from app.config import VALID_ADHD_DIAGNOSES, VALID_ASSIGNMENTS
@@ -66,10 +66,10 @@ def submit_demographics(
 ):
     participant = ensure_participant_exists(participant_id, session)
 
-    if demographics.age < 13 or demographics.age > 120:
+    if demographics.age < MIN_AGE or demographics.age > MAX_AGE:
         raise HTTPException(
             status_code=400,
-            detail="Age must be between 13 and 120.",
+            detail=f"Age must be between {MIN_AGE} and {MAX_AGE}.",
         )
 
     if demographics.study_background not in VALID_STUDY_BACKGROUNDS:

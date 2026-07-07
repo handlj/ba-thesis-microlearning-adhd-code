@@ -1,3 +1,5 @@
+import { MAX_AGE, MIN_AGE } from "../utils/config";
+
 export const copy = {
   actions: {
     back: 'Zurück',
@@ -35,7 +37,7 @@ export const copy = {
   },
   validation: {
     demographicsAllQuestions: 'Bitte beantworten Sie alle Fragen, bevor Sie fortfahren.',
-    demographicsAgeRange: 'Bitte geben Sie ein gültiges Alter zwischen 13 und 120 ein.',
+    demographicsAgeRange: `Bitte geben Sie ein gültiges Alter zwischen ${MIN_AGE} und ${MAX_AGE} ein.`,
     preInterventionAllQuestions:
       'Bitte beantworten Sie alle Aussagen, bevor Sie fortfahren.',
   },
