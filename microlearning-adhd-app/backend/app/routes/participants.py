@@ -13,13 +13,7 @@ from app.models import AdhdScreeningResponse, Demographics, FamResponse
 from app.models import InteractionEvent, PanasPostResponse, PanasPreResponse
 from app.models import ParticipantSession, QuizAnswer, UesResponse
 from app.models import PostInterventionResponse as PostInterventionResponseModel
-from app.schemas import AdhdScreeningRequest, AdhdScreeningResponsePayload
-from app.schemas import ConsentRequest, ConsentResponse, DemographicsRequest
-from app.schemas import DemographicsResponse, InteractionEventRequest
-from app.schemas import InteractionEventResponse, LikertQuestionnaireRequest
-from app.schemas import PostInterventionRequest, PostInterventionResponsePayload
-from app.schemas import QuestionnaireResponsePayload, QuizSubmissionRequest
-from app.schemas import QuizSubmissionResponse
+from app.schemas import consent as ConsentSchemas, demographics as DemographicsSchemas, interactionEvent as InteractionEventSchemas, postIntervention as PostInterventionSchemas, questionnaire as QuestionnaireSchemas, quiz as QuizSchemas, adhdScreening as ADHDScreeningSchemas
 from app.services import assign_balanced_group, current_utc_timestamp
 from app.services import ensure_participant_exists, require_non_empty_text
 from app.services import score_adhd_screening, validate_likert_answers
@@ -28,9 +22,9 @@ from app.services import score_adhd_screening, validate_likert_answers
 router = APIRouter(prefix="/api/participants")
 
 
-@router.post("/consent", response_model=ConsentResponse)
+@router.post("/consent", response_model=ConsentSchemas.ConsentResponse)
 def create_consent_session(
-    consent: ConsentRequest,
+    consent: ConsentSchemas.ConsentRequest,
     session: Session = Depends(get_session),
 ):
     if not consent.consented:
@@ -49,7 +43,7 @@ def create_consent_session(
     session.commit()
     session.refresh(participant)
 
-    return ConsentResponse(
+    return ConsentSchemas.ConsentResponse(
         participant_id=participant.id,
         consented_at=participant.consented_at,
     )
@@ -57,11 +51,11 @@ def create_consent_session(
 
 @router.post(
     "/{participant_id}/demographics",
-    response_model=DemographicsResponse,
+    response_model=DemographicsSchemas.DemographicsResponse,
 )
 def submit_demographics(
     participant_id: str,
-    demographics: DemographicsRequest,
+    demographics: DemographicsSchemas.DemographicsRequest,
     session: Session = Depends(get_session),
 ):
     participant = ensure_participant_exists(participant_id, session)
@@ -90,16 +84,16 @@ def submit_demographics(
     session.add(demographics_row)
     session.commit()
 
-    return DemographicsResponse(participant_id=participant.id)
+    return DemographicsSchemas.DemographicsResponse(participant_id=participant.id)
 
 
 @router.post(
     "/{participant_id}/events",
-    response_model=InteractionEventResponse,
+    response_model=InteractionEventSchemas.InteractionEventResponse,
 )
 def record_interaction_event(
     participant_id: str,
-    event: InteractionEventRequest,
+    event: InteractionEventSchemas.InteractionEventRequest,
     session: Session = Depends(get_session),
 ):
     ensure_participant_exists(participant_id, session)
@@ -117,7 +111,7 @@ def record_interaction_event(
     session.commit()
     session.refresh(interaction_event)
 
-    return InteractionEventResponse(
+    return InteractionEventSchemas.InteractionEventResponse(
         id=interaction_event.id,
         received_at=interaction_event.received_at,
     )
@@ -125,11 +119,11 @@ def record_interaction_event(
 
 @router.post(
     "/{participant_id}/post-intervention",
-    response_model=PostInterventionResponsePayload,
+    response_model=PostInterventionSchemas.PostInterventionResponsePayload,
 )
 def submit_post_intervention(
     participant_id: str,
-    questionnaire: PostInterventionRequest,
+    questionnaire: PostInterventionSchemas.PostInterventionRequest,
     session: Session = Depends(get_session),
 ):
     ensure_participant_exists(participant_id, session)
@@ -148,7 +142,7 @@ def submit_post_intervention(
     session.add(post_intervention_response)
     session.commit()
 
-    return PostInterventionResponsePayload(
+    return PostInterventionSchemas.PostInterventionResponsePayload(
         participant_id=participant_id,
         submitted_at=submitted_at,
     )
@@ -163,13 +157,13 @@ def _validate_assignment(assignment: str) -> str:
 
 def _persist_questionnaire(
     participant_id: str,
-    request: LikertQuestionnaireRequest,
+    request: QuestionnaireSchemas.LikertQuestionnaireRequest,
     session: Session,
     model: type,
     expected_ids: set[str],
     min_value: int,
     max_value: int,
-) -> QuestionnaireResponsePayload:
+) -> QuestionnaireSchemas.QuestionnaireResponsePayload:
     ensure_participant_exists(participant_id, session)
     assignment = _validate_assignment(request.assignment)
     answers = validate_likert_answers(
@@ -189,7 +183,7 @@ def _persist_questionnaire(
     session.add(row)
     session.commit()
 
-    return QuestionnaireResponsePayload(
+    return QuestionnaireSchemas.QuestionnaireResponsePayload(
         participant_id=participant_id,
         submitted_at=submitted_at,
     )
@@ -197,11 +191,11 @@ def _persist_questionnaire(
 
 @router.post(
     "/{participant_id}/adhd-screening",
-    response_model=AdhdScreeningResponsePayload,
+    response_model=ADHDScreeningSchemas.AdhdScreeningResponsePayload,
 )
 def submit_adhd_screening(
     participant_id: str,
-    request: AdhdScreeningRequest,
+    request: ADHDScreeningSchemas.AdhdScreeningRequest,
     session: Session = Depends(get_session),
 ):
     participant = ensure_participant_exists(participant_id, session)
@@ -233,7 +227,7 @@ def submit_adhd_screening(
     )
     session.commit()
 
-    return AdhdScreeningResponsePayload(
+    return ADHDScreeningSchemas.AdhdScreeningResponsePayload(
         participant_id=participant_id,
         assignment=participant.assignment,
         submitted_at=submitted_at,
@@ -242,11 +236,11 @@ def submit_adhd_screening(
 
 @router.post(
     "/{participant_id}/panas-pre",
-    response_model=QuestionnaireResponsePayload,
+    response_model=QuestionnaireSchemas.QuestionnaireResponsePayload,
 )
 def submit_panas_pre(
     participant_id: str,
-    questionnaire: LikertQuestionnaireRequest,
+    questionnaire: QuestionnaireSchemas.LikertQuestionnaireRequest,
     session: Session = Depends(get_session),
 ):
     return _persist_questionnaire(
@@ -262,11 +256,11 @@ def submit_panas_pre(
 
 @router.post(
     "/{participant_id}/panas-post",
-    response_model=QuestionnaireResponsePayload,
+    response_model=QuestionnaireSchemas.QuestionnaireResponsePayload,
 )
 def submit_panas_post(
     participant_id: str,
-    questionnaire: LikertQuestionnaireRequest,
+    questionnaire: QuestionnaireSchemas.LikertQuestionnaireRequest,
     session: Session = Depends(get_session),
 ):
     return _persist_questionnaire(
@@ -282,11 +276,11 @@ def submit_panas_post(
 
 @router.post(
     "/{participant_id}/fam",
-    response_model=QuestionnaireResponsePayload,
+    response_model=QuestionnaireSchemas.QuestionnaireResponsePayload,
 )
 def submit_fam(
     participant_id: str,
-    questionnaire: LikertQuestionnaireRequest,
+    questionnaire: QuestionnaireSchemas.LikertQuestionnaireRequest,
     session: Session = Depends(get_session),
 ):
     return _persist_questionnaire(
@@ -302,11 +296,11 @@ def submit_fam(
 
 @router.post(
     "/{participant_id}/ues",
-    response_model=QuestionnaireResponsePayload,
+    response_model=QuestionnaireSchemas.QuestionnaireResponsePayload,
 )
 def submit_ues(
     participant_id: str,
-    questionnaire: LikertQuestionnaireRequest,
+    questionnaire: QuestionnaireSchemas.LikertQuestionnaireRequest,
     session: Session = Depends(get_session),
 ):
     return _persist_questionnaire(
@@ -322,11 +316,11 @@ def submit_ues(
 
 @router.post(
     "/{participant_id}/quiz",
-    response_model=QuizSubmissionResponse,
+    response_model=QuizSchemas.QuizSubmissionResponse,
 )
 def submit_quiz(
     participant_id: str,
-    submission: QuizSubmissionRequest,
+    submission: QuizSchemas.QuizSubmissionRequest,
     session: Session = Depends(get_session),
 ):
     ensure_participant_exists(participant_id, session)
@@ -350,7 +344,7 @@ def submit_quiz(
         session.add(quiz_answer)
     session.commit()
 
-    return QuizSubmissionResponse(
+    return QuizSchemas.QuizSubmissionResponse(
         participant_id=participant_id,
         answer_count=len(submission.answers),
         submitted_at=submitted_at,

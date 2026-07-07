@@ -1,31 +1,31 @@
 from fastapi import APIRouter, Request
 from app.config import NUMBER_OF_EXPERIMENTAL_VIDEOS
-from app.schemas import ControlVideo, ExperimentalVideo, InstructionVideo
+from app.schemas import video as VideoSchemas
 
 
 router = APIRouter(prefix="/api")
 
 
-@router.get("/control-video", response_model=ControlVideo)
+@router.get("/control-video", response_model=VideoSchemas.ControlVideo)
 def get_control_video(request: Request):
-    return ControlVideo(
+    return VideoSchemas.ControlVideo(
         title="",
         description="",
         video_url=str(request.url_for("media", path="video-full-v1.mp4")),
     )
 
 
-@router.get("/instruction-video", response_model=InstructionVideo)
+@router.get("/instruction-video", response_model=VideoSchemas.InstructionVideo)
 def get_instruction_video(request: Request):
-    return InstructionVideo(
+    return VideoSchemas.InstructionVideo(
         video_url=str(request.url_for("media", path="video-instructions-v1.mp4")),
     )
 
 
-@router.get("/experimental-videos", response_model=list[ExperimentalVideo])
+@router.get("/experimental-videos", response_model=list[VideoSchemas.ExperimentalVideo])
 def get_experimental_videos(request: Request):
     return [
-        ExperimentalVideo(
+        VideoSchemas.ExperimentalVideo(
             id=f"experimental-video-{index}",
             title="",
             description="",
