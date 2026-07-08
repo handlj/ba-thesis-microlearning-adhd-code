@@ -1,45 +1,5 @@
 from datetime import datetime
-from uuid import uuid4
-
 from sqlmodel import Field, SQLModel
-
-
-class ParticipantSession(SQLModel, table=True):
-    id: str = Field(default_factory=lambda: str(uuid4()), primary_key=True)
-    consented: bool
-    consented_at: datetime
-    created_at: datetime
-    assignment: str | None = None
-    adhd_screen_positive: bool | None = None
-
-
-class Demographics(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
-    participant_id: str = Field(foreign_key="participantsession.id")
-    age: int
-    study_background: str
-    adhd_diagnosis: str
-    submitted_at: datetime
-
-
-class InteractionEvent(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
-    participant_id: str = Field(foreign_key="participantsession.id")
-    group: str
-    page: str
-    event_type: str
-    occurred_at: datetime
-    received_at: datetime
-    payload_json: str | None = None
-
-
-class PostInterventionResponse(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
-    participant_id: str = Field(foreign_key="participantsession.id")
-    assignment: str
-    open_feedback: str
-    submitted_at: datetime
-
 
 class AdhdScreeningResponse(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
@@ -167,16 +127,4 @@ class UesResponse(SQLModel, table=True):
     ues28: int
     ues29: int
     ues30: int
-    submitted_at: datetime
-
-
-class QuizAnswer(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
-    participant_id: str = Field(foreign_key="participantsession.id")
-    group: str
-    video_id: str | None = None
-    video_index: int | None = None
-    topic_id: str
-    question_id: str
-    selected_options: str
     submitted_at: datetime

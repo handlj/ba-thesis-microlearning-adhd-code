@@ -12,7 +12,7 @@ from app.config import (
     ADHD_SCREEN_POSITIVE_MARKS,
     BIASED_COIN_PROBABILITY,
 )
-from app.models import ParticipantSession
+from app.models.session import ParticipantSession
 
 
 # Module-level RNG for group allocation. Intentionally unseeded so each run of
