@@ -6,7 +6,7 @@ import ExperimentalGroupQuizzes from './ExperimentalGroupQuizzes.tsx'
 import type { QuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
 import { quizTopics } from '../../content/quiz.ts'
 import {
-  fetchExperimentalVideos,
+  getExperimentalVideos,
   type ExperimentalVideo,
   type StudyInteractionPayload,
 } from '../../services/index.ts'
@@ -48,7 +48,7 @@ function ExperimentalGroup({
     const loadVideos = async () => {
       try {
         setIsLoading(true)
-        const response = await fetchExperimentalVideos()
+        const response = await getExperimentalVideos()
 
         if (!active) {
           return

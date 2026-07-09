@@ -17,14 +17,14 @@ import ThankYou from '../pages/ThankYou.tsx'
 import {
   postConsentSession,
   postInteractionEvent,
-  submitAdhdScreening,
+  postAdhdScreening,
   postDemographics,
-  submitFam,
-  submitPanasPost,
-  submitPanasPre,
+  postFam,
+  postPanasPost,
+  postPanasPre,
   postPostInterventionQuestionnaire,
-  submitQuizAnswers,
-  submitUes,
+  postQuizAnswers,
+  postUes,
   type PostInterventionAnswers,
   type QuizAnswerSubmission,
   type StudyInteractionPayload,
@@ -251,7 +251,7 @@ function App() {
       return
     }
 
-    void submitQuizAnswers(participantId, submission).catch((requestError) => {
+    void postQuizAnswers(participantId, submission).catch((requestError) => {
       console.error(copy.errors.quizSave, requestError)
     })
   }
@@ -336,7 +336,7 @@ function App() {
     try {
       isSavingQuestionnaireRef.current = true
       setAdhdScreeningError(null)
-      const response = await submitAdhdScreening(participantId, adhdScreeningAnswers)
+      const response = await postAdhdScreening(participantId, adhdScreeningAnswers)
       setAssignment(response.assignment)
       addBufferedEvent('adhd_screening_submitted', 'adhdScreening', {
         participantId,
@@ -375,7 +375,7 @@ function App() {
     try {
       isSavingQuestionnaireRef.current = true
       setPrePanasError(null)
-      await submitPanasPre(participantId, assignment, prePanasAnswers)
+      await postPanasPre(participantId, assignment, prePanasAnswers)
       addBufferedEvent('pre_intervention_panas_submitted', 'prePanas', {
         participantId,
         assignment,
@@ -413,7 +413,7 @@ function App() {
     try {
       isSavingQuestionnaireRef.current = true
       setFamError(null)
-      await submitFam(participantId, assignment, famAnswers)
+      await postFam(participantId, assignment, famAnswers)
       addBufferedEvent('pre_intervention_fam_submitted', 'fam', {
         participantId,
         assignment,
@@ -456,7 +456,7 @@ function App() {
     try {
       isSavingQuestionnaireRef.current = true
       setPostPanasError(null)
-      await submitPanasPost(participantId, assignment, postPanasAnswers)
+      await postPanasPost(participantId, assignment, postPanasAnswers)
       addBufferedEvent('post_intervention_panas_submitted', 'postPanas', {
         participantId,
         assignment,
@@ -494,7 +494,7 @@ function App() {
     try {
       isSavingQuestionnaireRef.current = true
       setUesError(null)
-      await submitUes(participantId, assignment, uesAnswers)
+      await postUes(participantId, assignment, uesAnswers)
       addBufferedEvent('post_intervention_ues_submitted', 'ues', {
         participantId,
         assignment,

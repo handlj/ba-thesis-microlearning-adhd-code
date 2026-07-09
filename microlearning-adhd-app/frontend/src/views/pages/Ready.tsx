@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { fetchInstructionVideo, type InstructionVideo, type StudyInteractionPayload } from '../../services/index.ts'
+import { getInstructionVideo, type InstructionVideo, type StudyInteractionPayload } from '../../services/index.ts'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
@@ -35,7 +35,7 @@ function Ready({
     const loadVideo = async () => {
       try {
         setIsLoading(true)
-        const response = await fetchInstructionVideo()
+        const response = await getInstructionVideo()
 
         if (!active) {
           return
