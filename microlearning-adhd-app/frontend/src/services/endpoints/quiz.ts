@@ -2,7 +2,7 @@ import api from "../client";
 import type { QuizAnswerSubmission, QuizSubmission } from "../types/quiz";
 
 
-export async function submitQuizAnswers(
+export async function postQuizAnswers(
   participantId: string,
   submission: QuizAnswerSubmission,
 ) {
