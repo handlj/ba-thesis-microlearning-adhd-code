@@ -3,7 +3,6 @@
 ## Next Up
 
 ### Demographics
-- [ ] Add validation for age input (must be between 18 and 99)
 - [ ] ADHD Diagnosestatus an ICD anpassen (gemischt, hyperaktiv, impulsiv) ankreuzen (wenn offizielle Diagnose)
 - [ ] Wenn ADHD Diagnose -> Nehmen Sie Medikamente gegen Ihr ADHS? Y/N
 
@@ -25,7 +24,7 @@
 
 ### Backend
 - [ ] Update Backend persistence for updated questions (demographics, post-study feedback)
-- [ ] Add an endpoint for the frontend to fetch global configuration values (e.g. min/max age, valid study backgrounds, valid ADHD diagnoses, etc.) from the backend, so that they are not hardcoded and duplicated in the frontend.
+- [ ] Populate the endpoint for the frontend to fetch global configuration values (e.g. valid study backgrounds, valid ADHD diagnoses, etc.) from the backend, so that they are not hardcoded and duplicated.
 
 ### Study Flow
 - [ ] Add that reloading the page does not reset the progress of the user.
