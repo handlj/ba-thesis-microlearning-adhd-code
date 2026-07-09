@@ -4,7 +4,7 @@ import type { GroupAssignment } from "../../utils/groupAssignment";
 import type { PostInterventionAnswers, PostInterventionSubmission } from "../types/postIntervention";
 
 
-export async function submitPostInterventionQuestionnaire(
+export async function postPostInterventionQuestionnaire(
   participantId: string,
   assignment: GroupAssignment,
   answers: PostInterventionAnswers,

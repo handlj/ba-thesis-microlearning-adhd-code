@@ -3,7 +3,7 @@ import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import ControlGroupQuiz from './ControlGroupQuiz.tsx'
-import { fetchControlVideo, type ControlVideo, type StudyInteractionPayload } from '../../services/index.ts'
+import { getControlVideo, type ControlVideo, type StudyInteractionPayload } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
 
 type ControlGroupProps = {
@@ -34,7 +34,7 @@ function ControlGroup({
     const loadVideo = async () => {
       try {
         setIsLoading(true)
-        const response = await fetchControlVideo()
+        const response = await getControlVideo()
 
         if (!active) {
           return

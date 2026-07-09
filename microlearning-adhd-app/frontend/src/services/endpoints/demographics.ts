@@ -4,7 +4,7 @@ import type { DemographicAnswers } from "../../utils/groupAssignment";
 import type { DemographicsSubmission } from "../types/demographics";
 
 
-export async function submitDemographics(
+export async function postDemographics(
   participantId: string,
   demographics: DemographicAnswers,
 ) {

@@ -2,7 +2,7 @@ import api from "../client";
 import type { ConsentSession } from "../types/consent";
 
 
-export async function createConsentSession() {
+export async function postConsentSession() {
   const response = await api.post<ConsentSession>("/participants/consent", {
     consented: true,
   });

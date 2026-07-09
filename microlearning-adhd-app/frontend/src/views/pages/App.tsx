@@ -15,14 +15,14 @@ import ControlGroup from '../pages/ControlGroup.tsx'
 import ExperimentalGroup from '../pages/ExperimentalGroup.tsx'
 import ThankYou from '../pages/ThankYou.tsx'
 import {
-  createConsentSession,
-  recordInteractionEvent,
+  postConsentSession,
+  postInteractionEvent,
   submitAdhdScreening,
-  submitDemographics,
+  postDemographics,
   submitFam,
   submitPanasPost,
   submitPanasPre,
-  submitPostInterventionQuestionnaire,
+  postPostInterventionQuestionnaire,
   submitQuizAnswers,
   submitUes,
   type PostInterventionAnswers,
@@ -232,7 +232,7 @@ function App() {
       return
     }
 
-    void recordInteractionEvent(participantId, {
+    void postInteractionEvent(participantId, {
       group,
       page: interactionPage,
       event_type: eventType,
@@ -262,7 +262,7 @@ function App() {
     try {
       setConsentError(null)
       setIsSavingConsent(true)
-      const consentSession = await createConsentSession()
+      const consentSession = await postConsentSession()
       setParticipantId(consentSession.participant_id)
       localStorage.setItem(PARTICIPANT_ID_KEY, consentSession.participant_id)
       addBufferedEvent('consent_submitted', 'consent', {
@@ -297,7 +297,7 @@ function App() {
     try {
       setDemographicError(null)
       setIsSavingDemographics(true)
-      await submitDemographics(participantId, demographics)
+      await postDemographics(participantId, demographics)
       addBufferedEvent('demographics_submitted', 'demographics', {
         participantId,
         age: demographics.age,
@@ -523,7 +523,7 @@ function App() {
     try {
       setFollowUpError(null)
       setIsSavingFollowUp(true)
-      await submitPostInterventionQuestionnaire(
+      await postPostInterventionQuestionnaire(
         participantId,
         assignment,
         postInterventionAnswers,

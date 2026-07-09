@@ -17,7 +17,7 @@ function toNumericAnswers(answers: Record<string, string>) {
   );
 }
 
-async function submitLikertQuestionnaire(
+async function postLikertQuestionnaire(
   participantId: string,
   path: string,
   assignment: GroupAssignment,
@@ -35,7 +35,7 @@ async function submitLikertQuestionnaire(
 
 // The ADHD screening is special: its result determines the group assignment, so
 // it posts only the answers and receives the freshly drawn assignment back.
-export async function submitAdhdScreening(
+export async function postAdhdScreening(
   participantId: string,
   answers: Record<string, string>,
 ) {
@@ -48,34 +48,34 @@ export async function submitAdhdScreening(
   return response.data;
 }
 
-export async function submitPanasPre(
+export async function postPanasPre(
   participantId: string,
   assignment: GroupAssignment,
   answers: Record<string, string>,
 ) {
-  return submitLikertQuestionnaire(participantId, "panas-pre", assignment, answers);
+  return postLikertQuestionnaire(participantId, "panas-pre", assignment, answers);
 }
 
-export async function submitPanasPost(
+export async function postPanasPost(
   participantId: string,
   assignment: GroupAssignment,
   answers: Record<string, string>,
 ) {
-  return submitLikertQuestionnaire(participantId, "panas-post", assignment, answers);
+  return postLikertQuestionnaire(participantId, "panas-post", assignment, answers);
 }
 
-export async function submitFam(
+export async function postFam(
   participantId: string,
   assignment: GroupAssignment,
   answers: Record<string, string>,
 ) {
-  return submitLikertQuestionnaire(participantId, "fam", assignment, answers);
+  return postLikertQuestionnaire(participantId, "fam", assignment, answers);
 }
 
-export async function submitUes(
+export async function postUes(
   participantId: string,
   assignment: GroupAssignment,
   answers: Record<string, string>,
 ) {
-  return submitLikertQuestionnaire(participantId, "ues", assignment, answers);
+  return postLikertQuestionnaire(participantId, "ues", assignment, answers);
 }

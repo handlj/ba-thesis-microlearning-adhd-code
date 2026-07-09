@@ -2,7 +2,7 @@ import api from "../client";
 import type { StudyInteractionEvent, StudyInteractionEventResponse } from "../types/interactionEvent";
 
 
-export async function recordInteractionEvent(
+export async function postInteractionEvent(
   participantId: string,
   event: Omit<StudyInteractionEvent, "occurred_at">,
 ) {
