@@ -3,7 +3,7 @@ import QuizProgressHeader from '../../components/quiz/QuizProgressHeader.tsx'
 import QuizQuestionField from '../../components/quiz/QuizQuestionField.tsx'
 import { useQuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
 import { allQuizQuestions } from '../../content/quiz.ts'
-import type { StudyInteractionPayload } from '../../services/api.ts'
+import type { StudyInteractionPayload } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
 
 type ControlGroupQuizProps = {

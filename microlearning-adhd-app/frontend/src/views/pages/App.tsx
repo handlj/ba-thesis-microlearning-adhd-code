@@ -28,7 +28,7 @@ import {
   type PostInterventionAnswers,
   type QuizAnswerSubmission,
   type StudyInteractionPayload,
-} from '../../services/api.ts'
+} from '../../services/index.ts'
 import { type DemographicAnswers, type GroupAssignment } from '../../utils/groupAssignment.ts'
 import { validateDemographics } from '../../utils/demographicsValidation.ts'
 import { copy } from '../../content/copy.ts'

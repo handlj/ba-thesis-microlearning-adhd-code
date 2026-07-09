@@ -3,7 +3,7 @@ import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import ControlGroupQuiz from './ControlGroupQuiz.tsx'
-import { fetchControlVideo, type ControlVideo, type StudyInteractionPayload } from '../../services/api.ts'
+import { fetchControlVideo, type ControlVideo, type StudyInteractionPayload } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
 
 type ControlGroupProps = {

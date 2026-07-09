@@ -2,7 +2,7 @@ import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../../compo
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
-import { type PostInterventionAnswers } from '../../services/api.ts'
+import { type PostInterventionAnswers } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
 
 type PostInterventionQuestionId = keyof PostInterventionAnswers

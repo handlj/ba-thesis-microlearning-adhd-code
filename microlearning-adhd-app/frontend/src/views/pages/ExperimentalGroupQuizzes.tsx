@@ -6,7 +6,7 @@ import {
   type QuizAnswers,
 } from '../../components/quiz/useQuizAnswers.ts'
 import type { QuizTopic } from '../../content/quiz.ts'
-import type { StudyInteractionPayload } from '../../services/api.ts'
+import type { StudyInteractionPayload } from '../../services/index.ts'
 
 type ExperimentalGroupQuizzesProps = {
   topic: QuizTopic
