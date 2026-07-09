@@ -4,10 +4,10 @@ import { copy } from './copy'
 
 export type DemographicQuestionId = keyof typeof copy.demographics.questions
 
-type NumberFieldConfig = { type: 'number'; min?: number; max?: number }
+type NumberFieldConfig = { type: 'number' }
 
 const fieldConfig: Partial<Record<DemographicQuestionId, NumberFieldConfig>> = {
-  age: { type: 'number', min: 13, max: 120 },
+  age: { type: 'number' },
 }
 
 export const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = (
@@ -22,8 +22,6 @@ export const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = (
       type: 'number',
       label: q.label,
       ...('placeholder' in q && { placeholder: q.placeholder as string }),
-      min: config.min,
-      max: config.max,
       required: true,
     }
   }

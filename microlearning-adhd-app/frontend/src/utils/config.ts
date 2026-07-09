@@ -1,6 +1,14 @@
-// This file contains configuration values that are used throughout the frontend application. These values are defined as constants and can be imported wherever needed.
+import type { Config } from "../services/types/config";
 
-const MIN_AGE = 18; // Minimum age for participants
-const MAX_AGE = 99; // Maximum age for participants
+let config: Config | null = null;
 
-export { MAX_AGE, MIN_AGE };
+export function setAppConfig(newConfig: Config): void {
+  config = newConfig;
+}
+
+export function getAppConfig(): Config {
+  if (!config) {
+    throw new Error("Config has not been set yet.");
+  }
+  return config;
+}

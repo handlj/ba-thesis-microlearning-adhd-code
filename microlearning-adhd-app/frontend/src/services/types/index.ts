@@ -1,3 +1,4 @@
+export type * from "./config";
 export type * from "./consent";
 export type * from "./demographics";
 export type * from "./interactionEvent";

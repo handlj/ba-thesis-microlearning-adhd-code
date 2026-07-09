@@ -6,11 +6,13 @@ from app.schemas import postIntervention as PostInterventionSchemas
 from app.schemas import questionnaire as QuestionnaireSchemas
 from app.schemas import quiz as QuizSchemas
 from app.schemas import video as VideoSchemas
+from app.schemas import config as ConfigSchemas
 
 __all__ = [
     "ADHDScreeningSchemas",
     "ConsentSchemas",
     "DemographicsSchemas",
+    "ConfigSchemas",
     "InteractionEventSchemas",
     "PostInterventionSchemas",
     "QuestionnaireSchemas",

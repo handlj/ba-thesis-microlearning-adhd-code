@@ -22,6 +22,7 @@ function StudyForm<QuestionId extends string = string>({
   return (
     <form
       className="study-form"
+      noValidate
       onSubmit={(event) => {
         event.preventDefault()
         onSubmit()

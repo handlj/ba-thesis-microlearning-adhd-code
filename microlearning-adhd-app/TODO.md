@@ -49,3 +49,5 @@
 - [ ] Add back buttons on every page without loosing progress, so that users can navigate freely between pages.
 - [ ] Add an "Are you sure" dialog if the user tries to return to welcome page or the session overview page, to prevent them from losing their progress.
 
+### Documentation
+- [ ] Add a shared file for error message strings

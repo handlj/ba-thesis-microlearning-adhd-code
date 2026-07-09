@@ -6,6 +6,8 @@ import StudyPage from '../../components/StudyPage.tsx'
 import { copy } from '../../content/copy.ts'
 import { demographicQuestions } from '../../content/demographics.ts'
 
+import { getAppConfig } from '../../utils/config.ts'
+
 type DemographicsProps = {
   values: DemographicAnswers
   error: string | null
@@ -23,10 +25,12 @@ function Demographics({
   onBack,
   onSubmit,
 }: DemographicsProps) {
+  const appConfig = getAppConfig()
   const isStudying = values.currentlyStudying === 'yes'
-  const visibleQuestions = demographicQuestions.filter(
-    (q) => q.id !== 'studyBackground' || isStudying,
-  )
+  const visibleQuestions = demographicQuestions
+    .filter((q) => q.id !== 'studyBackground' || isStudying)
+    .map((q) => (q.type === 'number' ? { ...q, min: appConfig.min_age, max: appConfig.max_age } : q))
+
 
   const handleChange = (field: keyof DemographicAnswers, value: string) => {
     onChange(field, value)
