@@ -7,7 +7,6 @@ from app.config import ADHD_SCREENING_QUESTION_IDS, FAM_QUESTION_IDS, MAX_AGE, M
 from app.config import FAM_SCALE_MAX, LIKERT_MAX, LIKERT_MIN
 from app.config import PANAS_QUESTION_IDS, UES_QUESTION_IDS
 from app.config import VALID_ADHD_DIAGNOSES, VALID_ASSIGNMENTS
-from app.config import VALID_STUDY_BACKGROUNDS
 from app.database import get_session
 from app.models import *
 from app.schemas import *
@@ -63,9 +62,6 @@ def submit_demographics(
             detail=f"Age must be between {MIN_AGE} and {MAX_AGE}.",
         )
 
-    if demographics.study_background not in VALID_STUDY_BACKGROUNDS:
-        raise HTTPException(status_code=400, detail="Invalid study background.")
-
     if demographics.adhd_diagnosis not in VALID_ADHD_DIAGNOSES:
         raise HTTPException(status_code=400, detail="Invalid ADHD diagnosis status.")
 
@@ -74,8 +70,13 @@ def submit_demographics(
     demographics_row = Demographics(
         participant_id=participant.id,
         age=demographics.age,
-        study_background=demographics.study_background,
+        gender=demographics.gender,
+        highest_education=demographics.highest_education,
+        currently_studying=demographics.currently_studying,
+        study_background=require_non_empty_text(demographics.study_background, "Study background"),
         adhd_diagnosis=demographics.adhd_diagnosis,
+        adhd_official_diagnosis=demographics.adhd_official_diagnosis,
+        adhd_medication=demographics.adhd_medication,
         submitted_at=current_utc_timestamp(),
     )
     session.add(demographics_row)
@@ -130,7 +131,7 @@ def submit_post_intervention(
         raise HTTPException(status_code=400, detail="Invalid assignment.")
 
     submitted_at = current_utc_timestamp()
-    post_intervention_response = PostInterventionResponseModel(
+    post_intervention_response = PostInterventionResponse(
         participant_id=participant_id,
         assignment=assignment,
         open_feedback=questionnaire.open_feedback,

@@ -13,8 +13,12 @@ export async function postDemographics(
     {
       age: Number(demographics.age),
       gender: demographics.gender,
+      highest_education: demographics.highestEducation,
+      currently_studying: demographics.currentlyStudying,
       study_background: demographics.studyBackground,
       adhd_diagnosis: demographics.adhdDiagnosis,
+      adhd_official_diagnosis: demographics.adhdOfficialDiagnosis,
+      adhd_medication: demographics.adhdMedication,
     },
   );
   return response.data;

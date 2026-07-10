@@ -70,6 +70,8 @@ const defaultDemographics: DemographicAnswers = {
   currentlyStudying: '',
   studyBackground: '',
   adhdDiagnosis: '',
+  adhdOfficialDiagnosis: '',
+  adhdMedication: '',
 }
 
 const defaultFamAnswers = fam.questions.reduce<Record<string, string>>(

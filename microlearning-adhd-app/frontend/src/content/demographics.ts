@@ -4,10 +4,11 @@ import { copy } from './copy'
 
 export type DemographicQuestionId = keyof typeof copy.demographics.questions
 
-type NumberFieldConfig = { type: 'number' }
+type FieldConfig = { type: 'number' | 'text' }
 
-const fieldConfig: Partial<Record<DemographicQuestionId, NumberFieldConfig>> = {
+const fieldConfig: Partial<Record<DemographicQuestionId, FieldConfig>> = {
   age: { type: 'number' },
+  studyBackground: { type: 'text' },
 }
 
 export const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = (
@@ -20,6 +21,15 @@ export const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = (
     return {
       id,
       type: 'number',
+      label: q.label,
+      ...('placeholder' in q && { placeholder: q.placeholder as string }),
+      required: true,
+    }
+  }
+  else if (config?.type === 'text') {
+    return {
+      id,
+      type: 'text',
       label: q.label,
       ...('placeholder' in q && { placeholder: q.placeholder as string }),
       required: true,

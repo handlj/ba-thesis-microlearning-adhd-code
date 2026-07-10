@@ -12,15 +12,6 @@ ORIGINS = [
     "http://localhost:5173",
 ]
 
-VALID_STUDY_BACKGROUNDS = {
-    "computer-science",
-    "stem-other",
-    "non-stem",
-    "not-studying",
-    "software-engineering",
-    "computational-social-sciences"
-}
-
 VALID_ADHD_DIAGNOSES = {
     "diagnosed",
     "self-diagnosed",

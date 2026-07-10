@@ -27,15 +27,34 @@ function Demographics({
 }: DemographicsProps) {
   const appConfig = getAppConfig()
   const isStudying = values.currentlyStudying === 'yes'
+  const isDiagnosed = values.adhdDiagnosis === 'diagnosed'
   const visibleQuestions = demographicQuestions
     .filter((q) => q.id !== 'studyBackground' || isStudying)
+    .filter((q) => q.id !== 'adhdOfficialDiagnosis' || isDiagnosed)
+    .filter((q) => q.id !== 'adhdMedication' || isDiagnosed)
+
     .map((q) => (q.type === 'number' ? { ...q, min: appConfig.min_age, max: appConfig.max_age } : q))
 
 
   const handleChange = (field: keyof DemographicAnswers, value: string) => {
     onChange(field, value)
-    if (field === 'currentlyStudying' && value !== 'yes') {
-      onChange('studyBackground', 'not-studying')
+    if (field === 'currentlyStudying') {
+      if (value === 'no') {
+        onChange('studyBackground', 'not-studying')
+      }
+      else if (value === 'yes') {
+        onChange('studyBackground', '')
+      }
+    }
+    else if (field === 'adhdDiagnosis') {
+      if (value !== 'diagnosed') {
+        onChange('adhdOfficialDiagnosis', 'not-diagnosed')
+        onChange('adhdMedication', 'not-diagnosed')
+      }
+      else {
+        onChange('adhdOfficialDiagnosis', '')
+        onChange('adhdMedication', '')
+      }
     }
   }
 

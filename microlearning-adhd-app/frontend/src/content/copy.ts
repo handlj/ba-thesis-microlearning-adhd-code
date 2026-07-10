@@ -114,6 +114,7 @@ export const copy = {
       },
       highestEducation: {
         label: 'Höchster Bildungsabschluss',
+        placeholder: 'Wählen Sie Ihren höchsten Bildungsabschluss',
         options: {
           noneOrMandatory: 'Kein Abschluss oder Pflichtschulabschluss',
           highSchool: 'Matura/Abitur oder gleichwertig',
@@ -126,6 +127,7 @@ export const copy = {
       },
       currentlyStudying: {
         label: 'Derzeit studierend',
+        placeholder: 'Wählen Sie aus, ob Sie derzeit studieren',
         options: {
           yes: 'Ja',
           no: 'Nein',
@@ -133,21 +135,33 @@ export const copy = {
       },
       studyBackground: {
         label: 'Studienhintergrund',
-        options: {
-          computerScience: 'Informatik',
-          softwareEngineering: 'Software Engineering & Management',
-          computationalSocialSciences: 'Computational Social Sciences',
-          stemOther: 'Andere MINT-Fachrichtung',
-          nonStem: 'Nicht-MINT-Fachrichtung',
-          notStudying: 'Derzeit nicht studierend',
-        },
+        placeholder: 'Geben Sie Ihre aktuelle Studienrichtung an',
       },
       adhdDiagnosis: {
         label: 'ADHS-Diagnosestatus',
+        placeholder: 'Wählen Sie Ihren aktuellen ADHS-Diagnosestatus',
         options: {
           diagnosed: 'Diagnostiziert',
           selfDiagnosed: 'Selbstdiagnostiziert',
           notDiagnosed: 'Nicht diagnostiziert',
+          preferNotToSay: 'Keine Angabe',
+        },
+      },
+      adhdOfficialDiagnosis: {
+        label: 'Offizielle ADHS-Diagnose (Wenn diagnostiziert)',
+        placeholder: 'Wählen Sie Ihre entsprechende Diagnose aus',
+        options: {
+          combined: 'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, kombiniert (ICD-11 6A05.2)',
+          inattentive: 'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, vorwiegend unkonzentriert (ICD-11 6A05.0)',
+          hyperactiveImpulsive: 'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, vorwiegend hyperaktiv-impulsiv (ICD-11 6A05.1)',
+          notSpecified: 'Nicht näher bezeichnet (ICD-11 6A05.Z)',
+        }
+      },
+      adhdMedication: {
+        label: 'ADHS-Medikamenteneinnahme',
+        options: {
+          yes: 'Ja',
+          no: 'Nein',
           preferNotToSay: 'Keine Angabe',
         },
       },

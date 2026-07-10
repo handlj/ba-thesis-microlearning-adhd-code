@@ -3,8 +3,6 @@
 ## Next Up
 
 ### Demographics
-- [ ] ADHD Diagnosestatus an ICD anpassen (gemischt, hyperaktiv, impulsiv) ankreuzen (wenn offizielle Diagnose)
-- [ ] Wenn ADHD Diagnose -> Nehmen Sie Medikamente gegen Ihr ADHS? Y/N
 
 ### Questionnaires
 - [ ] Teil B in ADHD Fragebogen einfügen
@@ -20,10 +18,10 @@
 - [ ] Option auf Feedback-Auswertung der Quizzes für EG und CG
 
 ### Interaction Patterns
-- [ ] Interaction Patterns: Korrelieren mit Engagement (Fragebogen UES), frequentistisch
+- [ ] Data Analysis: Interaction Patterns: Korrelieren mit Engagement (Fragebogen UES), frequentistisch
 
 ### Backend
-- [ ] Update Backend persistence for updated questions (demographics, post-study feedback)
+- [ ] Update Backend persistence for updated questions (post-study feedback)
 - [ ] Populate the endpoint for the frontend to fetch global configuration values (e.g. valid study backgrounds, valid ADHD diagnoses, etc.) from the backend, so that they are not hardcoded and duplicated.
 
 ### Study Flow
@@ -50,3 +48,6 @@
 
 ### Documentation
 - [ ] Add a shared file for error message strings
+
+### Maintenance
+- [ ] Decouple monolithic copy.ts file
