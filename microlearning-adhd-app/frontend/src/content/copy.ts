@@ -311,7 +311,7 @@ export const copy = {
       eyebrow: 'Studie abgeschlossen',
       title: 'Vielen Dank für Ihre Teilnahme an der Studie.',
       intro:
-        'Ihre Antworten wurden übermittelt. Sie können dieses Fenster nun schließen und die Studie beenden. Wenn Sie Fragen zu dieser Studie haben, wenden Sie sich bitte an jan.handler@student.tugraz.at.',
+        'Ihre Antworten wurden übermittelt. Sie können dieses Fenster nun schließen und die Studie beenden. Bei Rückfragen können Sie jederzeit die Studienleitung kontaktieren: Dr. rer. nat. Lisa Berger; lisa.berger@tugraz.at',
     },
   },
 } as const
