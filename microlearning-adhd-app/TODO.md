@@ -3,7 +3,6 @@
 ## Next Up
 
 ### Questionnaires
-- [ ] German Validation für UES
 - [ ] Aufmerksamkeitsvalidierung (Kreuzen Sie bei dieser Frage bitte die Zahl "X" an.)
 
 ### Intervention
