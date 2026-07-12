@@ -36,6 +36,7 @@ import { adhdScreening } from '../../content/adhdScreening.ts'
 import { fam } from '../../content/fam.ts'
 import { panas } from '../../content/panas.ts'
 import { ues } from '../../content/ues.ts'
+import PreQuiz from './PreQuiz.tsx'
 
 type Page =
   | 'welcome'
@@ -45,6 +46,7 @@ type Page =
   | 'prePanas'
   | 'ready'
   | 'fam'
+  | 'preQuiz'
   | 'control'
   | 'experimental'
   | 'postPanas'
@@ -144,6 +146,7 @@ function App() {
   )
   const [prePanasError, setPrePanasError] = useState<string | null>(null)
   const [famError, setFamError] = useState<string | null>(null)
+  const [preQuizError, setPreQuizError] = useState<string | null>(null)
   const [postPanasError, setPostPanasError] = useState<string | null>(null)
   const [uesError, setUesError] = useState<string | null>(null)
   const [followUpError, setFollowUpError] = useState<string | null>(null)
@@ -169,6 +172,7 @@ function App() {
     setAdhdScreeningError(null)
     setPrePanasError(null)
     setFamError(null)
+    setPreQuizError(null)
     setPostPanasError(null)
     setUesError(null)
     setFollowUpError(null)
@@ -395,6 +399,19 @@ function App() {
     }
   }
 
+  const handlePreQuizSubmit = () => {
+    if (!participantId || !assignment) {
+      setPreQuizError(copy.errors.questionnaireMissingSession)
+      return
+    }
+
+    if (assignment === 'control') {
+      transitionTo('control')
+    } else if (assignment === 'experimental') {
+      transitionTo('experimental')
+    }
+  }
+
   const handleFamSubmit = async () => {
     const missingAnswer = fam.questions.some(
       (question) => !famAnswers[question.id]?.trim(),
@@ -422,11 +439,7 @@ function App() {
         ...famAnswers,
       })
 
-      if (assignment === 'control') {
-        transitionTo('control')
-      } else if (assignment === 'experimental') {
-        transitionTo('experimental')
-      }
+      transitionTo('preQuiz')
     } catch (requestError) {
       setFamError(
         requestError instanceof Error
@@ -637,6 +650,32 @@ function App() {
         }}
         onBack={() => transitionTo('ready')}
         onSubmit={handleFamSubmit}
+      />
+    )
+  }
+
+  if (page === 'preQuiz') {
+    return (
+      <PreQuiz
+        onSubmit={handlePreQuizSubmit}
+        onBack={() => transitionTo('fam')}
+        onLogInteraction={(eventType, payload) => {
+          if (preQuizError) setPreQuizError(null)
+          if (assignment) {
+            logStudyInteraction(assignment, eventType, payload, 'preQuiz')
+          }
+        }}
+        onSubmitQuiz={(answers) => {
+          if (!assignment) return
+          submitQuizForGroup({
+            group: assignment,
+            video_id: null,
+            video_index: null,
+            topic_id: 'pre-quiz',
+            answers,
+          })
+        }}
+        error={preQuizError}
       />
     )
   }

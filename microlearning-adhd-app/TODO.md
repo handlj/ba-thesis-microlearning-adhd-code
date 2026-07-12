@@ -6,7 +6,6 @@
 - [ ] Aufmerksamkeitsvalidierung (Kreuzen Sie bei dieser Frage bitte die Zahl "X" an.)
 
 ### Intervention
-- [ ] Quiz 2x machen, einmal davor, einmal danach -> Davor einfügen
 - [ ] Nach jedem EG Video, 4/5 Fragen korrekt, sonst zurück auf ML mit spezfischen Subkategorien
   "Track" Element in HTML evtl. verwendbar
 
@@ -19,11 +18,13 @@
 ### Backend
 - [ ] Update Backend persistence for updated questions (post-study feedback)
 - [ ] Populate the endpoint for the frontend to fetch global configuration values (e.g. valid study backgrounds, valid ADHD diagnoses, etc.) from the backend, so that they are not hardcoded and duplicated.
+- [ ] Add dedicated prequiz endpoint to backend, so we can distinguish between prequiz and postquiz submissions in the database.
 
 ### Study Flow
 - [ ] Add that reloading the page does not reset the progress of the user.
 - [ ] Translate all buttons from proceed to fortfahren
 - [ ] If the user changes from one page to the other, it should arrive at the top of the page and not the same position as before.
+- [ ] Adapt study flow graph since prequiz was added, adhd screening was enlarged
 
 ## Before Deployment
 - [ ] Remove the explicit group labels in the Ready page.
