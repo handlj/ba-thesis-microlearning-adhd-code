@@ -3,7 +3,6 @@
 ## Next Up
 
 ### Questionnaires
-- [ ] Teil B in ADHD Fragebogen einfügen
 - [ ] German Validation für UES
 - [ ] Aufmerksamkeitsvalidierung (Kreuzen Sie bei dieser Frage bitte die Zahl "X" an.)
 
@@ -43,6 +42,9 @@
 - [ ] Progress Indicator for the whole study
 - [ ] Add back buttons on every page without loosing progress, so that users can navigate freely between pages.
 - [ ] Add an "Are you sure" dialog if the user tries to return to welcome page or the session overview page, to prevent them from losing their progress.
+
+### Data Analysis
+- [ ] Exclude users who are very fast on the questionnaires (e.g. < 1s per question)>)
 
 ### Documentation
 - [ ] Add a shared file for error message strings
