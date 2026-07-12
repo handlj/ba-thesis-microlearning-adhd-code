@@ -4,6 +4,9 @@
 
 ### Demographics
 
+### Consent
+- [ ] Add EV as formulated by Lisa
+
 ### Questionnaires
 - [ ] Teil B in ADHD Fragebogen einfügen
 - [ ] German Validation für UES
@@ -51,3 +54,4 @@
 
 ### Maintenance
 - [ ] Decouple monolithic copy.ts file
+- [ ] Extract text content from Consent.tsx into dedicated file

@@ -56,12 +56,13 @@ export const copy = {
       noDataCollected: 'Ohne Ihr ausdrückliches Einverständnis werden keine Daten erhoben.',
     },
   },
+  // TODO: Remove outdated consent content, source of truth is now in Consent.tsx. Consider moving the remaining content to a dedicated file for better maintainability.
   consent: {
     heading: {
-      eyebrow: 'Teilnehmer:inneninformation und Einwilligung',
-      title: 'Bevor wir Daten erheben',
+      eyebrow: 'Teilnehmer*inneninformation und Einwilligung',
+      title: '',
       intro:
-        'Diese Studie untersucht, wie Lernende mit kurzen Mikrolern-Materialien arbeiten. Bitte lesen Sie vor dem Start die folgenden Informationen.',
+        '',
     },
     sections: [
       {
@@ -88,7 +89,7 @@ export const copy = {
       }
     ],
     agreement:
-      'Ich habe die obigen Informationen gelesen und stimme zu, mit den demografischen Fragen fortzufahren.',
+      'Ich habe die vorstehende Einverständniserklärung gelesen, verstanden und stimme ihr zu.',
   },
   demographics: {
     heading: {

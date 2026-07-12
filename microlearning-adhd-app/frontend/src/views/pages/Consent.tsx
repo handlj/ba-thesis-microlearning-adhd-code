@@ -22,7 +22,11 @@ function Consent({
   onBack,
 }: ConsentProps) {
   return (
-    <StudyPage ariaLabelledBy="consent-title" cardClassName="consent-card">
+    <StudyPage 
+      ariaLabelledBy="consent-title" 
+      cardClassName="consent-card"
+    >
+
       <StudyHeading
         eyebrow={copy.consent.heading.eyebrow}
         title={copy.consent.heading.title}
@@ -31,16 +35,32 @@ function Consent({
       />
 
       <div className="consent-content">
-        {copy.consent.sections.map((section) => (
-          <section key={section.title}>
-            <h2>{section.title}</h2>
-            <ul>
-              {section.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </section>
-        ))}
+
+        <h1>Einverständniserklärung</h1>
+
+        <p>
+          Willkommen zur Studie „MicroPython“ vom Institut for Human-Centred Computing der TU Graz. Das Ziel der vorliegenden Studie ist es, zu untersuchen, wie Python Grundlagen mit unterschiedlichen Lernmethoden erlernt werden können.
+        </p>
+
+        <h2>Studienablauf</h2>
+        <p>
+          Die Studie wird in etwa eine Stunde in Anspruch nehmen. Zu Beginn werden ein paar Fragebögen vorgegeben, anschließend werden Ihre Python-Vorkenntnisse in einem kurzen Quiz erhoben, dabei ist es kein Problem, wenn Sie keine der Fragen beantworten können. Danach wird die kurze Lerneinheit begonnen. Abschließend folgen ein weiteres Quiz und Fragebögen.
+        </p>
+
+        <h2>Datenschutz</h2>
+        <p>
+          Alle von Ihnen erfassten Daten werden in anonymisierter Form erhoben, weiterverarbeitet und gespeichert. Zu keiner Zeit ist ab diesem Zeitpunkt ein Rückschluss auf Ihre Person durch Dritte möglich. Die Daten werden gemäß den Bestimmungen der derzeit gültigen Datenschutzrichtlinien weiterverarbeitet. Wir bestätigen, dass das österreichische Datenschutzgesetz eingehalten wird. Eine Weitergabe der Daten erfolgt nur in anonymisierter Form. Auch für etwaige Publikationen werden nur die anonymisierten Daten verwendet
+        </p>
+
+        <h2>Rückfragen</h2>
+        <p>
+          Sie haben das Recht, die Untersuchung ohne die Angabe von Gründen und ohne Nachteile Ihrerseits zu jedem Zeitpunkt der Untersuchung abzubrechen. Bei Rückfragen können Sie jederzeit die Studienleitung kontaktieren: Dr. rer. nat. Lisa Berger; lisa.berger@tugraz.at
+        </p>
+
+        <h2>Einverständnis</h2>
+        <p>
+          Ich stimme zu, dass die im Rahmen dieser Studie erhobenen Daten in anonymisierter Form dokumentiert und in anonymisierter Form lokal gespeichert und in anonymisierter Form als Basis für Publikationen herangezogen und ggf. weitergegeben werden. Ich bestätige volljährig zu sein.
+        </p>
       </div>
 
       <label className="checkbox-row consent-check">
