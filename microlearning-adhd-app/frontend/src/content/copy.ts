@@ -47,7 +47,7 @@ export const copy = {
   },
   welcome: {
     heading: {
-      eyebrow: 'Microlearning-Studie',
+      eyebrow: 'MicroPython',
       title: 'Herzlich Willkommen!',
       intro:
         'Sie beginnen gleich eine kurze Studiensitzung. Nehmen Sie sich Zeit, lesen Sie alle Informationen sorgfältig und starten Sie, sobald Sie bereit sind.',
