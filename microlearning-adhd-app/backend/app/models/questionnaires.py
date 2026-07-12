@@ -11,6 +11,18 @@ class AdhdScreeningResponse(SQLModel, table=True):
     adhd4: int
     adhd5: int
     adhd6: int
+    adhd7: int
+    adhd8: int
+    adhd9: int
+    adhd10: int
+    adhd11: int
+    adhd12: int
+    adhd13: int
+    adhd14: int
+    adhd15: int
+    adhd16: int
+    adhd17: int
+    adhd18: int
     submitted_at: datetime
 
 

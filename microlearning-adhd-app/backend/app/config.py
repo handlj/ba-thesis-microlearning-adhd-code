@@ -23,7 +23,7 @@ VALID_ASSIGNMENTS = {"control", "experimental"}
 
 # Expected question IDs per Likert questionnaire (must match the frontend
 # content files in frontend/src/content/*.ts and the column names in models.py).
-ADHD_SCREENING_QUESTION_IDS = {f"adhd{index}" for index in range(1, 7)}
+ADHD_SCREENING_QUESTION_IDS = {f"adhd{index}" for index in range(1, 18+1)}
 
 # ASRS v1.1 Part A scoring. Items 1-3 are inattention, items 4-6 hyperactivity.
 # An inattention item counts as a "mark" at "Manchmal" (3) or higher; a
