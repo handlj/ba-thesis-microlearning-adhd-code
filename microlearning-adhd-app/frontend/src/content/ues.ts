@@ -32,123 +32,123 @@ export const ues = {
   questions: [
     {
       id: 'ues1',
-      text: 'Ich war völlig in dieses Erlebnis vertieft.',
+      text: 'Ich habe mich bei dieser Anwendung vergessen.',
     },
     {
       id: 'ues2',
-      text: 'Ich war so in dieses Erlebnis vertieft, dass ich das Zeitgefühl verlor.',
+      text: 'Ich war so in die Anwendung vertieft, dass ich die Zeit vergessen habe.',
     },
     {
       id: 'ues3',
-      text: 'Ich habe die Dinge um mich herum ausgeblendet, während ich die Anwendung nutzte.',
+      text: 'Ich blendete alles um mich herum aus, als ich MicroPython verwendete.',
     },
     {
       id: 'ues4',
-      text: 'Während ich die Anwendung nutzte, vergaß ich die Welt um mich herum.',
+      text: 'Als ich MicroPython verwendete, vergaß ich alles um mich herum.',
     },
     {
       id: 'ues5',
-      text: 'Die Zeit, die ich mit der Anwendung verbrachte, verging wie im Flug.',
+      text: 'Die Zeit verging wie im Flug, als ich MicroPython anwendete.',
     },
     {
       id: 'ues6',
-      text: 'Ich war von diesem Erlebnis gefesselt.',
+      text: 'Ich war gänzlich in die Anwendung vertieft.',
     },
     {
       id: 'ues7',
-      text: 'Während dieses Erlebnisses ließ ich mich völlig darauf ein.',
+      text: 'Als ich MicroPython verwendete, konnte ich mich gehen lassen.',
     },
     {
       id: 'ues8',
-      text: 'Ich fühlte mich frustriert, während ich die Anwendung nutzte.',
+      text: 'Ich war frustriert, während ich MicroPython nutzte.',
     },
     {
       id: 'ues9',
-      text: 'Ich fand die Nutzung der Anwendung verwirrend.',
+      text: 'Ich fand die Anwendung von MicroPython verwirrend.',
     },
     {
       id: 'ues10',
-      text: 'Ich fühlte mich genervt, während ich die Anwendung nutzte.',
+      text: 'Ich fühlte mich genervt während der Verwendung von MicroPython.',
     },
     {
       id: 'ues11',
-      text: 'Ich fühlte mich entmutigt, während ich die Anwendung nutzte.',
+      text: 'Ich fühlte mich entmutigt, während ich MicroPython nutzte.',
     },
     {
       id: 'ues12',
-      text: 'Die Nutzung der Anwendung war anstrengend.',
+      text: 'Die Benutzung von MicroPython war anstrengend.',
     },
     {
       id: 'ues13',
-      text: 'Dieses Erlebnis war fordernd.',
+      text: 'Diese Erfahrung war anspruchsvoll.',
     },
     {
       id: 'ues14',
-      text: 'Ich fühlte mich beim Nutzen der Anwendung in Kontrolle.',
+      text: 'Ich hatte die Kontrolle über MicroPython.',
     },
     {
       id: 'ues15',
-      text: 'Einige Dinge, die ich tun musste, konnte ich während der Nutzung der Anwendung nicht erledigen.',
+      text: 'Ich konnte nicht alle Anwendungen ausführen, die ich mit MicroPython ausführen wollte.',
     },
     {
       id: 'ues16',
-      text: 'Die Anwendung war ansprechend.',
+      text: 'MicroPython war attraktiv.',
     },
     {
       id: 'ues17',
-      text: 'Die Anwendung war ästhetisch ansprechend.',
+      text: 'MicroPython war ästhetisch ansprechend.',
     },
     {
       id: 'ues18',
-      text: 'Mir gefielen die Grafiken und Bilder der Anwendung.',
+      text: 'Mir gefielen die Grafiken und Bilder von MicroPython.',
     },
     {
       id: 'ues19',
-      text: 'Die Anwendung sprach meine visuellen Sinne an.',
+      text: 'MicroPython spricht auf visuelle Sinne an.',
     },
     {
       id: 'ues20',
-      text: 'Das Bildschirmlayout der Anwendung war optisch ansprechend.',
+      text: 'Das Bildschirmlayout von MicroPython war optisch ansprechend.',
     },
     {
       id: 'ues21',
-      text: 'Die Nutzung der Anwendung hat sich gelohnt.',
+      text: 'Die Nutzung von MicroPython hat sich gelohnt.',
     },
     {
       id: 'ues22',
-      text: 'Ich betrachte mein Erlebnis als Erfolg.',
+      text: 'Ich erachte meine Erfahrungen mit MicroPython als erfolgreich.',
     },
     {
       id: 'ues23',
-      text: 'Dieses Erlebnis verlief nicht so, wie ich es geplant hatte.',
+      text: 'Die Erfahrung mit MicroPython hat nicht so funktioniert, wie ich es mir vorgestellt hatte.',
     },
     {
       id: 'ues24',
-      text: 'Mein Erlebnis war lohnend.',
+      text: 'Meine Erfahrung mit MicroPython hat sich gelohnt.',
     },
     {
       id: 'ues25',
-      text: 'Ich würde die Anwendung meiner Familie und meinen Freunden weiterempfehlen.',
+      text: 'Ich würde MicroPython meiner Familie und meinen Freunden weiterempfehlen.',
     },
     {
       id: 'ues26',
-      text: 'Ich habe die Anwendung aus Neugier weiter genutzt.',
+      text: 'Aus Neugierde habe ich MicroPython weitergenutzt.',
     },
     {
       id: 'ues27',
-      text: 'Der Inhalt der Anwendung weckte meine Neugier.',
+      text: 'Der Inhalt von MicroPython hat meine Neugier geweckt.',
     },
     {
       id: 'ues28',
-      text: 'Ich wurde von diesem Erlebnis wirklich in den Bann gezogen.',
+      text: 'Ich war wirklich von der Erfahrung mit MicroPython fasziniert.',
     },
     {
       id: 'ues29',
-      text: 'Ich fühlte mich in dieses Erlebnis eingebunden.',
+      text: 'Die Anwendung hat mich in ihren Bann gezogen.',
     },
     {
       id: 'ues30',
-      text: 'Dieses Erlebnis hat Spaß gemacht.',
+      text: 'Diese Erfahrung hat Spaß gemacht',
     },
   ],
 } as const
