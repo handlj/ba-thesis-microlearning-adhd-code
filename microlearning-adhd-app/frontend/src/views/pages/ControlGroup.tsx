@@ -109,7 +109,9 @@ function ControlGroup({
   }
 
   return (
-    <StudyPage ariaLabelledBy="control-title" cardClassName="study-card--video">
+    <StudyPage  ariaLabelledBy="control-title" 
+                cardClassName="study-card--video">
+
       <StudyHeading
         eyebrow={copy.controlGroup.heading.eyebrow}
         title={
@@ -131,6 +133,7 @@ function ControlGroup({
             <p className="video-kicker">{video.title}</p>
             <p className="video-description">{video.description}</p>
           </div>
+
           <div className="video-shell">
             <video
               className="video-frame"
@@ -151,11 +154,17 @@ function ControlGroup({
                 previousVideoTimeRef.current = event.currentTarget.currentTime
               }}
             >
-              <source src={video.video_url} type="video/mp4" />
+              
+              <source 
+                src={video.video_url} 
+                type="video/mp4" 
+              />
+              
               {copy.video.unsupported}
             </video>
           </div>
-          <p className="video-status" aria-live="polite">
+          <p  className="video-status" 
+              aria-live="polite">
             {canContinue
               ? copy.controlGroup.status.videoFinished
               : copy.video.watchFullVideo}
@@ -172,15 +181,30 @@ function ControlGroup({
         />
       ) : null}
 
-      {isLoading ? <p className="video-status">{copy.controlGroup.status.loading}</p> : null}
-      {error ? <p className="error-text">{error}</p> : null}
+      {isLoading ? 
+      <p className="video-status">
+        {copy.controlGroup.status.loading}
+      </p>
+       : null}
+      
+      {error ? 
+      <p className="error-text">
+        {error}
+      </p>
+       : null}
 
       {phase === 'video' ? (
         <StudyActions className="study-actions--stacked">
-          <button type="button" className="secondary-button" onClick={returnToWelcome}>
+          <button type="button" 
+                  className="secondary-button" 
+                  onClick={returnToWelcome}>
             {copy.actions.returnToWelcome}
           </button>
-          <button type="button" className="start-button" disabled={!canContinue} onClick={showQuiz}>
+
+          <button type="button" 
+                  className="start-button" 
+                  disabled={!canContinue} 
+                  onClick={showQuiz}>
             {copy.actions.continue}
           </button>
         </StudyActions>

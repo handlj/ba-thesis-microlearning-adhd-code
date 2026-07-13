@@ -51,7 +51,10 @@ function ControlGroupQuiz({
         handleSubmit()
       }}
     >
-      <QuizProgressHeader answered={answeredCount} total={total} />
+      <QuizProgressHeader 
+        answered={answeredCount} 
+        total={total} 
+      />
 
       {allQuizQuestions.map((question, questionIndex) => (
         <QuizQuestionField
@@ -64,10 +67,15 @@ function ControlGroupQuiz({
       ))}
 
       <StudyActions>
-        <button type="button" className="secondary-button" onClick={onBackToVideo}>
+        <button type="button" 
+                className="secondary-button" 
+                onClick={onBackToVideo}>
           {copy.actions.backToVideo}
         </button>
-        <button type="submit" className="start-button" disabled={!isComplete}>
+
+        <button type="submit" 
+                className="start-button" 
+                disabled={!isComplete}>
           {copy.actions.continue}
         </button>
       </StudyActions>

@@ -9,7 +9,8 @@ type ThankYouProps = {
 
 function ThankYou({ onReturnToStart }: ThankYouProps) {
   return (
-    <StudyPage ariaLabelledBy="thank-you-title" cardClassName="study-card--ready">
+    <StudyPage  ariaLabelledBy="thank-you-title" 
+                cardClassName="study-card--ready">
       <StudyHeading
         eyebrow={copy.thankYou.heading.eyebrow}
         title={copy.thankYou.heading.title}
@@ -18,7 +19,9 @@ function ThankYou({ onReturnToStart }: ThankYouProps) {
       />
 
       <StudyActions>
-        <button type="button" className="start-button" onClick={onReturnToStart}>
+        <button type="button" 
+                className="start-button" 
+                onClick={onReturnToStart}>
           {copy.actions.returnToStart}
         </button>
       </StudyActions>

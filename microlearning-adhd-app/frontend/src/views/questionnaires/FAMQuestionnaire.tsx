@@ -52,10 +52,14 @@ function FAMQuestionnaire({
         />
 
         <StudyActions>
-          <button type="button" className="secondary-button" onClick={onBack}>
+          <button type="button" 
+                  className="secondary-button" 
+                  onClick={onBack}>
             {copy.actions.back}
           </button>
-          <button type="submit" className="start-button">
+          
+          <button type="submit" 
+                  className="start-button">
             {copy.actions.continue}
           </button>
         </StudyActions>

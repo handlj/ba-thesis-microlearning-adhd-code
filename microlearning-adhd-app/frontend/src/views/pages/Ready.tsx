@@ -89,7 +89,8 @@ function Ready({
   }
 
   return (
-    <StudyPage ariaLabelledBy="ready-title" cardClassName="study-card--video">
+    <StudyPage  ariaLabelledBy="ready-title" 
+                cardClassName="study-card--video">
       <StudyHeading
         eyebrow={copy.ready.heading.eyebrow}
         title={copy.ready.heading.title}
@@ -97,8 +98,13 @@ function Ready({
         id="ready-title"
       />
 
-      <div className="ready-instructions" aria-labelledby="ready-instructions-title">
-        <h2 id="ready-instructions-title">{copy.ready.instructions.title}</h2>
+      <div  className="ready-instructions" 
+            aria-labelledby="ready-instructions-title">
+
+        <h2 id="ready-instructions-title">
+          {copy.ready.instructions.title}
+        </h2>
+
         <ul className="ready-instruction-list">
           {copy.ready.instructions.items.map((item) => (
             <li key={item}>{item}</li>
@@ -106,15 +112,29 @@ function Ready({
         </ul>
       </div>
 
-      {isLoading ? <p className="video-status">{copy.ready.status.loading}</p> : null}
-      {error ? <p className="error-text">{error}</p> : null}
+      {isLoading ? 
+      <p className="video-status">
+        {copy.ready.status.loading}
+      </p>
+       : null}
+
+      {error ? 
+      <p className="error-text">
+        {error}
+      </p>
+       : null}
 
       {video ? (
         <div className="video-panel">
           <div className="video-meta">
-            <p className="video-kicker">{copy.ready.video.title}</p>
-            <p className="video-description">{copy.ready.video.description}</p>
+            <p className="video-kicker">
+              {copy.ready.video.title}
+            </p>
+            <p className="video-description">
+              {copy.ready.video.description}
+            </p>
           </div>
+
           <div className="video-shell">
             <video
               className="video-frame"
@@ -135,11 +155,18 @@ function Ready({
                 previousVideoTimeRef.current = event.currentTarget.currentTime
               }}
             >
-              <source src={video.video_url} type="video/mp4" />
+
+              <source 
+                src={video.video_url}
+                type="video/mp4" 
+              />
+
               {copy.video.unsupported}
             </video>
           </div>
-          <p className="video-status" aria-live="polite">
+
+          <p  className="video-status" 
+              aria-live="polite">
             {hasVideoEnded
               ? copy.ready.status.videoFinished
               : copy.video.watchFullVideo}
@@ -151,9 +178,13 @@ function Ready({
         {/* TODO: Remove this visible assignment label before deployment. */}
         {assignmentLabel ? (
           <p className="assignment-result">
-            {copy.ready.assignmentLabel} <strong>{assignmentLabel}</strong>
+            {copy.ready.assignmentLabel}
+            <strong>
+              {assignmentLabel}
+            </strong>
           </p>
         ) : null}
+
         <button
           type="button"
           className="start-button"
@@ -162,10 +193,15 @@ function Ready({
         >
           {copy.actions.continue}
         </button>
-        <button type="button" className="secondary-button" onClick={onReturnToWelcome}>
+
+        <button type="button" 
+                className="secondary-button" 
+                onClick={onReturnToWelcome}>
           {copy.actions.returnToWelcome}
         </button>
-        <p className="ready-note" aria-live="polite">
+
+        <p  className="ready-note" 
+            aria-live="polite">
           {copy.ready.readinessNote}
         </p>
       </StudyActions>

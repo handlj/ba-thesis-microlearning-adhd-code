@@ -44,7 +44,8 @@ function UESQuestionnaire({ values, error, onChange, onSubmit }: UESQuestionnair
         />
 
         <StudyActions>
-          <button type="submit" className="start-button">
+          <button type="submit" 
+                  className="start-button">
             {ues.actions.proceed}
           </button>
         </StudyActions>

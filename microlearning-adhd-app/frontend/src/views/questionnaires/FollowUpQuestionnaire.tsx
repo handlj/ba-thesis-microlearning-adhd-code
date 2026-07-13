@@ -41,7 +41,8 @@ function FollowUpQuestionnaire({
   })
 
   return (
-    <StudyPage ariaLabelledBy="follow-up-title" cardClassName="study-card--form">
+    <StudyPage  ariaLabelledBy="follow-up-title" 
+                cardClassName="study-card--form">
       <StudyHeading
         eyebrow={copy.postIntervention.heading.eyebrow}
         title={copy.postIntervention.heading.title}

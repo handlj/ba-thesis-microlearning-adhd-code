@@ -764,7 +764,8 @@ function App() {
   }
 
   return (
-    <StudyPage ariaLabelledBy="study-title" cardClassName="study-card--landing">
+    <StudyPage  ariaLabelledBy="study-title" 
+                cardClassName="study-card--landing">
       <StudyHeading
         eyebrow={copy.welcome.heading.eyebrow}
         title={copy.welcome.heading.title}
@@ -780,7 +781,9 @@ function App() {
         >
           {copy.actions.startStudy}
         </button>
-        <p className="status" aria-live="polite">
+        
+        <p  className="status" 
+            aria-live="polite">
           {copy.welcome.status.noDataCollected}
         </p>
       </StudyActions>

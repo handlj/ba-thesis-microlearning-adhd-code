@@ -53,8 +53,15 @@ function ExperimentalGroupQuizzes({
 
   return (
     <div className="quiz-panel">
-      <QuizProgressHeader answered={answeredCount} total={total} />
-      <p className="video-kicker">{topic.title}</p>
+      <QuizProgressHeader 
+        answered={answeredCount} 
+        total={total} 
+      />
+      
+      <p className="video-kicker">
+        {topic.title}
+      </p>
+      
       <div className="quiz-question-list">
         {topic.questions.map((question, questionIndex) => (
           <QuizQuestionField

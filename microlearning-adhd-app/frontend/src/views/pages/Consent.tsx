@@ -34,6 +34,7 @@ function Consent({
         id="consent-title"
       />
 
+      {/* TODO: Refactor user-facing strings into a centralized location */}
       <div className="consent-content">
 
         <h1>Einverständniserklärung</h1>
@@ -63,16 +64,23 @@ function Consent({
         </p>
       </div>
 
-      <label className="checkbox-row consent-check">
+      <label  className="checkbox-row 
+              consent-check">
+        
         <input
           type="checkbox"
           checked={agreed}
           onChange={(event) => onAgreementChange(event.target.checked)}
         />
+        
         <span>{copy.consent.agreement}</span>
       </label>
 
-      {error ? <p className="error-text">{error}</p> : null}
+      {error ? 
+      <p className="error-text">
+        {error}
+      </p>
+       : null}
 
       <StudyActions>
         <button
@@ -83,6 +91,7 @@ function Consent({
         >
           {copy.actions.back}
         </button>
+        
         <button
           type="button"
           className="start-button"

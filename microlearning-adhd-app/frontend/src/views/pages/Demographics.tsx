@@ -59,7 +59,9 @@ function Demographics({
   }
 
   return (
-    <StudyPage ariaLabelledBy="demographics-title" cardClassName="study-card--form">
+    <StudyPage  ariaLabelledBy="demographics-title" 
+                cardClassName="study-card--form">
+
       <StudyHeading
         eyebrow={copy.demographics.heading.eyebrow}
         title={copy.demographics.heading.title}
@@ -87,7 +89,10 @@ function Demographics({
             >
               {copy.actions.back}
             </button>
-            <button type="submit" className="start-button" disabled={isSubmitting}>
+
+            <button type="submit" 
+                    className="start-button" 
+                    disabled={isSubmitting}>
               {isSubmitting ? copy.actions.saving : copy.actions.continue}
             </button>
           </StudyActions>

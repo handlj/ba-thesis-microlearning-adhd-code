@@ -65,7 +65,10 @@ function PreQuiz({
         handleSubmit()
       }}
     >
-      <QuizProgressHeader answered={answeredCount} total={total} />
+      <QuizProgressHeader
+        answered={answeredCount} 
+        total={total} 
+      />
 
       {allQuizQuestions.map((question, questionIndex) => (
         <QuizQuestionField
@@ -78,14 +81,24 @@ function PreQuiz({
       ))}
 
       <StudyActions>
-        <button type="button" className="secondary-button" onClick={onBack}>
+        <button type="button" 
+                className="secondary-button" 
+                onClick={onBack}>
           {copy.actions.back}
         </button>
-        <button type="submit" className="start-button" disabled={!isComplete}>
+
+        <button type="submit" 
+                className="start-button" 
+                disabled={!isComplete}>
           {copy.actions.continue}
         </button>
       </StudyActions>
-      {error ? <p className="error-text">{error}</p> : null}
+
+      {error ? 
+      <p className="error-text">
+        {error}
+      </p>
+       : null}
     </form>
     </StudyPage>
   )

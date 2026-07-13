@@ -53,11 +53,14 @@ function PanasQuestionnaire({
 
         <StudyActions>
           {onBack && (
-            <button type="button" className="secondary-button" onClick={onBack}>
+            <button type="button" 
+                    className="secondary-button" 
+                    onClick={onBack}>
               {copy.actions.back}
             </button>
           )}
-          <button type="submit" className="start-button">
+          <button type="submit" 
+                  className="start-button">
             {panas.actions.proceed}
           </button>
         </StudyActions>
