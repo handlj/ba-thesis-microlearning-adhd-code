@@ -5,8 +5,8 @@
 ### Questionnaires
 - [ ] Aufmerksamkeitsvalidierung (Kreuzen Sie bei dieser Frage bitte die Zahl "X" an.)
 
-### Intervention
-- Add timestamps for each question for dedicated rewatch chapters
+### UX
+- [ ] Handle if a user mistakenly double-clicks on a button and thus submits the same quiz twice. (e.g. by disabling the button after the first click)
 
 ### Post-Intervention
 - [ ] Option auf Feedback-Auswertung der Quizzes für EG und CG
@@ -27,7 +27,7 @@
 - [ ] Remove "Zurück zur Begrüßung" Button since it is not needed and confuses the user.
 
 ## Before Deployment
-- [ ] Remove the explicit group labels in the Ready page.
+- [ ] Remove the explicit group labels in the Ready page. Also remove the eyebrow.
 
 ## Nice to have
 

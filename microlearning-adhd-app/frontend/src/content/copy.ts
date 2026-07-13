@@ -263,6 +263,8 @@ export const copy = {
     retry: {
       notice: (correct: number, total: number) =>
         `Sie haben ${correct} von ${total} Fragen richtig beantwortet. Bitte sehen Sie sich das Video noch einmal an. Es startet an der passenden Stelle. Sie können das Quiz jederzeit erneut starten.`,
+      dialogTitle: 'Quiz erneut starten',
+      attemptLabel: (current: number, total: number) => `Versuch ${current} von ${total}`,
     },
     progress: (current: number, total: number) => `Video ${current} von ${total}`,
     quiz: {

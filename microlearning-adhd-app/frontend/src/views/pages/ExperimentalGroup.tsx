@@ -45,13 +45,22 @@ function ExperimentalGroup({
   const [currentQuizAnswers, setCurrentQuizAnswers] = useState<QuizAnswers>({})
   const [attemptNumber, setAttemptNumber] = useState(1)
   const [isRewatch, setIsRewatch] = useState(false)
+  const [showRewatchNotice, setShowRewatchNotice] = useState(false)
   const [failedScore, setFailedScore] = useState<{ correct: number; total: number } | null>(
     null,
   )
   const previousVideoTimeRef = useRef(0)
   const pendingSeekSecondsRef = useRef<number | null>(null)
+  const rewatchDialogRef = useRef<HTMLDialogElement>(null)
   const { quiz_pass_threshold: passThreshold, quiz_max_attempts: maxAttempts } =
     getAppConfig()
+
+  useEffect(() => {
+    const dialog = rewatchDialogRef.current
+    if (!dialog) return
+    if (showRewatchNotice && !dialog.open) dialog.showModal()
+    if (!showRewatchNotice && dialog.open) dialog.close()
+  }, [showRewatchNotice])
 
   useEffect(() => {
     let active = true
@@ -110,6 +119,7 @@ function ExperimentalGroup({
     setCurrentQuizAnswers({})
     setAttemptNumber(1)
     setIsRewatch(false)
+    setShowRewatchNotice(false)
     setFailedScore(null)
     previousVideoTimeRef.current = 0
     pendingSeekSecondsRef.current = null
@@ -177,6 +187,7 @@ function ExperimentalGroup({
       setFailedScore({ correct: score.correctCount, total: score.total })
       setAttemptNumber((previousAttempt) => previousAttempt + 1)
       setIsRewatch(true)
+      setShowRewatchNotice(true)
       setQuizComplete(false)
       setCurrentQuizAnswers({})
       setPhase('video')
@@ -263,12 +274,44 @@ function ExperimentalGroup({
                 <p className="video-kicker">{currentVideo.title}</p>
                 <p className="video-description">{currentVideo.description}</p>
               </div>
-              {/* TODO: Add dedicated dialog for rewatch notice which user has to acknowledge before proceeding to the video. */}
-              {isRewatch && failedScore ? (
-                <p className="video-status" role="alert">
-                  {copy.experimentalGroup.retry.notice(failedScore.correct, failedScore.total)}
-                </p>
-              ) : null}
+
+              <dialog
+                ref={rewatchDialogRef}
+                className="rewatch-dialog"
+                aria-labelledby="rewatch-dialog-title"
+                onCancel={(event) => {
+                  event.preventDefault()
+                }}
+              >
+                {failedScore ? (
+                  <>
+                    <p className="rewatch-dialog__eyebrow">
+                      {copy.experimentalGroup.retry.attemptLabel(attemptNumber, maxAttempts)}
+                    </p>
+                    <h2 id="rewatch-dialog-title" className="rewatch-dialog__title">
+                      {copy.experimentalGroup.retry.dialogTitle}
+                    </h2>
+                    <p className="rewatch-dialog__body">
+                      {copy.experimentalGroup.retry.notice(
+                        failedScore.correct,
+                        failedScore.total,
+                      )}
+                    </p>
+                    <div className="rewatch-dialog__actions">
+                      <button
+                        type="button"
+                        className="start-button"
+                        onClick={() => {
+                          setShowRewatchNotice(false)
+                        }}
+                      >
+                        {copy.actions.continue}
+                      </button>
+                    </div>
+                  </>
+                ) : null}
+              </dialog>
+              
               <div className="video-shell">
                 <video
                   key={currentVideo.id}
@@ -290,7 +333,6 @@ function ExperimentalGroup({
                       if (seekTarget > 0) {
                         event.currentTarget.currentTime = seekTarget
                       }
-                      void event.currentTarget.play().catch(() => {})
                     } else {
                       previousVideoTimeRef.current = 0
                     }

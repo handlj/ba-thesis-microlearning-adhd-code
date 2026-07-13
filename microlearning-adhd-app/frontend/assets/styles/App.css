@@ -43,6 +43,31 @@
   width: min(920px, 100%);
 }
 
+.study-dialog {
+  width: min(480px, 90vw);
+  padding: 40px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 24px 80px rgba(33, 24, 11, 0.12);
+  backdrop-filter: blur(18px);
+  text-align: left;
+}
+
+.study-dialog::backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.study-dialog--actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
 .eyebrow {
   margin: 0 0 16px;
   font-size: 0.85rem;
@@ -633,6 +658,100 @@
   margin-top: 8px;
 }
 
+/* Re-watch acknowledgement dialog — a compact sibling of .study-card that
+   interrupts the failed-quiz flow until the participant chooses to continue.
+   Styled as frosted paper on a warm scrim rather than a flat system alert. */
+.rewatch-dialog {
+  width: min(440px, calc(100vw - 40px));
+  margin: auto; /* centred in the top layer by dialog.showModal() */
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 26px;
+  background: rgba(255, 252, 247, 0.92);
+  backdrop-filter: blur(20px);
+  color: var(--text);
+  box-shadow: 0 30px 90px rgba(33, 24, 11, 0.26);
+  text-align: left;
+}
+
+.rewatch-dialog::backdrop {
+  background: rgba(28, 22, 17, 0.45);
+  backdrop-filter: blur(3px);
+}
+
+/* Attempt counter pill — carries the one piece of information the participant
+   needs here (how many tries remain), reusing the eyebrow/pill motif. */
+.rewatch-dialog__eyebrow {
+  width: fit-content;
+  margin: 0 0 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(138, 91, 43, 0.12);
+  color: #8a5b2b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.rewatch-dialog__title {
+  margin: 0 0 12px;
+}
+
+.rewatch-dialog__body {
+  max-width: 42ch;
+  line-height: 1.6;
+  color: #4f453a;
+}
+
+.rewatch-dialog__actions {
+  margin-top: 28px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Gentle scale + fade entrance for the dialog and its scrim. Uses discrete
+   transitions so the exit animates too; skipped when motion is reduced. */
+@media (prefers-reduced-motion: no-preference) {
+  .rewatch-dialog,
+  .rewatch-dialog::backdrop {
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      overlay 0.25s ease allow-discrete,
+      display 0.25s ease allow-discrete;
+  }
+
+  .rewatch-dialog {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  .rewatch-dialog[open] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .rewatch-dialog::backdrop {
+    opacity: 0;
+  }
+
+  .rewatch-dialog[open]::backdrop {
+    opacity: 1;
+  }
+
+  @starting-style {
+    .rewatch-dialog[open] {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+
+    .rewatch-dialog[open]::backdrop {
+      opacity: 0;
+    }
+  }
+}
+
 @media (max-width: 640px) {
   .study-page {
     padding: 16px;
@@ -658,5 +777,9 @@
   .start-button {
     width: 100%;
     justify-content: center;
+  }
+
+  .rewatch-dialog {
+    padding: 26px 20px;
   }
 }
