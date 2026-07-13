@@ -51,3 +51,9 @@ FAM_SCALE_MAX = 7
 # Demographics Validation
 MIN_AGE = 18
 MAX_AGE = 99
+
+# Experimental-group quiz gating: a per-video quiz passes at
+# >= QUIZ_PASS_THRESHOLD correctly answered questions (each topic has 5).
+# After QUIZ_MAX_ATTEMPTS failed attempts the participant proceeds anyway.
+QUIZ_PASS_THRESHOLD = 4
+QUIZ_MAX_ATTEMPTS = 3

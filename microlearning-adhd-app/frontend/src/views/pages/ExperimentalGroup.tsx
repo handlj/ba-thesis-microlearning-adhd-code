@@ -11,6 +11,8 @@ import {
   type StudyInteractionPayload,
 } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
+import { getAppConfig } from '../../utils/config.ts'
+import { scoreQuiz } from '../../utils/quizScoring.ts'
 
 type ExperimentalGroupProps = {
   onBackToStart: () => void
@@ -21,6 +23,7 @@ type ExperimentalGroupProps = {
     video_index: number | null
     topic_id: string
     answers: QuizAnswers
+    attempt: number
   }) => void
 }
 
@@ -40,7 +43,15 @@ function ExperimentalGroup({
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
   const [quizComplete, setQuizComplete] = useState(false)
   const [currentQuizAnswers, setCurrentQuizAnswers] = useState<QuizAnswers>({})
+  const [attemptNumber, setAttemptNumber] = useState(1)
+  const [isRewatch, setIsRewatch] = useState(false)
+  const [failedScore, setFailedScore] = useState<{ correct: number; total: number } | null>(
+    null,
+  )
   const previousVideoTimeRef = useRef(0)
+  const pendingSeekSecondsRef = useRef<number | null>(null)
+  const { quiz_pass_threshold: passThreshold, quiz_max_attempts: maxAttempts } =
+    getAppConfig()
 
   useEffect(() => {
     let active = true
@@ -97,18 +108,29 @@ function ExperimentalGroup({
     setHasVideoEnded(false)
     setQuizComplete(false)
     setCurrentQuizAnswers({})
+    setAttemptNumber(1)
+    setIsRewatch(false)
+    setFailedScore(null)
     previousVideoTimeRef.current = 0
+    pendingSeekSecondsRef.current = null
   }
 
   const handleProceedFromVideo = () => {
-    if (!hasVideoEnded) {
+    if (!hasVideoEnded && !isRewatch) {
       return
     }
 
-    onLogInteraction('experimental_video_proceed_clicked', {
-      ...getCurrentVideoPayload(),
-      isLastVideo,
-    })
+    if (isRewatch) {
+      onLogInteraction('experimental_quiz_retake_started', {
+        ...getCurrentVideoPayload(),
+        attempt: attemptNumber,
+      })
+    } else {
+      onLogInteraction('experimental_video_proceed_clicked', {
+        ...getCurrentVideoPayload(),
+        isLastVideo,
+      })
+    }
 
     setPhase('quiz')
   }
@@ -120,9 +142,17 @@ function ExperimentalGroup({
       return
     }
 
+    const score = currentTopic
+      ? scoreQuiz(currentTopic, currentQuizAnswers, passThreshold)
+      : null
+
     onLogInteraction('experimental_quiz_submitted', {
       ...getCurrentVideoPayload(),
       topicId: currentTopic?.id ?? null,
+      attempt: attemptNumber,
+      correctCount: score?.correctCount ?? null,
+      totalQuestions: score?.total ?? null,
+      passed: score?.passed ?? null,
     })
     if (currentTopic) {
       onSubmitQuiz({
@@ -130,8 +160,38 @@ function ExperimentalGroup({
         video_index: currentIndex + 1,
         topic_id: currentTopic.id,
         answers: currentQuizAnswers,
+        attempt: attemptNumber,
       })
     }
+
+    if (score && !score.passed && attemptNumber < maxAttempts) {
+      onLogInteraction('experimental_quiz_failed_rewatch', {
+        ...getCurrentVideoPayload(),
+        topicId: currentTopic?.id ?? null,
+        attempt: attemptNumber,
+        correctCount: score.correctCount,
+        wrongQuestionIds: score.wrongQuestionIds.join(','),
+        seekTargetSeconds: score.earliestWrongTimestamp,
+      })
+      pendingSeekSecondsRef.current = score.earliestWrongTimestamp
+      setFailedScore({ correct: score.correctCount, total: score.total })
+      setAttemptNumber((previousAttempt) => previousAttempt + 1)
+      setIsRewatch(true)
+      setQuizComplete(false)
+      setCurrentQuizAnswers({})
+      setPhase('video')
+      return
+    }
+
+    if (score && !score.passed) {
+      onLogInteraction('experimental_quiz_attempts_exhausted', {
+        ...getCurrentVideoPayload(),
+        topicId: currentTopic?.id ?? null,
+        attempt: attemptNumber,
+        correctCount: score.correctCount,
+      })
+    }
+
     if (isLastVideo) {
       onCompleteIntervention()
       return
@@ -203,6 +263,12 @@ function ExperimentalGroup({
                 <p className="video-kicker">{currentVideo.title}</p>
                 <p className="video-description">{currentVideo.description}</p>
               </div>
+              {/* TODO: Add dedicated dialog for rewatch notice which user has to acknowledge before proceeding to the video. */}
+              {isRewatch && failedScore ? (
+                <p className="video-status" role="alert">
+                  {copy.experimentalGroup.retry.notice(failedScore.correct, failedScore.total)}
+                </p>
+              ) : null}
               <div className="video-shell">
                 <video
                   key={currentVideo.id}
@@ -213,9 +279,21 @@ function ExperimentalGroup({
                     setHasVideoEnded(true)
                     onLogInteraction('experimental_video_ended', getCurrentVideoPayload())
                   }}
-                  onLoadedMetadata={() => {
+                  onLoadedMetadata={(event) => {
                     setHasVideoEnded(false)
-                    previousVideoTimeRef.current = 0
+                    const seekTarget = pendingSeekSecondsRef.current
+                    if (seekTarget !== null) {
+                      pendingSeekSecondsRef.current = null
+                      // Set the ref first so onSeeking does not log the
+                      // programmatic jump as experimental_video_skipped.
+                      previousVideoTimeRef.current = seekTarget
+                      if (seekTarget > 0) {
+                        event.currentTarget.currentTime = seekTarget
+                      }
+                      void event.currentTarget.play().catch(() => {})
+                    } else {
+                      previousVideoTimeRef.current = 0
+                    }
                   }}
                   onSeeking={(event) => handleVideoSeek(event.currentTarget.currentTime)}
                   onTimeUpdate={(event) => {
@@ -229,13 +307,15 @@ function ExperimentalGroup({
               <p className="video-status" aria-live="polite">
                 {hasVideoEnded
                   ? copy.experimentalGroup.status.videoFinished
-                  : copy.video.watchFullVideo}
+                  : isRewatch
+                    ? copy.experimentalGroup.status.rewatch
+                    : copy.video.watchFullVideo}
               </p>
             </>
           ) : currentTopic ? (
             <>
               <ExperimentalGroupQuizzes
-                key={currentVideo.id}
+                key={`${currentVideo.id}-attempt-${attemptNumber}`}
                 topic={currentTopic}
                 videoContext={getCurrentVideoPayload()}
                 onLogInteraction={onLogInteraction}
@@ -260,10 +340,10 @@ function ExperimentalGroup({
           <button
             type="button"
             className="start-button"
-            disabled={!hasVideoEnded}
+            disabled={!hasVideoEnded && !isRewatch}
             onClick={handleProceedFromVideo}
           >
-            {copy.actions.startQuiz}
+            {isRewatch ? copy.actions.retakeQuiz : copy.actions.startQuiz}
           </button>
         ) : null}
         {currentVideo && phase === 'quiz' ? (

@@ -52,6 +52,8 @@ def assign_balanced_group(session: Session, screen_positive: bool) -> str:
     control_count = _count_assignments(session, "control", screen_positive)
     experimental_count = _count_assignments(session, "experimental", screen_positive)
 
+    return "experimental" # DEBUG
+
     if control_count < experimental_count:
         smaller, larger = "control", "experimental"
     elif experimental_count < control_count:
@@ -60,6 +62,7 @@ def assign_balanced_group(session: Session, screen_positive: bool) -> str:
         return "control" if _rng.random() < 0.5 else "experimental"
 
     return smaller if _rng.random() < BIASED_COIN_PROBABILITY else larger
+
 
 
 def _count_assignments(

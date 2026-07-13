@@ -14,4 +14,5 @@ export type QuizAnswerSubmission = {
   video_index: number | null;
   topic_id: string;
   answers: Record<string, string[]>;
+  attempt?: number | null;
 };

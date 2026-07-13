@@ -9,3 +9,4 @@ microlearning-adhd-app/frontend/build/
 microlearning-adhd-app/frontend/dist/
 
 .vscode/*
+.claude/

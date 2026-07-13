@@ -10,4 +10,7 @@ class QuizAnswer(SQLModel, table=True):
     topic_id: str
     question_id: str
     selected_options: str
+    # 1-based attempt number for experimental-group quizzes; NULL for
+    # control-group and pre-quiz submissions.
+    attempt: int | None = Field(default=None)
     submitted_at: datetime

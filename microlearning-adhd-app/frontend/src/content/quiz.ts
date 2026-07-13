@@ -8,6 +8,9 @@
 // - `code` holds a multi-line snippet rendered as a formatted block.
 // - `correct` mirrors the (r) markers from quiz.md. It is recorded for analysis
 //   but never shown to participants.
+// - `videoTimestamp` is the start time (in seconds) of the video segment that
+//   covers the question's content. Used to seek the rewatch after a failed
+//   experimental-group quiz. 0 is a placeholder until the real times are set.
 
 export type QuizOption = {
   id: 'a' | 'b' | 'c' | 'd'
@@ -21,6 +24,7 @@ export type QuizQuestion = {
   prompt: string
   code?: string
   options: QuizOption[]
+  videoTimestamp: number
 }
 
 export type QuizTopic = {
@@ -36,6 +40,7 @@ export const quizTopics: QuizTopic[] = [
     questions: [
       {
         id: 'a1',
+        videoTimestamp: 41,
         prompt:
           'Welche der folgenden Zuordnungen zwischen Variablen und ihren Datentypen sind korrekt?',
         options: [
@@ -51,6 +56,7 @@ export const quizTopics: QuizTopic[] = [
       },
       {
         id: 'a2',
+        videoTimestamp: 137,
         prompt: 'Welche der folgenden Ausdrücke sind jeweils gleichbedeutend?',
         options: [
           { id: 'a', text: '`number = number / 4` und `number -= 4`' },
@@ -61,6 +67,7 @@ export const quizTopics: QuizTopic[] = [
       },
       {
         id: 'a3',
+        videoTimestamp: 98,
         prompt:
           'Betrachte den folgenden Code-Auszug. Welche Werte nehmen die Variablen zahl, zahl2 und zahl3 jeweils an?',
         code: `zahl = 36
@@ -80,6 +87,7 @@ zahl3 = zahl2 % zahl`,
       },
       {
         id: 'a4',
+        videoTimestamp: 98,
         prompt:
           'Betrachte den folgenden Code-Auszug. Welche Aussagen über die Variable bruch sind korrekt?',
         code: `zaehler = 4
@@ -99,6 +107,7 @@ bruch = zaehler / nenner`,
       },
       {
         id: 'a5',
+        videoTimestamp: 157,
         prompt:
           'Welche der folgenden Zuweisungen erzeugen einen gültigen (fehlerfreien) String?',
         options: [
@@ -121,6 +130,7 @@ bruch = zaehler / nenner`,
     questions: [
       {
         id: 'b1',
+        videoTimestamp: 101,
         prompt:
           'Welche der unten angegebenen Schlüsselwörter gehören zur WENN-DANN-SONSTWENN-DANN-SONST Bedingung?',
         options: [
@@ -132,6 +142,7 @@ bruch = zaehler / nenner`,
       },
       {
         id: 'b2',
+        videoTimestamp: 3,
         prompt:
           'Welche der folgenden Elemente muss jedes if-Statement in Python in jedem Fall enthalten.',
         options: [
@@ -143,6 +154,7 @@ bruch = zaehler / nenner`,
       },
       {
         id: 'b3',
+        videoTimestamp: 205,
         prompt:
           'Betrachte folgenden Code-Auszug. Welche der folgenden Aussagen sind korrekt?',
         code: `if x < 10:
@@ -172,6 +184,7 @@ print("Mir ist es egal.")`,
       },
       {
         id: 'b4',
+        videoTimestamp: 205,
         prompt:
           'Betrachte den oben angeführten Code-Auszug erneut. Durch welche der unten angeführten Codezeilen lässt sich die Zeile `else:` ersetzen, ohne die Funktionalität des Code-Auszugs oben einzuschränken?',
         code: `if x < 10:
@@ -188,6 +201,7 @@ print("Mir ist es egal.")`,
       },
       {
         id: 'b5',
+        videoTimestamp: 101,
         prompt: 'Welche der folgenden Aussagen zu if-Statements sind korrekt?',
         options: [
           {
@@ -214,6 +228,7 @@ print("Mir ist es egal.")`,
     questions: [
       {
         id: 'c1',
+        videoTimestamp: 265,
         prompt:
           'Welche der folgenden Schlüsselwörter steuern den Ablauf einer Schleife (Schleife abbrechen oder zur nächsten Iteration springen)?',
         options: [
@@ -225,6 +240,7 @@ print("Mir ist es egal.")`,
       },
       {
         id: 'c2',
+        videoTimestamp: 89,
         prompt: 'Betrachte folgenden Code-Auszug. Welche Aussagen sind korrekt?',
         code: `[...] zahl in [1, 2, 3, 4]:
   print(zahl)`,
@@ -244,6 +260,7 @@ print("Mir ist es egal.")`,
       },
       {
         id: 'c3',
+        videoTimestamp: 225,
         prompt:
           'Durch welchen der folgenden Schleifen-Anfänge entsteht eine Endlosschleife (sofern im Schleifenkörper keine Abbruchbedingung verwendet wird)?',
         options: [
@@ -255,6 +272,7 @@ print("Mir ist es egal.")`,
       },
       {
         id: 'c4',
+        videoTimestamp: 225,
         prompt:
           'Welches Schlüsselwort (Keyword) eignet sich am besten, um eine Endlosschleife zu beenden?',
         options: [
@@ -266,6 +284,7 @@ print("Mir ist es egal.")`,
       },
       {
         id: 'c5',
+        videoTimestamp: 131,
         prompt:
           'Betrachte den folgenden Code-Auszug. Wie oft wird `"Hi!"` ausgegeben?',
         code: `x = 2
@@ -289,6 +308,7 @@ print("Hi!")`,
     questions: [
       {
         id: 'd1',
+        videoTimestamp: 56,
         prompt: 'Betrachte die folgende Funktion. Welche der folgenden Zuordnungen sind richtig?',
         code: `print('I', 'think', 'therefore', 'I', 'am.')`,
         options: [
@@ -304,6 +324,7 @@ print("Hi!")`,
       },
       {
         id: 'd2',
+        videoTimestamp: 127,
         prompt: 'Welche der folgenden Aussagen zu Funktionen sind richtig?',
         options: [
           { id: 'a', text: 'Jede Funktion benötigt einen oder mehrere Parameter.' },
@@ -325,6 +346,7 @@ print("Hi!")`,
       },
       {
         id: 'd3',
+        videoTimestamp: 220,
         prompt:
           'Betrachte folgende Funktion. Welche der folgenden Beispiele sind valide Funktionsaufrufe für einen dreijährigen Hund mit dem Namen Pluto, dessen Besitzer (owner) Hans heißt?',
         code: `def which_dog_is_it(dogname, ownername, age=0):
@@ -342,6 +364,7 @@ print("Hi!")`,
       },
       {
         id: 'd4',
+        videoTimestamp: 269,
         prompt:
           'Betrachte erneut die oben angeführte Funktion which_dog_is_it. Welchen Fehler erhält man bei folgendem Funktionsaufruf?',
         code: `def which_dog_is_it(dogname, ownername, age=0):
@@ -367,6 +390,7 @@ which_dog_is_it('Hans', 'Pluto')`,
       },
       {
         id: 'd5',
+        videoTimestamp: 127,
         prompt: 'Welche Funktion ermöglicht das Schlüsselwort (Keyword) `return`?',
         options: [
           { id: 'a', text: 'Abbruch der innersten Schleife.' },

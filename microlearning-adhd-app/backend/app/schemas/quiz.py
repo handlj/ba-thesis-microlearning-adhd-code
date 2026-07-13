@@ -7,6 +7,7 @@ class QuizSubmissionRequest(BaseModel):
     video_index: int | None = None
     topic_id: str
     answers: dict[str, list[str]]
+    attempt: int | None = None
 
 
 class QuizSubmissionResponse(BaseModel):

@@ -337,6 +337,7 @@ def submit_quiz(
             topic_id=submission.topic_id,
             question_id=question_id,
             selected_options=json.dumps(selected_options),
+            attempt=submission.attempt,
             submitted_at=submitted_at,
         )
         session.add(quiz_answer)

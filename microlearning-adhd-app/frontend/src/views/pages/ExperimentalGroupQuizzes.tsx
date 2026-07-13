@@ -17,8 +17,9 @@ type ExperimentalGroupQuizzesProps = {
 }
 
 // Renders the quiz questions for a single topic after the matching video.
-// The parent remounts this component per video (key={video.id}) so selection
-// state resets between steps; completeness is reported up to gate the parent's
+// The parent remounts this component per video and per attempt
+// (key={`${video.id}-attempt-${attemptNumber}`}) so selection state resets
+// between steps and retakes; completeness is reported up to gate the parent's
 // "next" button.
 function ExperimentalGroupQuizzes({
   topic,

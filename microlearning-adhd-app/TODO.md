@@ -6,8 +6,7 @@
 - [ ] Aufmerksamkeitsvalidierung (Kreuzen Sie bei dieser Frage bitte die Zahl "X" an.)
 
 ### Intervention
-- [ ] Nach jedem EG Video, 4/5 Fragen korrekt, sonst zurück auf ML mit spezfischen Subkategorien
-  "Track" Element in HTML evtl. verwendbar
+- Add timestamps for each question for dedicated rewatch chapters
 
 ### Post-Intervention
 - [ ] Option auf Feedback-Auswertung der Quizzes für EG und CG
@@ -25,6 +24,7 @@
 - [ ] Translate all buttons from proceed to fortfahren
 - [ ] If the user changes from one page to the other, it should arrive at the top of the page and not the same position as before.
 - [ ] Adapt study flow graph since prequiz was added, adhd screening was enlarged
+- [ ] Remove "Zurück zur Begrüßung" Button since it is not needed and confuses the user.
 
 ## Before Deployment
 - [ ] Remove the explicit group labels in the Ready page.
@@ -48,6 +48,9 @@
 
 ### Documentation
 - [ ] Add a shared file for error message strings
+
+## Verification
+- [ ] Double Check Video Timestamps for each question in the quiz.ts file, since they were added manually and might be wrong.
 
 ### Maintenance
 - [ ] Decouple monolithic copy.ts file

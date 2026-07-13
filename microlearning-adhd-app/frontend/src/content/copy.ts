@@ -8,6 +8,7 @@ export const copy = {
     nextVideo: 'Nächstes Video',
     proceed: 'Fortfahren',
     returnToStart: 'Zurück zum Start',
+    retakeQuiz: 'Quiz erneut starten',
     returnToWelcome: 'Zurück zur Begrüßung',
     saving: 'Wird gespeichert...',
     startQuiz: 'Quiz starten',
@@ -256,7 +257,12 @@ export const copy = {
       answerAllQuestions: 'Bitte beantworten Sie alle Fragen, um fortzufahren.',
       loading: 'Experimentelle Videos werden vom Backend geladen...',
       noVideos: 'Es sind noch keine experimentellen Videos verfügbar.',
+      rewatch: 'Sie können das Video erneut ansehen oder das Quiz sofort neu starten.',
       videoFinished: 'Das Video ist beendet. Sie können nun zum Quiz fortfahren.',
+    },
+    retry: {
+      notice: (correct: number, total: number) =>
+        `Sie haben ${correct} von ${total} Fragen richtig beantwortet. Bitte sehen Sie sich das Video noch einmal an. Es startet an der passenden Stelle. Sie können das Quiz jederzeit erneut starten.`,
     },
     progress: (current: number, total: number) => `Video ${current} von ${total}`,
     quiz: {
