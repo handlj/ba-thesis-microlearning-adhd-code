@@ -244,22 +244,32 @@ function ExperimentalGroup({
   }
 
   return (
-    <StudyPage ariaLabelledBy="experimental-title" cardClassName="study-card--video">
+    <StudyPage 
+      ariaLabelledBy="experimental-title" 
+      cardClassName="study-card--video">
+    
       <StudyHeading
         eyebrow={copy.experimentalGroup.heading.eyebrow}
         title={copy.experimentalGroup.heading.title}
         intro={copy.experimentalGroup.heading.intro}
-        id="experimental-title"
-      />
+        id="experimental-title"/>
 
       {isLoading ? (
-        <p className="video-status">{copy.experimentalGroup.status.loading}</p>
+        <p className="video-status">
+          {copy.experimentalGroup.status.loading}
+        </p>
       ) : null}
 
-      {error ? <p className="error-text">{error}</p> : null}
+      {error ? 
+      <p className="error-text">
+        {error}
+      </p> 
+      : null}
 
       {!isLoading && !error && videoCount === 0 ? (
-        <p className="video-status">{copy.experimentalGroup.status.noVideos}</p>
+        <p className="video-status">
+          {copy.experimentalGroup.status.noVideos}
+        </p>
       ) : null}
 
       {currentVideo ? (
@@ -271,8 +281,12 @@ function ExperimentalGroup({
           {phase === 'video' ? (
             <>
               <div className="video-meta">
-                <p className="video-kicker">{currentVideo.title}</p>
-                <p className="video-description">{currentVideo.description}</p>
+                <p className="video-kicker">
+                  {currentVideo.title}
+                </p>
+                <p className="video-description">
+                  {currentVideo.description}
+                </p>
               </div>
 
               <dialog
@@ -288,15 +302,20 @@ function ExperimentalGroup({
                     <p className="rewatch-dialog__eyebrow">
                       {copy.experimentalGroup.retry.attemptLabel(attemptNumber, maxAttempts)}
                     </p>
-                    <h2 id="rewatch-dialog-title" className="rewatch-dialog__title">
+
+                    <h2 id="rewatch-dialog-title" 
+                        className="rewatch-dialog__title"
+                    >
                       {copy.experimentalGroup.retry.dialogTitle}
                     </h2>
+
                     <p className="rewatch-dialog__body">
                       {copy.experimentalGroup.retry.notice(
                         failedScore.correct,
                         failedScore.total,
                       )}
                     </p>
+
                     <div className="rewatch-dialog__actions">
                       <button
                         type="button"
@@ -342,11 +361,13 @@ function ExperimentalGroup({
                     previousVideoTimeRef.current = event.currentTarget.currentTime
                   }}
                 >
-                  <source src={currentVideo.video_url} type="video/mp4" />
+                  <source src={currentVideo.video_url} 
+                          type="video/mp4" />
                   {copy.video.unsupported}
                 </video>
               </div>
-              <p className="video-status" aria-live="polite">
+              <p className="video-status" 
+                aria-live="polite">
                 {hasVideoEnded
                   ? copy.experimentalGroup.status.videoFinished
                   : isRewatch
@@ -364,7 +385,8 @@ function ExperimentalGroup({
                 onCompletionChange={setQuizComplete}
                 onAnswersChange={setCurrentQuizAnswers}
               />
-              <p className="video-status" aria-live="polite">
+              <p className="video-status" 
+                aria-live="polite">
                 {quizComplete
                   ? copy.experimentalGroup.status.allAnswered
                   : copy.experimentalGroup.status.answerAllQuestions}
@@ -375,9 +397,12 @@ function ExperimentalGroup({
       ) : null}
 
       <StudyActions className="study-actions--stacked">
-        <button type="button" className="secondary-button" onClick={returnToWelcome}>
+        <button type="button" 
+                className="secondary-button" 
+                onClick={returnToWelcome}>
           {copy.actions.returnToWelcome}
         </button>
+
         {currentVideo && phase === 'video' ? (
           <button
             type="button"
@@ -388,6 +413,7 @@ function ExperimentalGroup({
             {isRewatch ? copy.actions.retakeQuiz : copy.actions.startQuiz}
           </button>
         ) : null}
+
         {currentVideo && phase === 'quiz' ? (
           <button
             type="button"
@@ -398,6 +424,7 @@ function ExperimentalGroup({
             {isLastVideo ? copy.actions.continue : copy.actions.nextVideo}
           </button>
         ) : null}
+
       </StudyActions>
     </StudyPage>
   )
