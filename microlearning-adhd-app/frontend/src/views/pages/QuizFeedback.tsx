@@ -92,8 +92,12 @@ function QuizFeedback({
       </div>
 
       {showImprovement ? (
-        <div className="feedback-delta" role="status">
-          <span className="feedback-delta__icon" aria-hidden="true">
+        <div  className="feedback-delta" 
+              role="status">
+          
+          <span className="feedback-delta__icon" 
+                aria-hidden="true">
+            
             <svg viewBox="0 0 24 24" width="18" height="18" role="img">
               <path
                 d="M12 19V6M6 12l6-6 6 6"
@@ -105,7 +109,11 @@ function QuizFeedback({
               />
             </svg>
           </span>
-          <span className="feedback-delta__value">+{improvementPercent}&nbsp;%</span>
+          
+          <span className="feedback-delta__value">
+            +{improvementPercent}&nbsp;%
+          </span>
+          
           <span className="feedback-delta__label">
             {copy.quizFeedback.improvementLabel}
           </span>
@@ -113,7 +121,9 @@ function QuizFeedback({
       ) : null}
 
       <StudyActions>
-        <button type="button" className="start-button" onClick={onContinue}>
+        <button type="button" 
+                className="start-button" 
+                onClick={onContinue}>
           {copy.actions.continue}
         </button>
       </StudyActions>
