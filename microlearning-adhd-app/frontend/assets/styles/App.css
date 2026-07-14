@@ -228,7 +228,8 @@
     animation: feedback-rise 0.5s ease 0.16s both;
   }
 
-  .feedback-stat__bar-fill {
+  .feedback-stat__bar-fill,
+  .rewatch-score__bar-fill {
     animation: feedback-bar-grow 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
   }
 }
@@ -854,9 +855,141 @@
   margin: 0 0 12px;
 }
 
-.rewatch-dialog__body {
-  max-width: 42ch;
-  line-height: 1.6;
+/* Score panel — mirrors the .feedback-stat card from QuizFeedback so the two
+   result surfaces read as one family, tuned to a warm not-passed tone. */
+.rewatch-score {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 22px;
+  border-radius: 20px;
+  background: rgba(255, 250, 244, 0.85);
+  border: 1px solid rgba(138, 91, 43, 0.16);
+}
+
+.rewatch-score__value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: clamp(2.4rem, 6vw, 3rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text-h);
+}
+
+.rewatch-score__total {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--text);
+}
+
+/* The track wraps the clipped bar so the threshold marker can extend past the
+   bar edges without being cut off by the fill's overflow: hidden. */
+.rewatch-score__track {
+  position: relative;
+  padding: 6px 0;
+}
+
+.rewatch-score__bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(138, 91, 43, 0.12);
+  overflow: hidden;
+}
+
+.rewatch-score__bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  transform-origin: left center;
+  background: linear-gradient(135deg, #c07f34, #d69a4f);
+}
+
+/* Pass-threshold tick — a vertical goal line taller than the bar, marking how
+   many correct answers are needed to pass. */
+.rewatch-score__threshold {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  margin-left: -1.5px;
+  border-radius: 999px;
+  background: #2f7d5b;
+  box-shadow: 0 0 0 2px rgba(255, 250, 244, 0.85);
+}
+
+.rewatch-score__caption {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.rewatch-score__threshold-caption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #256b4c;
+}
+
+.rewatch-score__threshold-dot {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #2f7d5b;
+}
+
+/* "What happens now" — the second core message, as a compact numbered list
+   instead of a paragraph so each step lands on its own. */
+.rewatch-next {
+  margin-top: 20px;
+}
+
+.rewatch-next__title {
+  margin: 0 0 12px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a5b2b;
+}
+
+.rewatch-next__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rewatch-next__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.rewatch-next__marker {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(138, 91, 43, 0.12);
+  color: #8a5b2b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.rewatch-next__text {
+  line-height: 1.55;
   color: #4f453a;
 }
 

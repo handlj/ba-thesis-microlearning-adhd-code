@@ -303,18 +303,97 @@ function ExperimentalGroup({
                       {copy.experimentalGroup.retry.attemptLabel(attemptNumber, maxAttempts)}
                     </p>
 
-                    <h2 id="rewatch-dialog-title" 
+                    <h2 id="rewatch-dialog-title"
                         className="rewatch-dialog__title"
                     >
                       {copy.experimentalGroup.retry.dialogTitle}
                     </h2>
 
-                    <p className="rewatch-dialog__body">
-                      {copy.experimentalGroup.retry.notice(
-                        failedScore.correct,
-                        failedScore.total,
-                      )}
-                    </p>
+                    <div className="rewatch-score">
+                      <p  className="rewatch-score__value" 
+                          aria-hidden="true">
+                        {failedScore.correct}
+                        <span className="rewatch-score__total">
+                          {copy.experimentalGroup.retry.outOf(failedScore.total)}
+                        </span>
+                      </p>
+                      
+                      <div  className="rewatch-score__track" 
+                            aria-hidden="true">
+                        <div className="rewatch-score__bar">
+                          <span
+                            className="rewatch-score__bar-fill"
+                            style={{
+                              width: `${
+                                failedScore.total > 0
+                                  ? Math.round((failedScore.correct / failedScore.total) * 100)
+                                  : 0
+                              }%`,
+                            }}
+                          />
+                        </div>
+                        
+                        {failedScore.total > 0 ? (
+                          <span
+                            className="rewatch-score__threshold"
+                            style={{
+                              left: `${Math.min(
+                                100,
+                                Math.max(0, (passThreshold / failedScore.total) * 100),
+                              )}%`,
+                            }}
+                            title={copy.experimentalGroup.retry.thresholdMarkerLabel}
+                          />
+                        ) : null}
+                      </div>
+                      
+                      <p  className="rewatch-score__caption"         
+                          aria-hidden="true">
+                        {copy.experimentalGroup.retry.scoreCaption}
+                      </p>
+                      
+                      <p  className="rewatch-score__threshold-caption"     
+                          aria-hidden="true">
+                        <span 
+                          className="rewatch-score__threshold-dot" 
+                        />
+                        
+                        {copy.experimentalGroup.retry.thresholdLabel(
+                          passThreshold,
+                          failedScore.total,
+                        )}
+                      </p>
+                      
+                      <span className="sr-only">
+                        {copy.experimentalGroup.retry.srScore(
+                          failedScore.correct,
+                          failedScore.total,
+                        )}{' '}
+                        
+                        {copy.experimentalGroup.retry.thresholdLabel(
+                          passThreshold,
+                          failedScore.total,
+                        )}
+                      </span>
+                    </div>
+
+                    <div className="rewatch-next">
+                      <p className="rewatch-next__title">
+                        {copy.experimentalGroup.retry.nextStepsTitle}
+                      </p>
+                      
+                      <ul className="rewatch-next__list">
+                        {copy.experimentalGroup.retry.nextSteps.map((step, index) => (
+                          <li key={index} className="rewatch-next__item">
+                            <span className="rewatch-next__marker" 
+                                  aria-hidden="true">
+                              {index + 1}
+                            </span>
+                            <span className="rewatch-next__text">{step}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
                     <div className="rewatch-dialog__actions">
                       <button
