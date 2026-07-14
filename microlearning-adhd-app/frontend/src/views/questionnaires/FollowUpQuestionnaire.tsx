@@ -6,8 +6,9 @@ import { type PostInterventionAnswers } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
 
 type PostInterventionQuestionId = keyof PostInterventionAnswers
+type FollowUpQuestionId = PostInterventionQuestionId | 'wantsFeedback'
 
-const postInterventionQuestions: StudyQuestion<PostInterventionQuestionId>[] = [
+const postInterventionQuestions: StudyQuestion<FollowUpQuestionId>[] = [
   {
     id: 'openFeedback',
     type: 'text',
@@ -15,26 +16,41 @@ const postInterventionQuestions: StudyQuestion<PostInterventionQuestionId>[] = [
     placeholder: copy.postIntervention.questions.openFeedback.placeholder,
     required: false,
   },
+  {
+    id: 'wantsFeedback',
+    type: 'radio',
+    label: copy.postIntervention.questions.wantsFeedback.label,
+    options: [
+      { value: 'yes', label: copy.postIntervention.questions.wantsFeedback.options.yes },
+      { value: 'no', label: copy.postIntervention.questions.wantsFeedback.options.no },
+    ],
+  },
 ]
 
 type FollowUpQuestionnaireProps = {
   values: PostInterventionAnswers
+  wantsFeedback: 'yes' | 'no'
   error: string | null
   isSubmitting: boolean
   onChange: (field: keyof PostInterventionAnswers, value: string) => void
+  onWantsFeedbackChange: (value: 'yes' | 'no') => void
   onSubmit: () => void
 }
 
 function FollowUpQuestionnaire({
   values,
+  wantsFeedback,
   error,
   isSubmitting,
   onChange,
+  onWantsFeedbackChange,
   onSubmit,
 }: FollowUpQuestionnaireProps) {
+  const mergedValues = { ...values, wantsFeedback }
+
   const isComplete = postInterventionQuestions.every((q) => {
     if (q.required) {
-      const value = values[q.id]
+      const value = mergedValues[q.id]
       return value !== undefined && value !== ''
     }
     return true
@@ -52,10 +68,15 @@ function FollowUpQuestionnaire({
 
       <StudyForm
         questions={postInterventionQuestions}
-        values={values}
+        values={mergedValues}
         error={error}
         onChange={(field, value: FormAnswerValue) => {
-          if (!Array.isArray(value)) {
+          if (Array.isArray(value)) {
+            return
+          }
+          if (field === 'wantsFeedback') {
+            onWantsFeedbackChange(value === 'yes' ? 'yes' : 'no')
+          } else {
             onChange(field, value)
           }
         }}

@@ -306,6 +306,13 @@ export const copy = {
         label: 'Gibt es etwas, das Sie an der Lernerfahrung verbessern würden?',
         placeholder: 'Teilen Sie einen kurzen Kommentar',
       },
+      wantsFeedback: {
+        label: 'Möchten Sie eine Rückmeldung zu Ihren Ergebnissen in den Coding-Quizzen erhalten?',
+        options: {
+          yes: 'Ja',
+          no: 'Nein',
+        },
+      },
     },
     agreementOptions: {
       stronglyAgree: 'Stimme voll zu',
@@ -313,6 +320,22 @@ export const copy = {
       neutral: 'Neutral',
       disagree: 'Stimme nicht zu',
     },
+  },
+  quizFeedback: {
+    heading: {
+      eyebrow: 'Feedback zu Ihrer Quiz-leistung',
+      title: 'Ergebnisse',
+      intro:
+        'Hier sehen Sie eine kurze Rückmeldung zu Ihren Antworten in den Coding-Quizzes.',
+    },
+    beforeLabel: 'Vorher',
+    afterLabelControl: 'Nachher',
+    afterLabelExperimental: 'Nachher (Über alle Videos)',
+    scoreCaption: 'Fragen richtig beantwortet',
+    outOf: (total: number) => `von ${total}`,
+    improvementLabel: 'Verbesserung gegenüber dem Vortest',
+    srScore: (label: string, correct: number, total: number) =>
+      `${label}: ${correct} von ${total} Fragen richtig beantwortet.`,
   },
   thankYou: {
     heading: {

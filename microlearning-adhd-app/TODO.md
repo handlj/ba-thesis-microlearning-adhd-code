@@ -9,7 +9,10 @@
 - [ ] Handle if a user mistakenly double-clicks on a button and thus submits the same quiz twice. (e.g. by disabling the button after the first click)
 
 ### Post-Intervention
-- [ ] Option auf Feedback-Auswertung der Quizzes für EG und CG
+- [ ] Improve thankyou page design
+
+### Intervention
+- [ ] Improve design of dialog for rewatch session to be ux friendly
 
 ### Interaction Patterns
 - [ ] Data Analysis: Interaction Patterns: Korrelieren mit Engagement (Fragebogen UES), frequentistisch

@@ -52,7 +52,7 @@ def assign_balanced_group(session: Session, screen_positive: bool) -> str:
     control_count = _count_assignments(session, "control", screen_positive)
     experimental_count = _count_assignments(session, "experimental", screen_positive)
 
-    return "experimental" # DEBUG
+    # return "experimental" # DEBUG
 
     if control_count < experimental_count:
         smaller, larger = "control", "experimental"

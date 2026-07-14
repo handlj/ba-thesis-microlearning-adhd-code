@@ -14,6 +14,7 @@ import FollowUpQuestionnaire from '../questionnaires/FollowUpQuestionnaire.tsx'
 import ControlGroup from '../pages/ControlGroup.tsx'
 import ExperimentalGroup from '../pages/ExperimentalGroup.tsx'
 import ThankYou from '../pages/ThankYou.tsx'
+import QuizFeedback from '../pages/QuizFeedback.tsx'
 import {
   postConsentSession,
   postInteractionEvent,
@@ -32,6 +33,9 @@ import {
 import { type DemographicAnswers, type GroupAssignment } from '../../utils/groupAssignment.ts'
 import { validateDemographics } from '../../utils/demographicsValidation.ts'
 import { copy } from '../../content/copy.ts'
+import { scoreQuiz } from '../../utils/quizScoring.ts'
+import { allQuizQuestions, quizTopics, type QuizTopic } from '../../content/quiz.ts'
+import type { QuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
 import { adhdScreening } from '../../content/adhdScreening.ts'
 import { fam } from '../../content/fam.ts'
 import { panas } from '../../content/panas.ts'
@@ -52,6 +56,7 @@ type Page =
   | 'postPanas'
   | 'ues'
   | 'followUp'
+  | 'feedback'
   | 'thankYou'
 
 type BufferedEvent = {
@@ -154,6 +159,14 @@ function App() {
   const [isSavingDemographics, setIsSavingDemographics] = useState(false)
   const [isSavingFollowUp, setIsSavingFollowUp] = useState(false)
   const [assignment, setAssignment] = useState<GroupAssignment | null>(null)
+  const [wantsFeedback, setWantsFeedback] = useState<'yes' | 'no'>('no')
+  const [preQuizCorrect, setPreQuizCorrect] = useState<number | null>(null)
+  const [controlPostQuizCorrect, setControlPostQuizCorrect] = useState<
+    number | null
+  >(null)
+  const [experimentalTopicScores, setExperimentalTopicScores] = useState<
+    Record<string, number>
+  >({})
   const bufferRef = useRef<BufferedEvent[]>(initialBuffer)
   const isSavingQuestionnaireRef = useRef(false)
 
@@ -180,8 +193,19 @@ function App() {
     setIsSavingDemographics(false)
     setIsSavingFollowUp(false)
     setAssignment(null)
+    setWantsFeedback('no')
+    setPreQuizCorrect(null)
+    setControlPostQuizCorrect(null)
+    setExperimentalTopicScores({})
     localStorage.removeItem(PARTICIPANT_ID_KEY)
   }
+
+  // The pre-quiz and control post-quiz both use the flat 20-question bank.
+  // scoreQuiz only reads `.questions`, so a topic-shaped wrapper is enough; the
+  // pass threshold is irrelevant to correctCount.
+  const scoreAll = (answers: QuizAnswers) =>
+    scoreQuiz({ questions: allQuizQuestions } as QuizTopic, answers, 0)
+      .correctCount
 
   const returnToWelcome = () => {
     transitionTo('welcome')
@@ -547,7 +571,12 @@ function App() {
         participantId,
         assignment,
       })
-      transitionTo('thankYou')
+      const hasScores =
+        preQuizCorrect !== null &&
+        (assignment === 'control'
+          ? controlPostQuizCorrect !== null
+          : Object.keys(experimentalTopicScores).length > 0)
+      transitionTo(wantsFeedback === 'yes' && hasScores ? 'feedback' : 'thankYou')
     } catch (requestError) {
       setFollowUpError(
         requestError instanceof Error
@@ -667,6 +696,7 @@ function App() {
         }}
         onSubmitQuiz={(answers) => {
           if (!assignment) return
+          setPreQuizCorrect(scoreAll(answers))
           submitQuizForGroup({
             group: assignment,
             video_id: null,
@@ -688,7 +718,8 @@ function App() {
         onLogInteraction={(eventType, payload) =>
           logStudyInteraction('control', eventType, payload)
         }
-        onSubmitQuiz={(answers) =>
+        onSubmitQuiz={(answers) => {
+          setControlPostQuizCorrect(scoreAll(answers))
           submitQuizForGroup({
             group: 'control',
             video_id: null,
@@ -696,7 +727,7 @@ function App() {
             topic_id: 'all',
             answers,
           })
-        }
+        }}
       />
     )
   }
@@ -709,9 +740,18 @@ function App() {
         onLogInteraction={(eventType, payload) =>
           logStudyInteraction('experimental', eventType, payload)
         }
-        onSubmitQuiz={(submission) =>
+        onSubmitQuiz={(submission) => {
+          const topic = quizTopics.find((t) => t.id === submission.topic_id)
+          if (topic) {
+            const correct = scoreQuiz(topic, submission.answers, 0).correctCount
+            // Later attempts overwrite earlier ones → final attempt per topic.
+            setExperimentalTopicScores((previous) => ({
+              ...previous,
+              [submission.topic_id]: correct,
+            }))
+          }
           submitQuizForGroup({ group: 'experimental', ...submission })
-        }
+        }}
       />
     )
   }
@@ -748,13 +788,33 @@ function App() {
     return (
       <FollowUpQuestionnaire
         values={postInterventionAnswers}
+        wantsFeedback={wantsFeedback}
         error={followUpError}
         isSubmitting={isSavingFollowUp}
         onChange={(field, value) => {
           setPostInterventionAnswers((previous) => ({ ...previous, [field]: value }))
           if (followUpError) setFollowUpError(null)
         }}
+        onWantsFeedbackChange={setWantsFeedback}
         onSubmit={handleFollowUpSubmit}
+      />
+    )
+  }
+
+  if (page === 'feedback' && assignment) {
+    return (
+      <QuizFeedback
+        assignment={assignment}
+        preCorrect={preQuizCorrect ?? 0}
+        postCorrect={
+          assignment === 'control'
+            ? controlPostQuizCorrect ?? 0
+            : Object.values(experimentalTopicScores).reduce(
+                (sum, correct) => sum + correct,
+                0,
+              )
+        }
+        onContinue={() => transitionTo('thankYou')}
       />
     )
   }
