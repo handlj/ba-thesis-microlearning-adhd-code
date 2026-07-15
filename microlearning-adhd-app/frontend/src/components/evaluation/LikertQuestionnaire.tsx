@@ -43,23 +43,36 @@ function LikertQuestionnaire({
       className="likert-questionnaire"
       aria-labelledby={title ? sectionTitleId : undefined}
     >
+      
       {title ? (
-        <h2 className="likert-title" id={sectionTitleId}>
+        <h2 className="likert-title" 
+            id={sectionTitleId}>
           {title}
         </h2>
       ) : null}
-      {instructions ? <p className="likert-instructions">{instructions}</p> : null}
+      
+      {instructions ? 
+        <p className="likert-instructions">
+          {instructions}
+        </p>
+      : null}
 
       <div className="likert-table-wrap">
         <table className={`likert-table likert-table--${modifier}`}>
           <thead>
             <tr>
-              <th className="likert-question-heading" scope="col">
-                <span className="sr-only">{questionColumnLabel}</span>
-                <span className="likert-progress" aria-live="polite">
+              <th className="likert-question-heading" 
+                  scope="col">
+                <span className="sr-only">
+                  {questionColumnLabel}
+                </span>
+                
+                <span className="likert-progress"
+                      aria-live="polite">
                   {answered} von {total} beantwortet
                 </span>
               </th>
+              
               {scale.values.map((scaleValue, index) => {
                 const label = scale.labels
                   ? scale.labels[scaleValue]
@@ -70,8 +83,13 @@ function LikertQuestionnaire({
                       : undefined
 
                 return (
-                  <th className="likert-scale-heading" scope="col" key={scaleValue}>
-                    {label ? <span className="likert-scale-label">{label}</span> : null}
+                  <th className="likert-scale-heading" 
+                      scope="col" key={scaleValue}>
+                    {label ? 
+                      <span className="likert-scale-label">
+                        {label}
+                      </span>
+                    : null}
                   </th>
                 )
               })}
@@ -81,8 +99,13 @@ function LikertQuestionnaire({
             {questions.map((question, index) => (
               <tr key={question.id}>
                 <th className="likert-question-cell" scope="row">
-                  <span className="likert-question-number">{index + 1}.</span>
-                  <span>{question.text}</span>
+                  <span className="likert-question-number">
+                    {index + 1}.
+                  </span>
+                  
+                  <span>
+                    {question.text}
+                  </span>
                 </th>
                 {scale.values.map((scaleValue) => {
                   const inputId = `${question.id}-${scaleValue}`
@@ -90,7 +113,8 @@ function LikertQuestionnaire({
 
                   return (
                     <td className="likert-option-cell" key={scaleValue}>
-                      <label className="likert-option" htmlFor={inputId}>
+                      <label  className="likert-option" 
+                              htmlFor={inputId}>
                         <input
                           id={inputId}
                           type="radio"
@@ -106,7 +130,10 @@ function LikertQuestionnaire({
                             scaleLabel,
                           )}
                         />
-                        <span aria-hidden="true">{scaleValue}</span>
+                        
+                        <span aria-hidden="true">
+                          {scaleValue}
+                        </span>
                       </label>
                     </td>
                   )
@@ -117,7 +144,11 @@ function LikertQuestionnaire({
         </table>
       </div>
 
-      {error ? <p className="error-text">{error}</p> : null}
+      {error ? 
+        <p className="error-text">
+          {error}
+        </p>
+      : null}
     </section>
   )
 }
