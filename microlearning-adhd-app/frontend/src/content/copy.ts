@@ -51,10 +51,31 @@ export const copy = {
       eyebrow: 'MicroPython',
       title: 'Herzlich Willkommen!',
       intro:
-        'Sie beginnen gleich eine kurze Studiensitzung. Nehmen Sie sich Zeit, lesen Sie alle Informationen sorgfältig und starten Sie, sobald Sie bereit sind.',
+        'Sie beginnen gleich eine Studiensitzung zum Erlernen von Grundlagen in der Programmiersprache Python. Hier sehen Sie zusammengefasst, was Sie erwartet.',
+    },
+    facts: [
+      {
+        icon: 'clock',
+        label: 'Dauer',
+        value: 'Etwa 60 Minuten',
+      },
+      {
+        icon: 'headphones',
+        label: 'Notwendige Ausstattung',
+        value: 'Lautsprecher oder Kopfhörer',
+      },
+    ],
+    steps: {
+      title: 'Ihr Ablauf',
+      items: [
+        'Einverständniserklärung und einige kurze Fragebögen.',
+        'Ein kurzes Quiz zu Ihren Programmier-Vorkenntnissen. Vorwissen ist nicht nötig.',
+        'Eine videogestützte Lerneinheit.',
+        'Ein abschließendes Quiz und die letzten Fragebögen.',
+      ],
     },
     status: {
-      noDataCollected: 'Ohne Ihr ausdrückliches Einverständnis werden keine Daten erhoben.',
+      noDataCollected: 'Ohne Ihr Einverständnis werden keine Daten erhoben.',
     },
   },
   // TODO: Remove outdated consent content, source of truth is now in Consent.tsx. Consider moving the remaining content to a dedicated file for better maintainability.
@@ -350,9 +371,26 @@ export const copy = {
   thankYou: {
     heading: {
       eyebrow: 'Studie abgeschlossen',
-      title: 'Vielen Dank für Ihre Teilnahme an der Studie.',
+      title: 'Vielen Dank für Ihre Teilnahme.',
       intro:
-        'Ihre Antworten wurden übermittelt. Sie können dieses Fenster nun schließen und die Studie beenden. Bei Rückfragen können Sie jederzeit die Studienleitung kontaktieren: Dr. rer. nat. Lisa Berger; lisa.berger@tugraz.at',
+        'Ihr Beitrag hilft uns zu verstehen, wie Lernerfahrungen in Zukunft besser gestaltet werden können.',
+    },
+    facts: [
+      {
+        icon: 'check',
+        label: 'Ihre Antworten',
+        value: 'Übermittelt und anonymisiert gespeichert',
+      },
+      {
+        icon: 'exit',
+        label: 'Nächster Schritt',
+        value: 'Sie können dieses Fenster nun schließen',
+      },
+    ],
+    contact: {
+      label: 'Rückfragen zur Studie',
+      name: 'Dr. rer. nat. Lisa Berger',
+      email: 'lisa.berger@tugraz.at',
     },
   },
 } as const

@@ -36,7 +36,7 @@
 }
 
 .study-card--ready {
-  width: min(760px, 100%);
+  width: min(860px, 100%);
 }
 
 .study-card--video {
@@ -78,7 +78,7 @@
 }
 
 .intro {
-  max-width: 56ch;
+  max-width: 66ch;
   font-size: 1.1rem;
   line-height: 1.65;
 }
@@ -228,6 +228,23 @@
     animation: feedback-rise 0.5s ease 0.16s both;
   }
 
+  .study-fact {
+    animation: feedback-rise 0.5s ease both;
+  }
+
+  .study-fact:nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  .study-fact:nth-child(3) {
+    animation-delay: 0.16s;
+  }
+
+  .study-steps,
+  .contact-card {
+    animation: feedback-rise 0.5s ease 0.16s both;
+  }
+
   .feedback-stat__bar-fill,
   .rewatch-score__bar-fill {
     animation: feedback-bar-grow 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
@@ -238,6 +255,178 @@
   .feedback-scores {
     grid-template-columns: 1fr;
   }
+}
+
+/* Key facts of a page at a glance — same card language as .feedback-stat. */
+.study-facts {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+}
+
+.study-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(255, 250, 244, 0.85);
+  border: 1px solid rgba(138, 91, 43, 0.14);
+}
+
+.study-fact__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.study-fact__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(138, 91, 43, 0.12);
+  color: #8a5b2b;
+}
+
+.study-fact__label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a5b2b;
+}
+
+.study-fact__value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-h);
+}
+
+.study-steps {
+  margin-top: 16px;
+  padding: 24px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(54, 87, 159, 0.2);
+  box-shadow: 0 14px 40px rgba(31, 59, 115, 0.08);
+}
+
+.study-steps h2 {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+}
+
+.study-steps__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  counter-reset: study-step;
+}
+
+.study-steps__item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: start;
+  gap: 14px;
+  line-height: 1.55;
+}
+
+.study-steps__item::before {
+  counter-increment: study-step;
+  content: counter(study-step);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(31, 59, 115, 0.1);
+  color: #1f3b73;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.status-note {
+  /* Small basis so the note shares the action row with the button instead of
+     wrapping below it; it grows into the remaining space. */
+  flex: 1 1 240px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(138, 91, 43, 0.08);
+  border: 1px solid rgba(138, 91, 43, 0.16);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.status-note__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: #8a5b2b;
+}
+
+.contact-card {
+  margin-top: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 22px;
+  border-radius: 20px;
+  background: rgba(31, 59, 115, 0.06);
+  border: 1px solid rgba(31, 59, 115, 0.16);
+}
+
+.contact-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(31, 59, 115, 0.1);
+  color: #1f3b73;
+}
+
+.contact-card__body {
+  display: grid;
+  gap: 4px;
+}
+
+.contact-card__label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #36579f;
+}
+
+.contact-card__name {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.contact-card__link {
+  justify-self: start;
+  color: #1f3b73;
+  font-weight: 600;
+}
+
+.contact-card__link:focus-visible {
+  outline: 3px solid rgba(54, 87, 159, 0.35);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .info-grid {
@@ -1059,8 +1248,18 @@
     align-items: stretch;
   }
 
-  .info-grid {
+  .info-grid,
+  .study-facts {
     grid-template-columns: 1fr;
+  }
+
+  .status-note {
+    border-radius: 18px;
+    align-items: flex-start;
+  }
+
+  .status-note__icon {
+    margin-top: 2px;
   }
 
   .start-button {

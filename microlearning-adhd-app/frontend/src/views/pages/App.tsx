@@ -1,8 +1,10 @@
 import { useRef, useState } from 'react'
 import '../../../assets/styles/App.css'
 import StudyActions from '../../components/StudyActions.tsx'
+import StudyFacts from '../../components/StudyFacts.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
+import { icons } from '../../components/icons.tsx'
 import Consent from '../pages/Consent.tsx'
 import Demographics from '../pages/Demographics.tsx'
 import AdhdScreeningQuestionnaire from '../questionnaires/AdhdScreeningQuestionnaire.tsx'
@@ -121,7 +123,8 @@ const defaultUesAnswers = ues.questions.reduce<Record<string, string>>(
 )
 
 function App() {
-  const [page, setPage] = useState<Page>('welcome')
+  // Set initial page, deviations from "welcome" are only for testing purposes and have to be reverted before deployment
+  const [page, setPage] = useState<Page>('welcome') 
   const [agreed, setAgreed] = useState(false)
   const [initialBuffer] = useState<BufferedEvent[]>(() => {
     const existing = localStorage.getItem(STUDY_BUFFER_KEY)
@@ -833,6 +836,25 @@ function App() {
         id="study-title"
       />
 
+      <StudyFacts facts={copy.welcome.facts} />
+
+      <div  className="study-steps"
+            aria-labelledby="welcome-steps-title">
+
+        <h2 id="welcome-steps-title">
+          {copy.welcome.steps.title}
+        </h2>
+
+        <ol className="study-steps__list">
+          {copy.welcome.steps.items.map((item) => (
+            <li key={item} 
+                className="study-steps__item">
+              {item}
+            </li>
+          ))}
+        </ol>
+      </div>
+
       <StudyActions>
         <button
           type="button"
@@ -841,9 +863,13 @@ function App() {
         >
           {copy.actions.startStudy}
         </button>
-        
-        <p  className="status" 
+
+        <p  className="status status-note"
             aria-live="polite">
+          <span className="status-note__icon"
+                aria-hidden="true">
+            {icons.lock}
+          </span>
           {copy.welcome.status.noDataCollected}
         </p>
       </StudyActions>

@@ -11,9 +11,6 @@
 ### Post-Intervention
 - [ ] Improve thankyou page design
 
-### Intervention
-- [ ] Improve design of dialog for rewatch session to be ux friendly
-
 ### Interaction Patterns
 - [ ] Data Analysis: Interaction Patterns: Korrelieren mit Engagement (Fragebogen UES), frequentistisch
 
