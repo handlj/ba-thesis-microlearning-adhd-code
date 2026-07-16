@@ -10,6 +10,7 @@ import type { StudyInteractionPayload } from '../../services/index.ts'
 
 type ExperimentalGroupQuizzesProps = {
   topic: QuizTopic
+  sequence: string
   videoContext: StudyInteractionPayload
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
   onCompletionChange: (complete: boolean) => void
@@ -23,6 +24,7 @@ type ExperimentalGroupQuizzesProps = {
 // "next" button.
 function ExperimentalGroupQuizzes({
   topic,
+  sequence,
   videoContext,
   onLogInteraction,
   onCompletionChange,
@@ -53,15 +55,13 @@ function ExperimentalGroupQuizzes({
 
   return (
     <div className="quiz-panel">
-      <QuizProgressHeader 
-        answered={answeredCount} 
-        total={total} 
+      <QuizProgressHeader
+        answered={answeredCount}
+        total={total}
+        topic={topic.title}
+        sequence={sequence}
       />
-      
-      <p className="video-kicker">
-        {topic.title}
-      </p>
-      
+
       <div className="quiz-question-list">
         {topic.questions.map((question, questionIndex) => (
           <QuizQuestionField

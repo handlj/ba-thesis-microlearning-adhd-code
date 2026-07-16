@@ -1,3 +1,5 @@
+import ProgressPill from '../ProgressPill.tsx'
+
 type LikertScale = {
   values: readonly string[]
   labels?: Readonly<Record<string, string>>
@@ -67,10 +69,10 @@ function LikertQuestionnaire({
                   {questionColumnLabel}
                 </span>
                 
-                <span className="likert-progress"
-                      aria-live="polite">
-                  {answered} von {total} beantwortet
-                </span>
+                <ProgressPill 
+                  answered={answered} 
+                  total={total} 
+                />
               </th>
               
               {scale.values.map((scaleValue, index) => {
@@ -99,12 +101,15 @@ function LikertQuestionnaire({
             {questions.map((question, index) => (
               <tr key={question.id}>
                 <th className="likert-question-cell" scope="row">
-                  <span className="likert-question-number">
-                    {index + 1}.
-                  </span>
-                  
-                  <span>
-                    {question.text}
+                  <span className="likert-question">
+                    <span className="likert-question-number"
+                          aria-hidden="true">
+                      {index + 1}
+                    </span>
+
+                    <span className="likert-question-text">
+                      {question.text}
+                    </span>
                   </span>
                 </th>
                 {scale.values.map((scaleValue) => {

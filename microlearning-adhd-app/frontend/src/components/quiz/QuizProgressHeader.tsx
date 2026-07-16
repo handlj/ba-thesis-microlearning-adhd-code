@@ -1,16 +1,31 @@
+import ProgressPill from '../ProgressPill.tsx'
+
 type QuizProgressHeaderProps = {
   answered: number
   total: number
+  topic?: string
+  sequence?: string
 }
 
-// Sticky bar pinned to the top of the quiz screens, mirroring the questionnaire's
-// progress header so participants always see how many questions they've answered.
-function QuizProgressHeader({ answered, total }: QuizProgressHeaderProps) {
+function QuizProgressHeader({ answered, total, topic, sequence }: QuizProgressHeaderProps) {
   return (
     <div className="quiz-progress-header">
-      <span className="quiz-progress" aria-live="polite">
-        {answered} von {total} beantwortet
-      </span>
+      <ProgressPill 
+        answered={answered} 
+        total={total} 
+      />
+
+      {topic ? (
+        <p className="quiz-progress-header__topic">
+          {topic}
+        </p>
+      ) : null}
+
+      {sequence ? (
+        <p className="quiz-progress-header__sequence">
+          {sequence}
+        </p>
+      ) : null}
     </div>
   )
 }

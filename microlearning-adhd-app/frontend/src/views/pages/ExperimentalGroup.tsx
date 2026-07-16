@@ -274,16 +274,17 @@ function ExperimentalGroup({
 
       {currentVideo ? (
         <div className="video-panel">
-          <p className="sequence-progress">
-            {copy.experimentalGroup.progress(currentIndex + 1, videoCount)}
-          </p>
-
           {phase === 'video' ? (
             <>
+              <p className="sequence-progress">
+                {copy.experimentalGroup.progress(currentIndex + 1, videoCount)}
+              </p>
+
               <div className="video-meta">
                 <p className="video-kicker">
                   {currentVideo.title}
                 </p>
+                
                 <p className="video-description">
                   {currentVideo.description}
                 </p>
@@ -459,6 +460,7 @@ function ExperimentalGroup({
               <ExperimentalGroupQuizzes
                 key={`${currentVideo.id}-attempt-${attemptNumber}`}
                 topic={currentTopic}
+                sequence={copy.experimentalGroup.progress(currentIndex + 1, videoCount)}
                 videoContext={getCurrentVideoPayload()}
                 onLogInteraction={onLogInteraction}
                 onCompletionChange={setQuizComplete}
