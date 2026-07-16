@@ -20,11 +20,12 @@ function QuizQuestionField({ question, selected, onToggle, index }: QuizQuestion
       <legend className="question-label 
               quiz-prompt">
         {typeof index === 'number' ? (
-          <span className="quiz-question-number">
-            {index}.
+          <span className="quiz-question-number"
+                aria-hidden="true">
+            {index}
           </span>
         ) : null}
-        
+
         <span>
           {renderInlineCode(question.prompt)}
         </span>

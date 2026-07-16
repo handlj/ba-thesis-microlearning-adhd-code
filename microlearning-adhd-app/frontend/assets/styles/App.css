@@ -1104,10 +1104,13 @@
   }
 }
 
-/* Assessment quiz: stacked questions with embedded code snippets. */
+/* Assessment quiz: stacked questions with embedded code snippets. The generous
+   gap groups each prompt with its options and leaves a clear seam between
+   questions, so the list reads as a scannable structure the participant can move
+   back through to revisit an answer. */
 .quiz-question-list {
   display: grid;
-  gap: 22px;
+  gap: 34px;
 }
 
 .quiz-question {
@@ -1116,8 +1119,8 @@
 
 .quiz-prompt {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  align-items: center;
+  gap: 14px;
   width: 100%;
   font-size: 1.05rem;
   line-height: 1.5;
@@ -1125,10 +1128,34 @@
   border-bottom: 1px solid rgba(138, 91, 43, 0.16);
 }
 
+/* Circular counter badge — a larger, more prominent relative of the
+   questionnaire's .likert-question-number. Centred against the question text
+   (via .quiz-prompt's align-items) rather than pinned to its first line, so it
+   sits in the vertical middle of the statement. */
 .quiz-question-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 0 0 auto;
-  color: #4f453a;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(138, 91, 43, 0.12);
+  color: #8a5b2b;
+  font-size: 1.05rem;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
+  transition: background 0.15s, color 0.15s;
+}
+
+/* Answered-question feedback: the badge takes the light-blue fill of the
+   sticky-header progress pill (rgba(31,59,115,0.08)), with the numeral in the
+   dark blue (#1f3b73) shared by the header's title text and the checked
+   checkbox — so a ticked question's counter is tinted from the same pair as the
+   progress indicator rather than echoing the checkbox's solid fill. */
+.quiz-question:has(input:checked) .quiz-question-number {
+  background: rgba(31, 59, 115, 0.08);
+  color: #1f3b73;
 }
 
 /* Quiz answers swap the native box for the questionnaire's circular control, so

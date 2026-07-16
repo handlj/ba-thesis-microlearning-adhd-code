@@ -70,15 +70,17 @@ function PreQuiz({
         total={total} 
       />
 
-      {allQuizQuestions.map((question, questionIndex) => (
-        <QuizQuestionField
-          key={question.id}
-          question={question}
-          index={questionIndex + 1}
-          selected={answers[question.id] ?? []}
-          onToggle={(optionId) => handleToggle(question.id, optionId)}
-        />
-      ))}
+      <div className="quiz-question-list">
+        {allQuizQuestions.map((question, questionIndex) => (
+          <QuizQuestionField
+            key={question.id}
+            question={question}
+            index={questionIndex + 1}
+            selected={answers[question.id] ?? []}
+            onToggle={(optionId) => handleToggle(question.id, optionId)}
+          />
+        ))}
+      </div>
 
       <StudyActions>
         <button type="button" 
