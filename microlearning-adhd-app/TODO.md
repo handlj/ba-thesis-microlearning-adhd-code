@@ -2,14 +2,19 @@
 
 ## Next Up
 
+### Textual Content
+- [ ] Add instructions to the preQuiz page, so the user is oriented
+- [ ] Edit intructions in ready page and video pages for up to date content
+- [ ] Edit ready presentation, fix typo ("sie" -> "Sie")
+
+### Study Flow
+- [ ] Instructions on last video stay static ("Bevor Sie zum nächsten Video weitergehen"), change that
+
+### Quiz Questions
+- [ ] Make questions easier: 4 basic questions (1:1 reproduction) and one code snippet per topic, especially functions is too hard.
+
 ### Questionnaires
 - [ ] Aufmerksamkeitsvalidierung (Kreuzen Sie bei dieser Frage bitte die Zahl "X" an.)
-
-### UX
-- [ ] Handle if a user mistakenly double-clicks on a button and thus submits the same quiz twice. (e.g. by disabling the button after the first click)
-
-### Post-Intervention
-- [ ] Improve thankyou page design
 
 ### Interaction Patterns
 - [ ] Data Analysis: Interaction Patterns: Korrelieren mit Engagement (Fragebogen UES), frequentistisch
@@ -22,7 +27,6 @@
 ### Study Flow
 - [ ] Add that reloading the page does not reset the progress of the user.
 - [ ] Translate all buttons from proceed to fortfahren
-- [ ] If the user changes from one page to the other, it should arrive at the top of the page and not the same position as before.
 - [ ] Adapt study flow graph since prequiz was added, adhd screening was enlarged
 - [ ] Remove "Zurück zur Begrüßung" Button since it is not needed and confuses the user.
 
@@ -44,7 +48,7 @@
 - [ ] Add an "Are you sure" dialog if the user tries to return to welcome page or the session overview page, to prevent them from losing their progress.
 
 ### Data Analysis
-- [ ] Exclude users who are very fast on the questionnaires (e.g. < 1s per question)>)
+- [ ] Exclude users who are very fast on the questionnaires (e.g. < 1s per question)
 
 ### Documentation
 - [ ] Add a shared file for error message strings
