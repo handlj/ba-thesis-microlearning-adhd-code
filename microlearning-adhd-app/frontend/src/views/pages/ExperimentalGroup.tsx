@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
+import { useScrollToTop } from '../../hooks/useScrollToTop.ts'
 import ExperimentalGroupQuizzes from './ExperimentalGroupQuizzes.tsx'
 import type { QuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
 import { quizTopics } from '../../content/quiz.ts'
@@ -53,7 +54,9 @@ function ExperimentalGroup({
   const pendingSeekSecondsRef = useRef<number | null>(null)
   const rewatchDialogRef = useRef<HTMLDialogElement>(null)
   const { quiz_pass_threshold: passThreshold, quiz_max_attempts: maxAttempts } =
-    getAppConfig()
+  getAppConfig()
+  
+  useScrollToTop(`${currentIndex}-${phase}`)
 
   useEffect(() => {
     const dialog = rewatchDialogRef.current

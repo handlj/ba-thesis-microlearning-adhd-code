@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
+import { useScrollToTop } from '../../hooks/useScrollToTop.ts'
 import ControlGroupQuiz from './ControlGroupQuiz.tsx'
 import { getControlVideo, type ControlVideo, type StudyInteractionPayload } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
@@ -27,6 +28,8 @@ function ControlGroup({
   const [canContinue, setCanContinue] = useState(false)
   const [phase, setPhase] = useState<ControlPhase>('video')
   const previousVideoTimeRef = useRef(0)
+
+  useScrollToTop(phase)
 
   useEffect(() => {
     let active = true

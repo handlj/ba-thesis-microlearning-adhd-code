@@ -38,6 +38,7 @@ import { copy } from '../../content/copy.ts'
 import { scoreQuiz } from '../../utils/quizScoring.ts'
 import { allQuizQuestions, quizTopics, type QuizTopic } from '../../content/quiz.ts'
 import type { QuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
+import { useScrollToTop } from '../../hooks/useScrollToTop.ts'
 import { adhdScreening } from '../../content/adhdScreening.ts'
 import { fam } from '../../content/fam.ts'
 import { panas } from '../../content/panas.ts'
@@ -172,6 +173,8 @@ function App() {
   >({})
   const bufferRef = useRef<BufferedEvent[]>(initialBuffer)
   const isSavingQuestionnaireRef = useRef(false)
+
+  useScrollToTop(page)
 
   const resetStudyState = () => {
     setAgreed(false)

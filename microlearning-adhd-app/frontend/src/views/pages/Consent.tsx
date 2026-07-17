@@ -40,7 +40,7 @@ function Consent({
         <h1>Einverständniserklärung</h1>
 
         <p>
-          Willkommen zur Studie „MicroPython“ vom Institut for Human-Centred Computing der TU Graz. Das Ziel der vorliegenden Studie ist es, zu untersuchen, wie Python Grundlagen mit unterschiedlichen Lernmethoden erlernt werden können.
+          Willkommen zur Studie „MicroPython“ vom Institut for Human-Centred Computing der TU Graz. Das Ziel der vorliegenden Studie ist es, zu untersuchen, wie Python-Grundlagen mit unterschiedlichen Lernmethoden erlernt werden können.
         </p>
 
         <h2>Studienablauf</h2>
