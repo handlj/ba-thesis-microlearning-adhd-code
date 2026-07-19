@@ -125,7 +125,7 @@ const defaultUesAnswers = ues.questions.reduce<Record<string, string>>(
 
 function App() {
   // Set initial page, deviations from "welcome" are only for testing purposes and have to be reverted before deployment
-  const [page, setPage] = useState<Page>('preQuiz') 
+  const [page, setPage] = useState<Page>('welcome') 
   const [agreed, setAgreed] = useState(false)
   const [initialBuffer] = useState<BufferedEvent[]>(() => {
     const existing = localStorage.getItem(STUDY_BUFFER_KEY)
