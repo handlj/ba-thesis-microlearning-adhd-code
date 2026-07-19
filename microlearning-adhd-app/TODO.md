@@ -3,8 +3,7 @@
 ## Next Up
 
 ### Textual Content
-- [ ] Add instructions to the preQuiz page, so the user is oriented
-- [ ] Edit intructions in ready page and video pages for up to date content
+- [ ] Edit instructions in ready page and video pages for up to date content
 - [ ] Edit ready presentation, fix typo ("sie" -> "Sie")
 
 ### Study Flow

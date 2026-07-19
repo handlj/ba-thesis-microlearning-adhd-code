@@ -53,9 +53,9 @@ function PreQuiz({
       cardClassName="study-card--video"
     >
       <StudyHeading
-        eyebrow={copy.controlGroup.heading.eyebrow}
-        title={copy.controlGroup.heading.quizTitle}
-        intro={copy.controlGroup.heading.quizIntro}
+        eyebrow={copy.preQuiz.heading.eyebrow}
+        title={copy.preQuiz.heading.title}
+        intro={copy.preQuiz.heading.intro}
         id="preQuiz-title"
       />
     <form

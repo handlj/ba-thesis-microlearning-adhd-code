@@ -231,6 +231,14 @@ export const copy = {
       experimental: 'Experimentalgruppe',
     },
   },
+  preQuiz: {
+    heading: {
+      eyebrow: '',
+      title: 'Bitte beantworten Sie die folgenden Quizfragen.',
+      intro:
+        'Bevor Sie mit der Lerneinheit starten, beantworten Sie bitte die folgenden Fragen so gut Sie können. Wenn Sie sich nicht sicher sind, ist das kein Problem. Wählen Sie dann einfach die Antwortalternativen aus, die für Sie am meisten Sinn machen. Es wird von Ihnen kein Vorwissen erwartet. Bitte beantworten Sie alle Fragen, bevor Sie fortfahren.',
+    },
+  },
   controlGroup: {
     heading: {
       eyebrow: '',
