@@ -1,16 +1,8 @@
-// Assessment quiz shown after the microlearning intervention.
-// Transcribed verbatim from assets/quiz.md: 4 topics (A-D), 5 questions each,
-// multiple-choice with one-to-many correct answers (4 options each).
-//
-// Conventions:
-// - `prompt` and option `text` may contain inline code wrapped in backtick pairs
-//   (e.g. "x ist vom Typ `int`"); the renderer turns those into <code> chips.
-// - `code` holds a multi-line snippet rendered as a formatted block.
-// - `correct` mirrors the (r) markers from quiz.md. It is recorded for analysis
-//   but never shown to participants.
-// - `videoTimestamp` is the start time (in seconds) of the video segment that
-//   covers the question's content. Used to seek the rewatch after a failed
-//   experimental-group quiz. 0 is a placeholder until the real times are set.
+/*
+  This file holds all quiz questions and their answer alternatives.
+  Correct answers are marked with `correct: true`.
+  Strings wrapped in backticks (``) is displayed as code in the frontend.
+*/
 
 export type QuizOption = {
   id: 'a' | 'b' | 'c' | 'd'
@@ -87,21 +79,17 @@ zahl3 = zahl2 % zahl`,
       },
       {
         id: 'a4',
-        videoTimestamp: 98,
+        videoTimestamp: 202,
         prompt:
-          'Betrachte den folgenden Code-Auszug. Welche Aussagen über die Variable bruch sind korrekt?',
-        code: `zaehler = 4
-nenner = 5
-bruch = 0
-
-bruch = zaehler / nenner`,
+          'Betrachte die Variable `string = "abcdef"`. Welche der folgenden Aussagen sind korrekt?',
         options: [
-          { id: 'a', text: '`bruch` hat den Wert `0.8`', correct: true },
-          { id: 'b', text: '`bruch` ist vom Typ `float`', correct: true },
-          { id: 'c', text: '`bruch` hat den Wert `0`' },
+          { id: 'a', text: '`string[0]` hat den Wert `abcdef`' },
+          { id: 'b', text: '`string[1:3]` hat den Wert `bc`', correct: true },
+          { id: 'c', text: '`string[0:7]` hat den Wert `abcdef`', correct: true },
           {
             id: 'd',
-            text: 'Die Ausführung erzeugt einen Fehler, weil `4/5` keine ganze Zahl (`int` Datentyp) ist',
+            text: '`len(string)` hat den Wert `6`',
+            correct: true,
           },
         ],
       },
@@ -161,24 +149,24 @@ bruch = zaehler / nenner`,
   print("Ich bin einstellig.")
 else:
   print("Ich nicht.")
-print("Mir ist es egal.")`,
+print("Ich bin nicht eingerückt.")`,
         options: [
           {
             id: 'a',
-            text: 'Für jeden einstelligen Wert der Variable x wird nur `"Ich bin einstellig."` ausgegeben.',
+            text: 'Für `x = 5` wird ausschließlich `Ich bin einstellig.` ausgegeben.',
           },
           {
             id: 'b',
-            text: 'Für alle zweistelligen Werte der Variable x wird nur `"Ich nicht."` ausgegeben.',
+            text: 'Für `x = 15` wird ausschließlich `Ich nicht.` ausgegeben.',
           },
           {
             id: 'c',
-            text: 'Egal welche Ausprägung x annimmt, `"Mir ist es egal."` wird immer mitausgegeben.',
+            text: 'Egal welche Ausprägung x annimmt, `Ich bin nicht eingerückt.` wird immer mitausgegeben.',
             correct: true,
           },
           {
             id: 'd',
-            text: 'Es gibt einstellige Ausprägungen von x, für die `"Ich nicht."` ausgegeben wird.',
+            text: 'Es gibt einstellige Ausprägungen von x, für die `Ich nicht.` ausgegeben wird.',
           },
         ],
       },
@@ -186,17 +174,23 @@ print("Mir ist es egal.")`,
         id: 'b4',
         videoTimestamp: 205,
         prompt:
-          'Betrachte den oben angeführten Code-Auszug erneut. Durch welche der unten angeführten Codezeilen lässt sich die Zeile `else:` ersetzen, ohne die Funktionalität des Code-Auszugs oben einzuschränken?',
-        code: `if x < 10:
-  print("Ich bin einstellig.")
-else:
-  print("Ich nicht.")
-print("Mir ist es egal.")`,
+          'Betrachte die folgenden beiden Code-Auszüge. Welche der folgenden Aussagen sind korrekt?',
+        code: `# Auszug A
+if x > 40:
+  print("Ich bin größer als 40.")
+elif x > 20:
+  print("Ich bin größer als 20.")
+
+# Auszug B
+if x > 40:
+  print("Ich bin größer als 40.")
+if x > 20:
+  print("Ich bin größer als 20.")`,
         options: [
-          { id: 'a', text: '`if x > 10:`' },
-          { id: 'b', text: '`elif x > 10:`' },
-          { id: 'c', text: '`""` (Die Zeile weglöschen)' },
-          { id: 'd', text: '`if x >= 10:`', correct: true },
+          { id: 'a', text: 'Auszug A zeigt immer die gleiche Ausgabe wie Auszug B.' },
+          { id: 'b', text: 'Für `x = 100` zeigen beide Auszüge die gleiche Ausgabe.' },
+          { id: 'c', text: 'Für `x = 30` zeigen beide Auszüge die gleiche Ausgabe.', correct: true },
+          { id: 'd', text: 'Für `x = 5` zeigen beide Auszüge keine Ausgabe.', correct: true },
         ],
       },
       {
@@ -287,7 +281,7 @@ print("Mir ist es egal.")`,
         videoTimestamp: 131,
         prompt:
           'Betrachte den folgenden Code-Auszug. Wie oft wird `"Hi!"` ausgegeben?',
-        code: `x = 2
+        code: `x = 1
 x += x
 while x > 4:
   x += 1
@@ -318,8 +312,8 @@ print("Hi!")`,
             correct: true,
           },
           { id: 'b', text: 'Funktion: `print`', correct: true },
-          { id: 'c', text: 'Output: `"I think therefore I am."`', correct: true },
-          { id: 'd', text: 'Rückgabewert (return-value): `5`' },
+          { id: 'c', text: 'Output (Ausgabe): `I think therefore I am.`', correct: true },
+          { id: 'd', text: 'Parameter: `print`' },
         ],
       },
       {
@@ -353,38 +347,38 @@ print("Hi!")`,
   print(f'My dog {dogname} is {age} years old and the owner is {ownername}.')`,
         options: [
           { id: 'a', text: "`which_dog_is_it('Pluto', 'Hans', 3)`", correct: true },
-          { id: 'b', text: "`which_dog_is_it(age=3, 'Hans', dogname='Pluto')`" },
+          { id: 'b', text: "`which_dog_is_it('Pluto', age=3, ownername='Hans')`", correct: true },
           {
             id: 'c',
             text: "`which_dog_is_it(age=3, ownername='Hans', dogname='Pluto')`",
             correct: true,
           },
-          { id: 'd', text: "`which_dog_is_it('Pluto', 'Hans')`" },
+          { id: 'd', text: "`which_dog_is_it('Hans')`" },
         ],
       },
       {
         id: 'd4',
         videoTimestamp: 269,
         prompt:
-          'Betrachte erneut die oben angeführte Funktion which_dog_is_it. Welchen Fehler erhält man bei folgendem Funktionsaufruf?',
+          'Betrachte erneut die Funktion which_dog_is_it. Welchen Fehler erhält man bei folgendem Funktionsaufruf?',
         code: `def which_dog_is_it(dogname, ownername, age=0):
   print(f'My dog {dogname} is {age} years old and the owner is {ownername}.')
 
-which_dog_is_it('Hans', 'Pluto')`,
+# Funktionsaufruf
+which_dog_is_it('Pluto')`,
         options: [
           { id: 'a', text: '`SyntaxError: positional argument follows keyword argument`' },
           {
             id: 'b',
-            text: "`TypeError: which_dog_is_it() missing 1 positional argument: 'age'`",
+            text: "`TypeError: which_dog_is_it() missing 1 required positional argument: 'age'`",
           },
           {
             id: 'c',
-            text: "`SyntaxError: which_dog_is_it() missing 1 positional argument: 'age'`",
+            text: "`TypeError: which_dog_is_it() missing 1 required positional argument: 'ownername'`", correct: true,
           },
           {
             id: 'd',
             text: 'Kein Fehler in der Ausführung, aber: "Logischer Fehler"',
-            correct: true,
           },
         ],
       },
