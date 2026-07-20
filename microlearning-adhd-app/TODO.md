@@ -10,9 +10,6 @@
 - [ ] Instructions on last video stay static ("Bevor Sie zum nächsten Video weitergehen"), change that
 - [ ] Add that users can go back and forth between videos and quiz questions, without losing progress -> In both groups
 
-### Quiz Questions
-- [ ] Make questions easier: 4 basic questions (1:1 reproduction) and one code snippet per topic, especially functions is too hard.
-
 ### Questionnaires
 - [ ] Aufmerksamkeitsvalidierung (Kreuzen Sie bei dieser Frage bitte die Zahl "X" an.)
 
