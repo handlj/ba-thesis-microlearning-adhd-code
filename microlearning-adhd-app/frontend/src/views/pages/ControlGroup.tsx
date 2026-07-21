@@ -6,6 +6,7 @@ import { useScrollToTop } from '../../hooks/useScrollToTop.ts'
 import ControlGroupQuiz from './ControlGroupQuiz.tsx'
 import { getControlVideo, type ControlVideo, type StudyInteractionPayload } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
+import { withEmphasis } from '../../utils/richText.tsx'
 
 type ControlGroupProps = {
   onBackToStart: () => void
@@ -170,7 +171,7 @@ function ControlGroup({
               aria-live="polite">
             {canContinue
               ? copy.controlGroup.status.videoFinished
-              : copy.video.watchFullVideo}
+              : withEmphasis(copy.video.watchFullVideo)}
           </p>
         </div>
       ) : null}

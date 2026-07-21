@@ -670,7 +670,6 @@ function App() {
       <Ready
         assignment={assignment}
         onContinue={() => transitionTo('fam')}
-        onReturnToWelcome={returnToWelcome}
         onLogInteraction={(eventType, payload) => {
           if (assignment) {
             logStudyInteraction(assignment, eventType, payload, 'ready')

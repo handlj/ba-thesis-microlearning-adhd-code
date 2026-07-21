@@ -1,22 +1,23 @@
 import { useEffect, useRef, useState } from 'react'
 import { getInstructionVideo, type InstructionVideo, type StudyInteractionPayload } from '../../services/index.ts'
 import StudyActions from '../../components/StudyActions.tsx'
+import StudyFacts from '../../components/StudyFacts.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
+import { icons } from '../../components/icons.tsx'
 import { copy } from '../../content/copy.ts'
 import { type GroupAssignment } from '../../utils/groupAssignment.ts'
+import { withEmphasis } from '../../utils/richText.tsx'
 
 type ReadyProps = {
   assignment: GroupAssignment | null
   onContinue: () => void
-  onReturnToWelcome: () => void
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
 }
 
 function Ready({
   assignment,
   onContinue,
-  onReturnToWelcome,
   onLogInteraction,
 }: ReadyProps) {
   const [video, setVideo] = useState<InstructionVideo | null>(null)
@@ -98,21 +99,9 @@ function Ready({
         id="ready-title"
       />
 
-      <div  className="ready-instructions" 
-            aria-labelledby="ready-instructions-title">
+      <StudyFacts facts={copy.ready.facts} />
 
-        <h2 id="ready-instructions-title">
-          {copy.ready.instructions.title}
-        </h2>
-
-        <ul className="ready-instruction-list">
-          {copy.ready.instructions.items.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </div>
-
-      {isLoading ? 
+      {isLoading ?
       <p className="video-status">
         {copy.ready.status.loading}
       </p>
@@ -126,15 +115,6 @@ function Ready({
 
       {video ? (
         <div className="video-panel">
-          <div className="video-meta">
-            <p className="video-kicker">
-              {copy.ready.video.title}
-            </p>
-            <p className="video-description">
-              {copy.ready.video.description}
-            </p>
-          </div>
-
           <div className="video-shell">
             <video
               className="video-frame"
@@ -169,7 +149,7 @@ function Ready({
               aria-live="polite">
             {hasVideoEnded
               ? copy.ready.status.videoFinished
-              : copy.video.watchFullVideo}
+              : withEmphasis(copy.video.watchFullVideo)}
           </p>
         </div>
       ) : null}
@@ -194,15 +174,15 @@ function Ready({
           {copy.actions.continue}
         </button>
 
-        <button type="button" 
-                className="secondary-button" 
-                onClick={onReturnToWelcome}>
-          {copy.actions.returnToWelcome}
-        </button>
+        <p className="status status-note">
+          <span className="status-note__icon"
+                aria-hidden="true">
+            {icons.clock}
+          </span>
 
-        <p  className="ready-note" 
-            aria-live="polite">
-          {copy.ready.readinessNote}
+          <span className="status-note__text">
+            {withEmphasis(copy.ready.readinessNote)}
+          </span>
         </p>
       </StudyActions>
     </StudyPage>

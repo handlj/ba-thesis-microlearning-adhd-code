@@ -28,6 +28,12 @@ export const icons: Record<string, ReactNode> = {
       <rect x="16.8" y="14.5" width="4.4" height="6.2" rx="2.2" {...strokeProps} />
     </svg>
   ),
+  play: (
+    <svg viewBox="0 0 24 24" width="18" height="18" role="img">
+      <circle cx="12" cy="12" r="9" {...strokeProps} />
+      <path d="M10.2 8.6l5.4 3.4-5.4 3.4z" {...strokeProps} />
+    </svg>
+  ),
   check: (
     <svg viewBox="0 0 24 24" width="18" height="18" role="img">
       <path d="M4.5 12.6l4.6 4.6L19.5 6.8" {...strokeProps} />

@@ -203,32 +203,30 @@ export const copy = {
   },
   ready: {
     heading: {
-      eyebrow: '',
+      eyebrow: 'Einführungsvideo',
       title: 'Bitte sehen Sie sich das Einführungsvideo an.',
-      intro:
-        'Im folgenden Video erhalten Sie die wichtigsten Hinweise zur nachfolgenden Lerneinheit. Nutzen Sie es auch, um die Videowiedergabe vorab zu testen. Nachdem Sie das Video vollständig angesehen haben, wird die Schaltfläche zum Fortfahren freigeschaltet.',
+      intro: '',
     },
     assignmentLabel: 'Zugeordnete Gruppe:',
-    instructions: {
-      title: 'Vor dem Start',
-      items: [
-        'Testen Sie bitte Ihre Lautsprecher oder Kopfhörer und stellen Sie eine angenehme Lautstärke ein.',
-        'Starten Sie das Video und prüfen Sie, ob Bild und Ton ohne Probleme wiedergegeben werden.',
-        'Klicken Sie erst auf Weiter, wenn Sie bereit sind, sich für etwa 20 Minuten möglichst ohne Unterbrechung zu konzentrieren.',
-      ],
-    },
-    video: {
-      title: '',
-      description:
-        '',
-    },
+    facts: [
+      {
+        icon: 'play',
+        label: 'Videoinhalt',
+        value: 'Eine kurze Einführung in die nachfolgende Lerneinheit.',
+      },
+      {
+        icon: 'headphones',
+        label: 'Vorbereitung',
+        value: 'Prüfen Sie die Video- und Audiowiedergabe.',
+      },
+    ],
     status: {
-      loading: 'Einführungsvideo wird vom geladen...',
+      loading: 'Einführungsvideo wird geladen...',
       loadError: 'Das Einführungsvideo konnte nicht geladen werden.',
-      videoFinished: 'Das Video ist beendet. Sie können fortfahren, sobald Sie bereit sind, sich für etwa 20 Minuten möglichst ohne Unterbrechung zu konzentrieren.',
+      videoFinished: 'Das Video ist beendet. Sie können jetzt fortfahren.',
     },
     readinessNote:
-      '',
+      'Fahren Sie erst fort, wenn Sie sich für **mindestens 30 Minuten** ohne Unterbrechung konzentrieren können.',
     groupLabels: {
       control: 'Kontrollgruppe',
       experimental: 'Experimentalgruppe',

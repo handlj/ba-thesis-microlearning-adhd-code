@@ -86,6 +86,10 @@
   line-height: 1.65;
 }
 
+.rich-text__paragraph + .rich-text__paragraph {
+  margin-top: 0.85em;
+}
+
 .feedback-scores {
   margin-top: 28px;
   display: grid;
@@ -377,6 +381,15 @@
   display: inline-flex;
   flex-shrink: 0;
   color: #8a5b2b;
+}
+
+.status-note__text {
+  min-width: 0;
+}
+
+.status-note__text strong {
+  font-weight: 700;
+  color: var(--text-h);
 }
 
 .contact-card {
@@ -919,34 +932,6 @@
   border-radius: 12px;
   background: rgba(31, 59, 115, 0.08);
   border: 1px solid rgba(31, 59, 115, 0.16);
-}
-
-.ready-instructions {
-  margin-top: 28px;
-  padding: 20px;
-  border-radius: 20px;
-  background: rgba(255, 250, 244, 0.78);
-  border: 1px solid rgba(138, 91, 43, 0.14);
-}
-
-.ready-instructions h2 {
-  margin: 0 0 12px;
-  font-size: 1.1rem;
-}
-
-.ready-instruction-list {
-  margin: 0;
-  padding-left: 20px;
-  display: grid;
-  gap: 8px;
-  line-height: 1.6;
-}
-
-.ready-note {
-  flex-basis: 100%;
-  margin: 0;
-  color: #4f453a;
-  line-height: 1.6;
 }
 
 .video-panel {

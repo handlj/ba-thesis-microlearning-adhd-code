@@ -1,3 +1,5 @@
+import { toParagraphs } from '../utils/richText.tsx'
+
 type StudyHeadingProps = {
   eyebrow: string
   title: string
@@ -8,17 +10,17 @@ type StudyHeadingProps = {
 function StudyHeading({ eyebrow, title, intro, id }: StudyHeadingProps) {
   return (
     <>
-      <p className="eyebrow">
-        {eyebrow}
-      </p>
+      {eyebrow ? (
+        <p className="eyebrow">
+          {eyebrow}
+        </p>
+      ) : null}
 
       <h1 id={id}>
         {title}
       </h1>
-      
-      <p className="intro">
-        {intro}
-      </p>
+
+      {intro ? toParagraphs(intro, 'intro') : null}
     </>
   )
 }

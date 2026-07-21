@@ -14,6 +14,7 @@ import {
 import { copy } from '../../content/copy.ts'
 import { getAppConfig } from '../../utils/config.ts'
 import { scoreQuiz } from '../../utils/quizScoring.ts'
+import { withEmphasis } from '../../utils/richText.tsx'
 
 type ExperimentalGroupProps = {
   onBackToStart: () => void
@@ -455,7 +456,7 @@ function ExperimentalGroup({
                   ? copy.experimentalGroup.status.videoFinished
                   : isRewatch
                     ? copy.experimentalGroup.status.rewatch
-                    : copy.video.watchFullVideo}
+                    : withEmphasis(copy.video.watchFullVideo)}
               </p>
             </>
           ) : currentTopic ? (
