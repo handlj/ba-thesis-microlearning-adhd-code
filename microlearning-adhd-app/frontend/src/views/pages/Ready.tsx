@@ -1,12 +1,14 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getInstructionVideo, type InstructionVideo, type StudyInteractionPayload } from '../../services/index.ts'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyFacts from '../../components/StudyFacts.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
+import StudyVideoPlayer from '../../components/video/StudyVideoPlayer.tsx'
 import { icons } from '../../components/icons.tsx'
 import { copy } from '../../content/copy.ts'
 import { type GroupAssignment } from '../../utils/groupAssignment.ts'
+import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
 
 type ReadyProps = {
@@ -24,7 +26,6 @@ function Ready({
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
-  const previousVideoTimeRef = useRef(0)
   const assignmentLabel = assignment
     ? copy.ready.groupLabels[assignment]
     : null
@@ -68,27 +69,6 @@ function Ready({
     }
   }, [])
 
-  const handleVideoSeek = (nextTime: number) => {
-    const previousTime = previousVideoTimeRef.current
-    const deltaSeconds = nextTime - previousTime
-
-    if (deltaSeconds > 1) {
-      onLogInteraction('ready_instruction_video_skipped', {
-        fromSeconds: Math.round(previousTime),
-        toSeconds: Math.round(nextTime),
-      })
-    }
-
-    if (deltaSeconds < -1) {
-      onLogInteraction('ready_instruction_video_rewatched', {
-        fromSeconds: Math.round(previousTime),
-        toSeconds: Math.round(nextTime),
-      })
-    }
-
-    previousVideoTimeRef.current = nextTime
-  }
-
   return (
     <StudyPage  ariaLabelledBy="ready-title" 
                 cardClassName="study-card--video">
@@ -115,37 +95,17 @@ function Ready({
 
       {video ? (
         <div className="video-panel">
-          <div className="video-shell">
-            <video
-              className="video-frame"
-              controls
-              preload="metadata"
-              onEnded={() => {
-                setHasVideoEnded(true)
-                onLogInteraction('ready_instruction_video_ended', {
-                  videoUrl: video.video_url,
-                })
-              }}
-              onLoadedMetadata={() => {
-                setHasVideoEnded(false)
-                previousVideoTimeRef.current = 0
-              }}
-              onSeeking={(event) => handleVideoSeek(event.currentTarget.currentTime)}
-              onTimeUpdate={(event) => {
-                previousVideoTimeRef.current = event.currentTarget.currentTime
-              }}
-            >
+          <StudyVideoPlayer
+            src={video.video_url}
+            eventPrefix="ready_instruction_video"
+            eventPayload={{ videoUrl: video.video_url }}
+            features={getVideoPlayerFeatures('instruction')}
+            onLogInteraction={onLogInteraction}
+            onEnded={() => setHasVideoEnded(true)}
+            onLoadedMetadata={() => setHasVideoEnded(false)}
+          />
 
-              <source 
-                src={video.video_url}
-                type="video/mp4" 
-              />
-
-              {copy.video.unsupported}
-            </video>
-          </div>
-
-          <p  className="video-status" 
+          <p  className="video-status"
               aria-live="polite">
             {hasVideoEnded
               ? copy.ready.status.videoFinished

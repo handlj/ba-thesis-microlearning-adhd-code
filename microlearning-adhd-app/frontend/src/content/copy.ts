@@ -45,6 +45,26 @@ export const copy = {
   video: {
     unsupported: 'Ihr Browser unterstützt das Video-Element nicht.',
     watchFullVideo: 'Sehen Sie sich das vollständige Video an, bevor Sie fortfahren.',
+    // Labels for the controls of the shared video player. Most are only ever
+    // read out by screen readers or shown as tooltips.
+    player: {
+      region: 'Videoplayer',
+      play: 'Abspielen',
+      pause: 'Pausieren',
+      replay: 'Erneut abspielen',
+      seekSlider: 'Wiedergabeposition',
+      elapsedOfTotal: (elapsed: string, total: string) => `${elapsed} von ${total}`,
+      mute: 'Ton aus',
+      unmute: 'Ton ein',
+      volume: 'Lautstärke',
+      enterFullscreen: 'Vollbild',
+      exitFullscreen: 'Vollbild beenden',
+      speed: 'Wiedergabegeschwindigkeit',
+      speedOption: (rate: number) => `${rate.toString().replace('.', ',')}×`,
+      normalSpeedSuffix: 'Normal',
+      chapter: 'Kapitel',
+      chapterOf: (title: string) => `Kapitel: ${title}`,
+    },
   },
   welcome: {
     heading: {

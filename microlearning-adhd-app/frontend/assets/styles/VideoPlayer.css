@@ -1,0 +1,493 @@
+/*
+  The study's video embedding. Imported by components/video/StudyVideoPlayer.tsx
+  so the player travels with its styles wherever it is embedded.
+
+  The frame keeps the box the old .video-shell had — same radius, warm border
+  and lifted shadow as the panels on the study cards — so the player sits in a
+  card the way every other block does. Inside that frame the chrome goes dark
+  and cool: the controls belong to the video, not to the page.
+
+  The accent is the study blue (#1f3b73 / #36579f) lightened to hold up against
+  the dark video, so a filled progress bar reads as the same blue as a filled
+  score bar or a checked option elsewhere in the study.
+*/
+
+.video-player {
+  --player-accent: #7ba0ee;
+  --player-accent-strong: #a9c4f8;
+  --player-surface: #0f1720;
+  --player-control: rgba(255, 255, 255, 0.92);
+
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(138, 91, 43, 0.16);
+  background: var(--player-surface);
+  box-shadow: 0 18px 40px rgba(15, 23, 32, 0.16);
+  color: var(--player-control);
+  line-height: 1.3;
+}
+
+.video-player__media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--player-surface);
+}
+
+/* Fullscreen hands the container the whole screen, which rarely matches 16/9;
+   let the frame fill it and letterbox the picture inside. */
+.video-player--fullscreen {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.video-player--fullscreen .video-player__media {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+/* -------------------------------------------------------------- play overlay */
+
+/* Shown whenever playback is not running, so a paused or finished video always
+   offers one obvious, large target rather than only the small transport button. */
+.video-player__overlay-button {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.video-player__overlay-icon {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 999px;
+  background: rgba(15, 23, 32, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.video-player__overlay-icon svg {
+  width: 30px;
+  height: 30px;
+  /* The play triangle is optically left-heavy inside a circle. */
+  margin-left: 3px;
+}
+
+.video-player__overlay-button:hover .video-player__overlay-icon {
+  transform: scale(1.05);
+  background: rgba(15, 23, 32, 0.72);
+}
+
+.video-player__overlay-button:focus-visible {
+  outline: none;
+}
+
+.video-player__overlay-button:focus-visible .video-player__overlay-icon {
+  outline: 3px solid var(--player-accent-strong);
+  outline-offset: 4px;
+}
+
+/* ------------------------------------------------------------------ controls */
+
+.video-player__controls {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  gap: 6px;
+  padding: 26px 16px 12px;
+  background: linear-gradient(180deg, rgba(9, 14, 20, 0) 0%, rgba(9, 14, 20, 0.82) 62%);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.video-player--controls-visible .video-player__controls {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+/* Keyboard users never move a pointer, so focus alone has to keep the bar up. */
+.video-player__controls:focus-within {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.video-player__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.video-player__spacer {
+  flex: 1;
+  min-width: 8px;
+}
+
+.video-player__button {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--player-control);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.video-player__button:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.video-player__button:focus-visible {
+  outline: 3px solid var(--player-accent-strong);
+  outline-offset: 2px;
+}
+
+.video-player__button--speed {
+  width: auto;
+  min-width: 46px;
+  padding: 0 10px;
+}
+
+.video-player__speed-value {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------- volume */
+
+.video-player__volume {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.video-player__volume-slider {
+  appearance: none;
+  width: 76px;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.video-player__volume-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.video-player__volume-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.video-player__volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: -4px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+.video-player__volume-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+.video-player__volume-slider:focus-visible {
+  outline: 3px solid var(--player-accent-strong);
+  outline-offset: 2px;
+  border-radius: 999px;
+}
+
+/* --------------------------------------------------------------------- time */
+
+.video-player__time {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin: 0 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.video-player__time-separator {
+  opacity: 0.5;
+}
+
+/* The chapter currently playing. Only rendered for the experimental subgroup
+   that gets chapters; the micro-label above it mirrors .contact-card__label,
+   inverted for the dark chrome. */
+.video-player__chapter {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  margin: 0 0 0 8px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.video-player__chapter-label {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--player-accent-strong);
+}
+
+.video-player__chapter-title {
+  overflow: hidden;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* -------------------------------------------------------------------- speed */
+
+.video-player__speed {
+  position: relative;
+}
+
+.video-player__speed-menu {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  z-index: 2;
+  display: grid;
+  gap: 2px;
+  min-width: 132px;
+  padding: 6px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(17, 24, 33, 0.96);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+}
+
+.video-player__speed-option {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--player-control);
+  font: inherit;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+  cursor: pointer;
+}
+
+.video-player__speed-option:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.video-player__speed-option:focus-visible {
+  outline: 3px solid var(--player-accent-strong);
+  outline-offset: -1px;
+}
+
+.video-player__speed-option--active {
+  background: rgba(123, 160, 238, 0.22);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.video-player__speed-note {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* ----------------------------------------------------------------- scrubber */
+
+.video-scrubber__row {
+  position: relative;
+}
+
+/* A generous hit area around a thin bar: the visible track is 5px, the target
+   is the full height, which keeps it comfortably clickable. */
+.video-scrubber {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 2px;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.video-scrubber:focus-visible {
+  outline: 3px solid var(--player-accent-strong);
+  outline-offset: 2px;
+  border-radius: 999px;
+}
+
+.video-scrubber__track {
+  display: flex;
+  align-items: center;
+  /* The gap is what separates one chapter from the next. */
+  gap: 3px;
+  width: 100%;
+  height: 5px;
+}
+
+.video-scrubber__segment {
+  position: relative;
+  flex-basis: 0;
+  overflow: hidden;
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.26);
+  transition: height 0.12s ease;
+}
+
+/* Scaling a full-width layer keeps the fill off the layout path, so dragging
+   the scrubber does not reflow the bar on every pointer move. */
+.video-scrubber__buffered,
+.video-scrubber__played {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  border-radius: inherit;
+  will-change: transform;
+}
+
+.video-scrubber__buffered {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.video-scrubber__played {
+  background: var(--player-accent);
+}
+
+.video-scrubber__thumb {
+  position: absolute;
+  top: 50%;
+  width: 13px;
+  height: 13px;
+  margin-left: -6.5px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  transform: translateY(-50%) scale(0);
+  transition: transform 0.12s ease;
+  pointer-events: none;
+}
+
+/* The bar thickens and the handle appears on approach, the way it does in the
+   players participants already know. */
+.video-scrubber:hover .video-scrubber__segment,
+.video-scrubber:focus-visible .video-scrubber__segment,
+.video-scrubber--scrubbing .video-scrubber__segment {
+  height: 7px;
+}
+
+.video-scrubber:hover .video-scrubber__thumb,
+.video-scrubber:focus-visible .video-scrubber__thumb,
+.video-scrubber--scrubbing .video-scrubber__thumb {
+  transform: translateY(-50%) scale(1);
+}
+
+/* Chapters are only clickable for the subgroup that may jump between them. */
+.video-scrubber--chapters-clickable .video-scrubber__segment:hover {
+  background: rgba(255, 255, 255, 0.44);
+}
+
+.video-scrubber__tooltip {
+  position: absolute;
+  bottom: calc(100% + 2px);
+  z-index: 2;
+  display: grid;
+  gap: 2px;
+  justify-items: center;
+  max-width: 240px;
+  padding: 7px 11px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(17, 24, 33, 0.96);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.video-scrubber__tooltip-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.video-scrubber__tooltip-time {
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
+
+/* ------------------------------------------------------------- adaptations */
+
+@media (max-width: 640px) {
+  /* The chapter name and the volume slider are the first things to go: the
+     mute button and the tooltip still carry both functions. */
+  .video-player__volume-slider,
+  .video-player__chapter {
+    display: none;
+  }
+
+  .video-player__controls {
+    padding: 22px 10px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-player__controls,
+  .video-player__overlay-icon,
+  .video-scrubber__segment,
+  .video-scrubber__thumb {
+    transition: none;
+  }
+}

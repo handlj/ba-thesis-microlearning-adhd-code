@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
+import StudyVideoPlayer from '../../components/video/StudyVideoPlayer.tsx'
 import { useScrollToTop } from '../../hooks/useScrollToTop.ts'
 import ExperimentalGroupQuizzes from './ExperimentalGroupQuizzes.tsx'
 import type { QuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
 import { quizTopics } from '../../content/quiz.ts'
+import { getVideoChapters } from '../../content/videoChapters.ts'
 import {
   getExperimentalVideos,
   type ExperimentalVideo,
@@ -13,6 +15,7 @@ import {
 } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
 import { getAppConfig } from '../../utils/config.ts'
+import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import { scoreQuiz } from '../../utils/quizScoring.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
 
@@ -51,8 +54,12 @@ function ExperimentalGroup({
   const [failedScore, setFailedScore] = useState<{ correct: number; total: number } | null>(
     null,
   )
-  const previousVideoTimeRef = useRef(0)
-  const pendingSeekSecondsRef = useRef<number | null>(null)
+  /*
+    Where a rewatch should pick up: the timestamp of the earliest question the
+    participant got wrong. The player seeks there once, without logging it as a
+    participant seek.
+  */
+  const [resumeSeconds, setResumeSeconds] = useState<number | null>(null)
   const rewatchDialogRef = useRef<HTMLDialogElement>(null)
   const { quiz_pass_threshold: passThreshold, quiz_max_attempts: maxAttempts } =
   getAppConfig()
@@ -125,8 +132,7 @@ function ExperimentalGroup({
     setIsRewatch(false)
     setShowRewatchNotice(false)
     setFailedScore(null)
-    previousVideoTimeRef.current = 0
-    pendingSeekSecondsRef.current = null
+    setResumeSeconds(null)
   }
 
   const handleProceedFromVideo = () => {
@@ -187,7 +193,7 @@ function ExperimentalGroup({
         wrongQuestionIds: score.wrongQuestionIds.join(','),
         seekTargetSeconds: score.earliestWrongTimestamp,
       })
-      pendingSeekSecondsRef.current = score.earliestWrongTimestamp
+      setResumeSeconds(score.earliestWrongTimestamp)
       setFailedScore({ correct: score.correctCount, total: score.total })
       setAttemptNumber((previousAttempt) => previousAttempt + 1)
       setIsRewatch(true)
@@ -222,29 +228,6 @@ function ExperimentalGroup({
       ...getCurrentVideoPayload(),
     })
     onBackToStart()
-  }
-
-  const handleVideoSeek = (nextTime: number) => {
-    const previousTime = previousVideoTimeRef.current
-    const deltaSeconds = nextTime - previousTime
-
-    if (deltaSeconds > 1) {
-      onLogInteraction('experimental_video_skipped', {
-        ...getCurrentVideoPayload(),
-        fromSeconds: Math.round(previousTime),
-        toSeconds: Math.round(nextTime),
-      })
-    }
-
-    if (deltaSeconds < -1) {
-      onLogInteraction('experimental_video_rewatched', {
-        ...getCurrentVideoPayload(),
-        fromSeconds: Math.round(previousTime),
-        toSeconds: Math.round(nextTime),
-      })
-    }
-
-    previousVideoTimeRef.current = nextTime
   }
 
   return (
@@ -415,42 +398,20 @@ function ExperimentalGroup({
                 ) : null}
               </dialog>
               
-              <div className="video-shell">
-                <video
-                  key={currentVideo.id}
-                  className="video-frame"
-                  controls
-                  preload="metadata"
-                  onEnded={() => {
-                    setHasVideoEnded(true)
-                    onLogInteraction('experimental_video_ended', getCurrentVideoPayload())
-                  }}
-                  onLoadedMetadata={(event) => {
-                    setHasVideoEnded(false)
-                    const seekTarget = pendingSeekSecondsRef.current
-                    if (seekTarget !== null) {
-                      pendingSeekSecondsRef.current = null
-                      // Set the ref first so onSeeking does not log the
-                      // programmatic jump as experimental_video_skipped.
-                      previousVideoTimeRef.current = seekTarget
-                      if (seekTarget > 0) {
-                        event.currentTarget.currentTime = seekTarget
-                      }
-                    } else {
-                      previousVideoTimeRef.current = 0
-                    }
-                  }}
-                  onSeeking={(event) => handleVideoSeek(event.currentTarget.currentTime)}
-                  onTimeUpdate={(event) => {
-                    previousVideoTimeRef.current = event.currentTarget.currentTime
-                  }}
-                >
-                  <source src={currentVideo.video_url} 
-                          type="video/mp4" />
-                  {copy.video.unsupported}
-                </video>
-              </div>
-              <p className="video-status" 
+              <StudyVideoPlayer
+                key={`${currentVideo.id}-attempt-${attemptNumber}`}
+                src={currentVideo.video_url}
+                eventPrefix="experimental_video"
+                eventPayload={getCurrentVideoPayload()}
+                chapters={getVideoChapters(currentVideo.id)}
+                features={getVideoPlayerFeatures('experimental')}
+                initialSeekSeconds={resumeSeconds}
+                onLogInteraction={onLogInteraction}
+                onEnded={() => setHasVideoEnded(true)}
+                onLoadedMetadata={() => setHasVideoEnded(false)}
+              />
+
+              <p className="video-status"
                 aria-live="polite">
                 {hasVideoEnded
                   ? copy.experimentalGroup.status.videoFinished

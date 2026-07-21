@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
+import StudyVideoPlayer from '../../components/video/StudyVideoPlayer.tsx'
 import { useScrollToTop } from '../../hooks/useScrollToTop.ts'
 import ControlGroupQuiz from './ControlGroupQuiz.tsx'
 import { getControlVideo, type ControlVideo, type StudyInteractionPayload } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
+import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
 
 type ControlGroupProps = {
@@ -28,7 +30,6 @@ function ControlGroup({
   const [error, setError] = useState<string | null>(null)
   const [canContinue, setCanContinue] = useState(false)
   const [phase, setPhase] = useState<ControlPhase>('video')
-  const previousVideoTimeRef = useRef(0)
 
   useScrollToTop(phase)
 
@@ -91,27 +92,6 @@ function ControlGroup({
     setPhase('video')
   }
 
-  const handleVideoSeek = (nextTime: number) => {
-    const previousTime = previousVideoTimeRef.current
-    const deltaSeconds = nextTime - previousTime
-
-    if (deltaSeconds > 1) {
-      onLogInteraction('control_video_skipped', {
-        fromSeconds: Math.round(previousTime),
-        toSeconds: Math.round(nextTime),
-      })
-    }
-
-    if (deltaSeconds < -1) {
-      onLogInteraction('control_video_rewatched', {
-        fromSeconds: Math.round(previousTime),
-        toSeconds: Math.round(nextTime),
-      })
-    }
-
-    previousVideoTimeRef.current = nextTime
-  }
-
   return (
     <StudyPage  ariaLabelledBy="control-title" 
                 cardClassName="study-card--video">
@@ -138,36 +118,17 @@ function ControlGroup({
             <p className="video-description">{video.description}</p>
           </div>
 
-          <div className="video-shell">
-            <video
-              className="video-frame"
-              controls
-              preload="metadata"
-              onEnded={() => {
-                setCanContinue(true)
-                onLogInteraction('control_video_ended', {
-                  videoTitle: video.title,
-                })
-              }}
-              onLoadedMetadata={() => {
-                setCanContinue(false)
-                previousVideoTimeRef.current = 0
-              }}
-              onSeeking={(event) => handleVideoSeek(event.currentTarget.currentTime)}
-              onTimeUpdate={(event) => {
-                previousVideoTimeRef.current = event.currentTarget.currentTime
-              }}
-            >
-              
-              <source 
-                src={video.video_url} 
-                type="video/mp4" 
-              />
-              
-              {copy.video.unsupported}
-            </video>
-          </div>
-          <p  className="video-status" 
+          <StudyVideoPlayer
+            src={video.video_url}
+            eventPrefix="control_video"
+            eventPayload={{ videoTitle: video.title }}
+            features={getVideoPlayerFeatures('control')}
+            onLogInteraction={onLogInteraction}
+            onEnded={() => setCanContinue(true)}
+            onLoadedMetadata={() => setCanContinue(false)}
+          />
+
+          <p  className="video-status"
               aria-live="polite">
             {canContinue
               ? copy.controlGroup.status.videoFinished
