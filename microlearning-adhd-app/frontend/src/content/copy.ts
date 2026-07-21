@@ -195,7 +195,10 @@ export const copy = {
       eyebrow: '',
       title: 'Bitte füllen Sie den Fragebogen aus',
       intro:
-        'Bevor wir starten, wollen wir wissen, wie deine momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu findest du auf dieser Seite Aussagen. Kreuze bitte jene Zahl an, die auf dich am Besten passt.',
+        /* Original Instruction Text: 
+          Bevor wir starten, wollen wir wissen, wie deine momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu findest du auf dieser Seite  Aussagen. Kreuze bitte jene Zahl an, die auf dich am Besten passt.
+        */
+        'Bevor wir starten, wollen wir wissen, wie Ihre momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu finden Sie auf dieser Seite Aussagen. Kreuzen Sie bitte jene Zahl an, die auf Sie am Besten passt.',
     },
   },
   ready: {
