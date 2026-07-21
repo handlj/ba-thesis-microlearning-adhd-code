@@ -9,6 +9,7 @@
 ### Study Flow
 - [ ] Instructions on last video stay static ("Bevor Sie zum nächsten Video weitergehen"), change that
 - [ ] Add that users can go back and forth between videos and quiz questions, without losing progress -> In both groups
+- [ ] Check if instruction video still works with the new study flow (added prequiz)
 
 ### Questionnaires
 - [ ] Aufmerksamkeitsvalidierung (Kreuzen Sie bei dieser Frage bitte die Zahl "X" an.)
