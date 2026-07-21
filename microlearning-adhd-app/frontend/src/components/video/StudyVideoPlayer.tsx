@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import '../../../assets/styles/VideoPlayer.css'
+import '@assets/styles/VideoPlayer.css'
 import { copy } from '../../content/copy.ts'
 import type { VideoChapter } from '../../content/videoChapters.ts'
 import type { StudyInteractionPayload } from '../../services/index.ts'
@@ -7,7 +7,7 @@ import type { VideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import VideoScrubber from './VideoScrubber.tsx'
 import { buildSegments } from './chapterSegments.ts'
 import { formatDuration } from './formatDuration.ts'
-import { videoIcons } from './videoIcons.tsx'
+import { videoIcons } from '@assets/icons/videoIcons.tsx'
 
 /*
   The single video embedding used everywhere in the study: the instruction

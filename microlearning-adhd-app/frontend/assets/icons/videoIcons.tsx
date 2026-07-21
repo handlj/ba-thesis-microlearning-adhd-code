@@ -1,11 +1,5 @@
 import type { ReactNode } from 'react'
 
-/*
-  Icons for the video control bar. Kept apart from components/icons.tsx, whose
-  set is drawn as outlines at 18px for the warm study cards; these sit on the
-  dark player chrome, where the transport controls read better as solid shapes.
-*/
-
 const strokeProps = {
   fill: 'none',
   stroke: 'currentColor',

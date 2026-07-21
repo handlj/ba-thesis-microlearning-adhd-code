@@ -8,7 +8,7 @@ const strokeProps = {
   strokeLinejoin: 'round',
 } as const
 
-export const icons: Record<string, ReactNode> = {
+export const genericIcons: Record<string, ReactNode> = {
   clock: (
     <svg viewBox="0 0 24 24" width="18" height="18" role="img">
       <circle cx="12" cy="12" r="9" {...strokeProps} />
@@ -53,4 +53,4 @@ export const icons: Record<string, ReactNode> = {
   ),
 }
 
-export type IconName = keyof typeof icons
+export type IconName = keyof typeof genericIcons

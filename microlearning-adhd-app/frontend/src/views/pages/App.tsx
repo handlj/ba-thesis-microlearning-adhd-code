@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react'
-import '../../../assets/styles/App.css'
+import '@assets/styles/App.css'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyFacts from '../../components/StudyFacts.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
-import { icons } from '../../components/icons.tsx'
+import { genericIcons } from '@assets/icons/genericIcons.tsx'
 import Consent from '../pages/Consent.tsx'
 import Demographics from '../pages/Demographics.tsx'
 import AdhdScreeningQuestionnaire from '../questionnaires/AdhdScreeningQuestionnaire.tsx'
@@ -876,7 +876,7 @@ function App() {
             aria-live="polite">
           <span className="status-note__icon"
                 aria-hidden="true">
-            {icons.lock}
+            {genericIcons.lock}
           </span>
           {copy.welcome.status.noDataCollected}
         </p>

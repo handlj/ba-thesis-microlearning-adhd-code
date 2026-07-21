@@ -5,7 +5,7 @@ import StudyFacts from '../../components/StudyFacts.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import StudyVideoPlayer from '../../components/video/StudyVideoPlayer.tsx'
-import { icons } from '../../components/icons.tsx'
+import { genericIcons } from '@assets/icons/genericIcons.tsx'
 import { copy } from '../../content/copy.ts'
 import { type GroupAssignment } from '../../utils/groupAssignment.ts'
 import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
@@ -137,7 +137,7 @@ function Ready({
         <p className="status status-note">
           <span className="status-note__icon"
                 aria-hidden="true">
-            {icons.clock}
+            {genericIcons.clock}
           </span>
 
           <span className="status-note__text">

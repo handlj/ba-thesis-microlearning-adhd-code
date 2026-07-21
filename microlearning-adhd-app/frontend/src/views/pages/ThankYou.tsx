@@ -2,7 +2,7 @@ import StudyActions from '../../components/StudyActions.tsx'
 import StudyFacts from '../../components/StudyFacts.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
-import { icons } from '../../components/icons.tsx'
+import { genericIcons } from '@assets/icons/genericIcons.tsx'
 import { copy } from '../../content/copy.ts'
 
 type ThankYouProps = {
@@ -25,7 +25,7 @@ function ThankYou({ onReturnToStart }: ThankYouProps) {
       <div className="contact-card">
         <span className="contact-card__icon"
               aria-hidden="true">
-          {icons.mail}
+          {genericIcons.mail}
         </span>
 
         <div className="contact-card__body">

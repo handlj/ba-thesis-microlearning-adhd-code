@@ -1,4 +1,4 @@
-import { icons } from './icons.tsx'
+import { genericIcons } from '@assets/icons/genericIcons.tsx'
 
 export type StudyFact = {
   icon: string
@@ -19,7 +19,7 @@ function StudyFacts({ facts }: StudyFactsProps) {
           <div className="study-fact__header">
             <span className="study-fact__icon"
                   aria-hidden="true">
-              {icons[fact.icon]}
+              {genericIcons[fact.icon]}
             </span>
 
             <p className="study-fact__label">
