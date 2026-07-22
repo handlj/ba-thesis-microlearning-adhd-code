@@ -4,7 +4,7 @@ from sqlmodel import Field, SQLModel
 class InteractionEvent(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     participant_id: str = Field(foreign_key="participantsession.id")
-    group: str
+    group: str # FIXME: This is named group, other models name it assignment
     page: str
     event_type: str
     occurred_at: datetime

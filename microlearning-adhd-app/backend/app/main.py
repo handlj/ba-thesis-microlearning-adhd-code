@@ -7,7 +7,16 @@ from fastapi.staticfiles import StaticFiles
 
 from app.config import MEDIA_DIR, ORIGINS
 from app.database import create_db_and_tables
-from app.routes import participants, videos, config
+from app.routes import (
+    consent, 
+    demographics, 
+    interaction_events, 
+    post_intervention, 
+    questionnaires, 
+    quiz, 
+    videos, 
+    config
+)
 
 
 @asynccontextmanager
@@ -28,6 +37,11 @@ app.add_middleware(
 
 app.mount("/api/media", StaticFiles(directory=MEDIA_DIR), name="media")
 
-app.include_router(participants.router)
+app.include_router(consent.router)
+app.include_router(demographics.router)
+app.include_router(interaction_events.router)
+app.include_router(post_intervention.router)
+app.include_router(questionnaires.router)
+app.include_router(quiz.router)
 app.include_router(videos.router)
 app.include_router(config.router)

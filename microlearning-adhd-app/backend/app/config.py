@@ -65,3 +65,17 @@ ADHD_SCREENING_ITEM_COUNT = 18
 PANAS_ITEM_COUNT = 20
 FAM_ITEM_COUNT = 18
 UES_ITEM_COUNT = 30
+
+
+# HTTP Status Codes
+HTTP_400_BAD_REQUEST = 400
+HTTP_404_NOT_FOUND = 404
+
+
+# Error Messages
+ERROR_CONSENT_REQUIRED = "Consent must be provided before starting the study."
+ERROR_PARTICIPANT_NOT_FOUND = "Participant session not found."
+ERROR_INVALID_ASSIGNMENT = "Invalid assignment."
+ERROR_INVALID_AGE = f"Age must be between {MIN_AGE} and {MAX_AGE}."
+ERROR_INVALID_ADHD_DIAGNOSIS = "Invalid ADHD diagnosis status."
+ERROR_QUIZ_ANSWERS_REQUIRED = "Quiz answers are required."
