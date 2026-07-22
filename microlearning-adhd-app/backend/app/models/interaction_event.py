@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlmodel import Field, Field, SQLModel
+from sqlmodel import Field, SQLModel
 
 class InteractionEvent(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)

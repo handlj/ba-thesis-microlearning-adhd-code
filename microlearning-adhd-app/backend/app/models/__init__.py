@@ -1,6 +1,6 @@
 from .demographics import Demographics
-from .interactionEvent import InteractionEvent
-from .postIntervention import PostInterventionResponse
+from .interaction_event import InteractionEvent
+from .post_intervention import PostInterventionResponse
 from .questionnaires import AdhdScreeningResponse, PanasPreResponse, PanasPostResponse, FamResponse, UesResponse
 from .quiz import QuizAnswer
 from .session import ParticipantSession

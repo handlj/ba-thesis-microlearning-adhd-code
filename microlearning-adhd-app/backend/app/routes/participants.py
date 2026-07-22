@@ -3,16 +3,48 @@ import json
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session
 
-from app.config import ADHD_SCREENING_QUESTION_IDS, FAM_QUESTION_IDS, MAX_AGE, MIN_AGE
-from app.config import FAM_SCALE_MAX, LIKERT_MAX, LIKERT_MIN
-from app.config import PANAS_QUESTION_IDS, UES_QUESTION_IDS
-from app.config import VALID_ADHD_DIAGNOSES, VALID_ASSIGNMENTS
+from app.config import (
+    ADHD_SCREENING_QUESTION_IDS,
+    FAM_QUESTION_IDS,
+    FAM_SCALE_MAX,
+    LIKERT_MAX,
+    LIKERT_MIN,
+    PANAS_QUESTION_IDS,
+    UES_QUESTION_IDS,
+)
 from app.database import get_session
-from app.models import *
-from app.schemas import *
-from app.services import assign_balanced_group, current_utc_timestamp
-from app.services import ensure_participant_exists, require_non_empty_text
-from app.services import score_adhd_screening, validate_likert_answers
+from app.models import (
+    AdhdScreeningResponse,
+    Demographics,
+    FamResponse,
+    InteractionEvent,
+    PanasPostResponse,
+    PanasPreResponse,
+    ParticipantSession,
+    PostInterventionResponse,
+    QuizAnswer,
+    UesResponse,
+)
+from app.schemas import (
+    ADHDScreeningSchemas,
+    ConsentSchemas,
+    DemographicsSchemas,
+    InteractionEventSchemas,
+    PostInterventionSchemas,
+    QuestionnaireSchemas,
+    QuizSchemas,
+)
+from app.services import (
+    assign_balanced_group,
+    current_utc_timestamp,
+    ensure_participant_exists,
+    require_non_empty_text,
+    score_adhd_screening,
+    validate_adhd_diagnosis,
+    validate_age,
+    validate_assignment,
+    validate_likert_answers,
+)
 
 
 router = APIRouter(prefix="/api/participants")
@@ -56,14 +88,8 @@ def submit_demographics(
 ):
     participant = ensure_participant_exists(participant_id, session)
 
-    if demographics.age < MIN_AGE or demographics.age > MAX_AGE:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Age must be between {MIN_AGE} and {MAX_AGE}.",
-        )
-
-    if demographics.adhd_diagnosis not in VALID_ADHD_DIAGNOSES:
-        raise HTTPException(status_code=400, detail="Invalid ADHD diagnosis status.")
+    validate_age(demographics.age)
+    validate_adhd_diagnosis(demographics.adhd_diagnosis)
 
     # Group assignment is deferred to the ADHD screening step, where it is drawn
     # from the screening result rather than self-reported demographics.
@@ -126,9 +152,7 @@ def submit_post_intervention(
 ):
     ensure_participant_exists(participant_id, session)
 
-    assignment = require_non_empty_text(questionnaire.assignment, "Assignment")
-    if assignment not in {"control", "experimental"}:
-        raise HTTPException(status_code=400, detail="Invalid assignment.")
+    assignment = validate_assignment(questionnaire.assignment)
 
     submitted_at = current_utc_timestamp()
     post_intervention_response = PostInterventionResponse(
@@ -146,13 +170,6 @@ def submit_post_intervention(
     )
 
 
-def _validate_assignment(assignment: str) -> str:
-    normalized = require_non_empty_text(assignment, "Assignment")
-    if normalized not in VALID_ASSIGNMENTS:
-        raise HTTPException(status_code=400, detail="Invalid assignment.")
-    return normalized
-
-
 def _persist_questionnaire(
     participant_id: str,
     request: QuestionnaireSchemas.LikertQuestionnaireRequest,
@@ -163,7 +180,7 @@ def _persist_questionnaire(
     max_value: int,
 ) -> QuestionnaireSchemas.QuestionnaireResponsePayload:
     ensure_participant_exists(participant_id, session)
-    assignment = _validate_assignment(request.assignment)
+    assignment = validate_assignment(request.assignment)
     answers = validate_likert_answers(
         request.answers,
         expected_ids,
@@ -322,7 +339,7 @@ def submit_quiz(
     session: Session = Depends(get_session),
 ):
     ensure_participant_exists(participant_id, session)
-    group = _validate_assignment(submission.group)
+    group = validate_assignment(submission.group)
 
     if not submission.answers:
         raise HTTPException(status_code=400, detail="Quiz answers are required.")

@@ -14,8 +14,9 @@
 ### Questionnaires
 - [ ] Aufmerksamkeitsvalidierung (Kreuzen Sie bei dieser Frage bitte die Zahl "X" an.)
 
-### Interaction Patterns
-- [ ] Data Analysis: Interaction Patterns: Korrelieren mit Engagement (Fragebogen UES), frequentistisch
+### Data Analysis
+- [ ] Interaction Patterns: Korrelieren mit Engagement (Fragebogen UES), frequentistisch
+- [ ] Update correct timezone
 
 ### Backend
 - [ ] Update Backend persistence for updated questions (post-study feedback)

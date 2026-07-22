@@ -57,3 +57,11 @@ MAX_AGE = 99
 # After QUIZ_MAX_ATTEMPTS failed attempts the participant proceeds anyway.
 QUIZ_PASS_THRESHOLD = 4
 QUIZ_MAX_ATTEMPTS = 3
+
+"""
+  Number of items per Likert questionnaire.
+"""
+ADHD_SCREENING_ITEM_COUNT = 18
+PANAS_ITEM_COUNT = 20
+FAM_ITEM_COUNT = 18
+UES_ITEM_COUNT = 30
