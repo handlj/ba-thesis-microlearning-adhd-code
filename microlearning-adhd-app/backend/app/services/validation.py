@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 from sqlmodel import Session, select
 
-from app.config import MAX_AGE, MIN_AGE, VALID_ADHD_DIAGNOSES, VALID_ASSIGNMENTS, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, ERROR_PARTICIPANT_NOT_FOUND, ERROR_INVALID_ASSIGNMENT, ERROR_INVALID_AGE, ERROR_INVALID_ADHD_DIAGNOSIS
+from app.config import MAX_AGE, MIN_AGE, VALID_ADHD_DIAGNOSES, VALID_ASSIGNMENTS, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, ERROR_PARTICIPANT_NOT_FOUND, ERROR_INVALID_ASSIGNMENT, ERROR_INVALID_AGE, ERROR_INVALID_ADHD_DIAGNOSIS, ERROR_FIELD_REQUIRED
 from app.models.session import ParticipantSession
 
 
@@ -22,7 +22,7 @@ def ensure_participant_exists(
 def require_non_empty_text(value: str, field_name: str) -> str:
     normalized_value = value.strip()
     if not normalized_value:
-        raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=f"{field_name} is required.") # TODO: Can these error messages be outsourced to config.py?
+        raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_FIELD_REQUIRED.format(field_name=field_name))
 
     return normalized_value
 
@@ -38,7 +38,7 @@ def validate_age(age: int) -> int:
     if age < MIN_AGE or age > MAX_AGE:
         raise HTTPException(
             status_code=HTTP_400_BAD_REQUEST,
-            detail=ERROR_INVALID_AGE,
+            detail=ERROR_INVALID_AGE.format(MIN_AGE=MIN_AGE, MAX_AGE=MAX_AGE),
         )
     return age
 

@@ -111,7 +111,6 @@ function ExperimentalGroup({
 
   const getCurrentVideoPayload = () => ({
     videoId: currentVideo?.id ?? null,
-    videoTitle: currentVideo?.title ?? null,
     videoIndex: currentIndex + 1,
     videoCount,
   })
@@ -259,16 +258,6 @@ function ExperimentalGroup({
               <p className="sequence-progress">
                 {copy.experimentalGroup.progress(currentIndex + 1, videoCount)}
               </p>
-
-              <div className="video-meta">
-                <p className="video-kicker">
-                  {currentVideo.title}
-                </p>
-                
-                <p className="video-description">
-                  {currentVideo.description}
-                </p>
-              </div>
 
               <RewatchDialog
                 open={showRewatchNotice}

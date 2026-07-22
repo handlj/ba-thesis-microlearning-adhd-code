@@ -386,7 +386,7 @@ export const copy = {
       eyebrow: 'Feedback zu Ihrer Quiz-leistung',
       title: 'Ergebnisse',
       intro:
-        'Hier sehen Sie eine kurze Rückmeldung zu Ihren Antworten in den Coding-Quizzes.',
+        'Hier sehen Sie eine kurze Rückmeldung zu Ihren Antworten in den Quizzes.',
     },
     beforeLabel: 'Vorher',
     afterLabelControl: 'Nachher',

@@ -12,6 +12,7 @@ ORIGINS = [
     "http://localhost:5173",
 ]
 
+
 VALID_ADHD_DIAGNOSES = {
     "diagnosed",
     "self-diagnosed",
@@ -19,11 +20,27 @@ VALID_ADHD_DIAGNOSES = {
     "prefer-not-to-say",
 }
 
+
 VALID_ASSIGNMENTS = {"control", "experimental"}
 
-# Expected question IDs per Likert questionnaire (must match the frontend
-# content files in frontend/src/content/*.ts and the column names in models.py).
-ADHD_SCREENING_QUESTION_IDS = {f"adhd{index}" for index in range(1, 18+1)}
+
+# Efrons Biased Coin Probability
+BIASED_COIN_PROBABILITY = 0.75
+
+
+# Number of items per Likert questionnaire.
+ADHD_SCREENING_ITEM_COUNT = 18
+PANAS_ITEM_COUNT = 20
+FAM_ITEM_COUNT = 18
+UES_ITEM_COUNT = 30
+
+# Expected question IDs per Likert questionnaire 
+# (must match the frontend content files in frontend/src/content/*.ts and the column names in models.py).
+# TODO: Add single source of truth
+ADHD_SCREENING_QUESTION_IDS = {f"adhd{index}" for index in range(1, ADHD_SCREENING_ITEM_COUNT+1)}
+PANAS_QUESTION_IDS = {f"panas{index}" for index in range(1, PANAS_ITEM_COUNT+1)}
+FAM_QUESTION_IDS = {f"fam{index}" for index in range(1, FAM_ITEM_COUNT+1)}
+UES_QUESTION_IDS = {f"ues{index}" for index in range(1, UES_ITEM_COUNT+1)}
 
 # ASRS v1.1 Part A scoring. Items 1-3 are inattention, items 4-6 hyperactivity.
 # An inattention item counts as a "mark" at "Manchmal" (3) or higher; a
@@ -35,36 +52,21 @@ ADHD_INATTENTION_THRESHOLD = 3
 ADHD_HYPERACTIVITY_THRESHOLD = 4
 ADHD_SCREEN_POSITIVE_MARKS = 4
 
-# Probability of allocating to the smaller arm when the two arms are unbalanced
-# within a stratum (Efron's biased coin). 0.5 would be simple randomisation; 1.0
-# would be fully deterministic minimisation.
-BIASED_COIN_PROBABILITY = 0.75
-PANAS_QUESTION_IDS = {f"panas{index}" for index in range(1, 21)}
-FAM_QUESTION_IDS = {f"fam{index}" for index in range(1, 19)}
-UES_QUESTION_IDS = {f"ues{index}" for index in range(1, 31)}
 
 # Likert response ranges (inclusive). FAM uses a 1-7 scale, the others 1-5.
 LIKERT_MIN = 1
 LIKERT_MAX = 5
 FAM_SCALE_MAX = 7
 
+
 # Demographics Validation
 MIN_AGE = 18
 MAX_AGE = 99
 
-# Experimental-group quiz gating: a per-video quiz passes at
-# >= QUIZ_PASS_THRESHOLD correctly answered questions (each topic has 5).
-# After QUIZ_MAX_ATTEMPTS failed attempts the participant proceeds anyway.
-QUIZ_PASS_THRESHOLD = 4
-QUIZ_MAX_ATTEMPTS = 3
 
-"""
-  Number of items per Likert questionnaire.
-"""
-ADHD_SCREENING_ITEM_COUNT = 18
-PANAS_ITEM_COUNT = 20
-FAM_ITEM_COUNT = 18
-UES_ITEM_COUNT = 30
+# Experimental-Group Quiz Gating
+QUIZ_PASS_THRESHOLD = 4 # Min. of correct answers (out of 5)
+QUIZ_MAX_ATTEMPTS = 3
 
 
 # HTTP Status Codes
@@ -76,6 +78,13 @@ HTTP_404_NOT_FOUND = 404
 ERROR_CONSENT_REQUIRED = "Consent must be provided before starting the study."
 ERROR_PARTICIPANT_NOT_FOUND = "Participant session not found."
 ERROR_INVALID_ASSIGNMENT = "Invalid assignment."
-ERROR_INVALID_AGE = f"Age must be between {MIN_AGE} and {MAX_AGE}."
+ERROR_INVALID_AGE = "Age must be between {MIN_AGE} and {MAX_AGE}."
 ERROR_INVALID_ADHD_DIAGNOSIS = "Invalid ADHD diagnosis status."
 ERROR_QUIZ_ANSWERS_REQUIRED = "Quiz answers are required."
+ERROR_FIELD_REQUIRED = "{field_name} is required."
+
+
+# Video Filenames
+CONTROL_VIDEO_FILENAME = "video-full-v1.mp4"
+INSTRUCTION_VIDEO_FILENAME = "video-instructions-v1.mp4"
+EXPERIMENTAL_VIDEO_FILENAME_TEMPLATE = "video{index}.mp4"

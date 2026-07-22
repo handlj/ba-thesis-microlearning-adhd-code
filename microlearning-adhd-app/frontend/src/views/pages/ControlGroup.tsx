@@ -73,9 +73,7 @@ function ControlGroup({
 
   const showQuiz = () => {
     if (canContinue) {
-      onLogInteraction('control_video_proceed_clicked', {
-        videoTitle: video?.title ?? null,
-      })
+      onLogInteraction('control_video_proceed_clicked')
       setPhase('quiz')
     }
   }
@@ -113,15 +111,10 @@ function ControlGroup({
 
       {video && phase === 'video' ? (
         <div className="video-panel">
-          <div className="video-meta">
-            <p className="video-kicker">{video.title}</p>
-            <p className="video-description">{video.description}</p>
-          </div>
 
           <StudyVideoPlayer
             src={video.video_url}
             eventPrefix="control_video"
-            eventPayload={{ videoTitle: video.title }}
             features={getVideoPlayerFeatures('control')}
             onLogInteraction={onLogInteraction}
             onEnded={() => setCanContinue(true)}
