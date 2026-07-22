@@ -4,7 +4,7 @@ from sqlmodel import Field, SQLModel
 class QuizAnswer(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     participant_id: str = Field(foreign_key="participantsession.id")
-    group: str # FIXME: This is called group here, but assignment in other models. Should be consistent.
+    assignment: str
     video_id: str | None = None
     video_index: int | None = None
     topic_id: str

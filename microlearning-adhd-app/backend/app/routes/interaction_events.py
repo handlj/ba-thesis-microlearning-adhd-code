@@ -31,7 +31,7 @@ def record_interaction_event(
 
     interaction_event = InteractionEvent(
         participant_id=participant_id,
-        group=event.group,
+        assignment=event.assignment,
         page=event.page,
         event_type=event.event_type,
         occurred_at=event.occurred_at,

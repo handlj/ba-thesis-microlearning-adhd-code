@@ -29,8 +29,7 @@ def submit_quiz(
 ):
     ensure_participant_exists(participant_id, session)
 
-    # FIXME: Rename to assignment for consistency with other models
-    group = validate_assignment(submission.group)
+    assignment = validate_assignment(submission.assignment)
 
     if not submission.answers:
         raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_QUIZ_ANSWERS_REQUIRED)
@@ -40,7 +39,7 @@ def submit_quiz(
     for question_id, selected_options in submission.answers.items():
         quiz_answer = QuizAnswer(
             participant_id=participant_id,
-            group=group,
+            assignment=assignment,
             video_id=submission.video_id,
             video_index=submission.video_index,
             topic_id=submission.topic_id,

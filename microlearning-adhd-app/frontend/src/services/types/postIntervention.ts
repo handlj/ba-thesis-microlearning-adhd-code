@@ -1,8 +1,4 @@
 export type PostInterventionAnswers = {
-  attentionSupport: string;
-  contentClarity: string;
-  workloadFit: string;
-  preferredFormat: string;
   openFeedback: string;
 };
 

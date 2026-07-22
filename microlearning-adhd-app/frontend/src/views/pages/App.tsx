@@ -108,10 +108,6 @@ const defaultPanasAnswers = panas.questions.reduce<Record<string, string>>(
 )
 
 const defaultPostInterventionAnswers: PostInterventionAnswers = {
-  attentionSupport: '',
-  contentClarity: '',
-  workloadFit: '',
-  preferredFormat: '',
   openFeedback: '',
 }
 
@@ -265,17 +261,17 @@ function App() {
   }
 
   const logStudyInteraction = (
-    group: GroupAssignment,
+    assignment: GroupAssignment,
     eventType: string,
     payload?: StudyInteractionPayload,
-    interactionPage: string = group,
+    interactionPage: string = assignment,
   ) => {
     if (!participantId) {
       return
     }
 
     void postInteractionEvent(participantId, {
-      group,
+      assignment,
       page: interactionPage,
       event_type: eventType,
       payload,
@@ -285,8 +281,8 @@ function App() {
   }
 
   const submitQuizForGroup = (
-    submission: Omit<QuizAnswerSubmission, 'group'> & {
-      group: GroupAssignment
+    submission: Omit<QuizAnswerSubmission, 'assignment'> & {
+      assignment: GroupAssignment
     },
   ) => {
     if (!participantId) {
@@ -709,7 +705,7 @@ function App() {
           if (!assignment) return
           setPreQuizCorrect(scoreAll(answers))
           submitQuizForGroup({
-            group: assignment,
+            assignment,
             video_id: null,
             video_index: null,
             topic_id: 'pre-quiz',
@@ -732,7 +728,7 @@ function App() {
         onSubmitQuiz={(answers) => {
           setControlPostQuizCorrect(scoreAll(answers))
           submitQuizForGroup({
-            group: 'control',
+            assignment: 'control',
             video_id: null,
             video_index: null,
             topic_id: 'all',
@@ -761,7 +757,7 @@ function App() {
               [submission.topic_id]: correct,
             }))
           }
-          submitQuizForGroup({ group: 'experimental', ...submission })
+          submitQuizForGroup({ assignment: 'experimental', ...submission })
         }}
       />
     )

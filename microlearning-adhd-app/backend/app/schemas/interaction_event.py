@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class InteractionEventRequest(BaseModel):
-    group: str
+    assignment: str
     page: str
     event_type: str
     occurred_at: datetime

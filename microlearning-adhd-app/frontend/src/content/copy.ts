@@ -344,24 +344,6 @@ export const copy = {
       intro: 'Bitte beantworten Sie die folgenden Fragen, bevor Sie die Studie abschließen.',
     },
     questions: {
-      attentionSupport: {
-        label: 'Das Studienmaterial hat mir geholfen, konzentriert zu bleiben.',
-      },
-      contentClarity: {
-        label: 'Der Inhalt war leicht verständlich.',
-      },
-      workloadFit: {
-        label: 'Der Arbeitsaufwand fühlte sich gut bewältigbar an.',
-      },
-      preferredFormat: {
-        label: 'Welches Format würden Sie für zukünftiges Lernmaterial bevorzugen?',
-        options: {
-          singleVideo: 'Ein längeres Video',
-          shortVideos: 'Mehrere kurze Videos',
-          text: 'Schriftliches Material',
-          mixed: 'Eine Mischung aus Formaten',
-        },
-      },
       openFeedback: {
         label: 'Gibt es etwas, das Sie an der Lernerfahrung verbessern würden?',
         placeholder: 'Teilen Sie einen kurzen Kommentar',

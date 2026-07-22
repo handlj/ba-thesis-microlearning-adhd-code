@@ -9,7 +9,7 @@ export type QuizSubmission = {
 
 
 export type QuizAnswerSubmission = {
-  group: GroupAssignment;
+  assignment: GroupAssignment;
   video_id: string | null;
   video_index: number | null;
   topic_id: string;
