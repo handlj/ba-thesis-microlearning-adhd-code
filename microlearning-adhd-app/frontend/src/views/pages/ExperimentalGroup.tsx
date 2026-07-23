@@ -19,6 +19,7 @@ import { getAppConfig } from '../../utils/config.ts'
 import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import { scoreQuiz } from '../../utils/quizScoring.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
+import Message from '../../components/Message.tsx'
 
 type ExperimentalGroupProps = {
   onBackToStart: () => void
@@ -233,23 +234,16 @@ function ExperimentalGroup({
         intro={copy.experimentalGroup.heading.intro}
         id="experimental-title"/>
 
-      {isLoading ? (
-        <p className="video-status">
-          {copy.experimentalGroup.status.loading}
-        </p>
-      ) : null}
+      <Message variant="status">
+        {isLoading ? copy.experimentalGroup.status.loading : null}
+      </Message>
 
-      {error ? 
-      <p className="error-text">
-        {error}
-      </p> 
-      : null}
+      <Message variant="error">{error}</Message>
 
-      {!isLoading && !error && videoCount === 0 ? (
-        <p className="video-status">
-          {copy.experimentalGroup.status.noVideos}
-        </p>
-      ) : null}
+      <Message variant="status">
+        {videoCount === 0 && !isLoading && !error
+          ? copy.experimentalGroup.status.noVideos : null}
+      </Message>
 
       {currentVideo ? (
         <div className="video-panel">
@@ -281,14 +275,13 @@ function ExperimentalGroup({
                 onLoadedMetadata={() => setHasVideoEnded(false)}
               />
 
-              <p className="video-status"
-                aria-live="polite">
+              <Message variant="status">
                 {hasVideoEnded
                   ? copy.experimentalGroup.status.videoFinished
                   : isRewatch
                     ? copy.experimentalGroup.status.rewatch
                     : withEmphasis(copy.video.watchFullVideo)}
-              </p>
+              </Message>
             </>
           ) : currentTopic ? (
             <>
@@ -301,12 +294,11 @@ function ExperimentalGroup({
                 onCompletionChange={setQuizComplete}
                 onAnswersChange={setCurrentQuizAnswers}
               />
-              <p className="video-status" 
-                aria-live="polite">
+              <Message variant="status">
                 {quizComplete
                   ? copy.experimentalGroup.status.allAnswered
                   : copy.experimentalGroup.status.answerAllQuestions}
-              </p>
+              </Message>
             </>
           ) : null}
         </div>

@@ -1,4 +1,5 @@
 import ProgressPill from '../ProgressPill.tsx'
+import Message from '../Message.tsx'
 
 type LikertScale = {
   values: readonly string[]
@@ -149,11 +150,7 @@ function LikertQuestionnaire({
         </table>
       </div>
 
-      {error ? 
-        <p className="error-text">
-          {error}
-        </p>
-      : null}
+      <Message variant="error">{error}</Message>
     </section>
   )
 }

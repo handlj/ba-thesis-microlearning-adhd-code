@@ -1,13 +1,10 @@
 import { useState } from 'react'
 import type { QuizQuestion } from '../../content/quiz.ts'
+import { blankAnswersMultiSelect } from '../../utils/blankAnswers.ts'
+
 
 export type QuizAnswers = Record<string, string[]>
 
-const createEmptyAnswers = (questions: QuizQuestion[]): QuizAnswers =>
-  questions.reduce<QuizAnswers>((answers, question) => {
-    answers[question.id] = []
-    return answers
-  }, {})
 
 // Shared multi-select answer state for the quiz screens (control + experimental).
 // `toggle` keeps the state updater pure and returns the resulting checked state
@@ -15,7 +12,7 @@ const createEmptyAnswers = (questions: QuizQuestion[]): QuizAnswers =>
 // (which StrictMode invokes twice in development).
 export function useQuizAnswers(questions: QuizQuestion[]) {
   const [answers, setAnswers] = useState<QuizAnswers>(() =>
-    createEmptyAnswers(questions),
+    blankAnswersMultiSelect(questions),
   )
 
   const answeredCount = questions.filter(

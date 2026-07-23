@@ -7,6 +7,7 @@ import type { StudyInteractionPayload } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
+import Message from '../../components/Message.tsx'
 
 type PreQuizProps = {
   onSubmit: () => void
@@ -96,11 +97,7 @@ function PreQuiz({
         </button>
       </StudyActions>
 
-      {error ? 
-      <p className="error-text">
-        {error}
-      </p>
-       : null}
+      <Message variant="error">{error}</Message>
     </form>
     </StudyPage>
   )

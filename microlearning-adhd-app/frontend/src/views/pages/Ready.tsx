@@ -10,6 +10,7 @@ import { copy } from '../../content/copy.ts'
 import { type GroupAssignment } from '../../utils/groupAssignment.ts'
 import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
+import Message from '../../components/Message.tsx'
 
 type ReadyProps = {
   assignment: GroupAssignment | null
@@ -81,17 +82,11 @@ function Ready({
 
       <StudyFacts facts={copy.ready.facts} />
 
-      {isLoading ?
-      <p className="video-status">
-        {copy.ready.status.loading}
-      </p>
-       : null}
+      <Message variant="status">
+        {isLoading ? copy.ready.status.loading : null}
+      </Message>
 
-      {error ? 
-      <p className="error-text">
-        {error}
-      </p>
-       : null}
+      <Message variant="error">{error}</Message>
 
       {video ? (
         <div className="video-panel">
@@ -105,12 +100,11 @@ function Ready({
             onLoadedMetadata={() => setHasVideoEnded(false)}
           />
 
-          <p  className="video-status"
-              aria-live="polite">
+          <Message variant="status">
             {hasVideoEnded
               ? copy.ready.status.videoFinished
               : withEmphasis(copy.video.watchFullVideo)}
-          </p>
+          </Message>
         </div>
       ) : null}
 

@@ -1,5 +1,6 @@
 import type { StudyQuestion } from '../components/forms'
 import { buildOptionsFromCopy } from '../components/forms'
+import type { DemographicAnswers } from '../utils/groupAssignment'
 import { copy } from './copy'
 
 export type DemographicQuestionId = keyof typeof copy.demographics.questions
@@ -9,6 +10,17 @@ type FieldConfig = { type: 'number' | 'text' }
 const fieldConfig: Partial<Record<DemographicQuestionId, FieldConfig>> = {
   age: { type: 'number' },
   studyBackground: { type: 'text' },
+}
+
+export const defaultDemographics: DemographicAnswers = {
+  age: '',
+  gender: '',
+  highestEducation: '',
+  currentlyStudying: '',
+  studyBackground: '',
+  adhdDiagnosis: '',
+  adhdOfficialDiagnosis: '',
+  adhdMedication: '',
 }
 
 export const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = (

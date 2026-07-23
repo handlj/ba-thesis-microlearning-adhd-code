@@ -603,6 +603,10 @@
   color: var(--text);
 }
 
+.status-text {
+  color: #4f453a;
+}
+
 .error-text {
   margin: 0;
   color: #9b1c1c;
@@ -953,13 +957,6 @@
 .video-description {
   max-width: 60ch;
   line-height: 1.65;
-}
-
-/* The player's own frame lives in VideoPlayer.css, alongside the component
-   that owns it. */
-
-.video-status {
-  color: #4f453a;
 }
 
 .sequence-progress {

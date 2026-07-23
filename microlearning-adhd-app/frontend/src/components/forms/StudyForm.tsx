@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import QuestionField from './QuestionField'
 import type { FormAnswerValue, QuestionChangeHandler, StudyQuestion } from './types'
+import Message from '../Message'
 
 type StudyFormProps<QuestionId extends string = string> = {
   questions: StudyQuestion<QuestionId>[]
@@ -37,7 +38,7 @@ function StudyForm<QuestionId extends string = string>({
         />
       ))}
 
-      {error ? <p className="error-text">{error}</p> : null}
+      <Message variant="error">{error}</Message>
 
       {actions}
     </form>

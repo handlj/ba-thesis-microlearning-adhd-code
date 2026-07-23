@@ -9,6 +9,7 @@ import { getControlVideo, type ControlVideo, type StudyInteractionPayload } from
 import { copy } from '../../content/copy.ts'
 import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
+import Message from '../../components/Message.tsx'
 
 type ControlGroupProps = {
   onBackToStart: () => void
@@ -121,12 +122,11 @@ function ControlGroup({
             onLoadedMetadata={() => setCanContinue(false)}
           />
 
-          <p  className="video-status"
-              aria-live="polite">
+          <Message variant="status">
             {canContinue
               ? copy.controlGroup.status.videoFinished
               : withEmphasis(copy.video.watchFullVideo)}
-          </p>
+          </Message>
         </div>
       ) : null}
 
@@ -139,17 +139,11 @@ function ControlGroup({
         />
       ) : null}
 
-      {isLoading ? 
-      <p className="video-status">
-        {copy.controlGroup.status.loading}
-      </p>
-       : null}
-      
-      {error ? 
-      <p className="error-text">
-        {error}
-      </p>
-       : null}
+      <Message variant="status">
+        {isLoading ? copy.controlGroup.status.loading : null}
+      </Message>
+
+      <Message variant="error">{error}</Message>
 
       {phase === 'video' ? (
         <StudyActions className="study-actions--stacked">

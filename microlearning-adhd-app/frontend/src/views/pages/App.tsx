@@ -28,11 +28,10 @@ import {
   postPostInterventionQuestionnaire,
   postQuizAnswers,
   postUes,
-  type PostInterventionAnswers,
   type QuizAnswerSubmission,
   type StudyInteractionPayload,
 } from '../../services/index.ts'
-import { type DemographicAnswers, type GroupAssignment } from '../../utils/groupAssignment.ts'
+import { type GroupAssignment } from '../../utils/groupAssignment.ts'
 import { validateDemographics } from '../../utils/demographicsValidation.ts'
 import { copy } from '../../content/copy.ts'
 import { scoreQuiz } from '../../utils/quizScoring.ts'
@@ -44,6 +43,7 @@ import { fam } from '../../content/fam.ts'
 import { panas } from '../../content/panas.ts'
 import { ues } from '../../content/ues.ts'
 import PreQuiz from './PreQuiz.tsx'
+import { useStudyAnswers } from '../../shell/useStudyAnswers.ts'
 
 type Page =
   | 'welcome'
@@ -69,55 +69,10 @@ type BufferedEvent = {
   payload?: Record<string, string>
 }
 
+
 const STUDY_BUFFER_KEY = 'study.localBuffer'
 const STUDY_FLUSHED_KEY = 'study.flushedEvents'
 const PARTICIPANT_ID_KEY = 'study.participantId'
-
-const defaultDemographics: DemographicAnswers = {
-  age: '',
-  gender: '',
-  highestEducation: '',
-  currentlyStudying: '',
-  studyBackground: '',
-  adhdDiagnosis: '',
-  adhdOfficialDiagnosis: '',
-  adhdMedication: '',
-}
-
-const defaultFamAnswers = fam.questions.reduce<Record<string, string>>(
-  (answers, question) => {
-    answers[question.id] = ''
-    return answers
-  },
-  {},
-)
-
-const defaultAdhdScreeningAnswers = adhdScreening.questions.reduce<
-  Record<string, string>
->((answers, question) => {
-  answers[question.id] = ''
-  return answers
-}, {})
-
-const defaultPanasAnswers = panas.questions.reduce<Record<string, string>>(
-  (answers, question) => {
-    answers[question.id] = ''
-    return answers
-  },
-  {},
-)
-
-const defaultPostInterventionAnswers: PostInterventionAnswers = {
-  openFeedback: '',
-}
-
-const defaultUesAnswers = ues.questions.reduce<Record<string, string>>(
-  (answers, question) => {
-    answers[question.id] = ''
-    return answers
-  },
-  {},
-)
 
 function App() {
 
@@ -127,26 +82,15 @@ function App() {
     These have to be reverted before deployment.
   */
   const [page, setPage] = useState<Page>('welcome') // default: 'welcome'
-
+   
   const [agreed, setAgreed] = useState(false)
   const [initialBuffer] = useState<BufferedEvent[]>(() => {
-    const existing = localStorage.getItem(STUDY_BUFFER_KEY)
+  const existing = localStorage.getItem(STUDY_BUFFER_KEY)
     return existing ? (JSON.parse(existing) as BufferedEvent[]) : []
   })
-  const [demographics, setDemographics] =
-    useState<DemographicAnswers>(defaultDemographics)
-  const [adhdScreeningAnswers, setAdhdScreeningAnswers] =
-    useState<Record<string, string>>(defaultAdhdScreeningAnswers)
-  const [famAnswers, setFamAnswers] =
-    useState<Record<string, string>>(defaultFamAnswers)
-  const [prePanasAnswers, setPrePanasAnswers] =
-    useState<Record<string, string>>(defaultPanasAnswers)
-  const [postInterventionAnswers, setPostInterventionAnswers] =
-    useState<PostInterventionAnswers>(defaultPostInterventionAnswers)
-  const [postPanasAnswers, setPostPanasAnswers] =
-    useState<Record<string, string>>(defaultPanasAnswers)
-  const [uesAnswers, setUesAnswers] =
-    useState<Record<string, string>>(defaultUesAnswers)
+    
+  const { answers, setLikertAnswer, setDemographicAnswer, setFollowUpAnswer, resetAnswers } = useStudyAnswers()
+    
   const [participantId, setParticipantId] = useState<string | null>(() =>
     localStorage.getItem(PARTICIPANT_ID_KEY),
   )
@@ -180,13 +124,7 @@ function App() {
 
   const resetStudyState = () => {
     setAgreed(false)
-    setDemographics(defaultDemographics)
-    setAdhdScreeningAnswers(defaultAdhdScreeningAnswers)
-    setFamAnswers(defaultFamAnswers)
-    setPrePanasAnswers(defaultPanasAnswers)
-    setPostInterventionAnswers(defaultPostInterventionAnswers)
-    setPostPanasAnswers(defaultPanasAnswers)
-    setUesAnswers(defaultUesAnswers)
+    resetAnswers()
     setParticipantId(null)
     setConsentError(null)
     setDemographicError(null)
@@ -319,7 +257,7 @@ function App() {
   }
 
   const handleDemographicsSubmit = async () => {
-    const validation = validateDemographics(demographics)
+    const validation = validateDemographics(answers.demographics)
     if (!validation.valid) {
       setDemographicError(validation.error)
       return
@@ -335,12 +273,12 @@ function App() {
     try {
       setDemographicError(null)
       setIsSavingDemographics(true)
-      await postDemographics(participantId, demographics)
+      await postDemographics(participantId, answers.demographics)
       addBufferedEvent('demographics_submitted', 'demographics', {
         participantId,
-        age: demographics.age,
-        studyBackground: demographics.studyBackground,
-        adhdDiagnosis: demographics.adhdDiagnosis,
+        age: answers.demographics.age,
+        studyBackground: answers.demographics.studyBackground,
+        adhdDiagnosis: answers.demographics.adhdDiagnosis,
       })
       transitionTo('adhdScreening')
     } catch (requestError) {
@@ -356,7 +294,7 @@ function App() {
 
   const handleAdhdScreeningSubmit = async () => {
     const missingAnswer = adhdScreening.questions.some(
-      (question) => !adhdScreeningAnswers[question.id]?.trim(),
+      (question) => !answers.adhdScreening[question.id]?.trim(),
     )
 
     if (missingAnswer) {
@@ -374,12 +312,12 @@ function App() {
     try {
       isSavingQuestionnaireRef.current = true
       setAdhdScreeningError(null)
-      const response = await postAdhdScreening(participantId, adhdScreeningAnswers)
+      const response = await postAdhdScreening(participantId, answers.adhdScreening)
       setAssignment(response.assignment)
       addBufferedEvent('adhd_screening_submitted', 'adhdScreening', {
         participantId,
         assignment: response.assignment,
-        ...adhdScreeningAnswers,
+        ...answers.adhdScreening,
       })
       transitionTo('prePanas')
     } catch (requestError) {
@@ -395,7 +333,7 @@ function App() {
 
   const handlePrePanasSubmit = async () => {
     const missingAnswer = panas.questions.some(
-      (question) => !prePanasAnswers[question.id]?.trim(),
+      (question) => !answers.prePanas[question.id]?.trim(),
     )
 
     if (missingAnswer) {
@@ -413,11 +351,11 @@ function App() {
     try {
       isSavingQuestionnaireRef.current = true
       setPrePanasError(null)
-      await postPanasPre(participantId, assignment, prePanasAnswers)
+      await postPanasPre(participantId, assignment, answers.prePanas)
       addBufferedEvent('pre_intervention_panas_submitted', 'prePanas', {
         participantId,
         assignment,
-        ...prePanasAnswers,
+        ...answers.prePanas,
       })
       transitionTo('ready')
     } catch (requestError) {
@@ -446,7 +384,7 @@ function App() {
 
   const handleFamSubmit = async () => {
     const missingAnswer = fam.questions.some(
-      (question) => !famAnswers[question.id]?.trim(),
+      (question) => !answers.fam[question.id]?.trim(),
     )
 
     if (missingAnswer) {
@@ -464,11 +402,11 @@ function App() {
     try {
       isSavingQuestionnaireRef.current = true
       setFamError(null)
-      await postFam(participantId, assignment, famAnswers)
+      await postFam(participantId, assignment, answers.fam)
       addBufferedEvent('pre_intervention_fam_submitted', 'fam', {
         participantId,
         assignment,
-        ...famAnswers,
+        ...answers.fam,
       })
 
       transitionTo('preQuiz')
@@ -485,7 +423,7 @@ function App() {
 
   const handlePostPanasSubmit = async () => {
     const missingAnswer = panas.questions.some(
-      (question) => !postPanasAnswers[question.id]?.trim(),
+      (question) => !answers.postPanas[question.id]?.trim(),
     )
 
     if (missingAnswer) {
@@ -503,11 +441,11 @@ function App() {
     try {
       isSavingQuestionnaireRef.current = true
       setPostPanasError(null)
-      await postPanasPost(participantId, assignment, postPanasAnswers)
+      await postPanasPost(participantId, assignment, answers.postPanas)
       addBufferedEvent('post_intervention_panas_submitted', 'postPanas', {
         participantId,
         assignment,
-        ...postPanasAnswers,
+        ...answers.postPanas,
       })
       transitionTo('ues')
     } catch (requestError) {
@@ -523,7 +461,7 @@ function App() {
 
   const handleUesSubmit = async () => {
     const missingAnswer = ues.questions.some(
-      (question) => !uesAnswers[question.id]?.trim(),
+      (question) => !answers.ues[question.id]?.trim(),
     )
 
     if (missingAnswer) {
@@ -541,11 +479,11 @@ function App() {
     try {
       isSavingQuestionnaireRef.current = true
       setUesError(null)
-      await postUes(participantId, assignment, uesAnswers)
+      await postUes(participantId, assignment, answers.ues)
       addBufferedEvent('post_intervention_ues_submitted', 'ues', {
         participantId,
         assignment,
-        ...uesAnswers,
+        ...answers.ues,
       })
       transitionTo('followUp')
     } catch (requestError) {
@@ -573,7 +511,7 @@ function App() {
       await postPostInterventionQuestionnaire(
         participantId,
         assignment,
-        postInterventionAnswers,
+        answers.followUp,
       )
       addBufferedEvent('post_intervention_submitted', 'followUp', {
         participantId,
@@ -615,11 +553,11 @@ function App() {
   if (page === 'demographics') {
     return (
       <Demographics
-        values={demographics}
+        values={answers.demographics}
         error={demographicError}
         isSubmitting={isSavingDemographics}
         onChange={(field, value) => {
-          setDemographics((previous) => ({ ...previous, [field]: value }))
+          setDemographicAnswer(field, value)
           if (demographicError) setDemographicError(null)
         }}
         onBack={() => transitionTo('consent')}
@@ -631,13 +569,10 @@ function App() {
   if (page === 'adhdScreening') {
     return (
       <AdhdScreeningQuestionnaire
-        values={adhdScreeningAnswers}
+        values={answers.adhdScreening}
         error={adhdScreeningError}
         onChange={(questionId, value) => {
-          setAdhdScreeningAnswers((previous) => ({
-            ...previous,
-            [questionId]: value,
-          }))
+          setLikertAnswer('adhdScreening', questionId, value)
           if (adhdScreeningError) setAdhdScreeningError(null)
         }}
         onBack={() => transitionTo('demographics')}
@@ -649,10 +584,10 @@ function App() {
   if (page === 'prePanas') {
     return (
       <PanasQuestionnaire
-        values={prePanasAnswers}
+        values={answers.prePanas}
         error={prePanasError}
         onChange={(questionId, value) => {
-          setPrePanasAnswers((previous) => ({ ...previous, [questionId]: value }))
+          setLikertAnswer('prePanas', questionId, value)
           if (prePanasError) setPrePanasError(null)
         }}
         onBack={() => transitionTo('adhdScreening')}
@@ -678,10 +613,10 @@ function App() {
   if (page === 'fam') {
     return (
       <FAMQuestionnaire
-        values={famAnswers}
+        values={answers.fam}
         error={famError}
         onChange={(questionId, value) => {
-          setFamAnswers((previous) => ({ ...previous, [questionId]: value }))
+          setLikertAnswer('fam', questionId, value)
           if (famError) setFamError(null)
         }}
         onBack={() => transitionTo('ready')}
@@ -766,10 +701,10 @@ function App() {
   if (page === 'postPanas') {
     return (
       <PanasQuestionnaire
-        values={postPanasAnswers}
+        values={answers.postPanas}
         error={postPanasError}
         onChange={(questionId, value) => {
-          setPostPanasAnswers((previous) => ({ ...previous, [questionId]: value }))
+          setLikertAnswer('postPanas', questionId, value)
           if (postPanasError) setPostPanasError(null)
         }}
         onSubmit={handlePostPanasSubmit}
@@ -780,10 +715,10 @@ function App() {
   if (page === 'ues') {
     return (
       <UESQuestionnaire
-        values={uesAnswers}
+        values={answers.ues}
         error={uesError}
         onChange={(questionId, value) => {
-          setUesAnswers((previous) => ({ ...previous, [questionId]: value }))
+          setLikertAnswer('ues', questionId, value)
           if (uesError) setUesError(null)
         }}
         onSubmit={handleUesSubmit}
@@ -794,12 +729,12 @@ function App() {
   if (page === 'followUp') {
     return (
       <FollowUpQuestionnaire
-        values={postInterventionAnswers}
+        values={answers.followUp}
         wantsFeedback={wantsFeedback}
         error={followUpError}
         isSubmitting={isSavingFollowUp}
         onChange={(field, value) => {
-          setPostInterventionAnswers((previous) => ({ ...previous, [field]: value }))
+          setFollowUpAnswer(field, value)
           if (followUpError) setFollowUpError(null)
         }}
         onWantsFeedbackChange={setWantsFeedback}

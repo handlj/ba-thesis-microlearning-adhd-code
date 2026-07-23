@@ -3,6 +3,7 @@ import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import { copy } from '../../content/copy.ts'
+import Message from '../../components/Message.tsx'
 
 type ConsentProps = {
   agreed: boolean
@@ -76,11 +77,7 @@ function Consent({
         <span>{copy.consent.agreement}</span>
       </label>
 
-      {error ? 
-      <p className="error-text">
-        {error}
-      </p>
-       : null}
+      <Message variant="error">{error}</Message>
 
       <StudyActions>
         <button
