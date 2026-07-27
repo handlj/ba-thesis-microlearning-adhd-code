@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import '@assets/styles/App.css'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyFacts from '../../components/StudyFacts.tsx'
@@ -20,14 +20,9 @@ import QuizFeedback from '../pages/QuizFeedback.tsx'
 import {
   postConsentSession,
   postInteractionEvent,
-  postAdhdScreening,
   postDemographics,
-  postFam,
-  postPanasPost,
-  postPanasPre,
   postPostInterventionQuestionnaire,
   postQuizAnswers,
-  postUes,
   type QuizAnswerSubmission,
   type StudyInteractionPayload,
 } from '../../services/index.ts'
@@ -38,40 +33,12 @@ import { scoreQuiz } from '../../utils/quizScoring.ts'
 import { allQuizQuestions, quizTopics, type QuizTopic } from '../../content/quiz.ts'
 import type { QuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
 import { useScrollToTop } from '../../hooks/useScrollToTop.ts'
-import { adhdScreening } from '../../content/adhdScreening.ts'
-import { fam } from '../../content/fam.ts'
-import { panas } from '../../content/panas.ts'
-import { ues } from '../../content/ues.ts'
 import PreQuiz from './PreQuiz.tsx'
 import { useStudyAnswers } from '../../shell/useStudyAnswers.ts'
+import type { Page } from '../../shell/pageOrder.ts'
+import { buildQuestionnaireHandlers } from '../../shell/questionnaireHandler.ts'
+import { useStepStatus } from '../../shell/useStepStatus.ts'
 
-type Page =
-  | 'welcome'
-  | 'consent'
-  | 'demographics'
-  | 'adhdScreening'
-  | 'prePanas'
-  | 'ready'
-  | 'fam'
-  | 'preQuiz'
-  | 'control'
-  | 'experimental'
-  | 'postPanas'
-  | 'ues'
-  | 'followUp'
-  | 'feedback'
-  | 'thankYou'
-
-type BufferedEvent = {
-  event: string
-  page: Page
-  timestamp: string
-  payload?: Record<string, string>
-}
-
-
-const STUDY_BUFFER_KEY = 'study.localBuffer'
-const STUDY_FLUSHED_KEY = 'study.flushedEvents'
 const PARTICIPANT_ID_KEY = 'study.participantId'
 
 function App() {
@@ -84,30 +51,14 @@ function App() {
   const [page, setPage] = useState<Page>('welcome') // default: 'welcome'
    
   const [agreed, setAgreed] = useState(false)
-  const [initialBuffer] = useState<BufferedEvent[]>(() => {
-  const existing = localStorage.getItem(STUDY_BUFFER_KEY)
-    return existing ? (JSON.parse(existing) as BufferedEvent[]) : []
-  })
     
   const { answers, setLikertAnswer, setDemographicAnswer, setFollowUpAnswer, resetAnswers } = useStudyAnswers()
+  const { errors, setStepError, clearStepError, resetStepErrors, savingStep, setSavingStep, submitLockRef } = useStepStatus()
     
   const [participantId, setParticipantId] = useState<string | null>(() =>
     localStorage.getItem(PARTICIPANT_ID_KEY),
   )
-  const [consentError, setConsentError] = useState<string | null>(null)
-  const [demographicError, setDemographicError] = useState<string | null>(null)
-  const [adhdScreeningError, setAdhdScreeningError] = useState<string | null>(
-    null,
-  )
-  const [prePanasError, setPrePanasError] = useState<string | null>(null)
-  const [famError, setFamError] = useState<string | null>(null)
-  const [preQuizError, setPreQuizError] = useState<string | null>(null)
-  const [postPanasError, setPostPanasError] = useState<string | null>(null)
-  const [uesError, setUesError] = useState<string | null>(null)
-  const [followUpError, setFollowUpError] = useState<string | null>(null)
-  const [isSavingConsent, setIsSavingConsent] = useState(false)
-  const [isSavingDemographics, setIsSavingDemographics] = useState(false)
-  const [isSavingFollowUp, setIsSavingFollowUp] = useState(false)
+  
   const [assignment, setAssignment] = useState<GroupAssignment | null>(null)
   const [wantsFeedback, setWantsFeedback] = useState<'yes' | 'no'>('no')
   const [preQuizCorrect, setPreQuizCorrect] = useState<number | null>(null)
@@ -117,8 +68,6 @@ function App() {
   const [experimentalTopicScores, setExperimentalTopicScores] = useState<
     Record<string, number>
   >({})
-  const bufferRef = useRef<BufferedEvent[]>(initialBuffer)
-  const isSavingQuestionnaireRef = useRef(false)
 
   useScrollToTop(page)
 
@@ -126,29 +75,17 @@ function App() {
     setAgreed(false)
     resetAnswers()
     setParticipantId(null)
-    setConsentError(null)
-    setDemographicError(null)
-    setAdhdScreeningError(null)
-    setPrePanasError(null)
-    setFamError(null)
-    setPreQuizError(null)
-    setPostPanasError(null)
-    setUesError(null)
-    setFollowUpError(null)
-    setIsSavingConsent(false)
-    setIsSavingDemographics(false)
-    setIsSavingFollowUp(false)
+    resetStepErrors()
+    setSavingStep(null)
+    submitLockRef.current = false
     setAssignment(null)
     setWantsFeedback('no')
     setPreQuizCorrect(null)
     setControlPostQuizCorrect(null)
     setExperimentalTopicScores({})
-    localStorage.removeItem(PARTICIPANT_ID_KEY)
+    localStorage.removeItem(PARTICIPANT_ID_KEY) // FIXME: Is PARTICIPANT_ID_KEY needed (in localStorage)?
   }
 
-  // The pre-quiz and control post-quiz both use the flat 20-question bank.
-  // scoreQuiz only reads `.questions`, so a topic-shaped wrapper is enough; the
-  // pass threshold is irrelevant to correctCount.
   const scoreAll = (answers: QuizAnswers) =>
     scoreQuiz({ questions: allQuizQuestions } as QuizTopic, answers, 0)
       .correctCount
@@ -162,39 +99,7 @@ function App() {
     transitionTo('postPanas')
   }
 
-  const persistBuffer = () => {
-    localStorage.setItem(STUDY_BUFFER_KEY, JSON.stringify(bufferRef.current))
-  }
-
-  const flushBuffer = () => {
-    const current = bufferRef.current
-    if (current.length === 0) return
-
-    const existing = localStorage.getItem(STUDY_FLUSHED_KEY)
-    const parsed: BufferedEvent[] = existing ? JSON.parse(existing) : []
-    const next = [...parsed, ...current]
-    localStorage.setItem(STUDY_FLUSHED_KEY, JSON.stringify(next))
-    bufferRef.current = []
-    localStorage.setItem(STUDY_BUFFER_KEY, JSON.stringify(bufferRef.current))
-  }
-
-  const addBufferedEvent = (
-    event: string,
-    currentPage: Page,
-    payload?: Record<string, string>,
-  ) => {
-    bufferRef.current.push({
-      event,
-      page: currentPage,
-      payload,
-      timestamp: new Date().toISOString(),
-    })
-    persistBuffer()
-  }
-
   const transitionTo = (nextPage: Page) => {
-    addBufferedEvent('transition', page, { from: page, to: nextPage })
-    flushBuffer()
     setPage(nextPage)
   }
 
@@ -232,146 +137,85 @@ function App() {
     })
   }
 
-  const handleConsentProceed = async () => {
-    if (!agreed || isSavingConsent) return
+  // buildQuestionnaireHandlers only captures submitLockRef into the async
+  // event-handler closures it returns; it never reads .current during render.
+  // eslint-disable-next-line react-hooks/refs
+  const submit = buildQuestionnaireHandlers({
+    answers,
+    participantId,
+    assignment,
+    submitLockRef,
+    setStepError,
+    setSavingStep,
+    transitionTo,
+    onAssigned: setAssignment,
+  })
+
+  const handleConsentProceed = async () => { // TODO: Rename to handleConsentSubmit for consistency
+    if (!agreed || savingStep === 'consent') return
+
+    if (submitLockRef.current) return
 
     try {
-      setConsentError(null)
-      setIsSavingConsent(true)
+      submitLockRef.current = true
+      clearStepError('consent')
+      setSavingStep('consent')
+
       const consentSession = await postConsentSession()
       setParticipantId(consentSession.participant_id)
+
       localStorage.setItem(PARTICIPANT_ID_KEY, consentSession.participant_id)
-      addBufferedEvent('consent_submitted', 'consent', {
-        participantId: consentSession.participant_id,
-      })
+
       transitionTo('demographics')
     } catch (requestError) {
-      setConsentError(
+      setStepError('consent',
         requestError instanceof Error
           ? requestError.message
           : copy.errors.consentSave,
       )
     } finally {
-      setIsSavingConsent(false)
+      submitLockRef.current = false
+      setSavingStep(null)
     }
   }
 
   const handleDemographicsSubmit = async () => {
     const validation = validateDemographics(answers.demographics)
     if (!validation.valid) {
-      setDemographicError(validation.error)
+      setStepError('demographics', validation.error)
       return
     }
 
     if (!participantId) {
-      setDemographicError(
-        copy.errors.demographicsMissingSession,
-      )
+      setStepError('demographics', copy.errors.demographicsMissingSession)
       return
     }
 
+    if (submitLockRef.current) return
+
     try {
-      setDemographicError(null)
-      setIsSavingDemographics(true)
+      submitLockRef.current = true
+      clearStepError('demographics')
+      setSavingStep('demographics')
+
       await postDemographics(participantId, answers.demographics)
-      addBufferedEvent('demographics_submitted', 'demographics', {
-        participantId,
-        age: answers.demographics.age,
-        studyBackground: answers.demographics.studyBackground,
-        adhdDiagnosis: answers.demographics.adhdDiagnosis,
-      })
+
       transitionTo('adhdScreening')
     } catch (requestError) {
-      setDemographicError(
+      setStepError('demographics',
         requestError instanceof Error
           ? requestError.message
           : copy.errors.demographicsSave,
       )
     } finally {
-      setIsSavingDemographics(false)
-    }
-  }
-
-  const handleAdhdScreeningSubmit = async () => {
-    const missingAnswer = adhdScreening.questions.some(
-      (question) => !answers.adhdScreening[question.id]?.trim(),
-    )
-
-    if (missingAnswer) {
-      setAdhdScreeningError(adhdScreening.validation.allQuestions)
-      return
-    }
-
-    if (!participantId) {
-      setAdhdScreeningError(copy.errors.questionnaireMissingSession)
-      return
-    }
-
-    if (isSavingQuestionnaireRef.current) return
-
-    try {
-      isSavingQuestionnaireRef.current = true
-      setAdhdScreeningError(null)
-      const response = await postAdhdScreening(participantId, answers.adhdScreening)
-      setAssignment(response.assignment)
-      addBufferedEvent('adhd_screening_submitted', 'adhdScreening', {
-        participantId,
-        assignment: response.assignment,
-        ...answers.adhdScreening,
-      })
-      transitionTo('prePanas')
-    } catch (requestError) {
-      setAdhdScreeningError(
-        requestError instanceof Error
-          ? requestError.message
-          : copy.errors.questionnaireSave,
-      )
-    } finally {
-      isSavingQuestionnaireRef.current = false
-    }
-  }
-
-  const handlePrePanasSubmit = async () => {
-    const missingAnswer = panas.questions.some(
-      (question) => !answers.prePanas[question.id]?.trim(),
-    )
-
-    if (missingAnswer) {
-      setPrePanasError(panas.validation.allQuestions)
-      return
-    }
-
-    if (!participantId || !assignment) {
-      setPrePanasError(copy.errors.questionnaireMissingSession)
-      return
-    }
-
-    if (isSavingQuestionnaireRef.current) return
-
-    try {
-      isSavingQuestionnaireRef.current = true
-      setPrePanasError(null)
-      await postPanasPre(participantId, assignment, answers.prePanas)
-      addBufferedEvent('pre_intervention_panas_submitted', 'prePanas', {
-        participantId,
-        assignment,
-        ...answers.prePanas,
-      })
-      transitionTo('ready')
-    } catch (requestError) {
-      setPrePanasError(
-        requestError instanceof Error
-          ? requestError.message
-          : copy.errors.questionnaireSave,
-      )
-    } finally {
-      isSavingQuestionnaireRef.current = false
+      submitLockRef.current = false
+      setSavingStep(null)
     }
   }
 
   const handlePreQuizSubmit = () => {
     if (!participantId || !assignment) {
-      setPreQuizError(copy.errors.questionnaireMissingSession)
+      setStepError('preQuiz', copy.errors.questionnaireMissingSession)
       return
     }
 
@@ -382,141 +226,25 @@ function App() {
     }
   }
 
-  const handleFamSubmit = async () => {
-    const missingAnswer = fam.questions.some(
-      (question) => !answers.fam[question.id]?.trim(),
-    )
-
-    if (missingAnswer) {
-      setFamError(copy.validation.preInterventionAllQuestions)
-      return
-    }
-
-    if (!participantId || !assignment) {
-      setFamError(copy.errors.questionnaireMissingSession)
-      return
-    }
-
-    if (isSavingQuestionnaireRef.current) return
-
-    try {
-      isSavingQuestionnaireRef.current = true
-      setFamError(null)
-      await postFam(participantId, assignment, answers.fam)
-      addBufferedEvent('pre_intervention_fam_submitted', 'fam', {
-        participantId,
-        assignment,
-        ...answers.fam,
-      })
-
-      transitionTo('preQuiz')
-    } catch (requestError) {
-      setFamError(
-        requestError instanceof Error
-          ? requestError.message
-          : copy.errors.questionnaireSave,
-      )
-    } finally {
-      isSavingQuestionnaireRef.current = false
-    }
-  }
-
-  const handlePostPanasSubmit = async () => {
-    const missingAnswer = panas.questions.some(
-      (question) => !answers.postPanas[question.id]?.trim(),
-    )
-
-    if (missingAnswer) {
-      setPostPanasError(panas.validation.allQuestions)
-      return
-    }
-
-    if (!participantId || !assignment) {
-      setPostPanasError(copy.errors.questionnaireMissingSession)
-      return
-    }
-
-    if (isSavingQuestionnaireRef.current) return
-
-    try {
-      isSavingQuestionnaireRef.current = true
-      setPostPanasError(null)
-      await postPanasPost(participantId, assignment, answers.postPanas)
-      addBufferedEvent('post_intervention_panas_submitted', 'postPanas', {
-        participantId,
-        assignment,
-        ...answers.postPanas,
-      })
-      transitionTo('ues')
-    } catch (requestError) {
-      setPostPanasError(
-        requestError instanceof Error
-          ? requestError.message
-          : copy.errors.questionnaireSave,
-      )
-    } finally {
-      isSavingQuestionnaireRef.current = false
-    }
-  }
-
-  const handleUesSubmit = async () => {
-    const missingAnswer = ues.questions.some(
-      (question) => !answers.ues[question.id]?.trim(),
-    )
-
-    if (missingAnswer) {
-      setUesError(ues.validation.allQuestions)
-      return
-    }
-
-    if (!participantId || !assignment) {
-      setUesError(copy.errors.questionnaireMissingSession)
-      return
-    }
-
-    if (isSavingQuestionnaireRef.current) return
-
-    try {
-      isSavingQuestionnaireRef.current = true
-      setUesError(null)
-      await postUes(participantId, assignment, answers.ues)
-      addBufferedEvent('post_intervention_ues_submitted', 'ues', {
-        participantId,
-        assignment,
-        ...answers.ues,
-      })
-      transitionTo('followUp')
-    } catch (requestError) {
-      setUesError(
-        requestError instanceof Error
-          ? requestError.message
-          : copy.errors.questionnaireSave,
-      )
-    } finally {
-      isSavingQuestionnaireRef.current = false
-    }
-  }
-
   const handleFollowUpSubmit = async () => {
     if (!participantId || !assignment) {
-      setFollowUpError(
-        copy.errors.postInterventionMissingSession,
-      )
+      setStepError('followUp', copy.errors.postInterventionMissingSession)
       return
     }
 
+    if (submitLockRef.current) return
+
     try {
-      setFollowUpError(null)
-      setIsSavingFollowUp(true)
+      submitLockRef.current = true
+      clearStepError('followUp')
+      setSavingStep('followUp')
+
       await postPostInterventionQuestionnaire(
         participantId,
         assignment,
         answers.followUp,
       )
-      addBufferedEvent('post_intervention_submitted', 'followUp', {
-        participantId,
-        assignment,
-      })
+
       const hasScores =
         preQuizCorrect !== null &&
         (assignment === 'control'
@@ -524,13 +252,14 @@ function App() {
           : Object.keys(experimentalTopicScores).length > 0)
       transitionTo(wantsFeedback === 'yes' && hasScores ? 'feedback' : 'thankYou')
     } catch (requestError) {
-      setFollowUpError(
+      setStepError('followUp',
         requestError instanceof Error
           ? requestError.message
           : copy.errors.postInterventionSave,
       )
     } finally {
-      setIsSavingFollowUp(false)
+      submitLockRef.current = false
+      setSavingStep(null)
     }
   }
 
@@ -538,11 +267,11 @@ function App() {
     return (
       <Consent
         agreed={agreed}
-        error={consentError}
-        isSubmitting={isSavingConsent}
+        error={errors.consent}
+        isSubmitting={savingStep === 'consent'}
         onAgreementChange={(nextAgreed) => {
           setAgreed(nextAgreed)
-          if (consentError) setConsentError(null)
+          clearStepError('consent')
         }}
         onProceed={handleConsentProceed}
         onBack={returnToWelcome}
@@ -554,11 +283,11 @@ function App() {
     return (
       <Demographics
         values={answers.demographics}
-        error={demographicError}
-        isSubmitting={isSavingDemographics}
+        error={errors.demographics}
+        isSubmitting={savingStep === 'demographics'}
         onChange={(field, value) => {
           setDemographicAnswer(field, value)
-          if (demographicError) setDemographicError(null)
+          clearStepError('demographics')
         }}
         onBack={() => transitionTo('consent')}
         onSubmit={handleDemographicsSubmit}
@@ -570,13 +299,14 @@ function App() {
     return (
       <AdhdScreeningQuestionnaire
         values={answers.adhdScreening}
-        error={adhdScreeningError}
+        error={errors.adhdScreening}
+        isSubmitting={savingStep === 'adhdScreening'}
         onChange={(questionId, value) => {
           setLikertAnswer('adhdScreening', questionId, value)
-          if (adhdScreeningError) setAdhdScreeningError(null)
+          clearStepError('adhdScreening')
         }}
         onBack={() => transitionTo('demographics')}
-        onSubmit={handleAdhdScreeningSubmit}
+        onSubmit={submit.adhdScreening}
       />
     )
   }
@@ -585,13 +315,14 @@ function App() {
     return (
       <PanasQuestionnaire
         values={answers.prePanas}
-        error={prePanasError}
+        error={errors.prePanas}
+        isSubmitting={savingStep === 'prePanas'}
         onChange={(questionId, value) => {
           setLikertAnswer('prePanas', questionId, value)
-          if (prePanasError) setPrePanasError(null)
+          clearStepError('prePanas')
         }}
         onBack={() => transitionTo('adhdScreening')}
-        onSubmit={handlePrePanasSubmit}
+        onSubmit={submit.prePanas}
       />
     )
   }
@@ -614,13 +345,14 @@ function App() {
     return (
       <FAMQuestionnaire
         values={answers.fam}
-        error={famError}
+        error={errors.fam}
+        isSubmitting={savingStep === 'fam'}
         onChange={(questionId, value) => {
           setLikertAnswer('fam', questionId, value)
-          if (famError) setFamError(null)
+          clearStepError('fam')
         }}
         onBack={() => transitionTo('ready')}
-        onSubmit={handleFamSubmit}
+        onSubmit={submit.fam}
       />
     )
   }
@@ -631,7 +363,7 @@ function App() {
         onSubmit={handlePreQuizSubmit}
         onBack={() => transitionTo('fam')}
         onLogInteraction={(eventType, payload) => {
-          if (preQuizError) setPreQuizError(null)
+          clearStepError('preQuiz')
           if (assignment) {
             logStudyInteraction(assignment, eventType, payload, 'preQuiz')
           }
@@ -647,7 +379,7 @@ function App() {
             answers,
           })
         }}
-        error={preQuizError}
+        error={errors.preQuiz}
       />
     )
   }
@@ -702,12 +434,13 @@ function App() {
     return (
       <PanasQuestionnaire
         values={answers.postPanas}
-        error={postPanasError}
+        error={errors.postPanas}
+        isSubmitting={savingStep === 'postPanas'}
         onChange={(questionId, value) => {
           setLikertAnswer('postPanas', questionId, value)
-          if (postPanasError) setPostPanasError(null)
+          clearStepError('postPanas')
         }}
-        onSubmit={handlePostPanasSubmit}
+        onSubmit={submit.postPanas}
       />
     )
   }
@@ -716,12 +449,13 @@ function App() {
     return (
       <UESQuestionnaire
         values={answers.ues}
-        error={uesError}
+        error={errors.ues}
+        isSubmitting={savingStep === 'ues'}
         onChange={(questionId, value) => {
           setLikertAnswer('ues', questionId, value)
-          if (uesError) setUesError(null)
+          clearStepError('ues')
         }}
-        onSubmit={handleUesSubmit}
+        onSubmit={submit.ues}
       />
     )
   }
@@ -731,11 +465,11 @@ function App() {
       <FollowUpQuestionnaire
         values={answers.followUp}
         wantsFeedback={wantsFeedback}
-        error={followUpError}
-        isSubmitting={isSavingFollowUp}
+        error={errors.followUp}
+        isSubmitting={savingStep === 'followUp'}
         onChange={(field, value) => {
           setFollowUpAnswer(field, value)
-          if (followUpError) setFollowUpError(null)
+          clearStepError('followUp')
         }}
         onWantsFeedbackChange={setWantsFeedback}
         onSubmit={handleFollowUpSubmit}

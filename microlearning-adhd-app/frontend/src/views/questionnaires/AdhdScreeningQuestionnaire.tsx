@@ -8,6 +8,7 @@ import { adhdScreening } from '../../content/adhdScreening.ts'
 type AdhdScreeningQuestionnaireProps = {
   values: Record<string, string>
   error: string | null
+  isSubmitting: boolean
   onChange: (questionId: string, value: string) => void
   onSubmit: () => void
   onBack?: () => void
@@ -16,6 +17,7 @@ type AdhdScreeningQuestionnaireProps = {
 function AdhdScreeningQuestionnaire({
   values,
   error,
+  isSubmitting,
   onChange,
   onSubmit,
   onBack,
@@ -60,8 +62,9 @@ function AdhdScreeningQuestionnaire({
             </button>
           )}
           <button type="submit" 
-                  className="start-button">
-            {adhdScreening.actions.proceed}
+                  className="start-button"
+                  disabled={isSubmitting}>
+            { isSubmitting ? copy.actions.saving : copy.actions.continue }
           </button>
         </StudyActions>
       </form>

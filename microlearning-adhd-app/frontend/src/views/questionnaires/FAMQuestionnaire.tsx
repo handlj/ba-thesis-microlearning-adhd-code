@@ -8,6 +8,7 @@ import { fam } from '../../content/fam.ts'
 type FAMQuestionnaireProps = {
   values: Record<string, string>
   error: string | null
+  isSubmitting: boolean
   onChange: (questionId: string, value: string) => void
   onSubmit: () => void
   onBack: () => void
@@ -16,6 +17,7 @@ type FAMQuestionnaireProps = {
 function FAMQuestionnaire({
   values,
   error,
+  isSubmitting,
   onChange,
   onSubmit,
   onBack,
@@ -59,8 +61,9 @@ function FAMQuestionnaire({
           </button>
           
           <button type="submit" 
-                  className="start-button">
-            {copy.actions.continue}
+                  className="start-button"
+                  disabled={isSubmitting}>
+            { isSubmitting ? copy.actions.saving : copy.actions.continue }
           </button>
         </StudyActions>
       </form>

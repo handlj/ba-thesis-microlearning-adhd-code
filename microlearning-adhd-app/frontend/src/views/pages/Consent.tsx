@@ -84,7 +84,6 @@ function Consent({
           type="button"
           className="secondary-button"
           onClick={onBack}
-          disabled={isSubmitting}
         >
           {copy.actions.back}
         </button>

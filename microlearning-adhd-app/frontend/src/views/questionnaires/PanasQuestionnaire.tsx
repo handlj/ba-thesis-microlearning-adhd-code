@@ -8,6 +8,7 @@ import { panas } from '../../content/panas.ts'
 type PanasQuestionnaireProps = {
   values: Record<string, string>
   error: string | null
+  isSubmitting: boolean
   onChange: (questionId: string, value: string) => void
   onSubmit: () => void
   onBack?: () => void
@@ -16,6 +17,7 @@ type PanasQuestionnaireProps = {
 function PanasQuestionnaire({
   values,
   error,
+  isSubmitting,
   onChange,
   onSubmit,
   onBack,
@@ -60,8 +62,9 @@ function PanasQuestionnaire({
             </button>
           )}
           <button type="submit" 
-                  className="start-button">
-            {panas.actions.proceed}
+                  className="start-button"
+                  disabled={isSubmitting}>
+            { isSubmitting ? copy.actions.saving : copy.actions.continue }
           </button>
         </StudyActions>
       </form>

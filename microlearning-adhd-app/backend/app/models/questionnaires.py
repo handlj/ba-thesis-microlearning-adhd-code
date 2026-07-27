@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field, SQLModel, UniqueConstraint
 from sqlmodel.main import SQLModelMetaclass
 
 from app.config import (ADHD_SCREENING_ITEM_COUNT, FAM_ITEM_COUNT, PANAS_ITEM_COUNT, UES_ITEM_COUNT)
@@ -27,6 +27,9 @@ def _make_likert_model(name: str, prefix: str, count: int) -> type[SQLModel]:
     namespace: dict[str, object] = {
         "id": Field(default=None, primary_key=True),
         "participant_id": Field(foreign_key="participantsession.id"),
+        "__table_args__": (
+            UniqueConstraint("participant_id", name=f"uq_{name.lower()}_participant_id"),
+        )
     }
 
     for index in range(1, count + 1):

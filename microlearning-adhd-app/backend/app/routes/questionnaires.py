@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 
-from sqlmodel import Session
+from sqlmodel import Session, select
 
 from app.schemas import QuestionnaireSchemas, ADHDScreeningSchemas
 
@@ -48,6 +48,14 @@ def _persist_questionnaire(
 ) -> QuestionnaireSchemas.QuestionnaireResponsePayload:
     ensure_participant_exists(participant_id, session)
 
+    existing = session.exec(select(model).where(model.participant_id == participant_id)).first()
+
+    if existing is not None:
+        return QuestionnaireSchemas.QuestionnaireResponsePayload(
+            participant_id=participant_id,
+            submitted_at=existing.submitted_at,
+        )
+
     assignment = validate_assignment(request.assignment)
 
     answers = validate_likert_answers(
@@ -85,6 +93,17 @@ def submit_adhd_screening(
     session: Session = Depends(get_session),
 ):
     participant = ensure_participant_exists(participant_id, session)
+
+    existing = session.exec(
+        select(AdhdScreeningResponse).where(AdhdScreeningResponse.participant_id == participant_id)
+    ).first()
+
+    if existing is not None:
+        return ADHDScreeningSchemas.AdhdScreeningResponsePayload(
+            participant_id=participant_id,
+            assignment=participant.assignment,
+            submitted_at=existing.submitted_at,
+        )
 
     answers = validate_likert_answers(
         request.answers,
