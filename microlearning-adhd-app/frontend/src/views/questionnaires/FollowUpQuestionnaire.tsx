@@ -4,6 +4,7 @@ import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import { type PostInterventionAnswers } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
+import { useState } from 'react'
 
 type PostInterventionQuestionId = keyof PostInterventionAnswers
 type FollowUpQuestionId = PostInterventionQuestionId | 'wantsFeedback'
@@ -29,23 +30,21 @@ const postInterventionQuestions: StudyQuestion<FollowUpQuestionId>[] = [
 
 type FollowUpQuestionnaireProps = {
   values: PostInterventionAnswers
-  wantsFeedback: 'yes' | 'no'
   error: string | null
   isSubmitting: boolean
   onChange: (field: keyof PostInterventionAnswers, value: string) => void
-  onWantsFeedbackChange: (value: 'yes' | 'no') => void
-  onSubmit: () => void
+  onSubmit: (wantsFeedback: 'yes' | 'no') => void
 }
+
 
 function FollowUpQuestionnaire({
   values,
-  wantsFeedback,
   error,
   isSubmitting,
   onChange,
-  onWantsFeedbackChange,
   onSubmit,
 }: FollowUpQuestionnaireProps) {
+  const [wantsFeedback, setWantsFeedback] = useState<'yes' | 'no'>('no')
   const mergedValues = { ...values, wantsFeedback }
 
   const isComplete = postInterventionQuestions.every((q) => {
@@ -75,12 +74,14 @@ function FollowUpQuestionnaire({
             return
           }
           if (field === 'wantsFeedback') {
-            onWantsFeedbackChange(value === 'yes' ? 'yes' : 'no')
+            setWantsFeedback(value === 'yes' ? 'yes' : 'no')
           } else {
             onChange(field, value)
           }
         }}
-        onSubmit={onSubmit}
+        onSubmit={() => {
+          onSubmit(wantsFeedback)
+        }}
         actions={
           <StudyActions>
             <button

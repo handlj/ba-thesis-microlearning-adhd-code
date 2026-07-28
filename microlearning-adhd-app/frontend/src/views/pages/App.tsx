@@ -1,10 +1,5 @@
 import { useState } from 'react'
 import '@assets/styles/App.css'
-import StudyActions from '../../components/StudyActions.tsx'
-import StudyFacts from '../../components/StudyFacts.tsx'
-import StudyHeading from '../../components/StudyHeading.tsx'
-import StudyPage from '../../components/StudyPage.tsx'
-import { genericIcons } from '@assets/icons/genericIcons.tsx'
 import Consent from '../pages/Consent.tsx'
 import Demographics from '../pages/Demographics.tsx'
 import AdhdScreeningQuestionnaire from '../questionnaires/AdhdScreeningQuestionnaire.tsx'
@@ -22,22 +17,20 @@ import {
   postInteractionEvent,
   postDemographics,
   postPostInterventionQuestionnaire,
-  postQuizAnswers,
-  type QuizAnswerSubmission,
   type StudyInteractionPayload,
 } from '../../services/index.ts'
 import { type GroupAssignment } from '../../utils/groupAssignment.ts'
 import { validateDemographics } from '../../utils/demographicsValidation.ts'
 import { copy } from '../../content/copy.ts'
-import { scoreQuiz } from '../../utils/quizScoring.ts'
-import { allQuizQuestions, quizTopics, type QuizTopic } from '../../content/quiz.ts'
-import type { QuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
 import { useScrollToTop } from '../../hooks/useScrollToTop.ts'
 import PreQuiz from './PreQuiz.tsx'
 import { useStudyAnswers } from '../../shell/useStudyAnswers.ts'
 import type { Page } from '../../shell/pageOrder.ts'
 import { buildQuestionnaireHandlers } from '../../shell/questionnaireHandler.ts'
 import { useStepStatus } from '../../shell/useStepStatus.ts'
+import Welcome from './Welcome.tsx'
+import { createInteractionLogger } from '../../shell/interactionLog.ts'
+import { useQuizResults } from '../../shell/useQuizResults.ts'
 
 function App() {
 
@@ -47,25 +40,19 @@ function App() {
     These have to be reverted before deployment.
   */
   const [page, setPage] = useState<Page>('welcome') // default: 'welcome'
+  const [participantId, setParticipantId] = useState<string | null>(null)
+  const [assignment, setAssignment] = useState<GroupAssignment | null>(null)
    
   const [agreed, setAgreed] = useState(false)
     
   const { answers, setLikertAnswer, setDemographicAnswer, setFollowUpAnswer, resetAnswers } = useStudyAnswers()
   const { errors, setStepError, clearStepError, resetStepErrors, savingStep, setSavingStep, submitLockRef } = useStepStatus()
-    
-  const [participantId, setParticipantId] = useState<string | null>(null)
   
-  const [assignment, setAssignment] = useState<GroupAssignment | null>(null)
-  const [wantsFeedback, setWantsFeedback] = useState<'yes' | 'no'>('no')
-  const [preQuizCorrect, setPreQuizCorrect] = useState<number | null>(null)
-  const [controlPostQuizCorrect, setControlPostQuizCorrect] = useState<
-    number | null
-  >(null)
-  const [experimentalTopicScores, setExperimentalTopicScores] = useState<
-    Record<string, number>
-  >({})
+  const { results, postCorrect, completeScores, recordPreQuiz, recordControlQuiz, recordExperimentalQuiz, resetQuizResults } = useQuizResults(participantId, assignment)
 
   useScrollToTop(page)
+
+  const logInteraction = createInteractionLogger(participantId ?? '', assignment)
 
   const resetStudyState = () => {
     setAgreed(false)
@@ -75,15 +62,8 @@ function App() {
     setSavingStep(null)
     submitLockRef.current = false
     setAssignment(null)
-    setWantsFeedback('no')
-    setPreQuizCorrect(null)
-    setControlPostQuizCorrect(null)
-    setExperimentalTopicScores({})
+    resetQuizResults()
   }
-
-  const scoreAll = (answers: QuizAnswers) =>
-    scoreQuiz({ questions: allQuizQuestions } as QuizTopic, answers, 0)
-      .correctCount
 
   const returnToWelcome = () => {
     transitionTo('welcome')
@@ -98,7 +78,7 @@ function App() {
     setPage(nextPage)
   }
 
-  const logStudyInteraction = (
+  const logStudyInteraction = ( // TODO: Make redundant through logInteraction and remove this function
     assignment: GroupAssignment,
     eventType: string,
     payload?: StudyInteractionPayload,
@@ -115,20 +95,6 @@ function App() {
       payload,
     }).catch((requestError) => {
       console.error(copy.errors.interactionPersist, requestError)
-    })
-  }
-
-  const submitQuizForGroup = (
-    submission: Omit<QuizAnswerSubmission, 'assignment'> & {
-      assignment: GroupAssignment
-    },
-  ) => {
-    if (!participantId) {
-      return
-    }
-
-    void postQuizAnswers(participantId, submission).catch((requestError) => {
-      console.error(copy.errors.quizSave, requestError)
     })
   }
 
@@ -219,7 +185,7 @@ function App() {
     }
   }
 
-  const handleFollowUpSubmit = async () => {
+  const handleFollowUpSubmit = async (wantsFeedback: 'yes' | 'no') => {
     if (!participantId || !assignment) {
       setStepError('followUp', copy.errors.postInterventionMissingSession)
       return
@@ -238,12 +204,7 @@ function App() {
         answers.followUp,
       )
 
-      const hasScores =
-        preQuizCorrect !== null &&
-        (assignment === 'control'
-          ? controlPostQuizCorrect !== null
-          : Object.keys(experimentalTopicScores).length > 0)
-      transitionTo(wantsFeedback === 'yes' && hasScores ? 'feedback' : 'thankYou')
+      transitionTo(wantsFeedback === 'yes' && completeScores ? 'feedback' : 'thankYou')
     } catch (requestError) {
       setStepError('followUp',
         requestError instanceof Error
@@ -325,11 +286,7 @@ function App() {
       <Ready
         assignment={assignment}
         onContinue={() => transitionTo('fam')}
-        onLogInteraction={(eventType, payload) => {
-          if (assignment) {
-            logStudyInteraction(assignment, eventType, payload, 'ready')
-          }
-        }}
+        onLogInteraction={logInteraction('ready')}
       />
     )
   }
@@ -358,19 +315,12 @@ function App() {
         onLogInteraction={(eventType, payload) => {
           clearStepError('preQuiz')
           if (assignment) {
-            logStudyInteraction(assignment, eventType, payload, 'preQuiz')
+            logStudyInteraction(assignment, eventType, payload, 'preQuiz') // TODO: Replace through logInteraction as well
           }
         }}
         onSubmitQuiz={(answers) => {
           if (!assignment) return
-          setPreQuizCorrect(scoreAll(answers))
-          submitQuizForGroup({
-            assignment,
-            video_id: null,
-            video_index: null,
-            topic_id: 'pre-quiz',
-            answers,
-          })
+          recordPreQuiz(answers)
         }}
         error={errors.preQuiz}
       />
@@ -382,18 +332,9 @@ function App() {
       <ControlGroup
         onBackToStart={returnToWelcome}
         onCompleteIntervention={completeIntervention}
-        onLogInteraction={(eventType, payload) =>
-          logStudyInteraction('control', eventType, payload)
-        }
+        onLogInteraction={logInteraction('control')}
         onSubmitQuiz={(answers) => {
-          setControlPostQuizCorrect(scoreAll(answers))
-          submitQuizForGroup({
-            assignment: 'control',
-            video_id: null,
-            video_index: null,
-            topic_id: 'all',
-            answers,
-          })
+          recordControlQuiz(answers)
         }}
       />
     )
@@ -404,20 +345,9 @@ function App() {
       <ExperimentalGroup
         onBackToStart={returnToWelcome}
         onCompleteIntervention={completeIntervention}
-        onLogInteraction={(eventType, payload) =>
-          logStudyInteraction('experimental', eventType, payload)
-        }
+        onLogInteraction={logInteraction('experimental')}
         onSubmitQuiz={(submission) => {
-          const topic = quizTopics.find((t) => t.id === submission.topic_id)
-          if (topic) {
-            const correct = scoreQuiz(topic, submission.answers, 0).correctCount
-            // Later attempts overwrite earlier ones → final attempt per topic.
-            setExperimentalTopicScores((previous) => ({
-              ...previous,
-              [submission.topic_id]: correct,
-            }))
-          }
-          submitQuizForGroup({ assignment: 'experimental', ...submission })
+          recordExperimentalQuiz(submission)
         }}
       />
     )
@@ -457,14 +387,12 @@ function App() {
     return (
       <FollowUpQuestionnaire
         values={answers.followUp}
-        wantsFeedback={wantsFeedback}
         error={errors.followUp}
         isSubmitting={savingStep === 'followUp'}
         onChange={(field, value) => {
           setFollowUpAnswer(field, value)
           clearStepError('followUp')
         }}
-        onWantsFeedbackChange={setWantsFeedback}
         onSubmit={handleFollowUpSubmit}
       />
     )
@@ -474,15 +402,8 @@ function App() {
     return (
       <QuizFeedback
         assignment={assignment}
-        preCorrect={preQuizCorrect ?? 0}
-        postCorrect={
-          assignment === 'control'
-            ? controlPostQuizCorrect ?? 0
-            : Object.values(experimentalTopicScores).reduce(
-                (sum, correct) => sum + correct,
-                0,
-              )
-        }
+        preCorrect={results.preCorrect ?? 0}
+        postCorrect={postCorrect ?? 0}
         onContinue={() => transitionTo('thankYou')}
       />
     )
@@ -492,55 +413,7 @@ function App() {
     return <ThankYou onReturnToStart={returnToWelcome} />
   }
 
-  return (
-    <StudyPage  ariaLabelledBy="study-title" 
-                cardClassName="study-card--landing">
-      <StudyHeading
-        eyebrow={copy.welcome.heading.eyebrow}
-        title={copy.welcome.heading.title}
-        intro={copy.welcome.heading.intro}
-        id="study-title"
-      />
-
-      <StudyFacts facts={copy.welcome.facts} />
-
-      <div  className="study-steps"
-            aria-labelledby="welcome-steps-title">
-
-        <h2 id="welcome-steps-title">
-          {copy.welcome.steps.title}
-        </h2>
-
-        <ol className="study-steps__list">
-          {copy.welcome.steps.items.map((item) => (
-            <li key={item} 
-                className="study-steps__item">
-              {item}
-            </li>
-          ))}
-        </ol>
-      </div>
-
-      <StudyActions>
-        <button
-          type="button"
-          className="start-button"
-          onClick={() => transitionTo('consent')}
-        >
-          {copy.actions.startStudy}
-        </button>
-
-        <p  className="status status-note"
-            aria-live="polite">
-          <span className="status-note__icon"
-                aria-hidden="true">
-            {genericIcons.lock}
-          </span>
-          {copy.welcome.status.noDataCollected}
-        </p>
-      </StudyActions>
-    </StudyPage>
-  )
+  return <Welcome onStart={() => transitionTo('consent')} />
 }
 
 export default App
