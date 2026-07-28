@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { getInstructionVideo, type InstructionVideo, type StudyInteractionPayload } from '../../services/index.ts'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyFacts from '../../components/StudyFacts.tsx'
@@ -11,6 +11,7 @@ import { type GroupAssignment } from '../../utils/groupAssignment.ts'
 import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
 import Message from '../../components/Message.tsx'
+import { useAsyncResource } from '../../hooks/useAsyncResource.ts'
 
 type ReadyProps = {
   assignment: GroupAssignment | null
@@ -23,52 +24,15 @@ function Ready({
   onContinue,
   onLogInteraction,
 }: ReadyProps) {
-  const [video, setVideo] = useState<InstructionVideo | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const { data: video, isLoading, error } = useAsyncResource<InstructionVideo>(
+    getInstructionVideo,
+    copy.ready.status.loadError,
+  )
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
   const assignmentLabel = assignment
     ? copy.ready.groupLabels[assignment]
     : null
   const canContinue = Boolean(assignment && hasVideoEnded)
-
-  useEffect(() => {
-    let active = true
-
-    const loadVideo = async () => {
-      try {
-        setIsLoading(true)
-        const response = await getInstructionVideo()
-
-        if (!active) {
-          return
-        }
-
-        setVideo(response)
-        setError(null)
-      } catch (requestError) {
-        if (!active) {
-          return
-        }
-
-        setError(
-          requestError instanceof Error
-            ? requestError.message
-            : copy.ready.status.loadError,
-        )
-      } finally {
-        if (active) {
-          setIsLoading(false)
-        }
-      }
-    }
-
-    void loadVideo()
-
-    return () => {
-      active = false
-    }
-  }, [])
 
   return (
     <StudyPage  ariaLabelledBy="ready-title" 

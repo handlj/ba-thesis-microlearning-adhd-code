@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import RewatchDialog from '../../components/RewatchDialog.tsx'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
@@ -20,6 +20,7 @@ import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import { scoreQuiz } from '../../utils/quizScoring.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
 import Message from '../../components/Message.tsx'
+import { useAsyncResource } from '../../hooks/useAsyncResource.ts'
 
 type ExperimentalGroupProps = {
   onBackToStart: () => void
@@ -42,9 +43,10 @@ function ExperimentalGroup({
   onLogInteraction,
   onSubmitQuiz,
 }: ExperimentalGroupProps) {
-  const [videos, setVideos] = useState<ExperimentalVideo[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const { data, isLoading, error } = useAsyncResource<ExperimentalVideo[]>(
+    getExperimentalVideos,
+    copy.errors.experimentalVideosLoad,
+  )
   const [currentIndex, setCurrentIndex] = useState(0)
   const [phase, setPhase] = useState<ExperimentalPhase>('video')
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
@@ -67,44 +69,7 @@ function ExperimentalGroup({
 
   useScrollToTop(`${currentIndex}-${phase}`)
 
-  useEffect(() => {
-    let active = true
-
-    const loadVideos = async () => {
-      try {
-        setIsLoading(true)
-        const response = await getExperimentalVideos()
-
-        if (!active) {
-          return
-        }
-
-        setVideos(response)
-        setError(null)
-      } catch (requestError) {
-        if (!active) {
-          return
-        }
-
-        setError(
-          requestError instanceof Error
-            ? requestError.message
-            : copy.errors.experimentalVideosLoad,
-        )
-      } finally {
-        if (active) {
-          setIsLoading(false)
-        }
-      }
-    }
-
-    void loadVideos()
-
-    return () => {
-      active = false
-    }
-  }, [])
-
+  const videos = data ?? []
   const currentVideo = videos[currentIndex]
   const videoCount = videos.length
   const isLastVideo = currentIndex === videoCount - 1

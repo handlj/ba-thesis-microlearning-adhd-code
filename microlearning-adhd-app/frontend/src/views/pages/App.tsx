@@ -39,8 +39,6 @@ import type { Page } from '../../shell/pageOrder.ts'
 import { buildQuestionnaireHandlers } from '../../shell/questionnaireHandler.ts'
 import { useStepStatus } from '../../shell/useStepStatus.ts'
 
-const PARTICIPANT_ID_KEY = 'study.participantId'
-
 function App() {
 
   /* 
@@ -55,9 +53,7 @@ function App() {
   const { answers, setLikertAnswer, setDemographicAnswer, setFollowUpAnswer, resetAnswers } = useStudyAnswers()
   const { errors, setStepError, clearStepError, resetStepErrors, savingStep, setSavingStep, submitLockRef } = useStepStatus()
     
-  const [participantId, setParticipantId] = useState<string | null>(() =>
-    localStorage.getItem(PARTICIPANT_ID_KEY),
-  )
+  const [participantId, setParticipantId] = useState<string | null>(null)
   
   const [assignment, setAssignment] = useState<GroupAssignment | null>(null)
   const [wantsFeedback, setWantsFeedback] = useState<'yes' | 'no'>('no')
@@ -83,7 +79,6 @@ function App() {
     setPreQuizCorrect(null)
     setControlPostQuizCorrect(null)
     setExperimentalTopicScores({})
-    localStorage.removeItem(PARTICIPANT_ID_KEY) // FIXME: Is PARTICIPANT_ID_KEY needed (in localStorage)?
   }
 
   const scoreAll = (answers: QuizAnswers) =>
@@ -163,8 +158,6 @@ function App() {
 
       const consentSession = await postConsentSession()
       setParticipantId(consentSession.participant_id)
-
-      localStorage.setItem(PARTICIPANT_ID_KEY, consentSession.participant_id)
 
       transitionTo('demographics')
     } catch (requestError) {

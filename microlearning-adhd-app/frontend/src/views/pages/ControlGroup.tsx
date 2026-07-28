@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
@@ -10,6 +10,7 @@ import { copy } from '../../content/copy.ts'
 import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
 import Message from '../../components/Message.tsx'
+import { useAsyncResource } from '../../hooks/useAsyncResource.ts'
 
 type ControlGroupProps = {
   onBackToStart: () => void
@@ -26,51 +27,14 @@ function ControlGroup({
   onLogInteraction,
   onSubmitQuiz,
 }: ControlGroupProps) {
-  const [video, setVideo] = useState<ControlVideo | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const { data: video, isLoading, error } = useAsyncResource<ControlVideo>(
+    getControlVideo,
+    copy.errors.controlVideoLoad,
+  )
   const [canContinue, setCanContinue] = useState(false)
   const [phase, setPhase] = useState<ControlPhase>('video')
 
   useScrollToTop(phase)
-
-  useEffect(() => {
-    let active = true
-
-    const loadVideo = async () => {
-      try {
-        setIsLoading(true)
-        const response = await getControlVideo()
-
-        if (!active) {
-          return
-        }
-
-        setVideo(response)
-        setError(null)
-      } catch (requestError) {
-        if (!active) {
-          return
-        }
-
-        setError(
-          requestError instanceof Error
-            ? requestError.message
-            : copy.errors.controlVideoLoad,
-        )
-      } finally {
-        if (active) {
-          setIsLoading(false)
-        }
-      }
-    }
-
-    void loadVideo()
-
-    return () => {
-      active = false
-    }
-  }, [])
 
   const showQuiz = () => {
     if (canContinue) {
