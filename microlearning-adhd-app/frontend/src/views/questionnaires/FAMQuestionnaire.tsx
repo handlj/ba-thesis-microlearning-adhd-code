@@ -4,15 +4,8 @@ import StudyPage from '../../components/StudyPage.tsx'
 import LikertQuestionnaire from '../../components/evaluation/LikertQuestionnaire.tsx'
 import { copy } from '../../content/copy.ts'
 import { fam } from '../../content/fam.ts'
+import type { LikertQuestionnaireProps } from './types.ts'
 
-type FAMQuestionnaireProps = {
-  values: Record<string, string>
-  error: string | null
-  isSubmitting: boolean
-  onChange: (questionId: string, value: string) => void
-  onSubmit: () => void
-  onBack: () => void
-}
 
 function FAMQuestionnaire({
   values,
@@ -21,7 +14,7 @@ function FAMQuestionnaire({
   onChange,
   onSubmit,
   onBack,
-}: FAMQuestionnaireProps) {
+}: LikertQuestionnaireProps) {
   return (
     <StudyPage
       ariaLabelledBy="fam-title"
@@ -54,13 +47,15 @@ function FAMQuestionnaire({
         />
 
         <StudyActions>
-          <button type="button" 
-                  className="secondary-button" 
-                  onClick={onBack}
-                  disabled={isSubmitting}>
-            {copy.actions.back}
-          </button>
-          
+          {onBack && (
+            <button type="button" 
+                    className="secondary-button" 
+                    onClick={onBack}
+                    disabled={isSubmitting}>
+              {copy.actions.back}
+            </button>
+          )}
+                    
           <button type="submit" 
                   className="start-button"
                   disabled={isSubmitting}>

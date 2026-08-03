@@ -1,10 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/index.css'
-import App from './views/pages/App.tsx'
-
 import { getConfig } from './services/index.ts'
 import { setAppConfig } from './utils/config.ts'
+import StudyFlow from './shell/StudyFlow.tsx'
 
 
 async function bootstrap() {
@@ -13,12 +12,12 @@ async function bootstrap() {
     setAppConfig(await getConfig());
     root.render(
       <StrictMode>
-        <App />
+        <StudyFlow />
       </StrictMode>,
     )
   }
   catch {
-    root.render(<p>Die Anwendung konnte nicht geladen werden. Bitte laden Sie die Seite neu.</p>)
+    root.render(<p>Die Anwendung konnte nicht aufgerufen werden. Bitte laden Sie die Seite neu.</p>)
   }
 }
 

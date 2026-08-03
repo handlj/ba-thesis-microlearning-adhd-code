@@ -14,6 +14,7 @@ from app.config import (HTTP_400_BAD_REQUEST, ERROR_CONSENT_REQUIRED)
 router = APIRouter(prefix="/api/participants")
 
 
+# FIXME: Prevent duplicates for easier data analysis. Deferred.
 @router.post("/consent", response_model=ConsentSchemas.ConsentResponse)
 def create_consent_session(
     consent: ConsentSchemas.ConsentRequest,

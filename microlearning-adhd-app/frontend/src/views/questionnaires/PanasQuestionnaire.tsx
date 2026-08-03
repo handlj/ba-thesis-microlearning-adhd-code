@@ -4,15 +4,8 @@ import StudyPage from '../../components/StudyPage.tsx'
 import LikertQuestionnaire from '../../components/evaluation/LikertQuestionnaire.tsx'
 import { copy } from '../../content/copy.ts'
 import { panas } from '../../content/panas.ts'
+import type { LikertQuestionnaireProps } from './types.ts'
 
-type PanasQuestionnaireProps = {
-  values: Record<string, string>
-  error: string | null
-  isSubmitting: boolean
-  onChange: (questionId: string, value: string) => void
-  onSubmit: () => void
-  onBack?: () => void
-}
 
 function PanasQuestionnaire({
   values,
@@ -21,7 +14,7 @@ function PanasQuestionnaire({
   onChange,
   onSubmit,
   onBack,
-}: PanasQuestionnaireProps) {
+}: LikertQuestionnaireProps) {
   return (
     <StudyPage
       ariaLabelledBy="panas-title"

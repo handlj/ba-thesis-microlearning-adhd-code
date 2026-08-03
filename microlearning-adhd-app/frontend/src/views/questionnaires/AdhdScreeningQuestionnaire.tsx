@@ -4,15 +4,7 @@ import StudyPage from '../../components/StudyPage.tsx'
 import LikertQuestionnaire from '../../components/evaluation/LikertQuestionnaire.tsx'
 import { copy } from '../../content/copy.ts'
 import { adhdScreening } from '../../content/adhdScreening.ts'
-
-type AdhdScreeningQuestionnaireProps = {
-  values: Record<string, string>
-  error: string | null
-  isSubmitting: boolean
-  onChange: (questionId: string, value: string) => void
-  onSubmit: () => void
-  onBack?: () => void
-}
+import type { LikertQuestionnaireProps } from './types.ts'
 
 function AdhdScreeningQuestionnaire({
   values,
@@ -21,7 +13,7 @@ function AdhdScreeningQuestionnaire({
   onChange,
   onSubmit,
   onBack,
-}: AdhdScreeningQuestionnaireProps) {
+}: LikertQuestionnaireProps) {
   return (
     <StudyPage
       ariaLabelledBy="adhd-title"

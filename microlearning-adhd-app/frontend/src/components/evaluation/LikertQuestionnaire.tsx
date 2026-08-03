@@ -14,7 +14,7 @@ type LikertQuestion = {
   text: string
 }
 
-type LikertQuestionnaireProps = {
+type LikertQuestionnaireHeaderProps = {
   title?: string
   instructions?: string
   questionColumnLabel: string
@@ -36,7 +36,7 @@ function LikertQuestionnaire({
   values,
   error,
   onChange,
-}: LikertQuestionnaireProps) {
+}: LikertQuestionnaireHeaderProps) {
   const answered = Object.values(values).filter(Boolean).length
   const total = questions.length
   const sectionTitleId = `${modifier}-questionnaire-title`

@@ -9,16 +9,15 @@ import {
   postPanasPost,
   postPanasPre,
   postUes,
+  type QuestionnaireSubmission
 } from '../services'
 import type { GroupAssignment } from '../utils/groupAssignment'
-import type { Page } from './pageOrder'
 import type { LikertSection } from './studyAnswers'
 import type { StepKey } from './studySteps'
 
 type Base = {
   questions: readonly { id: string }[]
   invalidMessage: string
-  next: Page
 }
 
 export type StepDef =
@@ -28,14 +27,14 @@ export type StepDef =
       participantId: string
       assignment: GroupAssignment
       answers: Record<string, string>
-    }) => Promise<Record<string, string> | void>
+    }) => Promise<QuestionnaireSubmission>
   })
   | (Base & {
     needsAssignment?: false
     run: (ctx: {
       participantId: string
       answers: Record<string, string>
-    }) => Promise<Record<string, string> | void>
+    }) => Promise<void>
   })
 
 export type StepConfig = StepDef & { step: StepKey; section: LikertSection }
@@ -53,7 +52,6 @@ export type QuestionnaireKey = (typeof QUESTIONNAIRE_KEYS)[number]
 const prePanasStep: StepDef = {
   questions: panas.questions,
   invalidMessage: panas.validation.allQuestions,
-  next: 'ready',
   needsAssignment: true,
   run: ({ participantId, assignment, answers }) =>
     postPanasPre(participantId, assignment, answers),
@@ -62,7 +60,6 @@ const prePanasStep: StepDef = {
 const famStep: StepDef = {
   questions: fam.questions,
   invalidMessage: copy.validation.preInterventionAllQuestions,
-  next: 'preQuiz',
   needsAssignment: true,
   run: ({ participantId, assignment, answers }) =>
     postFam(participantId, assignment, answers),
@@ -71,7 +68,6 @@ const famStep: StepDef = {
 const postPanasStep: StepDef = {
   questions: panas.questions,
   invalidMessage: panas.validation.allQuestions,
-  next: 'ues',
   needsAssignment: true,
   run: ({ participantId, assignment, answers }) =>
     postPanasPost(participantId, assignment, answers),
@@ -80,7 +76,6 @@ const postPanasStep: StepDef = {
 const uesStep: StepDef = {
   questions: ues.questions,
   invalidMessage: ues.validation.allQuestions,
-  next: 'followUp',
   needsAssignment: true,
   run: ({ participantId, assignment, answers }) =>
     postUes(participantId, assignment, answers),
@@ -93,11 +88,9 @@ export function questionnaireStepConfigs(
     adhdScreening: {
       questions: adhdScreening.questions,
       invalidMessage: adhdScreening.validation.allQuestions,
-      next: 'prePanas',
       run: async ({ participantId, answers }) => {
         const response = await postAdhdScreening(participantId, answers)
         onAssigned(response.assignment)
-        return { assignment: response.assignment }
       },
     },
     prePanas: prePanasStep,

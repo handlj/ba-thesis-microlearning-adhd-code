@@ -4,14 +4,8 @@ import StudyPage from '../../components/StudyPage.tsx'
 import LikertQuestionnaire from '../../components/evaluation/LikertQuestionnaire.tsx'
 import { copy } from '../../content/copy.ts'
 import { ues } from '../../content/ues.ts'
+import type { LikertQuestionnaireProps } from './types.ts'
 
-type UESQuestionnaireProps = {
-  values: Record<string, string>
-  error: string | null
-  isSubmitting: boolean
-  onChange: (questionId: string, value: string) => void
-  onSubmit: () => void
-}
 
 function UESQuestionnaire({ 
   values, 
@@ -19,7 +13,7 @@ function UESQuestionnaire({
   isSubmitting, 
   onChange, 
   onSubmit
-}: UESQuestionnaireProps) {
+}: LikertQuestionnaireProps) {
   return (
     <StudyPage
       ariaLabelledBy="ues-title"

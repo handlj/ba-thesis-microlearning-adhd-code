@@ -2,11 +2,12 @@ import { useState } from 'react'
 import type { PostInterventionAnswers } from '../services'
 import type { DemographicAnswers } from '../utils/groupAssignment'
 import { type LikertSection, blankStudyAnswers } from './studyAnswers'
+import type { StepKey } from './studySteps'
 
-export function useStudyAnswers() {
+export function useStudyAnswers(clearStepError: (step: StepKey) => void) {
   const [answers, setAnswers] = useState(blankStudyAnswers)
 
-  const setLikertAnswer = (section: LikertSection, questionId: string, value: string) => {
+  const changeLikertAnswer = (section: LikertSection) => (questionId: string, value: string) => {
     setAnswers((prev) => ({
       ...prev,
       [section]: {
@@ -14,9 +15,10 @@ export function useStudyAnswers() {
         [questionId]: value
       }
     }))
+    clearStepError(section)
   }
 
-  const setDemographicAnswer = (field: keyof DemographicAnswers, value: string) => {
+  const changeDemographicAnswer = (field: keyof DemographicAnswers, value: string) => {
     setAnswers((prev) => ({
       ...prev,
       demographics: {
@@ -24,9 +26,10 @@ export function useStudyAnswers() {
         [field]: value
       }
     }))
+    clearStepError('demographics')
   }
 
-  const setFollowUpAnswer = (field: keyof PostInterventionAnswers, value: string) => {
+  const changeFollowUpAnswer = (field: keyof PostInterventionAnswers, value: string) => {
     setAnswers((prev) => ({
       ...prev,
       followUp: {
@@ -34,9 +37,10 @@ export function useStudyAnswers() {
         [field]: value
       }
     }))
+    clearStepError('followUp')
   }
 
   const resetAnswers = () => { setAnswers(blankStudyAnswers()) }
 
-  return { answers, setLikertAnswer, setDemographicAnswer, setFollowUpAnswer, resetAnswers }
+  return { answers, resetAnswers, changeLikertAnswer, changeDemographicAnswer, changeFollowUpAnswer }
 }
