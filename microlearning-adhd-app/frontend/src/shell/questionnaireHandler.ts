@@ -74,7 +74,7 @@ export function buildQuestionnaireHandlers(
     } catch (requestError) {
 
       const message = axios.isAxiosError(requestError) && requestError.code === 'ECONNABORTED'
-        ? copy.errors.questionnaireTimeout
+        ? copy.errors.timeout
         : requestError instanceof Error
           ? requestError.message
           : copy.errors.questionnaireSave

@@ -56,7 +56,8 @@ function FAMQuestionnaire({
         <StudyActions>
           <button type="button" 
                   className="secondary-button" 
-                  onClick={onBack}>
+                  onClick={onBack}
+                  disabled={isSubmitting}>
             {copy.actions.back}
           </button>
           

@@ -57,7 +57,8 @@ function PanasQuestionnaire({
           {onBack && (
             <button type="button" 
                     className="secondary-button" 
-                    onClick={onBack}>
+                    onClick={onBack}
+                    disabled={isSubmitting}>
               {copy.actions.back}
             </button>
           )}

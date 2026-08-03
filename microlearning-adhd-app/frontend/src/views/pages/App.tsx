@@ -31,6 +31,7 @@ import { useStepStatus } from '../../shell/useStepStatus.ts'
 import Welcome from './Welcome.tsx'
 import { createInteractionLogger } from '../../shell/interactionLog.ts'
 import { useQuizResults } from '../../shell/useQuizResults.ts'
+import axios from 'axios'
 
 function App() {
 
@@ -127,11 +128,14 @@ function App() {
 
       transitionTo('demographics')
     } catch (requestError) {
-      setStepError('consent',
-        requestError instanceof Error
-          ? requestError.message
-          : copy.errors.consentSave,
-      )
+
+      const message = axios.isAxiosError(requestError) && requestError.code === 'ECONNABORTED'
+      ? copy.errors.timeout
+      : requestError instanceof Error
+        ? requestError.message
+        : copy.errors.consentSave
+
+      setStepError('consent', message)
     } finally {
       submitLockRef.current = false
       setSavingStep(null)
@@ -161,11 +165,14 @@ function App() {
 
       transitionTo('adhdScreening')
     } catch (requestError) {
-      setStepError('demographics',
-        requestError instanceof Error
+
+      const message = axios.isAxiosError(requestError) && requestError.code === 'ECONNABORTED'
+        ? copy.errors.timeout
+        : requestError instanceof Error
           ? requestError.message
-          : copy.errors.demographicsSave,
-      )
+          : copy.errors.demographicsSave
+
+      setStepError('demographics', message)
     } finally {
       submitLockRef.current = false
       setSavingStep(null)
@@ -206,11 +213,14 @@ function App() {
 
       transitionTo(wantsFeedback === 'yes' && completeScores ? 'feedback' : 'thankYou')
     } catch (requestError) {
-      setStepError('followUp',
-        requestError instanceof Error
+
+      const message = axios.isAxiosError(requestError) && requestError.code === 'ECONNABORTED'
+        ? copy.errors.timeout
+        : requestError instanceof Error
           ? requestError.message
-          : copy.errors.postInterventionSave,
-      )
+          : copy.errors.postInterventionSave
+
+      setStepError('followUp', message)
     } finally {
       submitLockRef.current = false
       setSavingStep(null)

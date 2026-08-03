@@ -5,7 +5,7 @@ from app.schemas import DemographicsSchemas
 from app.models import Demographics
 
 from app.database import get_session
-from sqlmodel import Session
+from sqlmodel import Session, select
 
 from app.services import (
     ensure_participant_exists,
@@ -29,6 +29,10 @@ def submit_demographics(
     session: Session = Depends(get_session),
 ):
     participant = ensure_participant_exists(participant_id, session)
+
+    existing = session.exec(select(Demographics).where(Demographics.participant_id == participant_id)).first()
+    if existing is not None:
+        return DemographicsSchemas.DemographicsResponse(participant_id=participant_id)
 
     validate_age(demographics.age)
     validate_adhd_diagnosis(demographics.adhd_diagnosis)

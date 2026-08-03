@@ -18,6 +18,7 @@ export function useQuizResults(
 
     void postQuizAnswers(participantId, submission).catch((requestError) => {
       console.error(copy.errors.quizSave, requestError)
+      // TODO: Surface error, also timout possible.
     })
   }
 
@@ -50,7 +51,7 @@ export function useQuizResults(
     if (topic) {
       const correct = scoreQuiz(topic, submission.answers, 0).correctCount
 
-      // Later attempts overwrite earlier ones → final attempt per topic.
+      // Later attempts overwrite earlier ones, final attempt per topic.
       setResults((previous) => ({
         ...previous,
         experimentalTopicScores: {

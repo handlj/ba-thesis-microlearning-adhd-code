@@ -1,4 +1,6 @@
+import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { copy } from '../content/copy.ts'
 
 export function useAsyncResource<T>(
   fetcher: () => Promise<T>,
@@ -27,11 +29,13 @@ export function useAsyncResource<T>(
           return
         }
 
-        setError(
-          requestError instanceof Error
+        const message = axios.isAxiosError(requestError) && requestError.code === 'ECONNABORTED'
+          ? copy.errors.timeout
+          : requestError instanceof Error
             ? requestError.message
-            : fallbackMessage,
-        )
+            : fallbackMessage
+
+        setError(message)
       } finally {
         if (active) {
           setIsLoading(false)

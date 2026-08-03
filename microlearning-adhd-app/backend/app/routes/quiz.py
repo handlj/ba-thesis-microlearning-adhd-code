@@ -1,7 +1,7 @@
 import json
 
 from fastapi import APIRouter, Depends, HTTPException
-from sqlmodel import Session
+from sqlmodel import Session, select
 
 from app.schemas import QuizSchemas
 from app.models import QuizAnswer
@@ -33,7 +33,24 @@ def submit_quiz(
 
     if not submission.answers:
         raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_QUIZ_ANSWERS_REQUIRED)
-
+    
+    existing = session.exec(
+        select(QuizAnswer).where(
+            QuizAnswer.participant_id == participant_id,
+            QuizAnswer.video_id == submission.video_id,
+            QuizAnswer.video_index == submission.video_index,
+            QuizAnswer.topic_id == submission.topic_id,
+            QuizAnswer.attempt == submission.attempt,
+        )
+    ).first()
+    
+    if existing is not None:
+        return QuizSchemas.QuizSubmissionResponse(
+            participant_id=participant_id,
+            answer_count=len(submission.answers),
+            submitted_at=existing.submitted_at,
+        )
+    
     submitted_at = current_utc_timestamp()
 
     for question_id, selected_options in submission.answers.items():

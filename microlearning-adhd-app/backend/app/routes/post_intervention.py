@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 
-from sqlmodel import Session
+from sqlmodel import Session, select
 
 from app.schemas import PostInterventionSchemas
 
@@ -28,6 +28,15 @@ def submit_post_intervention(
     session: Session = Depends(get_session),
 ):
     ensure_participant_exists(participant_id, session)
+
+    existing = session.exec(
+        select(PostInterventionResponse).where(PostInterventionResponse.participant_id == participant_id)
+    ).first()
+    if existing is not None:
+        return PostInterventionSchemas.PostInterventionResponsePayload(
+            participant_id=participant_id,
+            submitted_at=existing.submitted_at,
+        )
 
     assignment = validate_assignment(questionnaire.assignment)
 

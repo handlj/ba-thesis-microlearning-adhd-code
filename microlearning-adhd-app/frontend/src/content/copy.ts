@@ -34,7 +34,7 @@ export const copy = {
       'Der Fragebogen konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.',
     quizSave:
       'Die Quiz-Antworten konnten nicht gespeichert werden. Bitte versuchen Sie es erneut.',
-    questionnaireTimeout:
+    timeout:
       'Die Anfrage konnte nicht abgeschlossen werden. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.',
   },
   validation: {
