@@ -17,15 +17,8 @@ type PreQuizProps = {
   error: string | null
 }
 
-function PreQuiz({
-  onSubmit,
-  onBack,
-  onLogInteraction,
-  onSubmitQuiz,
-  error
-}: PreQuizProps) {
-  const { answers, isComplete, answeredCount, total, toggle } =
-    useQuizAnswers(allQuizQuestions)
+function PreQuiz({ onSubmit, onBack, onLogInteraction, onSubmitQuiz, error }: PreQuizProps) {
+  const { answers, isComplete, answeredCount, total, toggle } = useQuizAnswers(allQuizQuestions)
 
   const handleToggle = (questionId: string, optionId: string) => {
     const checked = toggle(questionId, optionId)
@@ -49,56 +42,46 @@ function PreQuiz({
   }
 
   return (
-    <StudyPage
-      ariaLabelledBy="preQuiz-title"
-      cardClassName="study-card--video"
-    >
+    <StudyPage ariaLabelledBy="preQuiz-title" cardClassName="study-card--video">
       <StudyHeading
         eyebrow={copy.preQuiz.heading.eyebrow}
         title={copy.preQuiz.heading.title}
         intro={copy.preQuiz.heading.intro}
         id="preQuiz-title"
       />
-    <form
-      className="study-form"
-      onSubmit={(event) => {
-        event.preventDefault()
-        handleSubmit()
-      }}
-    >
-      <QuizProgressHeader
-        answered={answeredCount} 
-        total={total} 
-      />
+      <form
+        className="study-form"
+        onSubmit={(event) => {
+          event.preventDefault()
+          handleSubmit()
+        }}
+      >
+        <QuizProgressHeader answered={answeredCount} total={total} />
 
-      <div className="quiz-question-list">
-        {allQuizQuestions.map((question, questionIndex) => (
-          <QuizQuestionField
-            key={question.id}
-            question={question}
-            index={questionIndex + 1}
-            selected={answers[question.id] ?? []}
-            onToggle={(optionId) => handleToggle(question.id, optionId)}
-          />
-        ))}
-      </div>
+        <div className="quiz-question-list">
+          {allQuizQuestions.map((question, questionIndex) => (
+            <QuizQuestionField
+              key={question.id}
+              question={question}
+              index={questionIndex + 1}
+              selected={answers[question.id] ?? []}
+              onToggle={(optionId) => handleToggle(question.id, optionId)}
+            />
+          ))}
+        </div>
 
-      <StudyActions>
-        <button type="button" 
-                className="secondary-button" 
-                onClick={onBack}>
-          {copy.actions.back}
-        </button>
+        <StudyActions>
+          <button type="button" className="secondary-button" onClick={onBack}>
+            {copy.actions.back}
+          </button>
 
-        <button type="submit" 
-                className="start-button" 
-                disabled={!isComplete}>
-          {copy.actions.continue}
-        </button>
-      </StudyActions>
+          <button type="submit" className="start-button" disabled={!isComplete}>
+            {copy.actions.continue}
+          </button>
+        </StudyActions>
 
-      <Message variant="error">{error}</Message>
-    </form>
+        <Message variant="error">{error}</Message>
+      </form>
     </StudyPage>
   )
 }

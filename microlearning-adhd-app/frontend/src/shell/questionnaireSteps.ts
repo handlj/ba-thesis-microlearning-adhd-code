@@ -9,7 +9,7 @@ import {
   postPanasPost,
   postPanasPre,
   postUes,
-  type QuestionnaireSubmission
+  type QuestionnaireSubmission,
 } from '../services'
 import type { GroupAssignment } from '../utils/groupAssignment'
 import type { LikertSection } from './studyAnswers'
@@ -22,30 +22,21 @@ type Base = {
 
 export type StepDef =
   | (Base & {
-    needsAssignment: true
-    run: (ctx: {
-      participantId: string
-      assignment: GroupAssignment
-      answers: Record<string, string>
-    }) => Promise<QuestionnaireSubmission>
-  })
+      needsAssignment: true
+      run: (ctx: {
+        participantId: string
+        assignment: GroupAssignment
+        answers: Record<string, string>
+      }) => Promise<QuestionnaireSubmission>
+    })
   | (Base & {
-    needsAssignment?: false
-    run: (ctx: {
-      participantId: string
-      answers: Record<string, string>
-    }) => Promise<void>
-  })
+      needsAssignment?: false
+      run: (ctx: { participantId: string; answers: Record<string, string> }) => Promise<void>
+    })
 
 export type StepConfig = StepDef & { step: StepKey; section: LikertSection }
 
-export const QUESTIONNAIRE_KEYS = [
-  'adhdScreening',
-  'prePanas',
-  'fam',
-  'postPanas',
-  'ues',
-] as const
+export const QUESTIONNAIRE_KEYS = ['adhdScreening', 'prePanas', 'fam', 'postPanas', 'ues'] as const
 
 export type QuestionnaireKey = (typeof QUESTIONNAIRE_KEYS)[number]
 
@@ -53,16 +44,14 @@ const prePanasStep: StepDef = {
   questions: panas.questions,
   invalidMessage: panas.validation.allQuestions,
   needsAssignment: true,
-  run: ({ participantId, assignment, answers }) =>
-    postPanasPre(participantId, assignment, answers),
+  run: ({ participantId, assignment, answers }) => postPanasPre(participantId, assignment, answers),
 }
 
 const famStep: StepDef = {
   questions: fam.questions,
   invalidMessage: copy.validation.preInterventionAllQuestions,
   needsAssignment: true,
-  run: ({ participantId, assignment, answers }) =>
-    postFam(participantId, assignment, answers),
+  run: ({ participantId, assignment, answers }) => postFam(participantId, assignment, answers),
 }
 
 const postPanasStep: StepDef = {
@@ -77,8 +66,7 @@ const uesStep: StepDef = {
   questions: ues.questions,
   invalidMessage: ues.validation.allQuestions,
   needsAssignment: true,
-  run: ({ participantId, assignment, answers }) =>
-    postUes(participantId, assignment, answers),
+  run: ({ participantId, assignment, answers }) => postUes(participantId, assignment, answers),
 }
 
 export function questionnaireStepConfigs(
@@ -100,8 +88,9 @@ export function questionnaireStepConfigs(
   }
 
   return Object.fromEntries(
-    (Object.entries(defs) as [QuestionnaireKey, StepDef][]).map(
-      ([key, def]) => [key, { ...def, step: key, section: key }],
-    ),
+    (Object.entries(defs) as [QuestionnaireKey, StepDef][]).map(([key, def]) => [
+      key,
+      { ...def, step: key, section: key },
+    ]),
   ) as Record<QuestionnaireKey, StepConfig>
 }

@@ -23,9 +23,7 @@ export function withEmphasis(text: string): ReactNode[] {
   return text
     .split(/\*\*(.+?)\*\*/g)
     .map((segment, index) =>
-      index % 2 === 1
-        ? <strong key={index}>{segment}</strong>
-        : withLineBreaks(segment, index),
+      index % 2 === 1 ? <strong key={index}>{segment}</strong> : withLineBreaks(segment, index),
     )
 }
 
@@ -60,10 +58,7 @@ export function toParagraphs(text: string, className?: string): ReactNode {
   return (
     <>
       {paragraphs.map((paragraph, index) => (
-        <p  key={index}
-            className={[className, 'rich-text__paragraph']
-              .filter(Boolean)
-              .join(' ')}>
+        <p key={index} className={[className, 'rich-text__paragraph'].filter(Boolean).join(' ')}>
           {withEmphasis(paragraph)}
         </p>
       ))}
@@ -72,11 +67,13 @@ export function toParagraphs(text: string, className?: string): ReactNode {
 }
 
 function splitParagraphs(text: string): string[] {
-  return text
-    // Trim per line so indented continuation lines in copy.ts stay readable.
-    .split('\n')
-    .map((line) => line.trim())
-    .join('\n')
-    .split(/\n{2,}/)
-    .filter((paragraph) => paragraph.length > 0)
+  return (
+    text
+      // Trim per line so indented continuation lines in copy.ts stay readable.
+      .split('\n')
+      .map((line) => line.trim())
+      .join('\n')
+      .split(/\n{2,}/)
+      .filter((paragraph) => paragraph.length > 0)
+  )
 }

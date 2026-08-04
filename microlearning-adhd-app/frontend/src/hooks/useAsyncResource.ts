@@ -2,10 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { copy } from '../content/copy.ts'
 
-export function useAsyncResource<T>(
-  fetcher: () => Promise<T>,
-  fallbackMessage: string,
-) {
+export function useAsyncResource<T>(fetcher: () => Promise<T>, fallbackMessage: string) {
   const [data, setData] = useState<T | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -29,11 +26,12 @@ export function useAsyncResource<T>(
           return
         }
 
-        const message = axios.isAxiosError(requestError) && requestError.code === 'ECONNABORTED'
-          ? copy.errors.timeout
-          : requestError instanceof Error
-            ? requestError.message
-            : fallbackMessage
+        const message =
+          axios.isAxiosError(requestError) && requestError.code === 'ECONNABORTED'
+            ? copy.errors.timeout
+            : requestError instanceof Error
+              ? requestError.message
+              : fallbackMessage
 
         setError(message)
       } finally {

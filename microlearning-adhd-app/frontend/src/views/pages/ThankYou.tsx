@@ -11,8 +11,7 @@ type ThankYouProps = {
 
 function ThankYou({ onReturnToStart }: ThankYouProps) {
   return (
-    <StudyPage  ariaLabelledBy="thank-you-title"
-                cardClassName="study-card--ready">
+    <StudyPage ariaLabelledBy="thank-you-title" cardClassName="study-card--ready">
       <StudyHeading
         eyebrow={copy.thankYou.heading.eyebrow}
         title={copy.thankYou.heading.title}
@@ -23,31 +22,23 @@ function ThankYou({ onReturnToStart }: ThankYouProps) {
       <StudyFacts facts={copy.thankYou.facts} />
 
       <div className="contact-card">
-        <span className="contact-card__icon"
-              aria-hidden="true">
+        <span className="contact-card__icon" aria-hidden="true">
           {genericIcons.mail}
         </span>
 
         <div className="contact-card__body">
-          <p className="contact-card__label">
-            {copy.thankYou.contact.label}
-          </p>
+          <p className="contact-card__label">{copy.thankYou.contact.label}</p>
 
-          <p className="contact-card__name">
-            {copy.thankYou.contact.name}
-          </p>
+          <p className="contact-card__name">{copy.thankYou.contact.name}</p>
 
-          <a  className="contact-card__link"
-              href={`mailto:${copy.thankYou.contact.email}`}>
+          <a className="contact-card__link" href={`mailto:${copy.thankYou.contact.email}`}>
             {copy.thankYou.contact.email}
           </a>
         </div>
       </div>
 
       <StudyActions>
-        <button type="button"
-                className="start-button"
-                onClick={onReturnToStart}>
+        <button type="button" className="start-button" onClick={onReturnToStart}>
           {copy.actions.returnToStart}
         </button>
       </StudyActions>

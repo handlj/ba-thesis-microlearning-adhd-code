@@ -6,8 +6,7 @@ export const panas = {
     intro:
       'Nun möchten wir gerne von Ihnen wissen, wie Sie sich fühlen. Die folgenden Wörter beschreiben unterschiedliche Gefühle und Empfindungen. Lesen Sie jedes Wort und tragen Sie dann in die Skala neben jedem Wort die Intensität ein. Sie haben die Möglichkeit, zwischen fünf Abstufungen zu wählen. Geben Sie bitte an, wie Sie sich im Moment fühlen.',
   },
-  instructions:
-    '',
+  instructions: '',
   actions: {
     proceed: 'Fortfahren',
   },

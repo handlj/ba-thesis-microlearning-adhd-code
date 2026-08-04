@@ -1,8 +1,7 @@
-import api from "../client";
+import api from '../client'
 
-import type { GroupAssignment } from "../../utils/groupAssignment";
-import type { PostInterventionAnswers, PostInterventionSubmission } from "../types/postIntervention";
-
+import type { GroupAssignment } from '../../utils/groupAssignment'
+import type { PostInterventionAnswers, PostInterventionSubmission } from '../types/postIntervention'
 
 export async function postPostInterventionQuestionnaire(
   participantId: string,
@@ -15,6 +14,6 @@ export async function postPostInterventionQuestionnaire(
       assignment,
       open_feedback: answers.openFeedback,
     },
-  );
-  return response.data;
+  )
+  return response.data
 }

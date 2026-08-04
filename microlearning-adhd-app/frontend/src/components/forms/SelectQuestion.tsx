@@ -15,7 +15,7 @@ function SelectQuestion<QuestionId extends string = string>({
   const generatedId = useId()
   const selectId = `${question.id}-${generatedId}`
   const helpId = `${selectId}-help`
-  const selectedValue = Array.isArray(value) ? '' : value ?? ''
+  const selectedValue = Array.isArray(value) ? '' : (value ?? '')
 
   return (
     <div className="question-field">

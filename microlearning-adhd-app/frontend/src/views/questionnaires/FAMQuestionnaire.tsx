@@ -6,7 +6,6 @@ import { copy } from '../../content/copy.ts'
 import { fam } from '../../content/fam.ts'
 import type { LikertQuestionnaireProps } from './types.ts'
 
-
 function FAMQuestionnaire({
   values,
   error,
@@ -16,10 +15,7 @@ function FAMQuestionnaire({
   onBack,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage
-      ariaLabelledBy="fam-title"
-      cardClassName="study-card--questionnaire"
-    >
+    <StudyPage ariaLabelledBy="fam-title" cardClassName="study-card--questionnaire">
       <StudyHeading
         eyebrow={copy.preIntervention.heading.eyebrow}
         title={copy.preIntervention.heading.title}
@@ -48,18 +44,18 @@ function FAMQuestionnaire({
 
         <StudyActions>
           {onBack && (
-            <button type="button" 
-                    className="secondary-button" 
-                    onClick={onBack}
-                    disabled={isSubmitting}>
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={onBack}
+              disabled={isSubmitting}
+            >
               {copy.actions.back}
             </button>
           )}
-                    
-          <button type="submit" 
-                  className="start-button"
-                  disabled={isSubmitting}>
-            { isSubmitting ? copy.actions.saving : copy.actions.continue }
+
+          <button type="submit" className="start-button" disabled={isSubmitting}>
+            {isSubmitting ? copy.actions.saving : copy.actions.continue}
           </button>
         </StudyActions>
       </form>

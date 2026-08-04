@@ -155,10 +155,9 @@ function StudyVideoPlayer({
   const segments = buildSegments(markedChapters, duration)
   const currentChapter =
     activeFeatures.chapterLabels && segments.length > 0
-      ? segments.find(
-          (segment) =>
-            currentTime >= segment.startSeconds && currentTime < segment.endSeconds,
-        ) ?? segments[segments.length - 1]
+      ? (segments.find(
+          (segment) => currentTime >= segment.startSeconds && currentTime < segment.endSeconds,
+        ) ?? segments[segments.length - 1])
       : null
 
   /* ---------------------------------------------------------------- controls */
@@ -374,11 +373,7 @@ function StudyVideoPlayer({
   /* ----------------------------------------------------------------- render */
 
   const playLabel = hasEnded ? labels.replay : isPlaying ? labels.pause : labels.play
-  const playIcon = hasEnded
-    ? videoIcons.replay
-    : isPlaying
-      ? videoIcons.pause
-      : videoIcons.play
+  const playIcon = hasEnded ? videoIcons.replay : isPlaying ? videoIcons.pause : videoIcons.play
 
   return (
     <div
@@ -504,12 +499,13 @@ function StudyVideoPlayer({
       </video>
 
       {!isPlaying ? (
-        <button type="button"
-                className="video-player__overlay-button"
-                aria-label={playLabel}
-                onClick={togglePlay}>
-          <span className="video-player__overlay-icon"
-                aria-hidden="true">
+        <button
+          type="button"
+          className="video-player__overlay-button"
+          aria-label={playLabel}
+          onClick={togglePlay}
+        >
+          <span className="video-player__overlay-icon" aria-hidden="true">
             {hasEnded ? videoIcons.replay : videoIcons.play}
           </span>
         </button>
@@ -544,18 +540,22 @@ function StudyVideoPlayer({
         />
 
         <div className="video-player__bar">
-          <button type="button"
-                  className="video-player__button"
-                  aria-label={playLabel}
-                  onClick={togglePlay}>
+          <button
+            type="button"
+            className="video-player__button"
+            aria-label={playLabel}
+            onClick={togglePlay}
+          >
             {playIcon}
           </button>
 
           <div className="video-player__volume">
-            <button type="button"
-                    className="video-player__button"
-                    aria-label={isMuted || volume === 0 ? labels.unmute : labels.mute}
-                    onClick={toggleMute}>
+            <button
+              type="button"
+              className="video-player__button"
+              aria-label={isMuted || volume === 0 ? labels.unmute : labels.mute}
+              onClick={toggleMute}
+            >
               {isMuted || volume === 0 ? videoIcons.volumeMuted : videoIcons.volume}
             </button>
 
@@ -576,7 +576,9 @@ function StudyVideoPlayer({
 
           <p className="video-player__time">
             <span>{formatDuration(currentTime)}</span>
-            <span className="video-player__time-separator" aria-hidden="true">/</span>
+            <span className="video-player__time-separator" aria-hidden="true">
+              /
+            </span>
             <span>{formatDuration(duration)}</span>
           </p>
 
@@ -622,9 +624,7 @@ function StudyVideoPlayer({
                     >
                       {labels.speedOption(rate)}
                       {rate === 1 ? (
-                        <span className="video-player__speed-note">
-                          {labels.normalSpeedSuffix}
-                        </span>
+                        <span className="video-player__speed-note">{labels.normalSpeedSuffix}</span>
                       ) : null}
                     </button>
                   ))}
@@ -633,10 +633,12 @@ function StudyVideoPlayer({
             </div>
           ) : null}
 
-          <button type="button"
-                  className="video-player__button"
-                  aria-label={isFullscreen ? labels.exitFullscreen : labels.enterFullscreen}
-                  onClick={toggleFullscreen}>
+          <button
+            type="button"
+            className="video-player__button"
+            aria-label={isFullscreen ? labels.exitFullscreen : labels.enterFullscreen}
+            onClick={toggleFullscreen}
+          >
             {isFullscreen ? videoIcons.fullscreenExit : videoIcons.fullscreen}
           </button>
         </div>

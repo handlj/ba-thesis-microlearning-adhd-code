@@ -195,14 +195,14 @@ function VideoScrubber({
     const buffered = span > 0 ? clampRatio((bufferedSeconds - startSeconds) / span) : 0
 
     return (
-      <div key={key}
-           className="video-scrubber__segment"
-           style={{ flexGrow: flexBasis }}
-           title={title}>
-        <span className="video-scrubber__buffered"
-              style={{ transform: `scaleX(${buffered})` }} />
-        <span className="video-scrubber__played"
-              style={{ transform: `scaleX(${fill})` }} />
+      <div
+        key={key}
+        className="video-scrubber__segment"
+        style={{ flexGrow: flexBasis }}
+        title={title}
+      >
+        <span className="video-scrubber__buffered" style={{ transform: `scaleX(${buffered})` }} />
+        <span className="video-scrubber__played" style={{ transform: `scaleX(${fill})` }} />
       </div>
     )
   }
@@ -210,18 +210,16 @@ function VideoScrubber({
   return (
     <div className="video-scrubber__row">
       {showTooltip ? (
-        <div className="video-scrubber__tooltip"
-             style={{ left: `${(hoverRatio ?? 0) * 100}%` }}
-             aria-hidden="true">
+        <div
+          className="video-scrubber__tooltip"
+          style={{ left: `${(hoverRatio ?? 0) * 100}%` }}
+          aria-hidden="true"
+        >
           {showChapterTitles && hoverChapter ? (
-            <span className="video-scrubber__tooltip-title">
-              {hoverChapter.segment.title}
-            </span>
+            <span className="video-scrubber__tooltip-title">{hoverChapter.segment.title}</span>
           ) : null}
 
-          <span className="video-scrubber__tooltip-time">
-            {formatDuration(hoverSeconds ?? 0)}
-          </span>
+          <span className="video-scrubber__tooltip-time">{formatDuration(hoverSeconds ?? 0)}</span>
         </div>
       ) : null}
 
@@ -265,9 +263,11 @@ function VideoScrubber({
             : renderSegment('single', 0, hasDuration ? duration : 1, 1)}
         </div>
 
-        <span className="video-scrubber__thumb"
-              style={{ left: `${playedRatio * 100}%` }}
-              aria-hidden="true" />
+        <span
+          className="video-scrubber__thumb"
+          style={{ left: `${playedRatio * 100}%` }}
+          aria-hidden="true"
+        />
       </div>
     </div>
   )

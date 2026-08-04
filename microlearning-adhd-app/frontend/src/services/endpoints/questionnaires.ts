@@ -1,20 +1,13 @@
-import type { GroupAssignment } from "../../utils/groupAssignment";
-import api from "../client";
-import type {
-  AdhdScreeningSubmission,
-  QuestionnaireSubmission,
-} from "../types/questionnaires";
-
+import type { GroupAssignment } from '../../utils/groupAssignment'
+import api from '../client'
+import type { AdhdScreeningSubmission, QuestionnaireSubmission } from '../types/questionnaires'
 
 // Converts the string-valued Likert answers held in component state into the
 // numeric map the backend expects.
 function toNumericAnswers(answers: Record<string, string>) {
   return Object.fromEntries(
-    Object.entries(answers).map(([questionId, value]) => [
-      questionId,
-      Number(value),
-    ]),
-  );
+    Object.entries(answers).map(([questionId, value]) => [questionId, Number(value)]),
+  )
 }
 
 async function postLikertQuestionnaire(
@@ -29,23 +22,20 @@ async function postLikertQuestionnaire(
       assignment,
       answers: toNumericAnswers(answers),
     },
-  );
-  return response.data;
+  )
+  return response.data
 }
 
 // The ADHD screening is special: its result determines the group assignment, so
 // it posts only the answers and receives the freshly drawn assignment back.
-export async function postAdhdScreening(
-  participantId: string,
-  answers: Record<string, string>,
-) {
+export async function postAdhdScreening(participantId: string, answers: Record<string, string>) {
   const response = await api.post<AdhdScreeningSubmission>(
     `/participants/${participantId}/adhd-screening`,
     {
       answers: toNumericAnswers(answers),
     },
-  );
-  return response.data;
+  )
+  return response.data
 }
 
 export async function postPanasPre(
@@ -53,7 +43,7 @@ export async function postPanasPre(
   assignment: GroupAssignment,
   answers: Record<string, string>,
 ) {
-  return postLikertQuestionnaire(participantId, "panas-pre", assignment, answers);
+  return postLikertQuestionnaire(participantId, 'panas-pre', assignment, answers)
 }
 
 export async function postPanasPost(
@@ -61,7 +51,7 @@ export async function postPanasPost(
   assignment: GroupAssignment,
   answers: Record<string, string>,
 ) {
-  return postLikertQuestionnaire(participantId, "panas-post", assignment, answers);
+  return postLikertQuestionnaire(participantId, 'panas-post', assignment, answers)
 }
 
 export async function postFam(
@@ -69,7 +59,7 @@ export async function postFam(
   assignment: GroupAssignment,
   answers: Record<string, string>,
 ) {
-  return postLikertQuestionnaire(participantId, "fam", assignment, answers);
+  return postLikertQuestionnaire(participantId, 'fam', assignment, answers)
 }
 
 export async function postUes(
@@ -77,5 +67,5 @@ export async function postUes(
   assignment: GroupAssignment,
   answers: Record<string, string>,
 ) {
-  return postLikertQuestionnaire(participantId, "ues", assignment, answers);
+  return postLikertQuestionnaire(participantId, 'ues', assignment, answers)
 }

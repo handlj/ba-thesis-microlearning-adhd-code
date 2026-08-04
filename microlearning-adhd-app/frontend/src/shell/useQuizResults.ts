@@ -7,10 +7,7 @@ import type { GroupAssignment } from '../utils/groupAssignment'
 import { scoreQuiz } from '../utils/quizScoring'
 import { blankQuizResults, hasCompleteScores, postCorrectFor, scoreAllTopics } from './quizResults'
 
-export function useQuizResults(
-  participantId: string | null,
-  assignment: GroupAssignment | null,
-) {
+export function useQuizResults(participantId: string | null, assignment: GroupAssignment | null) {
   const [results, setResults] = useState(blankQuizResults)
 
   const persist = (submission: QuizAnswerSubmission) => {
@@ -41,10 +38,18 @@ export function useQuizResults(
       controlPostCorrect: scoreAllTopics(answers),
     }))
 
-    persist({ assignment: 'control', video_id: null, video_index: null, topic_id: 'control-quiz', answers })
+    persist({
+      assignment: 'control',
+      video_id: null,
+      video_index: null,
+      topic_id: 'control-quiz',
+      answers,
+    })
   }
 
-  const recordExperimentalQuiz = (submission: Omit<QuizAnswerSubmission, 'assignment'> & { attempt: number }) => {
+  const recordExperimentalQuiz = (
+    submission: Omit<QuizAnswerSubmission, 'assignment'> & { attempt: number },
+  ) => {
     if (assignment !== 'experimental') return
 
     const topic = quizTopics.find((t) => t.id === submission.topic_id)
@@ -64,10 +69,20 @@ export function useQuizResults(
     persist({ assignment: 'experimental', ...submission })
   }
 
-  const resetQuizResults = () => { setResults(blankQuizResults()) }
+  const resetQuizResults = () => {
+    setResults(blankQuizResults())
+  }
 
   const postCorrect = postCorrectFor(results, assignment)
   const completeScores = hasCompleteScores(results, assignment)
 
-  return { results, postCorrect, completeScores, recordPreQuiz, recordControlQuiz, recordExperimentalQuiz, resetQuizResults }
+  return {
+    results,
+    postCorrect,
+    completeScores,
+    recordPreQuiz,
+    recordControlQuiz,
+    recordExperimentalQuiz,
+    resetQuizResults,
+  }
 }

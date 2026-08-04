@@ -1,17 +1,16 @@
-import { type GroupAssignment } from "./../../utils/groupAssignment";
+import { type GroupAssignment } from './../../utils/groupAssignment'
 
-
-export type StudyInteractionPayload = Record<string, string | number | boolean | null>;
+export type StudyInteractionPayload = Record<string, string | number | boolean | null>
 
 export type StudyInteractionEvent = {
-  assignment: GroupAssignment;
-  page: string;
-  event_type: string;
-  occurred_at: string;
-  payload?: StudyInteractionPayload;
-};
+  assignment: GroupAssignment
+  page: string
+  event_type: string
+  occurred_at: string
+  payload?: StudyInteractionPayload
+}
 
 export type StudyInteractionEventResponse = {
-  id: number;
-  received_at: string;
-};
+  id: number
+  received_at: string
+}

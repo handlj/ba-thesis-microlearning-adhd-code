@@ -1,4 +1,3 @@
-
 export const copy = {
   actions: {
     back: 'Zurück',
@@ -19,7 +18,8 @@ export const copy = {
     controlVideoLoad: 'Das Kontrollvideo konnte nicht geladen werden.',
     demographicsMissingSession:
       'Die Einwilligung wurde für diese Sitzung nicht gespeichert. Bitte kehren Sie zur Einwilligungsseite zurück und versuchen Sie es erneut.',
-    demographicsSave: 'Die demografischen Angaben konnten nicht gespeichert werden. Bitte versuchen Sie es erneut.',
+    demographicsSave:
+      'Die demografischen Angaben konnten nicht gespeichert werden. Bitte versuchen Sie es erneut.',
     experimentalVideosLoad: 'Die experimentellen Videos konnten nicht geladen werden.',
     interactionPersist: 'Das Interaktionsereignis konnte nicht gespeichert werden.',
     postInterventionMissingAnswers:
@@ -32,8 +32,7 @@ export const copy = {
       'Sitzungsdaten der Studie fehlen. Bitte kehren Sie zur Startseite zurück und versuchen Sie es erneut.',
     questionnaireSave:
       'Der Fragebogen konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.',
-    quizSave:
-      'Die Quiz-Antworten konnten nicht gespeichert werden. Bitte versuchen Sie es erneut.',
+    quizSave: 'Die Quiz-Antworten konnten nicht gespeichert werden. Bitte versuchen Sie es erneut.',
     timeout:
       'Die Anfrage konnte nicht abgeschlossen werden. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.',
   },
@@ -41,8 +40,7 @@ export const copy = {
     demographicsAllQuestions: 'Bitte beantworten Sie alle Fragen, bevor Sie fortfahren.',
     demographicsAgeRange: (minAge: number, maxAge: number) =>
       `Bitte geben Sie ein Alter zwischen ${minAge} und ${maxAge} Jahren an.`,
-    preInterventionAllQuestions:
-      'Bitte beantworten Sie alle Aussagen, bevor Sie fortfahren.',
+    preInterventionAllQuestions: 'Bitte beantworten Sie alle Aussagen, bevor Sie fortfahren.',
   },
   video: {
     unsupported: 'Ihr Browser unterstützt das Video-Element nicht.',
@@ -105,8 +103,7 @@ export const copy = {
     heading: {
       eyebrow: 'Teilnehmer*inneninformation und Einwilligung',
       title: '',
-      intro:
-        '',
+      intro: '',
     },
     sections: [
       {
@@ -130,7 +127,7 @@ export const copy = {
         items: [
           'Wenn Sie Fragen zur Studie oder zur Datenverarbeitung haben, kontaktieren Sie uns bitte unter jan.handler@student.tugraz.at.',
         ],
-      }
+      },
     ],
     agreement:
       'Ich habe die vorstehende Einverständniserklärung gelesen, verstanden und stimme ihr zu.',
@@ -155,7 +152,7 @@ export const copy = {
           female: 'Weiblich',
           other: 'Sonstiges',
           preferNotToSay: 'Keine Angabe',
-        }
+        },
       },
       highestEducation: {
         label: 'Höchster Bildungsabschluss',
@@ -196,11 +193,14 @@ export const copy = {
         label: 'Offizielle ADHS-Diagnose (Wenn diagnostiziert)',
         placeholder: 'Wählen Sie Ihre entsprechende Diagnose aus',
         options: {
-          combined: 'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, kombiniert (ICD-11 6A05.2)',
-          inattentive: 'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, vorwiegend unkonzentriert (ICD-11 6A05.0)',
-          hyperactiveImpulsive: 'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, vorwiegend hyperaktiv-impulsiv (ICD-11 6A05.1)',
+          combined:
+            'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, kombiniert (ICD-11 6A05.2)',
+          inattentive:
+            'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, vorwiegend unkonzentriert (ICD-11 6A05.0)',
+          hyperactiveImpulsive:
+            'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, vorwiegend hyperaktiv-impulsiv (ICD-11 6A05.1)',
           notSpecified: 'Nicht näher bezeichnet (ICD-11 6A05.Z)',
-        }
+        },
       },
       adhdMedication: {
         label: 'ADHS-Medikamenteneinnahme',
@@ -267,10 +267,8 @@ export const copy = {
       eyebrow: '',
       videoTitle: 'Sehen Sie sich nun das Lernvideo an.',
       quizTitle: 'Bearbeiten Sie nun die folgenden Quizfragen',
-      videoIntro:
-        '',
-      quizIntro:
-        '',
+      videoIntro: '',
+      quizIntro: '',
     },
     status: {
       loading: 'Kontrollvideo wird geladen...',
@@ -369,8 +367,7 @@ export const copy = {
     heading: {
       eyebrow: 'Feedback zu Ihrer Quiz-leistung',
       title: 'Ergebnisse',
-      intro:
-        'Hier sehen Sie eine kurze Rückmeldung zu Ihren Antworten in den Quizzes.',
+      intro: 'Hier sehen Sie eine kurze Rückmeldung zu Ihren Antworten in den Quizzes.',
     },
     beforeLabel: 'Vorher',
     afterLabelControl: 'Nachher',

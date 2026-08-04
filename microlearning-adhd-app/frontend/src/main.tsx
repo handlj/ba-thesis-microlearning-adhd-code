@@ -5,20 +5,18 @@ import { getConfig } from './services/index.ts'
 import { setAppConfig } from './utils/config.ts'
 import StudyFlow from './shell/StudyFlow.tsx'
 
-
 async function bootstrap() {
   const root = createRoot(document.getElementById('root')!)
   try {
-    setAppConfig(await getConfig());
+    setAppConfig(await getConfig())
     root.render(
       <StrictMode>
         <StudyFlow />
       </StrictMode>,
     )
-  }
-  catch {
+  } catch {
     root.render(<p>Die Anwendung konnte nicht aufgerufen werden. Bitte laden Sie die Seite neu.</p>)
   }
 }
 
-bootstrap();
+bootstrap()

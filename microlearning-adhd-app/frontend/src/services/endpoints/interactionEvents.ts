@@ -1,10 +1,12 @@
-import api from "../client";
-import type { StudyInteractionEvent, StudyInteractionEventResponse } from "../types/interactionEvent";
-
+import api from '../client'
+import type {
+  StudyInteractionEvent,
+  StudyInteractionEventResponse,
+} from '../types/interactionEvent'
 
 export async function postInteractionEvent(
   participantId: string,
-  event: Omit<StudyInteractionEvent, "occurred_at">,
+  event: Omit<StudyInteractionEvent, 'occurred_at'>,
 ) {
   const response = await api.post<StudyInteractionEventResponse>(
     `/participants/${participantId}/events`,
@@ -12,6 +14,6 @@ export async function postInteractionEvent(
       ...event,
       occurred_at: new Date().toISOString(),
     },
-  );
-  return response.data;
+  )
+  return response.data
 }

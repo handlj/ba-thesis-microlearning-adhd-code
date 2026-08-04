@@ -1,8 +1,8 @@
 export type PostInterventionAnswers = {
-  openFeedback: string;
-};
+  openFeedback: string
+}
 
 export type PostInterventionSubmission = {
-  participant_id: string;
-  submitted_at: string;
-};
+  participant_id: string
+  submitted_at: string
+}

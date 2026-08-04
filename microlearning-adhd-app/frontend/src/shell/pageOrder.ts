@@ -26,13 +26,14 @@ const NEXT_OVERRIDES: Partial<Record<Page, Page | null>> = {
   thankYou: null,
 }
 
-const BACKTRACKABLE_PAGE = new Set<Page>([ // TODO: Verify correctness for the study flow.
+const BACKTRACKABLE_PAGE = new Set<Page>([
+  // TODO: Verify correctness for the study flow.
   'consent',
   'demographics',
   'adhdScreening',
   'prePanas',
   'fam',
-  'preQuiz'
+  'preQuiz',
 ])
 
 export function nextPage(currentPage: Page): Page | null {

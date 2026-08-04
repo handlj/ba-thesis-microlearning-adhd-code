@@ -6,9 +6,7 @@ type StudyActionsProps = {
 }
 
 function StudyActions({ children, className }: StudyActionsProps) {
-  const actionsClassName = className
-    ? `study-actions ${className}`
-    : 'study-actions'
+  const actionsClassName = className ? `study-actions ${className}` : 'study-actions'
 
   return <div className={actionsClassName}>{children}</div>
 }

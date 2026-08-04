@@ -17,11 +17,7 @@ function Message({ variant, children }: MessageProps) {
 
   const { className } = VARIANTS[variant]
 
-  return (
-    <p className={className}>
-      {children}
-    </p>
-  )
+  return <p className={className}>{children}</p>
 }
 
 export default Message

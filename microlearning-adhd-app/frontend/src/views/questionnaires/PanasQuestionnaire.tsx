@@ -6,7 +6,6 @@ import { copy } from '../../content/copy.ts'
 import { panas } from '../../content/panas.ts'
 import type { LikertQuestionnaireProps } from './types.ts'
 
-
 function PanasQuestionnaire({
   values,
   error,
@@ -16,10 +15,7 @@ function PanasQuestionnaire({
   onBack,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage
-      ariaLabelledBy="panas-title"
-      cardClassName="study-card--questionnaire"
-    >
+    <StudyPage ariaLabelledBy="panas-title" cardClassName="study-card--questionnaire">
       <StudyHeading
         eyebrow={panas.heading.eyebrow}
         title={panas.heading.title}
@@ -48,17 +44,17 @@ function PanasQuestionnaire({
 
         <StudyActions>
           {onBack && (
-            <button type="button" 
-                    className="secondary-button" 
-                    onClick={onBack}
-                    disabled={isSubmitting}>
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={onBack}
+              disabled={isSubmitting}
+            >
               {copy.actions.back}
             </button>
           )}
-          <button type="submit" 
-                  className="start-button"
-                  disabled={isSubmitting}>
-            { isSubmitting ? copy.actions.saving : copy.actions.continue }
+          <button type="submit" className="start-button" disabled={isSubmitting}>
+            {isSubmitting ? copy.actions.saving : copy.actions.continue}
           </button>
         </StudyActions>
       </form>

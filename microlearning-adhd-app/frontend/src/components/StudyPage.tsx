@@ -7,9 +7,7 @@ type StudyPageProps = {
 }
 
 function StudyPage({ ariaLabelledBy, cardClassName, children }: StudyPageProps) {
-  const sectionClassName = cardClassName
-    ? `study-card ${cardClassName}`
-    : 'study-card'
+  const sectionClassName = cardClassName ? `study-card ${cardClassName}` : 'study-card'
 
   return (
     <main className="study-page">

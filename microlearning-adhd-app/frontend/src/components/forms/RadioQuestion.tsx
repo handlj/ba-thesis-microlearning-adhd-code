@@ -15,13 +15,10 @@ function RadioQuestion<QuestionId extends string = string>({
   const generatedId = useId()
   const groupId = `${question.id}-${generatedId}`
   const helpId = `${groupId}-help`
-  const selectedValue = Array.isArray(value) ? '' : value ?? ''
+  const selectedValue = Array.isArray(value) ? '' : (value ?? '')
 
   return (
-    <fieldset
-      className="question-field"
-      aria-describedby={question.helpText ? helpId : undefined}
-    >
+    <fieldset className="question-field" aria-describedby={question.helpText ? helpId : undefined}>
       <legend className="question-label">{question.label}</legend>
       {question.helpText ? (
         <p className="question-help" id={helpId}>

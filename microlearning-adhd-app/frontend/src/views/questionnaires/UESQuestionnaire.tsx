@@ -6,19 +6,15 @@ import { copy } from '../../content/copy.ts'
 import { ues } from '../../content/ues.ts'
 import type { LikertQuestionnaireProps } from './types.ts'
 
-
-function UESQuestionnaire({ 
-  values, 
-  error, 
-  isSubmitting, 
-  onChange, 
-  onSubmit
+function UESQuestionnaire({
+  values,
+  error,
+  isSubmitting,
+  onChange,
+  onSubmit,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage
-      ariaLabelledBy="ues-title"
-      cardClassName="study-card--questionnaire"
-    >
+    <StudyPage ariaLabelledBy="ues-title" cardClassName="study-card--questionnaire">
       <StudyHeading
         eyebrow={ues.heading.eyebrow}
         title={ues.heading.title}
@@ -46,10 +42,8 @@ function UESQuestionnaire({
         />
 
         <StudyActions>
-          <button type="submit" 
-                  className="start-button"
-                  disabled={isSubmitting}>
-            { isSubmitting ? copy.actions.saving : copy.actions.continue }
+          <button type="submit" className="start-button" disabled={isSubmitting}>
+            {isSubmitting ? copy.actions.saving : copy.actions.continue}
           </button>
         </StudyActions>
       </form>

@@ -12,8 +12,8 @@ export function useStudyAnswers(clearStepError: (step: StepKey) => void) {
       ...prev,
       [section]: {
         ...prev[section],
-        [questionId]: value
-      }
+        [questionId]: value,
+      },
     }))
     clearStepError(section)
   }
@@ -23,8 +23,8 @@ export function useStudyAnswers(clearStepError: (step: StepKey) => void) {
       ...prev,
       demographics: {
         ...prev.demographics,
-        [field]: value
-      }
+        [field]: value,
+      },
     }))
     clearStepError('demographics')
   }
@@ -34,13 +34,21 @@ export function useStudyAnswers(clearStepError: (step: StepKey) => void) {
       ...prev,
       followUp: {
         ...prev.followUp,
-        [field]: value
-      }
+        [field]: value,
+      },
     }))
     clearStepError('followUp')
   }
 
-  const resetAnswers = () => { setAnswers(blankStudyAnswers()) }
+  const resetAnswers = () => {
+    setAnswers(blankStudyAnswers())
+  }
 
-  return { answers, resetAnswers, changeLikertAnswer, changeDemographicAnswer, changeFollowUpAnswer }
+  return {
+    answers,
+    resetAnswers,
+    changeLikertAnswer,
+    changeDemographicAnswer,
+    changeFollowUpAnswer,
+  }
 }

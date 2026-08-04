@@ -37,8 +37,7 @@ export const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = (
       ...('placeholder' in q && { placeholder: q.placeholder as string }),
       required: true,
     }
-  }
-  else if (config?.type === 'text') {
+  } else if (config?.type === 'text') {
     return {
       id,
       type: 'text',

@@ -13,7 +13,17 @@ export function useStepStatus() {
     setErrors((prev) => (prev[step] === null ? prev : { ...prev, [step]: null }))
   }
 
-  const resetStepErrors = () => { setErrors(blankStepErrors()) }
+  const resetStepErrors = () => {
+    setErrors(blankStepErrors())
+  }
 
-  return { errors, setStepError, clearStepError, resetStepErrors, savingStep, setSavingStep, submitLockRef }
+  return {
+    errors,
+    setStepError,
+    clearStepError,
+    resetStepErrors,
+    savingStep,
+    setSavingStep,
+    submitLockRef,
+  }
 }

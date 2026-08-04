@@ -3,7 +3,11 @@
   --text-h: #1f1a17;
   --bg: #f1ece6;
 
-  font: 18px/145% Inter, 'Segoe UI', Roboto, sans-serif;
+  font:
+    18px/145% Inter,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   letter-spacing: 0.18px;
   color-scheme: light;
   color: var(--text);

@@ -22,15 +22,17 @@ export const postCorrectFor = (results: QuizResults, assignment: GroupAssignment
   if (!assignment) return null
 
   return assignment === 'control'
-    ? results.controlPostCorrect ?? 0
+    ? (results.controlPostCorrect ?? 0)
     : Object.values(results.experimentalTopicScores).reduce((sum, score) => sum + score, 0)
 }
 
 export const hasCompleteScores = (results: QuizResults, assignment: GroupAssignment | null) => {
   if (!assignment) return false
 
-  return results.preCorrect !== null &&
+  return (
+    results.preCorrect !== null &&
     (assignment === 'control'
       ? results.controlPostCorrect !== null
       : Object.keys(results.experimentalTopicScores).length > 0)
+  )
 }

@@ -1,4 +1,8 @@
-import { StudyForm, type FormAnswerValue, type StudyQuestion } from '../../components/forms/index.ts'
+import {
+  StudyForm,
+  type FormAnswerValue,
+  type StudyQuestion,
+} from '../../components/forms/index.ts'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
@@ -36,7 +40,6 @@ type FollowUpQuestionnaireProps = {
   onSubmit: (wantsFeedback: 'yes' | 'no') => void
 }
 
-
 function FollowUpQuestionnaire({
   values,
   error,
@@ -56,8 +59,7 @@ function FollowUpQuestionnaire({
   })
 
   return (
-    <StudyPage  ariaLabelledBy="follow-up-title" 
-                cardClassName="study-card--form">
+    <StudyPage ariaLabelledBy="follow-up-title" cardClassName="study-card--form">
       <StudyHeading
         eyebrow={copy.postIntervention.heading.eyebrow}
         title={copy.postIntervention.heading.title}
@@ -84,11 +86,7 @@ function FollowUpQuestionnaire({
         }}
         actions={
           <StudyActions>
-            <button
-              type="submit"
-              className="start-button"
-              disabled={!isComplete || isSubmitting}
-            >
+            <button type="submit" className="start-button" disabled={!isComplete || isSubmitting}>
               {isSubmitting ? copy.actions.saving : copy.actions.completeStudy}
             </button>
           </StudyActions>

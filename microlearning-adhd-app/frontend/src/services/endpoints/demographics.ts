@@ -1,13 +1,9 @@
-import api from "../client";
+import api from '../client'
 
-import type { DemographicAnswers } from "../../utils/groupAssignment";
-import type { DemographicsSubmission } from "../types/demographics";
+import type { DemographicAnswers } from '../../utils/groupAssignment'
+import type { DemographicsSubmission } from '../types/demographics'
 
-
-export async function postDemographics(
-  participantId: string,
-  demographics: DemographicAnswers,
-) {
+export async function postDemographics(participantId: string, demographics: DemographicAnswers) {
   const response = await api.post<DemographicsSubmission>(
     `/participants/${participantId}/demographics`,
     {
@@ -20,6 +16,6 @@ export async function postDemographics(
       adhd_official_diagnosis: demographics.adhdOfficialDiagnosis,
       adhd_medication: demographics.adhdMedication,
     },
-  );
-  return response.data;
+  )
+  return response.data
 }

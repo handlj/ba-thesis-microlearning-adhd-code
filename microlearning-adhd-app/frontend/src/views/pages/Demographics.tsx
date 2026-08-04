@@ -33,25 +33,23 @@ function Demographics({
     .filter((q) => q.id !== 'adhdOfficialDiagnosis' || isDiagnosed)
     .filter((q) => q.id !== 'adhdMedication' || isDiagnosed)
 
-    .map((q) => (q.type === 'number' ? { ...q, min: appConfig.min_age, max: appConfig.max_age } : q))
-
+    .map((q) =>
+      q.type === 'number' ? { ...q, min: appConfig.min_age, max: appConfig.max_age } : q,
+    )
 
   const handleChange = (field: keyof DemographicAnswers, value: string) => {
     onChange(field, value)
     if (field === 'currentlyStudying') {
       if (value === 'no') {
         onChange('studyBackground', 'not-studying')
-      }
-      else if (value === 'yes') {
+      } else if (value === 'yes') {
         onChange('studyBackground', '')
       }
-    }
-    else if (field === 'adhdDiagnosis') {
+    } else if (field === 'adhdDiagnosis') {
       if (value !== 'diagnosed') {
         onChange('adhdOfficialDiagnosis', 'not-diagnosed')
         onChange('adhdMedication', 'not-diagnosed')
-      }
-      else {
+      } else {
         onChange('adhdOfficialDiagnosis', '')
         onChange('adhdMedication', '')
       }
@@ -59,9 +57,7 @@ function Demographics({
   }
 
   return (
-    <StudyPage  ariaLabelledBy="demographics-title" 
-                cardClassName="study-card--form">
-
+    <StudyPage ariaLabelledBy="demographics-title" cardClassName="study-card--form">
       <StudyHeading
         eyebrow={copy.demographics.heading.eyebrow}
         title={copy.demographics.heading.title}
@@ -90,9 +86,7 @@ function Demographics({
               {copy.actions.back}
             </button>
 
-            <button type="submit" 
-                    className="start-button" 
-                    disabled={isSubmitting}>
+            <button type="submit" className="start-button" disabled={isSubmitting}>
               {isSubmitting ? copy.actions.saving : copy.actions.continue}
             </button>
           </StudyActions>

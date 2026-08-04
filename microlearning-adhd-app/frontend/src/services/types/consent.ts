@@ -1,4 +1,4 @@
 export type ConsentSession = {
-  participant_id: string;
-  consented_at: string;
-};
+  participant_id: string
+  consented_at: string
+}

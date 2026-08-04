@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react"
+import { useLayoutEffect } from 'react'
 
 /*
   This hook is used to scroll the window to the top whenever the `key` changes.

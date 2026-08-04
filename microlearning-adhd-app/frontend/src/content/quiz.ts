@@ -96,8 +96,7 @@ zahl3 = zahl2 % zahl`,
       {
         id: 'a5',
         videoTimestamp: 157,
-        prompt:
-          'Welche der folgenden Zuweisungen erzeugen einen gültigen (fehlerfreien) String?',
+        prompt: 'Welche der folgenden Zuweisungen erzeugen einen gültigen (fehlerfreien) String?',
         options: [
           { id: 'a', text: "`string = 'Das ist ein String'`", correct: true },
           { id: 'b', text: '`string = "Das ist ein String\'`' },
@@ -143,8 +142,7 @@ zahl3 = zahl2 % zahl`,
       {
         id: 'b3',
         videoTimestamp: 205,
-        prompt:
-          'Betrachte folgenden Code-Auszug. Welche der folgenden Aussagen sind korrekt?',
+        prompt: 'Betrachte folgenden Code-Auszug. Welche der folgenden Aussagen sind korrekt?',
         code: `if x < 10:
   print("Ich bin einstellig.")
 else:
@@ -189,7 +187,11 @@ if x > 20:
         options: [
           { id: 'a', text: 'Auszug A zeigt immer die gleiche Ausgabe wie Auszug B.' },
           { id: 'b', text: 'Für `x = 100` zeigen beide Auszüge die gleiche Ausgabe.' },
-          { id: 'c', text: 'Für `x = 30` zeigen beide Auszüge die gleiche Ausgabe.', correct: true },
+          {
+            id: 'c',
+            text: 'Für `x = 30` zeigen beide Auszüge die gleiche Ausgabe.',
+            correct: true,
+          },
           { id: 'd', text: 'Für `x = 5` zeigen beide Auszüge keine Ausgabe.', correct: true },
         ],
       },
@@ -279,8 +281,7 @@ if x > 20:
       {
         id: 'c5',
         videoTimestamp: 131,
-        prompt:
-          'Betrachte den folgenden Code-Auszug. Wie oft wird `"Hi!"` ausgegeben?',
+        prompt: 'Betrachte den folgenden Code-Auszug. Wie oft wird `"Hi!"` ausgegeben?',
         code: `x = 1
 x += x
 while x > 4:
@@ -374,7 +375,8 @@ which_dog_is_it('Pluto')`,
           },
           {
             id: 'c',
-            text: "`TypeError: which_dog_is_it() missing 1 required positional argument: 'ownername'`", correct: true,
+            text: "`TypeError: which_dog_is_it() missing 1 required positional argument: 'ownername'`",
+            correct: true,
           },
           {
             id: 'd',
@@ -404,6 +406,4 @@ which_dog_is_it('Pluto')`,
   },
 ]
 
-export const allQuizQuestions: QuizQuestion[] = quizTopics.flatMap(
-  (topic) => topic.questions,
-)
+export const allQuizQuestions: QuizQuestion[] = quizTopics.flatMap((topic) => topic.questions)

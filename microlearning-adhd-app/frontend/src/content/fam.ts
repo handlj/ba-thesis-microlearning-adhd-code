@@ -1,7 +1,6 @@
 export const fam = {
   title: '',
-  instructions:
-    '',
+  instructions: '',
   scale: {
     low: 'trifft nicht zu',
     high: 'trifft zu',

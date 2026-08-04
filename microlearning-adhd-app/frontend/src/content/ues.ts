@@ -3,11 +3,9 @@ export const ues = {
   heading: {
     eyebrow: '',
     title: 'Bitte füllen Sie den Fragebogen aus',
-    intro:
-      'Bitte geben Sie an, wie sehr Sie jeder Aussage zustimmen oder sie ablehnen.',
+    intro: 'Bitte geben Sie an, wie sehr Sie jeder Aussage zustimmen oder sie ablehnen.',
   },
-  instructions:
-    '',
+  instructions: '',
   actions: {
     proceed: 'Fortfahren',
   },

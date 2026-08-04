@@ -15,10 +15,7 @@ function AdhdScreeningQuestionnaire({
   onBack,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage
-      ariaLabelledBy="adhd-title"
-      cardClassName="study-card--questionnaire"
-    >
+    <StudyPage ariaLabelledBy="adhd-title" cardClassName="study-card--questionnaire">
       <StudyHeading
         eyebrow={adhdScreening.heading.eyebrow}
         title={adhdScreening.heading.title}
@@ -47,17 +44,17 @@ function AdhdScreeningQuestionnaire({
 
         <StudyActions>
           {onBack && (
-            <button type="button" 
-                    className="secondary-button" 
-                    onClick={onBack}
-                    disabled={isSubmitting}>
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={onBack}
+              disabled={isSubmitting}
+            >
               {copy.actions.back}
             </button>
           )}
-          <button type="submit" 
-                  className="start-button"
-                  disabled={isSubmitting}>
-            { isSubmitting ? copy.actions.saving : copy.actions.continue }
+          <button type="submit" className="start-button" disabled={isSubmitting}>
+            {isSubmitting ? copy.actions.saving : copy.actions.continue}
           </button>
         </StudyActions>
       </form>

@@ -2,10 +2,7 @@ import { copy } from '../content/copy.ts'
 import { postInteractionEvent, type StudyInteractionPayload } from '../services/index.ts'
 import type { GroupAssignment } from '../utils/groupAssignment.ts'
 
-export type LogInteraction = (
-  eventType: string,
-  payload?: StudyInteractionPayload
-) => void
+export type LogInteraction = (eventType: string, payload?: StudyInteractionPayload) => void
 
 export function createInteractionLogger(
   participantId: string,

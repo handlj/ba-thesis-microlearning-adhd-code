@@ -15,7 +15,7 @@ function TextQuestion<QuestionId extends string = string>({
   const generatedId = useId()
   const inputId = `${question.id}-${generatedId}`
   const helpId = `${inputId}-help`
-  const textValue = Array.isArray(value) ? '' : value ?? ''
+  const textValue = Array.isArray(value) ? '' : (value ?? '')
 
   return (
     <div className="question-field">

@@ -104,5 +104,4 @@ export const adhdScreening = {
   ],
 } as const
 
-export type AdhdScreeningQuestionId =
-  (typeof adhdScreening.questions)[number]['id']
+export type AdhdScreeningQuestionId = (typeof adhdScreening.questions)[number]['id']

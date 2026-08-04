@@ -1,9 +1,17 @@
 import { copy } from '../content/copy'
-import { postConsentSession, postDemographics, postPostInterventionQuestionnaire } from '../services'
+import {
+  postConsentSession,
+  postDemographics,
+  postPostInterventionQuestionnaire,
+} from '../services'
 import { validateDemographics } from '../utils/demographicsValidation'
 import type { GroupAssignment } from '../utils/groupAssignment'
 import type { Page } from './pageOrder'
-import { questionnaireStepConfigs, type QuestionnaireKey, type StepConfig } from './questionnaireSteps'
+import {
+  questionnaireStepConfigs,
+  type QuestionnaireKey,
+  type StepConfig,
+} from './questionnaireSteps'
 import { runSubmission, type SubmissionStatus } from './runSubmission'
 import type { StudyAnswers } from './studyAnswers'
 import type { StepKey } from './studySteps'
@@ -69,7 +77,10 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
   }
 
   const questionnaireHandlers = Object.fromEntries(
-    Object.entries(questionnaireStepConfigs(deps.onAssigned)).map(([key, config]) => [key, buildHandler(config)]),
+    Object.entries(questionnaireStepConfigs(deps.onAssigned)).map(([key, config]) => [
+      key,
+      buildHandler(config),
+    ]),
   ) as Record<QuestionnaireKey, () => Promise<void>>
 
   const handleConsent = async () => {

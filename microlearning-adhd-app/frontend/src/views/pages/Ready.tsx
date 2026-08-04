@@ -1,5 +1,9 @@
 import { useState } from 'react'
-import { getInstructionVideo, type InstructionVideo, type StudyInteractionPayload } from '../../services/index.ts'
+import {
+  getInstructionVideo,
+  type InstructionVideo,
+  type StudyInteractionPayload,
+} from '../../services/index.ts'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyFacts from '../../components/StudyFacts.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
@@ -19,24 +23,18 @@ type ReadyProps = {
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
 }
 
-function Ready({
-  assignment,
-  onContinue,
-  onLogInteraction,
-}: ReadyProps) {
-  const { data: video, isLoading, error } = useAsyncResource<InstructionVideo>(
-    getInstructionVideo,
-    copy.ready.status.loadError,
-  )
+function Ready({ assignment, onContinue, onLogInteraction }: ReadyProps) {
+  const {
+    data: video,
+    isLoading,
+    error,
+  } = useAsyncResource<InstructionVideo>(getInstructionVideo, copy.ready.status.loadError)
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
-  const assignmentLabel = assignment
-    ? copy.ready.groupLabels[assignment]
-    : null
+  const assignmentLabel = assignment ? copy.ready.groupLabels[assignment] : null
   const canContinue = Boolean(assignment && hasVideoEnded)
 
   return (
-    <StudyPage  ariaLabelledBy="ready-title" 
-                cardClassName="study-card--video">
+    <StudyPage ariaLabelledBy="ready-title" cardClassName="study-card--video">
       <StudyHeading
         eyebrow={copy.ready.heading.eyebrow}
         title={copy.ready.heading.title}
@@ -46,9 +44,7 @@ function Ready({
 
       <StudyFacts facts={copy.ready.facts} />
 
-      <Message variant="status">
-        {isLoading ? copy.ready.status.loading : null}
-      </Message>
+      <Message variant="status">{isLoading ? copy.ready.status.loading : null}</Message>
 
       <Message variant="error">{error}</Message>
 
@@ -77,30 +73,20 @@ function Ready({
         {assignmentLabel ? (
           <p className="assignment-result">
             {copy.ready.assignmentLabel}
-            <strong>
-              {assignmentLabel}
-            </strong>
+            <strong>{assignmentLabel}</strong>
           </p>
         ) : null}
 
-        <button
-          type="button"
-          className="start-button"
-          onClick={onContinue}
-          disabled={!canContinue}
-        >
+        <button type="button" className="start-button" onClick={onContinue} disabled={!canContinue}>
           {copy.actions.continue}
         </button>
 
         <p className="status status-note">
-          <span className="status-note__icon"
-                aria-hidden="true">
+          <span className="status-note__icon" aria-hidden="true">
             {genericIcons.clock}
           </span>
 
-          <span className="status-note__text">
-            {withEmphasis(copy.ready.readinessNote)}
-          </span>
+          <span className="status-note__text">{withEmphasis(copy.ready.readinessNote)}</span>
         </p>
       </StudyActions>
     </StudyPage>

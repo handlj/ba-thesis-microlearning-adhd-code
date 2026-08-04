@@ -1,3 +1,3 @@
 export type DemographicsSubmission = {
-  participant_id: string;
-};
+  participant_id: string
+}

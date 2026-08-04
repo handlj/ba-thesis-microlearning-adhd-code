@@ -30,27 +30,17 @@ function FeedbackStat({ label, correct, total, variant }: FeedbackStatProps) {
         <span className="feedback-stat__total">{copy.quizFeedback.outOf(total)}</span>
       </p>
       <div className="feedback-stat__bar" aria-hidden="true">
-        <span
-          className="feedback-stat__bar-fill"
-          style={{ width: `${fillPercent}%` }}
-        />
+        <span className="feedback-stat__bar-fill" style={{ width: `${fillPercent}%` }} />
       </div>
       <p className="feedback-stat__caption" aria-hidden="true">
         {copy.quizFeedback.scoreCaption}
       </p>
-      <span className="sr-only">
-        {copy.quizFeedback.srScore(label, correct, total)}
-      </span>
+      <span className="sr-only">{copy.quizFeedback.srScore(label, correct, total)}</span>
     </div>
   )
 }
 
-function QuizFeedback({
-  assignment,
-  preCorrect,
-  postCorrect,
-  onContinue,
-}: QuizFeedbackProps) {
+function QuizFeedback({ assignment, preCorrect, postCorrect, onContinue }: QuizFeedbackProps) {
   const total = allQuizQuestions.length
   const afterLabel =
     assignment === 'control'
@@ -65,10 +55,7 @@ function QuizFeedback({
     : 0
 
   return (
-    <StudyPage
-      ariaLabelledBy="quiz-feedback-title"
-      cardClassName="study-card--ready"
-    >
+    <StudyPage ariaLabelledBy="quiz-feedback-title" cardClassName="study-card--ready">
       <StudyHeading
         eyebrow={copy.quizFeedback.heading.eyebrow}
         title={copy.quizFeedback.heading.title}
@@ -83,21 +70,12 @@ function QuizFeedback({
           total={total}
           variant="before"
         />
-        <FeedbackStat
-          label={afterLabel}
-          correct={postCorrect}
-          total={total}
-          variant="after"
-        />
+        <FeedbackStat label={afterLabel} correct={postCorrect} total={total} variant="after" />
       </div>
 
       {showImprovement ? (
-        <div  className="feedback-delta" 
-              role="status">
-          
-          <span className="feedback-delta__icon" 
-                aria-hidden="true">
-            
+        <div className="feedback-delta" role="status">
+          <span className="feedback-delta__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="18" height="18" role="img">
               <path
                 d="M12 19V6M6 12l6-6 6 6"
@@ -109,21 +87,15 @@ function QuizFeedback({
               />
             </svg>
           </span>
-          
-          <span className="feedback-delta__value">
-            +{improvementPercent}&nbsp;%
-          </span>
-          
-          <span className="feedback-delta__label">
-            {copy.quizFeedback.improvementLabel}
-          </span>
+
+          <span className="feedback-delta__value">+{improvementPercent}&nbsp;%</span>
+
+          <span className="feedback-delta__label">{copy.quizFeedback.improvementLabel}</span>
         </div>
       ) : null}
 
       <StudyActions>
-        <button type="button" 
-                className="start-button" 
-                onClick={onContinue}>
+        <button type="button" className="start-button" onClick={onContinue}>
           {copy.actions.continue}
         </button>
       </StudyActions>
