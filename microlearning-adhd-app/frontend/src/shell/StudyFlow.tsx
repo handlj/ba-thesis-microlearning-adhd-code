@@ -16,8 +16,8 @@ import PanasQuestionnaire from '../views/questionnaires/PanasQuestionnaire.tsx'
 import Ready from '../views/pages/Ready.tsx'
 import FAMQuestionnaire from '../views/questionnaires/FAMQuestionnaire.tsx'
 import PreQuiz from '../views/pages/PreQuiz.tsx'
-import ControlGroup from '../views/pages/ControlGroup.tsx'
-import ExperimentalGroup from '../views/pages/ExperimentalGroup.tsx'
+import ControlGroup from '../views/pages/ControlGroup'
+import ExperimentalGroup from '../views/pages/ExperimentalGroup'
 import UESQuestionnaire from '../views/questionnaires/UESQuestionnaire.tsx'
 import FollowUpQuestionnaire from '../views/questionnaires/FollowUpQuestionnaire.tsx'
 import QuizFeedback from '../views/pages/QuizFeedback.tsx'
@@ -33,16 +33,38 @@ function StudyFlow() {
   const [groupAssignment, setGroupAssignment] = useState<GroupAssignment | null>(null)
   const [consent, setConsent] = useState<boolean>(false)
 
-  const { errors, setStepError, clearStepError, resetStepErrors, savingStep, setSavingStep, submitLockRef } = useStepStatus()
-  const { answers, resetAnswers, changeLikertAnswer, changeDemographicAnswer, changeFollowUpAnswer } = useStudyAnswers(clearStepError)
-  const { results, postCorrect, completeScores, recordPreQuiz, recordControlQuiz, recordExperimentalQuiz, resetQuizResults } = useQuizResults(participantId, groupAssignment)
+  const {
+    errors,
+    setStepError,
+    clearStepError,
+    resetStepErrors,
+    savingStep,
+    setSavingStep,
+    submitLockRef,
+  } = useStepStatus()
+  const {
+    answers,
+    resetAnswers,
+    changeLikertAnswer,
+    changeDemographicAnswer,
+    changeFollowUpAnswer,
+  } = useStudyAnswers(clearStepError)
+  const {
+    results,
+    postCorrect,
+    completeScores,
+    recordPreQuiz,
+    recordControlQuiz,
+    recordExperimentalQuiz,
+    resetQuizResults,
+  } = useQuizResults(participantId, groupAssignment)
 
   useScrollToTop(currentPage)
 
-  const logInteraction = createInteractionLogger(participantId ?? '', groupAssignment)
+  const logInteraction = createInteractionLogger(participantId, groupAssignment)
 
   // --- navigation ---
-  
+
   const resetStudyState = () => {
     setConsent(false)
     resetAnswers()
@@ -88,7 +110,7 @@ function StudyFlow() {
     goTo,
     goNext,
   })
-  
+
   const QUESTIONNAIRE_VIEWS: Record<QuestionnaireKey, ComponentType<LikertQuestionnaireProps>> = {
     adhdScreening: AdhdScreeningQuestionnaire,
     prePanas: PanasQuestionnaire,
@@ -119,13 +141,20 @@ function StudyFlow() {
   ) as Record<QuestionnaireKey, () => ReactNode>
 
   // --- routes ---
-  const welcomeScreen = () => (<Welcome onStart={() => { resetStudyState(); goNext('welcome')}} />)
+  const welcomeScreen = () => (
+    <Welcome
+      onStart={() => {
+        resetStudyState()
+        goNext('welcome')
+      }}
+    />
+  )
 
   const routes: Record<Page, () => ReactNode> = {
     ...questionnaireRoutes,
     welcome: welcomeScreen,
     consent: () => (
-      <Consent 
+      <Consent
         agreed={consent}
         error={errors.consent}
         isSubmitting={savingStep === 'consent'}
@@ -191,7 +220,7 @@ function StudyFlow() {
         onSubmit={submit.followUp}
       />
     ),
-    feedback: () => (
+    feedback: () =>
       groupAssignment ? (
         <QuizFeedback
           assignment={groupAssignment}
@@ -199,8 +228,9 @@ function StudyFlow() {
           postCorrect={postCorrect ?? 0}
           onContinue={() => goNext('feedback')}
         />
-      ) : ( welcomeScreen() )
-    ),
+      ) : (
+        welcomeScreen()
+      ),
     thankYou: () => <ThankYou onReturnToStart={() => goTo('welcome')} />,
   }
 
