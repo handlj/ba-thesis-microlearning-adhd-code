@@ -1,7 +1,23 @@
 from fastapi import HTTPException
 from sqlmodel import Session, select
 
-from app.config import ERROR_INVALID_SUBGROUP, ERROR_SUBGROUP_ASSIGNMENT_MISMATCH, MAX_AGE, MIN_AGE, VALID_ADHD_DIAGNOSES, VALID_ASSIGNMENTS, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, ERROR_PARTICIPANT_NOT_FOUND, ERROR_INVALID_ASSIGNMENT, ERROR_INVALID_AGE, ERROR_INVALID_ADHD_DIAGNOSIS, ERROR_FIELD_REQUIRED, VALID_SUBGROUPS, VALID_SUBGROUPS_BY_ASSIGNMENT
+from app.config import (
+    ERROR_FIELD_REQUIRED,
+    ERROR_INVALID_ADHD_DIAGNOSIS,
+    ERROR_INVALID_AGE,
+    ERROR_INVALID_ASSIGNMENT,
+    ERROR_INVALID_SUBGROUP,
+    ERROR_PARTICIPANT_NOT_FOUND,
+    ERROR_SUBGROUP_ASSIGNMENT_MISMATCH,
+    HTTP_400_BAD_REQUEST,
+    HTTP_404_NOT_FOUND,
+    MAX_AGE,
+    MIN_AGE,
+    VALID_ADHD_DIAGNOSES,
+    VALID_ASSIGNMENTS,
+    VALID_SUBGROUPS,
+    VALID_SUBGROUPS_BY_ASSIGNMENT,
+)
 from app.models.session import ParticipantSession
 
 
@@ -22,7 +38,10 @@ def ensure_participant_exists(
 def require_non_empty_text(value: str, field_name: str) -> str:
     normalized_value = value.strip()
     if not normalized_value:
-        raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_FIELD_REQUIRED.format(field_name=field_name))
+        raise HTTPException(
+            status_code=HTTP_400_BAD_REQUEST,
+            detail=ERROR_FIELD_REQUIRED.format(field_name=field_name),
+        )
 
     return normalized_value
 
@@ -41,7 +60,9 @@ def validate_subgroup(subgroup: str, assignment: str) -> str:
         raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_INVALID_SUBGROUP)
 
     if normalized not in VALID_SUBGROUPS_BY_ASSIGNMENT.get(assignment, set()):
-        raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_SUBGROUP_ASSIGNMENT_MISMATCH)
+        raise HTTPException(
+            status_code=HTTP_400_BAD_REQUEST, detail=ERROR_SUBGROUP_ASSIGNMENT_MISMATCH
+        )
 
     return normalized
 
@@ -84,10 +105,7 @@ def validate_likert_answers(
         if value < min_value or value > max_value:
             raise HTTPException(
                 status_code=HTTP_400_BAD_REQUEST,
-                detail=(
-                    f"Answer for {question_id} must be between "
-                    f"{min_value} and {max_value}."
-                ),
+                detail=(f"Answer for {question_id} must be between {min_value} and {max_value}."),
             )
 
     return answers

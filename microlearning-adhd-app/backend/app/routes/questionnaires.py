@@ -1,28 +1,5 @@
 from fastapi import APIRouter, Depends
-
 from sqlmodel import Session, select
-
-from app.schemas import QuestionnaireSchemas, ADHDScreeningSchemas
-
-from app.database import get_session
-
-from app.models import (
-    AdhdScreeningResponse,
-    PanasPreResponse,
-    PanasPostResponse,
-    FamResponse,
-    UesResponse,
-)
-
-from app.services import (
-    ensure_participant_exists,
-    validate_assignment,
-    validate_subgroup,
-    validate_likert_answers,
-    current_utc_timestamp,
-    score_adhd_screening,
-    assign_balanced_group,
-)
 
 from app.config import (
     ADHD_SCREENING_QUESTION_IDS,
@@ -33,7 +10,24 @@ from app.config import (
     PANAS_QUESTION_IDS,
     UES_QUESTION_IDS,
 )
-
+from app.database import get_session
+from app.models import (
+    AdhdScreeningResponse,
+    FamResponse,
+    PanasPostResponse,
+    PanasPreResponse,
+    UesResponse,
+)
+from app.schemas import ADHDScreeningSchemas, QuestionnaireSchemas
+from app.services import (
+    assign_balanced_group,
+    current_utc_timestamp,
+    ensure_participant_exists,
+    score_adhd_screening,
+    validate_assignment,
+    validate_likert_answers,
+    validate_subgroup,
+)
 
 router = APIRouter(prefix="/api/participants")
 
@@ -120,7 +114,9 @@ def submit_adhd_screening(
 
     if participant.assignment is None and participant.subgroup is None:
         participant.adhd_screen_positive = screen_positive
-        participant.assignment, participant.subgroup = assign_balanced_group(session, screen_positive)
+        participant.assignment, participant.subgroup = assign_balanced_group(
+            session, screen_positive
+        )
         session.add(participant)
 
     submitted_at = current_utc_timestamp()

@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class DemographicsRequest(BaseModel):
     age: int
     gender: str

@@ -1,6 +1,5 @@
 from pathlib import Path
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_DIR = BASE_DIR / "media"
 DATA_DIR = BASE_DIR / "data"
@@ -44,13 +43,13 @@ PANAS_ITEM_COUNT = 20
 FAM_ITEM_COUNT = 18
 UES_ITEM_COUNT = 30
 
-# Expected question IDs per Likert questionnaire 
-# (must match the frontend content files in frontend/src/content/*.ts and the column names in models.py).
+# Expected question IDs per Likert questionnaire
+# Must match the frontend content files in frontend/src/content/*.ts and column names in models.py.
 # TODO: Add single source of truth
-ADHD_SCREENING_QUESTION_IDS = {f"adhd{index}" for index in range(1, ADHD_SCREENING_ITEM_COUNT+1)}
-PANAS_QUESTION_IDS = {f"panas{index}" for index in range(1, PANAS_ITEM_COUNT+1)}
-FAM_QUESTION_IDS = {f"fam{index}" for index in range(1, FAM_ITEM_COUNT+1)}
-UES_QUESTION_IDS = {f"ues{index}" for index in range(1, UES_ITEM_COUNT+1)}
+ADHD_SCREENING_QUESTION_IDS = {f"adhd{index}" for index in range(1, ADHD_SCREENING_ITEM_COUNT + 1)}
+PANAS_QUESTION_IDS = {f"panas{index}" for index in range(1, PANAS_ITEM_COUNT + 1)}
+FAM_QUESTION_IDS = {f"fam{index}" for index in range(1, FAM_ITEM_COUNT + 1)}
+UES_QUESTION_IDS = {f"ues{index}" for index in range(1, UES_ITEM_COUNT + 1)}
 
 # ASRS v1.1 Part A scoring. Items 1-3 are inattention, items 4-6 hyperactivity.
 # An inattention item counts as a "mark" at "Manchmal" (3) or higher; a
@@ -75,7 +74,7 @@ MAX_AGE = 99
 
 
 # Experimental-Group Quiz Gating
-QUIZ_PASS_THRESHOLD = 4 # Min. of correct answers (out of 5)
+QUIZ_PASS_THRESHOLD = 4  # Min. of correct answers (out of 5)
 QUIZ_MAX_ATTEMPTS = 3
 
 

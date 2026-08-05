@@ -3,18 +3,16 @@ import json
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session, select
 
-from app.schemas import QuizSchemas
-from app.models import QuizAnswer
+from app.config import ERROR_QUIZ_ANSWERS_REQUIRED, HTTP_400_BAD_REQUEST
 from app.database import get_session
+from app.models import QuizAnswer
+from app.schemas import QuizSchemas
 from app.services import (
-    ensure_participant_exists,
     current_utc_timestamp,
+    ensure_participant_exists,
     validate_assignment,
     validate_subgroup,
 )
-
-from app.config import HTTP_400_BAD_REQUEST, ERROR_QUIZ_ANSWERS_REQUIRED
-
 
 router = APIRouter(prefix="/api/participants")
 
@@ -35,7 +33,7 @@ def submit_quiz(
 
     if not submission.answers:
         raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_QUIZ_ANSWERS_REQUIRED)
-    
+
     existing = session.exec(
         select(QuizAnswer).where(
             QuizAnswer.participant_id == participant_id,
@@ -45,14 +43,14 @@ def submit_quiz(
             QuizAnswer.attempt == submission.attempt,
         )
     ).first()
-    
+
     if existing is not None:
         return QuizSchemas.QuizSubmissionResponse(
             participant_id=participant_id,
             answer_count=len(submission.answers),
             submitted_at=existing.submitted_at,
         )
-    
+
     submitted_at = current_utc_timestamp()
 
     for question_id, selected_options in submission.answers.items():
@@ -69,7 +67,7 @@ def submit_quiz(
             submitted_at=submitted_at,
         )
         session.add(quiz_answer)
-    
+
     session.commit()
 
     return QuizSchemas.QuizSubmissionResponse(

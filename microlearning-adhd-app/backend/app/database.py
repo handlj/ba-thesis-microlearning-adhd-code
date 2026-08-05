@@ -1,9 +1,8 @@
 from collections.abc import Generator
 
-from sqlmodel import SQLModel, Session, create_engine
+from sqlmodel import Session, SQLModel, create_engine
 
 from app.config import DATA_DIR, DATABASE_URL
-
 
 sqlite_engine = create_engine(
     DATABASE_URL,

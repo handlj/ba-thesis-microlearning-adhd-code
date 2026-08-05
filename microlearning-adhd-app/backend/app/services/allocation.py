@@ -1,8 +1,9 @@
 import random
+
 from sqlmodel import Session, func, select
+
 from app.config import BIASED_COIN_PROBABILITY, CONTROL_SUBGROUP, EXPERIMENTAL_SUBGROUPS
 from app.models.session import ParticipantSession
-
 
 _rng = random.Random()
 

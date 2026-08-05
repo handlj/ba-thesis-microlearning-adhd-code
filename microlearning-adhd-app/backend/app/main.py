@@ -8,14 +8,14 @@ from fastapi.staticfiles import StaticFiles
 from app.config import MEDIA_DIR, ORIGINS
 from app.database import create_db_and_tables
 from app.routes import (
-    consent, 
-    demographics, 
-    interaction_events, 
-    post_intervention, 
-    questionnaires, 
-    quiz, 
-    videos, 
-    config
+    config,
+    consent,
+    demographics,
+    interaction_events,
+    post_intervention,
+    questionnaires,
+    quiz,
+    videos,
 )
 
 

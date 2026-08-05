@@ -3,20 +3,20 @@ from datetime import datetime
 from sqlmodel import Field, SQLModel, UniqueConstraint
 from sqlmodel.main import SQLModelMetaclass
 
-from app.config import (ADHD_SCREENING_ITEM_COUNT, FAM_ITEM_COUNT, PANAS_ITEM_COUNT, UES_ITEM_COUNT)
+from app.config import ADHD_SCREENING_ITEM_COUNT, FAM_ITEM_COUNT, PANAS_ITEM_COUNT, UES_ITEM_COUNT
 
 
 def _make_likert_model(name: str, prefix: str, count: int) -> type[SQLModel]:
     """
-      Build a Likert-questionnaire table model.
+    Build a Likert-questionnaire table model.
 
-      Shape:
-        Surrogate id
-        Owning participant
-        Group assignment at submission time
-        Subgroup at submission time
-        One integer column per item (``{prefix}1`` .. ``{prefix}{count}``)
-        Submission timestamp
+    Shape:
+      Surrogate id
+      Owning participant
+      Group assignment at submission time
+      Subgroup at submission time
+      One integer column per item (``{prefix}1`` .. ``{prefix}{count}``)
+      Submission timestamp
     """
 
     annotations: dict[str, object] = {
@@ -31,7 +31,7 @@ def _make_likert_model(name: str, prefix: str, count: int) -> type[SQLModel]:
         "participant_id": Field(foreign_key="participantsession.id"),
         "__table_args__": (
             UniqueConstraint("participant_id", name=f"uq_{name.lower()}_participant_id"),
-        )
+        ),
     }
 
     for index in range(1, count + 1):
@@ -40,7 +40,7 @@ def _make_likert_model(name: str, prefix: str, count: int) -> type[SQLModel]:
 
     namespace["__annotations__"] = annotations
     namespace["__module__"] = __name__
-    
+
     return SQLModelMetaclass(name, (SQLModel,), namespace, table=True)
 
 
@@ -53,7 +53,9 @@ def _make_likert_model(name: str, prefix: str, count: int) -> type[SQLModel]:
   Item counts are held in app/config.py.
   TODO: Move question contents from frontend to backend and fetch them on questionnaire load.
 """
-AdhdScreeningResponse = _make_likert_model("AdhdScreeningResponse", "adhd", ADHD_SCREENING_ITEM_COUNT)
+AdhdScreeningResponse = _make_likert_model(
+    "AdhdScreeningResponse", "adhd", ADHD_SCREENING_ITEM_COUNT
+)
 PanasPreResponse = _make_likert_model("PanasPreResponse", "panas", PANAS_ITEM_COUNT)
 PanasPostResponse = _make_likert_model("PanasPostResponse", "panas", PANAS_ITEM_COUNT)
 FamResponse = _make_likert_model("FamResponse", "fam", FAM_ITEM_COUNT)

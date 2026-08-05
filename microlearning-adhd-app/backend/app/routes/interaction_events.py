@@ -1,21 +1,17 @@
-from fastapi import APIRouter, Depends
-
 import json
 
-from app.schemas import InteractionEventSchemas
-
-from app.models import InteractionEvent
-
-from app.database import get_session
+from fastapi import APIRouter, Depends
 from sqlmodel import Session
 
+from app.database import get_session
+from app.models import InteractionEvent
+from app.schemas import InteractionEventSchemas
 from app.services import (
-    ensure_participant_exists,
     current_utc_timestamp,
+    ensure_participant_exists,
     validate_assignment,
     validate_subgroup,
 )
-
 
 router = APIRouter(prefix="/api/participants")
 
@@ -44,7 +40,7 @@ def record_interaction_event(
         received_at=current_utc_timestamp(),
         payload_json=json.dumps(event.payload) if event.payload else None,
     )
-    
+
     session.add(interaction_event)
     session.commit()
     session.refresh(interaction_event)

@@ -1,20 +1,16 @@
 from fastapi import APIRouter, Depends
-
-from app.schemas import DemographicsSchemas
-
-from app.models import Demographics
-
-from app.database import get_session
 from sqlmodel import Session, select
 
+from app.database import get_session
+from app.models import Demographics
+from app.schemas import DemographicsSchemas
 from app.services import (
+    current_utc_timestamp,
     ensure_participant_exists,
     require_non_empty_text,
-    current_utc_timestamp,
-    validate_age,
     validate_adhd_diagnosis,
+    validate_age,
 )
-
 
 router = APIRouter(prefix="/api/participants")
 
@@ -30,7 +26,9 @@ def submit_demographics(
 ):
     participant = ensure_participant_exists(participant_id, session)
 
-    existing = session.exec(select(Demographics).where(Demographics.participant_id == participant_id)).first()
+    existing = session.exec(
+        select(Demographics).where(Demographics.participant_id == participant_id)
+    ).first()
     if existing is not None:
         return DemographicsSchemas.DemographicsResponse(participant_id=participant_id)
 
@@ -50,7 +48,7 @@ def submit_demographics(
         adhd_medication=demographics.adhd_medication,
         submitted_at=current_utc_timestamp(),
     )
-    
+
     session.add(demographics_row)
     session.commit()
 

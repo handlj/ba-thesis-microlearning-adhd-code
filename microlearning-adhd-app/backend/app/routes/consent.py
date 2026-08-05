@@ -1,15 +1,11 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session
 
-from app.schemas import ConsentSchemas
-from app.models import ParticipantSession
-
-from app.services import current_utc_timestamp
-
+from app.config import ERROR_CONSENT_REQUIRED, HTTP_400_BAD_REQUEST
 from app.database import get_session
-
-from app.config import (HTTP_400_BAD_REQUEST, ERROR_CONSENT_REQUIRED)
-
+from app.models import ParticipantSession
+from app.schemas import ConsentSchemas
+from app.services import current_utc_timestamp
 
 router = APIRouter(prefix="/api/participants")
 
@@ -27,7 +23,7 @@ def create_consent_session(
         )
 
     timestamp = current_utc_timestamp()
-    
+
     participant = ParticipantSession(
         consented=True,
         consented_at=timestamp,

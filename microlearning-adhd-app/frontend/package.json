@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "format": "prettier --write .",
+    "format:frontend": "prettier --write .",
+    "format:backend": "ruff check --fix ../backend && ruff format ../backend",
+    "format": "npm run format:frontend && npm run format:backend",
     "format:check": "prettier --check .",
     "preview": "vite preview"
   },
