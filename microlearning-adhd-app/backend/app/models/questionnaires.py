@@ -14,6 +14,7 @@ def _make_likert_model(name: str, prefix: str, count: int) -> type[SQLModel]:
         Surrogate id
         Owning participant
         Group assignment at submission time
+        Subgroup at submission time
         One integer column per item (``{prefix}1`` .. ``{prefix}{count}``)
         Submission timestamp
     """
@@ -22,6 +23,7 @@ def _make_likert_model(name: str, prefix: str, count: int) -> type[SQLModel]:
         "id": int | None,
         "participant_id": str,
         "assignment": str,
+        "subgroup": str,
     }
 
     namespace: dict[str, object] = {

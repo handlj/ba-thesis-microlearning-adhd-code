@@ -3,6 +3,7 @@ from datetime import datetime
 
 class InteractionEventRequest(BaseModel):
     assignment: str
+    subgroup: str
     page: str
     event_type: str
     occurred_at: datetime

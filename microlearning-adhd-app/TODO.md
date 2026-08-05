@@ -30,7 +30,9 @@
 - [ ] Remove "Zurück zur Begrüßung" Button since it is not needed and confuses the user.
 
 ## Before Deployment
-- [ ] Remove the explicit group labels in the Ready page. Also remove the eyebrow.
+- [ ] Remove the explicit group **and subgroup** labels in the Ready page
+      (`Ready.tsx`, both `.assignment-result` blocks — the `TODO` comment only sits
+      above the first one). Also remove the eyebrow.
 
 ## Nice to have
 
@@ -38,7 +40,9 @@
 - [ ] Timer einfügen nachdem weitergegangen werden kann (?)
   Incentive für unkooperatives Verhalten?
 - [ ] Add that the videos do not only get counted as watched if the user watches the whole video, but also if they watch a certain percentage/range of it (e.g. 80%).
-- [ ] Add the functionality that the user can change the video speed (not only the volume)
+- [x] Add the functionality that the user can change the video speed (not only the volume)
+  Shipped to the `enhanced-player` subgroup behind the `playbackSpeed` feature flag
+  in `utils/videoFeatures.ts`; deliberately off for everyone else.
 - [ ] Add measurement for dezibel and speed of the video
 
 ### Study Flow
@@ -54,6 +58,11 @@
 
 ## Verification
 - [ ] Double Check Video Timestamps for each question in the quiz.ts file, since they were added manually and might be wrong.
+- [ ] Double Check the chapter timestamps and titles in `content/videoChapters.ts`.
+      They were added manually and drive three of the four `enhanced-player`
+      features (markers, navigation, current-chapter label), so a wrong boundary
+      is part of the ML+ manipulation itself. All four videos are populated and
+      every `startSeconds` is within the video's duration (254 / 256 / 304 / 328 s).
 
 ### Maintenance
 - [ ] Decouple monolithic copy.ts file

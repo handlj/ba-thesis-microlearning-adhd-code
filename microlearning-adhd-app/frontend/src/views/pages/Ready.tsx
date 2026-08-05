@@ -11,7 +11,7 @@ import StudyPage from '../../components/StudyPage.tsx'
 import StudyVideoPlayer from '../../components/video/StudyVideoPlayer.tsx'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
 import { copy } from '../../content/copy.ts'
-import { type GroupAssignment } from '../../utils/groupAssignment.ts'
+import { type GroupAssignment, type Subgroup } from '../../utils/groupAssignment.ts'
 import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
 import Message from '../../components/Message.tsx'
@@ -19,11 +19,12 @@ import { useAsyncResource } from '../../hooks/useAsyncResource.ts'
 
 type ReadyProps = {
   assignment: GroupAssignment | null
+  subgroup: Subgroup | null
   onContinue: () => void
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
 }
 
-function Ready({ assignment, onContinue, onLogInteraction }: ReadyProps) {
+function Ready({ assignment, subgroup, onContinue, onLogInteraction }: ReadyProps) {
   const {
     data: video,
     isLoading,
@@ -31,7 +32,8 @@ function Ready({ assignment, onContinue, onLogInteraction }: ReadyProps) {
   } = useAsyncResource<InstructionVideo>(getInstructionVideo, copy.ready.status.loadError)
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
   const assignmentLabel = assignment ? copy.ready.groupLabels[assignment] : null
-  const canContinue = Boolean(assignment && hasVideoEnded)
+  const subgroupLabel = subgroup ? copy.ready.subgroupLabels[subgroup] : null
+  const canContinue = Boolean(assignment && subgroup && hasVideoEnded)
 
   return (
     <StudyPage ariaLabelledBy="ready-title" cardClassName="study-card--video">
@@ -69,11 +71,19 @@ function Ready({ assignment, onContinue, onLogInteraction }: ReadyProps) {
       ) : null}
 
       <StudyActions>
-        {/* TODO: Remove this visible assignment label before deployment. */}
+        {/* TODO: Remove this visible group assignment label before deployment. */}
         {assignmentLabel ? (
           <p className="assignment-result">
             {copy.ready.assignmentLabel}
             <strong>{assignmentLabel}</strong>
+          </p>
+        ) : null}
+
+        {/* TODO: Remove this visible subgroup assignment label before deployment. */}
+        {subgroupLabel ? (
+          <p className="assignment-result">
+            {copy.ready.subgroupLabel}
+            <strong>{subgroupLabel}</strong>
           </p>
         ) : null}
 

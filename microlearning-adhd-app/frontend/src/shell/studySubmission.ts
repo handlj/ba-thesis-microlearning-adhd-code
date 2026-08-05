@@ -5,10 +5,11 @@ import {
   postPostInterventionQuestionnaire,
 } from '../services'
 import { validateDemographics } from '../utils/demographicsValidation'
-import type { GroupAssignment } from '../utils/groupAssignment'
+import type { GroupAssignment, Subgroup } from '../utils/groupAssignment'
 import type { Page } from './pageOrder'
 import {
   questionnaireStepConfigs,
+  type Allocation,
   type QuestionnaireKey,
   type StepConfig,
 } from './questionnaireSteps'
@@ -20,6 +21,7 @@ type StudySubmissionDeps = {
   answers: StudyAnswers
   participantId: string
   groupAssignment: GroupAssignment | null
+  subgroup: Subgroup | null
   consented: boolean
   completeScores: boolean
   savingStep: StepKey | null
@@ -27,7 +29,7 @@ type StudySubmissionDeps = {
   setStepError: (step: StepKey, error: string | null) => void
   setSavingStep: (step: StepKey | null) => void
   setParticipantId: (id: string) => void
-  onAssigned: (assignment: GroupAssignment) => void
+  onAssigned: (allocation: Allocation) => void
   goTo: (page: Page) => void
   goNext: (from: Page) => void
 }
@@ -44,7 +46,7 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
   }
 
   const buildHandler = (config: StepConfig) => async () => {
-    const { participantId, groupAssignment, answers } = deps
+    const { participantId, groupAssignment, subgroup, answers } = deps
     const given = answers[config.section]
 
     if (config.questions.some((question) => !given[question.id]?.trim())) {
@@ -60,12 +62,13 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
     let invoke: () => Promise<Record<string, string> | void>
 
     if (config.needsAssignment) {
-      if (!groupAssignment) {
+      if (!groupAssignment || !subgroup) {
         deps.setStepError(config.step, copy.errors.questionnaireMissingSession)
         return
       }
 
-      invoke = () => config.run({ participantId, assignment: groupAssignment, answers: given })
+      invoke = () =>
+        config.run({ participantId, assignment: groupAssignment, subgroup, answers: given })
     } else {
       invoke = () => config.run({ participantId, answers: given })
     }
@@ -129,14 +132,19 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
   }
 
   const handleFollowUp = async (wantsFeedback: 'yes' | 'no') => {
-    const { participantId, groupAssignment } = deps
-    if (!participantId || !groupAssignment) {
+    const { participantId, groupAssignment, subgroup } = deps
+    if (!participantId || !groupAssignment || !subgroup) {
       deps.setStepError('followUp', copy.errors.postInterventionMissingSession)
       return
     }
 
     await runSubmission(status, 'followUp', copy.errors.postInterventionSave, async () => {
-      await postPostInterventionQuestionnaire(participantId, groupAssignment, deps.answers.followUp)
+      await postPostInterventionQuestionnaire(
+        participantId,
+        groupAssignment,
+        subgroup,
+        deps.answers.followUp,
+      )
       deps.goTo(wantsFeedback === 'yes' && deps.completeScores ? 'feedback' : 'thankYou')
     })
   }

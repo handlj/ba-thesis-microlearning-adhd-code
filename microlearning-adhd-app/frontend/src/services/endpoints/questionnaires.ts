@@ -1,4 +1,4 @@
-import type { GroupAssignment } from '../../utils/groupAssignment'
+import type { GroupAssignment, Subgroup } from '../../utils/groupAssignment'
 import api from '../client'
 import type { AdhdScreeningSubmission, QuestionnaireSubmission } from '../types/questionnaires'
 
@@ -14,20 +14,21 @@ async function postLikertQuestionnaire(
   participantId: string,
   path: string,
   assignment: GroupAssignment,
+  subgroup: Subgroup,
   answers: Record<string, string>,
 ) {
   const response = await api.post<QuestionnaireSubmission>(
     `/participants/${participantId}/${path}`,
     {
       assignment,
+      subgroup,
       answers: toNumericAnswers(answers),
     },
   )
   return response.data
 }
 
-// The ADHD screening is special: its result determines the group assignment, so
-// it posts only the answers and receives the freshly drawn assignment back.
+/* postAdhdScreening returns groupAssignment and subgroup */
 export async function postAdhdScreening(participantId: string, answers: Record<string, string>) {
   const response = await api.post<AdhdScreeningSubmission>(
     `/participants/${participantId}/adhd-screening`,
@@ -41,31 +42,35 @@ export async function postAdhdScreening(participantId: string, answers: Record<s
 export async function postPanasPre(
   participantId: string,
   assignment: GroupAssignment,
+  subgroup: Subgroup,
   answers: Record<string, string>,
 ) {
-  return postLikertQuestionnaire(participantId, 'panas-pre', assignment, answers)
+  return postLikertQuestionnaire(participantId, 'panas-pre', assignment, subgroup, answers)
 }
 
 export async function postPanasPost(
   participantId: string,
   assignment: GroupAssignment,
+  subgroup: Subgroup,
   answers: Record<string, string>,
 ) {
-  return postLikertQuestionnaire(participantId, 'panas-post', assignment, answers)
+  return postLikertQuestionnaire(participantId, 'panas-post', assignment, subgroup, answers)
 }
 
 export async function postFam(
   participantId: string,
   assignment: GroupAssignment,
+  subgroup: Subgroup,
   answers: Record<string, string>,
 ) {
-  return postLikertQuestionnaire(participantId, 'fam', assignment, answers)
+  return postLikertQuestionnaire(participantId, 'fam', assignment, subgroup, answers)
 }
 
 export async function postUes(
   participantId: string,
   assignment: GroupAssignment,
+  subgroup: Subgroup,
   answers: Record<string, string>,
 ) {
-  return postLikertQuestionnaire(participantId, 'ues', assignment, answers)
+  return postLikertQuestionnaire(participantId, 'ues', assignment, subgroup, answers)
 }

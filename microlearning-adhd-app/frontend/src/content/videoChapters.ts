@@ -26,17 +26,35 @@ export type VideoChapter = {
 }
 
 export const experimentalVideoChapters: Record<string, readonly VideoChapter[]> = {
-  // TODO: Fill in the chapter timestamps and headers per video.
-  // Example:
-  // 'experimental-video-1': [
-  //   { startSeconds: 0, title: 'Einführung' },
-  //   { startSeconds: 41, title: 'Variablen zuweisen' },
-  //   { startSeconds: 137, title: 'Rechenoperatoren' },
-  // ],
-  'experimental-video-1': [],
-  'experimental-video-2': [],
-  'experimental-video-3': [],
-  'experimental-video-4': [],
+  'experimental-video-1': [
+    { startSeconds: 0, title: 'Variablen' },
+    { startSeconds: 42, title: 'Datentypen' },
+    { startSeconds: 99, title: 'Ganzzahlen und Gleitkommazahlen' },
+    { startSeconds: 157, title: 'Strings/Zeichenketten' },
+    { startSeconds: 223, title: '"Slicing"' },
+  ],
+  'experimental-video-2': [
+    { startSeconds: 0, title: 'If Statements' },
+    { startSeconds: 55, title: 'If-Else Statements' },
+    { startSeconds: 102, title: 'If-Elif-Else Statements' },
+    { startSeconds: 158, title: 'Code Beispiele' },
+  ],
+  'experimental-video-3': [
+    { startSeconds: 0, title: 'For-Loops: Basics' },
+    { startSeconds: 45, title: 'For-Loops: Beispiele' },
+    { startSeconds: 133, title: 'While-Loops: Basics' },
+    { startSeconds: 175, title: 'While-Loops: User-Input' },
+    { startSeconds: 226, title: 'While-Loops: Endlosschleifen' },
+    { startSeconds: 265, title: 'Loops: Keywords' },
+  ],
+  'experimental-video-4': [
+    { startSeconds: 0, title: 'Funktionen: Grundkonzept' },
+    { startSeconds: 58, title: 'Beispiele' },
+    { startSeconds: 127, title: 'Funktionen: Definition' },
+    { startSeconds: 179, title: 'Weitere Beispiele' },
+    { startSeconds: 220, title: 'Valide Funktionsaufrufe' },
+    { startSeconds: 270, title: 'Fehlerhafte Funktionsaufrufe' },
+  ],
 }
 
 /*

@@ -1,4 +1,4 @@
-import { type GroupAssignment } from './../../utils/groupAssignment'
+import { type GroupAssignment, type Subgroup } from './../../utils/groupAssignment'
 
 export type QuizSubmission = {
   participant_id: string
@@ -8,6 +8,7 @@ export type QuizSubmission = {
 
 export type QuizAnswerSubmission = {
   assignment: GroupAssignment
+  subgroup: Subgroup
   video_id: string | null
   video_index: number | null
   topic_id: string

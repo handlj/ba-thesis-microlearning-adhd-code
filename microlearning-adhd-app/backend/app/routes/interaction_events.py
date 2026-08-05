@@ -12,6 +12,8 @@ from sqlmodel import Session
 from app.services import (
     ensure_participant_exists,
     current_utc_timestamp,
+    validate_assignment,
+    validate_subgroup,
 )
 
 
@@ -29,9 +31,13 @@ def record_interaction_event(
 ):
     ensure_participant_exists(participant_id, session)
 
+    assignment = validate_assignment(event.assignment)
+    subgroup = validate_subgroup(event.subgroup, assignment)
+
     interaction_event = InteractionEvent(
         participant_id=participant_id,
-        assignment=event.assignment,
+        assignment=assignment,
+        subgroup=subgroup,
         page=event.page,
         event_type=event.event_type,
         occurred_at=event.occurred_at,

@@ -3,6 +3,7 @@ from datetime import datetime
 
 class LikertQuestionnaireRequest(BaseModel):
     assignment: str
+    subgroup: str
     answers: dict[str, int]
 
 

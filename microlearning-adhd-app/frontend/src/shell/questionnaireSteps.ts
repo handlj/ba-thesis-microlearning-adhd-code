@@ -11,9 +11,14 @@ import {
   postUes,
   type QuestionnaireSubmission,
 } from '../services'
-import type { GroupAssignment } from '../utils/groupAssignment'
+import type { GroupAssignment, Subgroup } from '../utils/groupAssignment'
 import type { LikertSection } from './studyAnswers'
 import type { StepKey } from './studySteps'
+
+export type Allocation = {
+  assignment: GroupAssignment
+  subgroup: Subgroup
+}
 
 type Base = {
   questions: readonly { id: string }[]
@@ -26,6 +31,7 @@ export type StepDef =
       run: (ctx: {
         participantId: string
         assignment: GroupAssignment
+        subgroup: Subgroup
         answers: Record<string, string>
       }) => Promise<QuestionnaireSubmission>
     })
@@ -44,33 +50,36 @@ const prePanasStep: StepDef = {
   questions: panas.questions,
   invalidMessage: panas.validation.allQuestions,
   needsAssignment: true,
-  run: ({ participantId, assignment, answers }) => postPanasPre(participantId, assignment, answers),
+  run: ({ participantId, assignment, subgroup, answers }) =>
+    postPanasPre(participantId, assignment, subgroup, answers),
 }
 
 const famStep: StepDef = {
   questions: fam.questions,
   invalidMessage: copy.validation.preInterventionAllQuestions,
   needsAssignment: true,
-  run: ({ participantId, assignment, answers }) => postFam(participantId, assignment, answers),
+  run: ({ participantId, assignment, subgroup, answers }) =>
+    postFam(participantId, assignment, subgroup, answers),
 }
 
 const postPanasStep: StepDef = {
   questions: panas.questions,
   invalidMessage: panas.validation.allQuestions,
   needsAssignment: true,
-  run: ({ participantId, assignment, answers }) =>
-    postPanasPost(participantId, assignment, answers),
+  run: ({ participantId, assignment, subgroup, answers }) =>
+    postPanasPost(participantId, assignment, subgroup, answers),
 }
 
 const uesStep: StepDef = {
   questions: ues.questions,
   invalidMessage: ues.validation.allQuestions,
   needsAssignment: true,
-  run: ({ participantId, assignment, answers }) => postUes(participantId, assignment, answers),
+  run: ({ participantId, assignment, subgroup, answers }) =>
+    postUes(participantId, assignment, subgroup, answers),
 }
 
 export function questionnaireStepConfigs(
-  onAssigned: (assignment: GroupAssignment) => void,
+  onAssigned: (assignment: Allocation) => void,
 ): Record<QuestionnaireKey, StepConfig> {
   const defs: Record<QuestionnaireKey, StepDef> = {
     adhdScreening: {
@@ -78,7 +87,7 @@ export function questionnaireStepConfigs(
       invalidMessage: adhdScreening.validation.allQuestions,
       run: async ({ participantId, answers }) => {
         const response = await postAdhdScreening(participantId, answers)
-        onAssigned(response.assignment)
+        onAssigned({ assignment: response.assignment, subgroup: response.subgroup })
       },
     },
     prePanas: prePanasStep,

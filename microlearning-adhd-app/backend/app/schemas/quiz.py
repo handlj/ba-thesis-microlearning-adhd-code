@@ -3,6 +3,7 @@ from datetime import datetime
 
 class QuizSubmissionRequest(BaseModel):
     assignment: str
+    subgroup: str
     video_id: str | None = None
     video_index: int | None = None
     topic_id: str

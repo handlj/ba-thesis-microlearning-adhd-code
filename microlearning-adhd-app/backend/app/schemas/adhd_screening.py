@@ -8,4 +8,5 @@ class AdhdScreeningRequest(BaseModel):
 class AdhdScreeningResponsePayload(BaseModel):
     participant_id: str
     assignment: str
+    subgroup: str
     submitted_at: datetime

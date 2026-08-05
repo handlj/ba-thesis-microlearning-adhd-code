@@ -3,11 +3,15 @@ import type { QuizAnswers } from '../components/quiz/useQuizAnswers'
 import { copy } from '../content/copy'
 import { quizTopics } from '../content/quiz'
 import { postQuizAnswers, type QuizAnswerSubmission } from '../services'
-import type { GroupAssignment } from '../utils/groupAssignment'
+import type { GroupAssignment, Subgroup } from '../utils/groupAssignment'
 import { scoreQuiz } from '../utils/quizScoring'
 import { blankQuizResults, hasCompleteScores, postCorrectFor, scoreAllTopics } from './quizResults'
 
-export function useQuizResults(participantId: string | null, assignment: GroupAssignment | null) {
+export function useQuizResults(
+  participantId: string | null,
+  assignment: GroupAssignment | null,
+  subgroup: Subgroup | null,
+) {
   const [results, setResults] = useState(blankQuizResults)
 
   const persist = (submission: QuizAnswerSubmission) => {
@@ -20,18 +24,25 @@ export function useQuizResults(participantId: string | null, assignment: GroupAs
   }
 
   const recordPreQuiz = (answers: QuizAnswers) => {
-    if (!assignment) return
+    if (!assignment || !subgroup) return
 
     setResults((previous) => ({
       ...previous,
       preCorrect: scoreAllTopics(answers),
     }))
 
-    persist({ assignment, video_id: null, video_index: null, topic_id: 'pre-quiz', answers })
+    persist({
+      assignment,
+      subgroup,
+      video_id: null,
+      video_index: null,
+      topic_id: 'pre-quiz',
+      answers,
+    })
   }
 
   const recordControlQuiz = (answers: QuizAnswers) => {
-    if (assignment !== 'control') return
+    if (assignment !== 'control' || !subgroup) return
 
     setResults((previous) => ({
       ...previous,
@@ -40,6 +51,7 @@ export function useQuizResults(participantId: string | null, assignment: GroupAs
 
     persist({
       assignment: 'control',
+      subgroup,
       video_id: null,
       video_index: null,
       topic_id: 'control-quiz',
@@ -48,9 +60,9 @@ export function useQuizResults(participantId: string | null, assignment: GroupAs
   }
 
   const recordExperimentalQuiz = (
-    submission: Omit<QuizAnswerSubmission, 'assignment'> & { attempt: number },
+    submission: Omit<QuizAnswerSubmission, 'assignment' | 'subgroup'> & { attempt: number },
   ) => {
-    if (assignment !== 'experimental') return
+    if (assignment !== 'experimental' || !subgroup) return
 
     const topic = quizTopics.find((t) => t.id === submission.topic_id)
     if (topic) {
@@ -66,7 +78,7 @@ export function useQuizResults(participantId: string | null, assignment: GroupAs
       }))
     }
 
-    persist({ assignment: 'experimental', ...submission })
+    persist({ assignment: 'experimental', subgroup, ...submission })
   }
 
   const resetQuizResults = () => {

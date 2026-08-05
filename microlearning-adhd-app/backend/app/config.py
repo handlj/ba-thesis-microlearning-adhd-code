@@ -23,6 +23,16 @@ VALID_ADHD_DIAGNOSES = {
 
 VALID_ASSIGNMENTS = {"control", "experimental"}
 
+# Video-player subgroup. The control arm's subgroup mirrors its assignment; the
+# experimental arm splits into the standard player and the ML+ enhanced player.
+CONTROL_SUBGROUP = "control"
+EXPERIMENTAL_SUBGROUPS = ("standard", "enhanced-player")
+VALID_SUBGROUPS = {CONTROL_SUBGROUP, *EXPERIMENTAL_SUBGROUPS}
+VALID_SUBGROUPS_BY_ASSIGNMENT = {
+    "control": {CONTROL_SUBGROUP},
+    "experimental": set(EXPERIMENTAL_SUBGROUPS),
+}
+
 
 # Efrons Biased Coin Probability
 BIASED_COIN_PROBABILITY = 0.75
@@ -82,6 +92,8 @@ ERROR_INVALID_AGE = "Age must be between {MIN_AGE} and {MAX_AGE}."
 ERROR_INVALID_ADHD_DIAGNOSIS = "Invalid ADHD diagnosis status."
 ERROR_QUIZ_ANSWERS_REQUIRED = "Quiz answers are required."
 ERROR_FIELD_REQUIRED = "{field_name} is required."
+ERROR_INVALID_SUBGROUP = "Invalid subgroup."
+ERROR_SUBGROUP_ASSIGNMENT_MISMATCH = "Subgroup does not match the assignment."
 
 
 # Video Filenames

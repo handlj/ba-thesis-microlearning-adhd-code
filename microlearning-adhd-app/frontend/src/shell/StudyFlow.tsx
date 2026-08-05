@@ -1,6 +1,6 @@
 import { useState, type ComponentType, type ReactNode } from 'react'
 import '@assets/styles/App.css'
-import { type GroupAssignment } from '../utils/groupAssignment.ts'
+import { type GroupAssignment, type Subgroup } from '../utils/groupAssignment.ts'
 import { useScrollToTop } from '../hooks/useScrollToTop.ts'
 import { useStudyAnswers } from '../shell/useStudyAnswers.ts'
 import type { Page } from '../shell/pageOrder.ts'
@@ -22,15 +22,17 @@ import UESQuestionnaire from '../views/questionnaires/UESQuestionnaire.tsx'
 import FollowUpQuestionnaire from '../views/questionnaires/FollowUpQuestionnaire.tsx'
 import QuizFeedback from '../views/pages/QuizFeedback.tsx'
 import ThankYou from '../views/pages/ThankYou.tsx'
-import { QUESTIONNAIRE_KEYS, type QuestionnaireKey } from './questionnaireSteps.ts'
+import { QUESTIONNAIRE_KEYS, type Allocation, type QuestionnaireKey } from './questionnaireSteps.ts'
 import type { LikertQuestionnaireProps } from '../views/questionnaires/types.ts'
 import { buildStudySubmissions } from './studySubmission.ts'
+import { resetStudySubgroup, setStudySubgroup } from '../utils/videoFeatures.ts'
 
 function StudyFlow() {
   const [currentPage, setCurrentPage] = useState<Page>('welcome')
 
   const [participantId, setParticipantId] = useState<string>('')
   const [groupAssignment, setGroupAssignment] = useState<GroupAssignment | null>(null)
+  const [subgroup, setSubgroup] = useState<Subgroup | null>(null)
   const [consent, setConsent] = useState<boolean>(false)
 
   const {
@@ -57,11 +59,17 @@ function StudyFlow() {
     recordControlQuiz,
     recordExperimentalQuiz,
     resetQuizResults,
-  } = useQuizResults(participantId, groupAssignment)
+  } = useQuizResults(participantId, groupAssignment, subgroup)
 
   useScrollToTop(currentPage)
 
-  const logInteraction = createInteractionLogger(participantId, groupAssignment)
+  const logInteraction = createInteractionLogger(participantId, groupAssignment, subgroup)
+
+  const handleAllocated = ({ assignment, subgroup: allocatedSubgroup }: Allocation) => {
+    setGroupAssignment(assignment)
+    setSubgroup(allocatedSubgroup)
+    setStudySubgroup(allocatedSubgroup)
+  }
 
   // --- navigation ---
 
@@ -72,6 +80,8 @@ function StudyFlow() {
     resetStepErrors()
     setSavingStep(null)
     setGroupAssignment(null)
+    setSubgroup(null)
+    resetStudySubgroup()
     resetQuizResults()
     submitLockRef.current = false
   }
@@ -99,6 +109,7 @@ function StudyFlow() {
     answers,
     participantId,
     groupAssignment,
+    subgroup,
     consented: consent,
     completeScores,
     savingStep,
@@ -106,7 +117,7 @@ function StudyFlow() {
     setStepError,
     setSavingStep,
     setParticipantId,
-    onAssigned: setGroupAssignment,
+    onAssigned: handleAllocated,
     goTo,
     goNext,
   })
@@ -179,6 +190,7 @@ function StudyFlow() {
     ready: () => (
       <Ready
         assignment={groupAssignment}
+        subgroup={subgroup}
         onContinue={() => goNext('ready')}
         onLogInteraction={logInteraction('ready')}
       />

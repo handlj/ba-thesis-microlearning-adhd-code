@@ -17,6 +17,7 @@ from app.models import (
 from app.services import (
     ensure_participant_exists,
     validate_assignment,
+    validate_subgroup,
     validate_likert_answers,
     current_utc_timestamp,
     score_adhd_screening,
@@ -57,6 +58,7 @@ def _persist_questionnaire(
         )
 
     assignment = validate_assignment(request.assignment)
+    subgroup = validate_subgroup(request.subgroup, assignment)
 
     answers = validate_likert_answers(
         request.answers,
@@ -70,6 +72,7 @@ def _persist_questionnaire(
     row = model(
         participant_id=participant_id,
         assignment=assignment,
+        subgroup=subgroup,
         submitted_at=submitted_at,
         **answers,
     )
@@ -102,6 +105,7 @@ def submit_adhd_screening(
         return ADHDScreeningSchemas.AdhdScreeningResponsePayload(
             participant_id=participant_id,
             assignment=participant.assignment,
+            subgroup=participant.subgroup,
             submitted_at=existing.submitted_at,
         )
 
@@ -114,9 +118,9 @@ def submit_adhd_screening(
 
     screen_positive = score_adhd_screening(answers)
 
-    if participant.assignment is None:
+    if participant.assignment is None and participant.subgroup is None:
         participant.adhd_screen_positive = screen_positive
-        participant.assignment = assign_balanced_group(session, screen_positive)
+        participant.assignment, participant.subgroup = assign_balanced_group(session, screen_positive)
         session.add(participant)
 
     submitted_at = current_utc_timestamp()
@@ -125,6 +129,7 @@ def submit_adhd_screening(
         AdhdScreeningResponse(
             participant_id=participant_id,
             assignment=participant.assignment,
+            subgroup=participant.subgroup,
             submitted_at=submitted_at,
             **answers,
         )
@@ -135,6 +140,7 @@ def submit_adhd_screening(
     return ADHDScreeningSchemas.AdhdScreeningResponsePayload(
         participant_id=participant_id,
         assignment=participant.assignment,
+        subgroup=participant.subgroup,
         submitted_at=submitted_at,
     )
 

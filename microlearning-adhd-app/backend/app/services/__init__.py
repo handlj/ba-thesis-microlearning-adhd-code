@@ -7,6 +7,7 @@ from app.services.validation import (
     validate_adhd_diagnosis,
     validate_age,
     validate_assignment,
+    validate_subgroup,
     validate_likert_answers,
 )
 
@@ -19,5 +20,6 @@ __all__ = [
     "validate_adhd_diagnosis",
     "validate_age",
     "validate_assignment",
+    "validate_subgroup",
     "validate_likert_answers",
 ]

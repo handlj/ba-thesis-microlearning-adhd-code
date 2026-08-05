@@ -32,7 +32,7 @@ export const quizTopics: QuizTopic[] = [
     questions: [
       {
         id: 'a1',
-        videoTimestamp: 41,
+        videoTimestamp: 42,
         prompt:
           'Welche der folgenden Zuordnungen zwischen Variablen und ihren Datentypen sind korrekt?',
         options: [
@@ -59,7 +59,7 @@ export const quizTopics: QuizTopic[] = [
       },
       {
         id: 'a3',
-        videoTimestamp: 98,
+        videoTimestamp: 99,
         prompt:
           'Betrachte den folgenden Code-Auszug. Welche Werte nehmen die Variablen zahl, zahl2 und zahl3 jeweils an?',
         code: `zahl = 36
@@ -117,7 +117,7 @@ zahl3 = zahl2 % zahl`,
     questions: [
       {
         id: 'b1',
-        videoTimestamp: 101,
+        videoTimestamp: 102,
         prompt:
           'Welche der unten angegebenen Schlüsselwörter gehören zur WENN-DANN-SONSTWENN-DANN-SONST Bedingung?',
         options: [
@@ -197,7 +197,7 @@ if x > 20:
       },
       {
         id: 'b5',
-        videoTimestamp: 101,
+        videoTimestamp: 102,
         prompt: 'Welche der folgenden Aussagen zu if-Statements sind korrekt?',
         options: [
           {
@@ -256,7 +256,7 @@ if x > 20:
       },
       {
         id: 'c3',
-        videoTimestamp: 225,
+        videoTimestamp: 226,
         prompt:
           'Durch welchen der folgenden Schleifen-Anfänge entsteht eine Endlosschleife (sofern im Schleifenkörper keine Abbruchbedingung verwendet wird)?',
         options: [
@@ -268,7 +268,7 @@ if x > 20:
       },
       {
         id: 'c4',
-        videoTimestamp: 225,
+        videoTimestamp: 226,
         prompt:
           'Welches Schlüsselwort (Keyword) eignet sich am besten, um eine Endlosschleife zu beenden?',
         options: [
@@ -280,7 +280,7 @@ if x > 20:
       },
       {
         id: 'c5',
-        videoTimestamp: 131,
+        videoTimestamp: 133,
         prompt: 'Betrachte den folgenden Code-Auszug. Wie oft wird `"Hi!"` ausgegeben?',
         code: `x = 1
 x += x
@@ -303,7 +303,7 @@ print("Hi!")`,
     questions: [
       {
         id: 'd1',
-        videoTimestamp: 56,
+        videoTimestamp: 58,
         prompt: 'Betrachte die folgende Funktion. Welche der folgenden Zuordnungen sind richtig?',
         code: `print('I', 'think', 'therefore', 'I', 'am.')`,
         options: [
@@ -359,7 +359,7 @@ print("Hi!")`,
       },
       {
         id: 'd4',
-        videoTimestamp: 269,
+        videoTimestamp: 270,
         prompt:
           'Betrachte erneut die Funktion which_dog_is_it. Welchen Fehler erhält man bei folgendem Funktionsaufruf?',
         code: `def which_dog_is_it(dogname, ownername, age=0):

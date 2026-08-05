@@ -230,6 +230,7 @@ export const copy = {
       intro: '',
     },
     assignmentLabel: 'Zugeordnete Gruppe:',
+    subgroupLabel: 'Zugeordnete Untergruppe:',
     facts: [
       {
         icon: 'play',
@@ -252,6 +253,11 @@ export const copy = {
     groupLabels: {
       control: 'Kontrollgruppe',
       experimental: 'Experimentalgruppe',
+    },
+    subgroupLabels: {
+      control: 'Kontrollgruppe',
+      standard: 'Standard-Player',
+      'enhanced-player': 'Erweiterter Player',
     },
   },
   preQuiz: {

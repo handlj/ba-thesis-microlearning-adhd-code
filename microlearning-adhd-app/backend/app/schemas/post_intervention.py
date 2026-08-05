@@ -3,6 +3,7 @@ from datetime import datetime
 
 class PostInterventionRequest(BaseModel):
     assignment: str
+    subgroup: str
     open_feedback: str
 
 

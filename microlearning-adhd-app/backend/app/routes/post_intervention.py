@@ -12,6 +12,7 @@ from app.services import (
     ensure_participant_exists,
     current_utc_timestamp,
     validate_assignment,
+    validate_subgroup,
 )
 
 
@@ -39,12 +40,14 @@ def submit_post_intervention(
         )
 
     assignment = validate_assignment(questionnaire.assignment)
+    subgroup = validate_subgroup(questionnaire.subgroup, assignment)
 
     submitted_at = current_utc_timestamp()
 
     post_intervention_response = PostInterventionResponse(
         participant_id=participant_id,
         assignment=assignment,
+        subgroup=subgroup,
         open_feedback=questionnaire.open_feedback,
         submitted_at=submitted_at,
     )

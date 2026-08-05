@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 from sqlmodel import Session, select
 
-from app.config import MAX_AGE, MIN_AGE, VALID_ADHD_DIAGNOSES, VALID_ASSIGNMENTS, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, ERROR_PARTICIPANT_NOT_FOUND, ERROR_INVALID_ASSIGNMENT, ERROR_INVALID_AGE, ERROR_INVALID_ADHD_DIAGNOSIS, ERROR_FIELD_REQUIRED
+from app.config import ERROR_INVALID_SUBGROUP, ERROR_SUBGROUP_ASSIGNMENT_MISMATCH, MAX_AGE, MIN_AGE, VALID_ADHD_DIAGNOSES, VALID_ASSIGNMENTS, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, ERROR_PARTICIPANT_NOT_FOUND, ERROR_INVALID_ASSIGNMENT, ERROR_INVALID_AGE, ERROR_INVALID_ADHD_DIAGNOSIS, ERROR_FIELD_REQUIRED, VALID_SUBGROUPS, VALID_SUBGROUPS_BY_ASSIGNMENT
 from app.models.session import ParticipantSession
 
 
@@ -31,6 +31,18 @@ def validate_assignment(assignment: str) -> str:
     normalized = require_non_empty_text(assignment, "Assignment")
     if normalized not in VALID_ASSIGNMENTS:
         raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_INVALID_ASSIGNMENT)
+    return normalized
+
+
+def validate_subgroup(subgroup: str, assignment: str) -> str:
+    normalized = require_non_empty_text(subgroup, "Subgroup")
+
+    if normalized not in VALID_SUBGROUPS:
+        raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_INVALID_SUBGROUP)
+
+    if normalized not in VALID_SUBGROUPS_BY_ASSIGNMENT.get(assignment, set()):
+        raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_SUBGROUP_ASSIGNMENT_MISMATCH)
+
     return normalized
 
 
