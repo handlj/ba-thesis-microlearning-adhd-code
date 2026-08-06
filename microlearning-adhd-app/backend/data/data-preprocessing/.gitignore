@@ -1,0 +1,2 @@
+# Merged datasets hold participant-level study data and stay out of version control.
+merged-dataset-*.csv

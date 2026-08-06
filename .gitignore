@@ -2,7 +2,8 @@
 .DS_Store
 .ipynb_checkpoints
 __pycache__/
-microlearning-adhd-app/backend/data/
+microlearning-adhd-app/backend/data/study_db_export*/
+microlearning-adhd-app/backend/data/study.db
 microlearning-adhd-app/backend/venv/
 microlearning-adhd-app/frontend/node_modules/
 microlearning-adhd-app/frontend/build/
