@@ -135,7 +135,6 @@ function StudyFlow() {
       key,
       () => {
         const QuestionnaireComponent = QUESTIONNAIRE_VIEWS[key]
-        const back = previousPage(key)
 
         return (
           <QuestionnaireComponent
@@ -143,7 +142,6 @@ function StudyFlow() {
             error={errors[key]}
             isSubmitting={savingStep === key}
             onChange={changeLikertAnswer(key)}
-            onBack={back ? goBack : undefined}
             onSubmit={submit[key]}
           />
         )
@@ -198,7 +196,6 @@ function StudyFlow() {
     preQuiz: () => (
       <PreQuiz
         onSubmit={submit.preQuiz}
-        onBack={goBack}
         onLogInteraction={(eventType, payload) => {
           clearStepError('preQuiz')
           logInteraction('preQuiz')(eventType, payload)
