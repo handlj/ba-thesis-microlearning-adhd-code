@@ -11,7 +11,6 @@ import { useControlGroup } from './useControlGroup.ts'
 import Quiz from './Quiz.tsx'
 
 export type ControlGroupProps = {
-  onBackToStart: () => void
   onCompleteIntervention: () => void
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
   onSubmitQuiz: (answers: Record<string, string[]>) => void
@@ -31,7 +30,6 @@ function ControlGroup(props: ControlGroupProps) {
     proceedFromVideo,
     proceedFromQuiz,
     backToVideo,
-    returnToWelcome,
   } = useControlGroup(props)
 
   return (
@@ -89,10 +87,6 @@ function ControlGroup(props: ControlGroupProps) {
 
       {phase === 'video' ? (
         <StudyActions className="study-actions--stacked">
-          <button type="button" className="secondary-button" onClick={returnToWelcome}>
-            {copy.actions.returnToWelcome}
-          </button>
-
           <button
             type="button"
             className="start-button"

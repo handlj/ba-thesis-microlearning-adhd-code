@@ -10,7 +10,6 @@ import type { ControlGroupProps } from './index.tsx'
 export type ControlPhase = 'video' | 'quiz'
 
 export function useControlGroup({
-  onBackToStart,
   onCompleteIntervention,
   onLogInteraction,
   onSubmitQuiz,
@@ -22,11 +21,12 @@ export function useControlGroup({
   } = useAsyncResource<ControlVideo>(getControlVideo, copy.errors.controlVideoLoad)
   const [phase, setPhase] = useState<ControlPhase>('video')
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
+  const [goBackToVideo, setGoBackToVideo] = useState(false)
   const quiz = useQuizAnswers(allQuizQuestions)
 
   useScrollToTop(phase)
 
-  const canProceedFromVideo = hasVideoEnded
+  const canProceedFromVideo = hasVideoEnded || goBackToVideo
   const canProceedFromQuiz = quiz.isComplete
 
   const handleVideoEnded = () => setHasVideoEnded(true)
@@ -52,13 +52,8 @@ export function useControlGroup({
 
   const backToVideo = () => {
     onLogInteraction('control_back_to_video_clicked')
-    quiz.reset()
+    setGoBackToVideo(true)
     setPhase('video')
-  }
-
-  const returnToWelcome = () => {
-    onLogInteraction('control_back_clicked', { fromPhase: phase })
-    onBackToStart()
   }
 
   return {
@@ -80,6 +75,5 @@ export function useControlGroup({
     proceedFromVideo,
     proceedFromQuiz,
     backToVideo,
-    returnToWelcome,
   }
 }

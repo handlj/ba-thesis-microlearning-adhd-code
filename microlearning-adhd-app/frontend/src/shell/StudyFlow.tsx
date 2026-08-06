@@ -209,7 +209,6 @@ function StudyFlow() {
     ),
     control: () => (
       <ControlGroup
-        onBackToStart={() => goTo('welcome')}
         onCompleteIntervention={() => goNext('control')}
         onLogInteraction={logInteraction('control')}
         onSubmitQuiz={recordControlQuiz}
@@ -217,7 +216,6 @@ function StudyFlow() {
     ),
     experimental: () => (
       <ExperimentalGroup
-        onBackToStart={() => goTo('welcome')}
         onCompleteIntervention={() => goNext('experimental')}
         onLogInteraction={logInteraction('experimental')}
         onSubmitQuiz={recordExperimentalQuiz}

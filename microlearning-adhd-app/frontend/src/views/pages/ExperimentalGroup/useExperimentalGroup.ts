@@ -40,7 +40,6 @@ export function decideQuizOutcome({
 export type ExperimentalPhase = 'video' | 'quiz'
 
 export function useExperimentalGroup({
-  onBackToStart,
   onCompleteIntervention,
   onLogInteraction,
   onSubmitQuiz,
@@ -54,6 +53,7 @@ export function useExperimentalGroup({
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
   const [attemptNumber, setAttemptNumber] = useState(1)
   const [isRewatch, setIsRewatch] = useState(false)
+  const [goBackToVideo, setGoBackToVideo] = useState(false)
   const [showRewatchDialog, setShowRewatchDialog] = useState(false)
   const [failedScore, setFailedScore] = useState<{ correct: number; total: number } | null>(null)
 
@@ -75,7 +75,7 @@ export function useExperimentalGroup({
     videoIndex: currentIndex + 1,
     videoCount,
   }
-  const canProceedFromVideo = hasVideoEnded || isRewatch
+  const canProceedFromVideo = hasVideoEnded || isRewatch || goBackToVideo
   const canProceedFromQuiz = currentTopic ? quiz.isComplete : true
 
   const handleVideoEnded = () => setHasVideoEnded(true)
@@ -103,6 +103,7 @@ export function useExperimentalGroup({
     setHasVideoEnded(false)
     setAttemptNumber(1)
     setIsRewatch(false)
+    setGoBackToVideo(false)
     setShowRewatchDialog(false)
     setFailedScore(null)
     setResumeSeconds(null)
@@ -189,9 +190,10 @@ export function useExperimentalGroup({
     advanceToNextVideo() // outcome is 'advance'
   }
 
-  const returnToWelcome = () => {
-    onLogInteraction('experimental_back_clicked', { fromPhase: phase, ...videoContext })
-    onBackToStart()
+  const backToVideo = () => {
+    onLogInteraction('experimental_back_to_video_clicked', { fromPhase: phase, ...videoContext })
+    setGoBackToVideo(true)
+    setPhase('video')
   }
 
   return {
@@ -201,6 +203,7 @@ export function useExperimentalGroup({
     video: currentVideo,
     canProceedFromVideo,
     canProceedFromQuiz,
+    goBackToVideo,
     quiz: {
       questions: currentTopic?.questions ?? [],
       answers: quiz.answers,
@@ -213,7 +216,7 @@ export function useExperimentalGroup({
     handleVideoLoadedMetadata,
     proceedFromVideo,
     proceedFromQuiz,
-    returnToWelcome,
+    backToVideo,
 
     topic: currentTopic,
     videoCount,

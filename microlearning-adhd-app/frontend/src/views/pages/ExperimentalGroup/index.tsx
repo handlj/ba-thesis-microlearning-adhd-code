@@ -14,7 +14,6 @@ import { useExperimentalGroup } from './useExperimentalGroup.ts'
 import Quizzes from './Quizzes.tsx'
 
 export type ExperimentalGroupProps = {
-  onBackToStart: () => void
   onCompleteIntervention: () => void
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
   onSubmitQuiz: (submission: {
@@ -34,13 +33,14 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
     video,
     canProceedFromVideo,
     canProceedFromQuiz,
+    goBackToVideo,
     quiz,
     hasVideoEnded,
     handleVideoEnded,
     handleVideoLoadedMetadata,
     proceedFromVideo,
     proceedFromQuiz,
-    returnToWelcome,
+    backToVideo,
     topic,
     videoCount,
     videoContext,
@@ -106,7 +106,7 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
               <Message variant="status">
                 {hasVideoEnded
                   ? copy.experimentalGroup.status.videoFinished
-                  : isRewatch
+                  : (isRewatch || goBackToVideo)
                     ? copy.experimentalGroup.status.rewatch
                     : withEmphasis(copy.video.watchFullVideo)}
               </Message>
@@ -134,10 +134,6 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
       ) : null}
 
       <StudyActions className="study-actions--stacked">
-        <button type="button" className="secondary-button" onClick={returnToWelcome}>
-          {copy.actions.returnToWelcome}
-        </button>
-
         {video && phase === 'video' ? (
           <button
             type="button"
@@ -150,14 +146,20 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
         ) : null}
 
         {video && phase === 'quiz' ? (
-          <button
-            type="button"
-            className="start-button"
-            disabled={!canProceedFromQuiz}
-            onClick={proceedFromQuiz}
-          >
-            {isLastVideo ? copy.actions.continue : copy.actions.nextVideo}
-          </button>
+          <>
+            <button type="button" className="secondary-button" onClick={backToVideo}>
+              {copy.actions.back}
+            </button>
+
+            <button
+              type="button"
+              className="start-button"
+              disabled={!canProceedFromQuiz}
+              onClick={proceedFromQuiz}
+            >
+              {isLastVideo ? copy.actions.continue : copy.actions.nextVideo}
+            </button>
+          </>
         ) : null}
       </StudyActions>
     </StudyPage>
