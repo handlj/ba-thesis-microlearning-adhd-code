@@ -1,11 +1,12 @@
 import json
 
 from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.exc import IntegrityError
 from sqlmodel import Session, select
 
 from app.config import ERROR_QUIZ_ANSWERS_REQUIRED, HTTP_400_BAD_REQUEST
 from app.database import get_session
-from app.models import QuizAnswer
+from app.models import QuizSubmission
 from app.schemas import QuizSchemas
 from app.services import (
     current_utc_timestamp,
@@ -31,47 +32,52 @@ def submit_quiz(
     assignment = validate_assignment(submission.assignment)
     subgroup = validate_subgroup(submission.subgroup, assignment)
 
+    attempt = submission.attempt if submission.attempt is not None else 1
+
     if not submission.answers:
         raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_QUIZ_ANSWERS_REQUIRED)
 
-    existing = session.exec(
-        select(QuizAnswer).where(
-            QuizAnswer.participant_id == participant_id,
-            QuizAnswer.video_id == submission.video_id,
-            QuizAnswer.video_index == submission.video_index,
-            QuizAnswer.topic_id == submission.topic_id,
-            QuizAnswer.attempt == submission.attempt,
-        )
-    ).first()
-
-    if existing is not None:
+    def stored_response(record: QuizSubmission) -> QuizSchemas.QuizSubmissionResponse:
         return QuizSchemas.QuizSubmissionResponse(
-            participant_id=participant_id,
-            answer_count=len(submission.answers),
-            submitted_at=existing.submitted_at,
+            participant_id=record.participant_id,
+            answer_count=record.answer_count,
+            submitted_at=record.submitted_at,
         )
 
-    submitted_at = current_utc_timestamp()
+    def find_existing() -> QuizSubmission | None:
+        return session.exec(
+            select(QuizSubmission)
+            .where(QuizSubmission.participant_id == participant_id)
+            .where(QuizSubmission.topic_id == submission.topic_id)
+            .where(QuizSubmission.attempt == attempt)
+        ).first()
 
-    for question_id, selected_options in submission.answers.items():
-        quiz_answer = QuizAnswer(
-            participant_id=participant_id,
-            assignment=assignment,
-            subgroup=subgroup,
-            video_id=submission.video_id,
-            video_index=submission.video_index,
-            topic_id=submission.topic_id,
-            question_id=question_id,
-            selected_options=json.dumps(selected_options),
-            attempt=submission.attempt,
-            submitted_at=submitted_at,
-        )
-        session.add(quiz_answer)
+    existing = find_existing()
+    if existing is not None:
+        return stored_response(existing)
 
-    session.commit()
-
-    return QuizSchemas.QuizSubmissionResponse(
+    record = QuizSubmission(
         participant_id=participant_id,
+        assignment=assignment,
+        subgroup=subgroup,
+        video_id=submission.video_id,
+        video_index=submission.video_index,
+        topic_id=submission.topic_id,
+        answers_json=json.dumps(submission.answers),
         answer_count=len(submission.answers),
-        submitted_at=submitted_at,
+        attempt=attempt,
+        submitted_at=current_utc_timestamp(),
     )
+    session.add(record)
+
+    try:
+        session.commit()
+    except IntegrityError:
+        session.rollback()
+        existing = find_existing()
+        if existing is None:
+            raise
+        return stored_response(existing)
+
+    session.refresh(record)
+    return stored_response(record)

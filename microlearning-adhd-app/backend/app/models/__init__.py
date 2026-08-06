@@ -8,7 +8,7 @@ from .questionnaires import (
     PanasPreResponse,
     UesResponse,
 )
-from .quiz import QuizAnswer
+from .quiz import QuizSubmission
 from .session import ParticipantSession
 
 __all__ = [
@@ -20,6 +20,6 @@ __all__ = [
     "PanasPostResponse",
     "FamResponse",
     "UesResponse",
-    "QuizAnswer",
+    "QuizSubmission",
     "ParticipantSession",
 ]
