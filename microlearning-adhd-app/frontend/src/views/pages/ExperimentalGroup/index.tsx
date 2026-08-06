@@ -106,7 +106,7 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
               <Message variant="status">
                 {hasVideoEnded
                   ? copy.experimentalGroup.status.videoFinished
-                  : (isRewatch || goBackToVideo)
+                  : isRewatch || goBackToVideo
                     ? copy.experimentalGroup.status.rewatch
                     : withEmphasis(copy.video.watchFullVideo)}
               </Message>
