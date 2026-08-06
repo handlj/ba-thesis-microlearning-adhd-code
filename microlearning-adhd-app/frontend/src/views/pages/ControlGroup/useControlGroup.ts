@@ -33,8 +33,7 @@ export function useControlGroup({
   const handleVideoLoadedMetadata = () => setHasVideoEnded(false)
 
   const handleToggleAnswer = (questionId: string, optionId: string) => {
-    const checked = quiz.toggle(questionId, optionId)
-    onLogInteraction('control_quiz_answer_selected', { questionId, optionId, checked })
+    quiz.toggle(questionId, optionId)
   }
 
   const proceedFromVideo = () => {

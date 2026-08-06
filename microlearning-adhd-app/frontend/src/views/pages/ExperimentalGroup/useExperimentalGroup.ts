@@ -82,14 +82,7 @@ export function useExperimentalGroup({
   const handleVideoLoadedMetadata = () => setHasVideoEnded(false)
 
   const handleToggleAnswer = (questionId: string, optionId: string) => {
-    const checked = quiz.toggle(questionId, optionId)
-    onLogInteraction('experimental_quiz_answer_selected', {
-      ...videoContext,
-      topicId: currentTopic?.id ?? null,
-      questionId,
-      optionId,
-      checked,
-    })
+    quiz.toggle(questionId, optionId)
   }
 
   const startRewatch = (score: QuizScore) => {

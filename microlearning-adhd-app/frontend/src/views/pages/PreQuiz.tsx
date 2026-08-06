@@ -21,12 +21,7 @@ function PreQuiz({ onSubmit, onBack, onLogInteraction, onSubmitQuiz, error }: Pr
   const { answers, isComplete, answeredCount, total, toggle } = useQuizAnswers(allQuizQuestions)
 
   const handleToggle = (questionId: string, optionId: string) => {
-    const checked = toggle(questionId, optionId)
-    onLogInteraction('pre_quiz_answer_selected', {
-      questionId,
-      optionId,
-      checked,
-    })
+    toggle(questionId, optionId)
   }
 
   const handleSubmit = () => {
