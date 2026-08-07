@@ -9,11 +9,11 @@ from app.database import get_session
 from app.models import QuizSubmission
 from app.schemas import QuizSchemas
 from app.services import (
-    current_utc_timestamp,
     ensure_participant_exists,
     validate_assignment,
     validate_subgroup,
 )
+from app.timestamps import current_utc_timestamp
 
 router = APIRouter(prefix="/api/participants")
 

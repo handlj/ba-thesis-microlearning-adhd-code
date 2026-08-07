@@ -4,6 +4,7 @@ from sqlmodel import Field, SQLModel, UniqueConstraint
 from sqlmodel.main import SQLModelMetaclass
 
 from app.config import ADHD_SCREENING_ITEM_COUNT, FAM_ITEM_COUNT, PANAS_ITEM_COUNT, UES_ITEM_COUNT
+from app.timestamps import UtcDateTime
 
 
 def _make_likert_model(name: str, prefix: str, count: int) -> type[SQLModel]:
@@ -37,6 +38,7 @@ def _make_likert_model(name: str, prefix: str, count: int) -> type[SQLModel]:
     for index in range(1, count + 1):
         annotations[f"{prefix}{index}"] = int
     annotations["submitted_at"] = datetime
+    namespace["submitted_at"] = Field(sa_type=UtcDateTime)
 
     namespace["__annotations__"] = annotations
     namespace["__module__"] = __name__

@@ -2,6 +2,8 @@ from datetime import datetime
 
 from sqlmodel import Field, SQLModel, UniqueConstraint
 
+from app.timestamps import UtcDateTime
+
 
 class QuizSubmission(SQLModel, table=True):
     __table_args__ = (
@@ -23,4 +25,4 @@ class QuizSubmission(SQLModel, table=True):
     answers_json: str
     answer_count: int
     attempt: int = Field(default=1)
-    submitted_at: datetime
+    submitted_at: datetime = Field(sa_type=UtcDateTime)

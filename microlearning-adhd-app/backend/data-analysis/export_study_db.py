@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import sqlite3
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,7 +53,7 @@ def export_database(db_path: Path, output_root: Path) -> Path:
     if not db_path.exists():
         raise FileNotFoundError(f"Database file not found: {db_path}")
 
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    timestamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     output_directory = output_root / f"study_db_export_{timestamp}"
     output_directory.mkdir(parents=True, exist_ok=False)
 

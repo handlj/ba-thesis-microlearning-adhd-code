@@ -2,6 +2,8 @@ from datetime import datetime
 
 from sqlmodel import Field, SQLModel
 
+from app.timestamps import UtcDateTime
+
 
 class PostInterventionResponse(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
@@ -9,4 +11,4 @@ class PostInterventionResponse(SQLModel, table=True):
     assignment: str
     subgroup: str
     open_feedback: str
-    submitted_at: datetime
+    submitted_at: datetime = Field(sa_type=UtcDateTime)

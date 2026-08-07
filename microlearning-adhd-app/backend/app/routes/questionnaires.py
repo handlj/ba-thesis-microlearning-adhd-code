@@ -21,13 +21,13 @@ from app.models import (
 from app.schemas import ADHDScreeningSchemas, QuestionnaireSchemas
 from app.services import (
     assign_balanced_group,
-    current_utc_timestamp,
     ensure_participant_exists,
     score_adhd_screening,
     validate_assignment,
     validate_likert_answers,
     validate_subgroup,
 )
+from app.timestamps import current_utc_timestamp
 
 router = APIRouter(prefix="/api/participants")
 

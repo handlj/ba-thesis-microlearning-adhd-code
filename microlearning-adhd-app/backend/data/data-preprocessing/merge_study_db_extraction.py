@@ -15,7 +15,7 @@ import csv
 import json
 import sys
 from collections.abc import Iterable, Sequence
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 
 BACKEND_DIR = Path(__file__).resolve().parent.parent.parent
@@ -486,7 +486,7 @@ def build_records(export_directory: Path) -> list[dict[str, object]]:
 
 def write_dataset(records: Sequence[dict[str, object]], output_directory: Path) -> Path:
     output_directory.mkdir(parents=True, exist_ok=True)
-    timestamp = datetime.now().strftime("%Y-%m-%d-%H%M%S")
+    timestamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     output_path = output_directory / f"merged-dataset-{timestamp}.csv"
 
     with output_path.open("w", newline="", encoding="utf-8") as csv_file:

@@ -93,7 +93,7 @@ ERROR_QUIZ_ANSWERS_REQUIRED = "Quiz answers are required."
 ERROR_FIELD_REQUIRED = "{field_name} is required."
 ERROR_INVALID_SUBGROUP = "Invalid subgroup."
 ERROR_SUBGROUP_ASSIGNMENT_MISMATCH = "Subgroup does not match the assignment."
-
+ERROR_NAIVE_TIMESTAMP_WRITE = "Naive timestamp write detected. Use UTC-aware timestamps."
 
 # Video Filenames
 CONTROL_VIDEO_FILENAME = "video-full-v1.mp4"

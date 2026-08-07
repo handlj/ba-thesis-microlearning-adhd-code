@@ -1,6 +1,6 @@
-from datetime import datetime
-
 from pydantic import BaseModel
+
+from app.timestamps import UtcTimestamp
 
 
 class InteractionEventRequest(BaseModel):
@@ -8,10 +8,10 @@ class InteractionEventRequest(BaseModel):
     subgroup: str
     page: str
     event_type: str
-    occurred_at: datetime
+    occurred_at: UtcTimestamp
     payload: dict[str, str | int | float | bool | None] | None = None
 
 
 class InteractionEventResponse(BaseModel):
     id: int
-    received_at: datetime
+    received_at: UtcTimestamp

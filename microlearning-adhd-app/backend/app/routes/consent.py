@@ -5,7 +5,7 @@ from app.config import ERROR_CONSENT_REQUIRED, HTTP_400_BAD_REQUEST
 from app.database import get_session
 from app.models import ParticipantSession
 from app.schemas import ConsentSchemas
-from app.services import current_utc_timestamp
+from app.timestamps import current_utc_timestamp
 
 router = APIRouter(prefix="/api/participants")
 

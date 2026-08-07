@@ -5,12 +5,12 @@ from app.database import get_session
 from app.models import Demographics
 from app.schemas import DemographicsSchemas
 from app.services import (
-    current_utc_timestamp,
     ensure_participant_exists,
     require_non_empty_text,
     validate_adhd_diagnosis,
     validate_age,
 )
+from app.timestamps import current_utc_timestamp
 
 router = APIRouter(prefix="/api/participants")
 
