@@ -72,7 +72,7 @@ DEMOGRAPHICS_FIELDS: tuple[tuple[str, str], ...] = (
 )
 
 ADHD_FIELDS: tuple[tuple[str, str], ...] = tuple(
-    (f"adhd{item}", f"adhd{item}") for item in range(1, 19)
+    (f"adhd{item}", f"adhd{item}") for item in range(1, 20)
 ) + (("adhd_submitted_at", "submitted_at"),)
 
 PANAS_PRE_FIELDS: tuple[tuple[str, str], ...] = tuple(
@@ -84,11 +84,11 @@ PANAS_POST_FIELDS: tuple[tuple[str, str], ...] = tuple(
 ) + (("postpanas_submitted_at", "submitted_at"),)
 
 FAM_FIELDS: tuple[tuple[str, str], ...] = tuple(
-    (f"fam{item}", f"fam{item}") for item in range(1, 19)
+    (f"fam{item}", f"fam{item}") for item in range(1, 20)
 ) + (("fam_submitted_at", "submitted_at"),)
 
 UES_FIELDS: tuple[tuple[str, str], ...] = tuple(
-    (f"ues{item}", f"ues{item}") for item in range(1, 31)
+    (f"ues{item}", f"ues{item}") for item in range(1, 32)
 ) + (("ues_submitted_at", "submitted_at"),)
 
 POST_INTERVENTION_FIELDS: tuple[tuple[str, str], ...] = (

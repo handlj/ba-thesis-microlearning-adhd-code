@@ -48,6 +48,10 @@ export const fam = {
       text: 'Ich fürchte mich ein wenig davor, dass ich mich hier blamieren könnte.',
     },
     {
+      id: 'valid_fam',
+      text: 'Wählen Sie hier bitte den Wert "6" aus.',
+    },
+    {
       id: 'fam10',
       text: 'Ich bin fest entschlossen, mich bei dieser Aufgabe voll anzustrengen.',
     },

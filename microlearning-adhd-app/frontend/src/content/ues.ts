@@ -105,6 +105,10 @@ export const ues = {
       text: 'MicroPython spricht auf visuelle Sinne an.',
     },
     {
+      id: 'valid_ues',
+      text: 'Wählen Sie hier bitte den Wert "1" aus.',
+    },
+    {
       id: 'ues20',
       text: 'Das Bildschirmlayout von MicroPython war optisch ansprechend.',
     },

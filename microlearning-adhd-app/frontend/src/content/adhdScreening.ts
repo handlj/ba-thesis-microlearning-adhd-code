@@ -4,7 +4,7 @@ export const adhdScreening = {
     eyebrow: '',
     title: 'Bitte füllen Sie den Fragebogen aus',
     intro:
-      'Bitte beantworten Sie die nachstehenden Fragen, indem Sie sich nach jedem angegebenen Kriterium anhand der Skala rechts auf der Seite bewerten. Kreuzen Sie als Antwort auf jede Frage das Kästchen an, das am besten beschreibt, wie Sie sich in den letzten 6 Monaten gefühlt und verhalten haben.',
+      'Bitte beantworten Sie die nachstehenden Fragen, indem Sie sich nach jedem angegebenen Kriterium anhand der Skala rechts auf der Seite bewerten.\n\n Kreuzen Sie als Antwort auf jede Frage das Kästchen an, das am besten beschreibt, wie Sie sich **in den letzten 6 Monaten** gefühlt und verhalten haben.',
   },
   instructions: '',
   actions: {
@@ -64,6 +64,10 @@ export const adhdScreening = {
     {
       id: 'adhd9',
       text: 'Wie oft haben Sie Schwierigkeiten, sich auf das, was man Ihnen sagt, zu konzentrieren, selbst wenn man Sie direkt anspricht?',
+    },
+    {
+      id: 'valid_adhd',
+      text: 'Wählen Sie hier bitte den Wert "2" aus.',
     },
     {
       id: 'adhd10',
