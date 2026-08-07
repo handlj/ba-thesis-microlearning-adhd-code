@@ -304,7 +304,8 @@ print("Hi!")`,
       {
         id: 'd1',
         videoTimestamp: 58,
-        prompt: 'Betrachten Sie die folgende Funktion. Welche der folgenden Zuordnungen sind richtig?',
+        prompt:
+          'Betrachten Sie die folgende Funktion. Welche der folgenden Zuordnungen sind richtig?',
         code: `print('I', 'think', 'therefore', 'I', 'am.')`,
         options: [
           {
