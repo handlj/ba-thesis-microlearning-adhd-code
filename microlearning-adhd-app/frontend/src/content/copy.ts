@@ -251,7 +251,7 @@ export const copy = {
       eyebrow: '',
       title: 'Bitte beantworten Sie die folgenden Quizfragen.',
       intro:
-        'Bevor Sie mit der Lerneinheit starten, beantworten Sie bitte die folgenden Fragen so gut Sie können. Bei allen Fragen können 1 bis 4 Antwortalternativen korrekt sein. Wenn Sie sich nicht sicher sind, ist das kein Problem. Wählen Sie dann einfach die Antwortalternativen aus, die für Sie am meisten Sinn ergeben. Es wird von Ihnen kein Vorwissen erwartet. Bitte beantworten Sie alle Fragen, bevor Sie fortfahren.',
+        'Bevor Sie mit der Lerneinheit starten, beantworten Sie bitte die folgenden Fragen so gut Sie können.\n\n Bei allen Fragen können **1 bis 4** Antwortalternativen korrekt sein. Wenn Sie sich nicht sicher sind, ist das kein Problem. Wählen Sie dann einfach die Antwortalternativen aus, die für Sie am meisten Sinn ergeben.\n\n Es wird von Ihnen kein Vorwissen erwartet. Bitte beantworten Sie **alle** Fragen, bevor Sie fortfahren.',
     },
   },
   controlGroup: {

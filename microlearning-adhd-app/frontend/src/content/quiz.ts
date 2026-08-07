@@ -61,7 +61,7 @@ export const quizTopics: QuizTopic[] = [
         id: 'a3',
         videoTimestamp: 99,
         prompt:
-          'Betrachte den folgenden Code-Auszug. Welche Werte nehmen die Variablen zahl, zahl2 und zahl3 jeweils an?',
+          'Betrachten Sie den folgenden Code-Auszug. Welche Werte nehmen die Variablen zahl, zahl2 und zahl3 jeweils an?',
         code: `zahl = 36
 zahl = 4
 zahl += 4
@@ -81,7 +81,7 @@ zahl3 = zahl2 % zahl`,
         id: 'a4',
         videoTimestamp: 202,
         prompt:
-          'Betrachte die Variable `string = "abcdef"`. Welche der folgenden Aussagen sind korrekt?',
+          'Betrachten Sie die Variable `string = "abcdef"`. Welche der folgenden Aussagen sind korrekt?',
         options: [
           { id: 'a', text: '`string[0]` hat den Wert `abcdef`' },
           { id: 'b', text: '`string[1:3]` hat den Wert `bc`', correct: true },
@@ -142,7 +142,7 @@ zahl3 = zahl2 % zahl`,
       {
         id: 'b3',
         videoTimestamp: 205,
-        prompt: 'Betrachte folgenden Code-Auszug. Welche der folgenden Aussagen sind korrekt?',
+        prompt: 'Betrachten Sie folgenden Code-Auszug. Welche der folgenden Aussagen sind korrekt?',
         code: `if x < 10:
   print("Ich bin einstellig.")
 else:
@@ -172,7 +172,7 @@ print("Ich bin nicht eingerückt.")`,
         id: 'b4',
         videoTimestamp: 205,
         prompt:
-          'Betrachte die folgenden beiden Code-Auszüge. Welche der folgenden Aussagen sind korrekt?',
+          'Betrachten Sie die folgenden beiden Code-Auszüge. Welche der folgenden Aussagen sind korrekt?',
         code: `# Auszug A
 if x > 40:
   print("Ich bin größer als 40.")
@@ -237,7 +237,7 @@ if x > 20:
       {
         id: 'c2',
         videoTimestamp: 89,
-        prompt: 'Betrachte folgenden Code-Auszug. Welche Aussagen sind korrekt?',
+        prompt: 'Betrachten Sie folgenden Code-Auszug. Welche Aussagen sind korrekt?',
         code: `[...] zahl in [1, 2, 3, 4]:
   print(zahl)`,
         options: [
@@ -281,7 +281,7 @@ if x > 20:
       {
         id: 'c5',
         videoTimestamp: 133,
-        prompt: 'Betrachte den folgenden Code-Auszug. Wie oft wird `"Hi!"` ausgegeben?',
+        prompt: 'Betrachten Sie den folgenden Code-Auszug. Wie oft wird `"Hi!"` ausgegeben?',
         code: `x = 1
 x += x
 while x > 4:
@@ -304,7 +304,7 @@ print("Hi!")`,
       {
         id: 'd1',
         videoTimestamp: 58,
-        prompt: 'Betrachte die folgende Funktion. Welche der folgenden Zuordnungen sind richtig?',
+        prompt: 'Betrachten Sie die folgende Funktion. Welche der folgenden Zuordnungen sind richtig?',
         code: `print('I', 'think', 'therefore', 'I', 'am.')`,
         options: [
           {
@@ -343,7 +343,7 @@ print("Hi!")`,
         id: 'd3',
         videoTimestamp: 220,
         prompt:
-          'Betrachte folgende Funktion. Welche der folgenden Beispiele sind valide Funktionsaufrufe für einen dreijährigen Hund mit dem Namen Pluto, dessen Besitzer (owner) Hans heißt?',
+          'Betrachten Sie folgende Funktion. Welche der folgenden Beispiele sind valide Funktionsaufrufe für einen dreijährigen Hund mit dem Namen Pluto, dessen Besitzer (owner) Hans heißt?',
         code: `def which_dog_is_it(dogname, ownername, age=0):
   print(f'My dog {dogname} is {age} years old and the owner is {ownername}.')`,
         options: [
@@ -361,7 +361,7 @@ print("Hi!")`,
         id: 'd4',
         videoTimestamp: 270,
         prompt:
-          'Betrachte erneut die Funktion which_dog_is_it. Welchen Fehler erhält man bei folgendem Funktionsaufruf?',
+          'Betrachten Sie erneut die Funktion which_dog_is_it. Welchen Fehler erhält man bei folgendem Funktionsaufruf?',
         code: `def which_dog_is_it(dogname, ownername, age=0):
   print(f'My dog {dogname} is {age} years old and the owner is {ownername}.')
 
