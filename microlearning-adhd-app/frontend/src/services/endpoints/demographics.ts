@@ -15,6 +15,7 @@ export async function postDemographics(participantId: string, demographics: Demo
       adhd_diagnosis: demographics.adhdDiagnosis,
       adhd_official_diagnosis: demographics.adhdOfficialDiagnosis,
       adhd_medication: demographics.adhdMedication,
+      device: demographics.device,
     },
   )
   return response.data

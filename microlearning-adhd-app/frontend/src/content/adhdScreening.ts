@@ -66,7 +66,7 @@ export const adhdScreening = {
       text: 'Wie oft haben Sie Schwierigkeiten, sich auf das, was man Ihnen sagt, zu konzentrieren, selbst wenn man Sie direkt anspricht?',
     },
     {
-      id: 'valid_adhd',
+      id: 'adhd19',
       text: 'Wählen Sie hier bitte den Wert "2" aus.',
     },
     {

@@ -185,6 +185,17 @@ export const copy = {
           preferNotToSay: 'Keine Angabe',
         },
       },
+      device: {
+        label: 'Verwendetes Gerät',
+        placeholder: 'Wählen Sie Ihr Gerät aus',
+        options: {
+          desktop: 'Desktop-Computer ("Stand-PC")',
+          laptop: 'Laptop',
+          tablet: 'Tablet',
+          smartphone: 'Smartphone',
+          other: 'Anderes Gerät',
+        },
+      },
     },
   },
   preIntervention: {
@@ -195,7 +206,7 @@ export const copy = {
         /* Original Instruction Text: 
           Bevor wir starten, wollen wir wissen, wie deine momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu findest du auf dieser Seite  Aussagen. Kreuze bitte jene Zahl an, die auf dich am Besten passt.
         */
-        'Bevor wir starten, wollen wir wissen, wie Ihre momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu finden Sie auf dieser Seite Aussagen. Kreuzen Sie bitte jene Zahl an, die auf Sie am Besten passt.',
+        'Bevor wir starten, wollen wir wissen, wie Ihre momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu finden Sie auf dieser Seite Aussagen.\n\n Kreuzen Sie bitte jene Zahl an, die auf Sie am Besten passt.',
     },
   },
   ready: {

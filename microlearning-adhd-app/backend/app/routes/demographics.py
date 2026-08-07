@@ -46,6 +46,7 @@ def submit_demographics(
         adhd_diagnosis=demographics.adhd_diagnosis,
         adhd_official_diagnosis=demographics.adhd_official_diagnosis,
         adhd_medication=demographics.adhd_medication,
+        device=demographics.device,
         submitted_at=current_utc_timestamp(),
     )
 

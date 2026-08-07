@@ -38,10 +38,10 @@ BIASED_COIN_PROBABILITY = 0.75
 
 
 # Number of items per Likert questionnaire.
-ADHD_SCREENING_ITEM_COUNT = 18
+ADHD_SCREENING_ITEM_COUNT = 19
 PANAS_ITEM_COUNT = 20
-FAM_ITEM_COUNT = 18
-UES_ITEM_COUNT = 30
+FAM_ITEM_COUNT = 19
+UES_ITEM_COUNT = 31
 
 # Expected question IDs per Likert questionnaire
 # Must match the frontend content files in frontend/src/content/*.ts and column names in models.py.

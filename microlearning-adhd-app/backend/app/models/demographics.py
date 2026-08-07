@@ -14,4 +14,5 @@ class Demographics(SQLModel, table=True):
     adhd_diagnosis: str
     adhd_official_diagnosis: str
     adhd_medication: str
+    device: str
     submitted_at: datetime

@@ -105,7 +105,7 @@ export const ues = {
       text: 'MicroPython spricht auf visuelle Sinne an.',
     },
     {
-      id: 'valid_ues',
+      id: 'ues31',
       text: 'Wählen Sie hier bitte den Wert "1" aus.',
     },
     {

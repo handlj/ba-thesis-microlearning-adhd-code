@@ -69,6 +69,7 @@ DEMOGRAPHICS_FIELDS: tuple[tuple[str, str], ...] = (
     ("adhd_official_diagnosis", "adhd_official_diagnosis"),
     ("adhd_medication", "adhd_medication"),
     ("demographics_submitted_at", "submitted_at"),
+    ("device", "device"),
 )
 
 ADHD_FIELDS: tuple[tuple[str, str], ...] = tuple(

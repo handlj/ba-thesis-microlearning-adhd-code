@@ -21,6 +21,7 @@ export const defaultDemographics: DemographicAnswers = {
   adhdDiagnosis: '',
   adhdOfficialDiagnosis: '',
   adhdMedication: '',
+  device: '',
 }
 
 export const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = (

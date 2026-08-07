@@ -10,6 +10,7 @@ class DemographicsRequest(BaseModel):
     adhd_diagnosis: str
     adhd_official_diagnosis: str
     adhd_medication: str
+    device: str
 
 
 class DemographicsResponse(BaseModel):

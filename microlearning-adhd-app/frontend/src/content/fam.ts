@@ -48,7 +48,7 @@ export const fam = {
       text: 'Ich fürchte mich ein wenig davor, dass ich mich hier blamieren könnte.',
     },
     {
-      id: 'valid_fam',
+      id: 'fam19',
       text: 'Wählen Sie hier bitte den Wert "6" aus.',
     },
     {
