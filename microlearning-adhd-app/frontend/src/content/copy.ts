@@ -98,37 +98,12 @@ export const copy = {
       noDataCollected: 'Ohne Ihr Einverständnis werden keine Daten erhoben.',
     },
   },
-  // TODO: Remove outdated consent content, source of truth is now in Consent.tsx. Consider moving the remaining content to a dedicated file for better maintainability.
   consent: {
     heading: {
       eyebrow: 'Teilnehmer*inneninformation und Einwilligung',
       title: '',
       intro: '',
     },
-    sections: [
-      {
-        title: 'Welche Daten wir erheben',
-        items: [
-          'Grundlegende demografische Angaben wie Alter, Geschlecht und Studienhintergrund.',
-          'Antworten auf Fragebögen und Interaktionszeitpunkte.',
-          'Technische Metadaten, die zur Sicherstellung der Datenqualität benötigt werden.',
-        ],
-      },
-      {
-        title: 'Wie Ihre Daten verarbeitet werden',
-        items: [
-          'Ihre Antworten werden ausschließlich für akademische Forschungszwecke verwendet.',
-          'Die Daten werden sicher gespeichert und in aggregierter Form berichtet.',
-          'Sie können die Teilnahme jederzeit ohne Angabe von Gründen beenden.',
-        ],
-      },
-      {
-        title: 'Kontakt und weitere Informationen',
-        items: [
-          'Wenn Sie Fragen zur Studie oder zur Datenverarbeitung haben, kontaktieren Sie uns bitte unter jan.handler@student.tugraz.at.',
-        ],
-      },
-    ],
     agreement:
       'Ich habe die vorstehende Einverständniserklärung gelesen, verstanden und stimme ihr zu.',
   },

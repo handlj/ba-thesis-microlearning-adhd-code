@@ -4,6 +4,7 @@ import { copy } from '../../../content/copy.ts'
 import { allQuizQuestions } from '../../../content/quiz.ts'
 import { useAsyncResource } from '../../../hooks/useAsyncResource.ts'
 import { useScrollToTop } from '../../../hooks/useScrollToTop.ts'
+import { useTabAwayLog } from '../../../hooks/useTabAwayLog.ts'
 import { getControlVideo, type ControlVideo } from '../../../services/index.ts'
 import type { ControlGroupProps } from './index.tsx'
 
@@ -25,6 +26,12 @@ export function useControlGroup({
   const quiz = useQuizAnswers(allQuizQuestions)
 
   useScrollToTop(phase)
+
+  useTabAwayLog({
+    eventPrefix: 'control',
+    eventPayload: { phase },
+    onLogInteraction,
+  })
 
   const canProceedFromVideo = hasVideoEnded || goBackToVideo
   const canProceedFromQuiz = quiz.isComplete

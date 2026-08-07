@@ -26,15 +26,7 @@ const NEXT_OVERRIDES: Partial<Record<Page, Page | null>> = {
   thankYou: null,
 }
 
-const BACKTRACKABLE_PAGE = new Set<Page>([
-  // TODO: Verify correctness for the study flow.
-  'consent',
-  'demographics',
-  'adhdScreening',
-  'prePanas',
-  'fam',
-  'preQuiz',
-])
+const BACKTRACKABLE_PAGE = new Set<Page>(['consent', 'demographics'])
 
 export function nextPage(currentPage: Page): Page | null {
   if (Object.hasOwn(NEXT_OVERRIDES, currentPage)) {

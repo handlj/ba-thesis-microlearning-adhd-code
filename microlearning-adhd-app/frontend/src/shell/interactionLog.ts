@@ -1,5 +1,9 @@
 import { copy } from '../content/copy.ts'
-import { postInteractionEvent, type StudyInteractionPayload } from '../services/index.ts'
+import {
+  postInteractionEvent,
+  postInteractionEventKeepAlive,
+  type StudyInteractionPayload,
+} from '../services/index.ts'
 import type { GroupAssignment, Subgroup } from '../utils/groupAssignment.ts'
 
 export type LogInteraction = (eventType: string, payload?: StudyInteractionPayload) => void
@@ -12,13 +16,20 @@ export function createInteractionLogger(
   return (interactionPage) => (eventType, payload) => {
     if (!participantId || !assignment || !subgroup) return
 
-    void postInteractionEvent(participantId, {
+    const event = {
       assignment,
       subgroup,
       page: interactionPage,
       event_type: eventType,
       payload,
-    }).catch((requestError) => {
+    }
+
+    const request =
+      document.visibilityState === 'hidden'
+        ? postInteractionEventKeepAlive(participantId, event)
+        : postInteractionEvent(participantId, event)
+
+    void request.catch((requestError) => {
       console.error(copy.errors.interactionPersist, requestError)
     })
   }

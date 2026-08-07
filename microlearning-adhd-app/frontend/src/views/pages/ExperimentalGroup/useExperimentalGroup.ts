@@ -4,6 +4,7 @@ import { copy } from '../../../content/copy.ts'
 import { quizTopics } from '../../../content/quiz.ts'
 import { useAsyncResource } from '../../../hooks/useAsyncResource.ts'
 import { useScrollToTop } from '../../../hooks/useScrollToTop.ts'
+import { useTabAwayLog } from '../../../hooks/useTabAwayLog.ts'
 import { getExperimentalVideos, type ExperimentalVideo } from '../../../services/index.ts'
 import { getAppConfig } from '../../../utils/config.ts'
 import { scoreQuiz, type QuizScore } from '../../../utils/quizScoring.ts'
@@ -77,6 +78,12 @@ export function useExperimentalGroup({
   }
   const canProceedFromVideo = hasVideoEnded || isRewatch || goBackToVideo
   const canProceedFromQuiz = currentTopic ? quiz.isComplete : true
+
+  useTabAwayLog({
+    eventPrefix: 'experimental',
+    eventPayload: { phase, attempt: attemptNumber },
+    onLogInteraction,
+  })
 
   const handleVideoEnded = () => setHasVideoEnded(true)
   const handleVideoLoadedMetadata = () => setHasVideoEnded(false)
