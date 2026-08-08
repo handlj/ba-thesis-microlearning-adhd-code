@@ -20,7 +20,7 @@ from pathlib import Path
 
 BACKEND_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = BACKEND_DIR / "data"
-OUTPUT_DIR = Path(__file__).resolve().parent
+OUTPUT_DIR = Path(__file__).resolve().parent / "datasets"
 EXPORT_DIR_PREFIX = "study_db_export_"
 
 SESSION_TABLE = "participantsession"
