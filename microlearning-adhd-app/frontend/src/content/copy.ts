@@ -206,7 +206,7 @@ export const copy = {
         /* Original Instruction Text: 
           Bevor wir starten, wollen wir wissen, wie deine momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu findest du auf dieser Seite  Aussagen. Kreuze bitte jene Zahl an, die auf dich am Besten passt.
         */
-        'Bevor wir starten, wollen wir wissen, wie Ihre momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu finden Sie auf dieser Seite Aussagen.\n\n Kreuzen Sie bitte jene Zahl an, die auf Sie am Besten passt.',
+        'Bevor wir starten, wollen wir wissen, wie Ihre **momentane Einstellung** zu der beschriebenen Aufgabe ist. Dazu finden Sie auf dieser Seite Aussagen.\n\n Kreuzen Sie bitte jene Zahl an, die auf Sie am Besten passt.',
     },
   },
   ready: {
@@ -221,12 +221,12 @@ export const copy = {
       {
         icon: 'play',
         label: 'Videoinhalt',
-        value: 'Eine kurze Einführung in die nachfolgende Lerneinheit.',
+        value: 'Eine kurze Einführung in die Lerneinheit.',
       },
       {
         icon: 'headphones',
         label: 'Vorbereitung',
-        value: 'Prüfen Sie die Video- und Audiowiedergabe.',
+        value: 'Prüfen Sie die Audiowiedergabe.',
       },
     ],
     status: {
@@ -251,7 +251,7 @@ export const copy = {
       eyebrow: '',
       title: 'Bitte beantworten Sie die folgenden Quizfragen.',
       intro:
-        'Bevor Sie mit der Lerneinheit starten, beantworten Sie bitte die folgenden Fragen so gut Sie können.\n\n Bei allen Fragen können **1 bis 4** Antwortalternativen korrekt sein. Wenn Sie sich nicht sicher sind, ist das kein Problem. Wählen Sie dann einfach die Antwortalternativen aus, die für Sie am meisten Sinn ergeben.\n\n Es wird von Ihnen kein Vorwissen erwartet. Bitte beantworten Sie **alle** Fragen, bevor Sie fortfahren.',
+        'Beantworten Sie bitte die folgenden Fragen so gut Sie können.\n\n Bei allen Fragen können **1 bis 4** Antwortalternativen korrekt sein. Wenn Sie sich nicht sicher sind, ist das kein Problem. Wählen Sie dann einfach die Antwortalternativen aus, die für Sie am meisten Sinn ergeben.\n\n Es wird von Ihnen kein Vorwissen erwartet. Bitte beantworten Sie **alle** Fragen, bevor Sie fortfahren.',
     },
   },
   controlGroup: {

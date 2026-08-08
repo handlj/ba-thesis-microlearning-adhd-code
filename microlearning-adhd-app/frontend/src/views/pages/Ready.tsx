@@ -71,22 +71,6 @@ function Ready({ assignment, subgroup, onContinue, onLogInteraction }: ReadyProp
       ) : null}
 
       <StudyActions>
-        {/* TODO: Remove this visible group assignment label before deployment. */}
-        {assignmentLabel ? (
-          <p className="assignment-result">
-            {copy.ready.assignmentLabel}
-            <strong>{assignmentLabel}</strong>
-          </p>
-        ) : null}
-
-        {/* TODO: Remove this visible subgroup assignment label before deployment. */}
-        {subgroupLabel ? (
-          <p className="assignment-result">
-            {copy.ready.subgroupLabel}
-            <strong>{subgroupLabel}</strong>
-          </p>
-        ) : null}
-
         <button type="button" className="start-button" onClick={onContinue} disabled={!canContinue}>
           {copy.actions.continue}
         </button>
