@@ -31,8 +31,6 @@ function Ready({ assignment, subgroup, onContinue, onLogInteraction }: ReadyProp
     error,
   } = useAsyncResource<InstructionVideo>(getInstructionVideo, copy.ready.status.loadError)
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
-  const assignmentLabel = assignment ? copy.ready.groupLabels[assignment] : null
-  const subgroupLabel = subgroup ? copy.ready.subgroupLabels[subgroup] : null
   const canContinue = Boolean(assignment && subgroup && hasVideoEnded)
 
   return (
