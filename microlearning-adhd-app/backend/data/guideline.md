@@ -85,3 +85,33 @@ For the merge of the last remaining extracted raw table `postinterventionrespons
 55. `feedback_submitted_at`: **Renamed from `submitted_at`.**
 
 None of the original raw table exports should be altered or deleted in any way. The only new file will be the merged dataset, daved inside the preprocessing directory.
+
+# 2. Data Cleaning
+> The second stage of the data analysis pipeline is called "Data Cleaning".
+> It takes as an input the latest merged dataset returned by the previous stage "Data Preprocessing".
+
+**Goal**: Clean the merged dataset by means of the pipeline below.
+
+**Output Files**:   
+1. Cleaned dataset `cleaned-dataset-<date>` (same pattern as stage "Data Preprocessing").
+2. Dataset with all excluded participants for manual inspection named `excluded-dataset-<date>`.
+
+*Note*: The original merged dataset will not be altered or deleted in any way in order to preserve fallback options on data-corruption.
+
+## Cleaning Pipeline
+
+### Missing or Faulty Values
+
+1. **Exclusion on Empty Fields**   
+If a participant has missing values in either `participant_id`, `consented`, `assignment` or `subgroup`, they will be excluded from the cleaned dataset.
+
+2. **Exclusion on Faulty Fields**
+If a participant has not consented, i.e. `consented: 0`, they will be excluded.
+
+### Dataset Simplification
+
+1. **Redundant Columns**   
+Drop column `consented_at`, since it is duplicated by `created_at`.
+
+
+
