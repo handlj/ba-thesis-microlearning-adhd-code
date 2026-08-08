@@ -289,7 +289,7 @@ export const copy = {
   },
   experimentalGroup: {
     heading: {
-      eyebrow: 'Experimentalgruppe',
+      eyebrow: '',
       title: 'Bearbeiten Sie die Videos und Quizfragen',
       intro:
         'Sehen Sie sich jedes Video vollständig an und bearbeiten Sie das nachfolgende Quiz, bevor Sie zum nächsten Video weitergehen.',
