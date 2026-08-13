@@ -16,7 +16,6 @@
 - [ ] Add that the videos do not only get counted as watched if the user watches the whole video, but also if they watch a certain percentage/range of it (e.g. 80%).
 
 ### Study Flow
-- [ ] Add that reloading the page does not reset the progress of the user (at least warn).
 - [ ] Progress Indicator for the whole study
 
 ### Data Analysis
