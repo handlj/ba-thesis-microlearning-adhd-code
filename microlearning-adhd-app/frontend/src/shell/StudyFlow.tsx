@@ -7,7 +7,7 @@ import type { Page } from '../shell/pageOrder.ts'
 import { useStepStatus } from '../shell/useStepStatus.ts'
 import { createInteractionLogger } from '../shell/interactionLog.ts'
 import { useQuizResults } from '../shell/useQuizResults.ts'
-import { nextPage, previousPage } from '../shell/pageOrder.ts'
+import { isPageInsideSession, nextPage, previousPage } from '../shell/pageOrder.ts'
 import Welcome from '../views/pages/Welcome.tsx'
 import Consent from '../views/pages/Consent.tsx'
 import AdhdScreeningQuestionnaire from '../views/questionnaires/AdhdScreeningQuestionnaire.tsx'
@@ -26,6 +26,7 @@ import { QUESTIONNAIRE_KEYS, type Allocation, type QuestionnaireKey } from './qu
 import type { LikertQuestionnaireProps } from '../views/questionnaires/types.ts'
 import { buildStudySubmissions } from './studySubmission.ts'
 import { resetStudySubgroup, setStudySubgroup } from '../utils/videoFeatures.ts'
+import { useReloadWarning } from '../hooks/useReloadWarning.ts'
 
 function StudyFlow() {
   const [currentPage, setCurrentPage] = useState<Page>('welcome')
@@ -62,6 +63,7 @@ function StudyFlow() {
   } = useQuizResults(participantId, groupAssignment, subgroup)
 
   useScrollToTop(currentPage)
+  useReloadWarning(isPageInsideSession(currentPage))
 
   const logInteraction = createInteractionLogger(participantId, groupAssignment, subgroup)
 

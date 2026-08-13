@@ -43,3 +43,9 @@ export function previousPage(currentPage: Page): Page | null {
 
   return PAGE_ORDER[PAGE_ORDER.indexOf(currentPage) - 1] ?? null
 }
+
+const PAGES_OUTSIDE_SESSION = new Set<Page>(['welcome', 'thankYou'])
+
+export function isPageInsideSession(currentPage: Page): boolean {
+  return !PAGES_OUTSIDE_SESSION.has(currentPage)
+}
