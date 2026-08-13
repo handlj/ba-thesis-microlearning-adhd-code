@@ -4,8 +4,8 @@ from app.timestamps import UtcTimestamp
 
 
 class InteractionEventRequest(BaseModel):
-    assignment: str
-    subgroup: str
+    assignment: str | None = None
+    subgroup: str | None = None
     page: str
     event_type: str
     occurred_at: UtcTimestamp

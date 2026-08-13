@@ -4,11 +4,13 @@ import './styles/index.css'
 import { getConfig } from './services/index.ts'
 import { setAppConfig } from './utils/config.ts'
 import StudyFlow from './shell/StudyFlow.tsx'
+import { setSubgroupFromSnapshot } from './shell/snapshotPersistence.ts'
 
 async function bootstrap() {
   const root = createRoot(document.getElementById('root')!)
   try {
     setAppConfig(await getConfig())
+    setSubgroupFromSnapshot()
     root.render(
       <StrictMode>
         <StudyFlow />

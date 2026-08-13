@@ -5,14 +5,21 @@ import { quizTopics } from '../content/quiz'
 import { postQuizAnswers, type QuizAnswerSubmission } from '../services'
 import type { GroupAssignment, Subgroup } from '../utils/groupAssignment'
 import { scoreQuiz } from '../utils/quizScoring'
-import { blankQuizResults, hasCompleteScores, postCorrectFor, scoreAllTopics } from './quizResults'
+import {
+  blankQuizResults,
+  hasCompleteScores,
+  postCorrectFor,
+  scoreAllTopics,
+  type QuizResults,
+} from './quizResults'
 
 export function useQuizResults(
   participantId: string | null,
   assignment: GroupAssignment | null,
   subgroup: Subgroup | null,
+  initialResults?: QuizResults,
 ) {
-  const [results, setResults] = useState(blankQuizResults)
+  const [results, setResults] = useState(() => initialResults ?? blankQuizResults())
 
   const persist = (submission: QuizAnswerSubmission) => {
     if (!participantId) return

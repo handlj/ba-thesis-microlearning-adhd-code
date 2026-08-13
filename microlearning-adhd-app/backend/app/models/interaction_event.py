@@ -8,8 +8,8 @@ from app.timestamps import UtcDateTime
 class InteractionEvent(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     participant_id: str = Field(foreign_key="participantsession.id")
-    assignment: str
-    subgroup: str
+    assignment: str | None = None
+    subgroup: str | None = None
     page: str
     event_type: str
     occurred_at: datetime = Field(sa_type=UtcDateTime)

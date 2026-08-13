@@ -3,8 +3,8 @@ import { type GroupAssignment, type Subgroup } from './../../utils/groupAssignme
 export type StudyInteractionPayload = Record<string, string | number | boolean | null>
 
 export type StudyInteractionEvent = {
-  assignment: GroupAssignment
-  subgroup: Subgroup
+  assignment: GroupAssignment | null
+  subgroup: Subgroup | null
   page: string
   event_type: string
   occurred_at: string

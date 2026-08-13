@@ -6,15 +6,23 @@ import {
 } from '../services/index.ts'
 import type { GroupAssignment, Subgroup } from '../utils/groupAssignment.ts'
 
-export type LogInteraction = (eventType: string, payload?: StudyInteractionPayload) => void
+export type LogInteractionOptions = {
+  keepAlive?: boolean
+}
+
+export type LogInteraction = (
+  eventType: string,
+  payload?: StudyInteractionPayload,
+  options?: LogInteractionOptions,
+) => void
 
 export function createInteractionLogger(
   participantId: string,
   assignment: GroupAssignment | null,
   subgroup: Subgroup | null,
 ): (interactionPage: string) => LogInteraction {
-  return (interactionPage) => (eventType, payload) => {
-    if (!participantId || !assignment || !subgroup) return
+  return (interactionPage) => (eventType, payload, options) => {
+    if (!participantId) return
 
     const event = {
       assignment,
@@ -24,10 +32,11 @@ export function createInteractionLogger(
       payload,
     }
 
-    const request =
-      document.visibilityState === 'hidden'
-        ? postInteractionEventKeepAlive(participantId, event)
-        : postInteractionEvent(participantId, event)
+    const useKeepAlive = document.visibilityState === 'hidden' || options?.keepAlive === true
+
+    const request = useKeepAlive
+      ? postInteractionEventKeepAlive(participantId, event)
+      : postInteractionEvent(participantId, event)
 
     void request.catch((requestError) => {
       console.error(copy.errors.interactionPersist, requestError)

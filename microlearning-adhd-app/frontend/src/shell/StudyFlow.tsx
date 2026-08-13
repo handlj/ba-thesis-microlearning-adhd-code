@@ -1,4 +1,4 @@
-import { useState, type ComponentType, type ReactNode } from 'react'
+import { useEffect, useState, type ComponentType, type ReactNode } from 'react'
 import '@assets/styles/App.css'
 import { type GroupAssignment, type Subgroup } from '../utils/groupAssignment.ts'
 import { useScrollToTop } from '../hooks/useScrollToTop.ts'
@@ -27,14 +27,20 @@ import type { LikertQuestionnaireProps } from '../views/questionnaires/types.ts'
 import { buildStudySubmissions } from './studySubmission.ts'
 import { resetStudySubgroup, setStudySubgroup } from '../utils/videoFeatures.ts'
 import { useReloadWarning } from '../hooks/useReloadWarning.ts'
+import { clearSnapshot, hasSnapshot, readSnapshot, writeSnapshot } from './snapshotPersistence.ts'
+import { useReloadLog } from '../hooks/useReloadLog.ts'
 
 function StudyFlow() {
-  const [currentPage, setCurrentPage] = useState<Page>('welcome')
+  const [restored] = useState(readSnapshot)
 
-  const [participantId, setParticipantId] = useState<string>('')
-  const [groupAssignment, setGroupAssignment] = useState<GroupAssignment | null>(null)
-  const [subgroup, setSubgroup] = useState<Subgroup | null>(null)
-  const [consent, setConsent] = useState<boolean>(false)
+  const [currentPage, setCurrentPage] = useState<Page>(restored?.currentPage ?? 'welcome')
+
+  const [participantId, setParticipantId] = useState<string>(restored?.participantId ?? '')
+  const [groupAssignment, setGroupAssignment] = useState<GroupAssignment | null>(
+    restored?.groupAssignment ?? null,
+  )
+  const [subgroup, setSubgroup] = useState<Subgroup | null>(restored?.subgroup ?? null)
+  const [consent, setConsent] = useState<boolean>(restored?.consent ?? false)
 
   const {
     errors,
@@ -51,7 +57,7 @@ function StudyFlow() {
     changeLikertAnswer,
     changeDemographicAnswer,
     changeFollowUpAnswer,
-  } = useStudyAnswers(clearStepError)
+  } = useStudyAnswers(clearStepError, restored?.answers)
   const {
     results,
     postCorrect,
@@ -60,12 +66,37 @@ function StudyFlow() {
     recordControlQuiz,
     recordExperimentalQuiz,
     resetQuizResults,
-  } = useQuizResults(participantId, groupAssignment, subgroup)
+  } = useQuizResults(participantId, groupAssignment, subgroup, restored?.quizResults)
 
   useScrollToTop(currentPage)
   useReloadWarning(isPageInsideSession(currentPage))
 
+  useEffect(() => {
+    if (currentPage === 'welcome') {
+      clearSnapshot()
+      return
+    }
+
+    writeSnapshot({
+      currentPage,
+      participantId,
+      groupAssignment,
+      subgroup,
+      consent,
+      answers,
+      quizResults: results,
+    })
+  }, [currentPage, participantId, groupAssignment, subgroup, consent, answers, results])
+
   const logInteraction = createInteractionLogger(participantId, groupAssignment, subgroup)
+
+  useReloadLog({
+    isActive: isPageInsideSession(currentPage),
+    page: currentPage,
+    restoredFromSnapshot: restored !== null,
+    hasSnapshot,
+    logInteraction: logInteraction(currentPage),
+  })
 
   const handleAllocated = ({ assignment, subgroup: allocatedSubgroup }: Allocation) => {
     setGroupAssignment(assignment)

@@ -27,8 +27,12 @@ def record_interaction_event(
 ):
     ensure_participant_exists(participant_id, session)
 
-    assignment = validate_assignment(event.assignment)
-    subgroup = validate_subgroup(event.subgroup, assignment)
+    if event.assignment is None and event.subgroup is None:
+        assignment = None
+        subgroup = None
+    else:
+        assignment = validate_assignment(event.assignment)
+        subgroup = validate_subgroup(event.subgroup, assignment)
 
     interaction_event = InteractionEvent(
         participant_id=participant_id,

@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import type { PostInterventionAnswers } from '../services'
 import type { DemographicAnswers } from '../utils/groupAssignment'
-import { type LikertSection, blankStudyAnswers } from './studyAnswers'
+import { type LikertSection, type StudyAnswers, blankStudyAnswers } from './studyAnswers'
 import type { StepKey } from './studySteps'
 
-export function useStudyAnswers(clearStepError: (step: StepKey) => void) {
-  const [answers, setAnswers] = useState(blankStudyAnswers)
+export function useStudyAnswers(
+  clearStepError: (step: StepKey) => void,
+  initialAnswers?: StudyAnswers,
+) {
+  const [answers, setAnswers] = useState(() => initialAnswers ?? blankStudyAnswers())
 
   const changeLikertAnswer = (section: LikertSection) => (questionId: string, value: string) => {
     setAnswers((prev) => ({
