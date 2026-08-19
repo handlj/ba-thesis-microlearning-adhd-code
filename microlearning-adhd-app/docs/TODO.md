@@ -2,13 +2,15 @@
 
 ## Next Up
 
-### Textual Content
-- [ ] Edit ready presentation, fix typo ("sie" -> "Sie")
-
-### Data Analysis
-- [ ] Interaction Patterns: Korrelieren mit Engagement (Fragebogen UES), frequentistisch
+- [ ] Add demographic questions: Prior programming skills (which languages, how good, Python especially)   
+    Bestehen allgemein Programmierkenntnisse? Welche Sprachen? Spezifisch zu Python und wie gut sie sich einschätzen.
+- [ ] Incorporate prior programming skill outcome into group randomization
+- [ ] For Rewatch dialogs, show not only how much are incorrect, but also which ones
 
 ## Nice to have
+
+### Textual Content
+- [ ] Edit instruction video, fix typo ("sie" -> "Sie")
 
 ### Videos
 - [ ] Timer einfügen nachdem weitergegangen werden kann (?)
