@@ -112,7 +112,7 @@ export const copy = {
       eyebrow: '',
       title: 'Bevor wir loslegen',
       intro:
-        'Bitte beantworten Sie die folgenden Fragen zu Ihrer Person. Alle Angaben werden anonymisiert verarbeitet und lassen keinerlei Rückschluss auf Sie zu.',
+        'Bitte beantworten Sie die folgenden Fragen zu Ihrer Person und Ihren Programmiervorkenntnissen.\n\n Alle Angaben werden anonymisiert verarbeitet und lassen keinerlei Rückschluss auf Sie zu.',
     },
     questions: {
       age: {
@@ -144,7 +144,7 @@ export const copy = {
       },
       currentlyStudying: {
         label: 'Derzeit studierend',
-        placeholder: 'Wählen Sie aus, ob Sie derzeit studieren',
+        placeholder: 'Studieren Sie derzeit?',
         options: {
           yes: 'Ja',
           no: 'Nein',
@@ -194,6 +194,44 @@ export const copy = {
           tablet: 'Tablet',
           smartphone: 'Smartphone',
           other: 'Anderes Gerät',
+        },
+      },
+      generalProgrammingExperience: {
+        label: 'Allgemeine Programmiererfahrung',
+        placeholder: 'Haben Sie bereits Programmiererfahrung?',
+        options: {
+          yes: 'Ja',
+          no: 'Nein',
+        },
+      },
+      generalProgrammingLanguages: {
+        label: 'Benutzte Programmiersprachen',
+        placeholder: 'Welche Programmiersprachen haben Sie bereits verwendet?',
+      },
+      generalProgrammingAbility: {
+        label: 'Allgemeine Programmierfähigkeit',
+        placeholder: 'Wie würden Sie Ihre allgemeine Programmierfähigkeit einschätzen?',
+        options: {
+          beginner: 'Anfänger*in',
+          intermediate: 'Fortgeschrittene*r',
+          advanced: 'Expert*in',
+        },
+      },
+      pythonProgrammingExperience: {
+        label: 'Python-Programmiererfahrung',
+        placeholder: 'Haben Sie bereits Erfahrung mit der Programmiersprache Python?',
+        options: {
+          yes: 'Ja',
+          no: 'Nein',
+        },
+      },
+      pythonProgrammingAbility: {
+        label: 'Python-Programmierfähigkeit',
+        placeholder: 'Wie würden Sie Ihre Python-Programmierfähigkeit einschätzen?',
+        options: {
+          beginner: 'Anfänger*in',
+          intermediate: 'Fortgeschrittene*r',
+          advanced: 'Expert*in',
         },
       },
     },

@@ -2,12 +2,13 @@
 
 ## Next Up
 
-- [ ] Add demographic questions: Prior programming skills (which languages, how good, Python especially)   
-    Bestehen allgemein Programmierkenntnisse? Welche Sprachen? Spezifisch zu Python und wie gut sie sich einschätzen.
 - [ ] Incorporate prior programming skill outcome into group randomization
 - [ ] For Rewatch dialogs, show not only how much are incorrect, but also which ones
 
 ## Nice to have
+
+- [ ] Add ruff cache to .gitignore
+- [ ] Redesign demographics questionnaire on frontend since it is now longer
 
 ### Textual Content
 - [ ] Edit instruction video, fix typo ("sie" -> "Sie")

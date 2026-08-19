@@ -28,10 +28,16 @@ function Demographics({
   const appConfig = getAppConfig()
   const isStudying = values.currentlyStudying === 'yes'
   const isDiagnosed = values.adhdDiagnosis === 'diagnosed'
+  const hasGeneralProgrammingExperience = values.generalProgrammingExperience === 'yes'
+  const hasPythonProgrammingExperience = values.pythonProgrammingExperience === 'yes'
   const visibleQuestions = demographicQuestions
     .filter((q) => q.id !== 'studyBackground' || isStudying)
     .filter((q) => q.id !== 'adhdOfficialDiagnosis' || isDiagnosed)
     .filter((q) => q.id !== 'adhdMedication' || isDiagnosed)
+    .filter((q) => q.id !== 'generalProgrammingLanguages' || hasGeneralProgrammingExperience)
+    .filter((q) => q.id !== 'generalProgrammingAbility' || hasGeneralProgrammingExperience)
+    .filter((q) => q.id !== 'pythonProgrammingExperience' || hasGeneralProgrammingExperience)
+    .filter((q) => q.id !== 'pythonProgrammingAbility' || hasPythonProgrammingExperience)
 
     .map((q) =>
       q.type === 'number' ? { ...q, min: appConfig.min_age, max: appConfig.max_age } : q,
@@ -52,6 +58,24 @@ function Demographics({
       } else {
         onChange('adhdOfficialDiagnosis', '')
         onChange('adhdMedication', '')
+      }
+    } else if (field === 'generalProgrammingExperience') {
+      if (value === 'no') {
+        onChange('generalProgrammingLanguages', 'no-experience')
+        onChange('generalProgrammingAbility', 'no-experience')
+        onChange('pythonProgrammingExperience', 'no')
+        onChange('pythonProgrammingAbility', 'no-experience')
+      } else if (value === 'yes') {
+        onChange('generalProgrammingLanguages', '')
+        onChange('generalProgrammingAbility', '')
+        onChange('pythonProgrammingExperience', '')
+        onChange('pythonProgrammingAbility', '')
+      }
+    } else if (field === 'pythonProgrammingExperience') {
+      if (value === 'no') {
+        onChange('pythonProgrammingAbility', 'no-python-experience')
+      } else if (value === 'yes') {
+        onChange('pythonProgrammingAbility', '')
       }
     }
   }

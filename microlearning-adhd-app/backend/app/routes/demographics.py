@@ -47,6 +47,13 @@ def submit_demographics(
         adhd_official_diagnosis=demographics.adhd_official_diagnosis,
         adhd_medication=demographics.adhd_medication,
         device=demographics.device,
+        general_programming_experience=demographics.general_programming_experience,
+        general_programming_languages=require_non_empty_text(
+            demographics.general_programming_languages, "General programming languages"
+        ),
+        general_programming_ability=demographics.general_programming_ability,
+        python_programming_experience=demographics.python_programming_experience,
+        python_programming_ability=demographics.python_programming_ability,
         submitted_at=current_utc_timestamp(),
     )
 

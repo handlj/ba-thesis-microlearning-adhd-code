@@ -10,6 +10,7 @@ type FieldConfig = { type: 'number' | 'text' }
 const fieldConfig: Partial<Record<DemographicQuestionId, FieldConfig>> = {
   age: { type: 'number' },
   studyBackground: { type: 'text' },
+  generalProgrammingLanguages: { type: 'text' },
 }
 
 export const defaultDemographics: DemographicAnswers = {
@@ -22,6 +23,11 @@ export const defaultDemographics: DemographicAnswers = {
   adhdOfficialDiagnosis: '',
   adhdMedication: '',
   device: '',
+  generalProgrammingExperience: '',
+  generalProgrammingLanguages: '',
+  generalProgrammingAbility: '',
+  pythonProgrammingExperience: '',
+  pythonProgrammingAbility: '',
 }
 
 export const demographicQuestions: StudyQuestion<DemographicQuestionId>[] = (

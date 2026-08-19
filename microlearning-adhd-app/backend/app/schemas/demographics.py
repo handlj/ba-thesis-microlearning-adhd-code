@@ -10,6 +10,11 @@ class DemographicsRequest(BaseModel):
     adhd_diagnosis: str
     adhd_official_diagnosis: str
     adhd_medication: str
+    general_programming_experience: str
+    general_programming_languages: str
+    general_programming_ability: str
+    python_programming_experience: str
+    python_programming_ability: str
     device: str
 
 

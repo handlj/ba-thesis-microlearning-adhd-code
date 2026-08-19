@@ -17,4 +17,9 @@ class Demographics(SQLModel, table=True):
     adhd_official_diagnosis: str
     adhd_medication: str
     device: str
+    general_programming_experience: str
+    general_programming_languages: str
+    general_programming_ability: str
+    python_programming_experience: str
+    python_programming_ability: str
     submitted_at: datetime = Field(sa_type=UtcDateTime)
