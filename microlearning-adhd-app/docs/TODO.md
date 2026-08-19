@@ -7,7 +7,6 @@
 
 ## Nice to have
 
-- [ ] Add ruff cache to .gitignore
 - [ ] Redesign demographics questionnaire on frontend since it is now longer
 
 ### Textual Content
