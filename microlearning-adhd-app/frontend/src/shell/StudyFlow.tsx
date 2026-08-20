@@ -11,7 +11,7 @@ import { isPageInsideSession, nextPage, previousPage } from '../shell/pageOrder.
 import Welcome from '../views/pages/Welcome.tsx'
 import Consent from '../views/pages/Consent.tsx'
 import AdhdScreeningQuestionnaire from '../views/questionnaires/AdhdScreeningQuestionnaire.tsx'
-import Demographics from '../views/pages/Demographics.tsx'
+import Demographics from '../views/pages/Demographics'
 import PanasQuestionnaire from '../views/questionnaires/PanasQuestionnaire.tsx'
 import Ready from '../views/pages/Ready.tsx'
 import FAMQuestionnaire from '../views/questionnaires/FAMQuestionnaire.tsx'

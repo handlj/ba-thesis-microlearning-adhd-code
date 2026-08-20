@@ -1,6 +1,6 @@
 import { useState } from 'react'
+import type { DemographicAnswers } from '../content/demographics'
 import type { PostInterventionAnswers } from '../services'
-import type { DemographicAnswers } from '../utils/groupAssignment'
 import { type LikertSection, type StudyAnswers, blankStudyAnswers } from './studyAnswers'
 import type { StepKey } from './studySteps'
 

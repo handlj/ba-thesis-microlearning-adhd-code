@@ -1,11 +1,11 @@
 import { adhdScreening } from '../content/adhdScreening'
+import type { DemographicAnswers } from '../content/demographics'
 import { defaultDemographics } from '../content/demographics'
 import { fam } from '../content/fam'
 import { panas } from '../content/panas'
 import { ues } from '../content/ues'
 import type { PostInterventionAnswers } from '../services'
 import { blankAnswers } from '../utils/blankAnswers'
-import type { DemographicAnswers } from '../utils/groupAssignment'
 
 export const LIKERT_SECTIONS = ['adhdScreening', 'fam', 'prePanas', 'postPanas', 'ues'] as const
 export type LikertSection = (typeof LIKERT_SECTIONS)[number]

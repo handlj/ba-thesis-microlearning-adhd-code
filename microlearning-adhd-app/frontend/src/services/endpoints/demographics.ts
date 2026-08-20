@@ -1,6 +1,6 @@
 import api from '../client'
 
-import type { DemographicAnswers } from '../../utils/groupAssignment'
+import type { DemographicAnswers } from '../../content/demographics'
 import type { DemographicsSubmission } from '../types/demographics'
 
 export async function postDemographics(participantId: string, demographics: DemographicAnswers) {

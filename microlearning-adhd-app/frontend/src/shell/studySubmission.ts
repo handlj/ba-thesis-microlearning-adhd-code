@@ -1,11 +1,12 @@
 import { copy } from '../content/copy'
+import { demographicsCopy } from '../content/demographics'
 import {
   postConsentSession,
   postDemographics,
   postPostInterventionQuestionnaire,
 } from '../services'
-import { validateDemographics } from '../utils/demographicsValidation'
 import type { GroupAssignment, Subgroup } from '../utils/groupAssignment'
+import { validateDemographicAnswers } from '../views/pages/Demographics/rules'
 import type { Page } from './pageOrder'
 import {
   questionnaireStepConfigs,
@@ -101,7 +102,11 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
   }
 
   const handleDemographics = async () => {
-    const validation = validateDemographics(deps.answers.demographics)
+    const trimmedAnswers = Object.fromEntries(
+      Object.entries(deps.answers.demographics).map(([key, value]) => [key, value.trim()]),
+    ) as StudyAnswers['demographics']
+
+    const validation = validateDemographicAnswers(trimmedAnswers)
     if (!validation.valid) {
       deps.setStepError('demographics', validation.error)
       return
@@ -109,18 +114,16 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
 
     const { participantId } = deps
     if (!participantId) {
-      deps.setStepError('demographics', copy.errors.demographicsMissingSession)
+      deps.setStepError('demographics', demographicsCopy.errors.missingSession)
       return
     }
 
-    await runSubmission(status, 'demographics', copy.errors.demographicsSave, async () => {
-      await postDemographics(participantId, deps.answers.demographics)
+    await runSubmission(status, 'demographics', demographicsCopy.errors.save, async () => {
+      await postDemographics(participantId, trimmedAnswers)
       deps.goNext('demographics')
     })
   }
 
-  // preQuiz persists nothing here — the quiz answers are posted by
-  // useQuizResults.recordPreQuiz — so it never touches runSubmission.
   const handlePreQuiz = async () => {
     const { participantId, groupAssignment } = deps
     if (!participantId || !groupAssignment) {
@@ -128,7 +131,7 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
       return
     }
 
-    deps.goTo(groupAssignment) // GroupAssignment members are also Page members
+    deps.goTo(groupAssignment)
   }
 
   const handleFollowUp = async (wantsFeedback: 'yes' | 'no') => {

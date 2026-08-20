@@ -9,14 +9,20 @@ export type SubmissionStatus = {
 }
 
 export function submissionErrorMessage(requestError: unknown, fallbackMessage: string): string {
-  if (axios.isAxiosError(requestError) && requestError.code === 'ECONNABORTED') {
-    return copy.errors.timeout
+  if (axios.isAxiosError(requestError)) {
+    if (requestError.code === 'ECONNABORTED') {
+      return copy.errors.timeout
+    }
+
+    console.error(
+      'Submission failed (axios error):',
+      requestError.response?.status,
+      requestError.response?.data,
+    )
+    return fallbackMessage
   }
 
-  // Insert more specific error handling here if needed; fallbackMessage should not be reached at this point.
-  if (requestError instanceof Error) {
-    return requestError.message
-  }
+  console.error('Submission failed (unknown error):', requestError)
 
   return fallbackMessage
 }

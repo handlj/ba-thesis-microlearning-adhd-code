@@ -16,10 +16,6 @@ export const copy = {
   errors: {
     consentSave: 'Die Einwilligung konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.',
     controlVideoLoad: 'Das Kontrollvideo konnte nicht geladen werden.',
-    demographicsMissingSession:
-      'Die Einwilligung wurde für diese Sitzung nicht gespeichert. Bitte kehren Sie zur Einwilligungsseite zurück und versuchen Sie es erneut.',
-    demographicsSave:
-      'Die demografischen Angaben konnten nicht gespeichert werden. Bitte versuchen Sie es erneut.',
     experimentalVideosLoad: 'Die experimentellen Videos konnten nicht geladen werden.',
     interactionPersist: 'Das Interaktionsereignis konnte nicht gespeichert werden.',
     postInterventionMissingAnswers:
@@ -37,16 +33,11 @@ export const copy = {
       'Die Anfrage konnte nicht abgeschlossen werden. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.',
   },
   validation: {
-    demographicsAllQuestions: 'Bitte beantworten Sie alle Fragen, bevor Sie fortfahren.',
-    demographicsAgeRange: (minAge: number, maxAge: number) =>
-      `Bitte geben Sie ein Alter zwischen ${minAge} und ${maxAge} Jahren an.`,
     preInterventionAllQuestions: 'Bitte beantworten Sie alle Aussagen, bevor Sie fortfahren.',
   },
   video: {
     unsupported: 'Ihr Browser unterstützt das Video-Element nicht.',
     watchFullVideo: 'Sehen Sie sich das vollständige Video an, bevor Sie fortfahren.',
-    // Labels for the controls of the shared video player. Most are only ever
-    // read out by screen readers or shown as tooltips.
     player: {
       region: 'Videoplayer',
       play: 'Abspielen',
@@ -106,135 +97,6 @@ export const copy = {
     },
     agreement:
       'Ich habe die vorstehende Einverständniserklärung gelesen, verstanden und stimme ihr zu.',
-  },
-  demographics: {
-    heading: {
-      eyebrow: '',
-      title: 'Bevor wir loslegen',
-      intro:
-        'Bitte beantworten Sie die folgenden Fragen zu Ihrer Person und Ihren Programmiervorkenntnissen.\n\n Alle Angaben werden anonymisiert verarbeitet und lassen keinerlei Rückschluss auf Sie zu.',
-    },
-    questions: {
-      age: {
-        label: 'Alter',
-        placeholder: 'Geben Sie Ihr Alter ein',
-      },
-      gender: {
-        label: 'Geschlecht',
-        placeholder: 'Wählen Sie Ihr Geschlecht',
-        options: {
-          male: 'Männlich',
-          female: 'Weiblich',
-          other: 'Sonstiges',
-          preferNotToSay: 'Keine Angabe',
-        },
-      },
-      highestEducation: {
-        label: 'Höchster Bildungsabschluss',
-        placeholder: 'Wählen Sie Ihren höchsten Bildungsabschluss',
-        options: {
-          noneOrMandatory: 'Kein Abschluss oder Pflichtschulabschluss',
-          highSchool: 'Matura/Abitur oder gleichwertig',
-          bachelor: 'Bachelorabschluss',
-          master: 'Masterabschluss',
-          doctorate: 'Promotion',
-          other: 'Anderer Abschluss',
-          preferNotToSay: 'Keine Angabe',
-        },
-      },
-      currentlyStudying: {
-        label: 'Derzeit studierend',
-        placeholder: 'Studieren Sie derzeit?',
-        options: {
-          yes: 'Ja',
-          no: 'Nein',
-        },
-      },
-      studyBackground: {
-        label: 'Studienhintergrund',
-        placeholder: 'Geben Sie Ihre aktuelle Studienrichtung an',
-      },
-      adhdDiagnosis: {
-        label: 'ADHS-Diagnosestatus',
-        placeholder: 'Wählen Sie Ihren aktuellen ADHS-Diagnosestatus',
-        options: {
-          diagnosed: 'Diagnostiziert',
-          selfDiagnosed: 'Selbstdiagnostiziert',
-          notDiagnosed: 'Nicht diagnostiziert',
-          preferNotToSay: 'Keine Angabe',
-        },
-      },
-      adhdOfficialDiagnosis: {
-        label: 'Offizielle ADHS-Diagnose (Wenn diagnostiziert)',
-        placeholder: 'Wählen Sie Ihre entsprechende Diagnose aus',
-        options: {
-          combined:
-            'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, kombiniert (ICD-11 6A05.2)',
-          inattentive:
-            'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, vorwiegend unkonzentriert (ICD-11 6A05.0)',
-          hyperactiveImpulsive:
-            'Aufmerksamkeitsdefizit- und Hyperaktivitätsstörung, vorwiegend hyperaktiv-impulsiv (ICD-11 6A05.1)',
-          notSpecified: 'Nicht näher bezeichnet (ICD-11 6A05.Z)',
-        },
-      },
-      adhdMedication: {
-        label: 'ADHS-Medikamenteneinnahme',
-        options: {
-          yes: 'Ja',
-          no: 'Nein',
-          preferNotToSay: 'Keine Angabe',
-        },
-      },
-      device: {
-        label: 'Verwendetes Gerät',
-        placeholder: 'Wählen Sie Ihr Gerät aus',
-        options: {
-          desktop: 'Desktop-Computer ("Stand-PC")',
-          laptop: 'Laptop',
-          tablet: 'Tablet',
-          smartphone: 'Smartphone',
-          other: 'Anderes Gerät',
-        },
-      },
-      generalProgrammingExperience: {
-        label: 'Allgemeine Programmiererfahrung',
-        placeholder: 'Haben Sie bereits Programmiererfahrung?',
-        options: {
-          yes: 'Ja',
-          no: 'Nein',
-        },
-      },
-      generalProgrammingLanguages: {
-        label: 'Benutzte Programmiersprachen',
-        placeholder: 'Welche Programmiersprachen haben Sie bereits verwendet?',
-      },
-      generalProgrammingAbility: {
-        label: 'Allgemeine Programmierfähigkeit',
-        placeholder: 'Wie würden Sie Ihre allgemeine Programmierfähigkeit einschätzen?',
-        options: {
-          beginner: 'Anfänger*in',
-          intermediate: 'Fortgeschrittene*r',
-          advanced: 'Expert*in',
-        },
-      },
-      pythonProgrammingExperience: {
-        label: 'Python-Programmiererfahrung',
-        placeholder: 'Haben Sie bereits Erfahrung mit der Programmiersprache Python?',
-        options: {
-          yes: 'Ja',
-          no: 'Nein',
-        },
-      },
-      pythonProgrammingAbility: {
-        label: 'Python-Programmierfähigkeit',
-        placeholder: 'Wie würden Sie Ihre Python-Programmierfähigkeit einschätzen?',
-        options: {
-          beginner: 'Anfänger*in',
-          intermediate: 'Fortgeschrittene*r',
-          advanced: 'Expert*in',
-        },
-      },
-    },
   },
   preIntervention: {
     heading: {
