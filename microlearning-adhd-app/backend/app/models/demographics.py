@@ -22,4 +22,5 @@ class Demographics(SQLModel, table=True):
     general_programming_ability: str
     python_programming_experience: str
     python_programming_ability: str
+    prior_programming_experience_score: int
     submitted_at: datetime = Field(sa_type=UtcDateTime)

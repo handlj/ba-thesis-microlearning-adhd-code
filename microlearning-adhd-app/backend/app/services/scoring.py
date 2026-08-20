@@ -23,3 +23,35 @@ def score_adhd_screening(answers: dict[str, int]) -> bool:
         if answers[question_id] >= ADHD_HYPERACTIVITY_THRESHOLD:
             marks += 1
     return marks >= ADHD_SCREEN_POSITIVE_MARKS
+
+
+def score_prior_programming_experience(
+    general_programming_ability: str, python_programming_ability: str
+) -> int:
+    """Score prior programming experience based on the participant's answers.
+
+    The scoring is based on the questions for general programming ability and
+    python programming ability. Answers are scored as follows:
+    - 0: No experience
+    - 1: "Anfänger*in" (Beginner)
+    - 2: "Fortgeschrittene*r" (Intermediate)
+    - 3: "Expert*in" (Expert)
+
+    The total score is the sum of the scores for general programming ability and
+    python programming ability, resulting in a score ranging from 0 to 6.
+    """
+
+    # Keys are type-sensitive, have to match frontend/src/content/demographics.ts
+    ability_score_mapping = {
+        "no-python-experience": 0,
+        "no-experience": 0,
+        "beginner": 1,
+        "intermediate": 2,
+        "expert": 3,
+    }
+
+    python_ability_score = ability_score_mapping.get(python_programming_ability, 0)
+    general_ability_score = ability_score_mapping.get(general_programming_ability, 0)
+
+    total_score = python_ability_score + general_ability_score
+    return total_score

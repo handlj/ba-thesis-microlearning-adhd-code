@@ -7,6 +7,7 @@ from app.schemas import DemographicsSchemas
 from app.services import (
     ensure_participant_exists,
     require_non_empty_text,
+    score_prior_programming_experience,
     validate_adhd_diagnosis,
     validate_age,
 )
@@ -35,13 +36,16 @@ def submit_demographics(
     validate_age(demographics.age)
     validate_adhd_diagnosis(demographics.adhd_diagnosis)
 
+    prior_programming_experience_score = score_prior_programming_experience(
+        demographics.general_programming_ability, demographics.python_programming_ability
+    )
+
     demographics_row = Demographics(
         participant_id=participant.id,
         age=demographics.age,
         gender=demographics.gender,
         highest_education=demographics.highest_education,
         currently_studying=demographics.currently_studying,
-        # TODO: Investigate if study_background can be empty or null
         study_background=require_non_empty_text(demographics.study_background, "Study background"),
         adhd_diagnosis=demographics.adhd_diagnosis,
         adhd_official_diagnosis=demographics.adhd_official_diagnosis,
@@ -54,8 +58,15 @@ def submit_demographics(
         general_programming_ability=demographics.general_programming_ability,
         python_programming_experience=demographics.python_programming_experience,
         python_programming_ability=demographics.python_programming_ability,
+        prior_programming_experience_score=prior_programming_experience_score,
         submitted_at=current_utc_timestamp(),
     )
+
+    if (participant.prior_programming_experience_score is None) or (
+        participant.prior_programming_experience_score != prior_programming_experience_score
+    ):
+        participant.prior_programming_experience_score = prior_programming_experience_score
+        session.add(participant)
 
     session.add(demographics_row)
     session.commit()

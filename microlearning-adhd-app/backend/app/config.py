@@ -22,28 +22,42 @@ VALID_ADHD_DIAGNOSES = {
 
 VALID_ASSIGNMENTS = {"control", "experimental"}
 
-# Video-player subgroup. The control arm's subgroup mirrors its assignment; the
-# experimental arm splits into the standard player and the ML+ enhanced player.
 CONTROL_SUBGROUP = "control"
 EXPERIMENTAL_SUBGROUPS = ("standard", "enhanced-player")
+
+LEARNING_CONDITION_LABELS = (CONTROL_SUBGROUP, *EXPERIMENTAL_SUBGROUPS)
+
 VALID_SUBGROUPS = {CONTROL_SUBGROUP, *EXPERIMENTAL_SUBGROUPS}
 VALID_SUBGROUPS_BY_ASSIGNMENT = {
     "control": {CONTROL_SUBGROUP},
     "experimental": set(EXPERIMENTAL_SUBGROUPS),
 }
 
+LEARNING_CONDITION_TARGET_WEIGHTS = {
+    CONTROL_SUBGROUP: 2.0,
+    EXPERIMENTAL_SUBGROUPS[0]: 1.0,  # standard
+    EXPERIMENTAL_SUBGROUPS[1]: 1.0,  # enhanced
+}
 
-# Efrons Biased Coin Probability
-BIASED_COIN_PROBABILITY = 0.75
+PRIOR_PROGRAMMING_EXPERIENCE_SCORE_MIN = 0
+PRIOR_PROGRAMMING_EXPERIENCE_SCORE_MAX = 6
+PRIOR_PROGRAMMING_EXPERIENCE_SCORE_RANGE = (
+    PRIOR_PROGRAMMING_EXPERIENCE_SCORE_MAX - PRIOR_PROGRAMMING_EXPERIENCE_SCORE_MIN
+)
+
+SCORE_IMBALANCE_WEIGHT = 1.0
+
+ALLOCATION_IMBALANCE_TOLERANCE = 1e-9
 
 
-# Number of items per Likert questionnaire.
+EFRON_BIASED_COIN_PROBABILITY = 0.75
+
+
 ADHD_SCREENING_ITEM_COUNT = 19
 PANAS_ITEM_COUNT = 20
 FAM_ITEM_COUNT = 19
 UES_ITEM_COUNT = 31
 
-# Expected question IDs per Likert questionnaire
 # Must match the frontend content files in frontend/src/content/*.ts and column names in models.py.
 # TODO: Add single source of truth
 ADHD_SCREENING_QUESTION_IDS = {f"adhd{index}" for index in range(1, ADHD_SCREENING_ITEM_COUNT + 1)}
@@ -68,7 +82,6 @@ LIKERT_MAX = 5
 FAM_SCALE_MAX = 7
 
 
-# Demographics Validation
 MIN_AGE = 18
 MAX_AGE = 99
 

@@ -1,3 +1,4 @@
+from .allocation_log import AllocationLog
 from .demographics import Demographics
 from .interaction_event import InteractionEvent
 from .post_intervention import PostInterventionResponse
@@ -12,6 +13,7 @@ from .quiz import QuizSubmission
 from .session import ParticipantSession
 
 __all__ = [
+    "AllocationLog",
     "Demographics",
     "InteractionEvent",
     "PostInterventionResponse",

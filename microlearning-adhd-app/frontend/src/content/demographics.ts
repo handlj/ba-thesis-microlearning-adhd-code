@@ -154,9 +154,10 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     label: 'Allgemeine Programmierfähigkeit',
     placeholder: 'Wie würden Sie Ihre allgemeine Programmierfähigkeit einschätzen?',
     options: {
+      // These keys must match the demographics scoring in the backend service module
       beginner: 'Anfänger*in',
       intermediate: 'Fortgeschrittene*r',
-      advanced: 'Expert*in',
+      expert: 'Expert*in',
     },
     visibleIf: {
       field: 'generalProgrammingExperience',
@@ -183,9 +184,10 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     label: 'Python-Programmierfähigkeit',
     placeholder: 'Wie würden Sie Ihre Python-Programmierfähigkeit einschätzen?',
     options: {
+      // These keys must match the demographics scoring in the backend service module
       beginner: 'Anfänger*in',
       intermediate: 'Fortgeschrittene*r',
-      advanced: 'Expert*in',
+      expert: 'Expert*in',
     },
     visibleIf: {
       field: 'pythonProgrammingExperience',

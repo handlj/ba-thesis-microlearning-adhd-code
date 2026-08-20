@@ -20,7 +20,7 @@ from app.models import (
 )
 from app.schemas import ADHDScreeningSchemas, QuestionnaireSchemas
 from app.services import (
-    assign_balanced_group,
+    assign_balanced_group_with_log,
     ensure_participant_exists,
     score_adhd_screening,
     validate_assignment,
@@ -114,10 +114,17 @@ def submit_adhd_screening(
 
     if participant.assignment is None and participant.subgroup is None:
         participant.adhd_screen_positive = screen_positive
-        participant.assignment, participant.subgroup = assign_balanced_group(
-            session, screen_positive
+
+        participant.assignment, participant.subgroup, allocation_log = (
+            assign_balanced_group_with_log(
+                session,
+                participant.id,
+                screen_positive,
+                participant.prior_programming_experience_score,
+            )
         )
         session.add(participant)
+        session.add(allocation_log)
 
     submitted_at = current_utc_timestamp()
 

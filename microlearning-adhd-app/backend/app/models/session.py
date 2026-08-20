@@ -14,3 +14,4 @@ class ParticipantSession(SQLModel, table=True):
     assignment: str | None = None
     subgroup: str | None = None
     adhd_screen_positive: bool | None = None
+    prior_programming_experience_score: int | None = None
