@@ -2,7 +2,6 @@
 
 ## Next Up
 
-- [ ] Incorporate prior programming skill outcome into group randomization
 - [ ] For Rewatch dialogs, show not only how much are incorrect, but also which ones
 
 ## Nice to have
