@@ -2,8 +2,6 @@
 
 ## Next Up
 
-- [ ] For Rewatch dialogs, show not only how much are incorrect, but also which ones
-
 ## Nice to have
 
 - [ ] Redesign demographics questionnaire on frontend since it is now longer
