@@ -52,11 +52,17 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
     passThreshold,
     showRewatchDialog,
     failedScore,
+    failedAnswers,
     resumeSeconds,
     dismissRewatchDialog,
+    jumpToQuestion,
+    playerRef,
   } = useExperimentalGroup(props)
 
   const sequence = copy.experimentalGroup.progress(videoIndex, videoCount)
+
+  const features = getVideoPlayerFeatures('experimental')
+  const chapters = getVideoChapters(video?.id)
 
   return (
     <StudyPage ariaLabelledBy="experimental-title" cardClassName="study-card--video">
@@ -84,6 +90,11 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
               <RewatchDialog
                 open={showRewatchDialog}
                 score={failedScore}
+                questions={topic?.questions ?? []}
+                submittedAnswers={failedAnswers}
+                chapters={chapters}
+                showChapterHints={features.chapterLabels}
+                onSeekToQuestion={features.chapterNavigation ? jumpToQuestion : undefined}
                 attempt={attemptNumber}
                 maxAttempts={maxAttempts}
                 passThreshold={passThreshold}
@@ -92,11 +103,12 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
 
               <StudyVideoPlayer
                 key={`${video.id}-attempt-${attemptNumber}`}
+                ref={playerRef}
                 src={video.video_url}
                 eventPrefix="experimental_video"
                 eventPayload={videoContext}
-                chapters={getVideoChapters(video.id)}
-                features={getVideoPlayerFeatures('experimental')}
+                chapters={chapters}
+                features={features}
                 initialSeekSeconds={resumeSeconds}
                 onLogInteraction={props.onLogInteraction}
                 onEnded={handleVideoEnded}

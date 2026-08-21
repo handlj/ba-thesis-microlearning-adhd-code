@@ -39,6 +39,11 @@ export const genericIcons: Record<string, ReactNode> = {
       <path d="M4.5 12.6l4.6 4.6L19.5 6.8" {...strokeProps} />
     </svg>
   ),
+  cross: (
+    <svg viewBox="0 0 24 24" width="18" height="18" role="img">
+      <path d="M6.8 6.8l10.4 10.4M17.2 6.8L6.8 17.2" {...strokeProps} />
+    </svg>
+  ),
   exit: (
     <svg viewBox="0 0 24 24" width="18" height="18" role="img">
       <path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4" {...strokeProps} />

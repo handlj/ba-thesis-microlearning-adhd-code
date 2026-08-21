@@ -207,16 +207,16 @@ export const copy = {
       attemptLabel: (current: number, total: number) => `Versuch ${current} von ${total}`,
       scoreCaption: 'Fragen richtig beantwortet',
       outOf: (total: number) => `von ${total}`,
-      srScore: (correct: number, total: number) =>
-        `Sie haben ${correct} von ${total} Fragen richtig beantwortet.`,
       thresholdLabel: (threshold: number, total: number) =>
         `Ziel: ${threshold} von ${total} richtig`,
       thresholdMarkerLabel: 'Bestehensgrenze',
-      nextStepsTitle: 'Wie es weitergeht',
-      nextSteps: [
-        'Sehen Sie sich das Video noch einmal an. Es startet an einer passenden Stelle.',
-        'Wenn Sie möchten können Sie das Quiz jederzeit erneut starten.',
-      ],
+      reviewCorrectLabel: 'Richtig beantwortete Fragen',
+      reviewWrongTitle: 'Noch einmal ansehen',
+      chapterHint: (title: string, time: string) => `${title} · ${time}`,
+      reviewOptionsLabel: 'Antwortmöglichkeiten · Ihre Auswahl ist markiert',
+      nextStepsCompact:
+        'Das Video startet an einer passenden Stelle. Sie können das Quiz jederzeit erneut starten.',
+      jumpStepCompact: 'Tippen Sie auf eine Frage, um direkt dorthin zu springen.',
     },
     progress: (current: number, total: number) => `Video ${current} von ${total}`,
     quiz: {

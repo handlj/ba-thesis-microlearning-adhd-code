@@ -1236,8 +1236,10 @@
    interrupts the failed-quiz flow until the participant chooses to continue.
    Styled as frosted paper on a warm scrim rather than a flat system alert. */
 .rewatch-dialog {
-  width: min(440px, calc(100vw - 40px));
-  margin: auto; /* centred in the top layer by dialog.showModal() */
+  width: min(720px, calc(100vw - 40px));
+  max-height: 88svh;
+  overflow-y: auto;
+  margin: auto;
   padding: 32px;
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 26px;
@@ -1270,6 +1272,12 @@
 
 .rewatch-dialog__title {
   margin: 0 0 12px;
+}
+
+/* Focused on open so the dialog starts at the top and gets announced; it is
+   not interactive, so it should not show a focus ring. */
+.rewatch-dialog__title:focus {
+  outline: none;
 }
 
 /* Score panel — mirrors the .feedback-stat card from QuizFeedback so the two
@@ -1338,6 +1346,16 @@
   box-shadow: 0 0 0 2px rgba(255, 250, 244, 0.85);
 }
 
+/* Score caption and pass target share a line rather than stacking, which keeps
+   the panel to four rows instead of five. */
+.rewatch-score__captions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .rewatch-score__caption {
   font-size: 0.9rem;
   color: var(--text);
@@ -1360,14 +1378,26 @@
   background: #2f7d5b;
 }
 
-/* "What happens now" — the second core message, as a compact numbered list
-   instead of a paragraph so each step lands on its own. */
-.rewatch-next {
+/* Per-question review. The questions that landed collapse to a row of pills —
+   a correct answer needs its number and a tick, not its prompt — so the space
+   goes to the ones worth re-watching. Those keep the dialog's warm register:
+   the same brown as the attempt pill rather than the error red used for form
+   failures, which would read as a malfunction instead of "not passed yet". */
+.rewatch-review {
   margin-top: 20px;
 }
 
-.rewatch-next__title {
-  margin: 0 0 12px;
+.rewatch-review__correct {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.rewatch-review__correct-label,
+.rewatch-review__title {
+  margin: 0;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -1375,22 +1405,75 @@
   color: #8a5b2b;
 }
 
-.rewatch-next__list {
+.rewatch-review__title {
+  margin-bottom: 12px;
+}
+
+.rewatch-review__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The pill motif shared with .eyebrow and .progress-pill, in the pass green. */
+.rewatch-review__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px 5px 9px;
+  border-radius: 999px;
+  background: rgba(47, 125, 91, 0.14);
+  color: #256b4c;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.rewatch-review__chip-icon {
+  display: inline-flex;
+}
+
+.rewatch-review__chip-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.rewatch-review__list {
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
-.rewatch-next__item {
+/* The card is the whole missed question — header, the snippet it refers to and
+   its alternatives — so the framing sits on the item and the header inside it
+   stays transparent. */
+.rewatch-review__item {
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(138, 91, 43, 0.28);
+  background: rgba(138, 91, 43, 0.12);
+}
+
+.rewatch-review__row {
   display: flex;
   align-items: flex-start;
   gap: 12px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
 }
 
-.rewatch-next__marker {
+/* Same circle geometry as the chips so the two groups rhyme. */
+.rewatch-review__marker {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -1398,15 +1481,177 @@
   width: 26px;
   height: 26px;
   border-radius: 999px;
-  background: rgba(138, 91, 43, 0.12);
+  background: rgba(138, 91, 43, 0.18);
   color: #8a5b2b;
-  font-size: 0.85rem;
-  font-weight: 700;
-  line-height: 1;
 }
 
-.rewatch-next__text {
-  line-height: 1.55;
+.rewatch-review__marker svg {
+  width: 15px;
+  height: 15px;
+}
+
+.rewatch-review__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+/* Prompts run long; they sit a step below the dialog heading so they inform
+   without competing with it. */
+.rewatch-review__prompt {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #4f453a;
+}
+
+.rewatch-review__number {
+  margin-right: 8px;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.rewatch-review__hint {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #8a5b2b;
+}
+
+.rewatch-review__jump {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 3px;
+  color: #8a5b2b;
+  opacity: 0.7;
+}
+
+/* Only the enhanced player renders rows as buttons, so the affordances below
+   apply exclusively there. */
+.rewatch-review__row--button {
+  font: inherit;
+  cursor: pointer;
+  appearance: none;
+}
+
+/* The header is the click target but the card is what the eye reads as one
+   object, so hovering the header lifts the whole card. */
+.rewatch-review__item:has(.rewatch-review__row--button:hover) {
+  border-color: rgba(138, 91, 43, 0.42);
+  background: rgba(138, 91, 43, 0.18);
+}
+
+.rewatch-review__row--button:hover .rewatch-review__jump {
+  opacity: 1;
+}
+
+.rewatch-review__row--button:focus-visible {
+  outline: 3px solid rgba(54, 87, 159, 0.25);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+/* The snippet the question asks about. Warm paper rather than the quiz's cool
+   grey, which would sit on the dialog like a foreign surface. */
+.rewatch-review__code {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 250, 244, 0.75);
+  border-color: rgba(138, 91, 43, 0.22);
+}
+
+.rewatch-review__code code {
+  font-size: 0.85rem;
+}
+
+/* Names what follows. It carries the only statement that these are the choices
+   as they were and not the solution, so it is announced, not decorative. */
+.rewatch-review__options-label {
+  margin: 12px 0 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a5b2b;
+  opacity: 0.85;
+}
+
+.rewatch-review__options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* The transparent border keeps an unselected alternative the same height as a
+   selected one. */
+.rewatch-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #4f453a;
+}
+
+.rewatch-option--selected {
+  border-color: rgba(138, 91, 43, 0.3);
+  background: rgba(255, 250, 244, 0.75);
+}
+
+/* The circular control from .quiz-checkbox, so a marked alternative is legible
+   as "you ticked this". Filled in the dialog's brown — never the pass green or
+   an error red, which would read as a verdict on whether the choice was right,
+   which is exactly what this dialog withholds. */
+.rewatch-option__marker {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(138, 91, 43, 0.22);
+  background: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+
+.rewatch-option__marker svg {
+  width: 14px;
+  height: 14px;
+}
+
+.rewatch-option--selected .rewatch-option__marker {
+  border-color: transparent;
+  background: #8a5b2b;
+}
+
+/* The quiz's own option snippet is cool grey, which reads as a foreign panel
+   next to the warm stem block a few rows above it. Warm both, and darken the
+   one on a marked alternative so it does not merge into that row's paper. */
+.rewatch-option .quiz-code--option {
+  background: rgba(255, 250, 244, 0.8);
+  border-color: rgba(138, 91, 43, 0.22);
+}
+
+.rewatch-option--selected .quiz-code--option {
+  background: rgba(138, 91, 43, 0.08);
+}
+
+/* Closing guidance, as one quiet line: the review list above already says what
+   to revisit, so a numbered "what happens now" list would only repeat it. */
+.rewatch-hint {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  line-height: 1.5;
   color: #4f453a;
 }
 
@@ -1497,5 +1742,38 @@
 
   .rewatch-dialog {
     padding: 26px 20px;
+  }
+
+  .rewatch-review__item {
+    padding: 10px 12px;
+  }
+
+  .rewatch-review__row {
+    gap: 10px;
+  }
+
+  .rewatch-review__code,
+  .rewatch-option {
+    padding: 8px 10px;
+  }
+
+  .rewatch-option {
+    gap: 8px;
+    font-size: 0.88rem;
+  }
+
+  .rewatch-review__prompt {
+    font-size: 0.9rem;
+  }
+
+  /* Let the label sit above its pills, and the pass target below the caption,
+     instead of squeezing both onto one narrow line. */
+  .rewatch-review__correct,
+  .rewatch-score__captions {
+    gap: 8px;
+  }
+
+  .rewatch-review__correct {
+    align-items: flex-start;
   }
 }

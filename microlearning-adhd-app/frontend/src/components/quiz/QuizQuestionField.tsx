@@ -1,6 +1,7 @@
 import { useId } from 'react'
 import type { QuizQuestion } from '../../content/quiz.ts'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
+import QuizOptionContent from './QuizOptionContent.tsx'
 import { renderInlineCode } from './renderInlineCode.tsx'
 
 type QuizQuestionFieldProps = {
@@ -62,18 +63,7 @@ function QuizQuestionField({ question, selected, onToggle, index }: QuizQuestion
                 {genericIcons.check}
               </span>
 
-              <span className="quiz-option-content">
-                {option.text ? <span>{renderInlineCode(option.text)}</span> : null}
-
-                {option.code ? (
-                  <pre
-                    className="quiz-code 
-                        quiz-code--option"
-                  >
-                    <code>{option.code}</code>
-                  </pre>
-                ) : null}
-              </span>
+              <QuizOptionContent option={option} />
             </label>
           )
         })}

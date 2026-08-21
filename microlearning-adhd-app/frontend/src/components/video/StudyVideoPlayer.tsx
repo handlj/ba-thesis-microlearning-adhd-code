@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useImperativeHandle, useRef, useState, type Ref } from 'react'
 import '@assets/styles/VideoPlayer.css'
 import { copy } from '../../content/copy.ts'
 import type { VideoChapter } from '../../content/videoChapters.ts'
@@ -9,30 +9,10 @@ import { buildSegments } from './chapterSegments.ts'
 import { formatDuration } from './formatDuration.ts'
 import { videoIcons } from '@assets/icons/videoIcons.tsx'
 
-/*
-  The single video embedding used everywhere in the study: the instruction
-  video on the ready page, the control group's video, and the experimental
-  group's video sequence.
-
-  It wraps a plain <video> and draws its own control bar, because the native
-  one cannot be marked up with chapters — the browser's controls live in a
-  closed shadow root. The underlying element and its events are untouched, so
-  the interaction logging keeps measuring the same thing it did before.
-
-  Everything optional (chapters, speed) is off by default and switched on
-  through VideoPlayerFeatures; see utils/videoFeatures.ts.
-
-  Callers embedding a sequence of videos should key this component by video id
-  so a new video starts from a clean state.
-*/
-
-/* Offered in the speed menu, which only the enhanced player shows. */
 const PLAYBACK_RATES = [0.5, 0.75, 1, 1.25, 1.5, 2] as const
 
-/* A seek of more than this counts as intentional, not as playback drift. */
 const SEEK_LOG_THRESHOLD_SECONDS = 1
 
-/* How long the controls stay up after the pointer stops moving, while playing. */
 const CONTROLS_HIDE_DELAY_MS = 2600
 
 const KEYBOARD_SEEK_SECONDS = 5
@@ -44,29 +24,25 @@ const BASE_FEATURES: VideoPlayerFeatures = {
   playbackSpeed: false,
 }
 
+export type StudyVideoPlayerHandle = {
+  requestSeek: (seconds: number) => void
+}
+
 type StudyVideoPlayerProps = {
+  ref?: Ref<StudyVideoPlayerHandle>
   src: string
-  /*
-    Prefix for every logged event, e.g. 'control_video' produces
-    'control_video_skipped'. Keeps the existing event names unchanged.
-  */
   eventPrefix: string
-  /* Merged into every logged payload, so pages keep their own video context. */
   eventPayload?: StudyInteractionPayload
   onLogInteraction?: (eventType: string, payload?: StudyInteractionPayload) => void
   onEnded?: () => void
   onLoadedMetadata?: () => void
-  /*
-    Jump here once metadata is available, without logging it as a participant
-    seek. Used by the experimental group to resume at the first missed answer
-    after a failed quiz.
-  */
   initialSeekSeconds?: number | null
   chapters?: readonly VideoChapter[]
   features?: VideoPlayerFeatures
 }
 
 function StudyVideoPlayer({
+  ref,
   src,
   eventPrefix,
   eventPayload,
@@ -93,26 +69,16 @@ function StudyVideoPlayer({
   const [areControlsVisible, setAreControlsVisible] = useState(true)
   const [isSpeedMenuOpen, setIsSpeedMenuOpen] = useState(false)
 
-  /* Last position we know the participant was at, for seek deltas. */
   const previousTimeRef = useRef(0)
-  /* True while the participant drags the scrubber: one log entry, not dozens. */
   const isScrubbingRef = useRef(false)
-  /* Swallows the log for a seek the app performed rather than the participant. */
   const suppressSeekLogRef = useRef(false)
   const pendingSeekRef = useRef<number | null>(initialSeekSeconds)
   const hideControlsTimerRef = useRef<number | null>(null)
   const volumeBeforeCommitRef = useRef(1)
-  /* Pointer handlers need the current playback state without re-binding. */
   const isPlayingRef = useRef(false)
 
   const labels = copy.video.player
 
-  /*
-    Callers pass a fresh handler and payload object on every render, which would
-    make every callback below unstable. Read them through a ref that the effect
-    keeps current instead, so logging is stable without asking callers to
-    memoise anything.
-  */
   const loggingRef = useRef({ onLogInteraction, eventPayload })
   useEffect(() => {
     loggingRef.current = { onLogInteraction, eventPayload }
@@ -160,7 +126,7 @@ function StudyVideoPlayer({
         ) ?? segments[segments.length - 1])
       : null
 
-  /* ---------------------------------------------------------------- controls */
+  // --- controls ---
 
   const clearHideTimer = useCallback(() => {
     if (hideControlsTimerRef.current !== null) {
@@ -169,12 +135,6 @@ function StudyVideoPlayer({
     }
   }, [])
 
-  /*
-    Paused is a decision point, so the controls stay up; while playing they
-    retreat shortly after the pointer stops, so nothing sits over the content
-    being learned. Driven from the events that change either — playback state
-    or pointer movement — rather than from an effect.
-  */
   const showControls = useCallback(
     (autoHide: boolean) => {
       setAreControlsVisible(true)
@@ -219,7 +179,7 @@ function StudyVideoPlayer({
     return () => document.removeEventListener('pointerdown', handlePointerDown)
   }, [isSpeedMenuOpen])
 
-  /* ------------------------------------------------------------- transport */
+  // --- transport ---
 
   const togglePlay = useCallback(() => {
     const video = videoRef.current
@@ -228,10 +188,7 @@ function StudyVideoPlayer({
     }
 
     if (video.paused) {
-      void video.play().catch(() => {
-        // Autoplay policies can reject a programmatic play(); the participant
-        // can simply press again, and there is nothing useful to report.
-      })
+      void video.play().catch(() => {})
       log('played', { atSeconds: Math.round(video.currentTime) })
     } else {
       video.pause()
@@ -249,6 +206,26 @@ function StudyVideoPlayer({
     video.currentTime = target
     setCurrentTime(target)
   }, [])
+
+  const requestSeek = useCallback((seconds: number) => {
+    const video = videoRef.current
+    const target = Math.max(0, seconds)
+
+    if (!video || !Number.isFinite(video.duration)) {
+      pendingSeekRef.current = target
+      return
+    }
+
+    const clamped = Math.min(video.duration, target)
+    if (Math.abs(video.currentTime - clamped) < 0.01) return
+
+    previousTimeRef.current = clamped
+    suppressSeekLogRef.current = true
+    video.currentTime = clamped
+    setCurrentTime(clamped)
+  }, [])
+
+  useImperativeHandle(ref, () => ({ requestSeek }), [requestSeek])
 
   const changeVolume = useCallback((nextVolume: number) => {
     const video = videoRef.current
@@ -322,14 +299,12 @@ function StudyVideoPlayer({
       void document.exitFullscreen()
       log('fullscreen_exited')
     } else {
-      void container.requestFullscreen().catch(() => {
-        // Nothing to recover: the video simply stays inline.
-      })
+      void container.requestFullscreen().catch(() => {})
       log('fullscreen_entered')
     }
   }, [log])
 
-  /* -------------------------------------------------------------- keyboard */
+  // --- keyboard ---
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     // The scrubber and the buttons handle their own keys; intercepting here
@@ -370,7 +345,7 @@ function StudyVideoPlayer({
     }
   }
 
-  /* ----------------------------------------------------------------- render */
+  // --- render ---
 
   const playLabel = hasEnded ? labels.replay : isPlaying ? labels.pause : labels.play
   const playIcon = hasEnded ? videoIcons.replay : isPlaying ? videoIcons.pause : videoIcons.play
@@ -434,8 +409,6 @@ function StudyVideoPlayer({
           const seekTarget = pendingSeekRef.current
           if (seekTarget !== null) {
             pendingSeekRef.current = null
-            // Set the reference position first so the programmatic jump is not
-            // logged as a participant seek.
             previousTimeRef.current = seekTarget
             if (seekTarget > 0) {
               suppressSeekLogRef.current = true
@@ -467,7 +440,6 @@ function StudyVideoPlayer({
             return
           }
 
-          // A drag fires seeking continuously; it is logged once on release.
           if (isScrubbingRef.current) {
             return
           }

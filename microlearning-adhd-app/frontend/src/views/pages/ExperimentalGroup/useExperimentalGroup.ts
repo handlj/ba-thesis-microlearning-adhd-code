@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import { useQuizAnswers } from '../../../components/quiz/useQuizAnswers.ts'
+import { useRef, useState } from 'react'
+import { useQuizAnswers, type QuizAnswers } from '../../../components/quiz/useQuizAnswers.ts'
+import type { StudyVideoPlayerHandle } from '../../../components/video/StudyVideoPlayer.tsx'
 import { copy } from '../../../content/copy.ts'
-import { quizTopics } from '../../../content/quiz.ts'
+import { quizTopics, type QuizQuestion } from '../../../content/quiz.ts'
 import { useAsyncResource } from '../../../hooks/useAsyncResource.ts'
 import { useScrollToTop } from '../../../hooks/useScrollToTop.ts'
 import { useTabAwayLog } from '../../../hooks/useTabAwayLog.ts'
@@ -56,7 +57,11 @@ export function useExperimentalGroup({
   const [isRewatch, setIsRewatch] = useState(false)
   const [goBackToVideo, setGoBackToVideo] = useState(false)
   const [showRewatchDialog, setShowRewatchDialog] = useState(false)
-  const [failedScore, setFailedScore] = useState<{ correct: number; total: number } | null>(null)
+
+  const [failedScore, setFailedScore] = useState<QuizScore | null>(null)
+  const [failedAnswers, setFailedAnswers] = useState<QuizAnswers | null>(null)
+
+  const playerRef = useRef<StudyVideoPlayerHandle>(null)
 
   const [resumeSeconds, setResumeSeconds] = useState<number | null>(null)
 
@@ -94,7 +99,8 @@ export function useExperimentalGroup({
 
   const startRewatch = (score: QuizScore) => {
     setResumeSeconds(score.earliestWrongTimestamp)
-    setFailedScore({ correct: score.correctCount, total: score.total })
+    setFailedScore(score)
+    setFailedAnswers(quiz.answers)
     setAttemptNumber((prev) => prev + 1)
     setIsRewatch(true)
     setShowRewatchDialog(true)
@@ -113,11 +119,24 @@ export function useExperimentalGroup({
     setGoBackToVideo(false)
     setShowRewatchDialog(false)
     setFailedScore(null)
+    setFailedAnswers(null)
     setResumeSeconds(null)
     quiz.reset(quizTopics[nextIndex]?.questions ?? [])
   }
 
   const dismissRewatchDialog = () => setShowRewatchDialog(false)
+
+  const jumpToQuestion = (question: QuizQuestion) => {
+    onLogInteraction('experimental_rewatch_question_selected', {
+      ...videoContext,
+      topicId: currentTopic?.id ?? null,
+      attempt: attemptNumber - 1, // the re-watch attempt is the one that just finished
+      questionId: question.id,
+      toSeconds: question.videoTimestamp,
+    })
+    playerRef.current?.requestSeek(question.videoTimestamp)
+    setShowRewatchDialog(false)
+  }
 
   const proceedFromVideo = () => {
     if (!canProceedFromVideo) return
@@ -236,7 +255,10 @@ export function useExperimentalGroup({
     passThreshold,
     showRewatchDialog,
     failedScore,
+    failedAnswers,
     resumeSeconds,
     dismissRewatchDialog,
+    jumpToQuestion,
+    playerRef,
   }
 }
