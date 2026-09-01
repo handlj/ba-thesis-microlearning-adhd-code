@@ -105,7 +105,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   {
     id: 'adhdMedication',
     label: 'ADHS-Medikamenteneinnahme',
-    placeholder: 'Nehmen Sie derzeit ADHS-Medikamente ein?',
+    placeholder: 'Haben Sie heute ADHS-Medikamente eingenommen?',
     options: {
       yes: 'Ja',
       no: 'Nein',
@@ -211,9 +211,9 @@ type BaseQuestion = {
 type VisibleIfCondition =
   | { visibleIf?: never; valueIfHidden?: never }
   | {
-      visibleIf: { field: DemographicQuestionId; equals: readonly string[] }
-      valueIfHidden: string
-    }
+    visibleIf: { field: DemographicQuestionId; equals: readonly string[] }
+    valueIfHidden: string
+  }
 
 export type DemographicQuestion = BaseQuestion & VisibleIfCondition
 

@@ -2,7 +2,6 @@
 
 ## Next Up
 
-- [ ] Edit medication instruction in demographics to specify the last 24h
 - [ ] Edit instruction video, fix typo ("sie" -> "Sie")
 
 ## Nice to have
