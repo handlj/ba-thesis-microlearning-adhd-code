@@ -1,28 +1,71 @@
+from fastapi import HTTPException
+from sqlmodel import Session, select
+
 from app.config import (
-    ADHD_HYPERACTIVITY_QUESTION_IDS,
-    ADHD_HYPERACTIVITY_THRESHOLD,
-    ADHD_INATTENTION_QUESTION_IDS,
-    ADHD_INATTENTION_THRESHOLD,
-    ADHD_SCREEN_POSITIVE_MARKS,
+    ADHD_PART_A_QUESTION_IDS,
+    ADHD_PART_A_SCORE_THRESHOLD,
+    ADHD_PART_B_QUESTION_IDS,
+    ADHD_PART_B_SCORE_THRESHOLD,
+    ERROR_DEMOGRAPHICS_NOT_FOUND,
+    HTTP_404_NOT_FOUND,
 )
+from app.models.demographics import Demographics
 
 
-def score_adhd_screening(answers: dict[str, int]) -> bool:
-    """Return True when the ASRS v1.1 Part A six-item screener is positive.
+def get_adhd_status(session: Session, participant_id: str, answers: dict[str, int]) -> bool:
+    """Reconcile self-reported ADHD diagnosis, medication and ADHD screener results
+    into a combined ADHD status measure for group allocation.
 
-    Inattention items count as a "mark" when the answer is "Manchmal" or higher;
-    hyperactivity items count when the answer is "Oft" or higher. Four or more
-    marks across the six items indicate symptoms highly consistent with adult
-    ADHD (the validated screener cutoff).
+    Return true if both of the following hold:
+      - Participant is officially diagnosed (self-reported)
+      - Participant either has a positive ADHD screener result or
+        self-reports taking ADHD medication
+
+    Return false otherwise.
     """
-    marks = 0
-    for question_id in ADHD_INATTENTION_QUESTION_IDS:
-        if answers[question_id] >= ADHD_INATTENTION_THRESHOLD:
-            marks += 1
-    for question_id in ADHD_HYPERACTIVITY_QUESTION_IDS:
-        if answers[question_id] >= ADHD_HYPERACTIVITY_THRESHOLD:
-            marks += 1
-    return marks >= ADHD_SCREEN_POSITIVE_MARKS
+
+    positive_screener_result = _get_adhd_screener_result(answers)
+    is_diagnosed, is_medicated = _get_adhd_diagnosis_and_medication(session, participant_id)
+
+    return is_diagnosed and (positive_screener_result or is_medicated)
+
+
+def _get_adhd_screener_result(answers: dict[str, int]) -> bool:
+    """German ASRS-v1.1 result scoring for online group allocation:
+
+    Return true if either:
+      - Part A score >= 14 (+ 6 (1 per question) since 1-5 likert scales are used instead of 0-4)
+      - Part B score >= 27 (+ 12 for the same reason)
+
+    This is based on the scoring update issued by Harvard Medical School in 2024.
+    For a source on this policy, see: https://novopsych.com/assessments/diagnosis/adult-adhd-self-report-scale-asrs/
+    """
+
+    part_a_score = sum(answers[question_id] for question_id in ADHD_PART_A_QUESTION_IDS)
+    part_b_score = sum(answers[question_id] for question_id in ADHD_PART_B_QUESTION_IDS)
+
+    return (
+        part_a_score >= ADHD_PART_A_SCORE_THRESHOLD or part_b_score >= ADHD_PART_B_SCORE_THRESHOLD
+    )
+
+
+def _get_adhd_diagnosis_and_medication(session: Session, participant_id: str) -> tuple[bool, bool]:
+    """Return a tuple of (is_diagnosed, is_medicated) for the given participant."""
+
+    demographics_record = session.exec(
+        select(Demographics).where(Demographics.participant_id == participant_id)
+    ).first()
+
+    if demographics_record is None:
+        raise HTTPException(
+            status_code=HTTP_404_NOT_FOUND,
+            detail=ERROR_DEMOGRAPHICS_NOT_FOUND.format(participant_id=participant_id),
+        )
+
+    valid_diagnosis = demographics_record.adhd_diagnosis == "diagnosed"
+    valid_medication = demographics_record.adhd_medication == "yes"
+
+    return valid_diagnosis is True, valid_medication is True
 
 
 def score_prior_programming_experience(

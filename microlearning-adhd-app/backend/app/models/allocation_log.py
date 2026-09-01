@@ -8,7 +8,7 @@ from app.timestamps import UtcDateTime
 class AllocationLog(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     participant_id: str = Field(foreign_key="participantsession.id")
-    adhd_screen_positive: bool
+    adhd_status_flag: bool
     prior_programming_experience_score: int | None = None
     score_missing: bool = False
     state_before_json: str

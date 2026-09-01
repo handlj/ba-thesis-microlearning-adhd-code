@@ -2,12 +2,12 @@
 
 ## Next Up
 
+- [ ] Edit medication instruction in demographics to specify the last 24h
+- [ ] Edit instruction video, fix typo ("sie" -> "Sie")
+
 ## Nice to have
 
 - [ ] Redesign demographics questionnaire on frontend since it is now longer
-
-### Textual Content
-- [ ] Edit instruction video, fix typo ("sie" -> "Sie")
 
 ### Videos
 - [ ] Timer einfügen nachdem weitergegangen werden kann (?)

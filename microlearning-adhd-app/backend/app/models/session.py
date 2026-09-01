@@ -13,5 +13,5 @@ class ParticipantSession(SQLModel, table=True):
     created_at: datetime = Field(sa_type=UtcDateTime)
     assignment: str | None = None
     subgroup: str | None = None
-    adhd_screen_positive: bool | None = None
+    adhd_status_flag: bool | None = None
     prior_programming_experience_score: int | None = None

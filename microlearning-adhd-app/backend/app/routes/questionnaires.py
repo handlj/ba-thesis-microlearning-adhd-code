@@ -22,7 +22,7 @@ from app.schemas import ADHDScreeningSchemas, QuestionnaireSchemas
 from app.services import (
     assign_balanced_group_with_log,
     ensure_participant_exists,
-    score_adhd_screening,
+    get_adhd_status,
     validate_assignment,
     validate_likert_answers,
     validate_subgroup,
@@ -110,16 +110,16 @@ def submit_adhd_screening(
         LIKERT_MAX,
     )
 
-    screen_positive = score_adhd_screening(answers)
+    adhd_status = get_adhd_status(session, participant_id, answers)
 
     if participant.assignment is None and participant.subgroup is None:
-        participant.adhd_screen_positive = screen_positive
+        participant.adhd_status_flag = adhd_status
 
         participant.assignment, participant.subgroup, allocation_log = (
             assign_balanced_group_with_log(
                 session,
                 participant.id,
-                screen_positive,
+                adhd_status,
                 participant.prior_programming_experience_score,
             )
         )

@@ -65,15 +65,25 @@ PANAS_QUESTION_IDS = {f"panas{index}" for index in range(1, PANAS_ITEM_COUNT + 1
 FAM_QUESTION_IDS = {f"fam{index}" for index in range(1, FAM_ITEM_COUNT + 1)}
 UES_QUESTION_IDS = {f"ues{index}" for index in range(1, UES_ITEM_COUNT + 1)}
 
-# ASRS v1.1 Part A scoring. Items 1-3 are inattention, items 4-6 hyperactivity.
-# An inattention item counts as a "mark" at "Manchmal" (3) or higher; a
-# hyperactivity item counts at "Oft" (4) or higher. Four or more marks across
-# the six items is a positive screen.
-ADHD_INATTENTION_QUESTION_IDS = ("adhd1", "adhd2", "adhd3")
-ADHD_HYPERACTIVITY_QUESTION_IDS = ("adhd4", "adhd5", "adhd6")
-ADHD_INATTENTION_THRESHOLD = 3
-ADHD_HYPERACTIVITY_THRESHOLD = 4
-ADHD_SCREEN_POSITIVE_MARKS = 4
+ADHD_PART_A_QUESTION_IDS = ("adhd1", "adhd2", "adhd3", "adhd4", "adhd5", "adhd6")
+ADHD_PART_B_QUESTION_IDS = (
+    "adhd7",
+    "adhd8",
+    "adhd9",
+    "adhd10",
+    "adhd11",
+    "adhd12",
+    "adhd13",
+    "adhd14",
+    "adhd15",
+    "adhd16",
+    "adhd17",
+    "adhd18",
+)
+
+# Thresholds increased by 1 per question, since scoring is based on 1-5 likert scale instead of 0-4.
+ADHD_PART_A_SCORE_THRESHOLD = 20
+ADHD_PART_B_SCORE_THRESHOLD = 39
 
 
 # Likert response ranges (inclusive). FAM uses a 1-7 scale, the others 1-5.
@@ -99,6 +109,9 @@ HTTP_404_NOT_FOUND = 404
 # Error Messages
 ERROR_CONSENT_REQUIRED = "Consent must be provided before starting the study."
 ERROR_PARTICIPANT_NOT_FOUND = "Participant session not found."
+ERROR_DEMOGRAPHICS_NOT_FOUND = (
+    "Demographics record not found for participant with ID: {participant_id}."
+)
 ERROR_INVALID_ASSIGNMENT = "Invalid assignment."
 ERROR_INVALID_AGE = "Age must be between {MIN_AGE} and {MAX_AGE}."
 ERROR_INVALID_ADHD_DIAGNOSIS = "Invalid ADHD diagnosis status."

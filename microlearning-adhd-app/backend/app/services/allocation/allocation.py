@@ -55,7 +55,7 @@ def assign_balanced_group_with_log(
 
     allocation_log = AllocationLog(
         participant_id=participant_id,
-        adhd_screen_positive=screen_positive,
+        adhd_status_flag=screen_positive,
         prior_programming_experience_score=prior_experience_score,
         score_missing=prior_experience_score is None,
         state_before_json=json.dumps(
@@ -74,7 +74,7 @@ def assign_balanced_group_with_log(
 
 def _get_participants_within_stratum(
     session: Session,
-    screen_positive: bool,
+    adhd_status: bool,
 ) -> dict[str, LearningConditionState]:
     participants_within_stratum = session.exec(
         select(
@@ -83,7 +83,7 @@ def _get_participants_within_stratum(
             func.coalesce(func.sum(ParticipantSession.prior_programming_experience_score), 0),
             func.count(ParticipantSession.prior_programming_experience_score),
         )
-        .where(ParticipantSession.adhd_screen_positive == screen_positive)
+        .where(ParticipantSession.adhd_status_flag == adhd_status)
         .where(ParticipantSession.subgroup.is_not(None))
         .group_by(ParticipantSession.subgroup)
     ).all()
