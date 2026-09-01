@@ -123,5 +123,5 @@ ERROR_NAIVE_TIMESTAMP_WRITE = "Naive timestamp write detected. Use UTC-aware tim
 
 # Video Filenames
 CONTROL_VIDEO_FILENAME = "video-full-v1.mp4"
-INSTRUCTION_VIDEO_FILENAME = "video-instructions-v1.mp4"
+INSTRUCTION_VIDEO_FILENAME = "video-instructions-v2.mp4"
 EXPERIMENTAL_VIDEO_FILENAME_TEMPLATE = "video{index}.mp4"

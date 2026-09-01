@@ -2,8 +2,6 @@
 
 ## Next Up
 
-- [ ] Edit instruction video, fix typo ("sie" -> "Sie")
-
 ## Nice to have
 
 - [ ] Redesign demographics questionnaire on frontend since it is now longer
