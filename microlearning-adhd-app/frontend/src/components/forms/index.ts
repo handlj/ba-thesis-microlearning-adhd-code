@@ -1,5 +1,6 @@
 export { buildOptionsFromCopy } from './utils'
 export { default as CheckboxQuestion } from './CheckboxQuestion'
+export { default as FormSection } from './FormSection'
 export { default as QuestionField } from './QuestionField'
 export { default as RadioQuestion } from './RadioQuestion'
 export { default as SelectQuestion } from './SelectQuestion'
@@ -9,6 +10,7 @@ export type {
   CheckboxQuestionDefinition,
   FormAnswers,
   FormAnswerValue,
+  FormSectionDefinition,
   QuestionChangeHandler,
   QuestionOption,
   RadioQuestionDefinition,

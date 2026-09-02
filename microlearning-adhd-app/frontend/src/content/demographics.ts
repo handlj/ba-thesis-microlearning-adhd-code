@@ -9,6 +9,11 @@ export const demographicsCopy = {
     intro:
       'Bitte beantworten Sie die folgenden Fragen zu Ihrer Person und Ihren Programmiervorkenntnissen.\n\n Alle Angaben werden anonymisiert verarbeitet und lassen keinerlei Rückschluss auf Sie zu.',
   },
+  sections: {
+    person: 'Persönliche Angaben',
+    diagnoses: 'ADHS & weitere Diagnosen',
+    programming: 'Programmiervorkenntnisse',
+  },
   validation: {
     allQuestions: 'Bitte beantworten Sie alle Fragen, bevor Sie fortfahren.',
     ageRange: (minAge: number, maxAge: number) =>
@@ -21,15 +26,29 @@ export const demographicsCopy = {
   },
 } as const
 
+const DEMOGRAPHIC_SECTIONS_TABLE = [
+  { id: 'person', title: demographicsCopy.sections.person },
+  { id: 'diagnoses', title: demographicsCopy.sections.diagnoses },
+  { id: 'programming', title: demographicsCopy.sections.programming },
+] as const
+
+export type DemographicSectionId = (typeof DEMOGRAPHIC_SECTIONS_TABLE)[number]['id']
+
+export type DemographicSection = { id: DemographicSectionId; title: string }
+
+export const DEMOGRAPHIC_SECTIONS: readonly DemographicSection[] = DEMOGRAPHIC_SECTIONS_TABLE
+
 const DEMOGRAPHIC_QUESTIONS_TABLE = [
   {
     id: 'age',
+    section: 'person',
     type: 'number',
     label: 'Alter',
     placeholder: 'Geben Sie Ihr Alter ein',
   },
   {
     id: 'gender',
+    section: 'person',
     label: 'Geschlecht',
     placeholder: 'Wählen Sie Ihr Geschlecht',
     options: {
@@ -41,6 +60,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   },
   {
     id: 'highestEducation',
+    section: 'person',
     label: 'Höchster Bildungsabschluss',
     placeholder: 'Wählen Sie Ihren höchsten Bildungsabschluss',
     options: {
@@ -55,6 +75,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   },
   {
     id: 'currentlyStudying',
+    section: 'person',
     label: 'Derzeit studierend',
     placeholder: 'Studieren Sie derzeit?',
     options: {
@@ -64,6 +85,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   },
   {
     id: 'studyBackground',
+    section: 'person',
     type: 'text',
     label: 'Studienhintergrund',
     placeholder: 'Geben Sie Ihre aktuelle Studienrichtung an',
@@ -74,7 +96,21 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     valueIfHidden: 'not-studying',
   },
   {
+    id: 'device',
+    section: 'person',
+    label: 'Verwendetes Gerät',
+    placeholder: 'Wählen Sie Ihr Gerät aus',
+    options: {
+      desktop: 'Desktop-Computer ("Stand-PC")',
+      laptop: 'Laptop',
+      tablet: 'Tablet',
+      smartphone: 'Smartphone',
+      other: 'Anderes Gerät',
+    },
+  },
+  {
     id: 'adhdDiagnosis',
+    section: 'diagnoses',
     label: 'ADHS-Diagnosestatus',
     placeholder: 'Wählen Sie Ihren aktuellen ADHS-Diagnosestatus',
     options: {
@@ -86,6 +122,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   },
   {
     id: 'adhdOfficialDiagnosis',
+    section: 'diagnoses',
     label: 'Offizielle ADHS-Diagnose (Wenn diagnostiziert)',
     placeholder: 'Wählen Sie Ihre entsprechende Diagnose aus',
     options: {
@@ -104,6 +141,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   },
   {
     id: 'adhdMedication',
+    section: 'diagnoses',
     label: 'ADHS-Medikamenteneinnahme',
     placeholder: 'Haben Sie heute ADHS-Medikamente eingenommen?',
     options: {
@@ -119,6 +157,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   },
   {
     id: 'hasOtherDiagnoses',
+    section: 'diagnoses',
     label: 'Weitere Diagnosen',
     placeholder: 'Haben Sie weitere Diagnosen einer psychischen Erkrankung?',
     options: {
@@ -129,6 +168,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   },
   {
     id: 'otherDiagnoses',
+    section: 'diagnoses',
     type: 'text',
     label: 'Weitere Diagnosen',
     placeholder: 'Bitte geben Sie Ihre weiteren Diagnosen an',
@@ -139,19 +179,8 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     valueIfHidden: 'no-other-diagnoses',
   },
   {
-    id: 'device',
-    label: 'Verwendetes Gerät',
-    placeholder: 'Wählen Sie Ihr Gerät aus',
-    options: {
-      desktop: 'Desktop-Computer ("Stand-PC")',
-      laptop: 'Laptop',
-      tablet: 'Tablet',
-      smartphone: 'Smartphone',
-      other: 'Anderes Gerät',
-    },
-  },
-  {
     id: 'generalProgrammingExperience',
+    section: 'programming',
     label: 'Allgemeine Programmiererfahrung',
     placeholder: 'Haben Sie bereits Programmiererfahrung?',
     options: {
@@ -161,6 +190,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   },
   {
     id: 'generalProgrammingLanguages',
+    section: 'programming',
     type: 'text',
     label: 'Benutzte Programmiersprachen',
     placeholder: 'Welche Programmiersprachen haben Sie bereits verwendet?',
@@ -172,6 +202,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   },
   {
     id: 'generalProgrammingAbility',
+    section: 'programming',
     label: 'Allgemeine Programmierfähigkeit',
     placeholder: 'Wie würden Sie Ihre allgemeine Programmierfähigkeit einschätzen?',
     options: {
@@ -188,6 +219,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   },
   {
     id: 'pythonProgrammingExperience',
+    section: 'programming',
     label: 'Python-Programmiererfahrung',
     placeholder: 'Haben Sie bereits Erfahrung mit der Programmiersprache Python?',
     options: {
@@ -202,6 +234,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
   },
   {
     id: 'pythonProgrammingAbility',
+    section: 'programming',
     label: 'Python-Programmierfähigkeit',
     placeholder: 'Wie würden Sie Ihre Python-Programmierfähigkeit einschätzen?',
     options: {
@@ -223,6 +256,7 @@ export type DemographicAnswers = Record<DemographicQuestionId, string>
 
 type BaseQuestion = {
   id: DemographicQuestionId
+  section: DemographicSectionId
   type?: 'select' | 'text' | 'number'
   label: string
   placeholder?: string
@@ -239,6 +273,10 @@ type VisibleIfCondition =
 export type DemographicQuestion = BaseQuestion & VisibleIfCondition
 
 export const DEMOGRAPHIC_QUESTIONS: readonly DemographicQuestion[] = DEMOGRAPHIC_QUESTIONS_TABLE
+
+export const demographicQuestionSections = Object.fromEntries(
+  DEMOGRAPHIC_QUESTIONS.map((q) => [q.id, q.section]),
+) as Record<DemographicQuestionId, DemographicSectionId>
 
 // Runtime Validation on Self-Gated Visibility Conditions of Demographic Questions
 const alreadyProcessedDemographicQuestions = new Set<DemographicQuestionId>()

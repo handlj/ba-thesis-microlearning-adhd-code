@@ -21,7 +21,7 @@ export type DemographicProps = {
 
 function Demographics(props: DemographicProps) {
   const { values, error, isSubmitting, onBack, onSubmit } = props
-  const { visibleFormQuestions, handleChange } = useDemographics(props)
+  const { visibleFormSections, handleChange } = useDemographics(props)
 
   return (
     <StudyPage ariaLabelledBy="demographics-title" cardClassName="study-card--form">
@@ -33,7 +33,7 @@ function Demographics(props: DemographicProps) {
       />
 
       <StudyForm
-        questions={visibleFormQuestions}
+        sections={visibleFormSections}
         values={values}
         error={error}
         onChange={handleChange}

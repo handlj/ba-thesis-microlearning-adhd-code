@@ -1,6 +1,11 @@
-import type { FormAnswerValue } from '../../../components/forms'
+import type { FormAnswerValue, FormSectionDefinition } from '../../../components/forms'
 import type { DemographicQuestionId } from '../../../content/demographics'
-import { DEMOGRAPHIC_QUESTIONS, demographicFormQuestions } from '../../../content/demographics'
+import {
+  DEMOGRAPHIC_QUESTIONS,
+  DEMOGRAPHIC_SECTIONS,
+  demographicFormQuestions,
+  demographicQuestionSections,
+} from '../../../content/demographics'
 import { getAppConfig } from '../../../utils/config'
 import type { DemographicProps } from './index'
 import { reconcileDemographicAnswers, resolveDemographicQuestionVisibility } from './rules'
@@ -13,6 +18,15 @@ export function useDemographics({ values, onChange }: DemographicProps) {
     .filter((q) => visibleQuestions.has(q.id))
     .map((q) => (q.type === 'number' ? { ...q, min: minAge, max: maxAge } : q))
 
+  const visibleFormSections: FormSectionDefinition<DemographicQuestionId>[] =
+    DEMOGRAPHIC_SECTIONS.map((section) => ({
+      id: section.id,
+      title: section.title,
+      questions: visibleFormQuestions.filter(
+        (q) => demographicQuestionSections[q.id] === section.id,
+      ),
+    })).filter((section) => section.questions.length > 0)
+
   const handleChange = (field: DemographicQuestionId, value: FormAnswerValue) => {
     if (Array.isArray(value)) return
 
@@ -24,5 +38,5 @@ export function useDemographics({ values, onChange }: DemographicProps) {
     }
   }
 
-  return { visibleFormQuestions, handleChange }
+  return { visibleFormSections, handleChange }
 }

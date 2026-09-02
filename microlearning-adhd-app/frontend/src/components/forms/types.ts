@@ -55,3 +55,9 @@ export type StudyQuestion<QuestionId extends string = string> =
   | SelectQuestionDefinition<QuestionId>
   | RadioQuestionDefinition<QuestionId>
   | CheckboxQuestionDefinition<QuestionId>
+
+export type FormSectionDefinition<QuestionId extends string = string> = {
+  id: string
+  title: string
+  questions: StudyQuestion<QuestionId>[]
+}

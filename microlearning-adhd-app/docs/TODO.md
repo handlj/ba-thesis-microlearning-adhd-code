@@ -4,8 +4,6 @@
 
 ## Nice to have
 
-- [ ] Redesign demographics questionnaire on frontend since it is now longer
-
 ### Videos
 - [ ] Timer einfügen nachdem weitergegangen werden kann (?)
   Incentive für unkooperatives Verhalten?
