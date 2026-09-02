@@ -118,6 +118,27 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     valueIfHidden: 'not-diagnosed',
   },
   {
+    id: 'hasOtherDiagnoses',
+    label: 'Weitere Diagnosen',
+    placeholder: 'Haben Sie weitere Diagnosen einer psychischen Erkrankung?',
+    options: {
+      yes: 'Ja',
+      no: 'Nein',
+      preferNotToSay: 'Keine Angabe',
+    },
+  },
+  {
+    id: 'otherDiagnoses',
+    type: 'text',
+    label: 'Weitere Diagnosen',
+    placeholder: 'Bitte geben Sie Ihre weiteren Diagnosen an',
+    visibleIf: {
+      field: 'hasOtherDiagnoses',
+      equals: ['yes'],
+    },
+    valueIfHidden: 'no-other-diagnoses',
+  },
+  {
     id: 'device',
     label: 'Verwendetes Gerät',
     placeholder: 'Wählen Sie Ihr Gerät aus',
@@ -211,9 +232,9 @@ type BaseQuestion = {
 type VisibleIfCondition =
   | { visibleIf?: never; valueIfHidden?: never }
   | {
-    visibleIf: { field: DemographicQuestionId; equals: readonly string[] }
-    valueIfHidden: string
-  }
+      visibleIf: { field: DemographicQuestionId; equals: readonly string[] }
+      valueIfHidden: string
+    }
 
 export type DemographicQuestion = BaseQuestion & VisibleIfCondition
 

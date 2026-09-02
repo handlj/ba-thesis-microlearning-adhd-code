@@ -50,6 +50,8 @@ def submit_demographics(
         adhd_diagnosis=demographics.adhd_diagnosis,
         adhd_official_diagnosis=demographics.adhd_official_diagnosis,
         adhd_medication=demographics.adhd_medication,
+        has_other_diagnoses=demographics.has_other_diagnoses,
+        other_diagnoses=require_non_empty_text(demographics.other_diagnoses, "Other diagnoses"),
         device=demographics.device,
         general_programming_experience=demographics.general_programming_experience,
         general_programming_languages=require_non_empty_text(

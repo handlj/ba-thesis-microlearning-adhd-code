@@ -16,6 +16,8 @@ class Demographics(SQLModel, table=True):
     adhd_diagnosis: str
     adhd_official_diagnosis: str
     adhd_medication: str
+    has_other_diagnoses: str
+    other_diagnoses: str
     device: str
     general_programming_experience: str
     general_programming_languages: str

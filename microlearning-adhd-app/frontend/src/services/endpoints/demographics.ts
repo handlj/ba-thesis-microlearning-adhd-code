@@ -15,6 +15,8 @@ export async function postDemographics(participantId: string, demographics: Demo
       adhd_diagnosis: demographics.adhdDiagnosis,
       adhd_official_diagnosis: demographics.adhdOfficialDiagnosis,
       adhd_medication: demographics.adhdMedication,
+      has_other_diagnoses: demographics.hasOtherDiagnoses,
+      other_diagnoses: demographics.otherDiagnoses,
       device: demographics.device,
       general_programming_experience: demographics.generalProgrammingExperience,
       general_programming_languages: demographics.generalProgrammingLanguages,
