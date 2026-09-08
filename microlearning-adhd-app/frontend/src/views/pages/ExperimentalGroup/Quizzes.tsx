@@ -9,6 +9,7 @@ type QuizzesProps = {
   answeredCount: number
   total: number
   onToggle: (questionId: string, optionId: string) => void
+  frozenQuestionIds: readonly string[]
   title: string
   sequence: string
 }
@@ -19,6 +20,7 @@ function Quizzes({
   answeredCount,
   total,
   onToggle,
+  frozenQuestionIds,
   title,
   sequence,
 }: QuizzesProps) {
@@ -39,6 +41,7 @@ function Quizzes({
             index={questionIndex + 1}
             selected={answers[question.id] ?? []}
             onToggle={(optionId) => onToggle(question.id, optionId)}
+            isFrozen={frozenQuestionIds.includes(question.id)}
           />
         ))}
       </div>

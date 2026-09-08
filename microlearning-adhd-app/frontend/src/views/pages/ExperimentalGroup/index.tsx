@@ -133,6 +133,7 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
                 answeredCount={quiz.answeredCount}
                 total={quiz.total}
                 onToggle={quiz.onToggle}
+                frozenQuestionIds={quiz.frozenQuestionIds}
               />
 
               <Message variant="status">

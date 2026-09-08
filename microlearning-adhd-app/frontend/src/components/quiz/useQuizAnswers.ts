@@ -4,10 +4,6 @@ import { blankAnswersMultiSelect } from '../../utils/blankAnswers.ts'
 
 export type QuizAnswers = Record<string, string[]>
 
-// Shared multi-select answer state for the quiz screens (control + experimental).
-// `toggle` keeps the state updater pure and returns the resulting checked state
-// so callers can log the interaction exactly once, outside of React's updater
-// (which StrictMode invokes twice in development).
 export function useQuizAnswers(questions: QuizQuestion[]) {
   const [answers, setAnswers] = useState<QuizAnswers>(() => blankAnswersMultiSelect(questions))
 
@@ -36,5 +32,20 @@ export function useQuizAnswers(questions: QuizQuestion[]) {
     setAnswers(blankAnswersMultiSelect(nextQuestions))
   }
 
-  return { answers, isComplete, answeredCount, total: questions.length, toggle, reset }
+  const resetKeeping = (keptQuestionIds: readonly string[]) => {
+    setAnswers((previousAnswers) => ({
+      ...blankAnswersMultiSelect(questions),
+      ...Object.fromEntries(keptQuestionIds.map((id) => [id, previousAnswers[id] ?? []])),
+    }))
+  }
+
+  return {
+    answers,
+    isComplete,
+    answeredCount,
+    total: questions.length,
+    toggle,
+    reset,
+    resetKeeping,
+  }
 }

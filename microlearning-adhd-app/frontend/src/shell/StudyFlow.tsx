@@ -33,7 +33,7 @@ import { useReloadLog } from '../hooks/useReloadLog.ts'
 function StudyFlow() {
   const [restored] = useState(readSnapshot)
 
-  const [currentPage, setCurrentPage] = useState<Page>(restored?.currentPage ?? 'welcome')
+  const [currentPage, setCurrentPage] = useState<Page>(restored?.currentPage ?? 'experimental')
 
   const [participantId, setParticipantId] = useState<string>(restored?.participantId ?? '')
   const [groupAssignment, setGroupAssignment] = useState<GroupAssignment | null>(

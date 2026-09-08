@@ -1247,13 +1247,52 @@
   }
 }
 
+.quiz-question--frozen .quiz-prompt {
+  border-bottom-color: rgba(47, 125, 91, 0.28);
+}
+
+.quiz-question--frozen .quiz-question-number {
+  background: rgba(47, 125, 91, 0.14);
+  color: #256b4c;
+}
+
+.quiz-question-number--frozen svg {
+  width: 18px;
+  height: 18px;
+}
+
+.choice-option--frozen {
+  cursor: default;
+  border-color: rgba(47, 125, 91, 0.3);
+  background: rgba(47, 125, 91, 0.1);
+}
+
+.quiz-checkbox--frozen {
+  background: #2f7d5b;
+  border-color: transparent;
+}
+
+.quiz-checkbox--frozen svg {
+  opacity: 1;
+  transform: none;
+}
+
+.quiz-question--frozen .quiz-code {
+  background: rgba(47, 125, 91, 0.06);
+  border-color: rgba(47, 125, 91, 0.18);
+}
+
+.quiz-question--frozen .quiz-inline-code {
+  background: rgba(47, 125, 91, 0.1);
+  border-color: rgba(47, 125, 91, 0.2);
+}
+
 .quiz-option-content {
   display: grid;
   gap: 8px;
   min-width: 0;
 }
 
-/* Inline code chips inside prompts and option labels. */
 .quiz-inline-code {
   padding: 1px 6px;
   border-radius: 6px;
@@ -1264,7 +1303,7 @@
   overflow-wrap: anywhere;
 }
 
-/* Multi-line code blocks in question stems and full-snippet options. */
+
 .quiz-code {
   margin: 0;
   padding: 14px 16px;
@@ -1289,16 +1328,10 @@
   border-radius: 12px;
 }
 
-/* Stem code blocks (direct fieldset children) get extra breathing room;
-   the more compact in-option blocks are nested deeper and unaffected. */
 .quiz-question > .quiz-code {
   margin-top: 8px;
 }
 
-/* Modal shell shared by the study's dialogs — a compact sibling of .study-card
-   that interrupts a flow until the participant chooses to continue. Styled as
-   frosted paper on a warm scrim rather than a flat system alert; each dialog
-   sets its own width below. */
 .study-modal {
   max-height: 88svh;
   overflow-y: auto;

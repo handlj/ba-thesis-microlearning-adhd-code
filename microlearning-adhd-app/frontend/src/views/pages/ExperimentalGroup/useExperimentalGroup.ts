@@ -57,6 +57,7 @@ export function useExperimentalGroup({
   const [isRewatch, setIsRewatch] = useState(false)
   const [goBackToVideo, setGoBackToVideo] = useState(false)
   const [showRewatchDialog, setShowRewatchDialog] = useState(false)
+  const [frozenQuestionIds, setFrozenQuestionIds] = useState<string[]>([])
 
   const [failedScore, setFailedScore] = useState<QuizScore | null>(null)
   const [failedAnswers, setFailedAnswers] = useState<QuizAnswers | null>(null)
@@ -94,18 +95,33 @@ export function useExperimentalGroup({
   const handleVideoLoadedMetadata = () => setHasVideoEnded(false)
 
   const handleToggleAnswer = (questionId: string, optionId: string) => {
+    if (frozenQuestionIds.includes(questionId)) return
+
     quiz.toggle(questionId, optionId)
   }
 
   const startRewatch = (score: QuizScore) => {
+    const nextFrozen = (currentTopic?.questions ?? [])
+      .filter((question) => !score.wrongQuestionIds.includes(question.id))
+      .map((question) => question.id)
+
+    onLogInteraction('experimental_quiz_questions_frozen', {
+      ...videoContext,
+      topicId: currentTopic?.id ?? null,
+      attempt: attemptNumber, // the attempt that just finished
+      frozenQuestionIds: nextFrozen.join(','),
+      frozenCount: nextFrozen.length,
+    })
+
     setResumeSeconds(score.earliestWrongTimestamp)
     setFailedScore(score)
     setFailedAnswers(quiz.answers)
     setAttemptNumber((prev) => prev + 1)
     setIsRewatch(true)
     setShowRewatchDialog(true)
+    setFrozenQuestionIds(nextFrozen)
     setPhase('video')
-    quiz.reset()
+    quiz.resetKeeping(nextFrozen)
   }
 
   const advanceToNextVideo = () => {
@@ -121,6 +137,7 @@ export function useExperimentalGroup({
     setFailedScore(null)
     setFailedAnswers(null)
     setResumeSeconds(null)
+    setFrozenQuestionIds([])
     quiz.reset(quizTopics[nextIndex]?.questions ?? [])
   }
 
@@ -236,6 +253,7 @@ export function useExperimentalGroup({
       answeredCount: quiz.answeredCount,
       total: quiz.total,
       onToggle: handleToggleAnswer,
+      frozenQuestionIds,
     },
     hasVideoEnded,
     handleVideoEnded,
