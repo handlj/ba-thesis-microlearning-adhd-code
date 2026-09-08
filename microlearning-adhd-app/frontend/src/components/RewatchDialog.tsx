@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useId, useRef } from 'react'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
 import QuizOptionContent from './quiz/QuizOptionContent.tsx'
 import { renderInlineCode } from './quiz/renderInlineCode.tsx'
@@ -154,6 +154,7 @@ function RewatchDialog({
 }: RewatchDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
+  const titleId = useId()
   const retry = copy.experimentalGroup.retry
 
   useEffect(() => {
@@ -184,22 +185,17 @@ function RewatchDialog({
   return (
     <dialog
       ref={dialogRef}
-      className="rewatch-dialog"
-      aria-labelledby="rewatch-dialog-title"
+      className="study-modal rewatch-dialog"
+      aria-labelledby={titleId}
       onCancel={(event) => {
         event.preventDefault()
       }}
     >
       {score ? (
         <>
-          <p className="rewatch-dialog__eyebrow">{retry.attemptLabel(attempt, maxAttempts)}</p>
+          <p className="study-modal__eyebrow">{retry.attemptLabel(attempt, maxAttempts)}</p>
 
-          <h2
-            id="rewatch-dialog-title"
-            className="rewatch-dialog__title"
-            ref={titleRef}
-            tabIndex={-1}
-          >
+          <h2 id={titleId} className="study-modal__title" ref={titleRef} tabIndex={-1}>
             {retry.dialogTitle}
           </h2>
 
@@ -274,7 +270,7 @@ function RewatchDialog({
 
           <p className="rewatch-hint">{hint}</p>
 
-          <div className="rewatch-dialog__actions">
+          <div className="study-modal__actions">
             <button type="button" className="start-button" onClick={onDismiss}>
               {copy.actions.continue}
             </button>

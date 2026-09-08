@@ -8,6 +8,8 @@ import { copy } from '../../content/copy.ts'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import Message from '../../components/Message.tsx'
+import TextDialog from '../../components/TextDialog.tsx'
+import { useState } from 'react'
 
 type PreQuizProps = {
   onSubmit: () => void
@@ -17,6 +19,8 @@ type PreQuizProps = {
 }
 
 function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error }: PreQuizProps) {
+  const [showTextDialog, setShowTextDialog] = useState(true)
+
   const { answers, isComplete, answeredCount, total, toggle } = useQuizAnswers(allQuizQuestions)
 
   const handleToggle = (questionId: string, optionId: string) => {
@@ -43,6 +47,17 @@ function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error }: PreQuizPro
         intro={copy.preQuiz.heading.intro}
         id="preQuiz-title"
       />
+
+      <TextDialog
+        open={showTextDialog}
+        eyebrow={copy.preQuiz.dialog.eyebrow}
+        title={copy.preQuiz.dialog.title}
+        content={copy.preQuiz.dialog.content}
+        onDismiss={() => {
+          setShowTextDialog(false)
+        }}
+      />
+
       <form
         className="study-form"
         onSubmit={(event) => {
