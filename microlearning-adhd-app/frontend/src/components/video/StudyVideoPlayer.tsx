@@ -396,6 +396,11 @@ function StudyVideoPlayer({
           showControls(false)
           log('ended')
           onEnded?.()
+
+          if (document.fullscreenElement === containerRef.current) {
+            void document.exitFullscreen?.().catch(() => {})
+            log('fullscreen_exited')
+          }
         }}
         onLoadedMetadata={(event) => {
           const video = event.currentTarget
