@@ -2,7 +2,7 @@ import StudyActions from '../../components/StudyActions.tsx'
 import QuizProgressHeader from '../../components/quiz/QuizProgressHeader.tsx'
 import QuizQuestionField from '../../components/quiz/QuizQuestionField.tsx'
 import { useQuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
-import { allQuizQuestions } from '../../content/quiz.ts'
+import { preQuizQuestions } from '../../content/quiz.ts'
 import type { StudyInteractionPayload } from '../../services/index.ts'
 import { copy } from '../../content/copy.ts'
 import StudyHeading from '../../components/StudyHeading.tsx'
@@ -21,7 +21,7 @@ type PreQuizProps = {
 function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error }: PreQuizProps) {
   const [showTextDialog, setShowTextDialog] = useState(true)
 
-  const { answers, isComplete, answeredCount, total, toggle } = useQuizAnswers(allQuizQuestions)
+  const { answers, isComplete, answeredCount, total, toggle } = useQuizAnswers(preQuizQuestions)
 
   const handleToggle = (questionId: string, optionId: string) => {
     toggle(questionId, optionId)
@@ -68,7 +68,7 @@ function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error }: PreQuizPro
         <QuizProgressHeader answered={answeredCount} total={total} />
 
         <div className="quiz-question-list">
-          {allQuizQuestions.map((question, questionIndex) => (
+          {preQuizQuestions.map((question, questionIndex) => (
             <QuizQuestionField
               key={question.id}
               question={question}

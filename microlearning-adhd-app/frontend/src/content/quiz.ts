@@ -5,7 +5,7 @@
 */
 
 export type QuizOption = {
-  id: 'a' | 'b' | 'c' | 'd'
+  id: 'a' | 'b' | 'c' | 'd' | 'e'
   text?: string
   code?: string
   correct?: boolean
@@ -24,6 +24,8 @@ export type QuizTopic = {
   title: string
   questions: QuizQuestion[]
 }
+
+export const DONT_KNOW_OPTION: QuizOption = { id: 'e', text: 'Ich weiß es nicht.' }
 
 export const quizTopics: QuizTopic[] = [
   {
@@ -408,3 +410,8 @@ which_dog_is_it('Pluto')`,
 ]
 
 export const allQuizQuestions: QuizQuestion[] = quizTopics.flatMap((topic) => topic.questions)
+
+export const preQuizQuestions: QuizQuestion[] = allQuizQuestions.map((question) => ({
+  ...question,
+  options: [...question.options, DONT_KNOW_OPTION],
+}))

@@ -166,7 +166,8 @@ export const copy = {
       videoTitle: 'Sehen Sie sich nun das Lernvideo an.',
       quizTitle: 'Bearbeiten Sie nun die folgenden Quizfragen',
       videoIntro: '',
-      quizIntro: '',
+      quizIntro:
+        'Beantworten Sie bitte die folgenden Fragen so gut Sie können.\n\n Bei allen Fragen ist **genau eine** Antwortalternative korrekt. Bitte beantworten Sie **alle** Fragen, bevor Sie fortfahren.',
     },
     status: {
       loading: 'Kontrollvideo wird geladen...',

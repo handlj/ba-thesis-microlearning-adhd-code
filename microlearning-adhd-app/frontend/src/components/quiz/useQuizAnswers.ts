@@ -17,10 +17,7 @@ export function useQuizAnswers(questions: QuizQuestion[]) {
     const willBeChecked = !current.includes(optionId)
 
     setAnswers((previousAnswers) => {
-      const previousCurrent = previousAnswers[questionId] ?? []
-      const next = willBeChecked
-        ? [...previousCurrent, optionId]
-        : previousCurrent.filter((value) => value !== optionId)
+      const next = willBeChecked ? [optionId] : []
 
       return { ...previousAnswers, [questionId]: next }
     })
