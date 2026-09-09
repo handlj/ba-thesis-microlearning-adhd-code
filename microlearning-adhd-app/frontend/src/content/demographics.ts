@@ -67,8 +67,8 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
       noneOrMandatory: 'Kein Abschluss oder Pflichtschulabschluss',
       highSchool: 'Matura/Abitur oder gleichwertig',
       bachelor: 'Bachelorabschluss',
-      master: 'Masterabschluss',
-      doctorate: 'Promotion',
+      master: 'Master/Magister/Dipl.-Ing. oder gleichwertig',
+      doctorate: 'Doktorat/PhD oder gleichwertig',
       other: 'Anderer Abschluss',
       preferNotToSay: 'Keine Angabe',
     },
@@ -266,9 +266,9 @@ type BaseQuestion = {
 type VisibleIfCondition =
   | { visibleIf?: never; valueIfHidden?: never }
   | {
-      visibleIf: { field: DemographicQuestionId; equals: readonly string[] }
-      valueIfHidden: string
-    }
+    visibleIf: { field: DemographicQuestionId; equals: readonly string[] }
+    valueIfHidden: string
+  }
 
 export type DemographicQuestion = BaseQuestion & VisibleIfCondition
 
