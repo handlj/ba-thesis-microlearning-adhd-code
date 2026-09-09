@@ -67,7 +67,11 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
     <StudyPage ariaLabelledBy="experimental-title" cardClassName="study-card--video">
       <StudyHeading
         eyebrow={copy.experimentalGroup.heading.eyebrow}
-        title={phase === 'video' ? copy.experimentalGroup.heading.videoTitle : copy.experimentalGroup.heading.quizTitle}
+        title={
+          phase === 'video'
+            ? copy.experimentalGroup.heading.videoTitle
+            : copy.experimentalGroup.heading.quizTitle
+        }
         intro={
           phase === 'video'
             ? copy.experimentalGroup.heading.videoIntro
