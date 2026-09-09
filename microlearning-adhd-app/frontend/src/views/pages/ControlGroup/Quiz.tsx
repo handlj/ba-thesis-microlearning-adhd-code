@@ -24,7 +24,6 @@ function Quiz({
   onToggle,
   canSubmit,
   onSubmit,
-  onBackToVideo,
 }: QuizProps) {
   return (
     <form
@@ -49,10 +48,6 @@ function Quiz({
       </div>
 
       <StudyActions>
-        <button type="button" className="secondary-button" onClick={onBackToVideo}>
-          {copy.actions.backToVideo}
-        </button>
-
         <button type="submit" className="start-button" disabled={!canSubmit}>
           {copy.actions.continue}
         </button>

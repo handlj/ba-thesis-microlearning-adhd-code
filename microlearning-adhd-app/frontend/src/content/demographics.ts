@@ -266,9 +266,9 @@ type BaseQuestion = {
 type VisibleIfCondition =
   | { visibleIf?: never; valueIfHidden?: never }
   | {
-    visibleIf: { field: DemographicQuestionId; equals: readonly string[] }
-    valueIfHidden: string
-  }
+      visibleIf: { field: DemographicQuestionId; equals: readonly string[] }
+      valueIfHidden: string
+    }
 
 export type DemographicQuestion = BaseQuestion & VisibleIfCondition
 

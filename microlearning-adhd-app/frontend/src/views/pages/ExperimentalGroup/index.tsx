@@ -40,7 +40,6 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
     handleVideoLoadedMetadata,
     proceedFromVideo,
     proceedFromQuiz,
-    backToVideo,
     topic,
     videoCount,
     videoContext,
@@ -159,20 +158,14 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
         ) : null}
 
         {video && phase === 'quiz' ? (
-          <>
-            <button type="button" className="secondary-button" onClick={backToVideo}>
-              {copy.actions.back}
-            </button>
-
-            <button
-              type="button"
-              className="start-button"
-              disabled={!canProceedFromQuiz}
-              onClick={proceedFromQuiz}
-            >
-              {isLastVideo ? copy.actions.continue : copy.actions.nextVideo}
-            </button>
-          </>
+          <button
+            type="button"
+            className="start-button"
+            disabled={!canProceedFromQuiz}
+            onClick={proceedFromQuiz}
+          >
+            {isLastVideo ? copy.actions.continue : copy.actions.nextVideo}
+          </button>
         ) : null}
       </StudyActions>
     </StudyPage>
