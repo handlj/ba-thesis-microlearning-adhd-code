@@ -34,27 +34,26 @@ export const quizTopics: QuizTopic[] = [
         id: 'a1',
         videoTimestamp: 42,
         prompt:
-          'Welche der folgenden Zuordnungen zwischen Variablen und ihren Datentypen sind korrekt?',
+          'Welche der folgenden Zuordnungen zwischen Variablen und ihren Datentypen ist korrekt?',
         options: [
-          { id: 'a', text: '`x = 3` -> x ist vom Typ `int`', correct: true },
+          { id: 'a', text: '`x = 3.14` -> x ist vom Typ `int`' },
           { id: 'b', text: '`x = [1, 2, 3]` -> x ist vom Typ `float`' },
-          { id: 'c', text: '`x = True` -> x ist vom Typ `str`' },
+          { id: 'c', text: '`x = True` -> x ist vom Typ `bool`', correct: true },
           {
             id: 'd',
-            text: "`x = {1: 'blue', 2: 'red'}` -> x ist vom Typ `dict`",
-            correct: true,
+            text: "`x = {1: 'blue', 2: 'red'}` -> x ist vom Typ `str`",
           },
         ],
       },
       {
         id: 'a2',
         videoTimestamp: 137,
-        prompt: 'Welche der folgenden Ausdrücke sind jeweils gleichbedeutend?',
+        prompt: 'In welchem der folgenden Paare sind die beiden Ausdrücke gleichbedeutend?',
         options: [
-          { id: 'a', text: '`number = number / 4` und `number -= 4`' },
-          { id: 'b', text: '`number = number * 10` und `number *= 10`', correct: true },
-          { id: 'c', text: '`number = number - 5` und `number /= 5`' },
-          { id: 'd', text: '`number = number + 7` und `number += 7`', correct: true },
+          { id: 'a', text: '`number = number - 4` und `number *= 4`' },
+          { id: 'b', text: '`number = number * 10` und `number .= 10`' },
+          { id: 'c', text: '`number = number / 5` und `number /= 5`', correct: true },
+          { id: 'd', text: '`number = number + 7` und `number -= 7`' },
         ],
       },
       {
@@ -81,24 +80,23 @@ zahl3 = zahl2 % zahl`,
         id: 'a4',
         videoTimestamp: 202,
         prompt:
-          'Betrachten Sie die Variable `string = "abcdef"`. Welche der folgenden Aussagen sind korrekt?',
+          'Betrachten Sie die Variable `string = "abcdef"`. Welche der folgenden Aussagen ist korrekt?',
         options: [
           { id: 'a', text: '`string[0]` hat den Wert `abcdef`' },
-          { id: 'b', text: '`string[1:3]` hat den Wert `bc`', correct: true },
-          { id: 'c', text: '`string[0:7]` hat den Wert `abcdef`', correct: true },
+          { id: 'b', text: '`string[1:3]` hat den Wert `abc`' },
+          { id: 'c', text: '`string[0:6]` hat den Wert `abcdef`', correct: true },
           {
             id: 'd',
-            text: '`len(string)` hat den Wert `6`',
-            correct: true,
+            text: '`string[5]` hat den Wert `e`',
           },
         ],
       },
       {
         id: 'a5',
         videoTimestamp: 157,
-        prompt: 'Welche der folgenden Zuweisungen erzeugen einen gültigen (fehlerfreien) String?',
+        prompt: 'Welche der folgenden Zuweisungen erzeugt einen gültigen (fehlerfreien) String?',
         options: [
-          { id: 'a', text: "`string = 'Das ist ein String'`", correct: true },
+          { id: 'a', text: "`string = Das ist ein String'`" },
           { id: 'b', text: '`string = "Das ist ein String\'`' },
           {
             id: 'c',
@@ -119,21 +117,21 @@ zahl3 = zahl2 % zahl`,
         id: 'b1',
         videoTimestamp: 102,
         prompt:
-          'Welche der unten angegebenen Schlüsselwörter gehören zur WENN-DANN-SONSTWENN-DANN-SONST Bedingung?',
+          'Welches der unten angegebenen Schlüsselwörter gehört nicht zur WENN-DANN-SONSTWENN-DANN-SONST Bedingung?',
         options: [
-          { id: 'a', text: '`else`', correct: true },
-          { id: 'b', text: '`elif`', correct: true },
-          { id: 'c', text: '`if`', correct: true },
-          { id: 'd', text: '`for`' },
+          { id: 'a', text: '`if`' },
+          { id: 'b', text: '`then`', correct: true },
+          { id: 'c', text: '`elif`' },
+          { id: 'd', text: '`else`' },
         ],
       },
       {
         id: 'b2',
         videoTimestamp: 3,
         prompt:
-          'Welche der folgenden Elemente muss jedes if-Statement in Python in jedem Fall enthalten.',
+          'Welches der folgenden Elemente muss ein if-Statement in Python in jedem Fall enthalten?',
         options: [
-          { id: 'a', text: 'Einrückung im Codeblock', correct: true },
+          { id: 'a', text: '`print` Schlüsselwort' },
           { id: 'b', text: '`if` Schlüsselwort', correct: true },
           { id: 'c', text: '`else` Schlüsselwort' },
           { id: 'd', text: '`elif` Schlüsselwort' },
@@ -142,7 +140,7 @@ zahl3 = zahl2 % zahl`,
       {
         id: 'b3',
         videoTimestamp: 205,
-        prompt: 'Betrachten Sie folgenden Code-Auszug. Welche der folgenden Aussagen sind korrekt?',
+        prompt: 'Betrachten Sie folgenden Code-Auszug. Welche der folgenden Aussagen ist korrekt?',
         code: `if x < 10:
   print("Ich bin einstellig.")
 else:
@@ -172,7 +170,7 @@ print("Ich bin nicht eingerückt.")`,
         id: 'b4',
         videoTimestamp: 205,
         prompt:
-          'Betrachten Sie die folgenden beiden Code-Auszüge. Welche der folgenden Aussagen sind korrekt?',
+          'Betrachten Sie die folgenden beiden Code-Auszüge. Welche der folgenden Aussagen ist korrekt?',
         code: `# Auszug A
 if x > 40:
   print("Ich bin größer als 40.")
@@ -192,13 +190,13 @@ if x > 20:
             text: 'Für `x = 30` zeigen beide Auszüge die gleiche Ausgabe.',
             correct: true,
           },
-          { id: 'd', text: 'Für `x = 5` zeigen beide Auszüge keine Ausgabe.', correct: true },
+          { id: 'd', text: 'Auszug A zeigt immer eine andere Ausgabe wie Auszug B.' },
         ],
       },
       {
         id: 'b5',
         videoTimestamp: 102,
-        prompt: 'Welche der folgenden Aussagen zu if-Statements sind korrekt?',
+        prompt: 'Welche der folgenden Aussagen zu if-Statements ist korrekt?',
         options: [
           {
             id: 'a',
@@ -207,12 +205,11 @@ if x > 20:
           { id: 'b', text: 'Die Verwendung von elif-Blöcken ist optional.', correct: true },
           {
             id: 'c',
-            text: 'Die Anzahl der verwendbaren elif-Blöcke ist aus Laufzeitgründen nach oben hin beschränkt.',
+            text: 'Die Anzahl der verwendbaren elif-Blöcke ist aus syntaktischen Gründen nach oben hin beschränkt.',
           },
           {
             id: 'd',
-            text: 'Egal welche Form des if-Statements verwendet wird, seine Codeblöcke müssen beispielsweise durch Leerzeichen eingerückt sein.',
-            correct: true,
+            text: 'Ein if-Statement kann beliebig viele else-Blöcke enthalten.',
           },
         ],
       },
@@ -226,30 +223,33 @@ if x > 20:
         id: 'c1',
         videoTimestamp: 265,
         prompt:
-          'Welche der folgenden Schlüsselwörter steuern den Ablauf einer Schleife (Schleife abbrechen oder zur nächsten Iteration springen)?',
+          'Welche der folgenden Paare von Schlüsselwörtern steuern den Ablauf einer Schleife (Schleife abbrechen oder zur nächsten Iteration springen)?',
         options: [
-          { id: 'a', text: '`pass`' },
-          { id: 'b', text: '`break`', correct: true },
-          { id: 'c', text: '`continue`', correct: true },
-          { id: 'd', text: '`return`' },
+          { id: 'a', text: '`break` und `for`' },
+          { id: 'b', text: '`break` und `continue`', correct: true },
+          { id: 'c', text: '`continue` und `while`' },
+          { id: 'd', text: '`for` und `while`' },
         ],
       },
       {
         id: 'c2',
         videoTimestamp: 89,
-        prompt: 'Betrachten Sie folgenden Code-Auszug. Welche Aussagen sind korrekt?',
+        prompt: 'Betrachten Sie folgenden Code-Auszug. Welche Aussage ist korrekt?',
         code: `[...] zahl in [1, 2, 3, 4]:
   print(zahl)`,
         options: [
           {
             id: 'a',
-            text: 'An der Stelle `[...]` muss das Schlüsselwort `for` stehen.',
+            text: 'An der Stelle `[...]` kann ohne weitere Änderung das Schlüsselwort `break` stehen.',
+          },
+          {
+            id: 'b',
+            text: 'Der Auszug zeigt eine for-Schleife, die über die Elemente einer Liste iteriert.',
             correct: true,
           },
-          { id: 'b', text: 'Die Schleife iteriert über die Elemente einer Liste.', correct: true },
           {
             id: 'c',
-            text: 'An der Stelle `[...]` könnte ohne weitere Änderung auch `while` stehen.',
+            text: 'An der Stelle `[...]` kann ohne weitere Änderung das Schlüsselwort `continue` stehen.',
           },
           { id: 'd', text: 'Die Schleife läuft genau drei Mal.' },
         ],
@@ -305,29 +305,27 @@ print("Hi!")`,
         id: 'd1',
         videoTimestamp: 58,
         prompt:
-          'Betrachten Sie die folgende Funktion. Welche der folgenden Zuordnungen sind richtig?',
+          'Betrachten Sie folgenden Funktionsaufruf. Welche der folgenden Zuordnungen ist falsch?',
         code: `print('I', 'think', 'therefore', 'I', 'am.')`,
         options: [
           {
             id: 'a',
             text: "Argumente/Input: `'I', 'think', 'therefore', 'I', 'am.'`",
-            correct: true,
           },
-          { id: 'b', text: 'Funktion: `print`', correct: true },
-          { id: 'c', text: 'Output (Ausgabe): `I think therefore I am.`', correct: true },
-          { id: 'd', text: 'Parameter: `print`' },
+          { id: 'b', text: 'Funktionsname: `print`' },
+          { id: 'c', text: 'Output (Ausgabe): `I think therefore I am.`' },
+          { id: 'd', text: 'Return-Value (Rückgabewert): `5`', correct: true },
         ],
       },
       {
         id: 'd2',
         videoTimestamp: 127,
-        prompt: 'Welche der folgenden Aussagen zu Funktionen sind richtig?',
+        prompt: 'Welche der folgenden Aussagen zu Funktionen ist richtig?',
         options: [
-          { id: 'a', text: 'Jede Funktion benötigt einen oder mehrere Parameter.' },
+          { id: 'a', text: 'Jede Funktion benötigt mindestens einen Parameter.' },
           {
             id: 'b',
-            text: 'Das Schlüsselwort (Keyword) `def` definiert eine Funktion.',
-            correct: true,
+            text: 'Das Schlüsselwort (Keyword) `call` definiert eine Funktion.',
           },
           {
             id: 'c',
@@ -344,15 +342,15 @@ print("Hi!")`,
         id: 'd3',
         videoTimestamp: 220,
         prompt:
-          'Betrachten Sie folgende Funktion. Welche der folgenden Beispiele sind valide Funktionsaufrufe für einen dreijährigen Hund mit dem Namen Pluto, dessen Besitzer (owner) Hans heißt?',
+          'Betrachten Sie folgende Funktion. Welches der folgenden Beispiele ist ein valider Funktionsaufruf für einen dreijährigen Hund mit dem Namen Pluto, dessen Besitzer (owner) Hans heißt?',
         code: `def which_dog_is_it(dogname, ownername, age=0):
-  print(f'My dog {dogname} is {age} years old and the owner is {ownername}.')`,
+  print(f'The dog {dogname} is {age} years old and the owner is {ownername}.')`,
         options: [
-          { id: 'a', text: "`which_dog_is_it('Pluto', 'Hans', 3)`", correct: true },
-          { id: 'b', text: "`which_dog_is_it('Pluto', age=3, ownername='Hans')`", correct: true },
+          { id: 'a', text: "`which_dog_is_it('Pluto', '3', Hans)`" },
+          { id: 'b', text: "`which_dog_is_it('Pluto', age=3, 'Hans')`" },
           {
             id: 'c',
-            text: "`which_dog_is_it(age=3, ownername='Hans', dogname='Pluto')`",
+            text: "`which_dog_is_it('Pluto', 'Hans', 3)`",
             correct: true,
           },
           { id: 'd', text: "`which_dog_is_it('Hans')`" },
@@ -364,7 +362,7 @@ print("Hi!")`,
         prompt:
           'Betrachten Sie erneut die Funktion which_dog_is_it. Welchen Fehler erhält man bei folgendem Funktionsaufruf?',
         code: `def which_dog_is_it(dogname, ownername, age=0):
-  print(f'My dog {dogname} is {age} years old and the owner is {ownername}.')
+  print(f'The dog {dogname} is {age} years old and the owner is {ownername}.')
 
 # Funktionsaufruf
 which_dog_is_it('Pluto')`,
@@ -372,11 +370,13 @@ which_dog_is_it('Pluto')`,
           { id: 'a', text: '`SyntaxError: positional argument follows keyword argument`' },
           {
             id: 'b',
-            text: "`TypeError: which_dog_is_it() missing 1 required positional argument: 'age'`",
+            code: `TypeError: which_dog_is_it() missing 1 required 
+            positional argument: 'age'`,
           },
           {
             id: 'c',
-            text: "`TypeError: which_dog_is_it() missing 1 required positional argument: 'ownername'`",
+            code: `TypeError: which_dog_is_it() missing 1 required 
+            positional argument: 'ownername'`,
             correct: true,
           },
           {
