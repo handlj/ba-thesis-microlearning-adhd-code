@@ -27,6 +27,11 @@ function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error }: PreQuizPro
     toggle(questionId, optionId)
   }
 
+  const handleShowHint = () => {
+    onLogInteraction('pre_quiz_hint_reopened')
+    setShowTextDialog(true)
+  }
+
   const handleSubmit = () => {
     if (!isComplete) {
       return
@@ -65,7 +70,7 @@ function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error }: PreQuizPro
           handleSubmit()
         }}
       >
-        <QuizProgressHeader answered={answeredCount} total={total} />
+        <QuizProgressHeader answered={answeredCount} total={total} onHelp={handleShowHint} />
 
         <div className="quiz-question-list">
           {preQuizQuestions.map((question, questionIndex) => (
