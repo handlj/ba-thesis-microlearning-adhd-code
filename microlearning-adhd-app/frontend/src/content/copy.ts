@@ -197,9 +197,11 @@ export const copy = {
   experimentalGroup: {
     heading: {
       eyebrow: '',
-      title: 'Bearbeiten Sie die Videos und Quizfragen',
-      intro:
-        'Sehen Sie sich jedes Video vollständig an und bearbeiten Sie das nachfolgende Quiz, bevor Sie zum nächsten Video weitergehen.',
+      quizTitle: 'Beantworten Sie die Quizfragen.',
+      videoTitle: 'Sehen Sie sich das Lernvideo an.',
+      quizIntro:
+        'Beantworten Sie bitte die folgenden Fragen so gut Sie können.\n\n Bei allen Fragen ist **genau eine** Antwortalternative korrekt.\n Bitte beantworten Sie **alle** Fragen, bevor Sie fortfahren.',
+      videoIntro: 'Sehen Sie sich das Video vollständig an, bevor Sie mit dem Quiz fortfahren.',
     },
     status: {
       allAnswered: 'Alle Fragen beantwortet. Sie können fortfahren.',
