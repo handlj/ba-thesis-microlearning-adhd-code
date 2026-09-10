@@ -55,7 +55,7 @@ function SectionHeader({ icon, title, note, tone }: SectionHeaderProps) {
       <div>
         <p className="rewatch-card__title">{title}</p>
 
-        {note ? <p className="rewatch-card__note">{note}</p> : null}
+        {note ? <p className="rewatch-card__note">{withEmphasis(note)}</p> : null}
       </div>
     </div>
   )
@@ -82,6 +82,7 @@ function WrongQuestionInfo({
 
         {chapter ? (
           <span className="rewatch-review__hint" aria-hidden="true">
+            {genericIcons.clock}
             {retry.chapterHint(chapter.title, formatDuration(question.videoTimestamp))}
           </span>
         ) : null}
@@ -202,7 +203,7 @@ function RewatchDialog({
 
   const wrongNote = onSeekToQuestion
     ? `${retry.reviewOptionsNote} ${retry.jumpStepCompact}`
-    : retry.reviewOptionsNote
+    : `${retry.reviewOptionsNote} ${retry.standardRewatchNote}`
 
   return (
     <dialog

@@ -1,7 +1,6 @@
 /* TODO: Extract modular components (buttons, form controls, etc.) to separate files as needed, but keep page-level styles here. */
 
 .study-page {
-  /* How far the sticky progress headers overhang the content they sit above. */
   --sticky-header-bleed: 14px;
 
   min-height: 100svh;
@@ -297,7 +296,6 @@
   }
 }
 
-/* Key facts of a page at a glance — same card language as .feedback-stat. */
 .study-facts {
   margin-top: 28px;
   display: grid;
@@ -395,8 +393,6 @@
 }
 
 .status-note {
-  /* Small basis so the note shares the action row with the button instead of
-     wrapping below it; it grows into the remaining space. */
   flex: 1 1 240px;
   min-width: 0;
   display: flex;
@@ -687,8 +683,6 @@
   border: 0;
 }
 
-/* Answered-so-far status pill, shared by the questionnaire and quiz sticky
-   headers. Uses the micro-label treatment of .contact-card__label. */
 .progress-pill {
   display: inline-flex;
   align-items: center;
@@ -714,7 +708,6 @@
   background: currentColor;
 }
 
-/* Nothing left open — the page is ready to submit. */
 .progress-pill--complete {
   background: rgba(47, 125, 91, 0.1);
   border-color: rgba(47, 125, 91, 0.24);
@@ -738,15 +731,6 @@
   line-height: 1.7;
 }
 
-/* The sticky header bar below carries the separation from the intro block,
-   so no divider is needed here.
-
-   The negative margin and matching padding cancel out, so the table keeps its
-   original width and position. They exist to widen the overflow clip edge (the
-   padding box) by --sticky-header-bleed on each side, giving the header's bleed
-   caps room to paint instead of being cut off by overflow-x: clip. Width must
-   stay auto for this: an explicit width would pin the border box and the
-   negative margins would drag the table sideways instead of widening it. */
 .likert-table-wrap {
   overflow-x: auto;
   margin-inline: calc(-1 * var(--sticky-header-bleed) - 2px);
@@ -754,22 +738,12 @@
   padding-bottom: 6px;
 }
 
-/* On desktop, clip instead of scroll so position:sticky on thead propagates to the page viewport.
-   overflow-x:auto creates a scroll container that traps sticky; clip does not. */
 @media (min-width: 880px) {
   .likert-table-wrap {
     overflow-x: clip;
   }
 }
 
-/* Sticky header bar: progress (left) + scale labels (right) stay pinned together
-   as one outlined, floating toolbar, offset from the viewport edge so it does not
-   sit flush against the top of the screen.
-   The bar is a row of separate <th>s, which rules out two tempting effects:
-   a translucent/backdrop-filter background makes each cell its own backdrop
-   root (ghosting the radio circles through the bar), and a per-cell box-shadow
-   spills sideways under the neighbouring cell. Both seam at every cell edge, so
-   the bar is opaque and outlined instead. */
 .likert-table thead th {
   position: sticky;
   top: 12px;
@@ -778,15 +752,6 @@
   border-block: 1px solid rgba(138, 91, 43, 0.28);
 }
 
-/* The bar overhangs the grid on both sides so it reads as its own floating
-   element rather than a lid fitted to the columns. A table cell cannot paint
-   outside the table box, so each outer edge is drawn by a cap that hangs off the
-   first/last cell and carries the side border and rounded corners the cell would
-   otherwise have. The caps only overlap the card behind — no content moves.
-
-   Absolutely positioned children anchor to the cell's padding box, which sits
-   inside its 1px block borders; the -1px insets pull each cap back out so its
-   border box lines up with the cell's and the outline stays continuous. */
 .likert-question-heading::before,
 .likert-scale-heading:last-child::after {
   content: '';
@@ -858,15 +823,12 @@
   padding: 8px 6px;
 }
 
-/* Centred rather than baseline-aligned with the scale labels, which are
-   bottom-anchored and would otherwise drag the pill below the bar's centre. */
 .likert-question-heading {
   vertical-align: middle;
   text-align: left;
   padding: 14px 6px 12px;
 }
 
-/* Matches .likert-question-heading so the pinned bar has an even height. */
 .likert-scale-heading {
   padding: 14px 6px 8px;
 }
@@ -898,8 +860,6 @@
   line-height: 1.5;
 }
 
-/* Counter and statement as two columns, so the number reads as a marker
-   rather than part of the sentence. Mirrors .study-steps__item. */
 .likert-question {
   display: grid;
   grid-template-columns: 28px 1fr;
@@ -925,18 +885,15 @@
   padding-top: 2px;
 }
 
-/* Badge picks up the answered/unanswered accent of the row border. */
 .likert-table tbody tr:has(input:checked) .likert-question-number {
   background: rgba(31, 59, 115, 0.85);
   color: #fff;
 }
 
-/* zebra striping for readability on long questionnaires */
 .likert-table tbody tr:nth-child(even) {
   background: rgba(138, 91, 43, 0.04);
 }
 
-/* answered-row feedback: unanswered rows have a visible left border accent */
 .likert-table tbody tr:not(:has(input:checked)) .likert-question-cell {
   border-left: 3px solid rgba(138, 91, 43, 0.25);
 }
@@ -1033,9 +990,6 @@
   font-weight: 700;
 }
 
-/* A bare wrapper, deliberately frameless: the experimental quiz should read the
-   same as the control group's, whose questions sit directly on the card in
-   .study-form. Matches that element's box so both arms lay out identically. */
 .quiz-panel {
   display: grid;
   gap: 18px;
@@ -1052,17 +1006,6 @@
   gap: 10px;
 }
 
-/* Sticky progress bar for the quiz screens, matching the questionnaire header:
-   an opaque outlined bar, held off the viewport edge, overhanging the questions
-   on both sides. This one is a single element rather than a row of table cells,
-   so it needs none of the questionnaire's cap machinery — the negative margin
-   bleeds the bar outwards while the matching padding keeps the pill in place.
-
-   Three columns: status pill (left), topic (centre), video counter (right). The
-   outer columns are equal fractions so the topic stays centred on the bar itself
-   rather than in the space its neighbours leave over. The control group and
-   pre-quiz pass neither topic nor counter; their pill occupies the first column
-   alone, which leaves the bar looking exactly as it did before. */
 .quiz-progress-header {
   position: sticky;
   top: 12px;
@@ -1073,8 +1016,6 @@
   gap: 14px;
   margin-bottom: 4px;
   margin-inline: calc(-1 * var(--sticky-header-bleed));
-  /* Padding is the bleed less the 1px border, so the two cancel exactly and the
-     pill keeps the same x as the question text below it. */
   padding: 10px calc(var(--sticky-header-bleed) - 1px);
   background: #fbf7f1;
   border: 1px solid rgba(138, 91, 43, 0.28);
@@ -1584,6 +1525,7 @@
 }
 
 .rewatch-review__item {
+  position: relative;
   padding: 12px 14px;
   border-radius: 16px;
   border: 1px solid rgba(138, 91, 43, 0.32);
@@ -1633,38 +1575,79 @@
 }
 
 .rewatch-review__hint {
-  font-size: 0.82rem;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px 3px 8px;
+  border-radius: 999px;
+  background: rgba(138, 91, 43, 0.14);
+  font-size: 0.78rem;
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
   color: #8a5b2b;
 }
 
+.rewatch-review__hint svg {
+  width: 13px;
+  height: 13px;
+}
+
 .rewatch-review__jump {
-  flex-shrink: 0;
+  position: absolute;
+  top: 12px;
+  right: 12px;
   display: inline-flex;
   align-items: center;
-  margin-top: 3px;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(138, 91, 43, 0.18);
   color: #8a5b2b;
-  opacity: 0.7;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.rewatch-review__jump svg {
+  width: 19px;
+  height: 19px;
 }
 
 .rewatch-review__row--button {
   font: inherit;
+  padding-right: 48px;
   cursor: pointer;
   appearance: none;
 }
-.rewatch-review__item:has(.rewatch-review__row--button:hover) {
+
+.rewatch-review__row--button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+}
+
+.rewatch-review__item:has(.rewatch-review__row--button:hover),
+.rewatch-review__item:has(.rewatch-review__row--button:active) {
   border-color: rgba(138, 91, 43, 0.46);
   background: rgba(138, 91, 43, 0.18);
 }
 
-.rewatch-review__row--button:hover .rewatch-review__jump {
-  opacity: 1;
+.rewatch-review__row--button:hover .rewatch-review__prompt {
+  color: var(--text-h);
 }
 
-.rewatch-review__row--button:focus-visible {
+.rewatch-review__row--button:hover .rewatch-review__jump,
+.rewatch-review__row--button:focus-visible .rewatch-review__jump {
+  background: #8a5b2b;
+  color: #ffffff;
+}
+
+.rewatch-review__item:has(.rewatch-review__row--button:focus-visible) {
   outline: 3px solid rgba(54, 87, 159, 0.25);
   outline-offset: 4px;
-  border-radius: 10px;
 }
 
 .rewatch-review__code {
@@ -1854,6 +1837,26 @@
 
   .rewatch-review__row {
     gap: 10px;
+  }
+
+  .rewatch-review__row--button {
+    padding-right: 40px;
+  }
+
+  .rewatch-review__jump {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .rewatch-review__jump svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .rewatch-review__hint {
+    font-size: 0.74rem;
   }
 
   .rewatch-review__code,
