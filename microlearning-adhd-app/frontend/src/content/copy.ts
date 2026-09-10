@@ -230,8 +230,10 @@ export const copy = {
       reviewOptionsNote: 'Ihre bisherige Auswahl ist bei jeder Frage markiert.',
       nextStepsCompact:
         'Das Video startet automatisch **an einer passenden Stelle**. Sie können das Quiz jederzeit erneut starten.',
-      jumpStepCompact: '**Klicken Sie auf eine Frage**, um direkt dorthin zu springen oder drücken Sie auf Weiter, um automatisch an eine passende Stelle im Video zu gelangen.',
-      standardRewatchNote: 'Drücken Sie auf Weiter, um automatisch an eine passende Stelle im Video zu gelangen.',
+      jumpStepCompact:
+        '**Klicken Sie auf eine Frage**, um direkt dorthin zu springen oder drücken Sie auf Weiter, um automatisch an eine passende Stelle im Video zu gelangen.',
+      standardRewatchNote:
+        'Drücken Sie auf Weiter, um automatisch an eine passende Stelle im Video zu gelangen.',
     },
     progress: (current: number, total: number) => `Video ${current} von ${total}`,
     quiz: {
