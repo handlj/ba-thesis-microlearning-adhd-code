@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { useQuizAnswers, type QuizAnswers } from '../../../components/quiz/useQuizAnswers.ts'
 import type { StudyVideoPlayerHandle } from '../../../components/video/StudyVideoPlayer.tsx'
 import { copy } from '../../../content/copy.ts'
@@ -8,6 +8,7 @@ import { useScrollToTop } from '../../../hooks/useScrollToTop.ts'
 import { useTabAwayLog } from '../../../hooks/useTabAwayLog.ts'
 import { getExperimentalVideos, type ExperimentalVideo } from '../../../services/index.ts'
 import { getAppConfig } from '../../../utils/config.ts'
+import { permuteQuestionOptions } from '../../../utils/optionPermutation.ts'
 import { scoreQuiz, type QuizScore } from '../../../utils/quizScoring.ts'
 import type { ExperimentalGroupProps } from './index.tsx'
 
@@ -45,6 +46,7 @@ export function useExperimentalGroup({
   onCompleteIntervention,
   onLogInteraction,
   onSubmitQuiz,
+  participantId,
 }: ExperimentalGroupProps) {
   const { data, isLoading, error } = useAsyncResource<ExperimentalVideo[]>(
     getExperimentalVideos,
@@ -66,7 +68,16 @@ export function useExperimentalGroup({
 
   const [resumeSeconds, setResumeSeconds] = useState<number | null>(null)
 
-  const currentTopic = quizTopics[currentIndex]
+  const topics = useMemo(
+    () =>
+      quizTopics.map((topic) => ({
+        ...topic,
+        questions: permuteQuestionOptions(topic.questions, participantId),
+      })),
+    [participantId],
+  )
+
+  const currentTopic = topics[currentIndex]
   const quiz = useQuizAnswers(currentTopic?.questions ?? [])
 
   const { quiz_pass_threshold: passThreshold, quiz_max_attempts: maxAttempts } = getAppConfig()
@@ -138,7 +149,7 @@ export function useExperimentalGroup({
     setFailedAnswers(null)
     setResumeSeconds(null)
     setFrozenQuestionIds([])
-    quiz.reset(quizTopics[nextIndex]?.questions ?? [])
+    quiz.reset(topics[nextIndex]?.questions ?? [])
   }
 
   const dismissRewatchDialog = () => setShowRewatchDialog(false)

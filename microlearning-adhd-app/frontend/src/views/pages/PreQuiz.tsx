@@ -9,19 +9,26 @@ import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import Message from '../../components/Message.tsx'
 import TextDialog from '../../components/TextDialog.tsx'
-import { useState } from 'react'
+import { permuteQuestionOptions } from '../../utils/optionPermutation.ts'
+import { useMemo, useState } from 'react'
 
 type PreQuizProps = {
   onSubmit: () => void
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
   onSubmitQuiz: (answers: Record<string, string[]>) => void
   error: string | null
+  participantId: string
 }
 
-function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error }: PreQuizProps) {
+function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error, participantId }: PreQuizProps) {
   const [showTextDialog, setShowTextDialog] = useState(true)
 
-  const { answers, isComplete, answeredCount, total, toggle } = useQuizAnswers(preQuizQuestions)
+  const questions = useMemo(
+    () => permuteQuestionOptions(preQuizQuestions, participantId),
+    [participantId],
+  )
+
+  const { answers, isComplete, answeredCount, total, toggle } = useQuizAnswers(questions)
 
   const handleToggle = (questionId: string, optionId: string) => {
     toggle(questionId, optionId)
@@ -73,7 +80,7 @@ function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error }: PreQuizPro
         <QuizProgressHeader answered={answeredCount} total={total} onHelp={handleShowHint} />
 
         <div className="quiz-question-list">
-          {preQuizQuestions.map((question, questionIndex) => (
+          {questions.map((question, questionIndex) => (
             <QuizQuestionField
               key={question.id}
               question={question}

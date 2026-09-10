@@ -23,6 +23,7 @@ export type ExperimentalGroupProps = {
     answers: QuizAnswers
     attempt: number
   }) => void
+  participantId: string
 }
 
 function ExperimentalGroup(props: ExperimentalGroupProps) {

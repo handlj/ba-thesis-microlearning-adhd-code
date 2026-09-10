@@ -235,6 +235,7 @@ function StudyFlow() {
         }}
         onSubmitQuiz={recordPreQuiz}
         error={errors.preQuiz}
+        participantId={participantId}
       />
     ),
     control: () => (
@@ -242,6 +243,7 @@ function StudyFlow() {
         onCompleteIntervention={() => goNext('control')}
         onLogInteraction={logInteraction('control')}
         onSubmitQuiz={recordControlQuiz}
+        participantId={participantId}
       />
     ),
     experimental: () => (
@@ -249,6 +251,7 @@ function StudyFlow() {
         onCompleteIntervention={() => goNext('experimental')}
         onLogInteraction={logInteraction('experimental')}
         onSubmitQuiz={recordExperimentalQuiz}
+        participantId={participantId}
       />
     ),
     followUp: () => (

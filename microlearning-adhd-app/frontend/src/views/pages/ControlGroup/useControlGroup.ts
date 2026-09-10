@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useQuizAnswers } from '../../../components/quiz/useQuizAnswers.ts'
 import { copy } from '../../../content/copy.ts'
 import { allQuizQuestions } from '../../../content/quiz.ts'
+import { permuteQuestionOptions } from '../../../utils/optionPermutation.ts'
 import { useAsyncResource } from '../../../hooks/useAsyncResource.ts'
 import { useScrollToTop } from '../../../hooks/useScrollToTop.ts'
 import { useTabAwayLog } from '../../../hooks/useTabAwayLog.ts'
@@ -14,6 +15,7 @@ export function useControlGroup({
   onCompleteIntervention,
   onLogInteraction,
   onSubmitQuiz,
+  participantId,
 }: ControlGroupProps) {
   const {
     data: video,
@@ -23,7 +25,13 @@ export function useControlGroup({
   const [phase, setPhase] = useState<ControlPhase>('video')
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
   const [goBackToVideo, setGoBackToVideo] = useState(false)
-  const quiz = useQuizAnswers(allQuizQuestions)
+
+  const questions = useMemo(
+    () => permuteQuestionOptions(allQuizQuestions, participantId),
+    [participantId],
+  )
+
+  const quiz = useQuizAnswers(questions)
 
   useScrollToTop(phase)
 
@@ -71,7 +79,7 @@ export function useControlGroup({
     canProceedFromVideo,
     canProceedFromQuiz,
     quiz: {
-      questions: allQuizQuestions,
+      questions,
       answers: quiz.answers,
       answeredCount: quiz.answeredCount,
       total: quiz.total,

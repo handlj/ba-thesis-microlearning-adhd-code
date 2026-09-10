@@ -14,6 +14,7 @@ export type ControlGroupProps = {
   onCompleteIntervention: () => void
   onLogInteraction: (eventType: string, payload?: StudyInteractionPayload) => void
   onSubmitQuiz: (answers: Record<string, string[]>) => void
+  participantId: string
 }
 
 function ControlGroup(props: ControlGroupProps) {
