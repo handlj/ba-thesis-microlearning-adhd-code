@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef } from 'react'
+import { useEffect, useId, useRef, type ReactNode } from 'react'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
 import QuizOptionContent from './quiz/QuizOptionContent.tsx'
 import { renderInlineCode } from './quiz/renderInlineCode.tsx'
@@ -8,6 +8,7 @@ import { copy } from '../content/copy.ts'
 import type { QuizQuestion } from '../content/quiz.ts'
 import { findChapterFromTimestamp, type VideoChapter } from '../content/videoChapters.ts'
 import type { QuizScore } from '../utils/quizScoring.ts'
+import { withEmphasis } from '../utils/richText.tsx'
 
 type RewatchDialogProps = {
   open: boolean
@@ -34,6 +35,32 @@ type WrongQuestionProps = IndexedQuestion & {
   onSeek?: (question: QuizQuestion) => void
 }
 
+type SectionHeaderProps = {
+  icon: ReactNode
+  title: string
+  note?: string
+  tone?: 'correct'
+}
+
+function SectionHeader({ icon, title, note, tone }: SectionHeaderProps) {
+  return (
+    <div className="rewatch-card__header">
+      <span
+        className={`rewatch-card__badge${tone ? ` rewatch-card__badge--${tone}` : ''}`}
+        aria-hidden="true"
+      >
+        {icon}
+      </span>
+
+      <div>
+        <p className="rewatch-card__title">{title}</p>
+
+        {note ? <p className="rewatch-card__note">{note}</p> : null}
+      </div>
+    </div>
+  )
+}
+
 function WrongQuestionInfo({
   question,
   index,
@@ -47,17 +74,11 @@ function WrongQuestionInfo({
   const header = (
     <>
       <span className="rewatch-review__marker" aria-hidden="true">
-        {genericIcons.cross}
+        {index}
       </span>
 
       <span className="rewatch-review__body">
-        <span className="rewatch-review__prompt">
-          <span className="rewatch-review__number" aria-hidden="true">
-            {index}
-          </span>
-
-          <span>{renderInlineCode(question.prompt)}</span>
-        </span>
+        <span className="rewatch-review__prompt">{renderInlineCode(question.prompt)}</span>
 
         {chapter ? (
           <span className="rewatch-review__hint" aria-hidden="true">
@@ -94,8 +115,6 @@ function WrongQuestionInfo({
         </pre>
       ) : null}
 
-      <p className="rewatch-review__options-label">{retry.reviewOptionsLabel}</p>
-
       <ul className="rewatch-review__options">
         {question.options.map((option) => {
           const isSelected = selectedOptionIds.includes(option.id)
@@ -106,7 +125,7 @@ function WrongQuestionInfo({
               className={`rewatch-option${isSelected ? ' rewatch-option--selected' : ''}`}
             >
               <span className="rewatch-option__marker" aria-hidden="true">
-                {isSelected ? genericIcons.check : null}
+                {isSelected ? genericIcons.cross : null}
               </span>
 
               <QuizOptionContent option={option} />
@@ -122,12 +141,15 @@ function CorrectQuestionMarker({ items }: { items: IndexedQuestion[] }) {
   const retry = copy.experimentalGroup.retry
 
   return (
-    <div className="rewatch-review__correct">
-      <p className="rewatch-review__correct-label" aria-hidden="true">
-        {retry.reviewCorrectLabel}
-      </p>
+    <section className="rewatch-card" aria-hidden="true">
+      <SectionHeader
+        icon={genericIcons.check}
+        title={retry.reviewCorrectTitle}
+        note={retry.reviewCorrectNote(items.length)}
+        tone="correct"
+      />
 
-      <ul className="rewatch-review__chips" aria-hidden="true">
+      <ul className="rewatch-review__chips">
         {items.map(({ question, index }) => (
           <li key={question.id} className="rewatch-review__chip">
             <span className="rewatch-review__chip-icon">{genericIcons.check}</span>
@@ -135,7 +157,7 @@ function CorrectQuestionMarker({ items }: { items: IndexedQuestion[] }) {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   )
 }
 
@@ -178,9 +200,9 @@ function RewatchDialog({
     ? numbered.filter(({ question }) => !score.wrongQuestionIds.includes(question.id))
     : []
 
-  const hint = onSeekToQuestion
-    ? `${retry.nextStepsCompact} ${retry.jumpStepCompact}`
-    : retry.nextStepsCompact
+  const wrongNote = onSeekToQuestion
+    ? `${retry.reviewOptionsNote} ${retry.jumpStepCompact}`
+    : retry.reviewOptionsNote
 
   return (
     <dialog
@@ -199,78 +221,90 @@ function RewatchDialog({
             {retry.dialogTitle}
           </h2>
 
-          <div className="rewatch-score">
-            <p className="rewatch-score__value" aria-hidden="true">
-              {score.correctCount}
-              <span className="rewatch-score__total">{retry.outOf(score.total)}</span>
-            </p>
+          <div className="rewatch-sections">
+            <section className="rewatch-card">
+              <SectionHeader icon={genericIcons.target} title={retry.reviewScoreTitle} />
 
-            <div className="rewatch-score__track" aria-hidden="true">
-              <div className="rewatch-score__bar">
-                <span
-                  className="rewatch-score__bar-fill"
-                  style={{
-                    width: `${
-                      score.total > 0 ? Math.round((score.correctCount / score.total) * 100) : 0
-                    }%`,
-                  }}
-                />
+              <div className="rewatch-score">
+                <p className="rewatch-score__value" aria-hidden="true">
+                  {score.correctCount}
+                  <span className="rewatch-score__total">{retry.outOf(score.total)}</span>
+                </p>
+
+                <div className="rewatch-score__track" aria-hidden="true">
+                  <div className="rewatch-score__bar">
+                    <span
+                      className="rewatch-score__bar-fill"
+                      style={{
+                        width: `${
+                          score.total > 0 ? Math.round((score.correctCount / score.total) * 100) : 0
+                        }%`,
+                      }}
+                    />
+                  </div>
+
+                  {score.total > 0 ? (
+                    <span
+                      className="rewatch-score__threshold"
+                      style={{
+                        left: `${Math.min(100, Math.max(0, (passThreshold / score.total) * 100))}%`,
+                      }}
+                      title={retry.thresholdMarkerLabel}
+                    />
+                  ) : null}
+                </div>
+
+                <div className="rewatch-score__captions" aria-hidden="true">
+                  <p className="rewatch-score__caption">{retry.scoreCaption}</p>
+
+                  <p className="rewatch-score__threshold-caption">
+                    <span className="rewatch-score__threshold-dot" />
+
+                    {retry.thresholdLabel(passThreshold, score.total)}
+                  </p>
+                </div>
               </div>
+            </section>
 
-              {score.total > 0 ? (
-                <span
-                  className="rewatch-score__threshold"
-                  style={{
-                    left: `${Math.min(100, Math.max(0, (passThreshold / score.total) * 100))}%`,
-                  }}
-                  title={retry.thresholdMarkerLabel}
+            {correct.length > 0 ? <CorrectQuestionMarker items={correct} /> : null}
+
+            {wrong.length > 0 ? (
+              <section className="rewatch-card">
+                <SectionHeader
+                  icon={genericIcons.cross}
+                  title={retry.reviewWrongTitle}
+                  note={wrongNote}
                 />
-              ) : null}
-            </div>
 
-            <div className="rewatch-score__captions" aria-hidden="true">
-              <p className="rewatch-score__caption">{retry.scoreCaption}</p>
-
-              <p className="rewatch-score__threshold-caption">
-                <span className="rewatch-score__threshold-dot" />
-
-                {retry.thresholdLabel(passThreshold, score.total)}
-              </p>
-            </div>
+                <ul className="rewatch-review__list">
+                  {wrong.map(({ question, index }) => (
+                    <WrongQuestionInfo
+                      key={question.id}
+                      question={question}
+                      index={index}
+                      chapter={
+                        showChapterHints
+                          ? findChapterFromTimestamp(chapters, question.videoTimestamp)
+                          : null
+                      }
+                      selectedOptionIds={submittedAnswers?.[question.id] ?? []}
+                      onSeek={onSeekToQuestion}
+                    />
+                  ))}
+                </ul>
+              </section>
+            ) : null}
           </div>
 
-          {correct.length > 0 || wrong.length > 0 ? (
-            <div className="rewatch-review">
-              {correct.length > 0 ? <CorrectQuestionMarker items={correct} /> : null}
-
-              {wrong.length > 0 ? (
-                <>
-                  <p className="rewatch-review__title">{retry.reviewWrongTitle}</p>
-
-                  <ul className="rewatch-review__list">
-                    {wrong.map(({ question, index }) => (
-                      <WrongQuestionInfo
-                        key={question.id}
-                        question={question}
-                        index={index}
-                        chapter={
-                          showChapterHints
-                            ? findChapterFromTimestamp(chapters, question.videoTimestamp)
-                            : null
-                        }
-                        selectedOptionIds={submittedAnswers?.[question.id] ?? []}
-                        onSeek={onSeekToQuestion}
-                      />
-                    ))}
-                  </ul>
-                </>
-              ) : null}
-            </div>
-          ) : null}
-
-          <p className="rewatch-hint">{hint}</p>
-
           <div className="study-modal__actions">
+            <p className="status status-note">
+              <span className="status-note__icon" aria-hidden="true">
+                {genericIcons.play}
+              </span>
+
+              <span className="status-note__text">{withEmphasis(retry.nextStepsCompact)}</span>
+            </p>
+
             <button type="button" className="start-button" onClick={onDismiss}>
               {copy.actions.continue}
             </button>

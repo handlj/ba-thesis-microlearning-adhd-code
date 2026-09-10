@@ -219,12 +219,17 @@ export const copy = {
       thresholdLabel: (threshold: number, total: number) =>
         `Ziel: ${threshold} von ${total} richtig`,
       thresholdMarkerLabel: 'Bestehensgrenze',
-      reviewCorrectLabel: 'Richtig beantwortete Fragen',
+      reviewScoreTitle: 'Ihr Ergebnis',
+      reviewCorrectTitle: 'Korrekt beantwortete Fragen',
+      reviewCorrectNote: (count: number) =>
+        count === 1
+          ? 'Diese Frage ist gespeichert und muss nicht erneut beantwortet werden.'
+          : `Diese ${count} Fragen sind gespeichert und müssen nicht erneut beantwortet werden.`,
       reviewWrongTitle: 'Noch einmal ansehen',
       chapterHint: (title: string, time: string) => `${title} · ${time}`,
-      reviewOptionsLabel: 'Antwortmöglichkeiten · Ihre Auswahl ist markiert',
+      reviewOptionsNote: 'Ihre bisherige Auswahl ist bei jeder Frage markiert.',
       nextStepsCompact:
-        'Das Video startet an einer passenden Stelle. Sie können das Quiz jederzeit erneut starten.',
+        'Das Video startet automatisch **an einer passenden Stelle**. Sie können das Quiz jederzeit erneut starten.',
       jumpStepCompact: 'Tippen Sie auf eine Frage, um direkt dorthin zu springen.',
     },
     progress: (current: number, total: number) => `Video ${current} von ${total}`,
