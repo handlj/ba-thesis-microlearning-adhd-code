@@ -79,21 +79,6 @@ zahl3 = zahl2 % zahl`,
         ],
       },
       {
-        id: 'a4',
-        videoTimestamp: 202,
-        prompt:
-          'Betrachten Sie die Variable `string = "abcdef"`. Welche der folgenden Aussagen ist korrekt?',
-        options: [
-          { id: 'a', text: '`string[0]` hat den Wert `abcdef`' },
-          { id: 'b', text: '`string[1:3]` hat den Wert `abc`' },
-          { id: 'c', text: '`string[0:6]` hat den Wert `abcdef`', correct: true },
-          {
-            id: 'd',
-            text: '`string[5]` hat den Wert `e`',
-          },
-        ],
-      },
-      {
         id: 'a5',
         videoTimestamp: 157,
         prompt: 'Welche der folgenden Zuweisungen erzeugt einen gültigen (fehlerfreien) String?',
@@ -141,7 +126,7 @@ zahl3 = zahl2 % zahl`,
       },
       {
         id: 'b3',
-        videoTimestamp: 205,
+        videoTimestamp: 3,
         prompt: 'Betrachten Sie folgenden Code-Auszug. Welche der folgenden Aussagen ist korrekt?',
         code: `if x < 10:
   print("Ich bin einstellig.")
@@ -166,33 +151,6 @@ print("Ich bin nicht eingerückt.")`,
             id: 'd',
             text: 'Es gibt einstellige Ausprägungen von x, für die `Ich nicht.` ausgegeben wird.',
           },
-        ],
-      },
-      {
-        id: 'b4',
-        videoTimestamp: 205,
-        prompt:
-          'Betrachten Sie die folgenden beiden Code-Auszüge. Welche der folgenden Aussagen ist korrekt?',
-        code: `# Auszug A
-if x > 40:
-  print("Ich bin größer als 40.")
-elif x > 20:
-  print("Ich bin größer als 20.")
-
-# Auszug B
-if x > 40:
-  print("Ich bin größer als 40.")
-if x > 20:
-  print("Ich bin größer als 20.")`,
-        options: [
-          { id: 'a', text: 'Auszug A zeigt immer die gleiche Ausgabe wie Auszug B.' },
-          { id: 'b', text: 'Für `x = 100` zeigen beide Auszüge die gleiche Ausgabe.' },
-          {
-            id: 'c',
-            text: 'Für `x = 30` zeigen beide Auszüge die gleiche Ausgabe.',
-            correct: true,
-          },
-          { id: 'd', text: 'Auszug A zeigt immer eine andere Ausgabe wie Auszug B.' },
         ],
       },
       {
@@ -222,18 +180,6 @@ if x > 20:
     title: 'Schleifen',
     questions: [
       {
-        id: 'c1',
-        videoTimestamp: 265,
-        prompt:
-          'Welche der folgenden Paare von Schlüsselwörtern steuern den Ablauf einer Schleife (Schleife abbrechen oder zur nächsten Iteration springen)?',
-        options: [
-          { id: 'a', text: '`break` und `for`' },
-          { id: 'b', text: '`break` und `continue`', correct: true },
-          { id: 'c', text: '`continue` und `while`' },
-          { id: 'd', text: '`for` und `while`' },
-        ],
-      },
-      {
         id: 'c2',
         videoTimestamp: 89,
         prompt: 'Betrachten Sie folgenden Code-Auszug. Welche Aussage ist korrekt?',
@@ -258,7 +204,7 @@ if x > 20:
       },
       {
         id: 'c3',
-        videoTimestamp: 226,
+        videoTimestamp: 175,
         prompt:
           'Durch welchen der folgenden Schleifen-Anfänge entsteht eine Endlosschleife (sofern im Schleifenkörper keine Abbruchbedingung verwendet wird)?',
         options: [
@@ -270,7 +216,7 @@ if x > 20:
       },
       {
         id: 'c4',
-        videoTimestamp: 226,
+        videoTimestamp: 175,
         prompt:
           'Welches Schlüsselwort (Keyword) eignet sich am besten, um eine Endlosschleife zu beenden?',
         options: [
@@ -321,7 +267,7 @@ print("Hi!")`,
       },
       {
         id: 'd2',
-        videoTimestamp: 127,
+        videoTimestamp: 91,
         prompt: 'Welche der folgenden Aussagen zu Funktionen ist richtig?',
         options: [
           { id: 'a', text: 'Jede Funktion benötigt mindestens einen Parameter.' },
@@ -342,7 +288,7 @@ print("Hi!")`,
       },
       {
         id: 'd3',
-        videoTimestamp: 220,
+        videoTimestamp: 184,
         prompt:
           'Betrachten Sie folgende Funktion. Welches der folgenden Beispiele ist ein valider Funktionsaufruf für einen dreijährigen Hund mit dem Namen Pluto, dessen Besitzer (owner) Hans heißt?',
         code: `def which_dog_is_it(dogname, ownername, age=0):
@@ -359,37 +305,8 @@ print("Hi!")`,
         ],
       },
       {
-        id: 'd4',
-        videoTimestamp: 270,
-        prompt:
-          'Betrachten Sie erneut die Funktion which_dog_is_it. Welchen Fehler erhält man bei folgendem Funktionsaufruf?',
-        code: `def which_dog_is_it(dogname, ownername, age=0):
-  print(f'The dog {dogname} is {age} years old and the owner is {ownername}.')
-
-# Funktionsaufruf
-which_dog_is_it('Pluto')`,
-        options: [
-          { id: 'a', text: '`SyntaxError: positional argument follows keyword argument`' },
-          {
-            id: 'b',
-            code: `TypeError: which_dog_is_it() missing 1 required 
-            positional argument: 'age'`,
-          },
-          {
-            id: 'c',
-            code: `TypeError: which_dog_is_it() missing 1 required 
-            positional argument: 'ownername'`,
-            correct: true,
-          },
-          {
-            id: 'd',
-            text: 'Kein Fehler in der Ausführung, aber: "Logischer Fehler"',
-          },
-        ],
-      },
-      {
         id: 'd5',
-        videoTimestamp: 127,
+        videoTimestamp: 91,
         prompt: 'Welche Funktion ermöglicht das Schlüsselwort (Keyword) `return`?',
         options: [
           { id: 'a', text: 'Abbruch der innersten Schleife.' },

@@ -97,7 +97,7 @@ MAX_AGE = 99
 
 
 # Experimental-Group Quiz Gating
-QUIZ_PASS_THRESHOLD = 4  # Min. of correct answers (out of 5)
+QUIZ_PASS_THRESHOLD = 3  # Min. of correct answers (out of 4)
 QUIZ_MAX_ATTEMPTS = 3
 
 
@@ -122,6 +122,6 @@ ERROR_SUBGROUP_ASSIGNMENT_MISMATCH = "Subgroup does not match the assignment."
 ERROR_NAIVE_TIMESTAMP_WRITE = "Naive timestamp write detected. Use UTC-aware timestamps."
 
 # Video Filenames
-CONTROL_VIDEO_FILENAME = "video-full-v1.mp4"
-INSTRUCTION_VIDEO_FILENAME = "video-instructions-v2.mp4"
+CONTROL_VIDEO_FILENAME = "video-full.mp4"
+INSTRUCTION_VIDEO_FILENAME = "video-instructions.mp4"
 EXPERIMENTAL_VIDEO_FILENAME_TEMPLATE = "video{index}.mp4"
