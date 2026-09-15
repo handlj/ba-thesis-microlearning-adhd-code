@@ -4,6 +4,7 @@ import StudyFacts from '../../components/StudyFacts.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import { copy } from '../../content/copy'
+import { STUDY_PHASES } from '../../shell/studyPhases.ts'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
 
 type WelcomeProps = { onStart: () => void }
@@ -24,11 +25,15 @@ function Welcome({ onStart }: WelcomeProps) {
         <h2>{copy.welcome.steps.title}</h2>
 
         <ol className="study-steps__list">
-          {copy.welcome.steps.items.map((item) => (
-            <li key={item} className="study-steps__item">
-              {item}
-            </li>
-          ))}
+          {STUDY_PHASES.map((phase) => {
+            const { description } = copy.studyProgress.phases[phase]
+
+            return (
+              <li key={phase} className="study-steps__item">
+                <span>{description}</span>
+              </li>
+            )
+          })}
         </ol>
       </div>
 

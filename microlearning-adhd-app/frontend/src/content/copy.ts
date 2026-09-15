@@ -78,15 +78,30 @@ export const copy = {
     ],
     steps: {
       title: 'Ihr Ablauf',
-      items: [
-        'Einverständniserklärung und einige kurze Fragebögen.',
-        'Ein kurzes Quiz zu Ihren Programmier-Vorkenntnissen. Vorwissen ist nicht nötig.',
-        'Eine videogestützte Lerneinheit.',
-        'Ein abschließendes Quiz und die letzten Fragebögen.',
-      ],
     },
     status: {
       noDataCollected: 'Ohne Ihr Einverständnis werden keine Daten erhoben.',
+    },
+  },
+  studyProgress: {
+    phases: {
+      intro: {
+        label: 'Einstieg',
+        description: 'Einverständniserklärung und einige kurze Fragebögen.',
+      },
+      priorKnowledge: {
+        label: 'Vorwissen',
+        description:
+          'Ein kurzes Einführungsvideo und ein Quiz zu Ihren Programmier-Vorkenntnissen. Vorwissen ist nicht nötig.',
+      },
+      learning: {
+        label: 'Lerneinheit',
+        description: 'Eine videogestützte Lerneinheit mit Quizfragen.',
+      },
+      closing: {
+        label: 'Abschluss',
+        description: 'Abschließende Fragebögen und eine Rückmeldung zu Ihrem Lernerfolg.',
+      },
     },
   },
   consent: {

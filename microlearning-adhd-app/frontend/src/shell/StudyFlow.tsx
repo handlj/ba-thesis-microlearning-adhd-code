@@ -29,6 +29,7 @@ import { resetStudySubgroup, setStudySubgroup } from '../utils/videoFeatures.ts'
 import { useReloadWarning } from '../hooks/useReloadWarning.ts'
 import { clearSnapshot, hasSnapshot, readSnapshot, writeSnapshot } from './snapshotPersistence.ts'
 import { useReloadLog } from '../hooks/useReloadLog.ts'
+import { StudyProgressContext } from './studyProgressContext.ts'
 
 function StudyFlow() {
   const [restored] = useState(readSnapshot)
@@ -277,7 +278,7 @@ function StudyFlow() {
     thankYou: () => <ThankYou onReturnToStart={() => goTo('welcome')} />,
   }
 
-  return routes[currentPage]()
+  return <StudyProgressContext value={currentPage}>{routes[currentPage]()}</StudyProgressContext>
 }
 
 export default StudyFlow
