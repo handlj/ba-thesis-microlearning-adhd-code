@@ -4,11 +4,6 @@
 
 ## Nice to have
 
-### Videos
-- [ ] Timer einfügen nachdem weitergegangen werden kann (?)
-  Incentive für unkooperatives Verhalten?
-- [ ] Add that the videos do not only get counted as watched if the user watches the whole video, but also if they watch a certain percentage/range of it (e.g. 80%).
-
 ### Data Analysis
 - [ ] Exclude users who are very fast on the questionnaires (e.g. < 1s per question)
 
