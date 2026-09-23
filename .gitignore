@@ -14,3 +14,5 @@ microlearning-adhd-app/frontend/dist/
 .claude/
 
 documentation/
+
+.env
