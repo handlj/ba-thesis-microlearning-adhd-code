@@ -4,7 +4,7 @@ from typing import Annotated
 from pydantic import AfterValidator, AwareDatetime
 from sqlalchemy import String, TypeDecorator
 
-from app.config import ERROR_NAIVE_TIMESTAMP_WRITE
+from app.config.errors import ERROR_NAIVE_TIMESTAMP_WRITE
 
 CANONICAL_TIMESTAMP_FORMAT = "%Y-%m-%dT%H:%M:%S.%fZ"
 CANONICAL_TIMESTAMP_LENGTH = 32

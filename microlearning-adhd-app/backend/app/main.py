@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from app.config import FRONTEND_DIST_DIR, IS_PRODUCTION, MEDIA_DIR, ORIGINS
+from app.config.config import FRONTEND_DIST_DIR, IS_PRODUCTION, MEDIA_DIR, ORIGINS
 from app.database import create_db_and_tables
 from app.routes import (
     config,

@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
-from app.config import MAX_AGE, MIN_AGE, QUIZ_MAX_ATTEMPTS, QUIZ_PASS_THRESHOLD
+from app.config.demographics_validation import MAX_AGE, MIN_AGE
+from app.config.intervention import QUIZ_MAX_ATTEMPTS, QUIZ_PASS_THRESHOLD
 from app.schemas import config as ConfigSchemas
 
 router = APIRouter(prefix="/api")

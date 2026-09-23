@@ -1,13 +1,17 @@
 from fastapi import HTTPException
 from sqlmodel import Session, select
 
-from app.config import (
+from app.config.errors import (
+    ERROR_DEMOGRAPHICS_NOT_FOUND,
+)
+from app.config.http_status_codes import (
+    HTTP_404_NOT_FOUND,
+)
+from app.config.questionnaires_validation import (
     ADHD_PART_A_QUESTION_IDS,
     ADHD_PART_A_SCORE_THRESHOLD,
     ADHD_PART_B_QUESTION_IDS,
     ADHD_PART_B_SCORE_THRESHOLD,
-    ERROR_DEMOGRAPHICS_NOT_FOUND,
-    HTTP_404_NOT_FOUND,
 )
 from app.models.demographics import Demographics
 

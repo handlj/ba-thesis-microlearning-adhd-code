@@ -1,0 +1,3 @@
+CONTROL_VIDEO_FILENAME = "video-full.mp4"
+INSTRUCTION_VIDEO_FILENAME = "video-instructions.mp4"
+EXPERIMENTAL_VIDEO_FILENAME_TEMPLATE = "video{index}.mp4"

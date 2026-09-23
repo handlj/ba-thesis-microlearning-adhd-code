@@ -1,4 +1,4 @@
-from app.config import (
+from app.config.allocation_validation import (
     LEARNING_CONDITION_LABELS,
     LEARNING_CONDITION_TARGET_WEIGHTS,
     PRIOR_PROGRAMMING_EXPERIENCE_SCORE_RANGE,

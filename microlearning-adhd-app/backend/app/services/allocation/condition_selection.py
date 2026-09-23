@@ -1,7 +1,7 @@
 import math
 import random
 
-from app.config import (
+from app.config.allocation_validation import (
     ALLOCATION_IMBALANCE_TOLERANCE,
     EFRON_BIASED_COIN_PROBABILITY,
     LEARNING_CONDITION_LABELS,

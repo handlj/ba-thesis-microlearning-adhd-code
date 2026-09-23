@@ -1,9 +1,11 @@
 from fastapi import APIRouter, Request
 
-from app.config import (
+from app.config.filenames import (
     CONTROL_VIDEO_FILENAME,
     EXPERIMENTAL_VIDEO_FILENAME_TEMPLATE,
     INSTRUCTION_VIDEO_FILENAME,
+)
+from app.config.intervention import (
     NUMBER_OF_EXPERIMENTAL_VIDEOS,
 )
 from app.schemas import video as VideoSchemas

@@ -3,7 +3,7 @@ from dataclasses import asdict
 
 from sqlmodel import Session, func, select
 
-from app.config import CONTROL_SUBGROUP, LEARNING_CONDITION_LABELS
+from app.config.allocation_validation import CONTROL_SUBGROUP, LEARNING_CONDITION_LABELS
 from app.models.allocation_log import AllocationLog
 from app.models.session import ParticipantSession
 from app.timestamps import current_utc_timestamp

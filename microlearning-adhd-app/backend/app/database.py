@@ -2,7 +2,7 @@ from collections.abc import Generator
 
 from sqlmodel import Session, SQLModel, create_engine
 
-from app.config import DATA_DIR, DATABASE_URL
+from app.config.config import DATA_DIR, DATABASE_URL
 
 sqlite_engine = create_engine(
     DATABASE_URL,

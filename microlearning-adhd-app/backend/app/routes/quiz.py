@@ -4,7 +4,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.exc import IntegrityError
 from sqlmodel import Session, select
 
-from app.config import ERROR_QUIZ_ANSWERS_REQUIRED, HTTP_400_BAD_REQUEST
+from app.config.errors import ERROR_QUIZ_ANSWERS_REQUIRED
+from app.config.http_status_codes import HTTP_400_BAD_REQUEST
 from app.database import get_session
 from app.models import QuizSubmission
 from app.schemas import QuizSchemas

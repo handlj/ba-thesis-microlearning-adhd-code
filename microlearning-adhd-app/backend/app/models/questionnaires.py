@@ -3,7 +3,12 @@ from datetime import datetime
 from sqlmodel import Field, SQLModel, UniqueConstraint
 from sqlmodel.main import SQLModelMetaclass
 
-from app.config import ADHD_SCREENING_ITEM_COUNT, FAM_ITEM_COUNT, PANAS_ITEM_COUNT, UES_ITEM_COUNT
+from app.config.questionnaires_validation import (
+    ADHD_SCREENING_ITEM_COUNT,
+    FAM_ITEM_COUNT,
+    PANAS_ITEM_COUNT,
+    UES_ITEM_COUNT,
+)
 from app.timestamps import UtcDateTime
 
 

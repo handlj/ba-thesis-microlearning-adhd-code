@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlmodel import Session, select
 
-from app.config import (
+from app.config.questionnaires_validation import (
     ADHD_SCREENING_QUESTION_IDS,
     FAM_QUESTION_IDS,
     FAM_SCALE_MAX,

@@ -1,7 +1,17 @@
 from fastapi import HTTPException
 from sqlmodel import Session, select
 
-from app.config import (
+from app.config.allocation_validation import (
+    VALID_ASSIGNMENTS,
+    VALID_SUBGROUPS,
+    VALID_SUBGROUPS_BY_ASSIGNMENT,
+)
+from app.config.demographics_validation import (
+    MAX_AGE,
+    MIN_AGE,
+    VALID_ADHD_DIAGNOSES,
+)
+from app.config.errors import (
     ERROR_FIELD_REQUIRED,
     ERROR_INVALID_ADHD_DIAGNOSIS,
     ERROR_INVALID_AGE,
@@ -9,14 +19,10 @@ from app.config import (
     ERROR_INVALID_SUBGROUP,
     ERROR_PARTICIPANT_NOT_FOUND,
     ERROR_SUBGROUP_ASSIGNMENT_MISMATCH,
+)
+from app.config.http_status_codes import (
     HTTP_400_BAD_REQUEST,
     HTTP_404_NOT_FOUND,
-    MAX_AGE,
-    MIN_AGE,
-    VALID_ADHD_DIAGNOSES,
-    VALID_ASSIGNMENTS,
-    VALID_SUBGROUPS,
-    VALID_SUBGROUPS_BY_ASSIGNMENT,
 )
 from app.models.session import ParticipantSession
 
