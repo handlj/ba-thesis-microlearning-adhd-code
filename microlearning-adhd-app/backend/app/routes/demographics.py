@@ -4,12 +4,10 @@ from sqlmodel import Session, select
 from app.database import get_session
 from app.models import Demographics
 from app.schemas import DemographicsSchemas
-from app.services import (
+from app.services.scoring import score_prior_programming_experience
+from app.services.validation import (
     ensure_participant_exists,
-    require_non_empty_text,
-    score_prior_programming_experience,
-    validate_adhd_diagnosis,
-    validate_age,
+    validate_demographics,
 )
 from app.timestamps import current_utc_timestamp
 
@@ -33,8 +31,7 @@ def submit_demographics(
     if existing is not None:
         return DemographicsSchemas.DemographicsResponse(participant_id=participant_id)
 
-    validate_age(demographics.age)
-    validate_adhd_diagnosis(demographics.adhd_diagnosis)
+    validate_demographics(demographics)
 
     prior_programming_experience_score = score_prior_programming_experience(
         demographics.general_programming_ability, demographics.python_programming_ability
@@ -46,17 +43,15 @@ def submit_demographics(
         gender=demographics.gender,
         highest_education=demographics.highest_education,
         currently_studying=demographics.currently_studying,
-        study_background=require_non_empty_text(demographics.study_background, "Study background"),
+        study_background=demographics.study_background.strip(),
         adhd_diagnosis=demographics.adhd_diagnosis,
         adhd_official_diagnosis=demographics.adhd_official_diagnosis,
         adhd_medication=demographics.adhd_medication,
         has_other_diagnoses=demographics.has_other_diagnoses,
-        other_diagnoses=require_non_empty_text(demographics.other_diagnoses, "Other diagnoses"),
+        other_diagnoses=demographics.other_diagnoses.strip(),
         device=demographics.device,
         general_programming_experience=demographics.general_programming_experience,
-        general_programming_languages=require_non_empty_text(
-            demographics.general_programming_languages, "General programming languages"
-        ),
+        general_programming_languages=demographics.general_programming_languages.strip(),
         general_programming_ability=demographics.general_programming_ability,
         python_programming_experience=demographics.python_programming_experience,
         python_programming_ability=demographics.python_programming_ability,

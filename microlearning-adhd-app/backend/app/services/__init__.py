@@ -3,8 +3,6 @@ from app.services.scoring import get_adhd_status, score_prior_programming_experi
 from app.services.validation import (
     ensure_participant_exists,
     require_non_empty_text,
-    validate_adhd_diagnosis,
-    validate_age,
     validate_assignment,
     validate_likert_answers,
     validate_subgroup,
@@ -17,8 +15,6 @@ __all__ = [
     "require_non_empty_text",
     "get_adhd_status",
     "score_prior_programming_experience",
-    "validate_adhd_diagnosis",
-    "validate_age",
     "validate_assignment",
     "validate_subgroup",
     "validate_likert_answers",

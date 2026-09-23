@@ -6,15 +6,8 @@ from app.config.allocation_validation import (
     VALID_SUBGROUPS,
     VALID_SUBGROUPS_BY_ASSIGNMENT,
 )
-from app.config.demographics_validation import (
-    MAX_AGE,
-    MIN_AGE,
-    VALID_ADHD_DIAGNOSES,
-)
 from app.config.errors import (
     ERROR_FIELD_REQUIRED,
-    ERROR_INVALID_ADHD_DIAGNOSIS,
-    ERROR_INVALID_AGE,
     ERROR_INVALID_ASSIGNMENT,
     ERROR_INVALID_SUBGROUP,
     ERROR_PARTICIPANT_NOT_FOUND,
@@ -71,21 +64,6 @@ def validate_subgroup(subgroup: str, assignment: str) -> str:
         )
 
     return normalized
-
-
-def validate_age(age: int) -> int:
-    if age < MIN_AGE or age > MAX_AGE:
-        raise HTTPException(
-            status_code=HTTP_400_BAD_REQUEST,
-            detail=ERROR_INVALID_AGE.format(MIN_AGE=MIN_AGE, MAX_AGE=MAX_AGE),
-        )
-    return age
-
-
-def validate_adhd_diagnosis(diagnosis: str) -> str:
-    if diagnosis not in VALID_ADHD_DIAGNOSES:
-        raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail=ERROR_INVALID_ADHD_DIAGNOSIS)
-    return diagnosis
 
 
 def validate_likert_answers(
