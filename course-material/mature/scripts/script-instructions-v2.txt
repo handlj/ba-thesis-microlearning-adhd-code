@@ -1,0 +1,55 @@
+Microlearning Begrüßungsskript: Einführung in die Lernsitzung
+Format: Begrüßung und Instruktion für Teilnehmende
+
+---
+
+Folie 1 - Begrüßung
+
+Herzlich willkommen und vielen Dank für Ihre Teilnahme an dieser Lernsitzung zum Thema grundlegende Konzepte in der Programmiersprache "Python".
+
+In diesem kurzen Einführungsvideo bekommen Sie einen Überblick über die Inhalte, die Sie im weiteren Studienverlauf erwarten.
+
+
+
+---
+
+Folie 2 - Videos und Quizfragen
+
+Die Sitzung besteht aus Videomaterial und Quizfragen.
+
+
+Sie können alle Videoinhalte in Ihrem eigenen Tempo ansehen. 
+Pausieren oder zurückspulen und erneut ansehen ist jederzeit möglich. 
+Sie können Abschnitte auch überspringen, wenn Sie das möchten.
+
+Nutzen Sie gerne alle Funktionen, die Ihnen der Video-Player zur Verfügung stellt. Ganz so, als ob Sie mit einem YouTube-Video- oder Tutorial lernen würden.
+
+
+Im Verlauf der Sitzung werden Sie gebeten, kurze Quizfragen zu beantworten.
+
+Lesen Sie jede Frage sorgfältig durch und antworten Sie so gut Sie können, bevor Sie zur nächsten Frage weitergehen. 
+Wenn Sie sich bei einer Antwort unsicher sind, ist das in Ordnung. Geben Sie einfach Ihr Bestes.
+
+---
+
+Folie 3 - Arbeitsweise und Bereit
+
+o Wie Sie arbeiten sollten
+
+Wie sollten Sie arbeiten?
+Es gibt keinen Zeitdruck. Es ist wichtiger, dass Sie etwas lernen, als wie schnell Sie sind.
+
+Gehen Sie die Inhalte so an, wie Sie es normalerweise beim Lernen tun würden. Ganz natürlich und in Ihrem eigenen Stil. 
+Es gibt keine vorgeschriebene Art und Weise, die Sitzung zu durchlaufen.
+
+„Verhalten Sie sich so natürlich wie möglich - als würden Sie dieses Material auf eigene Faust lernen."
+
+o Sind Sie Bereit?
+
+Wenn Sie bereit sind, klicken Sie auf die "Weiter"-Schaltfläche die Sie unten auf dieser Seite sehen.
+Die Sitzung führt Sie dann automatisch durch alle weiteren Schritte.
+
+Viel Erfolg!
+
+
+
