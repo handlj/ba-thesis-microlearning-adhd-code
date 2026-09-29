@@ -1,16 +1,15 @@
-#!/usr/bin/env python3
-
 from __future__ import annotations
 
-import argparse
 import csv
 import sqlite3
 from datetime import UTC, datetime
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 DEFAULT_DB_PATH = DATA_DIR / "study.db"
+
+_OUTPUT_PATH = BASE_DIR.parent / "data" / "exports" / "study_db"
 
 
 def quote_identifier(identifier: str) -> str:
@@ -24,6 +23,7 @@ def get_table_names(connection: sqlite3.Connection) -> list[str]:
         FROM sqlite_master
         WHERE type = 'table'
           AND name NOT LIKE 'sqlite_%'
+          AND name NOT LIKE 'vouchercode'
         ORDER BY name
         """
     ).fetchall()
@@ -68,28 +68,8 @@ def export_database(db_path: Path, output_root: Path) -> Path:
     return output_directory
 
 
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Export every user table from study.db to CSV files.",
-    )
-    parser.add_argument(
-        "--db",
-        type=Path,
-        default=DEFAULT_DB_PATH,
-        help=f"Path to the SQLite database. Defaults to {DEFAULT_DB_PATH}.",
-    )
-    parser.add_argument(
-        "--output-root",
-        type=Path,
-        default=DATA_DIR,
-        help=f"Directory where the export folder is created. Defaults to {DATA_DIR}.",
-    )
-    return parser.parse_args()
-
-
 def main() -> None:
-    args = parse_args()
-    export_database(args.db, args.output_root)
+    export_database(DEFAULT_DB_PATH, _OUTPUT_PATH)
 
 
 if __name__ == "__main__":

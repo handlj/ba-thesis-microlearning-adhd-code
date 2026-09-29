@@ -51,19 +51,29 @@ python main.py
 This will start the backend server, and you can access the API at `http://localhost:8000`.
 
 
-## Database & Inspection
+## Database Inspection
 
-For inspection of the `study.db` SQLite database, execute the `export_study_db.py` script in the `backend/data` directory:
+For inspection of the `study.db` SQLite database, execute the `export_study_db.py` script in the `backend` directory:
 
 ```bash
-./export_study_db.py
+python3 export_study_db.py
 ```
 
-Note that, for every table in `study.db`, a separate timestamped CSV file will be created in the `backend/data` directory (per model). In subsequent data analysis, these files will be merged into a single CSV file.
+Note that, for every export, a separate timestamped subdirectory will be created in the `data/exports` directory.
 
 ## Data Collection
 
 As soon as the study participants consents to data collection and proceeds (clicks the proceed button), data collection will commence by means of a first post request to the backend (containing the consent flag).
+
+## Voucher Codes
+
+Issued voucher codes are stored in the `vouchercode` table of the `study.db` database. To export all voucher codes to a CSV file, execute the `export_voucher_codes.py` script in the `backend` directory:
+
+```bash
+python3 export_voucher_codes.py
+```
+
+Note that all voucher codes are stored in `data/exports/voucher_codes` separately from participants' data and thus retain their anonymity. `export_study_db.py` does not export voucher codes, and `export_voucher_codes.py` does not export any participant data, so no timing-based side channels are exposed.
 
 ## Prerequisites
 

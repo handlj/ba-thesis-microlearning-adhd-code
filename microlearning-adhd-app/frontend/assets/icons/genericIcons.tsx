@@ -70,6 +70,25 @@ export const genericIcons: Record<string, ReactNode> = {
       <path d="M12 17.4h.01" {...strokeProps} />
     </svg>
   ),
+  gift: (
+    <svg viewBox="0 0 24 24" width="18" height="18" role="img">
+      <rect x="3.5" y="8" width="17" height="4.5" rx="1.2" {...strokeProps} />
+      <path d="M5 12.5v6.3a1.7 1.7 0 0 0 1.7 1.7h10.6a1.7 1.7 0 0 0 1.7-1.7v-6.3M12 8v12.5" {...strokeProps} />
+      <path d="M12 8c-1.2-2.8-4.6-4-5.4-2.1C6 7.4 8.4 8 12 8zM12 8c1.2-2.8 4.6-4 5.4-2.1C18 7.4 15.6 8 12 8z" {...strokeProps} />
+    </svg>
+  ),
+  copy: (
+    <svg viewBox="0 0 24 24" width="18" height="18" role="img">
+      <rect x="8.5" y="8.5" width="11.5" height="11.5" rx="2.4" {...strokeProps} />
+      <path d="M15.5 8.5V6.4A2.4 2.4 0 0 0 13.1 4H6.4A2.4 2.4 0 0 0 4 6.4v6.7a2.4 2.4 0 0 0 2.4 2.4h2.1" {...strokeProps} />
+    </svg>
+  ),
+  pin: (
+    <svg viewBox="0 0 24 24" width="18" height="18" role="img">
+      <path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" {...strokeProps} />
+      <circle cx="12" cy="10" r="2.4" {...strokeProps} />
+    </svg>
+  ),
 }
 
 export type IconName = keyof typeof genericIcons

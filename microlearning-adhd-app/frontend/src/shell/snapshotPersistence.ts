@@ -18,6 +18,7 @@ export type Snapshot = {
   consent: boolean
   answers: StudyAnswers
   quizResults: QuizResults
+  voucherCode: string | null
 }
 
 export type SnapshotInput = Omit<Snapshot, 'version' | 'savedAt'>
@@ -95,6 +96,7 @@ export function readSnapshot(): Snapshot | null {
       ...parsed,
       answers: mergeStudyAnswers(parsed.answers),
       quizResults: mergeQuizResults(parsed.quizResults),
+      voucherCode: typeof parsed.voucherCode === 'string' ? parsed.voucherCode : null,
     }
   } catch (error) {
     console.error('Error reading snapshot from sessionStorage:', error)

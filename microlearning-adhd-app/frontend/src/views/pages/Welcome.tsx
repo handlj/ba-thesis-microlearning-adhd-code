@@ -37,6 +37,12 @@ function Welcome({ onStart }: WelcomeProps) {
         </ol>
       </div>
 
+      <div className="study-steps reward-card">
+        <h2>{copy.welcome.reward.title}</h2>
+
+        <p>{copy.welcome.reward.text}</p>
+      </div>
+
       <StudyActions>
         <button type="button" className="start-button" onClick={onStart}>
           {copy.actions.startStudy}

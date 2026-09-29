@@ -31,6 +31,7 @@ type StudySubmissionDeps = {
   setSavingStep: (step: StepKey | null) => void
   setParticipantId: (id: string) => void
   onAssigned: (allocation: Allocation) => void
+  requestVoucher: (participantId: string) => Promise<void>
   goTo: (page: Page) => void
   goNext: (from: Page) => void
 }
@@ -148,6 +149,7 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
         subgroup,
         deps.answers.followUp,
       )
+      await deps.requestVoucher(participantId)
       deps.goTo(wantsFeedback === 'yes' && deps.completeScores ? 'feedback' : 'thankYou')
     })
   }

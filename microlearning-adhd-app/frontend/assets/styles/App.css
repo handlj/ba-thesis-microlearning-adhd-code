@@ -282,7 +282,8 @@
   }
 
   .study-steps,
-  .contact-card {
+  .contact-card,
+  .voucher-card {
     animation: feedback-rise 0.5s ease 0.16s both;
   }
 
@@ -479,6 +480,120 @@
   outline: 3px solid rgba(54, 87, 159, 0.35);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+.study-facts > .contact-card {
+  margin-top: 0;
+}
+
+.reward-card p {
+  line-height: 1.55;
+}
+
+.voucher-card {
+  margin-top: 28px;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 24px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(54, 87, 159, 0.2);
+  box-shadow: 0 14px 40px rgba(31, 59, 115, 0.08);
+  text-align: center;
+}
+
+.voucher-card + .study-facts {
+  margin-top: 16px;
+}
+
+.voucher-card__label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #36579f;
+}
+
+.voucher-card__label-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(31, 59, 115, 0.1);
+  color: #1f3b73;
+}
+
+.voucher-card__code {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 2px dashed rgba(31, 59, 115, 0.3);
+  background: rgba(31, 59, 115, 0.04);
+  color: #000000;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  cursor: copy;
+  user-select: all;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.voucher-card__code:hover {
+  background: rgba(31, 59, 115, 0.09);
+  border-color: rgba(31, 59, 115, 0.45);
+}
+
+.voucher-card__code:focus-visible {
+  outline: 3px solid rgba(54, 87, 159, 0.35);
+  outline-offset: 3px;
+}
+
+.voucher-card__code-icon {
+  display: inline-flex;
+  color: #36579f;
+}
+
+.voucher-card__hint {
+  margin-top: -6px;
+  font-size: 0.85rem;
+  color: #6b6258;
+}
+
+.voucher-card__instructions {
+  max-width: 52ch;
+  line-height: 1.55;
+}
+
+.voucher-card__address {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: rgba(138, 91, 43, 0.08);
+  border: 1px solid rgba(138, 91, 43, 0.2);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-h);
+  text-align: left;
+}
+
+.voucher-card__address-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #8a5b2b;
 }
 
 .info-grid {
@@ -1926,6 +2041,12 @@
   .info-grid,
   .study-facts {
     grid-template-columns: 1fr;
+  }
+
+  .voucher-card__code {
+    gap: 12px;
+    padding: 12px 20px;
+    font-size: 1.8rem;
   }
 
   .status-note {

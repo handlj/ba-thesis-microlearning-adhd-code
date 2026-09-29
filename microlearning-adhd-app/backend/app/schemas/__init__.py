@@ -7,6 +7,7 @@ from app.schemas import post_intervention as PostInterventionSchemas
 from app.schemas import questionnaire as QuestionnaireSchemas
 from app.schemas import quiz as QuizSchemas
 from app.schemas import video as VideoSchemas
+from app.schemas import voucher as VoucherSchemas
 
 __all__ = [
     "ADHDScreeningSchemas",
@@ -18,4 +19,5 @@ __all__ = [
     "QuestionnaireSchemas",
     "QuizSchemas",
     "VideoSchemas",
+    "VoucherSchemas",
 ]

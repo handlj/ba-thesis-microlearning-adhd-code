@@ -30,6 +30,7 @@ import { useReloadWarning } from '../hooks/useReloadWarning.ts'
 import { clearSnapshot, hasSnapshot, readSnapshot, writeSnapshot } from './snapshotPersistence.ts'
 import { useReloadLog } from '../hooks/useReloadLog.ts'
 import { StudyProgressContext } from './studyProgressContext.ts'
+import { useVoucher } from './useVoucher.ts'
 
 function StudyFlow() {
   const [restored] = useState(readSnapshot)
@@ -68,6 +69,9 @@ function StudyFlow() {
     recordExperimentalQuiz,
     resetQuizResults,
   } = useQuizResults(participantId, groupAssignment, subgroup, restored?.quizResults)
+  const { voucherCode, voucherStatus, requestVoucher, resetVoucher } = useVoucher(
+    restored?.voucherCode,
+  )
 
   useScrollToTop(currentPage)
   useReloadWarning(isPageInsideSession(currentPage))
@@ -86,8 +90,18 @@ function StudyFlow() {
       consent,
       answers,
       quizResults: results,
+      voucherCode,
     })
-  }, [currentPage, participantId, groupAssignment, subgroup, consent, answers, results])
+  }, [
+    currentPage,
+    participantId,
+    groupAssignment,
+    subgroup,
+    consent,
+    answers,
+    results,
+    voucherCode,
+  ])
 
   const logInteraction = createInteractionLogger(participantId, groupAssignment, subgroup)
 
@@ -117,6 +131,7 @@ function StudyFlow() {
     setSubgroup(null)
     resetStudySubgroup()
     resetQuizResults()
+    resetVoucher()
     submitLockRef.current = false
   }
 
@@ -152,6 +167,7 @@ function StudyFlow() {
     setSavingStep,
     setParticipantId,
     onAssigned: handleAllocated,
+    requestVoucher,
     goTo,
     goNext,
   })
@@ -275,7 +291,14 @@ function StudyFlow() {
       ) : (
         welcomeScreen()
       ),
-    thankYou: () => <ThankYou onReturnToStart={() => goTo('welcome')} />,
+    thankYou: () => (
+      <ThankYou
+        voucherCode={voucherCode}
+        voucherStatus={voucherStatus}
+        onRetryVoucher={() => requestVoucher(participantId)}
+        onReturnToStart={() => goTo('welcome')}
+      />
+    ),
   }
 
   return <StudyProgressContext value={currentPage}>{routes[currentPage]()}</StudyProgressContext>

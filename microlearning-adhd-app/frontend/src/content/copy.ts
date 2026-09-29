@@ -79,6 +79,10 @@ export const copy = {
     steps: {
       title: 'Ihr Ablauf',
     },
+    reward: {
+      title: 'Belohnung',
+      text: 'Nach erfolgreichem Abschluss dieser Studie erhalten Sie einen Code, mit dem Sie sich eine Belohnung abholen können. Mehr dazu nach der Studie.',
+    },
     status: {
       noDataCollected: 'Ohne Ihr Einverständnis werden keine Daten erhoben.',
     },
@@ -315,12 +319,24 @@ export const copy = {
         label: 'Ihre Antworten',
         value: 'Übermittelt und anonymisiert gespeichert',
       },
-      {
-        icon: 'exit',
-        label: 'Nächster Schritt',
-        value: 'Sie können dieses Fenster nun schließen',
-      },
     ],
+    voucher: {
+      label: 'Gutscheincode',
+      instructions:
+        'Notieren Sie sich diesen Code, um eine Belohnung zu erhalten. Diese können Sie sich bei der Studienleitung an der unten angeführten Adresse abholen.',
+      address:
+        'Büro von Lisa Berger, Institute of Human-Centered Computing (HCC)\n 8010 Graz, Sandgasse 36, 3. Stock',
+      copyHint: 'Zum Kopieren klicken',
+      copied: 'Kopiert!',
+      loading: 'Ihr Code wird erstellt …',
+      loadError: 'Ihr Code konnte nicht erstellt werden. Bitte versuchen Sie es erneut.',
+      retry: 'Erneut versuchen',
+      alreadyIssued:
+        'Für diese Teilnahme wurde bereits ein Code ausgestellt. Bitte wenden Sie sich an die Studienleitung.',
+    },
+    status: {
+      closeWindow: 'Sie können dieses Fenster nun schließen',
+    },
     contact: {
       label: 'Rückfragen zur Studie',
       name: 'Dr. rer. nat. Lisa Berger',

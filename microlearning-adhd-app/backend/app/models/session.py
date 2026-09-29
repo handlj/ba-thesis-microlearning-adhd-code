@@ -15,3 +15,4 @@ class ParticipantSession(SQLModel, table=True):
     subgroup: str | None = None
     adhd_status_flag: bool | None = None
     prior_programming_experience_score: int | None = None
+    voucher_issued: bool = False

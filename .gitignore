@@ -1,20 +1,22 @@
 .venv
+venv
+
 .DS_Store
 .ipynb_checkpoints
-__pycache__/
-microlearning-adhd-app/backend/data/study_db_export*/
-microlearning-adhd-app/backend/data/study.db
-microlearning-adhd-app/backend/venv/
-microlearning-adhd-app/backend/testing/
-microlearning-adhd-app/frontend/node_modules/
-microlearning-adhd-app/frontend/build/
-microlearning-adhd-app/frontend/dist/
+__pycache__
+node_modules
+.ruff_cache
+
+build
+dist
+
+study.db
+testing
 
 .vscode/
 .claude/
 
-documentation/
-
 .env
 
-.ruff_cache/
+study_db_export_*
+voucher-codes-export.csv

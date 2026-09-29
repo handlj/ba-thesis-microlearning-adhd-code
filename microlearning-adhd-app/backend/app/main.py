@@ -16,6 +16,7 @@ from app.routes import (
     questionnaires,
     quiz,
     videos,
+    voucher,
 )
 
 
@@ -47,6 +48,7 @@ app.include_router(post_intervention.router)
 app.include_router(questionnaires.router)
 app.include_router(quiz.router)
 app.include_router(videos.router)
+app.include_router(voucher.router)
 app.include_router(config.router)
 
 if FRONTEND_DIST_DIR is not None:

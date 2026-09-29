@@ -7,11 +7,14 @@ from app.services.validation import (
     validate_likert_answers,
     validate_subgroup,
 )
+from app.services.voucher import format_voucher_code, generate_voucher_code
 
 __all__ = [
     "assign_balanced_group",
     "assign_balanced_group_with_log",
     "ensure_participant_exists",
+    "format_voucher_code",
+    "generate_voucher_code",
     "require_non_empty_text",
     "get_adhd_status",
     "score_prior_programming_experience",
