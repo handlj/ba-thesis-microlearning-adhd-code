@@ -1,0 +1,30 @@
+.progress-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  background: rgba(31, 59, 115, 0.08);
+  border: 1px solid rgba(31, 59, 115, 0.16);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #36579f;
+  font-variant-numeric: tabular-nums;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.progress-pill__dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.progress-pill--complete {
+  background: rgba(47, 125, 91, 0.1);
+  border-color: rgba(47, 125, 91, 0.24);
+  color: #256b4c;
+}

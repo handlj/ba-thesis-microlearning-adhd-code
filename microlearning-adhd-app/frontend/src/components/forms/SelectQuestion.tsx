@@ -19,17 +19,17 @@ function SelectQuestion<QuestionId extends string = string>({
 
   return (
     <div className="question-field">
-      <label className="question-label" htmlFor={selectId}>
+      <label className="question-field__label" htmlFor={selectId}>
         {question.label}
       </label>
       {question.helpText ? (
-        <p className="question-help" id={helpId}>
+        <p className="question-field__help" id={helpId}>
           {question.helpText}
         </p>
       ) : null}
       <select
         id={selectId}
-        className="question-control"
+        className="question-field__control"
         value={selectedValue}
         onChange={(event) => onChange(question.id, event.target.value)}
         required={question.required}

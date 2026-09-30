@@ -59,7 +59,7 @@ function FollowUpQuestionnaire({
   })
 
   return (
-    <StudyPage ariaLabelledBy="follow-up-title" cardClassName="study-card--form">
+    <StudyPage ariaLabelledBy="follow-up-title" variant="form">
       <StudyHeading
         eyebrow={copy.postIntervention.heading.eyebrow}
         title={copy.postIntervention.heading.title}
@@ -86,7 +86,7 @@ function FollowUpQuestionnaire({
         }}
         actions={
           <StudyActions>
-            <button type="submit" className="start-button" disabled={!isComplete || isSubmitting}>
+            <button type="submit" className="primary-button" disabled={!isComplete || isSubmitting}>
               {isSubmitting ? copy.actions.saving : copy.actions.completeStudy}
             </button>
           </StudyActions>

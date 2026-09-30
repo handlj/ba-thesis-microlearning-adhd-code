@@ -1,3 +1,4 @@
+import '@assets/styles/components/StudyProgress.css'
 import type { CSSProperties } from 'react'
 
 import { copy } from '../content/copy.ts'
@@ -21,7 +22,7 @@ function StudyProgress({ page }: StudyProgressProps) {
           <li
             key={segment.phase}
             className={`study-progress__segment study-progress__segment--${segment.state}`}
-            style={{ '--fill': segment.fill } as CSSProperties}
+            style={{ '--segment-fill': segment.fill } as CSSProperties}
           >
             <span className="study-progress__track">
               <span className="study-progress__fill" />

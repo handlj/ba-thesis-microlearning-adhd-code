@@ -1,3 +1,4 @@
+import '@assets/styles/components/quiz/QuizProgressHeader.css'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
 
 import ProgressPill from '../ProgressPill.tsx'

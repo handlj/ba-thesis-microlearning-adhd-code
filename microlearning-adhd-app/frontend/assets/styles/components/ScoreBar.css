@@ -1,0 +1,25 @@
+.score-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(138, 91, 43, 0.12);
+  overflow: hidden;
+}
+
+.score-bar__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  transform-origin: left center;
+  background: rgba(138, 91, 43, 0.45);
+}
+
+.score-bar__caption {
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .score-bar__fill {
+    animation: bar-grow 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
+}

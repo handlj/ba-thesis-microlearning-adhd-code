@@ -1,0 +1,12 @@
+.message {
+  margin: 0;
+}
+
+.message--status {
+  color: #4f453a;
+}
+
+.message--error {
+  color: #9b1c1c;
+  font-weight: 600;
+}

@@ -24,7 +24,7 @@ function Demographics(props: DemographicProps) {
   const { visibleFormSections, handleChange } = useDemographics(props)
 
   return (
-    <StudyPage ariaLabelledBy="demographics-title" cardClassName="study-card--form">
+    <StudyPage ariaLabelledBy="demographics-title" variant="form">
       <StudyHeading
         eyebrow={demographicsCopy.heading.eyebrow}
         title={demographicsCopy.heading.title}
@@ -49,7 +49,7 @@ function Demographics(props: DemographicProps) {
               {copy.actions.back}
             </button>
 
-            <button type="submit" className="start-button" disabled={isSubmitting}>
+            <button type="submit" className="primary-button" disabled={isSubmitting}>
               {isSubmitting ? copy.actions.saving : copy.actions.continue}
             </button>
           </StudyActions>

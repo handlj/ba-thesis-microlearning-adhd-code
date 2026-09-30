@@ -1,3 +1,4 @@
+import '@assets/styles/components/StudyActions.css'
 import type { ReactNode } from 'react'
 
 type StudyActionsProps = {

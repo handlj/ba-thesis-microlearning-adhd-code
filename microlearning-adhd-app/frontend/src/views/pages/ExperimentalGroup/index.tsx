@@ -65,7 +65,7 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
   const chapters = getVideoChapters(video?.id)
 
   return (
-    <StudyPage ariaLabelledBy="experimental-title" cardClassName="study-card--video">
+    <StudyPage ariaLabelledBy="experimental-title" variant="video">
       <StudyHeading
         eyebrow={copy.experimentalGroup.heading.eyebrow}
         title={
@@ -158,7 +158,7 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
         {video && phase === 'video' ? (
           <button
             type="button"
-            className="start-button"
+            className="primary-button"
             disabled={!canProceedFromVideo}
             onClick={proceedFromVideo}
           >
@@ -169,7 +169,7 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
         {video && phase === 'quiz' ? (
           <button
             type="button"
-            className="start-button"
+            className="primary-button"
             disabled={!canProceedFromQuiz}
             onClick={proceedFromQuiz}
           >

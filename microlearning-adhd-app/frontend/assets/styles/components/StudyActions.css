@@ -1,0 +1,18 @@
+.study-actions {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.study-actions--stacked {
+  margin-top: 8px;
+}
+
+/* mobile */
+@media (max-width: 640px) {
+  .study-actions {
+    align-items: stretch;
+  }
+}

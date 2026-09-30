@@ -1,3 +1,7 @@
+import '@assets/styles/components/StudyModal.css'
+import '@assets/styles/components/quiz/QuizCode.css'
+import '@assets/styles/components/ScoreBar.css'
+import '@assets/styles/components/RewatchDialog.css'
 import { useEffect, useId, useRef, type ReactNode } from 'react'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
 import QuizOptionContent from './quiz/QuizOptionContent.tsx'
@@ -39,14 +43,14 @@ type SectionHeaderProps = {
   icon: ReactNode
   title: string
   note?: string
-  tone?: 'correct'
+  tone?: 'green'
 }
 
 function SectionHeader({ icon, title, note, tone }: SectionHeaderProps) {
   return (
     <div className="rewatch-card__header">
       <span
-        className={`rewatch-card__badge${tone ? ` rewatch-card__badge--${tone}` : ''}`}
+        className={`icon-badge icon-badge--small${tone ? ` icon-badge--${tone}` : ''}`}
         aria-hidden="true"
       >
         {icon}
@@ -147,13 +151,13 @@ function CorrectQuestionMarker({ items }: { items: IndexedQuestion[] }) {
         icon={genericIcons.check}
         title={retry.reviewCorrectTitle}
         note={retry.reviewCorrectNote(items.length)}
-        tone="correct"
+        tone="green"
       />
 
-      <ul className="rewatch-review__chips">
+      <ul className="rewatch-chips">
         {items.map(({ question, index }) => (
-          <li key={question.id} className="rewatch-review__chip">
-            <span className="rewatch-review__chip-icon">{genericIcons.check}</span>
+          <li key={question.id} className="rewatch-chips__item">
+            <span className="rewatch-chips__icon">{genericIcons.check}</span>
             {index}
           </li>
         ))}
@@ -233,9 +237,9 @@ function RewatchDialog({
                 </p>
 
                 <div className="rewatch-score__track" aria-hidden="true">
-                  <div className="rewatch-score__bar">
+                  <div className="score-bar">
                     <span
-                      className="rewatch-score__bar-fill"
+                      className="score-bar__fill"
                       style={{
                         width: `${
                           score.total > 0 ? Math.round((score.correctCount / score.total) * 100) : 0
@@ -256,7 +260,7 @@ function RewatchDialog({
                 </div>
 
                 <div className="rewatch-score__captions" aria-hidden="true">
-                  <p className="rewatch-score__caption">{retry.scoreCaption}</p>
+                  <p className="score-bar__caption">{retry.scoreCaption}</p>
 
                   <p className="rewatch-score__threshold-caption">
                     <span className="rewatch-score__threshold-dot" />
@@ -277,7 +281,7 @@ function RewatchDialog({
                   note={wrongNote}
                 />
 
-                <ul className="rewatch-review__list">
+                <ul className="rewatch-review">
                   {wrong.map(({ question, index }) => (
                     <WrongQuestionInfo
                       key={question.id}
@@ -298,7 +302,7 @@ function RewatchDialog({
           </div>
 
           <div className="study-modal__actions">
-            <p className="status status-note">
+            <p className="status-note">
               <span className="status-note__icon" aria-hidden="true">
                 {genericIcons.play}
               </span>
@@ -306,7 +310,7 @@ function RewatchDialog({
               <span className="status-note__text">{withEmphasis(retry.nextStepsCompact)}</span>
             </p>
 
-            <button type="button" className="start-button" onClick={onDismiss}>
+            <button type="button" className="primary-button" onClick={onDismiss}>
               {copy.actions.continue}
             </button>
           </div>

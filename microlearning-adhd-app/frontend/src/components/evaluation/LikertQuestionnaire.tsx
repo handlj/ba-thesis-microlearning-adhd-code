@@ -1,3 +1,4 @@
+import '@assets/styles/components/evaluation/LikertQuestionnaire.css'
 import ProgressPill from '../ProgressPill.tsx'
 import Message from '../Message.tsx'
 
@@ -17,7 +18,6 @@ type LikertQuestion = {
 type LikertQuestionnaireHeaderProps = {
   title?: string
   instructions?: string
-  questionColumnLabel: string
   modifier: string
   scale: LikertScale
   questions: readonly LikertQuestion[]
@@ -29,7 +29,6 @@ type LikertQuestionnaireHeaderProps = {
 function LikertQuestionnaire({
   title,
   instructions,
-  questionColumnLabel,
   modifier,
   scale,
   questions,
@@ -44,20 +43,18 @@ function LikertQuestionnaire({
   return (
     <section className="likert-questionnaire" aria-labelledby={title ? sectionTitleId : undefined}>
       {title ? (
-        <h2 className="likert-title" id={sectionTitleId}>
+        <h2 className="likert-questionnaire__title" id={sectionTitleId}>
           {title}
         </h2>
       ) : null}
 
-      {instructions ? <p className="likert-instructions">{instructions}</p> : null}
+      {instructions ? <p className="likert-questionnaire__instructions">{instructions}</p> : null}
 
-      <div className="likert-table-wrap">
+      <div className="likert-questionnaire__table-wrap">
         <table className={`likert-table likert-table--${modifier}`}>
           <thead>
             <tr>
-              <th className="likert-question-heading" scope="col">
-                <span className="sr-only">{questionColumnLabel}</span>
-
+              <th className="likert-table__question-heading" scope="col">
                 <ProgressPill answered={answered} total={total} />
               </th>
 
@@ -71,8 +68,8 @@ function LikertQuestionnaire({
                       : undefined
 
                 return (
-                  <th className="likert-scale-heading" scope="col" key={scaleValue}>
-                    {label ? <span className="likert-scale-label">{label}</span> : null}
+                  <th className="likert-table__scale-heading" scope="col" key={scaleValue}>
+                    {label ? <span className="likert-table__scale-label">{label}</span> : null}
                   </th>
                 )
               })}
@@ -81,13 +78,13 @@ function LikertQuestionnaire({
           <tbody>
             {questions.map((question, index) => (
               <tr key={question.id}>
-                <th className="likert-question-cell" scope="row">
-                  <span className="likert-question">
-                    <span className="likert-question-number" aria-hidden="true">
+                <th className="likert-table__question-cell" scope="row">
+                  <span className="likert-table__question">
+                    <span className="likert-table__question-number" aria-hidden="true">
                       {index + 1}
                     </span>
 
-                    <span className="likert-question-text">{question.text}</span>
+                    <span className="likert-table__question-text">{question.text}</span>
                   </span>
                 </th>
                 {scale.values.map((scaleValue) => {
@@ -95,8 +92,8 @@ function LikertQuestionnaire({
                   const scaleLabel = scale.labels?.[scaleValue] ?? scaleValue
 
                   return (
-                    <td className="likert-option-cell" key={scaleValue}>
-                      <label className="likert-option" htmlFor={inputId}>
+                    <td className="likert-table__option-cell" key={scaleValue}>
+                      <label className="likert-table__option" htmlFor={inputId}>
                         <input
                           id={inputId}
                           type="radio"

@@ -34,7 +34,7 @@ function Ready({ assignment, subgroup, onContinue, onLogInteraction }: ReadyProp
   const canContinue = Boolean(assignment && subgroup && hasVideoEnded)
 
   return (
-    <StudyPage ariaLabelledBy="ready-title" cardClassName="study-card--video">
+    <StudyPage ariaLabelledBy="ready-title" variant="video">
       <StudyHeading
         eyebrow={copy.ready.heading.eyebrow}
         title={copy.ready.heading.title}
@@ -69,11 +69,16 @@ function Ready({ assignment, subgroup, onContinue, onLogInteraction }: ReadyProp
       ) : null}
 
       <StudyActions>
-        <button type="button" className="start-button" onClick={onContinue} disabled={!canContinue}>
+        <button
+          type="button"
+          className="primary-button"
+          onClick={onContinue}
+          disabled={!canContinue}
+        >
           {copy.actions.continue}
         </button>
 
-        <p className="status status-note">
+        <p className="status-note">
           <span className="status-note__icon" aria-hidden="true">
             {genericIcons.clock}
           </span>

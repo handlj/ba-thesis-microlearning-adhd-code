@@ -1,17 +1,3 @@
-/*
-  The study's video embedding. Imported by components/video/StudyVideoPlayer.tsx
-  so the player travels with its styles wherever it is embedded.
-
-  The frame keeps the box the old .video-shell had — same radius, warm border
-  and lifted shadow as the panels on the study cards — so the player sits in a
-  card the way every other block does. Inside that frame the chrome goes dark
-  and cool: the controls belong to the video, not to the page.
-
-  The accent is the study blue (#1f3b73 / #36579f) lightened to hold up against
-  the dark video, so a filled progress bar reads as the same blue as a filled
-  score bar or a checked option elsewhere in the study.
-*/
-
 .video-player {
   --player-accent: #7ba0ee;
   --player-accent-strong: #a9c4f8;
@@ -35,8 +21,6 @@
   background: var(--player-surface);
 }
 
-/* Fullscreen hands the container the whole screen, which rarely matches 16/9;
-   let the frame fill it and letterbox the picture inside. */
 .video-player--fullscreen {
   border: 0;
   border-radius: 0;
@@ -50,10 +34,6 @@
   object-fit: contain;
 }
 
-/* -------------------------------------------------------------- play overlay */
-
-/* Shown whenever playback is not running, so a paused or finished video always
-   offers one obvious, large target rather than only the small transport button. */
 .video-player__overlay-button {
   position: absolute;
   inset: 0;
@@ -84,7 +64,6 @@
 .video-player__overlay-icon svg {
   width: 30px;
   height: 30px;
-  /* The play triangle is optically left-heavy inside a circle. */
   margin-left: 3px;
 }
 
@@ -102,8 +81,6 @@
   outline-offset: 4px;
 }
 
-/* ------------------------------------------------------------------ controls */
-
 .video-player__controls {
   position: absolute;
   right: 0;
@@ -119,13 +96,7 @@
   pointer-events: none;
 }
 
-.video-player--controls-visible .video-player__controls {
-  opacity: 1;
-  transform: none;
-  pointer-events: auto;
-}
-
-/* Keyboard users never move a pointer, so focus alone has to keep the bar up. */
+.video-player--controls-visible .video-player__controls,
 .video-player__controls:focus-within {
   opacity: 1;
   transform: none;
@@ -182,8 +153,6 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* ------------------------------------------------------------------- volume */
-
 .video-player__volume {
   display: flex;
   align-items: center;
@@ -228,14 +197,6 @@
   background: #ffffff;
 }
 
-.video-player__volume-slider:focus-visible {
-  outline: 3px solid var(--player-accent-strong);
-  outline-offset: 2px;
-  border-radius: 999px;
-}
-
-/* --------------------------------------------------------------------- time */
-
 .video-player__time {
   display: flex;
   align-items: baseline;
@@ -251,9 +212,6 @@
   opacity: 0.5;
 }
 
-/* The chapter currently playing. Only rendered for the experimental subgroup
-   that gets chapters; the micro-label above it mirrors .contact-card__label,
-   inverted for the dark chrome. */
 .video-player__chapter {
   display: flex;
   align-items: baseline;
@@ -280,8 +238,6 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-
-/* -------------------------------------------------------------------- speed */
 
 .video-player__speed {
   position: relative;
@@ -343,14 +299,10 @@
   opacity: 0.6;
 }
 
-/* ----------------------------------------------------------------- scrubber */
-
 .video-scrubber__row {
   position: relative;
 }
 
-/* A generous hit area around a thin bar: the visible track is 5px, the target
-   is the full height, which keeps it comfortably clickable. */
 .video-scrubber {
   position: relative;
   display: flex;
@@ -361,6 +313,7 @@
   touch-action: none;
 }
 
+.video-player__volume-slider:focus-visible,
 .video-scrubber:focus-visible {
   outline: 3px solid var(--player-accent-strong);
   outline-offset: 2px;
@@ -370,7 +323,6 @@
 .video-scrubber__track {
   display: flex;
   align-items: center;
-  /* The gap is what separates one chapter from the next. */
   gap: 3px;
   width: 100%;
   height: 5px;
@@ -386,8 +338,6 @@
   transition: height 0.12s ease;
 }
 
-/* Scaling a full-width layer keeps the fill off the layout path, so dragging
-   the scrubber does not reflow the bar on every pointer move. */
 .video-scrubber__buffered,
 .video-scrubber__played {
   position: absolute;
@@ -419,8 +369,6 @@
   pointer-events: none;
 }
 
-/* The bar thickens and the handle appears on approach, the way it does in the
-   players participants already know. */
 .video-scrubber:hover .video-scrubber__segment,
 .video-scrubber:focus-visible .video-scrubber__segment,
 .video-scrubber--scrubbing .video-scrubber__segment {
@@ -433,7 +381,6 @@
   transform: translateY(-50%) scale(1);
 }
 
-/* Chapters are only clickable for the subgroup that may jump between them. */
 .video-scrubber--chapters-clickable .video-scrubber__segment:hover {
   background: rgba(255, 255, 255, 0.44);
 }
@@ -468,11 +415,17 @@
   opacity: 0.75;
 }
 
-/* ------------------------------------------------------------- adaptations */
+@media (prefers-reduced-motion: reduce) {
+  .video-player__controls,
+  .video-player__overlay-icon,
+  .video-scrubber__segment,
+  .video-scrubber__thumb {
+    transition: none;
+  }
+}
 
+/* mobile */
 @media (max-width: 640px) {
-  /* The chapter name and the volume slider are the first things to go: the
-     mute button and the tooltip still carry both functions. */
   .video-player__volume-slider,
   .video-player__chapter {
     display: none;
@@ -480,14 +433,5 @@
 
   .video-player__controls {
     padding: 22px 10px 10px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .video-player__controls,
-  .video-player__overlay-icon,
-  .video-scrubber__segment,
-  .video-scrubber__thumb {
-    transition: none;
   }
 }

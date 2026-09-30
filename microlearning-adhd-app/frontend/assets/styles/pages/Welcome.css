@@ -1,0 +1,60 @@
+.study-steps {
+  margin-top: 16px;
+  padding: 24px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(54, 87, 159, 0.2);
+  box-shadow: 0 14px 40px rgba(31, 59, 115, 0.08);
+}
+
+.study-steps h2 {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+}
+
+.study-steps__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  counter-reset: study-step;
+}
+
+.study-steps__item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: start;
+  gap: 14px;
+  line-height: 1.55;
+}
+
+.study-steps__item::before {
+  counter-increment: study-step;
+  content: counter(study-step);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(31, 59, 115, 0.1);
+  color: #1f3b73;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.study-steps__item strong {
+  color: var(--color-heading);
+  font-weight: 700;
+}
+
+.reward-card p {
+  line-height: 1.55;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .study-steps {
+    animation: rise-in 0.5s ease 0.16s both;
+  }
+}

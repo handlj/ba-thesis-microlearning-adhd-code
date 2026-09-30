@@ -15,7 +15,7 @@ function PanasQuestionnaire({
   onBack,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage ariaLabelledBy="panas-title" cardClassName="study-card--questionnaire">
+    <StudyPage ariaLabelledBy="panas-title" variant="questionnaire">
       <StudyHeading
         eyebrow={panas.heading.eyebrow}
         title={panas.heading.title}
@@ -34,7 +34,6 @@ function PanasQuestionnaire({
           modifier="panas"
           title={panas.title}
           instructions={panas.instructions}
-          questionColumnLabel={panas.table.questionColumn}
           scale={panas.scale}
           questions={panas.questions}
           values={values}
@@ -53,7 +52,7 @@ function PanasQuestionnaire({
               {copy.actions.back}
             </button>
           )}
-          <button type="submit" className="start-button" disabled={isSubmitting}>
+          <button type="submit" className="primary-button" disabled={isSubmitting}>
             {isSubmitting ? copy.actions.saving : copy.actions.continue}
           </button>
         </StudyActions>

@@ -1,3 +1,5 @@
+import '@assets/styles/components/StudyModal.css'
+import '@assets/styles/components/TextDialog.css'
 import { useEffect, useId, useRef } from 'react'
 
 import { copy } from '../content/copy.ts'
@@ -47,7 +49,7 @@ function TextDialog({ eyebrow, title, content, open, onDismiss }: TextDialogProp
       <div className="text-dialog__content">{toBlocks(content)}</div>
 
       <div className="study-modal__actions">
-        <button type="button" className="start-button" onClick={onDismiss}>
+        <button type="button" className="primary-button" onClick={onDismiss}>
           {copy.actions.continue}
         </button>
       </div>

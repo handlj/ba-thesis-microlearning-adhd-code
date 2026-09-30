@@ -25,9 +25,6 @@ export const adhdScreening = {
     optionLabel: (question: string, value: string, label: string) =>
       `${question}: ${value}, ${label}`,
   },
-  table: {
-    questionColumn: 'Frage',
-  },
   questions: [
     {
       id: 'adhd1',

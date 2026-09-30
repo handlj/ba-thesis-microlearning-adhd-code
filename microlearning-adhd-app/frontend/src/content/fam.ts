@@ -7,9 +7,6 @@ export const fam = {
     values: ['1', '2', '3', '4', '5', '6', '7'],
     optionLabel: (question: string, value: string) => `${question}: ${value}`,
   },
-  table: {
-    questionColumn: 'Aussage',
-  },
   questions: [
     {
       id: 'fam1',

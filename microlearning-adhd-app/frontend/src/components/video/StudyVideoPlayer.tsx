@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useImperativeHandle, useRef, useState, type Ref } from 'react'
-import '@assets/styles/VideoPlayer.css'
+import '@assets/styles/components/video/StudyVideoPlayer.css'
 import { copy } from '../../content/copy.ts'
 import type { VideoChapter } from '../../content/videoChapters.ts'
 import type { StudyInteractionPayload } from '../../services/index.ts'

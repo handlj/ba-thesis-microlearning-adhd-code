@@ -14,7 +14,7 @@ function AdhdScreeningQuestionnaire({
   onSubmit,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage ariaLabelledBy="adhd-title" cardClassName="study-card--questionnaire">
+    <StudyPage ariaLabelledBy="adhd-title" variant="questionnaire">
       <StudyHeading
         eyebrow={adhdScreening.heading.eyebrow}
         title={adhdScreening.heading.title}
@@ -33,7 +33,6 @@ function AdhdScreeningQuestionnaire({
           modifier="adhd"
           title={adhdScreening.title}
           instructions={adhdScreening.instructions}
-          questionColumnLabel={adhdScreening.table.questionColumn}
           scale={adhdScreening.scale}
           questions={adhdScreening.questions}
           values={values}
@@ -42,7 +41,7 @@ function AdhdScreeningQuestionnaire({
         />
 
         <StudyActions>
-          <button type="submit" className="start-button" disabled={isSubmitting}>
+          <button type="submit" className="primary-button" disabled={isSubmitting}>
             {isSubmitting ? copy.actions.saving : copy.actions.continue}
           </button>
         </StudyActions>

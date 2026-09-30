@@ -48,7 +48,7 @@ function Quiz({
       </div>
 
       <StudyActions>
-        <button type="submit" className="start-button" disabled={!canSubmit}>
+        <button type="submit" className="primary-button" disabled={!canSubmit}>
           {copy.actions.continue}
         </button>
       </StudyActions>

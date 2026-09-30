@@ -1,3 +1,4 @@
+import '@assets/styles/components/StudyFacts.css'
 import type { ReactNode } from 'react'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
 
@@ -18,11 +19,11 @@ function StudyFacts({ facts, children }: StudyFactsProps) {
       {facts.map((fact) => (
         <div key={fact.label} className="study-fact">
           <div className="study-fact__header">
-            <span className="study-fact__icon" aria-hidden="true">
+            <span className="icon-badge" aria-hidden="true">
               {genericIcons[fact.icon]}
             </span>
 
-            <p className="study-fact__label">{fact.label}</p>
+            <p className="caps-label">{fact.label}</p>
           </div>
 
           <p className="study-fact__value">{fact.value}</p>

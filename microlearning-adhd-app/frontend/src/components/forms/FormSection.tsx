@@ -1,3 +1,4 @@
+import '@assets/styles/components/forms/FormSection.css'
 import QuestionField from './QuestionField'
 import type { FormAnswerValue, FormSectionDefinition, QuestionChangeHandler } from './types'
 
@@ -14,7 +15,7 @@ function FormSection<QuestionId extends string = string>({
 }: FormSectionProps<QuestionId>) {
   return (
     <fieldset className="form-section">
-      <legend className="form-section__title">{section.title}</legend>
+      <legend className="caps-label form-section__title">{section.title}</legend>
 
       <div className="form-section__questions">
         {section.questions.map((question) => (

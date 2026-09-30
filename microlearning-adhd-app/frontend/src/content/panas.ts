@@ -25,9 +25,6 @@ export const panas = {
     optionLabel: (question: string, value: string, label: string) =>
       `${question}: ${value}, ${label}`,
   },
-  table: {
-    questionColumn: 'Wort',
-  },
   questions: [
     {
       id: 'panas1',

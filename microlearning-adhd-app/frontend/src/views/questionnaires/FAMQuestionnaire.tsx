@@ -15,7 +15,7 @@ function FAMQuestionnaire({
   onBack,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage ariaLabelledBy="fam-title" cardClassName="study-card--questionnaire">
+    <StudyPage ariaLabelledBy="fam-title" variant="questionnaire">
       <StudyHeading
         eyebrow={copy.preIntervention.heading.eyebrow}
         title={copy.preIntervention.heading.title}
@@ -34,7 +34,6 @@ function FAMQuestionnaire({
           modifier="fam"
           title={fam.title}
           instructions={fam.instructions}
-          questionColumnLabel={fam.table.questionColumn}
           scale={fam.scale}
           questions={fam.questions}
           values={values}
@@ -54,7 +53,7 @@ function FAMQuestionnaire({
             </button>
           )}
 
-          <button type="submit" className="start-button" disabled={isSubmitting}>
+          <button type="submit" className="primary-button" disabled={isSubmitting}>
             {isSubmitting ? copy.actions.saving : copy.actions.continue}
           </button>
         </StudyActions>

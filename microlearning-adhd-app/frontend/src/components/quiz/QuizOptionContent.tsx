@@ -1,3 +1,4 @@
+import '@assets/styles/components/quiz/QuizCode.css'
 import type { QuizOption } from '../../content/quiz.ts'
 import { renderInlineCode } from './renderInlineCode.tsx'
 

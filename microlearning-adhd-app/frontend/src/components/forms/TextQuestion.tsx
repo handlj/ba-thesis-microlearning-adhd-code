@@ -19,17 +19,17 @@ function TextQuestion<QuestionId extends string = string>({
 
   return (
     <div className="question-field">
-      <label className="question-label" htmlFor={inputId}>
+      <label className="question-field__label" htmlFor={inputId}>
         {question.label}
       </label>
       {question.helpText ? (
-        <p className="question-help" id={helpId}>
+        <p className="question-field__help" id={helpId}>
           {question.helpText}
         </p>
       ) : null}
       <input
         id={inputId}
-        className="question-control"
+        className="question-field__control"
         type={question.type}
         value={textValue}
         onChange={(event) => onChange(question.id, event.target.value)}

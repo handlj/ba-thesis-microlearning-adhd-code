@@ -1,7 +1,7 @@
 :root {
-  --text: #5c5349;
-  --text-h: #1f1a17;
-  --bg: #f1ece6;
+  --color-text: #5c5349;
+  --color-heading: #1f1a17;
+  --color-bg: #f1ece6;
 
   font:
     18px/145% Inter,
@@ -10,16 +10,12 @@
     sans-serif;
   letter-spacing: 0.18px;
   color-scheme: light;
-  color: var(--text);
-  background: var(--bg);
+  color: var(--color-text);
+  background: var(--color-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
 #root {
@@ -43,7 +39,7 @@ h1,
 h2 {
   font-family: inherit;
   font-weight: 500;
-  color: var(--text-h);
+  color: var(--color-heading);
 }
 
 h1 {
@@ -60,4 +56,10 @@ h2 {
 }
 p {
   margin: 0;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
 }

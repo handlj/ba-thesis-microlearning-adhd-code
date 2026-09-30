@@ -34,7 +34,7 @@ function ControlGroup(props: ControlGroupProps) {
   } = useControlGroup(props)
 
   return (
-    <StudyPage ariaLabelledBy="control-title" cardClassName="study-card--video">
+    <StudyPage ariaLabelledBy="control-title" variant="video">
       <StudyHeading
         eyebrow={copy.controlGroup.heading.eyebrow}
         title={
@@ -90,7 +90,7 @@ function ControlGroup(props: ControlGroupProps) {
         <StudyActions className="study-actions--stacked">
           <button
             type="button"
-            className="start-button"
+            className="primary-button"
             disabled={!canProceedFromVideo}
             onClick={proceedFromVideo}
           >

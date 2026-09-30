@@ -1,4 +1,4 @@
-import '@assets/styles/App.css'
+import '@assets/styles/pages/Welcome.css'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyFacts from '../../components/StudyFacts.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
@@ -11,7 +11,7 @@ type WelcomeProps = { onStart: () => void }
 
 function Welcome({ onStart }: WelcomeProps) {
   return (
-    <StudyPage ariaLabelledBy="study-title" cardClassName="study-card--landing">
+    <StudyPage ariaLabelledBy="study-title" variant="landing">
       <StudyHeading
         eyebrow={copy.welcome.heading.eyebrow}
         title={copy.welcome.heading.title}
@@ -44,11 +44,11 @@ function Welcome({ onStart }: WelcomeProps) {
       </div>
 
       <StudyActions>
-        <button type="button" className="start-button" onClick={onStart}>
+        <button type="button" className="primary-button" onClick={onStart}>
           {copy.actions.startStudy}
         </button>
 
-        <p className="status status-note">
+        <p className="status-note">
           <span className="status-note__icon">{genericIcons.lock}</span>
           {copy.welcome.status.noDataCollected}
         </p>

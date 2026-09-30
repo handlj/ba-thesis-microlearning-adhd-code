@@ -1,11 +1,9 @@
+import '@assets/styles/components/ProgressPill.css'
 type ProgressPillProps = {
   answered: number
   total: number
 }
 
-// Answered-so-far status, shared by the questionnaire and quiz sticky headers.
-// Turns green once nothing is left open, so participants can see at a glance
-// that the page is ready to submit.
 function ProgressPill({ answered, total }: ProgressPillProps) {
   const isComplete = answered === total
 

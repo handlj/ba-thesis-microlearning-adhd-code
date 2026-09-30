@@ -24,9 +24,6 @@ export const ues = {
     optionLabel: (question: string, value: string, label: string) =>
       `${question}: ${value}, ${label}`,
   },
-  table: {
-    questionColumn: 'Aussage',
-  },
   questions: [
     {
       id: 'ues1',

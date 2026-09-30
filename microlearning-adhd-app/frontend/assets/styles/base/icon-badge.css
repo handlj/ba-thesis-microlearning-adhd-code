@@ -1,0 +1,31 @@
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(138, 91, 43, 0.12);
+  color: #8a5b2b;
+}
+
+.icon-badge--blue {
+  background: rgba(31, 59, 115, 0.1);
+  color: #1f3b73;
+}
+
+.icon-badge--green {
+  background: rgba(47, 125, 91, 0.14);
+  color: #256b4c;
+}
+
+.icon-badge--small {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-badge--small svg {
+  width: 17px;
+  height: 17px;
+}

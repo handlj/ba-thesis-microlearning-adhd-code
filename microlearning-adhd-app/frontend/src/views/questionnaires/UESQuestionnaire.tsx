@@ -14,7 +14,7 @@ function UESQuestionnaire({
   onSubmit,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage ariaLabelledBy="ues-title" cardClassName="study-card--questionnaire">
+    <StudyPage ariaLabelledBy="ues-title" variant="questionnaire">
       <StudyHeading
         eyebrow={ues.heading.eyebrow}
         title={ues.heading.title}
@@ -33,7 +33,6 @@ function UESQuestionnaire({
           modifier="ues"
           title={ues.title}
           instructions={ues.instructions}
-          questionColumnLabel={ues.table.questionColumn}
           scale={ues.scale}
           questions={ues.questions}
           values={values}
@@ -42,7 +41,7 @@ function UESQuestionnaire({
         />
 
         <StudyActions>
-          <button type="submit" className="start-button" disabled={isSubmitting}>
+          <button type="submit" className="primary-button" disabled={isSubmitting}>
             {isSubmitting ? copy.actions.saving : copy.actions.continue}
           </button>
         </StudyActions>

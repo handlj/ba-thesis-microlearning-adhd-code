@@ -1,3 +1,4 @@
+import '@assets/styles/pages/ThankYou.css'
 import { useEffect, useRef, useState } from 'react'
 import Message from '../../components/Message.tsx'
 import StudyActions from '../../components/StudyActions.tsx'
@@ -47,7 +48,7 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
   }
 
   return (
-    <StudyPage ariaLabelledBy="thank-you-title" cardClassName="study-card--ready">
+    <StudyPage ariaLabelledBy="thank-you-title" variant="ready">
       <StudyHeading
         eyebrow={copy.thankYou.heading.eyebrow}
         title={copy.thankYou.heading.title}
@@ -56,8 +57,8 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
       />
 
       <section className="voucher-card" aria-labelledby="voucher-title">
-        <p id="voucher-title" className="voucher-card__label">
-          <span className="voucher-card__label-icon" aria-hidden="true">
+        <p id="voucher-title" className="caps-label caps-label--blue voucher-card__label">
+          <span className="icon-badge icon-badge--blue" aria-hidden="true">
             {genericIcons.gift}
           </span>
           {voucher.label}
@@ -90,7 +91,7 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
           <>
             <Message variant="error">{voucher.loadError}</Message>
 
-            <button type="button" className="start-button" onClick={onRetryVoucher}>
+            <button type="button" className="primary-button" onClick={onRetryVoucher}>
               {voucher.retry}
             </button>
           </>
@@ -108,12 +109,12 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
 
       <StudyFacts facts={copy.thankYou.facts}>
         <div className="contact-card">
-          <span className="contact-card__icon" aria-hidden="true">
+          <span className="icon-badge icon-badge--blue" aria-hidden="true">
             {genericIcons.mail}
           </span>
 
           <div className="contact-card__body">
-            <p className="contact-card__label">{copy.thankYou.contact.label}</p>
+            <p className="caps-label caps-label--blue">{copy.thankYou.contact.label}</p>
 
             <p className="contact-card__name">{copy.thankYou.contact.name}</p>
 
@@ -125,11 +126,11 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
       </StudyFacts>
 
       <StudyActions>
-        <button type="button" className="start-button" onClick={onReturnToStart}>
+        <button type="button" className="primary-button" onClick={onReturnToStart}>
           {copy.actions.returnToStart}
         </button>
 
-        <p className="status status-note">
+        <p className="status-note">
           <span className="status-note__icon" aria-hidden="true">
             {genericIcons.exit}
           </span>

@@ -19,9 +19,9 @@ function CheckboxQuestion<QuestionId extends string = string>({
 
   return (
     <fieldset className="question-field" aria-describedby={question.helpText ? helpId : undefined}>
-      <legend className="question-label">{question.label}</legend>
+      <legend className="question-field__label">{question.label}</legend>
       {question.helpText ? (
-        <p className="question-help" id={helpId}>
+        <p className="question-field__help" id={helpId}>
           {question.helpText}
         </p>
       ) : null}

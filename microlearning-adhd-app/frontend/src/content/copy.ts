@@ -303,8 +303,6 @@ export const copy = {
     scoreCaption: 'Fragen richtig beantwortet',
     outOf: (total: number) => `von ${total}`,
     improvementLabel: 'Verbesserung gegenüber dem Vortest',
-    srScore: (label: string, correct: number, total: number) =>
-      `${label}: ${correct} von ${total} Fragen richtig beantwortet.`,
   },
   thankYou: {
     heading: {

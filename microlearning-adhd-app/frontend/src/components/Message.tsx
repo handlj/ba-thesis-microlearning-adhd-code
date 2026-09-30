@@ -1,10 +1,11 @@
+import '@assets/styles/components/Message.css'
 import type { ReactNode } from 'react'
 
 type Variant = 'error' | 'status'
 
 const VARIANTS = {
-  error: { className: 'error-text' },
-  status: { className: 'status-text' },
+  error: { className: 'message message--error' },
+  status: { className: 'message message--status' },
 } as const
 
 type MessageProps = {

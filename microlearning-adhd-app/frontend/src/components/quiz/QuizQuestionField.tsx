@@ -1,3 +1,6 @@
+import '@assets/styles/components/forms/QuestionField.css'
+import '@assets/styles/components/quiz/QuizQuestionField.css'
+import '@assets/styles/components/quiz/QuizCode.css'
 import { useId } from 'react'
 import type { QuizQuestion } from '../../content/quiz.ts'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
@@ -32,16 +35,19 @@ function QuizQuestionField({
               quiz-question${isFrozen ? ' quiz-question--frozen' : ''}`}
     >
       <legend
-        className="question-label 
-              quiz-prompt"
+        className="question-field__label 
+              quiz-question__prompt"
       >
         {typeof index === 'number' ? (
           isFrozen ? (
-            <span className="quiz-question-number quiz-question-number--frozen" aria-hidden="true">
+            <span
+              className="quiz-question__number quiz-question__number--frozen"
+              aria-hidden="true"
+            >
               {genericIcons.check}
             </span>
           ) : (
-            <span className="quiz-question-number" aria-hidden="true">
+            <span className="quiz-question__number" aria-hidden="true">
               {index}
             </span>
           )
@@ -64,7 +70,10 @@ function QuizQuestionField({
           if (isFrozen) {
             return (
               <div className="choice-option choice-option--frozen" key={option.id}>
-                <span className="quiz-checkbox quiz-checkbox--frozen" aria-hidden="true">
+                <span
+                  className="quiz-question__checkbox quiz-question__checkbox--frozen"
+                  aria-hidden="true"
+                >
                   {genericIcons.check}
                 </span>
 
@@ -88,7 +97,7 @@ function QuizQuestionField({
                 checked={checked}
                 onChange={() => onToggle(option.id)}
               />
-              <span className="quiz-checkbox" aria-hidden="true">
+              <span className="quiz-question__checkbox" aria-hidden="true">
                 {genericIcons.check}
               </span>
 

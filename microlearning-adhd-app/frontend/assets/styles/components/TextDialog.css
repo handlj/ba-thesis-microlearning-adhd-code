@@ -1,0 +1,28 @@
+.text-dialog {
+  width: min(560px, calc(100vw - 40px));
+}
+
+.text-dialog__content {
+  max-width: 56ch;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.text-dialog__content strong {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.text-dialog__content .rich-text__list {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: rgba(255, 250, 244, 0.85);
+  border: 1px solid rgba(138, 91, 43, 0.14);
+}
+
+/* mobile */
+@media (max-width: 640px) {
+  .text-dialog__content {
+    font-size: 1rem;
+  }
+}

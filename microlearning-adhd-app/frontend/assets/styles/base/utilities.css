@@ -1,0 +1,34 @@
+.rich-text__paragraph + .rich-text__paragraph {
+  margin-top: 0.85em;
+}
+
+.rich-text__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.rich-text__item {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  align-items: start;
+  gap: 10px;
+  line-height: 1.55;
+}
+
+.rich-text__item::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  margin-top: 0.6em;
+  justify-self: center;
+  border-radius: 999px;
+  background: #8a5b2b;
+}
+
+.rich-text__paragraph + .rich-text__list,
+.rich-text__list + .rich-text__paragraph {
+  margin-top: 1em;
+}

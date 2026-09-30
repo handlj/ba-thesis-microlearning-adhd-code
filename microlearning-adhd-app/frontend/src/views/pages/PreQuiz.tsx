@@ -52,7 +52,7 @@ function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error, participantI
   }
 
   return (
-    <StudyPage ariaLabelledBy="preQuiz-title" cardClassName="study-card--video">
+    <StudyPage ariaLabelledBy="preQuiz-title" variant="video">
       <StudyHeading
         eyebrow={copy.preQuiz.heading.eyebrow}
         title={copy.preQuiz.heading.title}
@@ -92,7 +92,7 @@ function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error, participantI
         </div>
 
         <StudyActions>
-          <button type="submit" className="start-button" disabled={!isComplete}>
+          <button type="submit" className="primary-button" disabled={!isComplete}>
             {copy.actions.continue}
           </button>
         </StudyActions>

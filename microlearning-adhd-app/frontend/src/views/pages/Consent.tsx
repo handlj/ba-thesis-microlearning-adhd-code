@@ -1,4 +1,4 @@
-import '@assets/styles/Consent.css'
+import '@assets/styles/pages/Consent.css'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
@@ -23,7 +23,7 @@ function Consent({
   onBack,
 }: ConsentProps) {
   return (
-    <StudyPage ariaLabelledBy="consent-title" cardClassName="consent-card">
+    <StudyPage ariaLabelledBy="consent-title" variant="consent">
       <StudyHeading
         eyebrow={copy.consent.heading.eyebrow}
         title={copy.consent.heading.title}
@@ -32,7 +32,7 @@ function Consent({
       />
 
       {/* TODO: Refactor user-facing strings into a centralized location */}
-      <div className="consent-content">
+      <div className="consent__content">
         <h1>Einverständniserklärung</h1>
 
         <p>
@@ -77,10 +77,7 @@ function Consent({
         </p>
       </div>
 
-      <label
-        className="checkbox-row 
-              consent-check"
-      >
+      <label className="consent__agreement">
         <input
           type="checkbox"
           checked={agreed}
@@ -99,7 +96,7 @@ function Consent({
 
         <button
           type="button"
-          className="start-button"
+          className="primary-button"
           onClick={onProceed}
           disabled={!agreed || isSubmitting}
         >
