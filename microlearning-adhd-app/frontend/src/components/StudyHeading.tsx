@@ -4,15 +4,14 @@ type StudyHeadingProps = {
   eyebrow?: string
   title: string
   intro?: string
-  id: string
 }
 
-function StudyHeading({ eyebrow, title, intro, id }: StudyHeadingProps) {
+function StudyHeading({ eyebrow, title, intro }: StudyHeadingProps) {
   return (
     <>
       {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
 
-      <h1 id={id}>{title}</h1>
+      <h1>{title}</h1>
 
       {intro ? toParagraphs(intro, 'intro') : null}
     </>

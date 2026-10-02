@@ -1,4 +1,4 @@
-import { likertOptionLabel, QUESTIONNAIRE_TITLE } from './shared.ts'
+import { QUESTIONNAIRE_TITLE } from './shared.ts'
 
 export const ues = {
   heading: {
@@ -17,7 +17,6 @@ export const ues = {
       '4': 'Stimme zu',
       '5': 'Stimme voll und ganz zu',
     },
-    optionLabel: likertOptionLabel,
   },
   questions: [
     {

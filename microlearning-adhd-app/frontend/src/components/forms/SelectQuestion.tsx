@@ -14,7 +14,6 @@ function SelectQuestion<QuestionId extends string = string>({
 }: SelectQuestionProps<QuestionId>) {
   const generatedId = useId()
   const selectId = `${question.id}-${generatedId}`
-  const helpId = `${selectId}-help`
   const selectedValue = Array.isArray(value) ? '' : (value ?? '')
 
   return (
@@ -22,18 +21,13 @@ function SelectQuestion<QuestionId extends string = string>({
       <label className="question-field__label" htmlFor={selectId}>
         {question.label}
       </label>
-      {question.helpText ? (
-        <p className="question-field__help" id={helpId}>
-          {question.helpText}
-        </p>
-      ) : null}
+      {question.helpText ? <p className="question-field__help">{question.helpText}</p> : null}
       <select
         id={selectId}
         className="question-field__control"
         value={selectedValue}
         onChange={(event) => onChange(question.id, event.target.value)}
         required={question.required}
-        aria-describedby={question.helpText ? helpId : undefined}
       >
         <option value="">{question.placeholder ?? 'Antwort wählen'}</option>
         {question.options.map((option) => (

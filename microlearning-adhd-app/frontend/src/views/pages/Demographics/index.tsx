@@ -24,8 +24,8 @@ function Demographics(props: DemographicProps) {
   const { visibleFormSections, handleChange } = useDemographics(props)
 
   return (
-    <StudyPage ariaLabelledBy="demographics-title" variant="form">
-      <StudyHeading {...demographicsCopy.heading} id="demographics-title" />
+    <StudyPage variant="form">
+      <StudyHeading {...demographicsCopy.heading} />
 
       <StudyForm
         sections={visibleFormSections}

@@ -15,8 +15,8 @@ function PanasQuestionnaire({
   onBack,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage ariaLabelledBy="panas-title" variant="questionnaire">
-      <StudyHeading {...panas.heading} id="panas-title" />
+    <StudyPage variant="questionnaire">
+      <StudyHeading {...panas.heading} />
 
       <form
         className="study-form"

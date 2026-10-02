@@ -1,6 +1,6 @@
 import '@assets/styles/components/StudyModal.css'
 import '@assets/styles/components/TextDialog.css'
-import { useEffect, useId, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 import { actionsCopy } from '@content/common/actions.ts'
 import { toBlocks } from '../utils/richText.tsx'
@@ -16,7 +16,6 @@ type TextDialogProps = {
 function TextDialog({ eyebrow, title, content, open, onDismiss }: TextDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
-  const titleId = useId()
 
   useEffect(() => {
     const dialog = dialogRef.current
@@ -35,14 +34,13 @@ function TextDialog({ eyebrow, title, content, open, onDismiss }: TextDialogProp
     <dialog
       ref={dialogRef}
       className="study-modal text-dialog"
-      aria-labelledby={titleId}
       onCancel={(event) => {
         event.preventDefault()
       }}
     >
       {eyebrow ? <p className="study-modal__eyebrow">{eyebrow}</p> : null}
 
-      <h2 id={titleId} className="study-modal__title" ref={titleRef} tabIndex={-1}>
+      <h2 className="study-modal__title" ref={titleRef} tabIndex={-1}>
         {title}
       </h2>
 

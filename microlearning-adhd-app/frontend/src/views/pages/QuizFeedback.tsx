@@ -29,16 +29,14 @@ function FeedbackStat({ label, correct, total, variant }: FeedbackStatProps) {
   return (
     <div className={`feedback-stat feedback-stat--${variant}`}>
       <p className={`caps-label${variant === 'after' ? ' caps-label--blue' : ''}`}>{label}</p>
-      <p className="feedback-stat__value" aria-hidden="true">
+      <p className="feedback-stat__value">
         {correct}
         <span className="feedback-stat__total">{quizCopy.score.outOf(total)}</span>
       </p>
-      <div className="score-bar" aria-hidden="true">
+      <div className="score-bar">
         <span className="score-bar__fill" style={{ width: `${fillPercent}%` }} />
       </div>
-      <p className="score-bar__caption" aria-hidden="true">
-        {quizCopy.score.caption}
-      </p>
+      <p className="score-bar__caption">{quizCopy.score.caption}</p>
     </div>
   )
 }
@@ -56,8 +54,8 @@ function QuizFeedback({ assignment, preCorrect, postCorrect, onContinue }: QuizF
     : 0
 
   return (
-    <StudyPage ariaLabelledBy="quiz-feedback-title" variant="ready">
-      <StudyHeading {...quizFeedbackCopy.heading} id="quiz-feedback-title" />
+    <StudyPage variant="ready">
+      <StudyHeading {...quizFeedbackCopy.heading} />
 
       <div className="feedback-scores">
         <FeedbackStat
@@ -70,9 +68,9 @@ function QuizFeedback({ assignment, preCorrect, postCorrect, onContinue }: QuizF
       </div>
 
       {showImprovement ? (
-        <div className="feedback-delta" role="status">
-          <span className="icon-badge feedback-delta__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="18" height="18" role="img">
+        <div className="feedback-delta">
+          <span className="icon-badge feedback-delta__icon">
+            <svg viewBox="0 0 24 24" width="18" height="18">
               <path
                 d="M12 19V6M6 12l6-6 6 6"
                 fill="none"

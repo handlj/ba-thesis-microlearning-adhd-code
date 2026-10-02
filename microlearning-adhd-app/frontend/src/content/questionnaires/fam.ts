@@ -16,7 +16,6 @@ export const fam = {
     low: 'trifft nicht zu',
     high: 'trifft zu',
     values: ['1', '2', '3', '4', '5', '6', '7'],
-    optionLabel: (question: string, value: string) => `${question}: ${value}`,
   },
   questions: [
     {

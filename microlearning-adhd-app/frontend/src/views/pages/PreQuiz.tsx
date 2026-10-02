@@ -53,8 +53,8 @@ function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error, participantI
   }
 
   return (
-    <StudyPage ariaLabelledBy="preQuiz-title" variant="video">
-      <StudyHeading {...preQuizCopy.heading} id="preQuiz-title" />
+    <StudyPage variant="video">
+      <StudyHeading {...preQuizCopy.heading} />
 
       <TextDialog
         open={showTextDialog}

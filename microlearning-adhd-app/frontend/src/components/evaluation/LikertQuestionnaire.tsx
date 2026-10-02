@@ -7,7 +7,6 @@ type LikertScale = {
   labels?: Readonly<Record<string, string>>
   low?: string
   high?: string
-  optionLabel: (question: string, value: string, label: string) => string
 }
 
 type LikertQuestion = {
@@ -41,7 +40,7 @@ function LikertQuestionnaire({
         <table className={`likert-table likert-table--${modifier}`}>
           <thead>
             <tr>
-              <th className="likert-table__question-heading" scope="col">
+              <th className="likert-table__question-heading">
                 <ProgressPill answered={answered} total={total} />
               </th>
 
@@ -55,7 +54,7 @@ function LikertQuestionnaire({
                       : undefined
 
                 return (
-                  <th className="likert-table__scale-heading" scope="col" key={scaleValue}>
+                  <th className="likert-table__scale-heading" key={scaleValue}>
                     {label ? <span className="likert-table__scale-label">{label}</span> : null}
                   </th>
                 )
@@ -65,18 +64,15 @@ function LikertQuestionnaire({
           <tbody>
             {questions.map((question, index) => (
               <tr key={question.id}>
-                <th className="likert-table__question-cell" scope="row">
+                <th className="likert-table__question-cell">
                   <span className="likert-table__question">
-                    <span className="likert-table__question-number" aria-hidden="true">
-                      {index + 1}
-                    </span>
+                    <span className="likert-table__question-number">{index + 1}</span>
 
                     <span className="likert-table__question-text">{question.text}</span>
                   </span>
                 </th>
                 {scale.values.map((scaleValue) => {
                   const inputId = `${question.id}-${scaleValue}`
-                  const scaleLabel = scale.labels?.[scaleValue] ?? scaleValue
 
                   return (
                     <td className="likert-table__option-cell" key={scaleValue}>
@@ -90,10 +86,9 @@ function LikertQuestionnaire({
                           onChange={(event) => {
                             onChange(question.id, event.target.value)
                           }}
-                          aria-label={scale.optionLabel(question.text, scaleValue, scaleLabel)}
                         />
 
-                        <span aria-hidden="true">{scaleValue}</span>
+                        <span>{scaleValue}</span>
                       </label>
                     </td>
                   )

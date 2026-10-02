@@ -1,4 +1,4 @@
-import { likertOptionLabel, QUESTIONNAIRE_TITLE } from './shared.ts'
+import { QUESTIONNAIRE_TITLE } from './shared.ts'
 
 export const panas = {
   heading: {
@@ -18,7 +18,6 @@ export const panas = {
       '4': 'erheblich',
       '5': 'äußerst',
     },
-    optionLabel: likertOptionLabel,
   },
   questions: [
     {

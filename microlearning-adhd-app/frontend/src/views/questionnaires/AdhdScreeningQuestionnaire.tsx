@@ -14,8 +14,8 @@ function AdhdScreeningQuestionnaire({
   onSubmit,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage ariaLabelledBy="adhd-title" variant="questionnaire">
-      <StudyHeading {...adhdScreening.heading} id="adhd-title" />
+    <StudyPage variant="questionnaire">
+      <StudyHeading {...adhdScreening.heading} />
 
       <form
         className="study-form"

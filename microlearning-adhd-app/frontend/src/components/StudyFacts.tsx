@@ -19,9 +19,7 @@ function StudyFacts({ facts, children }: StudyFactsProps) {
       {facts.map((fact) => (
         <div key={fact.label} className="study-fact">
           <div className="study-fact__header">
-            <span className="icon-badge" aria-hidden="true">
-              {genericIcons[fact.icon]}
-            </span>
+            <span className="icon-badge">{genericIcons[fact.icon]}</span>
 
             <p className="caps-label">{fact.label}</p>
           </div>

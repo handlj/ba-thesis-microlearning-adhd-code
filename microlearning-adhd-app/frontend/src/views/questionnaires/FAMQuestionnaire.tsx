@@ -15,8 +15,8 @@ function FAMQuestionnaire({
   onBack,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage ariaLabelledBy="fam-title" variant="questionnaire">
-      <StudyHeading {...fam.heading} id="fam-title" />
+    <StudyPage variant="questionnaire">
+      <StudyHeading {...fam.heading} />
 
       <form
         className="study-form"

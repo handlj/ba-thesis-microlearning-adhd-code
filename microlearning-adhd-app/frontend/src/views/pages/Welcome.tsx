@@ -12,8 +12,8 @@ type WelcomeProps = { onStart: () => void }
 
 function Welcome({ onStart }: WelcomeProps) {
   return (
-    <StudyPage ariaLabelledBy="study-title" variant="landing">
-      <StudyHeading {...welcomeCopy.heading} id="study-title" />
+    <StudyPage variant="landing">
+      <StudyHeading {...welcomeCopy.heading} />
 
       <StudyFacts facts={welcomeCopy.facts} />
 

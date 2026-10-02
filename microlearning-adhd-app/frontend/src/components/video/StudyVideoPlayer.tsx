@@ -305,10 +305,8 @@ function StudyVideoPlayer({
   // --- keyboard ---
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    // The scrubber and the buttons handle their own keys; intercepting here
-    // would make Space activate a focused button and toggle playback at once.
     const target = event.target as HTMLElement
-    if (target.closest('button, input, [role="slider"]')) {
+    if (target.closest('button, input, .video-scrubber')) {
       return
     }
 
@@ -345,11 +343,6 @@ function StudyVideoPlayer({
 
   // --- render ---
 
-  const playLabel = hasEnded
-    ? videoPlayerCopy.replay
-    : isPlaying
-      ? videoPlayerCopy.pause
-      : videoPlayerCopy.play
   const playIcon = hasEnded ? videoIcons.replay : isPlaying ? videoIcons.pause : videoIcons.play
 
   return (
@@ -363,8 +356,6 @@ function StudyVideoPlayer({
       ]
         .filter(Boolean)
         .join(' ')}
-      role="region"
-      aria-label={videoPlayerCopy.region}
       onPointerMove={revealControls}
       onPointerLeave={() => {
         if (isPlaying) {
@@ -478,13 +469,8 @@ function StudyVideoPlayer({
       </video>
 
       {!isPlaying ? (
-        <button
-          type="button"
-          className="video-player__overlay-button"
-          aria-label={playLabel}
-          onClick={togglePlay}
-        >
-          <span className="video-player__overlay-icon" aria-hidden="true">
+        <button type="button" className="video-player__overlay-button" onClick={togglePlay}>
+          <span className="video-player__overlay-icon">
             {hasEnded ? videoIcons.replay : videoIcons.play}
           </span>
         </button>
@@ -519,22 +505,12 @@ function StudyVideoPlayer({
         />
 
         <div className="video-player__bar">
-          <button
-            type="button"
-            className="video-player__button"
-            aria-label={playLabel}
-            onClick={togglePlay}
-          >
+          <button type="button" className="video-player__button" onClick={togglePlay}>
             {playIcon}
           </button>
 
           <div className="video-player__volume">
-            <button
-              type="button"
-              className="video-player__button"
-              aria-label={isMuted || volume === 0 ? videoPlayerCopy.unmute : videoPlayerCopy.mute}
-              onClick={toggleMute}
-            >
+            <button type="button" className="video-player__button" onClick={toggleMute}>
               {isMuted || volume === 0 ? videoIcons.volumeMuted : videoIcons.volume}
             </button>
 
@@ -545,7 +521,6 @@ function StudyVideoPlayer({
               max={1}
               step={0.05}
               value={isMuted ? 0 : volume}
-              aria-label={videoPlayerCopy.volume}
               onChange={(event) => changeVolume(Number(event.target.value))}
               onPointerUp={commitVolume}
               onKeyUp={commitVolume}
@@ -555,14 +530,12 @@ function StudyVideoPlayer({
 
           <p className="video-player__time">
             <span>{formatDuration(currentTime)}</span>
-            <span className="video-player__time-separator" aria-hidden="true">
-              /
-            </span>
+            <span className="video-player__time-separator">/</span>
             <span>{formatDuration(duration)}</span>
           </p>
 
           {currentChapter ? (
-            <p className="video-player__chapter" aria-live="polite">
+            <p className="video-player__chapter">
               <span className="video-player__chapter-label">{videoPlayerCopy.chapter}</span>
               <span className="video-player__chapter-title">{currentChapter.title}</span>
             </p>
@@ -575,9 +548,6 @@ function StudyVideoPlayer({
               <button
                 type="button"
                 className="video-player__button video-player__button--speed"
-                aria-label={videoPlayerCopy.speed}
-                aria-haspopup="true"
-                aria-expanded={isSpeedMenuOpen}
                 onClick={() => setIsSpeedMenuOpen((open) => !open)}
               >
                 <span className="video-player__speed-value">
@@ -586,17 +556,11 @@ function StudyVideoPlayer({
               </button>
 
               {isSpeedMenuOpen ? (
-                <div
-                  className="video-player__speed-menu"
-                  role="menu"
-                  aria-label={videoPlayerCopy.speed}
-                >
+                <div className="video-player__speed-menu">
                   {PLAYBACK_RATES.map((rate) => (
                     <button
                       key={rate}
                       type="button"
-                      role="menuitemradio"
-                      aria-checked={playbackRate === rate}
                       className={[
                         'video-player__speed-option',
                         playbackRate === rate ? 'video-player__speed-option--active' : '',
@@ -618,14 +582,7 @@ function StudyVideoPlayer({
             </div>
           ) : null}
 
-          <button
-            type="button"
-            className="video-player__button"
-            aria-label={
-              isFullscreen ? videoPlayerCopy.exitFullscreen : videoPlayerCopy.enterFullscreen
-            }
-            onClick={toggleFullscreen}
-          >
+          <button type="button" className="video-player__button" onClick={toggleFullscreen}>
             {isFullscreen ? videoIcons.fullscreenExit : videoIcons.fullscreen}
           </button>
         </div>

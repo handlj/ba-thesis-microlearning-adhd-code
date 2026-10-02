@@ -49,35 +49,26 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
   }
 
   return (
-    <StudyPage ariaLabelledBy="thank-you-title" variant="ready">
-      <StudyHeading {...thankYouCopy.heading} id="thank-you-title" />
+    <StudyPage variant="ready">
+      <StudyHeading {...thankYouCopy.heading} />
 
-      <section className="voucher-card" aria-labelledby="voucher-title">
-        <p id="voucher-title" className="caps-label caps-label--blue voucher-card__label">
-          <span className="icon-badge icon-badge--blue" aria-hidden="true">
-            {genericIcons.gift}
-          </span>
+      <section className="voucher-card">
+        <p className="caps-label caps-label--blue voucher-card__label">
+          <span className="icon-badge icon-badge--blue">{genericIcons.gift}</span>
           {voucher.label}
         </p>
 
         {voucherCode ? (
           <>
-            <button
-              type="button"
-              className="voucher-card__code"
-              onClick={copyCode}
-              aria-label={`${voucherCode} – ${voucher.copyHint}`}
-            >
+            <button type="button" className="voucher-card__code" onClick={copyCode}>
               <span ref={codeRef}>{voucherCode}</span>
 
-              <span className="voucher-card__code-icon" aria-hidden="true">
+              <span className="voucher-card__code-icon">
                 {copied ? genericIcons.check : genericIcons.copy}
               </span>
             </button>
 
-            <p className="voucher-card__hint" aria-live="polite">
-              {copied ? voucher.copied : voucher.copyHint}
-            </p>
+            <p className="voucher-card__hint">{copied ? voucher.copied : voucher.copyHint}</p>
           </>
         ) : voucherStatus === 'loading' ? (
           <Message variant="status">{voucher.loading}</Message>
@@ -96,18 +87,14 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
         <p className="voucher-card__instructions">{voucher.instructions}</p>
 
         <p className="voucher-card__address">
-          <span className="voucher-card__address-icon" aria-hidden="true">
-            {genericIcons.pin}
-          </span>
+          <span className="voucher-card__address-icon">{genericIcons.pin}</span>
           <span>{withEmphasis(voucher.address)}</span>
         </p>
       </section>
 
       <StudyFacts facts={thankYouCopy.facts}>
         <div className="contact-card">
-          <span className="icon-badge icon-badge--blue" aria-hidden="true">
-            {genericIcons.mail}
-          </span>
+          <span className="icon-badge icon-badge--blue">{genericIcons.mail}</span>
 
           <div className="contact-card__body">
             <p className="caps-label caps-label--blue">{thankYouCopy.contact.label}</p>
@@ -127,9 +114,7 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
         </button>
 
         <p className="status-note">
-          <span className="status-note__icon" aria-hidden="true">
-            {genericIcons.exit}
-          </span>
+          <span className="status-note__icon">{genericIcons.exit}</span>
 
           <span className="status-note__text">{thankYouCopy.status.closeWindow}</span>
         </p>

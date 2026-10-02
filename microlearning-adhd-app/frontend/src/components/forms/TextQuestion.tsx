@@ -14,7 +14,6 @@ function TextQuestion<QuestionId extends string = string>({
 }: TextQuestionProps<QuestionId>) {
   const generatedId = useId()
   const inputId = `${question.id}-${generatedId}`
-  const helpId = `${inputId}-help`
   const textValue = Array.isArray(value) ? '' : (value ?? '')
 
   return (
@@ -22,11 +21,7 @@ function TextQuestion<QuestionId extends string = string>({
       <label className="question-field__label" htmlFor={inputId}>
         {question.label}
       </label>
-      {question.helpText ? (
-        <p className="question-field__help" id={helpId}>
-          {question.helpText}
-        </p>
-      ) : null}
+      {question.helpText ? <p className="question-field__help">{question.helpText}</p> : null}
       <input
         id={inputId}
         className="question-field__control"
@@ -39,7 +34,6 @@ function TextQuestion<QuestionId extends string = string>({
         inputMode={question.inputMode}
         autoComplete={question.autoComplete}
         required={question.required}
-        aria-describedby={question.helpText ? helpId : undefined}
       />
     </div>
   )

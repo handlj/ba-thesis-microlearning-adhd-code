@@ -6,12 +6,11 @@ import StudyProgress from './StudyProgress.tsx'
 type StudyPageVariant = 'landing' | 'form' | 'ready' | 'consent' | 'video' | 'questionnaire'
 
 type StudyPageProps = {
-  ariaLabelledBy: string
   variant?: StudyPageVariant
   children: ReactNode
 }
 
-function StudyPage({ ariaLabelledBy, variant, children }: StudyPageProps) {
+function StudyPage({ variant, children }: StudyPageProps) {
   const pageClassName = variant ? `study-page study-page--${variant}` : 'study-page'
   const page = use(StudyProgressContext)
 
@@ -19,9 +18,7 @@ function StudyPage({ ariaLabelledBy, variant, children }: StudyPageProps) {
     <main className={pageClassName}>
       {page ? <StudyProgress page={page} /> : null}
 
-      <section className="study-card" aria-labelledby={ariaLabelledBy}>
-        {children}
-      </section>
+      <section className="study-card">{children}</section>
     </main>
   )
 }

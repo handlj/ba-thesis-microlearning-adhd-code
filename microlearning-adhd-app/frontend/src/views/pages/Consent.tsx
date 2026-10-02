@@ -25,8 +25,8 @@ function Consent({
   onBack,
 }: ConsentProps) {
   return (
-    <StudyPage ariaLabelledBy="consent-title" variant="consent">
-      <StudyHeading {...consentCopy.heading} id="consent-title" />
+    <StudyPage variant="consent">
+      <StudyHeading {...consentCopy.heading} />
 
       <div className="consent__content">
         <h1>{consentCopy.document.title}</h1>

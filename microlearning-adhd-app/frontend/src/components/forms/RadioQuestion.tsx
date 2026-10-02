@@ -14,17 +14,12 @@ function RadioQuestion<QuestionId extends string = string>({
 }: RadioQuestionProps<QuestionId>) {
   const generatedId = useId()
   const groupId = `${question.id}-${generatedId}`
-  const helpId = `${groupId}-help`
   const selectedValue = Array.isArray(value) ? '' : (value ?? '')
 
   return (
-    <fieldset className="question-field" aria-describedby={question.helpText ? helpId : undefined}>
+    <fieldset className="question-field">
       <legend className="question-field__label">{question.label}</legend>
-      {question.helpText ? (
-        <p className="question-field__help" id={helpId}>
-          {question.helpText}
-        </p>
-      ) : null}
+      {question.helpText ? <p className="question-field__help">{question.helpText}</p> : null}
       <div className="choice-list">
         {question.options.map((option) => {
           const optionId = `${groupId}-${option.value}`

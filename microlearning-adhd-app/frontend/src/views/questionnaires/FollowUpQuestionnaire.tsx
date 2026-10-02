@@ -60,8 +60,8 @@ function FollowUpQuestionnaire({
   })
 
   return (
-    <StudyPage ariaLabelledBy="follow-up-title" variant="form">
-      <StudyHeading {...followUpCopy.heading} id="follow-up-title" />
+    <StudyPage variant="form">
+      <StudyHeading {...followUpCopy.heading} />
 
       <StudyForm
         questions={postInterventionQuestions}

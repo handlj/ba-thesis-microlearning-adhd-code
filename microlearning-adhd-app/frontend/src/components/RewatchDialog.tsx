@@ -2,7 +2,7 @@ import '@assets/styles/components/StudyModal.css'
 import '@assets/styles/components/quiz/QuizCode.css'
 import '@assets/styles/components/ScoreBar.css'
 import '@assets/styles/components/RewatchDialog.css'
-import { useEffect, useId, useRef, type ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
 import QuizOptionContent from './quiz/QuizOptionContent.tsx'
 import { renderInlineCode } from './quiz/renderInlineCode.tsx'
@@ -51,10 +51,7 @@ type SectionHeaderProps = {
 function SectionHeader({ icon, title, note, tone }: SectionHeaderProps) {
   return (
     <div className="rewatch-card__header">
-      <span
-        className={`icon-badge icon-badge--small${tone ? ` icon-badge--${tone}` : ''}`}
-        aria-hidden="true"
-      >
+      <span className={`icon-badge icon-badge--small${tone ? ` icon-badge--${tone}` : ''}`}>
         {icon}
       </span>
 
@@ -78,26 +75,20 @@ function WrongQuestionInfo({
 
   const header = (
     <>
-      <span className="rewatch-review__marker" aria-hidden="true">
-        {index}
-      </span>
+      <span className="rewatch-review__marker">{index}</span>
 
       <span className="rewatch-review__body">
         <span className="rewatch-review__prompt">{renderInlineCode(question.prompt)}</span>
 
         {chapter ? (
-          <span className="rewatch-review__hint" aria-hidden="true">
+          <span className="rewatch-review__hint">
             {genericIcons.clock}
             {rewatchDialogCopy.chapterHint(chapter.title, formatDuration(question.videoTimestamp))}
           </span>
         ) : null}
       </span>
 
-      {isClickable ? (
-        <span className="rewatch-review__jump" aria-hidden="true">
-          {genericIcons.play}
-        </span>
-      ) : null}
+      {isClickable ? <span className="rewatch-review__jump">{genericIcons.play}</span> : null}
     </>
   )
 
@@ -130,7 +121,7 @@ function WrongQuestionInfo({
               key={option.id}
               className={`rewatch-option${isSelected ? ' rewatch-option--selected' : ''}`}
             >
-              <span className="rewatch-option__marker" aria-hidden="true">
+              <span className="rewatch-option__marker">
                 {isSelected ? genericIcons.cross : null}
               </span>
 
@@ -145,7 +136,7 @@ function WrongQuestionInfo({
 
 function CorrectQuestionMarker({ items }: { items: IndexedQuestion[] }) {
   return (
-    <section className="rewatch-card" aria-hidden="true">
+    <section className="rewatch-card">
       <SectionHeader
         icon={genericIcons.check}
         title={rewatchDialogCopy.reviewCorrectTitle}
@@ -180,7 +171,6 @@ function RewatchDialog({
 }: RewatchDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
-  const titleId = useId()
 
   useEffect(() => {
     const dialog = dialogRef.current
@@ -211,7 +201,6 @@ function RewatchDialog({
     <dialog
       ref={dialogRef}
       className="study-modal rewatch-dialog"
-      aria-labelledby={titleId}
       onCancel={(event) => {
         event.preventDefault()
       }}
@@ -222,7 +211,7 @@ function RewatchDialog({
             {rewatchDialogCopy.attemptLabel(attempt, maxAttempts)}
           </p>
 
-          <h2 id={titleId} className="study-modal__title" ref={titleRef} tabIndex={-1}>
+          <h2 className="study-modal__title" ref={titleRef} tabIndex={-1}>
             {rewatchDialogCopy.dialogTitle}
           </h2>
 
@@ -234,12 +223,12 @@ function RewatchDialog({
               />
 
               <div className="rewatch-score">
-                <p className="rewatch-score__value" aria-hidden="true">
+                <p className="rewatch-score__value">
                   {score.correctCount}
                   <span className="rewatch-score__total">{quizCopy.score.outOf(score.total)}</span>
                 </p>
 
-                <div className="rewatch-score__track" aria-hidden="true">
+                <div className="rewatch-score__track">
                   <div className="score-bar">
                     <span
                       className="score-bar__fill"
@@ -262,7 +251,7 @@ function RewatchDialog({
                   ) : null}
                 </div>
 
-                <div className="rewatch-score__captions" aria-hidden="true">
+                <div className="rewatch-score__captions">
                   <p className="score-bar__caption">{quizCopy.score.caption}</p>
 
                   <p className="rewatch-score__threshold-caption">
@@ -306,9 +295,7 @@ function RewatchDialog({
 
           <div className="study-modal__actions">
             <p className="status-note">
-              <span className="status-note__icon" aria-hidden="true">
-                {genericIcons.play}
-              </span>
+              <span className="status-note__icon">{genericIcons.play}</span>
 
               <span className="status-note__text">
                 {withEmphasis(rewatchDialogCopy.nextStepsCompact)}

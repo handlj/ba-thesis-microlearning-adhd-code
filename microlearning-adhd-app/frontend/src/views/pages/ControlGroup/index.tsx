@@ -36,8 +36,8 @@ function ControlGroup(props: ControlGroupProps) {
   } = useControlGroup(props)
 
   return (
-    <StudyPage ariaLabelledBy="control-title" variant="video">
-      <StudyHeading {...controlGroupCopy.heading[phase]} id="control-title" />
+    <StudyPage variant="video">
+      <StudyHeading {...controlGroupCopy.heading[phase]} />
 
       <Message variant="status">{isLoading ? controlGroupCopy.status.loading : null}</Message>
 

@@ -40,16 +40,11 @@ function QuizQuestionField({
       >
         {typeof index === 'number' ? (
           isFrozen ? (
-            <span
-              className="quiz-question__number quiz-question__number--frozen"
-              aria-hidden="true"
-            >
+            <span className="quiz-question__number quiz-question__number--frozen">
               {genericIcons.check}
             </span>
           ) : (
-            <span className="quiz-question__number" aria-hidden="true">
-              {index}
-            </span>
+            <span className="quiz-question__number">{index}</span>
           )
         ) : null}
 
@@ -70,10 +65,7 @@ function QuizQuestionField({
           if (isFrozen) {
             return (
               <div className="choice-option choice-option--frozen" key={option.id}>
-                <span
-                  className="quiz-question__checkbox quiz-question__checkbox--frozen"
-                  aria-hidden="true"
-                >
+                <span className="quiz-question__checkbox quiz-question__checkbox--frozen">
                   {genericIcons.check}
                 </span>
 
@@ -97,9 +89,7 @@ function QuizQuestionField({
                 checked={checked}
                 onChange={() => onToggle(option.id)}
               />
-              <span className="quiz-question__checkbox" aria-hidden="true">
-                {genericIcons.check}
-              </span>
+              <span className="quiz-question__checkbox">{genericIcons.check}</span>
 
               <QuizOptionContent option={option} />
             </label>

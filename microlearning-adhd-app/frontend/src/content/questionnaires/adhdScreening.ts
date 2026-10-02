@@ -1,4 +1,4 @@
-import { likertOptionLabel, QUESTIONNAIRE_TITLE } from './shared.ts'
+import { QUESTIONNAIRE_TITLE } from './shared.ts'
 
 export const adhdScreening = {
   heading: {
@@ -18,7 +18,6 @@ export const adhdScreening = {
       '4': 'Oft',
       '5': 'Sehr oft',
     },
-    optionLabel: likertOptionLabel,
   },
   questions: [
     {

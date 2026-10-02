@@ -1,8 +1,7 @@
 import { useRef, useState } from 'react'
-import { videoPlayerCopy } from '@content/components/videoPlayer.ts'
 import type { VideoChapter } from '../../content/videoChapters.ts'
 import { buildSegments, type ChapterSegment } from './chapterSegments.ts'
-import { describeDuration, formatDuration } from './formatDuration.ts'
+import { formatDuration } from './formatDuration.ts'
 
 type VideoScrubberProps = {
   currentTime: number
@@ -190,11 +189,7 @@ function VideoScrubber({
   return (
     <div className="video-scrubber__row">
       {showTooltip ? (
-        <div
-          className="video-scrubber__tooltip"
-          style={{ left: `${(hoverRatio ?? 0) * 100}%` }}
-          aria-hidden="true"
-        >
+        <div className="video-scrubber__tooltip" style={{ left: `${(hoverRatio ?? 0) * 100}%` }}>
           {showChapterTitles && hoverChapter ? (
             <span className="video-scrubber__tooltip-title">{hoverChapter.segment.title}</span>
           ) : null}
@@ -212,16 +207,7 @@ function VideoScrubber({
         ]
           .filter(Boolean)
           .join(' ')}
-        role="slider"
         tabIndex={0}
-        aria-label={videoPlayerCopy.seekSlider}
-        aria-valuemin={0}
-        aria-valuemax={Math.max(0, Math.round(duration))}
-        aria-valuenow={Math.round(currentTime)}
-        aria-valuetext={videoPlayerCopy.elapsedOfTotal(
-          describeDuration(currentTime),
-          describeDuration(duration),
-        )}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
@@ -243,11 +229,7 @@ function VideoScrubber({
             : renderSegment('single', 0, hasDuration ? duration : 1, 1)}
         </div>
 
-        <span
-          className="video-scrubber__thumb"
-          style={{ left: `${playedRatio * 100}%` }}
-          aria-hidden="true"
-        />
+        <span className="video-scrubber__thumb" style={{ left: `${playedRatio * 100}%` }} />
       </div>
     </div>
   )

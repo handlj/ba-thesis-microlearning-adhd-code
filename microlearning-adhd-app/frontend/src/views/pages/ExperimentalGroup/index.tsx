@@ -67,8 +67,8 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
   const chapters = getVideoChapters(video?.id)
 
   return (
-    <StudyPage ariaLabelledBy="experimental-title" variant="video">
-      <StudyHeading {...experimentalGroupCopy.heading[phase]} id="experimental-title" />
+    <StudyPage variant="video">
+      <StudyHeading {...experimentalGroupCopy.heading[phase]} />
 
       <Message variant="status">{isLoading ? experimentalGroupCopy.status.loading : null}</Message>
 

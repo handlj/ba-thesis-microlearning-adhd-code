@@ -14,8 +14,8 @@ function UESQuestionnaire({
   onSubmit,
 }: LikertQuestionnaireProps) {
   return (
-    <StudyPage ariaLabelledBy="ues-title" variant="questionnaire">
-      <StudyHeading {...ues.heading} id="ues-title" />
+    <StudyPage variant="questionnaire">
+      <StudyHeading {...ues.heading} />
 
       <form
         className="study-form"
