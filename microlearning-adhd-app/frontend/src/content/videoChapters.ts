@@ -3,7 +3,7 @@ export type VideoChapter = {
   title: string
 }
 
-export const experimentalVideoChapters: Record<string, readonly VideoChapter[]> = {
+const experimentalVideoChapters: Record<string, readonly VideoChapter[]> = {
   'experimental-video-1': [
     { startSeconds: 0, title: 'Variablen' },
     { startSeconds: 42, title: 'Datentypen' },

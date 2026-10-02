@@ -3,7 +3,7 @@ import QuizProgressHeader from '../../../components/quiz/QuizProgressHeader.tsx'
 import QuizQuestionField from '../../../components/quiz/QuizQuestionField.tsx'
 import { type QuizAnswers } from '../../../components/quiz/useQuizAnswers.ts'
 import { type QuizQuestion } from '../../../content/quiz.ts'
-import { copy } from '../../../content/copy.ts'
+import { actionsCopy } from '@content/common/actions.ts'
 
 type QuizProps = {
   questions: QuizQuestion[]
@@ -49,7 +49,7 @@ function Quiz({
 
       <StudyActions>
         <button type="submit" className="primary-button" disabled={!canSubmit}>
-          {copy.actions.continue}
+          {actionsCopy.continue}
         </button>
       </StudyActions>
     </form>

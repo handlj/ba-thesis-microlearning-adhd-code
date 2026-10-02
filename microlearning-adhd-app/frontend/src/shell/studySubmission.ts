@@ -1,5 +1,7 @@
-import { copy } from '../content/copy'
-import { demographicsCopy } from '../content/demographics'
+import { errorsCopy } from '@content/common/errors.ts'
+import { consentCopy } from '@content/pages/consent.ts'
+import { demographicsCopy } from '@content/pages/demographics.ts'
+import { followUpCopy } from '@content/questionnaires/followUp.ts'
 import {
   postConsentSession,
   postDemographics,
@@ -57,7 +59,7 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
     }
 
     if (!participantId) {
-      deps.setStepError(config.step, copy.errors.questionnaireMissingSession)
+      deps.setStepError(config.step, errorsCopy.missingSession)
       return
     }
 
@@ -65,7 +67,7 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
 
     if (config.needsAssignment) {
       if (!groupAssignment || !subgroup) {
-        deps.setStepError(config.step, copy.errors.questionnaireMissingSession)
+        deps.setStepError(config.step, errorsCopy.missingSession)
         return
       }
 
@@ -75,7 +77,7 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
       invoke = () => config.run({ participantId, answers: given })
     }
 
-    await runSubmission(status, config.step, copy.errors.questionnaireSave, async () => {
+    await runSubmission(status, config.step, errorsCopy.questionnaireSave, async () => {
       await invoke()
       deps.goNext(config.step)
     })
@@ -91,7 +93,7 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
   const handleConsent = async () => {
     if (!deps.consented || deps.savingStep === 'consent') return
 
-    await runSubmission(status, 'consent', copy.errors.consentSave, async () => {
+    await runSubmission(status, 'consent', consentCopy.errors.save, async () => {
       if (deps.participantId) {
         deps.goNext('consent')
         return
@@ -128,7 +130,7 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
   const handlePreQuiz = async () => {
     const { participantId, groupAssignment } = deps
     if (!participantId || !groupAssignment) {
-      deps.setStepError('preQuiz', copy.errors.questionnaireMissingSession)
+      deps.setStepError('preQuiz', errorsCopy.missingSession)
       return
     }
 
@@ -138,11 +140,11 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
   const handleFollowUp = async (wantsFeedback: 'yes' | 'no') => {
     const { participantId, groupAssignment, subgroup } = deps
     if (!participantId || !groupAssignment || !subgroup) {
-      deps.setStepError('followUp', copy.errors.postInterventionMissingSession)
+      deps.setStepError('followUp', errorsCopy.missingSession)
       return
     }
 
-    await runSubmission(status, 'followUp', copy.errors.postInterventionSave, async () => {
+    await runSubmission(status, 'followUp', followUpCopy.errors.save, async () => {
       await postPostInterventionQuestionnaire(
         participantId,
         groupAssignment,

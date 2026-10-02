@@ -2,8 +2,8 @@ import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import LikertQuestionnaire from '../../components/evaluation/LikertQuestionnaire.tsx'
-import { copy } from '../../content/copy.ts'
-import { ues } from '../../content/ues.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { ues } from '@content/questionnaires/ues.ts'
 import type { LikertQuestionnaireProps } from './types.ts'
 
 function UESQuestionnaire({
@@ -15,12 +15,7 @@ function UESQuestionnaire({
 }: LikertQuestionnaireProps) {
   return (
     <StudyPage ariaLabelledBy="ues-title" variant="questionnaire">
-      <StudyHeading
-        eyebrow={ues.heading.eyebrow}
-        title={ues.heading.title}
-        intro={ues.heading.intro}
-        id="ues-title"
-      />
+      <StudyHeading {...ues.heading} id="ues-title" />
 
       <form
         className="study-form"
@@ -31,8 +26,6 @@ function UESQuestionnaire({
       >
         <LikertQuestionnaire
           modifier="ues"
-          title={ues.title}
-          instructions={ues.instructions}
           scale={ues.scale}
           questions={ues.questions}
           values={values}
@@ -42,7 +35,7 @@ function UESQuestionnaire({
 
         <StudyActions>
           <button type="submit" className="primary-button" disabled={isSubmitting}>
-            {isSubmitting ? copy.actions.saving : copy.actions.continue}
+            {isSubmitting ? actionsCopy.saving : actionsCopy.continue}
           </button>
         </StudyActions>
       </form>

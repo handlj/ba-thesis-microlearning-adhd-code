@@ -10,7 +10,9 @@ import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import StudyVideoPlayer from '../../components/video/StudyVideoPlayer.tsx'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
-import { copy } from '../../content/copy.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { videoGateCopy } from '@content/common/videoGate.ts'
+import { readyCopy } from '@content/pages/ready.ts'
 import { type GroupAssignment, type Subgroup } from '../../utils/groupAssignment.ts'
 import { getVideoPlayerFeatures } from '../../utils/videoFeatures.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
@@ -29,22 +31,17 @@ function Ready({ assignment, subgroup, onContinue, onLogInteraction }: ReadyProp
     data: video,
     isLoading,
     error,
-  } = useAsyncResource<InstructionVideo>(getInstructionVideo, copy.ready.status.loadError)
+  } = useAsyncResource<InstructionVideo>(getInstructionVideo, readyCopy.status.loadError)
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
   const canContinue = Boolean(assignment && subgroup && hasVideoEnded)
 
   return (
     <StudyPage ariaLabelledBy="ready-title" variant="video">
-      <StudyHeading
-        eyebrow={copy.ready.heading.eyebrow}
-        title={copy.ready.heading.title}
-        intro={copy.ready.heading.intro}
-        id="ready-title"
-      />
+      <StudyHeading {...readyCopy.heading} id="ready-title" />
 
-      <StudyFacts facts={copy.ready.facts} />
+      <StudyFacts facts={readyCopy.facts} />
 
-      <Message variant="status">{isLoading ? copy.ready.status.loading : null}</Message>
+      <Message variant="status">{isLoading ? readyCopy.status.loading : null}</Message>
 
       <Message variant="error">{error}</Message>
 
@@ -62,8 +59,8 @@ function Ready({ assignment, subgroup, onContinue, onLogInteraction }: ReadyProp
 
           <Message variant="status">
             {hasVideoEnded
-              ? copy.ready.status.videoFinished
-              : withEmphasis(copy.video.watchFullVideo)}
+              ? readyCopy.status.videoFinished
+              : withEmphasis(videoGateCopy.watchFullVideo)}
           </Message>
         </div>
       ) : null}
@@ -75,7 +72,7 @@ function Ready({ assignment, subgroup, onContinue, onLogInteraction }: ReadyProp
           onClick={onContinue}
           disabled={!canContinue}
         >
-          {copy.actions.continue}
+          {actionsCopy.continue}
         </button>
 
         <p className="status-note">
@@ -83,7 +80,7 @@ function Ready({ assignment, subgroup, onContinue, onLogInteraction }: ReadyProp
             {genericIcons.clock}
           </span>
 
-          <span className="status-note__text">{withEmphasis(copy.ready.readinessNote)}</span>
+          <span className="status-note__text">{withEmphasis(readyCopy.readinessNote)}</span>
         </p>
       </StudyActions>
     </StudyPage>

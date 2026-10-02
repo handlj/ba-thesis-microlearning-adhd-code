@@ -1,8 +1,7 @@
-import { adhdScreening } from '../content/adhdScreening'
-import { copy } from '../content/copy'
-import { fam } from '../content/fam'
-import { panas } from '../content/panas'
-import { ues } from '../content/ues'
+import { adhdScreening } from '@content/questionnaires/adhdScreening.ts'
+import { fam } from '@content/questionnaires/fam.ts'
+import { panas } from '@content/questionnaires/panas.ts'
+import { ues } from '@content/questionnaires/ues.ts'
 import {
   postAdhdScreening,
   postFam,
@@ -56,7 +55,7 @@ const prePanasStep: StepDef = {
 
 const famStep: StepDef = {
   questions: fam.questions,
-  invalidMessage: copy.validation.preInterventionAllQuestions,
+  invalidMessage: fam.validation.allQuestions,
   needsAssignment: true,
   run: ({ participantId, assignment, subgroup, answers }) =>
     postFam(participantId, assignment, subgroup, answers),

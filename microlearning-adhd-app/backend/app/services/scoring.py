@@ -88,7 +88,7 @@ def score_prior_programming_experience(
     python programming ability, resulting in a score ranging from 0 to 6.
     """
 
-    # Keys are type-sensitive, have to match frontend/src/content/demographics.ts
+    # Keys are type-sensitive, have to match frontend/src/content/pages/demographics.ts
     ability_score_mapping = {
         "no-python-experience": 0,
         "no-experience": 0,

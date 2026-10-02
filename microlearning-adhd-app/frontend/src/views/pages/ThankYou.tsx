@@ -6,7 +6,8 @@ import StudyFacts from '../../components/StudyFacts.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
-import { copy } from '../../content/copy.ts'
+import { studyContact } from '@content/common/studyContact.ts'
+import { thankYouCopy } from '@content/pages/thankYou.ts'
 import { withEmphasis } from '../../utils/richText.tsx'
 import type { VoucherStatus } from '../../shell/useVoucher.ts'
 
@@ -20,7 +21,7 @@ type ThankYouProps = {
 }
 
 function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart }: ThankYouProps) {
-  const { voucher } = copy.thankYou
+  const { voucher } = thankYouCopy
 
   const [copied, setCopied] = useState(false)
   const codeRef = useRef<HTMLSpanElement>(null)
@@ -49,12 +50,7 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
 
   return (
     <StudyPage ariaLabelledBy="thank-you-title" variant="ready">
-      <StudyHeading
-        eyebrow={copy.thankYou.heading.eyebrow}
-        title={copy.thankYou.heading.title}
-        intro={copy.thankYou.heading.intro}
-        id="thank-you-title"
-      />
+      <StudyHeading {...thankYouCopy.heading} id="thank-you-title" />
 
       <section className="voucher-card" aria-labelledby="voucher-title">
         <p id="voucher-title" className="caps-label caps-label--blue voucher-card__label">
@@ -107,19 +103,19 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
         </p>
       </section>
 
-      <StudyFacts facts={copy.thankYou.facts}>
+      <StudyFacts facts={thankYouCopy.facts}>
         <div className="contact-card">
           <span className="icon-badge icon-badge--blue" aria-hidden="true">
             {genericIcons.mail}
           </span>
 
           <div className="contact-card__body">
-            <p className="caps-label caps-label--blue">{copy.thankYou.contact.label}</p>
+            <p className="caps-label caps-label--blue">{thankYouCopy.contact.label}</p>
 
-            <p className="contact-card__name">{copy.thankYou.contact.name}</p>
+            <p className="contact-card__name">{studyContact.name}</p>
 
-            <a className="contact-card__link" href={`mailto:${copy.thankYou.contact.email}`}>
-              {copy.thankYou.contact.email}
+            <a className="contact-card__link" href={`mailto:${studyContact.email}`}>
+              {studyContact.email}
             </a>
           </div>
         </div>
@@ -127,7 +123,7 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
 
       <StudyActions>
         <button type="button" className="primary-button" onClick={onReturnToStart}>
-          {copy.actions.returnToStart}
+          {thankYouCopy.actions.returnToStart}
         </button>
 
         <p className="status-note">
@@ -135,7 +131,7 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
             {genericIcons.exit}
           </span>
 
-          <span className="status-note__text">{copy.thankYou.status.closeWindow}</span>
+          <span className="status-note__text">{thankYouCopy.status.closeWindow}</span>
         </p>
       </StudyActions>
     </StudyPage>

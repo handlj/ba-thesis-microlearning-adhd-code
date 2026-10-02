@@ -1,22 +1,6 @@
 import { Fragment, type ReactNode } from 'react'
 
-/*
-  A minimal formatting convention for the strings in copy.ts, so wording and
-  its formatting stay together in the content file instead of being split
-  across the content file and the components:
-
-    **bold**       an emphasised run
-    a line break   a <br /> within the same paragraph
-    a blank line   a new paragraph
-    "- " lines     a block of them becomes a key-point list (toBlocks only)
-
-  Authors may indent continuation lines to match the surrounding object
-  literal; leading and trailing whitespace per line is dropped.
-*/
-
 export function withEmphasis(text: string): ReactNode[] {
-  // A capturing split alternates plain text and marked runs, so every odd
-  // index is exactly the content that sat between a pair of markers.
   return text
     .split(/\*\*(.+?)\*\*/g)
     .map((segment, index) =>
@@ -75,8 +59,6 @@ export function toBlocks(text: string, className?: string): ReactNode {
           <ul key={index} className="rich-text__list">
             {items.map((item, itemIndex) => (
               <li key={itemIndex} className="rich-text__item">
-                {/* Wrapped, so an emphasised run stays inside the text column
-                    instead of becoming a grid item of its own. */}
                 <span>{withEmphasis(item)}</span>
               </li>
             ))}
@@ -102,13 +84,10 @@ function paragraphClass(className?: string): string {
 }
 
 function splitParagraphs(text: string): string[] {
-  return (
-    text
-      // Trim per line so indented continuation lines in copy.ts stay readable.
-      .split('\n')
-      .map((line) => line.trim())
-      .join('\n')
-      .split(/\n{2,}/)
-      .filter((paragraph) => paragraph.length > 0)
-  )
+  return text
+    .split('\n')
+    .map((line) => line.trim())
+    .join('\n')
+    .split(/\n{2,}/)
+    .filter((paragraph) => paragraph.length > 0)
 }

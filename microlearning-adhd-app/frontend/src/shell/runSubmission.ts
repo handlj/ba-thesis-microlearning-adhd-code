@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { copy } from '../content/copy'
+import { errorsCopy } from '@content/common/errors.ts'
 import type { StepKey } from './studySteps'
 
 export type SubmissionStatus = {
@@ -11,7 +11,7 @@ export type SubmissionStatus = {
 export function submissionErrorMessage(requestError: unknown, fallbackMessage: string): string {
   if (axios.isAxiosError(requestError)) {
     if (requestError.code === 'ECONNABORTED') {
-      return copy.errors.timeout
+      return errorsCopy.timeout
     }
 
     console.error(

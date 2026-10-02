@@ -7,7 +7,8 @@ import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import { type PostInterventionAnswers } from '../../services/index.ts'
-import { copy } from '../../content/copy.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { followUpCopy } from '@content/questionnaires/followUp.ts'
 import { useState } from 'react'
 
 type PostInterventionQuestionId = keyof PostInterventionAnswers
@@ -17,17 +18,17 @@ const postInterventionQuestions: StudyQuestion<FollowUpQuestionId>[] = [
   {
     id: 'openFeedback',
     type: 'text',
-    label: copy.postIntervention.questions.openFeedback.label,
-    placeholder: copy.postIntervention.questions.openFeedback.placeholder,
+    label: followUpCopy.questions.openFeedback.label,
+    placeholder: followUpCopy.questions.openFeedback.placeholder,
     required: false,
   },
   {
     id: 'wantsFeedback',
     type: 'radio',
-    label: copy.postIntervention.questions.wantsFeedback.label,
+    label: followUpCopy.questions.wantsFeedback.label,
     options: [
-      { value: 'yes', label: copy.postIntervention.questions.wantsFeedback.options.yes },
-      { value: 'no', label: copy.postIntervention.questions.wantsFeedback.options.no },
+      { value: 'yes', label: followUpCopy.questions.wantsFeedback.options.yes },
+      { value: 'no', label: followUpCopy.questions.wantsFeedback.options.no },
     ],
   },
 ]
@@ -60,12 +61,7 @@ function FollowUpQuestionnaire({
 
   return (
     <StudyPage ariaLabelledBy="follow-up-title" variant="form">
-      <StudyHeading
-        eyebrow={copy.postIntervention.heading.eyebrow}
-        title={copy.postIntervention.heading.title}
-        intro={copy.postIntervention.heading.intro}
-        id="follow-up-title"
-      />
+      <StudyHeading {...followUpCopy.heading} id="follow-up-title" />
 
       <StudyForm
         questions={postInterventionQuestions}
@@ -87,7 +83,7 @@ function FollowUpQuestionnaire({
         actions={
           <StudyActions>
             <button type="submit" className="primary-button" disabled={!isComplete || isSubmitting}>
-              {isSubmitting ? copy.actions.saving : copy.actions.completeStudy}
+              {isSubmitting ? actionsCopy.saving : followUpCopy.actions.complete}
             </button>
           </StudyActions>
         }

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useQuizAnswers } from '../../../components/quiz/useQuizAnswers.ts'
-import { copy } from '../../../content/copy.ts'
+import { controlGroupCopy } from '@content/pages/controlGroup.ts'
 import { allQuizQuestions } from '../../../content/quiz.ts'
 import { permuteQuestionOptions } from '../../../utils/optionPermutation.ts'
 import { useAsyncResource } from '../../../hooks/useAsyncResource.ts'
@@ -21,7 +21,7 @@ export function useControlGroup({
     data: video,
     isLoading,
     error,
-  } = useAsyncResource<ControlVideo>(getControlVideo, copy.errors.controlVideoLoad)
+  } = useAsyncResource<ControlVideo>(getControlVideo, controlGroupCopy.status.loadError)
   const [phase, setPhase] = useState<ControlPhase>('video')
   const [hasVideoEnded, setHasVideoEnded] = useState(false)
   const [goBackToVideo, setGoBackToVideo] = useState(false)

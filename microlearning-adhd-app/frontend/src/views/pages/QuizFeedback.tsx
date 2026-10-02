@@ -3,7 +3,9 @@ import '@assets/styles/pages/QuizFeedback.css'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
-import { copy } from '../../content/copy.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { quizCopy } from '@content/common/quiz.ts'
+import { quizFeedbackCopy } from '@content/pages/quizFeedback.ts'
 import { allQuizQuestions } from '../../content/quiz.ts'
 import { type GroupAssignment } from '../../utils/groupAssignment.ts'
 
@@ -29,13 +31,13 @@ function FeedbackStat({ label, correct, total, variant }: FeedbackStatProps) {
       <p className={`caps-label${variant === 'after' ? ' caps-label--blue' : ''}`}>{label}</p>
       <p className="feedback-stat__value" aria-hidden="true">
         {correct}
-        <span className="feedback-stat__total">{copy.quizFeedback.outOf(total)}</span>
+        <span className="feedback-stat__total">{quizCopy.score.outOf(total)}</span>
       </p>
       <div className="score-bar" aria-hidden="true">
         <span className="score-bar__fill" style={{ width: `${fillPercent}%` }} />
       </div>
       <p className="score-bar__caption" aria-hidden="true">
-        {copy.quizFeedback.scoreCaption}
+        {quizCopy.score.caption}
       </p>
     </div>
   )
@@ -45,8 +47,8 @@ function QuizFeedback({ assignment, preCorrect, postCorrect, onContinue }: QuizF
   const total = allQuizQuestions.length
   const afterLabel =
     assignment === 'control'
-      ? copy.quizFeedback.afterLabelControl
-      : copy.quizFeedback.afterLabelExperimental
+      ? quizFeedbackCopy.afterLabelControl
+      : quizFeedbackCopy.afterLabelExperimental
 
   const showImprovement = preCorrect > 0 && postCorrect > preCorrect
   const improvementPercent = showImprovement
@@ -55,16 +57,11 @@ function QuizFeedback({ assignment, preCorrect, postCorrect, onContinue }: QuizF
 
   return (
     <StudyPage ariaLabelledBy="quiz-feedback-title" variant="ready">
-      <StudyHeading
-        eyebrow={copy.quizFeedback.heading.eyebrow}
-        title={copy.quizFeedback.heading.title}
-        intro={copy.quizFeedback.heading.intro}
-        id="quiz-feedback-title"
-      />
+      <StudyHeading {...quizFeedbackCopy.heading} id="quiz-feedback-title" />
 
       <div className="feedback-scores">
         <FeedbackStat
-          label={copy.quizFeedback.beforeLabel}
+          label={quizFeedbackCopy.beforeLabel}
           correct={preCorrect}
           total={total}
           variant="before"
@@ -89,13 +86,13 @@ function QuizFeedback({ assignment, preCorrect, postCorrect, onContinue }: QuizF
 
           <span className="feedback-delta__value">+{improvementPercent}&nbsp;%</span>
 
-          <span className="feedback-delta__label">{copy.quizFeedback.improvementLabel}</span>
+          <span className="feedback-delta__label">{quizFeedbackCopy.improvementLabel}</span>
         </div>
       ) : null}
 
       <StudyActions>
         <button type="button" className="primary-button" onClick={onContinue}>
-          {copy.actions.continue}
+          {actionsCopy.continue}
         </button>
       </StudyActions>
     </StudyPage>

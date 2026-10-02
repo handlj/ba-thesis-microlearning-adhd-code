@@ -1,18 +1,10 @@
-import { type StudyQuestion } from '../components/forms/types'
-import { buildOptionsFromCopy } from '../components/forms/utils'
-import { blankAnswers } from '../utils/blankAnswers'
+import { blankAnswers } from '../../utils/blankAnswers.ts'
 
 export const demographicsCopy = {
   heading: {
-    eyebrow: '',
     title: 'Bevor wir loslegen',
     intro:
       'Bitte beantworten Sie die folgenden Fragen zu Ihrer Person und Ihren Programmiervorkenntnissen.\n\n Alle Angaben werden anonymisiert verarbeitet und lassen keinerlei Rückschluss auf Sie zu.',
-  },
-  sections: {
-    person: 'Persönliche Angaben',
-    diagnoses: 'ADHS & weitere Diagnosen',
-    programming: 'Programmiervorkenntnisse',
   },
   validation: {
     allQuestions: 'Bitte beantworten Sie alle Fragen, bevor Sie fortfahren.',
@@ -27,16 +19,33 @@ export const demographicsCopy = {
 } as const
 
 const DEMOGRAPHIC_SECTIONS_TABLE = [
-  { id: 'person', title: demographicsCopy.sections.person },
-  { id: 'diagnoses', title: demographicsCopy.sections.diagnoses },
-  { id: 'programming', title: demographicsCopy.sections.programming },
+  { id: 'person', title: 'Persönliche Angaben' },
+  { id: 'diagnoses', title: 'ADHS & weitere Diagnosen' },
+  { id: 'programming', title: 'Programmiervorkenntnisse' },
 ] as const
 
 export type DemographicSectionId = (typeof DEMOGRAPHIC_SECTIONS_TABLE)[number]['id']
 
-export type DemographicSection = { id: DemographicSectionId; title: string }
+type DemographicSection = { id: DemographicSectionId; title: string }
 
 export const DEMOGRAPHIC_SECTIONS: readonly DemographicSection[] = DEMOGRAPHIC_SECTIONS_TABLE
+
+const YES_NO = {
+  yes: 'Ja',
+  no: 'Nein',
+} as const
+
+const YES_NO_UNDISCLOSED = {
+  ...YES_NO,
+  preferNotToSay: 'Keine Angabe',
+} as const
+
+// These keys must match the demographics scoring in the backend service module
+const SKILL_LEVELS = {
+  beginner: 'Anfänger*in',
+  intermediate: 'Fortgeschrittene*r',
+  expert: 'Expert*in',
+} as const
 
 const DEMOGRAPHIC_QUESTIONS_TABLE = [
   {
@@ -79,10 +88,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     section: 'person',
     label: 'Derzeit studierend',
     placeholder: 'Studieren Sie derzeit?',
-    options: {
-      yes: 'Ja',
-      no: 'Nein',
-    },
+    options: YES_NO,
   },
   {
     id: 'studyBackground',
@@ -145,11 +151,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     section: 'diagnoses',
     label: 'ADHS-Medikamenteneinnahme',
     placeholder: 'Haben Sie heute ADHS-Medikamente eingenommen?',
-    options: {
-      yes: 'Ja',
-      no: 'Nein',
-      preferNotToSay: 'Keine Angabe',
-    },
+    options: YES_NO_UNDISCLOSED,
     visibleIf: {
       field: 'adhdDiagnosis',
       equals: ['diagnosed'],
@@ -161,11 +163,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     section: 'diagnoses',
     label: 'Weitere Diagnosen',
     placeholder: 'Haben Sie weitere Diagnosen einer psychischen Erkrankung?',
-    options: {
-      yes: 'Ja',
-      no: 'Nein',
-      preferNotToSay: 'Keine Angabe',
-    },
+    options: YES_NO_UNDISCLOSED,
   },
   {
     id: 'otherDiagnoses',
@@ -184,10 +182,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     section: 'programming',
     label: 'Allgemeine Programmiererfahrung',
     placeholder: 'Haben Sie bereits Programmiererfahrung?',
-    options: {
-      yes: 'Ja',
-      no: 'Nein',
-    },
+    options: YES_NO,
   },
   {
     id: 'generalProgrammingLanguages',
@@ -206,12 +201,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     section: 'programming',
     label: 'Allgemeine Programmierfähigkeit',
     placeholder: 'Wie würden Sie Ihre allgemeine Programmierfähigkeit einschätzen?',
-    options: {
-      // These keys must match the demographics scoring in the backend service module
-      beginner: 'Anfänger*in',
-      intermediate: 'Fortgeschrittene*r',
-      expert: 'Expert*in',
-    },
+    options: SKILL_LEVELS,
     visibleIf: {
       field: 'generalProgrammingExperience',
       equals: ['yes'],
@@ -223,10 +213,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     section: 'programming',
     label: 'Python-Programmiererfahrung',
     placeholder: 'Haben Sie bereits Erfahrung mit der Programmiersprache Python?',
-    options: {
-      yes: 'Ja',
-      no: 'Nein',
-    },
+    options: YES_NO,
     visibleIf: {
       field: 'generalProgrammingExperience',
       equals: ['yes'],
@@ -238,12 +225,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     section: 'programming',
     label: 'Python-Programmierfähigkeit',
     placeholder: 'Wie würden Sie Ihre Python-Programmierfähigkeit einschätzen?',
-    options: {
-      // These keys must match the demographics scoring in the backend service module
-      beginner: 'Anfänger*in',
-      intermediate: 'Fortgeschrittene*r',
-      expert: 'Expert*in',
-    },
+    options: SKILL_LEVELS,
     visibleIf: {
       field: 'pythonProgrammingExperience',
       equals: ['yes'],
@@ -271,37 +253,8 @@ type VisibleIfCondition =
       valueIfHidden: string
     }
 
-export type DemographicQuestion = BaseQuestion & VisibleIfCondition
+type DemographicQuestion = BaseQuestion & VisibleIfCondition
 
 export const DEMOGRAPHIC_QUESTIONS: readonly DemographicQuestion[] = DEMOGRAPHIC_QUESTIONS_TABLE
 
-export const demographicQuestionSections = Object.fromEntries(
-  DEMOGRAPHIC_QUESTIONS.map((q) => [q.id, q.section]),
-) as Record<DemographicQuestionId, DemographicSectionId>
-
-// Runtime Validation on Self-Gated Visibility Conditions of Demographic Questions
-const alreadyProcessedDemographicQuestions = new Set<DemographicQuestionId>()
-for (const question of DEMOGRAPHIC_QUESTIONS) {
-  if (question.visibleIf && !alreadyProcessedDemographicQuestions.has(question.visibleIf.field)) {
-    throw new Error(
-      `Demographic question "${question.id}" self-gates its visibility condition via "${question.visibleIf.field}"`,
-    )
-  }
-  alreadyProcessedDemographicQuestions.add(question.id)
-}
-
 export const defaultDemographics = blankAnswers(DEMOGRAPHIC_QUESTIONS) as DemographicAnswers
-
-export const demographicFormQuestions: StudyQuestion<DemographicQuestionId>[] =
-  DEMOGRAPHIC_QUESTIONS.map((q): StudyQuestion<DemographicQuestionId> => {
-    const base = {
-      id: q.id,
-      label: q.label,
-      placeholder: q.placeholder,
-      required: true,
-    }
-
-    return q.type === 'number' || q.type === 'text'
-      ? { ...base, type: q.type }
-      : { ...base, type: 'select', options: buildOptionsFromCopy(q.options ?? {}) }
-  })

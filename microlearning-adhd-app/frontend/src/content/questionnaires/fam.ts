@@ -1,6 +1,17 @@
+import { QUESTIONNAIRE_TITLE } from './shared.ts'
+
 export const fam = {
-  title: '',
-  instructions: '',
+  heading: {
+    title: QUESTIONNAIRE_TITLE,
+    intro:
+      /* Original Instruction Text: 
+        Bevor wir starten, wollen wir wissen, wie deine momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu findest du auf dieser Seite  Aussagen. Kreuze bitte jene Zahl an, die auf dich am Besten passt.
+      */
+      'Bevor wir starten, wollen wir wissen, wie Ihre **momentane Einstellung** zu der beschriebenen Aufgabe ist. Dazu finden Sie auf dieser Seite Aussagen.\n\n Kreuzen Sie bitte jene Zahl an, die auf Sie am Besten passt.',
+  },
+  validation: {
+    allQuestions: 'Bitte beantworten Sie alle Aussagen, bevor Sie fortfahren.',
+  },
   scale: {
     low: 'trifft nicht zu',
     high: 'trifft zu',
@@ -86,5 +97,3 @@ export const fam = {
     },
   ],
 } as const
-
-export type FamQuestionId = (typeof fam.questions)[number]['id']

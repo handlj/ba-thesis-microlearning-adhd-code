@@ -4,7 +4,8 @@ import QuizQuestionField from '../../components/quiz/QuizQuestionField.tsx'
 import { useQuizAnswers } from '../../components/quiz/useQuizAnswers.ts'
 import { preQuizQuestions } from '../../content/quiz.ts'
 import type { StudyInteractionPayload } from '../../services/index.ts'
-import { copy } from '../../content/copy.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { preQuizCopy } from '@content/pages/preQuiz.ts'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import Message from '../../components/Message.tsx'
@@ -53,18 +54,11 @@ function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error, participantI
 
   return (
     <StudyPage ariaLabelledBy="preQuiz-title" variant="video">
-      <StudyHeading
-        eyebrow={copy.preQuiz.heading.eyebrow}
-        title={copy.preQuiz.heading.title}
-        intro={copy.preQuiz.heading.intro}
-        id="preQuiz-title"
-      />
+      <StudyHeading {...preQuizCopy.heading} id="preQuiz-title" />
 
       <TextDialog
         open={showTextDialog}
-        eyebrow={copy.preQuiz.dialog.eyebrow}
-        title={copy.preQuiz.dialog.title}
-        content={copy.preQuiz.dialog.content}
+        {...preQuizCopy.dialog}
         onDismiss={() => {
           setShowTextDialog(false)
         }}
@@ -93,7 +87,7 @@ function PreQuiz({ onSubmit, onLogInteraction, onSubmitQuiz, error, participantI
 
         <StudyActions>
           <button type="submit" className="primary-button" disabled={!isComplete}>
-            {copy.actions.continue}
+            {actionsCopy.continue}
           </button>
         </StudyActions>
 

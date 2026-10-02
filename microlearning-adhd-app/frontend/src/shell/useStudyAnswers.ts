@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { DemographicAnswers } from '../content/demographics'
+import type { DemographicAnswers } from '@content/pages/demographics.ts'
 import type { PostInterventionAnswers } from '../services'
 import { type LikertSection, type StudyAnswers, blankStudyAnswers } from './studyAnswers'
 import type { StepKey } from './studySteps'

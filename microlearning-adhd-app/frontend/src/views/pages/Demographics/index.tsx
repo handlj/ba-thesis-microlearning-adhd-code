@@ -2,12 +2,12 @@ import { StudyForm } from '../../../components/forms/index.ts'
 import StudyActions from '../../../components/StudyActions.tsx'
 import StudyHeading from '../../../components/StudyHeading.tsx'
 import StudyPage from '../../../components/StudyPage.tsx'
-import { copy } from '../../../content/copy.ts'
+import { actionsCopy } from '@content/common/actions.ts'
 import {
   demographicsCopy,
   type DemographicAnswers,
   type DemographicQuestionId,
-} from '../../../content/demographics.ts'
+} from '@content/pages/demographics.ts'
 import { useDemographics } from './useDemographics.ts'
 
 export type DemographicProps = {
@@ -25,12 +25,7 @@ function Demographics(props: DemographicProps) {
 
   return (
     <StudyPage ariaLabelledBy="demographics-title" variant="form">
-      <StudyHeading
-        eyebrow={demographicsCopy.heading.eyebrow}
-        title={demographicsCopy.heading.title}
-        intro={demographicsCopy.heading.intro}
-        id="demographics-title"
-      />
+      <StudyHeading {...demographicsCopy.heading} id="demographics-title" />
 
       <StudyForm
         sections={visibleFormSections}
@@ -46,11 +41,11 @@ function Demographics(props: DemographicProps) {
               onClick={onBack}
               disabled={isSubmitting}
             >
-              {copy.actions.back}
+              {actionsCopy.back}
             </button>
 
             <button type="submit" className="primary-button" disabled={isSubmitting}>
-              {isSubmitting ? copy.actions.saving : copy.actions.continue}
+              {isSubmitting ? actionsCopy.saving : actionsCopy.continue}
             </button>
           </StudyActions>
         }

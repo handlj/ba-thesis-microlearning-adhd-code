@@ -6,7 +6,9 @@ import StudyVideoPlayer from '../../../components/video/StudyVideoPlayer.tsx'
 import type { QuizAnswers } from '../../../components/quiz/useQuizAnswers.ts'
 import { getVideoChapters } from '../../../content/videoChapters.ts'
 import { type StudyInteractionPayload } from '../../../services/index.ts'
-import { copy } from '../../../content/copy.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { videoGateCopy } from '@content/common/videoGate.ts'
+import { experimentalGroupCopy } from '@content/pages/experimentalGroup.ts'
 import { getVideoPlayerFeatures } from '../../../utils/videoFeatures.ts'
 import { withEmphasis } from '../../../utils/richText.tsx'
 import Message from '../../../components/Message.tsx'
@@ -59,34 +61,21 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
     playerRef,
   } = useExperimentalGroup(props)
 
-  const sequence = copy.experimentalGroup.progress(videoIndex, videoCount)
+  const sequence = experimentalGroupCopy.progress(videoIndex, videoCount)
 
   const features = getVideoPlayerFeatures('experimental')
   const chapters = getVideoChapters(video?.id)
 
   return (
     <StudyPage ariaLabelledBy="experimental-title" variant="video">
-      <StudyHeading
-        eyebrow={copy.experimentalGroup.heading.eyebrow}
-        title={
-          phase === 'video'
-            ? copy.experimentalGroup.heading.videoTitle
-            : copy.experimentalGroup.heading.quizTitle
-        }
-        intro={
-          phase === 'video'
-            ? copy.experimentalGroup.heading.videoIntro
-            : copy.experimentalGroup.heading.quizIntro
-        }
-        id="experimental-title"
-      />
+      <StudyHeading {...experimentalGroupCopy.heading[phase]} id="experimental-title" />
 
-      <Message variant="status">{isLoading ? copy.experimentalGroup.status.loading : null}</Message>
+      <Message variant="status">{isLoading ? experimentalGroupCopy.status.loading : null}</Message>
 
       <Message variant="error">{error}</Message>
 
       <Message variant="status">
-        {videoCount === 0 && !isLoading && !error ? copy.experimentalGroup.status.noVideos : null}
+        {videoCount === 0 && !isLoading && !error ? experimentalGroupCopy.status.noVideos : null}
       </Message>
 
       {video ? (
@@ -125,10 +114,10 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
 
               <Message variant="status">
                 {hasVideoEnded
-                  ? copy.experimentalGroup.status.videoFinished
+                  ? videoGateCopy.finishedBeforeQuiz
                   : isRewatch || goBackToVideo
-                    ? copy.experimentalGroup.status.rewatch
-                    : withEmphasis(copy.video.watchFullVideo)}
+                    ? experimentalGroupCopy.status.rewatch
+                    : withEmphasis(videoGateCopy.watchFullVideo)}
               </Message>
             </>
           ) : topic ? (
@@ -146,8 +135,8 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
 
               <Message variant="status">
                 {canProceedFromQuiz
-                  ? copy.experimentalGroup.status.allAnswered
-                  : copy.experimentalGroup.status.answerAllQuestions}
+                  ? experimentalGroupCopy.status.allAnswered
+                  : experimentalGroupCopy.status.answerAllQuestions}
               </Message>
             </>
           ) : null}
@@ -162,7 +151,9 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
             disabled={!canProceedFromVideo}
             onClick={proceedFromVideo}
           >
-            {isRewatch ? copy.actions.retakeQuiz : copy.actions.startQuiz}
+            {isRewatch
+              ? experimentalGroupCopy.actions.retakeQuiz
+              : experimentalGroupCopy.actions.startQuiz}
           </button>
         ) : null}
 
@@ -173,7 +164,7 @@ function ExperimentalGroup(props: ExperimentalGroupProps) {
             disabled={!canProceedFromQuiz}
             onClick={proceedFromQuiz}
           >
-            {isLastVideo ? copy.actions.continue : copy.actions.nextVideo}
+            {isLastVideo ? actionsCopy.continue : experimentalGroupCopy.actions.nextVideo}
           </button>
         ) : null}
       </StudyActions>

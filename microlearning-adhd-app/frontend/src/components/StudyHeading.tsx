@@ -1,9 +1,9 @@
 import { toParagraphs } from '../utils/richText.tsx'
 
 type StudyHeadingProps = {
-  eyebrow: string
+  eyebrow?: string
   title: string
-  intro: string
+  intro?: string
   id: string
 }
 

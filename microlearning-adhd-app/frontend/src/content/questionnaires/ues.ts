@@ -1,13 +1,9 @@
+import { likertOptionLabel, QUESTIONNAIRE_TITLE } from './shared.ts'
+
 export const ues = {
-  title: '',
   heading: {
-    eyebrow: '',
-    title: 'Bitte füllen Sie den Fragebogen aus',
+    title: QUESTIONNAIRE_TITLE,
     intro: 'Bitte geben Sie an, wie sehr Sie jeder Aussage zustimmen oder sie ablehnen.',
-  },
-  instructions: '',
-  actions: {
-    proceed: 'Fortfahren',
   },
   validation: {
     allQuestions: 'Bitte beantworten Sie alle Aussagen, bevor Sie fortfahren.',
@@ -21,8 +17,7 @@ export const ues = {
       '4': 'Stimme zu',
       '5': 'Stimme voll und ganz zu',
     },
-    optionLabel: (question: string, value: string, label: string) =>
-      `${question}: ${value}, ${label}`,
+    optionLabel: likertOptionLabel,
   },
   questions: [
     {
@@ -151,5 +146,3 @@ export const ues = {
     },
   ],
 } as const
-
-export type UesQuestionId = (typeof ues.questions)[number]['id']

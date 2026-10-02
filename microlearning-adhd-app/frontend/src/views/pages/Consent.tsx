@@ -1,8 +1,10 @@
 import '@assets/styles/pages/Consent.css'
+import { Fragment } from 'react'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
-import { copy } from '../../content/copy.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { consentCopy } from '@content/pages/consent.ts'
 import Message from '../../components/Message.tsx'
 
 type ConsentProps = {
@@ -24,57 +26,19 @@ function Consent({
 }: ConsentProps) {
   return (
     <StudyPage ariaLabelledBy="consent-title" variant="consent">
-      <StudyHeading
-        eyebrow={copy.consent.heading.eyebrow}
-        title={copy.consent.heading.title}
-        intro={copy.consent.heading.intro}
-        id="consent-title"
-      />
+      <StudyHeading {...consentCopy.heading} id="consent-title" />
 
-      {/* TODO: Refactor user-facing strings into a centralized location */}
       <div className="consent__content">
-        <h1>Einverständniserklärung</h1>
+        <h1>{consentCopy.document.title}</h1>
 
-        <p>
-          Willkommen zur Studie „MicroPython“ vom Institute of Human-Centred Computing der TU Graz.
-          Das Ziel der vorliegenden Studie ist es, zu untersuchen, wie Python-Grundlagen mit
-          unterschiedlichen Lernmethoden erlernt werden können.
-        </p>
+        <p>{consentCopy.document.intro}</p>
 
-        <h2>Studienablauf</h2>
-        <p>
-          Die Studie wird in etwa eine Stunde in Anspruch nehmen. Zu Beginn werden ein paar
-          Fragebögen vorgegeben, anschließend werden Ihre Python-Vorkenntnisse in einem kurzen Quiz
-          erhoben, dabei ist es kein Problem, wenn Sie keine der Fragen beantworten können. Danach
-          wird die kurze Lerneinheit begonnen. Abschließend folgen ein weiteres Quiz und Fragebögen.
-        </p>
-
-        <h2>Datenschutz</h2>
-        <p>
-          Alle von Ihnen erfassten Daten werden in anonymisierter Form erhoben, weiterverarbeitet
-          und gespeichert. Zu keiner Zeit ist ab diesem Zeitpunkt ein Rückschluss auf Ihre Person
-          durch Dritte möglich. Die Daten werden gemäß den Bestimmungen der derzeit gültigen
-          Datenschutzrichtlinien weiterverarbeitet. Wir bestätigen, dass das österreichische
-          Datenschutzgesetz eingehalten wird. Eine Weitergabe der Daten erfolgt nur in
-          anonymisierter Form. Auch für etwaige Publikationen werden nur die anonymisierten Daten
-          verwendet
-        </p>
-
-        <h2>Rückfragen</h2>
-        <p>
-          Sie haben das Recht, die Untersuchung ohne die Angabe von Gründen und ohne Nachteile
-          Ihrerseits zu jedem Zeitpunkt der Untersuchung abzubrechen. Bei Rückfragen können Sie
-          jederzeit die Studienleitung kontaktieren: Dr. rer. nat. Lisa Berger;
-          lisa.berger@tugraz.at
-        </p>
-
-        <h2>Einverständnis</h2>
-        <p>
-          Ich stimme zu, dass die im Rahmen dieser Studie erhobenen Daten in anonymisierter Form
-          dokumentiert und in anonymisierter Form lokal gespeichert und in anonymisierter Form als
-          Basis für Publikationen herangezogen und ggf. weitergegeben werden. Ich bestätige
-          volljährig zu sein.
-        </p>
+        {consentCopy.document.sections.map((section) => (
+          <Fragment key={section.heading}>
+            <h2>{section.heading}</h2>
+            <p>{section.text}</p>
+          </Fragment>
+        ))}
       </div>
 
       <label className="consent__agreement">
@@ -84,14 +48,14 @@ function Consent({
           onChange={(event) => onAgreementChange(event.target.checked)}
         />
 
-        <span>{copy.consent.agreement}</span>
+        <span>{consentCopy.agreement}</span>
       </label>
 
       <Message variant="error">{error}</Message>
 
       <StudyActions>
         <button type="button" className="secondary-button" onClick={onBack} disabled={isSubmitting}>
-          {copy.actions.back}
+          {actionsCopy.back}
         </button>
 
         <button
@@ -100,7 +64,7 @@ function Consent({
           onClick={onProceed}
           disabled={!agreed || isSubmitting}
         >
-          {isSubmitting ? copy.actions.saving : copy.actions.proceed}
+          {isSubmitting ? actionsCopy.saving : consentCopy.actions.proceed}
         </button>
       </StudyActions>
     </StudyPage>

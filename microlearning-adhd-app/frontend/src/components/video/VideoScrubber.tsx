@@ -1,29 +1,15 @@
 import { useRef, useState } from 'react'
-import { copy } from '../../content/copy.ts'
+import { videoPlayerCopy } from '@content/components/videoPlayer.ts'
 import type { VideoChapter } from '../../content/videoChapters.ts'
 import { buildSegments, type ChapterSegment } from './chapterSegments.ts'
 import { describeDuration, formatDuration } from './formatDuration.ts'
-
-/*
-  The progress bar of the study video player.
-
-  Without chapters it is a single track, which is what the control group and
-  the instruction video get. With chapters it is split into one segment per
-  chapter, separated by small gaps, the way YouTube marks them — a segment is
-  laid out in proportion to how long its chapter runs, and fills independently.
-
-  Chapters are only ever passed in for the experimental group; see
-  utils/videoFeatures.ts for how the three chapter features are gated.
-*/
 
 type VideoScrubberProps = {
   currentTime: number
   duration: number
   bufferedSeconds: number
   chapters: readonly VideoChapter[]
-  /* Name the chapter in the tooltip. Off unless the chapterLabels feature is on. */
   showChapterTitles: boolean
-  /* Turn a click on a segment into a jump to that chapter's start. */
   allowChapterJump: boolean
   onSeek: (seconds: number) => void
   onScrubStart: () => void
@@ -31,7 +17,6 @@ type VideoScrubberProps = {
   onChapterJump: (chapter: { index: number; title: string; startSeconds: number }) => void
 }
 
-/* How far the pointer may travel before a click counts as a drag instead. */
 const DRAG_THRESHOLD_PIXELS = 3
 
 const KEYBOARD_SEEK_SECONDS = 5
@@ -58,7 +43,6 @@ function VideoScrubber({
   const [isScrubbing, setIsScrubbing] = useState(false)
   const [hoverRatio, setHoverRatio] = useState<number | null>(null)
 
-  const labels = copy.video.player
   const hasDuration = Number.isFinite(duration) && duration > 0
   const playedRatio = hasDuration ? clampRatio(currentTime / duration) : 0
   const segments = buildSegments(chapters, duration)
@@ -102,10 +86,6 @@ function VideoScrubber({
     setIsScrubbing(true)
     onScrubStart()
 
-    // With chapter jumping on, where a click lands is only decided on release:
-    // a click means "go to this chapter", a drag means "scrub freely". Seeking
-    // to the pointer straight away would make every chapter jump look like two
-    // separate seeks to the participant and in the interaction log.
     if (!allowChapterJump) {
       onSeek(ratioFromEvent(event.clientX) * duration)
     }
@@ -234,11 +214,11 @@ function VideoScrubber({
           .join(' ')}
         role="slider"
         tabIndex={0}
-        aria-label={labels.seekSlider}
+        aria-label={videoPlayerCopy.seekSlider}
         aria-valuemin={0}
         aria-valuemax={Math.max(0, Math.round(duration))}
         aria-valuenow={Math.round(currentTime)}
-        aria-valuetext={labels.elapsedOfTotal(
+        aria-valuetext={videoPlayerCopy.elapsedOfTotal(
           describeDuration(currentTime),
           describeDuration(duration),
         )}

@@ -3,7 +3,9 @@ import StudyHeading from '../../../components/StudyHeading.tsx'
 import StudyPage from '../../../components/StudyPage.tsx'
 import StudyVideoPlayer from '../../../components/video/StudyVideoPlayer.tsx'
 import { type StudyInteractionPayload } from '../../../services/index.ts'
-import { copy } from '../../../content/copy.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { videoGateCopy } from '@content/common/videoGate.ts'
+import { controlGroupCopy } from '@content/pages/controlGroup.ts'
 import { getVideoPlayerFeatures } from '../../../utils/videoFeatures.ts'
 import { withEmphasis } from '../../../utils/richText.tsx'
 import Message from '../../../components/Message.tsx'
@@ -35,22 +37,9 @@ function ControlGroup(props: ControlGroupProps) {
 
   return (
     <StudyPage ariaLabelledBy="control-title" variant="video">
-      <StudyHeading
-        eyebrow={copy.controlGroup.heading.eyebrow}
-        title={
-          phase === 'video'
-            ? copy.controlGroup.heading.videoTitle
-            : copy.controlGroup.heading.quizTitle
-        }
-        intro={
-          phase === 'video'
-            ? copy.controlGroup.heading.videoIntro
-            : copy.controlGroup.heading.quizIntro
-        }
-        id="control-title"
-      />
+      <StudyHeading {...controlGroupCopy.heading[phase]} id="control-title" />
 
-      <Message variant="status">{isLoading ? copy.controlGroup.status.loading : null}</Message>
+      <Message variant="status">{isLoading ? controlGroupCopy.status.loading : null}</Message>
 
       <Message variant="error">{error}</Message>
 
@@ -67,8 +56,8 @@ function ControlGroup(props: ControlGroupProps) {
 
           <Message variant="status">
             {canProceedFromVideo
-              ? copy.controlGroup.status.videoFinished
-              : withEmphasis(copy.video.watchFullVideo)}
+              ? videoGateCopy.finishedBeforeQuiz
+              : withEmphasis(videoGateCopy.watchFullVideo)}
           </Message>
         </div>
       ) : null}
@@ -94,7 +83,7 @@ function ControlGroup(props: ControlGroupProps) {
             disabled={!canProceedFromVideo}
             onClick={proceedFromVideo}
           >
-            {copy.actions.continue}
+            {actionsCopy.continue}
           </button>
         </StudyActions>
       ) : null}

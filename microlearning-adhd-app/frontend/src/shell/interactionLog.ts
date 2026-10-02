@@ -1,4 +1,4 @@
-import { copy } from '../content/copy.ts'
+import { errorsCopy } from '@content/common/errors.ts'
 import {
   postInteractionEvent,
   postInteractionEventKeepAlive,
@@ -39,7 +39,7 @@ export function createInteractionLogger(
       : postInteractionEvent(participantId, event)
 
     void request.catch((requestError) => {
-      console.error(copy.errors.interactionPersist, requestError)
+      console.error(errorsCopy.interactionPersist, requestError)
     })
   }
 }

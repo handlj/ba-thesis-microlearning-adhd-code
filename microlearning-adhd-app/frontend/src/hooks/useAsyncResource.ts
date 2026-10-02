@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { copy } from '../content/copy.ts'
+import { errorsCopy } from '@content/common/errors.ts'
 
 export function useAsyncResource<T>(fetcher: () => Promise<T>, fallbackMessage: string) {
   const [data, setData] = useState<T | null>(null)
@@ -28,7 +28,7 @@ export function useAsyncResource<T>(fetcher: () => Promise<T>, fallbackMessage: 
 
         const message =
           axios.isAxiosError(requestError) && requestError.code === 'ECONNABORTED'
-            ? copy.errors.timeout
+            ? errorsCopy.timeout
             : requestError instanceof Error
               ? requestError.message
               : fallbackMessage

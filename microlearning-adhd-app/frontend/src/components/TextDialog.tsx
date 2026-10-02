@@ -2,7 +2,7 @@ import '@assets/styles/components/StudyModal.css'
 import '@assets/styles/components/TextDialog.css'
 import { useEffect, useId, useRef } from 'react'
 
-import { copy } from '../content/copy.ts'
+import { actionsCopy } from '@content/common/actions.ts'
 import { toBlocks } from '../utils/richText.tsx'
 
 type TextDialogProps = {
@@ -50,7 +50,7 @@ function TextDialog({ eyebrow, title, content, open, onDismiss }: TextDialogProp
 
       <div className="study-modal__actions">
         <button type="button" className="primary-button" onClick={onDismiss}>
-          {copy.actions.continue}
+          {actionsCopy.continue}
         </button>
       </div>
     </dialog>

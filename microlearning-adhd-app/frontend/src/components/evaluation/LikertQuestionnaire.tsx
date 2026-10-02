@@ -16,8 +16,6 @@ type LikertQuestion = {
 }
 
 type LikertQuestionnaireHeaderProps = {
-  title?: string
-  instructions?: string
   modifier: string
   scale: LikertScale
   questions: readonly LikertQuestion[]
@@ -27,8 +25,6 @@ type LikertQuestionnaireHeaderProps = {
 }
 
 function LikertQuestionnaire({
-  title,
-  instructions,
   modifier,
   scale,
   questions,
@@ -38,18 +34,9 @@ function LikertQuestionnaire({
 }: LikertQuestionnaireHeaderProps) {
   const answered = Object.values(values).filter(Boolean).length
   const total = questions.length
-  const sectionTitleId = `${modifier}-questionnaire-title`
 
   return (
-    <section className="likert-questionnaire" aria-labelledby={title ? sectionTitleId : undefined}>
-      {title ? (
-        <h2 className="likert-questionnaire__title" id={sectionTitleId}>
-          {title}
-        </h2>
-      ) : null}
-
-      {instructions ? <p className="likert-questionnaire__instructions">{instructions}</p> : null}
-
+    <section className="likert-questionnaire">
       <div className="likert-questionnaire__table-wrap">
         <table className={`likert-table likert-table--${modifier}`}>
           <thead>

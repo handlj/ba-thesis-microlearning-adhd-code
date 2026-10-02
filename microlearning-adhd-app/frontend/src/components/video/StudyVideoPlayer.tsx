@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useImperativeHandle, useRef, useState, type Ref } from 'react'
 import '@assets/styles/components/video/StudyVideoPlayer.css'
-import { copy } from '../../content/copy.ts'
+import { videoPlayerCopy } from '@content/components/videoPlayer.ts'
 import type { VideoChapter } from '../../content/videoChapters.ts'
 import type { StudyInteractionPayload } from '../../services/index.ts'
 import type { VideoPlayerFeatures } from '../../utils/videoFeatures.ts'
@@ -76,8 +76,6 @@ function StudyVideoPlayer({
   const hideControlsTimerRef = useRef<number | null>(null)
   const volumeBeforeCommitRef = useRef(1)
   const isPlayingRef = useRef(false)
-
-  const labels = copy.video.player
 
   const loggingRef = useRef({ onLogInteraction, eventPayload })
   useEffect(() => {
@@ -347,7 +345,11 @@ function StudyVideoPlayer({
 
   // --- render ---
 
-  const playLabel = hasEnded ? labels.replay : isPlaying ? labels.pause : labels.play
+  const playLabel = hasEnded
+    ? videoPlayerCopy.replay
+    : isPlaying
+      ? videoPlayerCopy.pause
+      : videoPlayerCopy.play
   const playIcon = hasEnded ? videoIcons.replay : isPlaying ? videoIcons.pause : videoIcons.play
 
   return (
@@ -362,7 +364,7 @@ function StudyVideoPlayer({
         .filter(Boolean)
         .join(' ')}
       role="region"
-      aria-label={labels.region}
+      aria-label={videoPlayerCopy.region}
       onPointerMove={revealControls}
       onPointerLeave={() => {
         if (isPlaying) {
@@ -472,7 +474,7 @@ function StudyVideoPlayer({
         onRateChange={(event) => setPlaybackRate(event.currentTarget.playbackRate)}
       >
         <source src={src} type="video/mp4" />
-        {copy.video.unsupported}
+        {videoPlayerCopy.unsupported}
       </video>
 
       {!isPlaying ? (
@@ -530,7 +532,7 @@ function StudyVideoPlayer({
             <button
               type="button"
               className="video-player__button"
-              aria-label={isMuted || volume === 0 ? labels.unmute : labels.mute}
+              aria-label={isMuted || volume === 0 ? videoPlayerCopy.unmute : videoPlayerCopy.mute}
               onClick={toggleMute}
             >
               {isMuted || volume === 0 ? videoIcons.volumeMuted : videoIcons.volume}
@@ -543,7 +545,7 @@ function StudyVideoPlayer({
               max={1}
               step={0.05}
               value={isMuted ? 0 : volume}
-              aria-label={labels.volume}
+              aria-label={videoPlayerCopy.volume}
               onChange={(event) => changeVolume(Number(event.target.value))}
               onPointerUp={commitVolume}
               onKeyUp={commitVolume}
@@ -561,7 +563,7 @@ function StudyVideoPlayer({
 
           {currentChapter ? (
             <p className="video-player__chapter" aria-live="polite">
-              <span className="video-player__chapter-label">{labels.chapter}</span>
+              <span className="video-player__chapter-label">{videoPlayerCopy.chapter}</span>
               <span className="video-player__chapter-title">{currentChapter.title}</span>
             </p>
           ) : null}
@@ -573,18 +575,22 @@ function StudyVideoPlayer({
               <button
                 type="button"
                 className="video-player__button video-player__button--speed"
-                aria-label={labels.speed}
+                aria-label={videoPlayerCopy.speed}
                 aria-haspopup="true"
                 aria-expanded={isSpeedMenuOpen}
                 onClick={() => setIsSpeedMenuOpen((open) => !open)}
               >
                 <span className="video-player__speed-value">
-                  {labels.speedOption(playbackRate)}
+                  {videoPlayerCopy.speedOption(playbackRate)}
                 </span>
               </button>
 
               {isSpeedMenuOpen ? (
-                <div className="video-player__speed-menu" role="menu" aria-label={labels.speed}>
+                <div
+                  className="video-player__speed-menu"
+                  role="menu"
+                  aria-label={videoPlayerCopy.speed}
+                >
                   {PLAYBACK_RATES.map((rate) => (
                     <button
                       key={rate}
@@ -599,9 +605,11 @@ function StudyVideoPlayer({
                         .join(' ')}
                       onClick={() => changePlaybackRate(rate)}
                     >
-                      {labels.speedOption(rate)}
+                      {videoPlayerCopy.speedOption(rate)}
                       {rate === 1 ? (
-                        <span className="video-player__speed-note">{labels.normalSpeedSuffix}</span>
+                        <span className="video-player__speed-note">
+                          {videoPlayerCopy.normalSpeedSuffix}
+                        </span>
                       ) : null}
                     </button>
                   ))}
@@ -613,7 +621,9 @@ function StudyVideoPlayer({
           <button
             type="button"
             className="video-player__button"
-            aria-label={isFullscreen ? labels.exitFullscreen : labels.enterFullscreen}
+            aria-label={
+              isFullscreen ? videoPlayerCopy.exitFullscreen : videoPlayerCopy.enterFullscreen
+            }
             onClick={toggleFullscreen}
           >
             {isFullscreen ? videoIcons.fullscreenExit : videoIcons.fullscreen}

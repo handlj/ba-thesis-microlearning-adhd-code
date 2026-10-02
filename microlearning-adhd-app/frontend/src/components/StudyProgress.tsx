@@ -1,7 +1,7 @@
 import '@assets/styles/components/StudyProgress.css'
 import type { CSSProperties } from 'react'
 
-import { copy } from '../content/copy.ts'
+import { studyProgressCopy } from '@content/components/studyProgress.ts'
 import type { Page } from '../shell/pageOrder.ts'
 import { studyProgress } from '../shell/studyPhases.ts'
 
@@ -13,7 +13,7 @@ function StudyProgress({ page }: StudyProgressProps) {
   const progress = studyProgress(page)
   if (!progress) return null
 
-  const { phases } = copy.studyProgress
+  const { phases } = studyProgressCopy
 
   return (
     <nav className="study-progress">

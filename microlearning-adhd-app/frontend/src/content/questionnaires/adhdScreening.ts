@@ -1,14 +1,10 @@
+import { likertOptionLabel, QUESTIONNAIRE_TITLE } from './shared.ts'
+
 export const adhdScreening = {
-  title: '',
   heading: {
-    eyebrow: '',
-    title: 'Bitte füllen Sie den Fragebogen aus',
+    title: QUESTIONNAIRE_TITLE,
     intro:
       'Bitte beantworten Sie die nachstehenden Fragen, indem Sie sich nach jedem angegebenen Kriterium anhand der Skala rechts auf der Seite bewerten.\n\n Kreuzen Sie als Antwort auf jede Frage das Kästchen an, das am besten beschreibt, wie Sie sich **in den letzten 6 Monaten** gefühlt und verhalten haben.',
-  },
-  instructions: '',
-  actions: {
-    proceed: 'Fortfahren',
   },
   validation: {
     allQuestions: 'Bitte beantworten Sie alle Fragen, bevor Sie fortfahren.',
@@ -22,8 +18,7 @@ export const adhdScreening = {
       '4': 'Oft',
       '5': 'Sehr oft',
     },
-    optionLabel: (question: string, value: string, label: string) =>
-      `${question}: ${value}, ${label}`,
+    optionLabel: likertOptionLabel,
   },
   questions: [
     {
@@ -104,5 +99,3 @@ export const adhdScreening = {
     },
   ],
 } as const
-
-export type AdhdScreeningQuestionId = (typeof adhdScreening.questions)[number]['id']

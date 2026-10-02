@@ -2,8 +2,8 @@ import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import LikertQuestionnaire from '../../components/evaluation/LikertQuestionnaire.tsx'
-import { copy } from '../../content/copy.ts'
-import { adhdScreening } from '../../content/adhdScreening.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { adhdScreening } from '@content/questionnaires/adhdScreening.ts'
 import type { LikertQuestionnaireProps } from './types.ts'
 
 function AdhdScreeningQuestionnaire({
@@ -15,12 +15,7 @@ function AdhdScreeningQuestionnaire({
 }: LikertQuestionnaireProps) {
   return (
     <StudyPage ariaLabelledBy="adhd-title" variant="questionnaire">
-      <StudyHeading
-        eyebrow={adhdScreening.heading.eyebrow}
-        title={adhdScreening.heading.title}
-        intro={adhdScreening.heading.intro}
-        id="adhd-title"
-      />
+      <StudyHeading {...adhdScreening.heading} id="adhd-title" />
 
       <form
         className="study-form"
@@ -31,8 +26,6 @@ function AdhdScreeningQuestionnaire({
       >
         <LikertQuestionnaire
           modifier="adhd"
-          title={adhdScreening.title}
-          instructions={adhdScreening.instructions}
           scale={adhdScreening.scale}
           questions={adhdScreening.questions}
           values={values}
@@ -42,7 +35,7 @@ function AdhdScreeningQuestionnaire({
 
         <StudyActions>
           <button type="submit" className="primary-button" disabled={isSubmitting}>
-            {isSubmitting ? copy.actions.saving : copy.actions.continue}
+            {isSubmitting ? actionsCopy.saving : actionsCopy.continue}
           </button>
         </StudyActions>
       </form>

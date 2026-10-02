@@ -2,8 +2,8 @@ import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import LikertQuestionnaire from '../../components/evaluation/LikertQuestionnaire.tsx'
-import { copy } from '../../content/copy.ts'
-import { fam } from '../../content/fam.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { fam } from '@content/questionnaires/fam.ts'
 import type { LikertQuestionnaireProps } from './types.ts'
 
 function FAMQuestionnaire({
@@ -16,12 +16,7 @@ function FAMQuestionnaire({
 }: LikertQuestionnaireProps) {
   return (
     <StudyPage ariaLabelledBy="fam-title" variant="questionnaire">
-      <StudyHeading
-        eyebrow={copy.preIntervention.heading.eyebrow}
-        title={copy.preIntervention.heading.title}
-        intro={copy.preIntervention.heading.intro}
-        id="fam-title"
-      />
+      <StudyHeading {...fam.heading} id="fam-title" />
 
       <form
         className="study-form"
@@ -32,8 +27,6 @@ function FAMQuestionnaire({
       >
         <LikertQuestionnaire
           modifier="fam"
-          title={fam.title}
-          instructions={fam.instructions}
           scale={fam.scale}
           questions={fam.questions}
           values={values}
@@ -49,12 +42,12 @@ function FAMQuestionnaire({
               onClick={onBack}
               disabled={isSubmitting}
             >
-              {copy.actions.back}
+              {actionsCopy.back}
             </button>
           )}
 
           <button type="submit" className="primary-button" disabled={isSubmitting}>
-            {isSubmitting ? copy.actions.saving : copy.actions.continue}
+            {isSubmitting ? actionsCopy.saving : actionsCopy.continue}
           </button>
         </StudyActions>
       </form>

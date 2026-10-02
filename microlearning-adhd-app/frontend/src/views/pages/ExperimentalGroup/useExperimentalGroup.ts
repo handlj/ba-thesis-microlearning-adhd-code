@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from 'react'
 import { useQuizAnswers, type QuizAnswers } from '../../../components/quiz/useQuizAnswers.ts'
 import type { StudyVideoPlayerHandle } from '../../../components/video/StudyVideoPlayer.tsx'
-import { copy } from '../../../content/copy.ts'
+import { experimentalGroupCopy } from '@content/pages/experimentalGroup.ts'
 import { quizTopics, type QuizQuestion } from '../../../content/quiz.ts'
 import { useAsyncResource } from '../../../hooks/useAsyncResource.ts'
 import { useScrollToTop } from '../../../hooks/useScrollToTop.ts'
@@ -50,7 +50,7 @@ export function useExperimentalGroup({
 }: ExperimentalGroupProps) {
   const { data, isLoading, error } = useAsyncResource<ExperimentalVideo[]>(
     getExperimentalVideos,
-    copy.errors.experimentalVideosLoad,
+    experimentalGroupCopy.status.loadError,
   )
   const [currentIndex, setCurrentIndex] = useState(0)
   const [phase, setPhase] = useState<ExperimentalPhase>('video')

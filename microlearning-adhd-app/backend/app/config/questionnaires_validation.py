@@ -3,7 +3,8 @@ PANAS_ITEM_COUNT = 20
 FAM_ITEM_COUNT = 19
 UES_ITEM_COUNT = 31
 
-# Must match the frontend content files in frontend/src/content/*.ts and column names in models.py.
+# Must match the frontend content files in frontend/src/content/questionnaires/*.ts and column names
+# in models.py.
 # TODO: Add single source of truth
 ADHD_SCREENING_QUESTION_IDS = {f"adhd{index}" for index in range(1, ADHD_SCREENING_ITEM_COUNT + 1)}
 PANAS_QUESTION_IDS = {f"panas{index}" for index in range(1, PANAS_ITEM_COUNT + 1)}

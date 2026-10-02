@@ -8,7 +8,9 @@ import QuizOptionContent from './quiz/QuizOptionContent.tsx'
 import { renderInlineCode } from './quiz/renderInlineCode.tsx'
 import type { QuizAnswers } from './quiz/useQuizAnswers.ts'
 import { formatDuration } from './video/formatDuration.ts'
-import { copy } from '../content/copy.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { quizCopy } from '@content/common/quiz.ts'
+import { rewatchDialogCopy } from '@content/components/rewatchDialog.ts'
 import type { QuizQuestion } from '../content/quiz.ts'
 import { findChapterFromTimestamp, type VideoChapter } from '../content/videoChapters.ts'
 import type { QuizScore } from '../utils/quizScoring.ts'
@@ -72,7 +74,6 @@ function WrongQuestionInfo({
   selectedOptionIds,
   onSeek,
 }: WrongQuestionProps) {
-  const retry = copy.experimentalGroup.retry
   const isClickable = Boolean(onSeek)
 
   const header = (
@@ -87,7 +88,7 @@ function WrongQuestionInfo({
         {chapter ? (
           <span className="rewatch-review__hint" aria-hidden="true">
             {genericIcons.clock}
-            {retry.chapterHint(chapter.title, formatDuration(question.videoTimestamp))}
+            {rewatchDialogCopy.chapterHint(chapter.title, formatDuration(question.videoTimestamp))}
           </span>
         ) : null}
       </span>
@@ -143,14 +144,12 @@ function WrongQuestionInfo({
 }
 
 function CorrectQuestionMarker({ items }: { items: IndexedQuestion[] }) {
-  const retry = copy.experimentalGroup.retry
-
   return (
     <section className="rewatch-card" aria-hidden="true">
       <SectionHeader
         icon={genericIcons.check}
-        title={retry.reviewCorrectTitle}
-        note={retry.reviewCorrectNote(items.length)}
+        title={rewatchDialogCopy.reviewCorrectTitle}
+        note={rewatchDialogCopy.reviewCorrectNote(items.length)}
         tone="green"
       />
 
@@ -182,7 +181,6 @@ function RewatchDialog({
   const dialogRef = useRef<HTMLDialogElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const titleId = useId()
-  const retry = copy.experimentalGroup.retry
 
   useEffect(() => {
     const dialog = dialogRef.current
@@ -206,8 +204,8 @@ function RewatchDialog({
     : []
 
   const wrongNote = onSeekToQuestion
-    ? `${retry.reviewOptionsNote} ${retry.jumpStepCompact}`
-    : `${retry.reviewOptionsNote} ${retry.standardRewatchNote}`
+    ? `${rewatchDialogCopy.reviewOptionsNote} ${rewatchDialogCopy.jumpStepCompact}`
+    : `${rewatchDialogCopy.reviewOptionsNote} ${rewatchDialogCopy.standardRewatchNote}`
 
   return (
     <dialog
@@ -220,20 +218,25 @@ function RewatchDialog({
     >
       {score ? (
         <>
-          <p className="study-modal__eyebrow">{retry.attemptLabel(attempt, maxAttempts)}</p>
+          <p className="study-modal__eyebrow">
+            {rewatchDialogCopy.attemptLabel(attempt, maxAttempts)}
+          </p>
 
           <h2 id={titleId} className="study-modal__title" ref={titleRef} tabIndex={-1}>
-            {retry.dialogTitle}
+            {rewatchDialogCopy.dialogTitle}
           </h2>
 
           <div className="rewatch-sections">
             <section className="rewatch-card">
-              <SectionHeader icon={genericIcons.target} title={retry.reviewScoreTitle} />
+              <SectionHeader
+                icon={genericIcons.target}
+                title={rewatchDialogCopy.reviewScoreTitle}
+              />
 
               <div className="rewatch-score">
                 <p className="rewatch-score__value" aria-hidden="true">
                   {score.correctCount}
-                  <span className="rewatch-score__total">{retry.outOf(score.total)}</span>
+                  <span className="rewatch-score__total">{quizCopy.score.outOf(score.total)}</span>
                 </p>
 
                 <div className="rewatch-score__track" aria-hidden="true">
@@ -254,18 +257,18 @@ function RewatchDialog({
                       style={{
                         left: `${Math.min(100, Math.max(0, (passThreshold / score.total) * 100))}%`,
                       }}
-                      title={retry.thresholdMarkerLabel}
+                      title={rewatchDialogCopy.thresholdMarkerLabel}
                     />
                   ) : null}
                 </div>
 
                 <div className="rewatch-score__captions" aria-hidden="true">
-                  <p className="score-bar__caption">{retry.scoreCaption}</p>
+                  <p className="score-bar__caption">{quizCopy.score.caption}</p>
 
                   <p className="rewatch-score__threshold-caption">
                     <span className="rewatch-score__threshold-dot" />
 
-                    {retry.thresholdLabel(passThreshold, score.total)}
+                    {rewatchDialogCopy.thresholdLabel(passThreshold, score.total)}
                   </p>
                 </div>
               </div>
@@ -277,7 +280,7 @@ function RewatchDialog({
               <section className="rewatch-card">
                 <SectionHeader
                   icon={genericIcons.cross}
-                  title={retry.reviewWrongTitle}
+                  title={rewatchDialogCopy.reviewWrongTitle}
                   note={wrongNote}
                 />
 
@@ -307,11 +310,13 @@ function RewatchDialog({
                 {genericIcons.play}
               </span>
 
-              <span className="status-note__text">{withEmphasis(retry.nextStepsCompact)}</span>
+              <span className="status-note__text">
+                {withEmphasis(rewatchDialogCopy.nextStepsCompact)}
+              </span>
             </p>
 
             <button type="button" className="primary-button" onClick={onDismiss}>
-              {copy.actions.continue}
+              {actionsCopy.continue}
             </button>
           </div>
         </>

@@ -1,5 +1,9 @@
-import type { DemographicAnswers, DemographicQuestionId } from '../../../content/demographics'
-import { DEMOGRAPHIC_QUESTIONS, demographicsCopy } from '../../../content/demographics'
+import {
+  DEMOGRAPHIC_QUESTIONS,
+  demographicsCopy,
+  type DemographicAnswers,
+  type DemographicQuestionId,
+} from '@content/pages/demographics.ts'
 import { getAppConfig } from '../../../utils/config'
 
 export type DemographicValidationResult = { valid: true } | { valid: false; error: string }

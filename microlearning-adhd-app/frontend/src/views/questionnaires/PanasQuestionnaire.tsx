@@ -2,8 +2,8 @@ import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
 import LikertQuestionnaire from '../../components/evaluation/LikertQuestionnaire.tsx'
-import { copy } from '../../content/copy.ts'
-import { panas } from '../../content/panas.ts'
+import { actionsCopy } from '@content/common/actions.ts'
+import { panas } from '@content/questionnaires/panas.ts'
 import type { LikertQuestionnaireProps } from './types.ts'
 
 function PanasQuestionnaire({
@@ -16,12 +16,7 @@ function PanasQuestionnaire({
 }: LikertQuestionnaireProps) {
   return (
     <StudyPage ariaLabelledBy="panas-title" variant="questionnaire">
-      <StudyHeading
-        eyebrow={panas.heading.eyebrow}
-        title={panas.heading.title}
-        intro={panas.heading.intro}
-        id="panas-title"
-      />
+      <StudyHeading {...panas.heading} id="panas-title" />
 
       <form
         className="study-form"
@@ -32,8 +27,6 @@ function PanasQuestionnaire({
       >
         <LikertQuestionnaire
           modifier="panas"
-          title={panas.title}
-          instructions={panas.instructions}
           scale={panas.scale}
           questions={panas.questions}
           values={values}
@@ -49,11 +42,11 @@ function PanasQuestionnaire({
               onClick={onBack}
               disabled={isSubmitting}
             >
-              {copy.actions.back}
+              {actionsCopy.back}
             </button>
           )}
           <button type="submit" className="primary-button" disabled={isSubmitting}>
-            {isSubmitting ? copy.actions.saving : copy.actions.continue}
+            {isSubmitting ? actionsCopy.saving : actionsCopy.continue}
           </button>
         </StudyActions>
       </form>

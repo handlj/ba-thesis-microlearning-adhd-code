@@ -1,14 +1,10 @@
+import { likertOptionLabel, QUESTIONNAIRE_TITLE } from './shared.ts'
+
 export const panas = {
-  title: '',
   heading: {
-    eyebrow: '',
-    title: 'Bitte füllen Sie den Fragebogen aus',
+    title: QUESTIONNAIRE_TITLE,
     intro:
       'Nun möchten wir gerne von Ihnen wissen, wie Sie sich fühlen. Die folgenden Wörter beschreiben unterschiedliche Gefühle und Empfindungen.\n\n Lesen Sie jedes Wort und tragen Sie dann in die Skala neben jedem Wort die Intensität ein. Sie haben die Möglichkeit, zwischen fünf Abstufungen zu wählen.\n\n Geben Sie bitte an, wie Sie sich **im Moment** fühlen.',
-  },
-  instructions: '',
-  actions: {
-    proceed: 'Fortfahren',
   },
   validation: {
     allQuestions: 'Bitte beantworten Sie alle Wörter, bevor Sie fortfahren.',
@@ -22,8 +18,7 @@ export const panas = {
       '4': 'erheblich',
       '5': 'äußerst',
     },
-    optionLabel: (question: string, value: string, label: string) =>
-      `${question}: ${value}, ${label}`,
+    optionLabel: likertOptionLabel,
   },
   questions: [
     {
@@ -108,5 +103,3 @@ export const panas = {
     },
   ],
 } as const
-
-export type PanasQuestionId = (typeof panas.questions)[number]['id']

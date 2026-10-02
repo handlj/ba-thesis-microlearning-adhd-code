@@ -3,7 +3,8 @@ import StudyActions from '../../components/StudyActions.tsx'
 import StudyFacts from '../../components/StudyFacts.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
-import { copy } from '../../content/copy'
+import { studyProgressCopy } from '@content/components/studyProgress.ts'
+import { welcomeCopy } from '@content/pages/welcome.ts'
 import { STUDY_PHASES } from '../../shell/studyPhases.ts'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
 
@@ -12,21 +13,16 @@ type WelcomeProps = { onStart: () => void }
 function Welcome({ onStart }: WelcomeProps) {
   return (
     <StudyPage ariaLabelledBy="study-title" variant="landing">
-      <StudyHeading
-        eyebrow={copy.welcome.heading.eyebrow}
-        title={copy.welcome.heading.title}
-        intro={copy.welcome.heading.intro}
-        id="study-title"
-      />
+      <StudyHeading {...welcomeCopy.heading} id="study-title" />
 
-      <StudyFacts facts={copy.welcome.facts} />
+      <StudyFacts facts={welcomeCopy.facts} />
 
       <div className="study-steps">
-        <h2>{copy.welcome.steps.title}</h2>
+        <h2>{welcomeCopy.steps.title}</h2>
 
         <ol className="study-steps__list">
           {STUDY_PHASES.map((phase) => {
-            const { description } = copy.studyProgress.phases[phase]
+            const { description } = studyProgressCopy.phases[phase]
 
             return (
               <li key={phase} className="study-steps__item">
@@ -38,19 +34,19 @@ function Welcome({ onStart }: WelcomeProps) {
       </div>
 
       <div className="study-steps reward-card">
-        <h2>{copy.welcome.reward.title}</h2>
+        <h2>{welcomeCopy.reward.title}</h2>
 
-        <p>{copy.welcome.reward.text}</p>
+        <p>{welcomeCopy.reward.text}</p>
       </div>
 
       <StudyActions>
         <button type="button" className="primary-button" onClick={onStart}>
-          {copy.actions.startStudy}
+          {welcomeCopy.actions.start}
         </button>
 
         <p className="status-note">
           <span className="status-note__icon">{genericIcons.lock}</span>
-          {copy.welcome.status.noDataCollected}
+          {welcomeCopy.status.noDataCollected}
         </p>
       </StudyActions>
     </StudyPage>

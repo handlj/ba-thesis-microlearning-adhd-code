@@ -11,6 +11,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@assets': fileURLToPath(new URL('./assets', import.meta.url)),
+      '@content': fileURLToPath(new URL('./src/content', import.meta.url)),
     },
   },
   server: {

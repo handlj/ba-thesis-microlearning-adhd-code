@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { QuizAnswers } from '../components/quiz/useQuizAnswers'
-import { copy } from '../content/copy'
+import { errorsCopy } from '@content/common/errors.ts'
 import { quizTopics } from '../content/quiz'
 import { postQuizAnswers, type QuizAnswerSubmission } from '../services'
 import type { GroupAssignment, Subgroup } from '../utils/groupAssignment'
@@ -25,7 +25,7 @@ export function useQuizResults(
     if (!participantId) return
 
     void postQuizAnswers(participantId, submission).catch((requestError) => {
-      console.error(copy.errors.quizSave, requestError)
+      console.error(errorsCopy.quizSave, requestError)
       // TODO: Surface error, also timout possible.
     })
   }

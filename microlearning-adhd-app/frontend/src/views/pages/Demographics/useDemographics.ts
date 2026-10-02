@@ -1,13 +1,12 @@
 import type { FormAnswerValue, FormSectionDefinition } from '../../../components/forms'
-import type { DemographicQuestionId } from '../../../content/demographics'
 import {
   DEMOGRAPHIC_QUESTIONS,
   DEMOGRAPHIC_SECTIONS,
-  demographicFormQuestions,
-  demographicQuestionSections,
-} from '../../../content/demographics'
+  type DemographicQuestionId,
+} from '@content/pages/demographics.ts'
 import { getAppConfig } from '../../../utils/config'
 import type { DemographicProps } from './index'
+import { demographicFormQuestions, demographicQuestionSections } from './questions.ts'
 import { reconcileDemographicAnswers, resolveDemographicQuestionVisibility } from './rules'
 
 export function useDemographics({ values, onChange }: DemographicProps) {
