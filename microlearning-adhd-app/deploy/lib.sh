@@ -17,6 +17,8 @@ VENV_UVICORN="$BACKEND_DIR/.venv/bin/uvicorn"
 
 # Backend listens only on loopback; nginx is the public entrypoint.
 BACKEND_BIND_HOST="${BACKEND_BIND_HOST:-127.0.0.1}"
+NGINX_ACCESS_LOG="${NGINX_ACCESS_LOG:-off}"
+BACKEND_ACCESS_LOG="${BACKEND_ACCESS_LOG:-off}"
 
 require_cmd() {
   if ! command -v "$1" >/dev/null 2>&1; then
@@ -155,6 +157,9 @@ write_nginx_config() {
   listen_directive="$(nginx_listen_directive "$BIND_HOST" "$frontend_port")"
   error_log="$(log_file_for nginx-error)"
   access_log="$(log_file_for nginx-access)"
+  if [[ "$NGINX_ACCESS_LOG" != "on" ]]; then
+    access_log="off"
+  fi
   pid_file="$(pid_file_for nginx)"
 
   sed \
@@ -243,17 +248,21 @@ start() {
   nginx_pid_file="$(pid_file_for nginx)"
   nginx_config="$(nginx_config_file)"
 
+  local uvicorn_args=(main:app --host "$BACKEND_BIND_HOST" --port "$backend_port")
+  if [[ "$BACKEND_ACCESS_LOG" != "on" ]]; then
+    uvicorn_args+=(--no-access-log)
+  fi
+
   echo "Starting study:"
   echo "  Participant URL: $(frontend_origin)"
   echo "  Backend:         http://${BACKEND_BIND_HOST}:${backend_port} (loopback only)"
+  echo "  Access logs:     nginx=${NGINX_ACCESS_LOG} backend=${BACKEND_ACCESS_LOG}"
 
   (
     cd "$BACKEND_DIR"
     STUDY_ENV=production \
     CORS_ORIGINS="$cors_origin" \
-      nohup "$VENV_UVICORN" main:app \
-        --host "$BACKEND_BIND_HOST" \
-        --port "$backend_port" \
+      nohup "$VENV_UVICORN" "${uvicorn_args[@]}" \
         >"$backend_log" 2>&1 &
     echo $! >"$backend_pid_file"
   )
