@@ -20,3 +20,5 @@ testing
 
 study_db_export_*
 voucher-codes-export.csv
+
+microlearning-adhd-app/deploy/run/
