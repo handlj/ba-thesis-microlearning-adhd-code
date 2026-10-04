@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Stop all condition backends/frontends started by deploy/start.sh.
+# Stop the backend and nginx started by deploy/start.sh.
 set -euo pipefail
 
 DEPLOY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -9,8 +9,6 @@ source "$DEPLOY_DIR/lib.sh"
 load_hosts_config
 ensure_runtime_dirs
 
-for condition in "${CONDITIONS[@]}"; do
-  stop_condition "$condition"
-done
+stop
 
 echo "All deployment processes stopped."
