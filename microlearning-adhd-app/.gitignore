@@ -23,3 +23,5 @@ voucher-codes-export.csv
 
 deploy/run/
 deploy/hosts.conf
+
+docs
