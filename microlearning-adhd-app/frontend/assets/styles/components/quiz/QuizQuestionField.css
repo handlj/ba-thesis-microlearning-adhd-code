@@ -94,11 +94,6 @@
   color: #256b4c;
 }
 
-.quiz-question__number--frozen svg {
-  width: 18px;
-  height: 18px;
-}
-
 .choice-option.choice-option--frozen {
   cursor: default;
   border-color: rgba(47, 125, 91, 0.3);

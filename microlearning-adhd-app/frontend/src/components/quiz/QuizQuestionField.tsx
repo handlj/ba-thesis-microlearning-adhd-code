@@ -38,15 +38,7 @@ function QuizQuestionField({
         className="question-field__label 
               quiz-question__prompt"
       >
-        {typeof index === 'number' ? (
-          isFrozen ? (
-            <span className="quiz-question__number quiz-question__number--frozen">
-              {genericIcons.check}
-            </span>
-          ) : (
-            <span className="quiz-question__number">{index}</span>
-          )
-        ) : null}
+        {typeof index === 'number' ? <span className="quiz-question__number">{index}</span> : null}
 
         <span>{renderInlineCode(question.prompt)}</span>
       </legend>
