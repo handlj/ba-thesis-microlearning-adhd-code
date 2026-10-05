@@ -12,7 +12,7 @@
 # BIND host: 0.0.0.0 listens on all interfaces (typical on a Spark).
 # PUBLIC host: address participants use in the browser (shown in startup logs).
 
-# Optional public IP/hostname for participant URLs and CORS.
+# Optional public IP/hostname for participant URLs.
 # SPARK_PUBLIC_IP=10.0.0.42
 
 BIND_HOST=0.0.0.0
