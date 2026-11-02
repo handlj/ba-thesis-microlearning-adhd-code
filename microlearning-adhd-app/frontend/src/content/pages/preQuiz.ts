@@ -8,6 +8,6 @@ export const preQuizCopy = {
     eyebrow: 'Hinweis',
     title: 'Bevor Sie beginnen',
     content:
-      'Dieses Quiz ist ein **Vortest** um Ihre aktuellen Kenntnisse zu erfassen. Beachten Sie daher folgende Punkte:\n\n - Es ist völlig normal, wenn Sie einige der Fragen nicht korrekt beantworten können. Es steht bei der Aufgabe nicht Ihre persönliche Leistung im Vordergrund, sondern die Nützlichkeit der Lernapplikation. Bitte beantworten Sie die Fragen selbstständig und ohne die Unterstützung von KI-Tools (z. B. ChatGPT).',
+      'Dieses Quiz ist ein **Vortest** um Ihre aktuellen Kenntnisse zu erfassen. Beachten Sie daher folgende Punkte:\n\n - Es ist völlig normal, wenn Sie einige der Fragen nicht korrekt beantworten können.\n - Es steht bei der Aufgabe nicht Ihre persönliche Leistung im Vordergrund, sondern die Nützlichkeit der Lernapplikation.\n -  Bitte beantworten Sie die Fragen selbstständig und ohne die Unterstützung von KI-Tools (z. B. ChatGPT).',
   },
 } as const

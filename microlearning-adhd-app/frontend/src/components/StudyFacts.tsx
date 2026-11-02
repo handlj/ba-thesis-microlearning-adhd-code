@@ -1,5 +1,4 @@
 import '@assets/styles/components/StudyFacts.css'
-import type { ReactNode } from 'react'
 import { genericIcons } from '@assets/icons/genericIcons.tsx'
 
 export type StudyFact = {
@@ -10,10 +9,9 @@ export type StudyFact = {
 
 type StudyFactsProps = {
   facts: readonly StudyFact[]
-  children?: ReactNode
 }
 
-function StudyFacts({ facts, children }: StudyFactsProps) {
+function StudyFacts({ facts }: StudyFactsProps) {
   return (
     <div className="study-facts">
       {facts.map((fact) => (
@@ -27,8 +25,6 @@ function StudyFacts({ facts, children }: StudyFactsProps) {
           <p className="study-fact__value">{fact.value}</p>
         </div>
       ))}
-
-      {children}
     </div>
   )
 }

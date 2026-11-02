@@ -295,7 +295,7 @@ function StudyFlow() {
       <ThankYou
         voucherCode={voucherCode}
         voucherStatus={voucherStatus}
-        onRetryVoucher={() => requestVoucher(participantId)}
+        onRequestVoucher={() => requestVoucher(participantId)}
       />
     ),
   }

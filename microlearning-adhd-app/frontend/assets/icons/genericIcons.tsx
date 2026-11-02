@@ -57,12 +57,6 @@ export const genericIcons: Record<string, ReactNode> = {
       <path d="M9 8l-4 4 4 4M5 12h9" {...strokeProps} />
     </svg>
   ),
-  mail: (
-    <svg viewBox="0 0 24 24" width="18" height="18">
-      <rect x="3" y="5.5" width="18" height="13" rx="2.6" {...strokeProps} />
-      <path d="M3.8 7.5l8.2 5.8 8.2-5.8" {...strokeProps} />
-    </svg>
-  ),
   help: (
     <svg viewBox="0 0 24 24" width="18" height="18">
       <circle cx="12" cy="12" r="9" {...strokeProps} />
@@ -81,12 +75,6 @@ export const genericIcons: Record<string, ReactNode> = {
     <svg viewBox="0 0 24 24" width="18" height="18">
       <rect x="8.5" y="8.5" width="11.5" height="11.5" rx="2.4" {...strokeProps} />
       <path d="M15.5 8.5V6.4A2.4 2.4 0 0 0 13.1 4H6.4A2.4 2.4 0 0 0 4 6.4v6.7a2.4 2.4 0 0 0 2.4 2.4h2.1" {...strokeProps} />
-    </svg>
-  ),
-  pin: (
-    <svg viewBox="0 0 24 24" width="18" height="18">
-      <path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" {...strokeProps} />
-      <circle cx="12" cy="10" r="2.4" {...strokeProps} />
     </svg>
   ),
 }
