@@ -1,8 +1,6 @@
-import { QUESTIONNAIRE_TITLE } from './shared.ts'
-
 export const fam = {
   heading: {
-    title: QUESTIONNAIRE_TITLE,
+    title: 'Fragebogen zur aktuellen Motivation',
     intro:
       /* Original Instruction Text: 
         Bevor wir starten, wollen wir wissen, wie deine momentane Einstellung zu der beschriebenen Aufgabe ist. Dazu findest du auf dieser Seite  Aussagen. Kreuze bitte jene Zahl an, die auf dich am Besten passt.
@@ -44,7 +42,7 @@ export const fam = {
     },
     {
       id: 'fam7',
-      text: 'Nach dem Lesen der Instruktion erscheint mir die Aufgabe sehr interessant.',
+      text: 'Nach dem Hören der Instruktion erscheint mir die Aufgabe sehr interessant.',
     },
     {
       id: 'fam8',

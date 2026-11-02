@@ -1,3 +1,4 @@
+import { genericIcons } from '@assets/icons/genericIcons.tsx'
 import {
   StudyForm,
   type FormAnswerValue,
@@ -85,6 +86,16 @@ function FollowUpQuestionnaire({
             <button type="submit" className="primary-button" disabled={!isComplete || isSubmitting}>
               {isSubmitting ? actionsCopy.saving : followUpCopy.actions.complete}
             </button>
+
+            <p className="status-note">
+              <span className="status-note__icon">{genericIcons.gift}</span>
+
+              <span className="status-note__text">
+                {wantsFeedback === 'yes'
+                  ? followUpCopy.status.reward.wantsFeedback
+                  : followUpCopy.status.reward.noFeedback}
+              </span>
+            </p>
           </StudyActions>
         }
       />

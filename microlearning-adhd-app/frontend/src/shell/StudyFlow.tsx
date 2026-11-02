@@ -296,7 +296,6 @@ function StudyFlow() {
         voucherCode={voucherCode}
         voucherStatus={voucherStatus}
         onRetryVoucher={() => requestVoucher(participantId)}
-        onReturnToStart={() => goTo('welcome')}
       />
     ),
   }

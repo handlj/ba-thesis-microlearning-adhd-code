@@ -14,9 +14,9 @@ export const experimentalGroupCopy = {
   status: {
     allAnswered: 'Alle Fragen beantwortet. Sie können fortfahren.',
     answerAllQuestions: 'Bitte beantworten Sie alle Fragen, um fortzufahren.',
-    loading: 'Experimentelle Videos werden vom Backend geladen...',
-    loadError: 'Die experimentellen Videos konnten nicht geladen werden.',
-    noVideos: 'Es sind noch keine experimentellen Videos verfügbar.',
+    loading: 'Videos werden vom Backend geladen...',
+    loadError: 'Die Videos konnten nicht geladen werden.',
+    noVideos: 'Es sind noch keine Videos verfügbar.',
     rewatch: 'Sie können das Video erneut ansehen oder das Quiz sofort neu starten.',
   },
   actions: {

@@ -1,5 +1,5 @@
 import '@assets/styles/pages/Consent.css'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import StudyActions from '../../components/StudyActions.tsx'
 import StudyHeading from '../../components/StudyHeading.tsx'
 import StudyPage from '../../components/StudyPage.tsx'
@@ -24,6 +24,19 @@ function Consent({
   onProceed,
   onBack,
 }: ConsentProps) {
+  const [agreedText, setAgreedText] = useState(agreed)
+  const [agreedAi, setAgreedAi] = useState(agreed)
+
+  const changeAgreedText = (nextAgreed: boolean) => {
+    setAgreedText(nextAgreed)
+    onAgreementChange(nextAgreed && agreedAi)
+  }
+
+  const changeAgreedAi = (nextAgreed: boolean) => {
+    setAgreedAi(nextAgreed)
+    onAgreementChange(agreedText && nextAgreed)
+  }
+
   return (
     <StudyPage variant="consent">
       <StudyHeading {...consentCopy.heading} />
@@ -44,11 +57,21 @@ function Consent({
       <label className="consent__agreement">
         <input
           type="checkbox"
-          checked={agreed}
-          onChange={(event) => onAgreementChange(event.target.checked)}
+          checked={agreedText}
+          onChange={(event) => changeAgreedText(event.target.checked)}
         />
 
-        <span>{consentCopy.agreement}</span>
+        <span>{consentCopy.agreement.text}</span>
+      </label>
+
+      <label className="consent__agreement">
+        <input
+          type="checkbox"
+          checked={agreedAi}
+          onChange={(event) => changeAgreedAi(event.target.checked)}
+        />
+
+        <span>{consentCopy.agreement.ai}</span>
       </label>
 
       <Message variant="error">{error}</Message>

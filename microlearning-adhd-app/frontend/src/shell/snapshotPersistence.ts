@@ -1,11 +1,11 @@
-import { PAGE_ORDER, type Page } from './pageOrder'
 import type { GroupAssignment, Subgroup } from '../utils/groupAssignment'
-import { blankStudyAnswers, type StudyAnswers } from './studyAnswers'
-import { blankQuizResults, type QuizResults } from './quizResults'
 import { setStudySubgroup } from '../utils/videoFeatures'
+import { PAGE_ORDER, type Page } from './pageOrder'
+import { blankQuizResults, type QuizResults } from './quizResults'
+import { blankStudyAnswers, type StudyAnswers } from './studyAnswers'
 
 const SESSION_STORAGE_KEY = 'microlearning-study-snapshot'
-const SNAPSHOT_VERSION = 1
+const SNAPSHOT_VERSION = 2
 const SNAPSHOT_EXPIRATION_MS = 1000 * 60 * 60 * 2 // 2 hours
 
 export type Snapshot = {

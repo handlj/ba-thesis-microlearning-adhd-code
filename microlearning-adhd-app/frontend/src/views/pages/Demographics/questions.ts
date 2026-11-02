@@ -5,6 +5,7 @@ import {
   type DemographicQuestionId,
   type DemographicSectionId,
 } from '@content/pages/demographics.ts'
+import { visibilityRules } from './rules.ts'
 
 export const demographicQuestionSections = Object.fromEntries(
   DEMOGRAPHIC_QUESTIONS.map((q) => [q.id, q.section]),
@@ -13,10 +14,13 @@ export const demographicQuestionSections = Object.fromEntries(
 // Runtime Validation on Self-Gated Visibility Conditions of Demographic Questions
 const alreadyProcessedDemographicQuestions = new Set<DemographicQuestionId>()
 for (const question of DEMOGRAPHIC_QUESTIONS) {
-  if (question.visibleIf && !alreadyProcessedDemographicQuestions.has(question.visibleIf.field)) {
-    throw new Error(
-      `Demographic question "${question.id}" self-gates its visibility condition via "${question.visibleIf.field}"`,
-    )
+  const gatingRules = question.visibleIf ? visibilityRules(question.visibleIf) : []
+  for (const { field } of gatingRules) {
+    if (!alreadyProcessedDemographicQuestions.has(field)) {
+      throw new Error(
+        `Demographic question "${question.id}" self-gates its visibility condition via "${field}"`,
+      )
+    }
   }
   alreadyProcessedDemographicQuestions.add(question.id)
 }

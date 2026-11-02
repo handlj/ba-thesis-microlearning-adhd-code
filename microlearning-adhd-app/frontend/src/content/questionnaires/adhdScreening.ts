@@ -1,8 +1,6 @@
-import { QUESTIONNAIRE_TITLE } from './shared.ts'
-
 export const adhdScreening = {
   heading: {
-    title: QUESTIONNAIRE_TITLE,
+    title: 'ADHS Screening Fragebogen',
     intro:
       'Bitte beantworten Sie die nachstehenden Fragen, indem Sie sich nach jedem angegebenen Kriterium anhand der Skala rechts auf der Seite bewerten.\n\n Kreuzen Sie als Antwort auf jede Frage das Kästchen an, das am besten beschreibt, wie Sie sich **in den letzten 6 Monaten** gefühlt und verhalten haben.',
   },

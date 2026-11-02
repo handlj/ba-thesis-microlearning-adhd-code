@@ -1,8 +1,6 @@
-import { QUESTIONNAIRE_TITLE } from './shared.ts'
-
 export const ues = {
   heading: {
-    title: QUESTIONNAIRE_TITLE,
+    title: 'User Engagement Skala (UES)',
     intro: 'Bitte geben Sie an, wie sehr Sie jeder Aussage zustimmen oder sie ablehnen.',
   },
   validation: {

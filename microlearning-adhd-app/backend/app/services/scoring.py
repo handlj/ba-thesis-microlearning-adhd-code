@@ -79,7 +79,7 @@ def score_prior_programming_experience(
 
     The scoring is based on the questions for general programming ability and
     python programming ability. Answers are scored as follows:
-    - 0: No experience
+    - 0: No experience (Novice)
     - 1: "Anfänger*in" (Beginner)
     - 2: "Fortgeschrittene*r" (Intermediate)
     - 3: "Expert*in" (Expert)
@@ -90,8 +90,7 @@ def score_prior_programming_experience(
 
     # Keys are type-sensitive, have to match frontend/src/content/pages/demographics.ts
     ability_score_mapping = {
-        "no-python-experience": 0,
-        "no-experience": 0,
+        "novice": 0,
         "beginner": 1,
         "intermediate": 2,
         "expert": 3,

@@ -28,8 +28,10 @@ export const consentCopy = {
       },
     ],
   },
-  agreement:
-    'Ich habe die vorstehende Einverständniserklärung gelesen, verstanden und stimme ihr zu.',
+  agreement: {
+    text: 'Ich habe die vorstehende Einverständniserklärung gelesen, verstanden und stimme ihr zu.',
+    ai: 'Ich bestätige die Aufgaben eigenständig und ohne Hilfe von KI-Tools zu erledigen.',
+  },
   actions: {
     proceed: 'Fortfahren',
   },

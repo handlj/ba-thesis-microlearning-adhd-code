@@ -11,7 +11,7 @@ export const controlGroupCopy = {
     },
   },
   status: {
-    loading: 'Kontrollvideo wird geladen...',
-    loadError: 'Das Kontrollvideo konnte nicht geladen werden.',
+    loading: 'Video wird geladen...',
+    loadError: 'Das Video konnte nicht geladen werden.',
   },
 } as const

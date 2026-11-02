@@ -9,7 +9,8 @@ export const followUpCopy = {
       placeholder: 'Teilen Sie einen kurzen Kommentar',
     },
     wantsFeedback: {
-      label: 'Möchten Sie eine Rückmeldung zu Ihren Ergebnissen in den Coding-Quizzen erhalten?',
+      label:
+        'Möchten Sie im nächsten Fenster eine Rückmeldung zu Ihren Ergebnissen in den Coding-Quizzes erhalten?',
       options: {
         yes: 'Ja',
         no: 'Nein',
@@ -18,6 +19,13 @@ export const followUpCopy = {
   },
   actions: {
     complete: 'Studie abschließen',
+  },
+  status: {
+    reward: {
+      wantsFeedback:
+        'Nach der Rückmeldung zu Ihren Ergebnissen erhalten Sie den Code für Ihre Aufwandsentschädigung.',
+      noFeedback: 'Im nächsten Fenster erhalten Sie den Code für Ihre Aufwandsentschädigung.',
+    },
   },
   errors: {
     save: 'Der Post-Interventions-Fragebogen konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.',

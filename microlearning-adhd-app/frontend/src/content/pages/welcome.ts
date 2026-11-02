@@ -21,8 +21,8 @@ export const welcomeCopy = {
     title: 'Ihr Ablauf',
   },
   reward: {
-    title: 'Belohnung',
-    text: 'Nach erfolgreichem Abschluss dieser Studie erhalten Sie einen Code, mit dem Sie sich eine Belohnung abholen können. Mehr dazu nach der Studie.',
+    title: 'Aufwandsentschädigung',
+    text: 'Nach erfolgreichem Abschluss dieser Studie erhalten Sie eine Aufwandsentschädigung in Form eines 10€ Stadt-Graz Gutscheins. Diesen können Sie sich am Institute of Human-Centred Computing abholen mittels eines Codes, den Sie am Ende der Studie erhalten.',
   },
   status: {
     noDataCollected: 'Ohne Ihr Einverständnis werden keine Daten erhoben.',

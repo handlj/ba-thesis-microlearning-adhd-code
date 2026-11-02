@@ -3,10 +3,16 @@ import {
   demographicsCopy,
   type DemographicAnswers,
   type DemographicQuestionId,
+  type VisibilityCondition,
+  type VisibilityRule,
 } from '@content/pages/demographics.ts'
 import { getAppConfig } from '../../../utils/config'
 
 export type DemographicValidationResult = { valid: true } | { valid: false; error: string }
+
+export function visibilityRules(condition: VisibilityCondition): readonly VisibilityRule[] {
+  return 'anyOf' in condition ? condition.anyOf : [condition]
+}
 
 export function resolveDemographicQuestionVisibility(
   answers: DemographicAnswers,
@@ -17,8 +23,9 @@ export function resolveDemographicQuestionVisibility(
     const visibilityCondition = question.visibleIf
     const isQuestionVisible =
       !visibilityCondition ||
-      (visibleQuestions.has(visibilityCondition.field) &&
-        visibilityCondition.equals.includes(answers[visibilityCondition.field]))
+      visibilityRules(visibilityCondition).some(
+        (rule) => visibleQuestions.has(rule.field) && rule.equals.includes(answers[rule.field]),
+      )
 
     if (isQuestionVisible) visibleQuestions.add(question.id)
   }

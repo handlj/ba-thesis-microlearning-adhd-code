@@ -15,9 +15,9 @@ export const thankYouCopy = {
   voucher: {
     label: 'Gutscheincode',
     instructions:
-      'Notieren Sie sich diesen Code, um eine Belohnung zu erhalten. Diese können Sie sich bei der Studienleitung an der unten angeführten Adresse abholen.',
+      'Notieren Sie sich diesen Code, um eine Aufwandsentschädigung zu erhalten. Diese können Sie sich bei der Studienleitung an der unten angeführten Adresse abholen.',
     address:
-      'Büro von Lisa Berger, Institute of Human-Centered Computing (HCC)\n 8010 Graz, Sandgasse 36, 3. Stock',
+      'Büro von Lisa Berger, Institute of Human-Centred Computing (HCC)\n 8010 Graz, Sandgasse 36, 3. Stock - Büronummer DH03 142\n Abholzeiten: Mo-Fr 08:00-15:00 Uhr',
     copyHint: 'Zum Kopieren klicken',
     copied: 'Kopiert!',
     loading: 'Ihr Code wird erstellt …',
@@ -31,8 +31,5 @@ export const thankYouCopy = {
   },
   contact: {
     label: 'Rückfragen zur Studie',
-  },
-  actions: {
-    returnToStart: 'Zurück zum Start',
   },
 } as const

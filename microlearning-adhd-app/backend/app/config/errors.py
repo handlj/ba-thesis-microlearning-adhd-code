@@ -12,6 +12,7 @@ ERROR_SUBGROUP_ASSIGNMENT_MISMATCH = "Subgroup does not match the assignment."
 ERROR_NAIVE_TIMESTAMP_WRITE = "Naive timestamp write detected. Use UTC-aware timestamps."
 
 ERROR_INVALID_ADHD_DIAGNOSIS = "Invalid ADHD diagnosis status."
+ERROR_INCONSISTENT_CONDITIONAL_FIELD = "{field_name} does not match the answers it depends on."
 
 ERROR_VOUCHER_NOT_ELIGIBLE = "A voucher code is only issued after the study has been completed."
 ERROR_VOUCHER_ALREADY_ISSUED = "A voucher code has already been issued for this participant."

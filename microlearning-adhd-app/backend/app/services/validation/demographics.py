@@ -1,6 +1,7 @@
 from fastapi import HTTPException
 
 from app.config.demographics_validation import (
+    CONDITIONAL_FIELDS,
     MAX_AGE,
     MIN_AGE,
     VALID_ADHD_DIAGNOSES,
@@ -10,13 +11,14 @@ from app.config.demographics_validation import (
     VALID_DEVICES,
     VALID_GENDERS,
     VALID_GENERAL_PROGRAMMING_ABILITY,
-    VALID_GENERAL_PROGRAMMING_EXPERIENCE,
     VALID_HAS_OTHER_DIAGNOSES,
     VALID_HIGHEST_EDUCATION,
+    VALID_OTHER_PROGRAMMING_EXPERIENCE,
     VALID_PYTHON_PROGRAMMING_ABILITY,
     VALID_PYTHON_PROGRAMMING_EXPERIENCE,
 )
 from app.config.errors import (
+    ERROR_INCONSISTENT_CONDITIONAL_FIELD,
     ERROR_INVALID_ADHD_DIAGNOSIS,
     ERROR_INVALID_AGE,
 )
@@ -101,24 +103,6 @@ def _validate_has_other_diagnoses(has_other: str) -> str:
     return has_other
 
 
-def _validate_general_programming_experience(experience: str) -> str:
-    if experience not in VALID_GENERAL_PROGRAMMING_EXPERIENCE:
-        raise HTTPException(
-            status_code=HTTP_400_BAD_REQUEST,
-            detail=f"Invalid general programming experience: {experience}",
-        )
-    return experience
-
-
-def _validate_general_programming_ability(ability: str) -> str:
-    if ability not in VALID_GENERAL_PROGRAMMING_ABILITY:
-        raise HTTPException(
-            status_code=HTTP_400_BAD_REQUEST,
-            detail=f"Invalid general programming ability: {ability}",
-        )
-    return ability
-
-
 def _validate_python_programming_experience(experience: str) -> str:
     if experience not in VALID_PYTHON_PROGRAMMING_EXPERIENCE:
         raise HTTPException(
@@ -137,6 +121,41 @@ def _validate_python_programming_ability(ability: str) -> str:
     return ability
 
 
+def _validate_other_programming_experience(experience: str) -> str:
+    if experience not in VALID_OTHER_PROGRAMMING_EXPERIENCE:
+        raise HTTPException(
+            status_code=HTTP_400_BAD_REQUEST,
+            detail=f"Invalid other programming experience: {experience}",
+        )
+    return experience
+
+
+def _validate_general_programming_ability(ability: str) -> str:
+    if ability not in VALID_GENERAL_PROGRAMMING_ABILITY:
+        raise HTTPException(
+            status_code=HTTP_400_BAD_REQUEST,
+            detail=f"Invalid general programming ability: {ability}",
+        )
+    return ability
+
+
+def _validate_conditional_fields(
+    demographics: DemographicsSchemas.DemographicsRequest,
+) -> None:
+    for field_name, rule in CONDITIONAL_FIELDS.items():
+        is_visible = any(
+            getattr(demographics, gating_field) in allowed_values
+            for gating_field, allowed_values in rule["visible_if"].items()
+        )
+        holds_hidden_value = getattr(demographics, field_name).strip() == rule["hidden_value"]
+
+        if is_visible == holds_hidden_value:
+            raise HTTPException(
+                status_code=HTTP_400_BAD_REQUEST,
+                detail=ERROR_INCONSISTENT_CONDITIONAL_FIELD.format(field_name=field_name),
+            )
+
+
 def validate_demographics(
     demographics: DemographicsSchemas.DemographicsRequest,
 ) -> DemographicsSchemas.DemographicsRequest:
@@ -149,15 +168,16 @@ def validate_demographics(
     _validate_adhd_official_diagnosis(demographics.adhd_official_diagnosis)
     _validate_adhd_medication(demographics.adhd_medication)
     _validate_has_other_diagnoses(demographics.has_other_diagnoses)
-    _validate_general_programming_experience(demographics.general_programming_experience)
-    _validate_general_programming_ability(demographics.general_programming_ability)
     _validate_python_programming_experience(demographics.python_programming_experience)
     _validate_python_programming_ability(demographics.python_programming_ability)
+    _validate_other_programming_experience(demographics.other_programming_experience)
+    _validate_general_programming_ability(demographics.general_programming_ability)
 
+    require_non_empty_text(demographics.gender_other, "Gender other")
     require_non_empty_text(demographics.study_background, "Study background")
     require_non_empty_text(demographics.other_diagnoses, "Other diagnoses")
-    require_non_empty_text(
-        demographics.general_programming_languages, "General programming languages"
-    )
+    require_non_empty_text(demographics.other_programming_languages, "Other programming languages")
+
+    _validate_conditional_fields(demographics)
 
     return demographics

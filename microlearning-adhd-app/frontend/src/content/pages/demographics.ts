@@ -63,9 +63,21 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     options: {
       male: 'Männlich',
       female: 'Weiblich',
-      other: 'Sonstiges',
+      other: 'Andere:',
       preferNotToSay: 'Keine Angabe',
     },
+  },
+  {
+    id: 'genderOther',
+    section: 'person',
+    type: 'text',
+    label: '',
+    placeholder: 'Bitte geben Sie Ihr Geschlecht an',
+    visibleIf: {
+      field: 'gender',
+      equals: ['other'],
+    },
+    valueIfHidden: 'gender-other-not-specified',
   },
   {
     id: 'highestEducation',
@@ -162,7 +174,7 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     id: 'hasOtherDiagnoses',
     section: 'diagnoses',
     label: 'Weitere Diagnosen',
-    placeholder: 'Haben Sie weitere Diagnosen einer psychischen Erkrankung?',
+    placeholder: 'Liegen weitere psychiatrische Diagnosen vor?',
     options: YES_NO_UNDISCLOSED,
   },
   {
@@ -178,47 +190,11 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
     valueIfHidden: 'no-other-diagnoses',
   },
   {
-    id: 'generalProgrammingExperience',
-    section: 'programming',
-    label: 'Allgemeine Programmiererfahrung',
-    placeholder: 'Haben Sie bereits Programmiererfahrung?',
-    options: YES_NO,
-  },
-  {
-    id: 'generalProgrammingLanguages',
-    section: 'programming',
-    type: 'text',
-    label: 'Benutzte Programmiersprachen',
-    placeholder: 'Welche Programmiersprachen haben Sie bereits verwendet?',
-    visibleIf: {
-      field: 'generalProgrammingExperience',
-      equals: ['yes'],
-    },
-    valueIfHidden: 'no-experience',
-  },
-  {
-    id: 'generalProgrammingAbility',
-    section: 'programming',
-    label: 'Allgemeine Programmierfähigkeit',
-    placeholder: 'Wie würden Sie Ihre allgemeine Programmierfähigkeit einschätzen?',
-    options: SKILL_LEVELS,
-    visibleIf: {
-      field: 'generalProgrammingExperience',
-      equals: ['yes'],
-    },
-    valueIfHidden: 'no-experience',
-  },
-  {
     id: 'pythonProgrammingExperience',
     section: 'programming',
     label: 'Python-Programmiererfahrung',
     placeholder: 'Haben Sie bereits Erfahrung mit der Programmiersprache Python?',
     options: YES_NO,
-    visibleIf: {
-      field: 'generalProgrammingExperience',
-      equals: ['yes'],
-    },
-    valueIfHidden: 'no',
   },
   {
     id: 'pythonProgrammingAbility',
@@ -230,7 +206,40 @@ const DEMOGRAPHIC_QUESTIONS_TABLE = [
       field: 'pythonProgrammingExperience',
       equals: ['yes'],
     },
-    valueIfHidden: 'no-python-experience',
+    valueIfHidden: 'novice',
+  },
+  {
+    id: 'otherProgrammingExperience',
+    section: 'programming',
+    label: 'Weitere Programmiererfahrung',
+    placeholder: 'Haben Sie bereits Erfahrung mit anderen Programmiersprachen?',
+    options: YES_NO,
+  },
+  {
+    id: 'otherProgrammingLanguages',
+    section: 'programming',
+    type: 'text',
+    label: 'Weitere Programmiersprachen',
+    placeholder: 'Welche weiteren Programmiersprachen haben Sie bereits verwendet?',
+    visibleIf: {
+      field: 'otherProgrammingExperience',
+      equals: ['yes'],
+    },
+    valueIfHidden: 'no-other-experience',
+  },
+  {
+    id: 'generalProgrammingAbility',
+    section: 'programming',
+    label: 'Allgemeine Programmierfähigkeit',
+    placeholder: 'Wie würden Sie Ihre allgemeine Programmierfähigkeit einschätzen?',
+    options: SKILL_LEVELS,
+    visibleIf: {
+      anyOf: [
+        { field: 'pythonProgrammingExperience', equals: ['yes'] },
+        { field: 'otherProgrammingExperience', equals: ['yes'] },
+      ],
+    },
+    valueIfHidden: 'novice',
   },
 ] as const
 
@@ -246,10 +255,13 @@ type BaseQuestion = {
   options?: Readonly<Record<string, string>>
 }
 
+export type VisibilityRule = { field: DemographicQuestionId; equals: readonly string[] }
+export type VisibilityCondition = VisibilityRule | { anyOf: readonly VisibilityRule[] }
+
 type VisibleIfCondition =
   | { visibleIf?: never; valueIfHidden?: never }
   | {
-      visibleIf: { field: DemographicQuestionId; equals: readonly string[] }
+      visibleIf: VisibilityCondition
       valueIfHidden: string
     }
 

@@ -17,10 +17,9 @@ type ThankYouProps = {
   voucherCode: string | null
   voucherStatus: VoucherStatus
   onRetryVoucher: () => void
-  onReturnToStart: () => void
 }
 
-function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart }: ThankYouProps) {
+function ThankYou({ voucherCode, voucherStatus, onRetryVoucher }: ThankYouProps) {
   const { voucher } = thankYouCopy
 
   const [copied, setCopied] = useState(false)
@@ -109,10 +108,6 @@ function ThankYou({ voucherCode, voucherStatus, onRetryVoucher, onReturnToStart 
       </StudyFacts>
 
       <StudyActions>
-        <button type="button" className="primary-button" onClick={onReturnToStart}>
-          {thankYouCopy.actions.returnToStart}
-        </button>
-
         <p className="status-note">
           <span className="status-note__icon">{genericIcons.exit}</span>
 

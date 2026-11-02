@@ -1,8 +1,6 @@
-import { QUESTIONNAIRE_TITLE } from './shared.ts'
-
 export const panas = {
   heading: {
-    title: QUESTIONNAIRE_TITLE,
+    title: 'Positive and Negative Affect Schedule (PANAS)',
     intro:
       'Nun möchten wir gerne von Ihnen wissen, wie Sie sich fühlen. Die folgenden Wörter beschreiben unterschiedliche Gefühle und Empfindungen.\n\n Lesen Sie jedes Wort und tragen Sie dann in die Skala neben jedem Wort die Intensität ein. Sie haben die Möglichkeit, zwischen fünf Abstufungen zu wählen.\n\n Geben Sie bitte an, wie Sie sich **im Moment** fühlen.',
   },
