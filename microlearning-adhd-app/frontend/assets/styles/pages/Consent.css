@@ -5,6 +5,19 @@
 
 .consent__content p {
   line-height: 1.65;
+  white-space: pre-line;
+}
+
+.consent__link {
+  color: #1f3b73;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.consent__link:focus-visible {
+  outline: 3px solid rgba(54, 87, 159, 0.35);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .consent__content ul {

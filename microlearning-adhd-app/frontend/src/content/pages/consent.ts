@@ -19,6 +19,10 @@ export const consentCopy = {
         text: 'Alle von Ihnen erfassten Daten werden in anonymisierter Form erhoben, weiterverarbeitet und gespeichert. Zu keiner Zeit ist ab diesem Zeitpunkt ein Rückschluss auf Ihre Person durch Dritte möglich. Die Daten werden gemäß den Bestimmungen der derzeit gültigen Datenschutzrichtlinien weiterverarbeitet. Wir bestätigen, dass das österreichische Datenschutzgesetz eingehalten wird. Eine Weitergabe der Daten erfolgt nur in anonymisierter Form. Auch für etwaige Publikationen werden nur die anonymisierten Daten verwendet',
       },
       {
+        heading: '',
+        text: '\nFür die Auszahlung und Dokumentation der Aufwandsentschädigung ist es erforderlich, bestimmte personenbezogene Daten zu erheben.\n Diese Angaben werden ausschließlich zum Zweck der Abwicklung und Dokumentation der Auszahlung verarbeitet und getrennt von den im Rahmen der Studie erhobenen Forschungsdaten aufbewahrt. Eine Verknüpfung mit den individuellen Studienergebnissen erfolgt nicht.\n\n Bei Beschwerden kann auch anonym eine Nachricht an die TU Graz abgegeben werden:\n https://www.tugraz.at/en/about-this-page/electronic-mailbox-for-anonymous-tips-whistleblowing',
+      },
+      {
         heading: 'Rückfragen',
         text: `Sie haben das Recht, die Untersuchung ohne die Angabe von Gründen und ohne Nachteile Ihrerseits zu jedem Zeitpunkt der Untersuchung abzubrechen. Bei Rückfragen können Sie jederzeit die Studienleitung kontaktieren: ${studyContact.name}; ${studyContact.email}`,
       },

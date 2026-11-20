@@ -7,6 +7,20 @@ import { actionsCopy } from '@content/common/actions.ts'
 import { consentCopy } from '@content/pages/consent.ts'
 import Message from '../../components/Message.tsx'
 
+const urlPattern = /(https?:\/\/\S+)/
+
+function renderLinkedText(text: string) {
+  return text.split(urlPattern).map((part, index) =>
+    index % 2 === 1 ? (
+      <a key={index} className="consent__link" href={part} target="_blank" rel="noreferrer">
+        {part}
+      </a>
+    ) : (
+      part
+    ),
+  )
+}
+
 type ConsentProps = {
   agreed: boolean
   error: string | null
@@ -48,8 +62,8 @@ function Consent({
 
         {consentCopy.document.sections.map((section) => (
           <Fragment key={section.heading}>
-            <h2>{section.heading}</h2>
-            <p>{section.text}</p>
+            {section.heading && <h2>{section.heading}</h2>}
+            <p>{renderLinkedText(section.text)}</p>
           </Fragment>
         ))}
       </div>
