@@ -17,11 +17,13 @@ from app.routes import (
     videos,
     voucher,
 )
+from app.services import ensure_voucher_codes_ready
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     create_db_and_tables()
+    ensure_voucher_codes_ready()
     yield
 
 

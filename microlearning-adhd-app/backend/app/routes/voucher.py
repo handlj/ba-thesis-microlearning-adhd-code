@@ -1,11 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import update
-from sqlalchemy.exc import IntegrityError
 from sqlmodel import Session, select
 
 from app.config.errors import (
     ERROR_VOUCHER_ALREADY_ISSUED,
-    ERROR_VOUCHER_GENERATION_FAILED,
+    ERROR_VOUCHER_CODES_EXHAUSTED,
     ERROR_VOUCHER_NOT_ELIGIBLE,
 )
 from app.config.http_status_codes import (
@@ -13,11 +12,10 @@ from app.config.http_status_codes import (
     HTTP_409_CONFLICT,
     HTTP_500_INTERNAL_SERVER_ERROR,
 )
-from app.config.voucher import VOUCHER_CODE_MAX_ATTEMPTS
 from app.database import get_session
-from app.models import ParticipantSession, PostInterventionResponse, VoucherCode
+from app.models import ParticipantSession, PostInterventionResponse
 from app.schemas import VoucherSchemas
-from app.services import ensure_participant_exists, format_voucher_code, generate_voucher_code
+from app.services import draw_voucher_code, ensure_participant_exists, release_voucher_code
 
 router = APIRouter(prefix="/api/participants")
 
@@ -47,18 +45,18 @@ def issue_voucher(
         session.rollback()
         raise HTTPException(status_code=HTTP_409_CONFLICT, detail=ERROR_VOUCHER_ALREADY_ISSUED)
 
-    for _ in range(VOUCHER_CODE_MAX_ATTEMPTS):
-        code = generate_voucher_code()
-        try:
-            with session.begin_nested():
-                session.add(VoucherCode(code=code))
-        except IntegrityError:
-            continue
+    code = draw_voucher_code()
+    if code is None:
+        session.rollback()
+        raise HTTPException(
+            status_code=HTTP_500_INTERNAL_SERVER_ERROR, detail=ERROR_VOUCHER_CODES_EXHAUSTED
+        )
 
+    try:
         session.commit()
-        return VoucherSchemas.VoucherResponse(code=format_voucher_code(code))
+    except Exception:
+        session.rollback()
+        release_voucher_code(code)
+        raise
 
-    session.rollback()
-    raise HTTPException(
-        status_code=HTTP_500_INTERNAL_SERVER_ERROR, detail=ERROR_VOUCHER_GENERATION_FAILED
-    )
+    return VoucherSchemas.VoucherResponse(code=code)

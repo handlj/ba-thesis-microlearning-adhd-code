@@ -11,7 +11,6 @@ from .questionnaires import (
 )
 from .quiz import QuizSubmission
 from .session import ParticipantSession
-from .voucher import VoucherCode
 
 __all__ = [
     "AllocationLog",
@@ -25,5 +24,4 @@ __all__ = [
     "UesResponse",
     "QuizSubmission",
     "ParticipantSession",
-    "VoucherCode",
 ]

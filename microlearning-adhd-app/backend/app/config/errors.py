@@ -17,4 +17,8 @@ ERROR_INCONSISTENT_CONDITIONAL_FIELD = "{field_name} does not match the answers 
 
 ERROR_VOUCHER_NOT_ELIGIBLE = "A voucher code is only issued after the study has been completed."
 ERROR_VOUCHER_ALREADY_ISSUED = "A voucher code has already been issued for this participant."
-ERROR_VOUCHER_GENERATION_FAILED = "No unique voucher code could be generated."
+ERROR_VOUCHER_CODES_EXHAUSTED = "No unissued voucher codes are left."
+ERROR_VOUCHER_CODES_MISSING = (
+    "Voucher code list not found at {path}. Run `python generate_voucher_codes.py` once."
+)
+ERROR_VOUCHER_CODES_INVALID = "Voucher code list at {path} is invalid: {reason}."
