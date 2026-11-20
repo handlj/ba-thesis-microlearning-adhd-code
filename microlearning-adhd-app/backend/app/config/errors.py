@@ -1,4 +1,5 @@
 ERROR_CONSENT_REQUIRED = "Consent must be provided before starting the study."
+ERROR_STUDY_CLOSED = "The study has reached its participant limit."
 ERROR_PARTICIPANT_NOT_FOUND = "Participant session not found."
 ERROR_DEMOGRAPHICS_NOT_FOUND = (
     "Demographics record not found for participant with ID: {participant_id}."

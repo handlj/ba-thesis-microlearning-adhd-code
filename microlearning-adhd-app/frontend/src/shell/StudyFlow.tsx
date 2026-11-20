@@ -9,6 +9,7 @@ import { createInteractionLogger } from '../shell/interactionLog.ts'
 import { useQuizResults } from '../shell/useQuizResults.ts'
 import { isPageInsideSession, nextPage, previousPage } from '../shell/pageOrder.ts'
 import Welcome from '../views/pages/Welcome.tsx'
+import StudyClosed from '../views/pages/StudyClosed.tsx'
 import Consent from '../views/pages/Consent.tsx'
 import AdhdScreeningQuestionnaire from '../views/questionnaires/AdhdScreeningQuestionnaire.tsx'
 import Demographics from '../views/pages/Demographics'
@@ -31,9 +32,11 @@ import { clearSnapshot, hasSnapshot, readSnapshot, writeSnapshot } from './snaps
 import { useReloadLog } from '../hooks/useReloadLog.ts'
 import { StudyProgressContext } from './studyProgressContext.ts'
 import { useVoucher } from './useVoucher.ts'
+import { getAppConfig } from '../utils/config.ts'
 
 function StudyFlow() {
   const [restored] = useState(readSnapshot)
+  const [studyClosed, setStudyClosed] = useState(() => getAppConfig().study_closed)
 
   const [currentPage, setCurrentPage] = useState<Page>(restored?.currentPage ?? 'welcome')
 
@@ -167,6 +170,10 @@ function StudyFlow() {
     setSavingStep,
     setParticipantId,
     onAssigned: handleAllocated,
+    onStudyClosed: () => {
+      setStudyClosed(true)
+      goTo('welcome')
+    },
     requestVoucher,
     goTo,
     goNext,
@@ -200,14 +207,17 @@ function StudyFlow() {
   ) as Record<QuestionnaireKey, () => ReactNode>
 
   // --- routes ---
-  const welcomeScreen = () => (
-    <Welcome
-      onStart={() => {
-        resetStudyState()
-        goNext('welcome')
-      }}
-    />
-  )
+  const welcomeScreen = () =>
+    studyClosed ? (
+      <StudyClosed />
+    ) : (
+      <Welcome
+        onStart={() => {
+          resetStudyState()
+          goNext('welcome')
+        }}
+      />
+    )
 
   const routes: Record<Page, () => ReactNode> = {
     ...questionnaireRoutes,

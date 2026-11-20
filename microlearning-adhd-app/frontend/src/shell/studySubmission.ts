@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { errorsCopy } from '@content/common/errors.ts'
 import { consentCopy } from '@content/pages/consent.ts'
 import { demographicsCopy } from '@content/pages/demographics.ts'
@@ -20,6 +21,8 @@ import { runSubmission, type SubmissionStatus } from './runSubmission'
 import type { StudyAnswers } from './studyAnswers'
 import type { StepKey } from './studySteps'
 
+const HTTP_FORBIDDEN = 403
+
 type StudySubmissionDeps = {
   answers: StudyAnswers
   participantId: string
@@ -33,6 +36,7 @@ type StudySubmissionDeps = {
   setSavingStep: (step: StepKey | null) => void
   setParticipantId: (id: string) => void
   onAssigned: (allocation: Allocation) => void
+  onStudyClosed: () => void
   requestVoucher: (participantId: string) => Promise<void>
   goTo: (page: Page) => void
   goNext: (from: Page) => void
@@ -98,7 +102,16 @@ export function buildStudySubmissions(deps: StudySubmissionDeps): StudySubmissio
         deps.goNext('consent')
         return
       }
-      const consentSession = await postConsentSession()
+      let consentSession
+      try {
+        consentSession = await postConsentSession()
+      } catch (requestError) {
+        if (axios.isAxiosError(requestError) && requestError.response?.status === HTTP_FORBIDDEN) {
+          deps.onStudyClosed()
+          return
+        }
+        throw requestError
+      }
       deps.setParticipantId(consentSession.participant_id)
       deps.goNext('consent')
     })

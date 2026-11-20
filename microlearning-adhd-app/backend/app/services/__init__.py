@@ -1,4 +1,5 @@
 from app.services.allocation.allocation import assign_balanced_group, assign_balanced_group_with_log
+from app.services.recruitment import is_study_full
 from app.services.scoring import get_adhd_status, score_prior_programming_experience
 from app.services.validation import (
     ensure_participant_exists,
@@ -15,6 +16,7 @@ __all__ = [
     "ensure_participant_exists",
     "format_voucher_code",
     "generate_voucher_code",
+    "is_study_full",
     "require_non_empty_text",
     "get_adhd_status",
     "score_prior_programming_experience",

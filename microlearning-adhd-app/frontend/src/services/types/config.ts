@@ -3,4 +3,5 @@ export type Config = {
   max_age: number
   quiz_pass_threshold: number
   quiz_max_attempts: number
+  study_closed: boolean
 }

@@ -6,3 +6,4 @@ class Config(BaseModel):
     max_age: int
     quiz_pass_threshold: int
     quiz_max_attempts: int
+    study_closed: bool
